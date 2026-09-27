@@ -16,7 +16,7 @@ export default async function OrdersPage({ searchParams }: { searchParams: Promi
 
   return (
     <div className="mx-auto max-w-7xl">
-      <PageHeader title="Orders" subtitle="Bijdrage per order = omzet ex btw − inkoop − transactiekosten (vóór advertenties)">
+      <PageHeader title="Orders" subtitle="Bijdrage per order: omzet ex btw min inkoop min transactiekosten, vóór advertenties">
         <PeriodPicker period={period} basePath="/orders" />
       </PageHeader>
       <div className="mb-3 text-sm">
@@ -52,7 +52,7 @@ export default async function OrdersPage({ searchParams }: { searchParams: Promi
                   {o.createdAt.toLocaleString("nl-NL", { timeZone: "Europe/Amsterdam", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}
                 </td>
                 <td>
-                  {o.countryCode ?? "–"}
+                  {o.countryCode ?? ""}
                   {o.presentmentCurrency && o.presentmentCurrency !== "EUR" && <span className="ml-1 text-xs text-ink-3">{o.presentmentCurrency}</span>}
                 </td>
                 <td className="text-xs text-ink-2">
@@ -65,7 +65,7 @@ export default async function OrdersPage({ searchParams }: { searchParams: Promi
                   {p.feesEstimated && <span className="text-ink-3">*</span>}
                 </td>
                 <td className={`r ${p.contributionCents < 0 ? "text-neg" : ""}`}>{formatCents(p.contributionCents)}</td>
-                <td className="r">{p.unitsWithoutCost > 0 ? "–" : formatPct(ratio(p.contributionCents, p.revenueCents))}</td>
+                <td className="r">{p.unitsWithoutCost > 0 ? "ontbreekt" : formatPct(ratio(p.contributionCents, p.revenueCents))}</td>
               </tr>
             ))}
             {rows.length === 0 && (

@@ -1,96 +1,165 @@
 import { PageHeader } from "@/components/PageHeader";
+import { Card } from "@/components/ui";
 import { db } from "@/lib/db";
 import { getProfitSettings } from "@/lib/settings";
-import { shopifyConfigured } from "@/lib/shopify";
+import { getFinanceSettings } from "@/finance/settings";
 import { saveSettings } from "./actions";
 import { SyncButton } from "./SyncButton";
 
 export const dynamic = "force-dynamic";
 
+const SOURCES: Record<string, string> = {
+  shopify_sales: "Shopify omzet",
+  shopify_payments: "Shopify Payments",
+  windsor: "Meta (Windsor.ai)",
+  revolut: "Revolut",
+  paypal: "PayPal",
+};
+
+const e2 = (cents: number) => (cents / 100).toFixed(2).replace(".", ",");
+
 export default async function SettingsPage() {
-  const [s, logs, counts] = await Promise.all([
+  const [f, p, syncs, logs] = await Promise.all([
+    getFinanceSettings(),
     getProfitSettings(),
-    db.syncLog.findMany({ orderBy: { startedAt: "desc" }, take: 10 }),
-    Promise.all([db.product.count(), db.order.count()]),
+    db.sourceSync.findMany(),
+    db.syncLog.findMany({ orderBy: { startedAt: "desc" }, take: 5 }),
   ]);
-  const configured = shopifyConfigured();
+  const bySource = new Map(syncs.map((s) => [s.source, s]));
 
   return (
-    <div className="mx-auto max-w-3xl space-y-6">
-      <PageHeader title="Instellingen" />
+    <div className="mx-auto max-w-4xl space-y-6">
+      <PageHeader title="Instellingen en sync" />
 
-      <section className="card p-4">
-        <h2 className="font-medium">Shopify-koppeling</h2>
-        <p className="mt-1 mb-3 text-sm text-ink-2">
-          {configured ? (
-            <>
-              Verbonden met <code>{process.env.SHOPIFY_STORE_DOMAIN}</code> · {counts[0]} producten, {counts[1]} orders in de database.
-              Een normale sync haalt alleen wijzigingen op; de cron-job doet dit automatisch elk uur.
-            </>
-          ) : (
-            <>
-              Niet ingesteld. Zet <code>SHOPIFY_STORE_DOMAIN</code> en <code>SHOPIFY_ADMIN_TOKEN</code> in de omgevingsvariabelen (zie README).
-            </>
-          )}
-        </p>
-        <SyncButton disabled={!configured} />
-        {logs.length > 0 && (
-          <table className="data mt-4">
-            <thead>
-              <tr>
-                <th>Gestart</th>
-                <th>Soort</th>
-                <th>Status</th>
-                <th className="r">Aantal</th>
-              </tr>
-            </thead>
-            <tbody>
-              {logs.map((l) => (
-                <tr key={l.id}>
-                  <td>{l.startedAt.toLocaleString("nl-NL", { timeZone: "Europe/Amsterdam" })}</td>
-                  <td>{l.kind}</td>
-                  <td className={l.status === "error" ? "text-neg" : ""} title={l.message ?? ""}>
-                    {l.status}
-                    {l.message && <div className="max-w-xs truncate text-xs">{l.message}</div>}
+      <Card title="Bronnen">
+        <table className="data mb-4">
+          <thead>
+            <tr>
+              <th>Bron</th>
+              <th>Laatste sync</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.entries(SOURCES).map(([id, label]) => {
+              const s = bySource.get(id);
+              const stale = s && Date.now() - s.lastAt.getTime() > 24 * 3_600_000;
+              return (
+                <tr key={id}>
+                  <td>{label}</td>
+                  <td className={stale ? "text-warn" : "text-ink-2"}>
+                    {s ? s.lastAt.toLocaleString("nl-NL", { timeZone: "Europe/Amsterdam", dateStyle: "medium", timeStyle: "short" }) : "nog nooit"}
+                    {stale && ", langer dan 24 uur geleden"}
                   </td>
-                  <td className="r">{l.count}</td>
+                  <td className={s?.status === "fout" ? "text-neg" : "text-ink-2"}>
+                    {s ? (s.status === "ok" ? "gelukt" : "fout") : "niet gekoppeld"}
+                    {s?.message && <div className="max-w-sm truncate text-xs text-ink-3" title={s.message}>{s.message}</div>}
+                  </td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-      </section>
-
-      <form action={saveSettings} className="card space-y-4 p-4">
-        <h2 className="font-medium">Winstberekening</h2>
-        <p className="text-sm text-ink-2">
-          Voor Shopify Payments worden de echte fees uit Shopify gebruikt. Deze schatting geldt alleen voor orders zonder fee-data
-          (bv. PayPal, Klarna).
+              );
+            })}
+          </tbody>
+        </table>
+        <SyncButton />
+        <p className="mt-3 text-xs text-ink-3">
+          De cron-job haalt elk uur automatisch op. Shopify Payments vereist een eigen Shopify-app met de rechten read_shopify_payments_payouts,
+          read_shopify_payments_accounts en read_shopify_payments_disputes (zie README).
         </p>
-        <div className="grid gap-3 sm:grid-cols-3">
-          <label className="text-sm">
-            Transactiekosten %
-            <input name="paymentFeePercent" defaultValue={(s.paymentFeePercent * 100).toFixed(2)} inputMode="decimal" className="input mt-1 w-full" />
-          </label>
-          <label className="text-sm">
-            + vast per order (€)
-            <input name="paymentFeeFixed" defaultValue={(s.paymentFeeFixedCents / 100).toFixed(2)} inputMode="decimal" className="input mt-1 w-full" />
-          </label>
-          <label className="text-sm">
-            Btw-tarief voor marge/stuk %
-            <input name="vatRate" defaultValue={(s.vatRate * 100).toFixed(0)} inputMode="decimal" className="input mt-1 w-full" />
-          </label>
-        </div>
-        <label className="flex items-start gap-2 text-sm">
-          <input type="checkbox" name="cogsOnRefundedItems" defaultChecked={s.cogsOnRefundedItems} className="mt-1" />
-          <span>
-            Inkoopkosten meetellen bij gerefunde items
-            <span className="block text-ink-3">
-              Aan laten bij dropshipping: de leverancier is meestal al betaald als de klant zijn geld terugkrijgt.
+        {logs.length > 0 && (
+          <ul className="mt-3 space-y-0.5 text-xs text-ink-3">
+            {logs.map((l) => (
+              <li key={l.id}>
+                {l.startedAt.toLocaleString("nl-NL", { timeZone: "Europe/Amsterdam" })}: {l.kind} {l.status} ({l.count})
+              </li>
+            ))}
+          </ul>
+        )}
+      </Card>
+
+      <form action={saveSettings} className="space-y-6">
+        <Card title="Winst">
+          <label className="flex items-start gap-2 text-sm">
+            <input type="checkbox" name="reserveVat" defaultChecked={f.reserveVat} className="mt-1" />
+            <span>
+              Btw reserveren
+              <span className="block text-ink-3">Standaard uit (btw fix). Aan: de btw gaat van de winst af als reservering.</span>
             </span>
-          </span>
-        </label>
-        <button className="btn">Opslaan</button>
+          </label>
+          <div className="mt-4 grid gap-3 text-sm sm:grid-cols-3">
+            <label>
+              Break-even ROAS afspraak
+              <input name="breakEvenTarget" defaultValue={String(f.breakEvenTarget).replace(".", ",")} className="input mt-1 w-full" />
+            </label>
+            <label>
+              Minimale bankbuffer (€)
+              <input name="bankBuffer" defaultValue={e2(f.bankBufferCents)} className="input mt-1 w-full" />
+            </label>
+            <label>
+              Software per week (€)
+              <input name="softwarePerWeek" defaultValue={e2(f.softwarePerWeekCents)} className="input mt-1 w-full" />
+            </label>
+          </div>
+        </Card>
+
+        <Card title="Prognose">
+          <div className="grid gap-3 text-sm sm:grid-cols-3">
+            <label>
+              Shopify verkoop per dag (€)
+              <input name="salesPerDay" defaultValue={e2(f.salesPerDayCents)} className="input mt-1 w-full" />
+            </label>
+            <label>
+              Meta per dag (€)
+              <input name="metaPerDay" defaultValue={e2(f.metaPerDayCents)} className="input mt-1 w-full" />
+            </label>
+            <label>
+              PayPal per dag (€)
+              <input name="paypalPerDay" defaultValue={e2(f.paypalPerDayCents)} className="input mt-1 w-full" />
+            </label>
+            <label>
+              Privé per week (€)
+              <input name="privatePerWeek" defaultValue={e2(f.privatePerWeekCents)} className="input mt-1 w-full" />
+            </label>
+            <label>
+              Leveranciersbetaling (€)
+              <input name="supplierPayment" defaultValue={e2(f.supplierPaymentCents)} className="input mt-1 w-full" />
+            </label>
+            <label>
+              Op dag
+              <input name="supplierPaymentDay" type="number" min={0} max={30} defaultValue={f.supplierPaymentDay} className="input mt-1 w-full" />
+            </label>
+            <label>
+              Uitbetaalpercentage nieuwe sales (%)
+              <input name="payoutRatio" defaultValue={Math.round(f.payoutRatio * 100)} className="input mt-1 w-full" />
+            </label>
+            <label>
+              Vertraging uitbetaling (dagen)
+              <input name="payoutDelayDays" type="number" min={0} defaultValue={f.payoutDelayDays} className="input mt-1 w-full" />
+            </label>
+            <label>
+              Standaard aantal dagen
+              <input name="forecastDays" type="number" min={7} max={30} defaultValue={f.forecastDays} className="input mt-1 w-full" />
+            </label>
+          </div>
+        </Card>
+
+        <Card title="Marge per product (kostprijzen)">
+          <div className="grid gap-3 text-sm sm:grid-cols-2">
+            <label>
+              Geschatte transactiekosten %
+              <input name="paymentFeePercent" defaultValue={(p.paymentFeePercent * 100).toFixed(2).replace(".", ",")} className="input mt-1 w-full" />
+            </label>
+            <label>
+              Plus vast per order (€)
+              <input name="paymentFeeFixed" defaultValue={e2(p.paymentFeeFixedCents)} className="input mt-1 w-full" />
+            </label>
+          </div>
+          <label className="mt-3 flex items-start gap-2 text-sm">
+            <input type="checkbox" name="cogsOnRefundedItems" defaultChecked={p.cogsOnRefundedItems} className="mt-1" />
+            <span>Inkoopkosten meetellen bij gerefunde items (leverancier is dan meestal al betaald)</span>
+          </label>
+        </Card>
+
+        <button className="btn">Instellingen opslaan</button>
       </form>
     </div>
   );

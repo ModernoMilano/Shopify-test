@@ -22,6 +22,14 @@ describe("period", () => {
     expect(eachDay(prev.fromKey, prev.toKey)).toHaveLength(30);
   });
 
+  it("weken beginnen op maandag", () => {
+    const now = new Date("2026-09-27T10:00:00Z"); // zondag
+    expect([resolvePeriod({ p: "thisweek" }, now).fromKey, resolvePeriod({ p: "thisweek" }, now).toKey]).toEqual(["2026-09-21", "2026-09-27"]);
+    const lw = resolvePeriod({ p: "lastweek" }, now);
+    expect([lw.fromKey, lw.toKey]).toEqual(["2026-09-14", "2026-09-20"]);
+    expect(resolvePeriod({ p: "yesterday" }, now).fromKey).toBe("2026-09-26");
+  });
+
   it("eigen bereik", () => {
     const p = resolvePeriod({ from: "2026-09-01", to: "2026-09-10" });
     expect(p.preset).toBe("custom");

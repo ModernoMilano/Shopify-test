@@ -1,186 +1,183 @@
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { PeriodPicker } from "@/components/PeriodPicker";
-import { Stat } from "@/components/Stat";
-import { ProfitChart } from "@/components/ProfitChart";
-import { MoneyFlow } from "@/components/MoneyFlow";
-import { buildReport } from "@/lib/report";
-import { previousPeriod, resolvePeriod } from "@/lib/period";
-import { formatCents, formatPct } from "@/lib/money";
-import { ratio } from "@/lib/profit";
+import { Alerts } from "@/components/Alerts";
+import { CostBar } from "@/components/CostBar";
+import { LineChart } from "@/components/LineChart";
+import { Card, Kpi, SourceBadge, day, euro, pct, times } from "@/components/ui";
+import { resolvePeriod, eachDay } from "@/lib/period";
+import { periodFinance, moneyNow } from "@/finance/data";
+import { computeAlerts } from "@/finance/alerts";
+import { getSetting } from "@/lib/settings";
 import { db } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
-function delta(now: number, before: number) {
-  if (!before) return null;
-  const d = (now - before) / Math.abs(before);
-  const arrow = d >= 0 ? "▲" : "▼";
-  return (
-    <span className={d >= 0 ? "text-good" : "text-neg"}>
-      {arrow} {formatPct(Math.abs(d))} <span className="text-ink-3">vs vorige periode</span>
-    </span>
-  );
-}
+export default async function Overview({ searchParams }: { searchParams: Promise<Record<string, string>> }) {
+  const period = resolvePeriod(await searchParams, new Date(), "mtd");
+  const [f, money] = await Promise.all([periodFinance(period), moneyNow()]);
+  const alerts = await computeAlerts(f, money);
+  const p = f.pnl;
 
-export default async function Dashboard({ searchParams }: { searchParams: Promise<Record<string, string>> }) {
-  const period = resolvePeriod(await searchParams);
-  const [r, prev, orderCount] = await Promise.all([
-    buildReport(period),
-    buildReport(previousPeriod(period)),
-    db.order.count(),
-  ]);
-  const t = r.totals;
-  const missingShare = ratio(t.unitsWithoutCost, t.units);
-  const roas = ratio(t.revenueCents, t.adSpendCents);
+  // dagelijkse Meta: spend uit Windsor als die er is, anders betaald volgens bank
+  const days = eachDay(period.fromKey, period.toKey);
+  const metaDaily = await db.metaDaily.groupBy({
+    by: ["date"],
+    where: { date: { gte: new Date(period.fromKey), lte: new Date(period.toKey) } },
+    _sum: { spendCents: true },
+  });
+  const metaByDay = new Map<string, number>();
+  if (metaDaily.length) {
+    for (const m of metaDaily) metaByDay.set(m.date.toISOString().slice(0, 10), m._sum.spendCents ?? 0);
+  } else {
+    for (const t of f.txs.filter((t) => t.category === "meta")) {
+      const k = (t.periodDate ?? t.bookedAt).toISOString().slice(0, 10);
+      metaByDay.set(k, (metaByDay.get(k) ?? 0) - t.amountCents);
+    }
+  }
+  const revByDay = new Map(f.daily.map((d) => [d.date, d.revenueCents]));
+  const revenueSeries = days.map((d) => revByDay.get(d) ?? null);
+  const metaSeries = days.map((d) => metaByDay.get(d) ?? (revByDay.has(d) ? 0 : null));
+  const merSeries = days.map((d, i) => {
+    const m = metaSeries[i];
+    const r = revenueSeries[i];
+    return m && r !== null ? r / m : null;
+  });
+
+  const inBank = money.availableNow;
+  const notInBank = money.soon + money.locked;
+  const headline =
+    p.revenueCents === 0
+      ? "Nog geen omzet in deze periode."
+      : p.profitCents >= 0
+        ? `Je verdiende ${euro(p.profitCents, true)} in deze periode.`
+        : `Je maakte ${euro(-p.profitCents, true)} verlies in deze periode.`;
+  const subline =
+    notInBank > inBank ? "Het meeste staat nog niet op je bank." : "Het grootste deel staat al op je bank of PayPal.";
+
+  const controlRaw = period.fromKey.startsWith("2026-08") && period.toKey.startsWith("2026-08") ? await getSetting("control.2026-08") : null;
+  const control = controlRaw ? (JSON.parse(controlRaw) as { profitCents: number; revenueCents: number; note: string }) : null;
 
   return (
-    <div className="mx-auto max-w-7xl">
-      <PageHeader title="Dashboard" subtitle={`${period.fromKey} t/m ${period.toKey} · bedragen ex btw`}>
+    <div className="mx-auto max-w-6xl">
+      <PageHeader title="Overzicht" subtitle={`${period.preset === "custom" ? "" : `${period.label}, `}${day(period.fromKey)} t/m ${day(period.toKey)}`}>
         <PeriodPicker period={period} basePath="/" />
       </PageHeader>
 
-      {orderCount === 0 && (
-        <div className="card mb-6 p-4 text-sm">
-          Nog geen orders in de database. Stel de Shopify-koppeling in en start een sync via{" "}
-          <Link href="/settings" className="underline">
-            Instellingen
-          </Link>
-          .
-        </div>
+      <Alerts alerts={alerts} />
+
+      <section className="mb-6">
+        <h2 className="serif text-2xl leading-tight md:text-4xl">
+          {headline} {p.revenueCents > 0 && <span className="text-ink-2 italic">{subline}</span>}
+        </h2>
+        <p className="mt-3 text-sm text-ink-2 md:text-base">
+          Omzet {euro(p.revenueCents, true)}, {p.orders} orders, winst {euro(p.profitCents, true)}, marge {pct(p.margin)}.
+          {p.mer !== null && <> Elke euro Meta leverde {euro(Math.round(p.mer * 100))} omzet op.</>}
+          {f.settings.reserveVat && <> Btw ({euro(p.taxesCents, true)}) is gereserveerd.</>}
+        </p>
+      </section>
+
+      {control && (
+        <Card className="mb-6" title="Augustus ter controle">
+          <p className="text-sm text-ink-2">
+            Opgegeven: omzet {euro(control.revenueCents, true)}, winst {euro(control.profitCents, true)}. {control.note}
+          </p>
+        </Card>
       )}
 
-      {missingShare !== null && missingShare > 0 && (
-        <div className="card mb-6 flex flex-wrap items-center justify-between gap-3 border-l-4 p-4 text-sm" style={{ borderLeftColor: "var(--warn)" }}>
-          <div>
-            <span className="font-medium">⚠ Winst is te hoog ingeschat:</span> {t.unitsWithoutCost} van {t.units} verkochte stuks (
-            {formatPct(missingShare)}) hebben nog geen kostprijs.
-          </div>
-          <Link href="/products?missing=1" className="btn">
-            Kostprijzen invullen
-          </Link>
-        </div>
-      )}
+      <Card title="Waar elke euro omzet naartoe gaat" className="mb-6">
+        <CostBar
+          revenueCents={p.revenueCents}
+          parts={[
+            { key: "cogs", label: "COGS en verzending", cents: p.cogsCents },
+            { key: "meta", label: "Meta ads", cents: p.metaCents },
+            { key: "fees", label: "Fees", cents: p.feesCents },
+            { key: "chargebacks", label: "Chargebacks", cents: p.chargebacksCents },
+            { key: "other", label: "Software en overig", cents: p.otherCents },
+            { key: "profit", label: "Winst", cents: p.profitCents },
+            { key: "team", label: "Team", cents: p.teamCents },
+          ]}
+        />
+      </Card>
 
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        <Stat label="Omzet" value={formatCents(t.revenueCents, true)} sub={delta(t.revenueCents, prev.totals.revenueCents)} />
-        <Stat
-          label="Nettowinst"
-          value={formatCents(t.netProfitCents, true)}
-          tone={t.netProfitCents < 0 ? "neg" : undefined}
-          sub={<>marge {formatPct(ratio(t.netProfitCents, t.revenueCents))} · {delta(t.netProfitCents, prev.totals.netProfitCents)}</>}
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">
+        <Kpi label="Omzet" value={euro(p.revenueCents, true)} sub="incl. btw" />
+        <Kpi label="Winst" value={euro(p.profitCents, true)} tone={p.profitCents < 0 ? "neg" : "good"} sub={`marge ${pct(p.margin)}`} />
+        <Kpi label="MER" value={times(p.mer)} tone={p.mer !== null && p.mer < f.settings.breakEvenTarget ? "neg" : undefined} sub={`break-even ${times(p.breakEvenRoas)}, afspraak ${times(f.settings.breakEvenTarget)}`} />
+        <Kpi label="AOV" value={euro(p.aovCents, true)} sub={`${p.orders} orders`} />
+        <Kpi label="Winst per order" value={euro(p.profitPerOrderCents)} sub={`COGS per order ${euro(p.cogsPerOrderCents)}`} />
+        <Kpi label="Meta %" value={pct(p.metaShare)} tone={p.metaShare !== null && p.metaShare > f.settings.metaShareLimit ? "neg" : undefined} sub="van omzet" />
+        <Kpi label="COGS %" value={pct(p.cogsShare)} sub="van omzet" />
+        <Kpi label="Na btw-afdracht" value={euro(p.profitAfterVatCents, true)} sub={`als ${euro(p.taxesCents, true)} btw afgedragen moet worden`} />
+        <Kpi
+          label="Na voorraadcorrectie"
+          value={euro(p.profitAfterInventoryCents, true)}
+          sub={p.inventoryIncreaseCents ? "voorraadtoename is bezit" : "voorraadwaarde nog niet ingevuld"}
         />
-        <Stat
-          label="Bijdrage vóór marketing"
-          value={formatCents(t.contributionCents, true)}
-          sub={`${formatPct(ratio(t.contributionCents, t.revenueCents))} van omzet`}
-        />
-        <Stat
-          label="Orders"
-          value={t.orders.toLocaleString("nl-NL")}
-          sub={`gem. ${formatCents(t.orders ? Math.round(t.revenueCents / t.orders) : 0)} per order`}
-        />
-        <Stat
-          label="Advertenties"
-          value={formatCents(t.adSpendCents, true)}
-          sub={roas ? `ROAS ${roas.toFixed(2).replace(".", ",")} (omzet ex btw / spend)` : "nog geen spend ingevoerd"}
-        />
-        <Stat
-          label="Break-even ROAS"
-          value={r.breakEvenRoas ? r.breakEvenRoas.toFixed(2).replace(".", ",") : "–"}
-          sub="onder deze ROAS kost adverteren geld"
-          tone={roas && r.breakEvenRoas && roas < r.breakEvenRoas ? "neg" : undefined}
-        />
-        <Stat
-          label="Transactiekosten"
-          value={formatCents(t.feesCents, true)}
-          sub={
-            <>
-              {formatPct(ratio(t.feesCents, t.revenueCents))} van omzet
-              {r.estimatedFeeOrders > 0 && ` · ${r.estimatedFeeOrders} geschat`}
-            </>
-          }
-        />
-        <Stat
-          label="Waarvan wisselkoers-fees"
-          value={formatCents(r.fxFeesCents, true)}
-          sub="2% extra bij betalingen in GBP, PLN, NOK, …"
-        />
+        <Kpi label="Geld totaal" value={euro(money.totalCents, true)} sub={<Link href="/geld" className="underline">waar staat het</Link>} />
       </div>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-5">
-        <section className="card p-4 lg:col-span-3">
-          <h2 className="mb-3 font-medium">Nettowinst per dag</h2>
-          <ProfitChart days={r.days} />
-        </section>
-        <section className="card p-4 lg:col-span-2">
-          <h2 className="mb-3 font-medium">Waar gaat de omzet heen</h2>
-          <MoneyFlow t={t} />
-        </section>
+        <Card title="Omzet en Meta per dag" className="lg:col-span-3">
+          <LineChart
+            dates={days}
+            series={[
+              { label: "Omzet", color: "var(--text)", values: revenueSeries },
+              { label: metaDaily.length ? "Meta spend" : "Meta betaald (bank)", color: "var(--c-meta)", values: metaSeries },
+            ]}
+          />
+          {!metaDaily.length && (
+            <p className="mt-2 text-xs text-ink-3">
+              Meta boekt in bedragen af zodra een drempel bereikt is, dus per dag schommelt dit. Koppel Windsor.ai voor de echte dagelijkse spend.
+            </p>
+          )}
+        </Card>
+        <Card title="MER per dag" className="lg:col-span-2">
+          <LineChart dates={days} format="x" series={[{ label: "MER", color: "var(--c-meta)", values: merSeries }]} refLine={{ value: f.settings.breakEvenTarget, label: `break-even ${times(f.settings.breakEvenTarget)}` }} />
+        </Card>
       </div>
 
-      <section className="card mt-6 overflow-hidden">
-        <div className="flex items-center justify-between p-4">
-          <h2 className="font-medium">Winst per product</h2>
-          <span className="text-xs text-ink-3">bijdrage = omzet − inkoop − transactiekosten (vóór ads)</span>
-        </div>
+      <Card title="Winst en verlies" className="mt-6">
         <div className="overflow-x-auto">
           <table className="data">
-            <thead>
-              <tr>
-                <th>Product</th>
-                <th className="r">Stuks</th>
-                <th className="r">Omzet</th>
-                <th className="r">Inkoop</th>
-                <th className="r">Bijdrage</th>
-                <th className="r">Marge</th>
-              </tr>
-            </thead>
             <tbody>
-              {r.products.slice(0, 25).map((p) => {
-                const margin = ratio(p.contributionCents, p.revenueCents);
-                return (
-                  <tr key={p.productId ?? p.title}>
-                    <td className="max-w-[22rem]">
-                      <div className="flex items-center gap-2">
-                        {p.imageUrl ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img src={p.imageUrl} alt="" className="size-8 shrink-0 rounded object-cover" />
-                        ) : (
-                          <div className="size-8 shrink-0 rounded bg-surface-2" />
-                        )}
-                        <span className="truncate">{p.title}</span>
-                        {p.unitsWithoutCost > 0 && (
-                          <Link
-                            href={`/products?q=${encodeURIComponent(p.title)}`}
-                            className="shrink-0 rounded bg-surface-2 px-1.5 py-0.5 text-[11px] text-warn"
-                          >
-                            geen kostprijs
-                          </Link>
-                        )}
-                      </div>
-                    </td>
-                    <td className="r">{p.units}</td>
-                    <td className="r">{formatCents(p.revenueCents, true)}</td>
-                    <td className="r">{formatCents(p.cogsCents, true)}</td>
-                    <td className={`r ${p.contributionCents < 0 ? "text-neg" : ""}`}>{formatCents(p.contributionCents, true)}</td>
-                    <td className={`r ${margin !== null && margin < 0.2 ? "text-neg" : ""}`}>
-                      {p.unitsWithoutCost > 0 ? "–" : formatPct(margin)}
-                    </td>
-                  </tr>
-                );
-              })}
-              {r.products.length === 0 && (
-                <tr>
-                  <td colSpan={6} className="py-8 text-center text-ink-3">
-                    Geen verkopen in deze periode.
+              {f.lines.map((l) => (
+                <tr key={l.key}>
+                  <td>
+                    <div className="flex flex-wrap items-center gap-2">
+                      {l.key !== "revenue" && <span className="inline-block size-2.5 rounded-sm" style={{ background: `var(--c-${l.key})` }} />}
+                      {l.label}
+                      {l.sources.map((s) => (
+                        <SourceBadge key={s} source={s} />
+                      ))}
+                    </div>
+                    {l.note && <div className="text-xs text-ink-3">{l.note}</div>}
                   </td>
+                  <td className="r">{l.key === "revenue" ? euro(l.cents) : euro(-l.cents)}</td>
+                  <td className="r text-ink-3">{pct(p.revenueCents ? l.cents / p.revenueCents : null)}</td>
+                </tr>
+              ))}
+              {f.settings.reserveVat && (
+                <tr>
+                  <td>Btw gereserveerd</td>
+                  <td className="r">{euro(-p.taxesCents)}</td>
+                  <td className="r text-ink-3">{pct(p.revenueCents ? p.taxesCents / p.revenueCents : null)}</td>
                 </tr>
               )}
             </tbody>
+            <tfoot>
+              <tr>
+                <td>Winst</td>
+                <td className={`r ${p.profitCents < 0 ? "text-neg" : "text-good"}`}>{euro(p.profitCents)}</td>
+                <td className="r">{pct(p.margin)}</td>
+              </tr>
+            </tfoot>
           </table>
         </div>
-      </section>
+        <p className="mt-3 text-xs text-ink-3">
+          Privé-opnames, leningen en eigen stortingen tellen nooit mee in de winst. Btw in de omzet: {euro(p.taxesCents)} (btw fix, apart te reserveren in Instellingen).
+        </p>
+      </Card>
     </div>
   );
 }

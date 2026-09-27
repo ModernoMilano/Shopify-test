@@ -121,7 +121,7 @@ export default async function ProductsPage({ searchParams }: { searchParams: Pro
                   </td>
                   <td>
                     <select form={formId} name="supplierId" defaultValue={p.supplierId ?? ""} className="input w-40" aria-label="Leverancier">
-                      <option value="">—</option>
+                      <option value="">geen</option>
                       {suppliers.map((s) => (
                         <option key={s.id} value={s.id}>
                           {s.name}

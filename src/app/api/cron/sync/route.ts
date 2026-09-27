@@ -1,4 +1,4 @@
-import { syncAll } from "@/lib/sync";
+import { syncAllSources } from "@/finance/sync-all";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 300;
@@ -9,9 +9,6 @@ export async function GET(req: Request) {
   if (!secret || req.headers.get("authorization") !== `Bearer ${secret}`) {
     return new Response("Unauthorized", { status: 401 });
   }
-  try {
-    return Response.json({ ok: true, ...(await syncAll()) });
-  } catch (e) {
-    return Response.json({ ok: false, error: e instanceof Error ? e.message : String(e) }, { status: 500 });
-  }
+  const results = await syncAllSources();
+  return Response.json({ ok: results.every((r) => r.ok || r.message.startsWith("Niet gekoppeld") || r.source === "paypal"), results });
 }

@@ -152,3 +152,185 @@ model SyncLog {
   startedAt  DateTime  @default(now())
   finishedAt DateTime?
 }
+
+// ===========================================================================
+// Financieel dashboard
+
+/// Dagomzet uit Shopify (ShopifyQL), incl. btw. Per dag één rij.
+model DailySales {
+  date          DateTime @id @db.Date
+  orders        Int
+  grossCents    Int
+  discountCents Int // negatief
+  returnsCents  Int // negatief
+  netCents      Int
+  shippingCents Int
+  taxesCents    Int
+  totalCents    Int // total_sales = omzet
+  source        String   @default("shopify") // shopify | handmatig | seed
+  syncedAt      DateTime @default(now())
+}
+
+model BankTransaction {
+  id             String    @id @default(cuid())
+  account        String    @default("revolut")
+  bookedAt       DateTime  @db.Date
+  /// "hoort bij periode": standaard gelijk aan bookedAt, aan te passen (bv. Meta van vorige maand)
+  periodDate     DateTime? @db.Date
+  description    String
+  details        String    @default("")
+  amountCents    Int // + ontvangen, - uitgegeven
+  feeCents       Int       @default(0)
+  balanceCents   Int?
+  category       String    @default("unknown")
+  categorySource String    @default("regel") // regel | handmatig
+  ruleId         String?
+  note           String?
+  importId       String?
+  /// voorkomt dubbele imports
+  fingerprint    String    @unique
+  seq            Int       @default(0) // volgorde binnen het afschrift
+  createdAt      DateTime  @default(now())
+
+  @@index([bookedAt])
+  @@index([category])
+}
+
+model CategoryRule {
+  id        String   @id @default(cuid())
+  pattern   String
+  direction String   @default("any") // in | out | any
+  category  String
+  priority  Int      @default(50)
+  createdAt DateTime @default(now())
+}
+
+model BankImport {
+  id                  String   @id @default(cuid())
+  fileName            String
+  format              String // pdf | csv
+  openingBalanceCents Int?
+  closingBalanceCents Int?
+  transactions        Int
+  duplicates          Int
+  reconciled          Boolean
+  message             String?
+  createdAt           DateTime @default(now())
+}
+
+model ShopifyPayout {
+  id                 String   @id @default(cuid())
+  externalId         String?  @unique
+  payoutDate         DateTime @db.Date
+  status             String   @default("paid")
+  chargesCents       Int?
+  refundsCents       Int?
+  adjustmentsCents   Int?
+  reservedFundsCents Int?
+  feesCents          Int? // positief
+  retriedCents       Int?
+  totalCents         Int
+  currency           String   @default("EUR")
+  /// samenvatting van meerdere payouts (seed), vervangen bij een echte import
+  summaryUntil       DateTime? @db.Date
+  source             String   @default("csv")
+  createdAt          DateTime @default(now())
+
+  @@index([payoutDate])
+}
+
+model Dispute {
+  id          String    @id
+  orderName   String?
+  openedAt    DateTime
+  amountCents Int
+  reason      String?
+  status      String
+  dueBy       DateTime?
+  country     String?
+  source      String    @default("shopify")
+  updatedAt   DateTime  @updatedAt
+}
+
+/// Momentopname van waar het geld staat. Bank komt uit de laatste bankmutatie als die er is.
+model MoneySnapshot {
+  id                   String    @id @default(cuid())
+  takenAt              DateTime  @default(now())
+  bankCents            Int?
+  payoutScheduledCents Int
+  payoutScheduledDate  DateTime? @db.Date
+  pendingCents         Int
+  holdCents            Int
+  paypalCents          Int
+  source               String    @default("handmatig")
+  note                 String?
+}
+
+/// Handmatige posten over een periode: PayPal-fees, teamkosten, voorraadwaarde, eenmalige kosten.
+model ManualEntry {
+  id          String   @id @default(cuid())
+  kind        String // paypal_fees | fees | chargebacks | other | team | inventory | cogs | meta
+  label       String
+  amountCents Int
+  periodStart DateTime @db.Date
+  periodEnd   DateTime @db.Date
+  note        String?
+  createdAt   DateTime @default(now())
+}
+
+model Loan {
+  id             String    @id @default(cuid())
+  lender         String
+  principalCents Int
+  startDate      DateTime  @db.Date
+  repaidCents    Int       @default(0)
+  schedule       String? // aflossingsafspraak in woorden
+  active         Boolean   @default(true)
+}
+
+/// Openstaande of betaalde leveranciersfactuur, te koppelen aan een verkoopperiode.
+model SupplierInvoice {
+  id           String    @id @default(cuid())
+  supplierName String
+  amountCents  Int
+  invoiceDate  DateTime  @db.Date
+  dueDate      DateTime? @db.Date
+  salesFrom    DateTime? @db.Date
+  salesTo      DateTime? @db.Date
+  paid         Boolean   @default(false)
+  note         String?
+  createdAt    DateTime  @default(now())
+}
+
+model MetaDaily {
+  id                 String   @id @default(cuid())
+  date               DateTime @db.Date
+  campaign           String
+  market             String?
+  spendCents         Int
+  clicks             Int      @default(0)
+  impressions        Int      @default(0)
+  purchases          Int      @default(0)
+  purchaseValueCents Int      @default(0)
+  frequency          Float?
+  source             String   @default("windsor")
+
+  @@unique([date, campaign])
+}
+
+model BudgetChange {
+  id          String   @id @default(cuid())
+  date        DateTime @db.Date
+  campaign    String
+  oldCents    Int
+  newCents    Int
+  note        String?
+  createdAt   DateTime @default(now())
+}
+
+model SourceSync {
+  source   String   @id // shopify_sales | shopify_payments | windsor | paypal | revolut
+  lastAt   DateTime
+  status   String // ok | fout
+  message  String?
+}

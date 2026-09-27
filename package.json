@@ -10,12 +10,13 @@
     "test": "vitest run",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate deploy",
-    "db:seed": "dotenv -- tsx scripts/seed-demo.ts",
-    "sync": "dotenv -- tsx scripts/sync.ts"
+    "sync": "dotenv -- tsx scripts/sync.ts",
+    "db:seed:september": "dotenv -- tsx scripts/seed-september.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
     "next": "^15.5.26",
+    "pdfjs-dist": "^4.10.38",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "zod": "^3.25.76"

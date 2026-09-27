@@ -1,19 +1,28 @@
 "use client";
 
-import { useActionState } from "react";
-import { runSync, type SyncResult } from "./actions";
+import { useState, useTransition } from "react";
+import { runSync } from "./actions";
+import type { SourceResult } from "@/finance/sync-all";
 
-export function SyncButton({ disabled }: { disabled: boolean }) {
-  const [state, action, pending] = useActionState<SyncResult | null, FormData>(runSync, null);
+export function SyncButton() {
+  const [pending, start] = useTransition();
+  const [results, setResults] = useState<SourceResult[] | null>(null);
   return (
-    <form action={action} className="flex flex-wrap items-center gap-2">
-      <button className="btn" name="full" value="0" disabled={disabled || pending}>
-        {pending ? "Bezig met synchroniseren…" : "Nu synchroniseren"}
+    <div>
+      <button className="btn" disabled={pending} onClick={() => start(async () => setResults(await runSync()))}>
+        {pending ? "Bezig met ophalen…" : "Ophalen"}
       </button>
-      <button className="btn btn-ghost" name="full" value="1" disabled={disabled || pending}>
-        Volledige sync
-      </button>
-      {state && <span className={`text-sm ${state.ok ? "text-good" : "text-neg"}`}>{state.message}</span>}
-    </form>
+      {results && (
+        <ul className="mt-3 space-y-1 text-sm">
+          {results.map((r) => (
+            <li key={r.source} className="flex gap-2">
+              <span className={r.ok ? "text-good" : "text-neg"}>{r.ok ? "Gelukt" : "Fout"}</span>
+              <span className="font-medium">{r.label}:</span>
+              <span className="text-ink-2">{r.message}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }

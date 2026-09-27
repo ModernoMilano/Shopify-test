@@ -51,20 +51,32 @@ export type Period = {
 
 export const PRESETS: { id: string; label: string }[] = [
   { id: "today", label: "Vandaag" },
-  { id: "7d", label: "7 dagen" },
-  { id: "30d", label: "30 dagen" },
+  { id: "yesterday", label: "Gisteren" },
+  { id: "thisweek", label: "Deze week" },
+  { id: "lastweek", label: "Vorige week" },
   { id: "mtd", label: "Deze maand" },
   { id: "lastmonth", label: "Vorige maand" },
-  { id: "90d", label: "90 dagen" },
+  { id: "30d", label: "Laatste 30 dagen" },
 ];
+
+/** maandag van de week van `key` */
+function mondayOf(key: string): string {
+  const [y, m, d] = key.split("-").map(Number);
+  const dow = new Date(Date.UTC(y, m - 1, d)).getUTCDay(); // 0 = zondag
+  return addDays(key, -((dow + 6) % 7));
+}
 
 const isKey = (s: string | undefined): s is string => !!s && /^\d{4}-\d{2}-\d{2}$/.test(s);
 
-export function resolvePeriod(params: { p?: string; from?: string; to?: string }, now = new Date()): Period {
+export function resolvePeriod(
+  params: { p?: string; from?: string; to?: string },
+  now = new Date(),
+  defaultPreset = "30d",
+): Period {
   const today = dayKey(now);
   let fromKey: string;
   let toKey = today;
-  let preset = params.p ?? "30d";
+  let preset = params.p ?? defaultPreset;
 
   if (isKey(params.from) && isKey(params.to) && params.from <= params.to) {
     preset = "custom";
@@ -74,6 +86,16 @@ export function resolvePeriod(params: { p?: string; from?: string; to?: string }
     switch (preset) {
       case "today":
         fromKey = today;
+        break;
+      case "yesterday":
+        fromKey = toKey = addDays(today, -1);
+        break;
+      case "thisweek":
+        fromKey = mondayOf(today);
+        break;
+      case "lastweek":
+        fromKey = addDays(mondayOf(today), -7);
+        toKey = addDays(fromKey, 6);
         break;
       case "7d":
         fromKey = addDays(today, -6);

@@ -1,54 +1,99 @@
 @import "tailwindcss";
 
+/*
+ * ModernoMilano: rustig, premium, minimalistisch.
+ * Merkkleur #E3E0D7. Kostensoorten hebben overal dezelfde kleur (gevalideerd op kleurenblindheid,
+ * volgorde = stapelvolgorde, identiteit altijd ook met label).
+ */
 :root {
   color-scheme: light;
-  --bg: #f6f5f2;
+  --brand: #e3e0d7;
+  --bg: #f4f2ec;
   --surface: #fcfcfb;
-  --surface-2: #f0efec;
-  --border: #e3e1dc;
+  --surface-2: #efece4;
+  --border: #e3e0d7;
   --text: #0b0b0b;
   --text-2: #52514e;
   --text-3: #7a7974;
   --accent: #0b0b0b;
   --accent-text: #ffffff;
-  /* data-viz rollen (gevalideerd referentiepalet) */
+  --grid: #e7e4dc;
+  --neg: #c53030;
+  --good: #1f7a1f;
+  --warn: #a15c00;
+  --info: #2a78d6;
+
   --series-1: #2a78d6;
   --series-2: #eb6834;
   --series-3: #1baf7a;
   --series-4: #eda100;
   --series-5: #e87ba4;
-  --neg: #e34948;
-  --good: #008300;
-  --warn: #b86e00;
-  --grid: #e7e5e0;
+  --series-6: #008300;
+  --series-7: #4a3aa7;
+
+  --c-cogs: var(--series-1);
+  --c-meta: var(--series-2);
+  --c-fees: var(--series-3);
+  --c-chargebacks: var(--series-4);
+  --c-other: var(--series-5);
+  --c-profit: var(--series-6);
+  --c-team: var(--series-7);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #121211;
+    --bg: #111110;
     --surface: #1a1a19;
-    --surface-2: #232321;
-    --border: #33332f;
-    --text: #ffffff;
+    --surface-2: #242421;
+    --border: #33322e;
+    --text: #f5f3ee;
     --text-2: #c3c2b7;
     --text-3: #8f8e86;
-    --accent: #ffffff;
+    --accent: #e3e0d7;
     --accent-text: #0b0b0b;
+    --grid: #2c2b28;
+    --neg: #ef6b6b;
+    --good: #4cbf4c;
+    --warn: #e0a030;
+    --info: #3987e5;
     --series-1: #3987e5;
     --series-2: #d95926;
     --series-3: #199e70;
     --series-4: #c98500;
     --series-5: #d55181;
-    --neg: #e66767;
-    --good: #3fae3f;
-    --warn: #e0a030;
-    --grid: #2c2c29;
+    --series-6: #008300;
+    --series-7: #9085e9;
   }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111110;
+  --surface: #1a1a19;
+  --surface-2: #242421;
+  --border: #33322e;
+  --text: #f5f3ee;
+  --text-2: #c3c2b7;
+  --text-3: #8f8e86;
+  --accent: #e3e0d7;
+  --accent-text: #0b0b0b;
+  --grid: #2c2b28;
+  --neg: #ef6b6b;
+  --good: #4cbf4c;
+  --warn: #e0a030;
+  --info: #3987e5;
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-4: #c98500;
+  --series-5: #d55181;
+  --series-6: #008300;
+  --series-7: #9085e9;
 }
 
 @theme inline {
   --color-bg: var(--bg);
+  --color-brand: var(--brand);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-line: var(--border);
@@ -60,13 +105,21 @@
   --color-neg: var(--neg);
   --color-good: var(--good);
   --color-warn: var(--warn);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+h1,
+.serif {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
 }
 
 .num {
@@ -76,20 +129,21 @@ body {
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  border-radius: 8px;
+  border-radius: 9px;
   padding: 0.45rem 0.85rem;
   font-size: 0.875rem;
   font-weight: 500;
   background: var(--accent);
   color: var(--accent-text);
   cursor: pointer;
+  white-space: nowrap;
 }
 .btn:disabled {
   opacity: 0.5;
@@ -103,14 +157,14 @@ body {
 .input {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 9px;
   padding: 0.4rem 0.6rem;
   font-size: 0.875rem;
   color: var(--text);
   min-width: 0;
 }
 .input:focus {
-  outline: 2px solid var(--series-1);
+  outline: 2px solid var(--info);
   outline-offset: -1px;
 }
 
@@ -123,9 +177,9 @@ table.data th {
   text-align: left;
   font-weight: 500;
   color: var(--text-3);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   padding: 0.6rem 0.75rem;
   border-bottom: 1px solid var(--border);
   white-space: nowrap;
@@ -141,4 +195,15 @@ table.data tr:last-child td {
 table.data .r {
   text-align: right;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+table.data tfoot td {
+  border-top: 1px solid var(--border);
+  font-weight: 600;
+}
+
+/* geld op slot: gearceerd */
+.hatched {
+  background-image: repeating-linear-gradient(135deg, currentColor 0 2px, transparent 2px 7px);
+  opacity: 0.55;
 }

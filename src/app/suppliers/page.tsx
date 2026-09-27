@@ -104,9 +104,9 @@ export default async function SuppliersPage({ searchParams }: { searchParams: Pr
                   <div className="text-xs text-ink-3">{[s.contactName, s.email].filter(Boolean).join(" · ")}</div>
                 </td>
                 <td>{KINDS[s.kind] ?? s.kind}</td>
-                <td>{s.country ?? "–"}</td>
-                <td className="r">{s.processingDays != null ? `${s.processingDays} d` : "–"}</td>
-                <td className="r">{s.shippingDays != null ? `${s.shippingDays} d` : "–"}</td>
+                <td>{s.country ?? ""}</td>
+                <td className="r">{s.processingDays != null ? `${s.processingDays} d` : ""}</td>
+                <td className="r">{s.shippingDays != null ? `${s.shippingDays} d` : ""}</td>
                 <td className="r">
                   <Link href={`/products?supplier=${s.id}`} className="underline">
                     {s._count.products}

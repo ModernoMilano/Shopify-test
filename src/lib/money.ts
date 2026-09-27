@@ -10,7 +10,7 @@ export function formatCents(cents: number, round = false): string {
 }
 
 export function formatPct(value: number | null): string {
-  if (value === null || !Number.isFinite(value)) return "–";
+  if (value === null || !Number.isFinite(value)) return "ontbreekt";
   return `${(value * 100).toFixed(1).replace(".", ",")}%`;
 }
 

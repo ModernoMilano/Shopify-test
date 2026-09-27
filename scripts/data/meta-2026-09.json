@@ -1,0 +1,1745 @@
+{
+"_bron": "Windsor.ai facebook: date, campaign, spend, clicks, impressions, actions_purchase, action_values_purchase, frequency. Opgehaald 27-09-2026. Rijen met spend 0 weggelaten.",
+"rows": [
+{
+"date": "2026-09-01",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 272.48,
+"clicks": 390,
+"impressions": 15780,
+"purchases": 3,
+"value": 317.33,
+"frequency": 1.6576
+},
+{
+"date": "2026-09-01",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 356.66,
+"clicks": 624,
+"impressions": 24845,
+"purchases": 6,
+"value": 1155.5,
+"frequency": 1.3481
+},
+{
+"date": "2026-09-01",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 200.3,
+"clicks": 415,
+"impressions": 12098,
+"purchases": 3,
+"value": 519.69,
+"frequency": 1.3281
+},
+{
+"date": "2026-09-01",
+"campaign": "USA CBO",
+"spend": 58.77,
+"clicks": 73,
+"impressions": 1887,
+"purchases": 2,
+"value": 172.56,
+"frequency": 1.3104
+},
+{
+"date": "2026-09-01",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 47.43,
+"clicks": 43,
+"impressions": 1490,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.4177
+},
+{
+"date": "2026-09-01",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 64.09,
+"clicks": 71,
+"impressions": 3130,
+"purchases": 3,
+"value": 702.0,
+"frequency": 1.4926
+},
+{
+"date": "2026-09-02",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 246.5,
+"clicks": 447,
+"impressions": 14760,
+"purchases": 2,
+"value": 419.88,
+"frequency": 1.5684
+},
+{
+"date": "2026-09-02",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 235.89,
+"clicks": 543,
+"impressions": 19293,
+"purchases": 5,
+"value": 974.0,
+"frequency": 1.3038
+},
+{
+"date": "2026-09-02",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 220.09,
+"clicks": 551,
+"impressions": 16124,
+"purchases": 4,
+"value": 516.72,
+"frequency": 1.2823
+},
+{
+"date": "2026-09-02",
+"campaign": "USA CBO",
+"spend": 68.54,
+"clicks": 99,
+"impressions": 2991,
+"purchases": 1,
+"value": 70.0,
+"frequency": 1.3822
+},
+{
+"date": "2026-09-02",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 32.24,
+"clicks": 43,
+"impressions": 1232,
+"purchases": 2,
+"value": 214.19,
+"frequency": 1.3191
+},
+{
+"date": "2026-09-02",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 113.57,
+"clicks": 152,
+"impressions": 7527,
+"purchases": 1,
+"value": 130.0,
+"frequency": 1.4205
+},
+{
+"date": "2026-09-03",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 185.75,
+"clicks": 353,
+"impressions": 12205,
+"purchases": 2,
+"value": 353.61,
+"frequency": 1.4528
+},
+{
+"date": "2026-09-03",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 253.82,
+"clicks": 595,
+"impressions": 21467,
+"purchases": 2,
+"value": 244.0,
+"frequency": 1.2914
+},
+{
+"date": "2026-09-03",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 204.6,
+"clicks": 439,
+"impressions": 14890,
+"purchases": 4,
+"value": 447.01,
+"frequency": 1.2
+},
+{
+"date": "2026-09-03",
+"campaign": "USA CBO",
+"spend": 52.89,
+"clicks": 115,
+"impressions": 2508,
+"purchases": 1,
+"value": 153.0,
+"frequency": 1.3256
+},
+{
+"date": "2026-09-03",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 28.56,
+"clicks": 36,
+"impressions": 1207,
+"purchases": 1,
+"value": 154.79,
+"frequency": 1.2354
+},
+{
+"date": "2026-09-03",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 83.67,
+"clicks": 124,
+"impressions": 6221,
+"purchases": 1,
+"value": 124.0,
+"frequency": 1.3163
+},
+{
+"date": "2026-09-04",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 152.59,
+"clicks": 274,
+"impressions": 9509,
+"purchases": 1,
+"value": 143.1,
+"frequency": 1.4432
+},
+{
+"date": "2026-09-04",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 280.17,
+"clicks": 580,
+"impressions": 23987,
+"purchases": 5,
+"value": 940.0,
+"frequency": 1.336
+},
+{
+"date": "2026-09-04",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 153.67,
+"clicks": 369,
+"impressions": 11311,
+"purchases": 2,
+"value": 191.11,
+"frequency": 1.2287
+},
+{
+"date": "2026-09-04",
+"campaign": "USA CBO",
+"spend": 82.03,
+"clicks": 147,
+"impressions": 4032,
+"purchases": 5,
+"value": 582.66,
+"frequency": 1.3467
+},
+{
+"date": "2026-09-04",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 36.87,
+"clicks": 27,
+"impressions": 1312,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.2273
+},
+{
+"date": "2026-09-04",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 51.9,
+"clicks": 71,
+"impressions": 3294,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.1644
+},
+{
+"date": "2026-09-05",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 147.17,
+"clicks": 268,
+"impressions": 8090,
+"purchases": 4,
+"value": 841.07,
+"frequency": 1.4483
+},
+{
+"date": "2026-09-05",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 398.99,
+"clicks": 650,
+"impressions": 29402,
+"purchases": 8,
+"value": 1130.0,
+"frequency": 1.3373
+},
+{
+"date": "2026-09-05",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 122.89,
+"clicks": 275,
+"impressions": 8250,
+"purchases": 5,
+"value": 2136.05,
+"frequency": 1.2408
+},
+{
+"date": "2026-09-05",
+"campaign": "USA CBO",
+"spend": 123.64,
+"clicks": 228,
+"impressions": 6805,
+"purchases": 3,
+"value": 273.18,
+"frequency": 1.3982
+},
+{
+"date": "2026-09-05",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 63.43,
+"clicks": 69,
+"impressions": 2423,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.3529
+},
+{
+"date": "2026-09-05",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 97.88,
+"clicks": 57,
+"impressions": 3763,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.3829
+},
+{
+"date": "2026-09-06",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 179.7,
+"clicks": 307,
+"impressions": 8790,
+"purchases": 6,
+"value": 1333.98,
+"frequency": 1.6354
+},
+{
+"date": "2026-09-06",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 520.41,
+"clicks": 915,
+"impressions": 35972,
+"purchases": 9,
+"value": 1553.74,
+"frequency": 1.5291
+},
+{
+"date": "2026-09-06",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 150.39,
+"clicks": 282,
+"impressions": 10200,
+"purchases": 3,
+"value": 855.72,
+"frequency": 1.3226
+},
+{
+"date": "2026-09-06",
+"campaign": "USA CBO",
+"spend": 157.65,
+"clicks": 304,
+"impressions": 8054,
+"purchases": 5,
+"value": 500.58,
+"frequency": 1.3718
+},
+{
+"date": "2026-09-06",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 69.9,
+"clicks": 87,
+"impressions": 2515,
+"purchases": 1,
+"value": 82.63,
+"frequency": 1.3018
+},
+{
+"date": "2026-09-06",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 100.63,
+"clicks": 101,
+"impressions": 3043,
+"purchases": 2,
+"value": 610.0,
+"frequency": 1.5246
+},
+{
+"date": "2026-09-07",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 158.99,
+"clicks": 308,
+"impressions": 10285,
+"purchases": 3,
+"value": 677.5,
+"frequency": 1.5546
+},
+{
+"date": "2026-09-07",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 506.54,
+"clicks": 935,
+"impressions": 40376,
+"purchases": 5,
+"value": 770.0,
+"frequency": 1.4506
+},
+{
+"date": "2026-09-07",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 189.7,
+"clicks": 454,
+"impressions": 14526,
+"purchases": 5,
+"value": 600.3,
+"frequency": 1.2883
+},
+{
+"date": "2026-09-07",
+"campaign": "USA CBO",
+"spend": 206.92,
+"clicks": 417,
+"impressions": 11958,
+"purchases": 7,
+"value": 1228.44,
+"frequency": 1.3133
+},
+{
+"date": "2026-09-07",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 41.27,
+"clicks": 44,
+"impressions": 1819,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.22
+},
+{
+"date": "2026-09-07",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 101.69,
+"clicks": 91,
+"impressions": 4077,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.3755
+},
+{
+"date": "2026-09-07",
+"campaign": "SWIS CBO",
+"spend": 16.86,
+"clicks": 38,
+"impressions": 1607,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.0947
+},
+{
+"date": "2026-09-08",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 146.59,
+"clicks": 249,
+"impressions": 8610,
+"purchases": 1,
+"value": 138.37,
+"frequency": 1.5207
+},
+{
+"date": "2026-09-08",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 498.9,
+"clicks": 704,
+"impressions": 34179,
+"purchases": 6,
+"value": 1040.0,
+"frequency": 1.4334
+},
+{
+"date": "2026-09-08",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 169.67,
+"clicks": 393,
+"impressions": 11074,
+"purchases": 3,
+"value": 1248.08,
+"frequency": 1.2807
+},
+{
+"date": "2026-09-08",
+"campaign": "USA CBO",
+"spend": 227.11,
+"clicks": 423,
+"impressions": 13061,
+"purchases": 2,
+"value": 317.0,
+"frequency": 1.278
+},
+{
+"date": "2026-09-08",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 54.53,
+"clicks": 82,
+"impressions": 3125,
+"purchases": 1,
+"value": 286.56,
+"frequency": 1.517
+},
+{
+"date": "2026-09-08",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 77.52,
+"clicks": 98,
+"impressions": 4615,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.5383
+},
+{
+"date": "2026-09-08",
+"campaign": "SWIS CBO",
+"spend": 63.53,
+"clicks": 111,
+"impressions": 4993,
+"purchases": 1,
+"value": 61.6,
+"frequency": 1.4544
+},
+{
+"date": "2026-09-09",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 152.85,
+"clicks": 240,
+"impressions": 7966,
+"purchases": 6,
+"value": 939.57,
+"frequency": 1.5278
+},
+{
+"date": "2026-09-09",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 538.63,
+"clicks": 906,
+"impressions": 31872,
+"purchases": 4,
+"value": 2020.0,
+"frequency": 1.4218
+},
+{
+"date": "2026-09-09",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 188.39,
+"clicks": 419,
+"impressions": 11719,
+"purchases": 5,
+"value": 801.36,
+"frequency": 1.2939
+},
+{
+"date": "2026-09-09",
+"campaign": "USA CBO",
+"spend": 256.12,
+"clicks": 513,
+"impressions": 13280,
+"purchases": 1,
+"value": 153.01,
+"frequency": 1.3796
+},
+{
+"date": "2026-09-09",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 51.12,
+"clicks": 106,
+"impressions": 2975,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.4491
+},
+{
+"date": "2026-09-09",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 71.0,
+"clicks": 107,
+"impressions": 4667,
+"purchases": 1,
+"value": 140.0,
+"frequency": 1.4708
+},
+{
+"date": "2026-09-09",
+"campaign": "SWIS CBO",
+"spend": 61.96,
+"clicks": 109,
+"impressions": 4919,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.3619
+},
+{
+"date": "2026-09-10",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 232.47,
+"clicks": 372,
+"impressions": 11382,
+"purchases": 2,
+"value": 186.31,
+"frequency": 1.4803
+},
+{
+"date": "2026-09-10",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 651.84,
+"clicks": 1072,
+"impressions": 40174,
+"purchases": 10,
+"value": 2005.0,
+"frequency": 1.3937
+},
+{
+"date": "2026-09-10",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 236.56,
+"clicks": 553,
+"impressions": 14557,
+"purchases": 3,
+"value": 571.69,
+"frequency": 1.3039
+},
+{
+"date": "2026-09-10",
+"campaign": "USA CBO",
+"spend": 111.17,
+"clicks": 166,
+"impressions": 3936,
+"purchases": 3,
+"value": 791.13,
+"frequency": 1.4097
+},
+{
+"date": "2026-09-10",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 50.58,
+"clicks": 98,
+"impressions": 2031,
+"purchases": 1,
+"value": 367.86,
+"frequency": 1.4143
+},
+{
+"date": "2026-09-10",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 67.26,
+"clicks": 90,
+"impressions": 3389,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.4963
+},
+{
+"date": "2026-09-11",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 153.97,
+"clicks": 247,
+"impressions": 7744,
+"purchases": 5,
+"value": 934.92,
+"frequency": 1.493
+},
+{
+"date": "2026-09-11",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 716.46,
+"clicks": 940,
+"impressions": 41086,
+"purchases": 4,
+"value": 770.0,
+"frequency": 1.4789
+},
+{
+"date": "2026-09-11",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 252.08,
+"clicks": 446,
+"impressions": 15008,
+"purchases": 5,
+"value": 704.44,
+"frequency": 1.2585
+},
+{
+"date": "2026-09-11",
+"campaign": "USA CBO",
+"spend": 255.27,
+"clicks": 352,
+"impressions": 9872,
+"purchases": 1,
+"value": 61.2,
+"frequency": 1.3761
+},
+{
+"date": "2026-09-11",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 37.71,
+"clicks": 68,
+"impressions": 2043,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.4207
+},
+{
+"date": "2026-09-11",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 46.99,
+"clicks": 60,
+"impressions": 2894,
+"purchases": 1,
+"value": 230.0,
+"frequency": 1.3638
+},
+{
+"date": "2026-09-12",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 145.85,
+"clicks": 185,
+"impressions": 6004,
+"purchases": 3,
+"value": 471.13,
+"frequency": 1.5981
+},
+{
+"date": "2026-09-12",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 690.67,
+"clicks": 875,
+"impressions": 36848,
+"purchases": 3,
+"value": 370.0,
+"frequency": 1.4378
+},
+{
+"date": "2026-09-12",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 247.28,
+"clicks": 434,
+"impressions": 13239,
+"purchases": 5,
+"value": 1184.53,
+"frequency": 1.2464
+},
+{
+"date": "2026-09-12",
+"campaign": "USA CBO",
+"spend": 239.39,
+"clicks": 312,
+"impressions": 8313,
+"purchases": 2,
+"value": 298.89,
+"frequency": 1.2793
+},
+{
+"date": "2026-09-12",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 43.88,
+"clicks": 67,
+"impressions": 2240,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.4177
+},
+{
+"date": "2026-09-12",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 59.59,
+"clicks": 80,
+"impressions": 3705,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.3166
+},
+{
+"date": "2026-09-13",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 178.43,
+"clicks": 268,
+"impressions": 7744,
+"purchases": 6,
+"value": 1451.66,
+"frequency": 1.5104
+},
+{
+"date": "2026-09-13",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 480.95,
+"clicks": 659,
+"impressions": 25683,
+"purchases": 9,
+"value": 1720.0,
+"frequency": 1.5529
+},
+{
+"date": "2026-09-13",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 371.65,
+"clicks": 705,
+"impressions": 21105,
+"purchases": 5,
+"value": 979.38,
+"frequency": 1.4299
+},
+{
+"date": "2026-09-13",
+"campaign": "USA CBO",
+"spend": 221.65,
+"clicks": 309,
+"impressions": 7901,
+"purchases": 2,
+"value": 219.97,
+"frequency": 1.4447
+},
+{
+"date": "2026-09-13",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 155.18,
+"clicks": 149,
+"impressions": 5757,
+"purchases": 1,
+"value": 73.5,
+"frequency": 1.5328
+},
+{
+"date": "2026-09-13",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 136.04,
+"clicks": 161,
+"impressions": 7318,
+"purchases": 4,
+"value": 700.0,
+"frequency": 1.6534
+},
+{
+"date": "2026-09-14",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 156.41,
+"clicks": 208,
+"impressions": 8002,
+"purchases": 1,
+"value": 296.91,
+"frequency": 1.6892
+},
+{
+"date": "2026-09-14",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 378.21,
+"clicks": 512,
+"impressions": 23776,
+"purchases": 3,
+"value": 530.0,
+"frequency": 1.5516
+},
+{
+"date": "2026-09-14",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 286.29,
+"clicks": 622,
+"impressions": 18426,
+"purchases": 6,
+"value": 1145.37,
+"frequency": 1.3774
+},
+{
+"date": "2026-09-14",
+"campaign": "USA CBO",
+"spend": 144.24,
+"clicks": 174,
+"impressions": 5936,
+"purchases": 1,
+"value": 255.44,
+"frequency": 1.3911
+},
+{
+"date": "2026-09-14",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 105.63,
+"clicks": 143,
+"impressions": 5168,
+"purchases": 1,
+"value": 61.83,
+"frequency": 1.6666
+},
+{
+"date": "2026-09-14",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 102.16,
+"clicks": 137,
+"impressions": 6881,
+"purchases": 1,
+"value": 150.0,
+"frequency": 1.5632
+},
+{
+"date": "2026-09-15",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 261.67,
+"clicks": 286,
+"impressions": 11058,
+"purchases": 2,
+"value": 481.13,
+"frequency": 1.6981
+},
+{
+"date": "2026-09-15",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 321.72,
+"clicks": 323,
+"impressions": 14062,
+"purchases": 2,
+"value": 322.0,
+"frequency": 1.513
+},
+{
+"date": "2026-09-15",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 363.03,
+"clicks": 541,
+"impressions": 18818,
+"purchases": 2,
+"value": 376.26,
+"frequency": 1.3339
+},
+{
+"date": "2026-09-15",
+"campaign": "USA CBO",
+"spend": 102.9,
+"clicks": 141,
+"impressions": 2749,
+"purchases": 3,
+"value": 256.42,
+"frequency": 1.4083
+},
+{
+"date": "2026-09-15",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 160.59,
+"clicks": 218,
+"impressions": 8254,
+"purchases": 4,
+"value": 656.44,
+"frequency": 1.5291
+},
+{
+"date": "2026-09-15",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 148.93,
+"clicks": 220,
+"impressions": 9855,
+"purchases": 3,
+"value": 414.0,
+"frequency": 1.5166
+},
+{
+"date": "2026-09-15",
+"campaign": "SWIS CBO",
+"spend": 0.07,
+"clicks": 1,
+"impressions": 6,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.0
+},
+{
+"date": "2026-09-16",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 315.73,
+"clicks": 346,
+"impressions": 13742,
+"purchases": 6,
+"value": 1422.04,
+"frequency": 1.7158
+},
+{
+"date": "2026-09-16",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 323.75,
+"clicks": 261,
+"impressions": 13068,
+"purchases": 3,
+"value": 840.0,
+"frequency": 1.6201
+},
+{
+"date": "2026-09-16",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 389.26,
+"clicks": 703,
+"impressions": 24319,
+"purchases": 6,
+"value": 1456.32,
+"frequency": 1.5416
+},
+{
+"date": "2026-09-16",
+"campaign": "USA CBO",
+"spend": 56.3,
+"clicks": 55,
+"impressions": 1739,
+"purchases": 1,
+"value": 123.03,
+"frequency": 1.6013
+},
+{
+"date": "2026-09-16",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 121.99,
+"clicks": 190,
+"impressions": 6278,
+"purchases": 1,
+"value": 195.0,
+"frequency": 1.5979
+},
+{
+"date": "2026-09-16",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 224.24,
+"clicks": 278,
+"impressions": 15006,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.5702
+},
+{
+"date": "2026-09-16",
+"campaign": "SWIS CBO",
+"spend": 50.5,
+"clicks": 61,
+"impressions": 3401,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.2221
+},
+{
+"date": "2026-09-17",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 303.14,
+"clicks": 377,
+"impressions": 12193,
+"purchases": 9,
+"value": 2185.51,
+"frequency": 1.7219
+},
+{
+"date": "2026-09-17",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 311.83,
+"clicks": 279,
+"impressions": 14171,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.5387
+},
+{
+"date": "2026-09-17",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 339.73,
+"clicks": 599,
+"impressions": 19803,
+"purchases": 7,
+"value": 1505.39,
+"frequency": 1.5784
+},
+{
+"date": "2026-09-17",
+"campaign": "USA CBO",
+"spend": 51.63,
+"clicks": 49,
+"impressions": 1647,
+"purchases": 1,
+"value": 82.03,
+"frequency": 1.5479
+},
+{
+"date": "2026-09-17",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 101.8,
+"clicks": 167,
+"impressions": 5784,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.6134
+},
+{
+"date": "2026-09-17",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 209.22,
+"clicks": 276,
+"impressions": 14090,
+"purchases": 2,
+"value": 220.0,
+"frequency": 1.5453
+},
+{
+"date": "2026-09-17",
+"campaign": "SWIS CBO",
+"spend": 16.99,
+"clicks": 43,
+"impressions": 1257,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.1994
+},
+{
+"date": "2026-09-18",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 284.2,
+"clicks": 300,
+"impressions": 10769,
+"purchases": 2,
+"value": 209.15,
+"frequency": 1.6948
+},
+{
+"date": "2026-09-18",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 288.66,
+"clicks": 252,
+"impressions": 11833,
+"purchases": 1,
+"value": 250.0,
+"frequency": 1.4752
+},
+{
+"date": "2026-09-18",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 332.91,
+"clicks": 663,
+"impressions": 20752,
+"purchases": 3,
+"value": 383.18,
+"frequency": 1.4301
+},
+{
+"date": "2026-09-18",
+"campaign": "USA CBO",
+"spend": 47.93,
+"clicks": 45,
+"impressions": 1408,
+"purchases": 1,
+"value": 153.55,
+"frequency": 1.5075
+},
+{
+"date": "2026-09-18",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 83.12,
+"clicks": 177,
+"impressions": 5497,
+"purchases": 1,
+"value": 143.24,
+"frequency": 1.5368
+},
+{
+"date": "2026-09-18",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 144.51,
+"clicks": 177,
+"impressions": 9711,
+"purchases": 3,
+"value": 291.0,
+"frequency": 1.4419
+},
+{
+"date": "2026-09-19",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 399.9,
+"clicks": 531,
+"impressions": 16666,
+"purchases": 8,
+"value": 1916.55,
+"frequency": 1.6923
+},
+{
+"date": "2026-09-19",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 150.66,
+"clicks": 121,
+"impressions": 5490,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.4282
+},
+{
+"date": "2026-09-19",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 498.9,
+"clicks": 811,
+"impressions": 25777,
+"purchases": 4,
+"value": 482.85,
+"frequency": 1.5554
+},
+{
+"date": "2026-09-19",
+"campaign": "USA CBO",
+"spend": 98.22,
+"clicks": 85,
+"impressions": 2303,
+"purchases": 3,
+"value": 766.0,
+"frequency": 1.4287
+},
+{
+"date": "2026-09-19",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 175.27,
+"clicks": 223,
+"impressions": 8029,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.5078
+},
+{
+"date": "2026-09-19",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 200.53,
+"clicks": 189,
+"impressions": 9591,
+"purchases": 1,
+"value": 150.0,
+"frequency": 1.5427
+},
+{
+"date": "2026-09-20",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 484.69,
+"clicks": 576,
+"impressions": 18766,
+"purchases": 7,
+"value": 1148.58,
+"frequency": 1.8919
+},
+{
+"date": "2026-09-20",
+"campaign": "MM | DEU | SCALING | CBO",
+"spend": 79.24,
+"clicks": 37,
+"impressions": 2531,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.3067
+},
+{
+"date": "2026-09-20",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 605.7,
+"clicks": 872,
+"impressions": 28665,
+"purchases": 3,
+"value": 586.8,
+"frequency": 1.6841
+},
+{
+"date": "2026-09-20",
+"campaign": "USA CBO",
+"spend": 128.4,
+"clicks": 89,
+"impressions": 3454,
+"purchases": 1,
+"value": 81.85,
+"frequency": 1.3168
+},
+{
+"date": "2026-09-20",
+"campaign": "MM | UK  | TESTING | ABO",
+"spend": 106.87,
+"clicks": 132,
+"impressions": 4710,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.3275
+},
+{
+"date": "2026-09-20",
+"campaign": "MM | DE  | TESTING | ABO",
+"spend": 106.62,
+"clicks": 97,
+"impressions": 5858,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.3748
+},
+{
+"date": "2026-09-21",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 391.12,
+"clicks": 450,
+"impressions": 18655,
+"purchases": 1,
+"value": 194.75,
+"frequency": 1.981
+},
+{
+"date": "2026-09-21",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 390.41,
+"clicks": 627,
+"impressions": 22077,
+"purchases": 8,
+"value": 1471.72,
+"frequency": 1.6935
+},
+{
+"date": "2026-09-21",
+"campaign": "USA CBO",
+"spend": 178.39,
+"clicks": 185,
+"impressions": 6229,
+"purchases": 1,
+"value": 306.59,
+"frequency": 1.4715
+},
+{
+"date": "2026-09-22",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 357.67,
+"clicks": 375,
+"impressions": 17175,
+"purchases": 4,
+"value": 502.44,
+"frequency": 1.7831
+},
+{
+"date": "2026-09-22",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 335.71,
+"clicks": 510,
+"impressions": 18306,
+"purchases": 4,
+"value": 539.9,
+"frequency": 1.7592
+},
+{
+"date": "2026-09-22",
+"campaign": "USA CBO",
+"spend": 193.49,
+"clicks": 172,
+"impressions": 6640,
+"purchases": 2,
+"value": 1892.66,
+"frequency": 1.4613
+},
+{
+"date": "2026-09-22",
+"campaign": "WORLDWIDE 2.0",
+"spend": 40.31,
+"clicks": 56,
+"impressions": 1915,
+"purchases": 1,
+"value": 449.1,
+"frequency": 1.3467
+},
+{
+"date": "2026-09-22",
+"campaign": "Nasir | UK+IE LAL Sales Campaign -  22/09/2026",
+"spend": 129.25,
+"clicks": 80,
+"impressions": 5206,
+"purchases": 2,
+"value": 204.66,
+"frequency": 1.3625
+},
+{
+"date": "2026-09-22",
+"campaign": "Nasir | Worldwide | LAL|  Sales Campaign - 22/09/2026",
+"spend": 191.04,
+"clicks": 149,
+"impressions": 7206,
+"purchases": 3,
+"value": 606.17,
+"frequency": 1.3401
+},
+{
+"date": "2026-09-23",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 405.3,
+"clicks": 451,
+"impressions": 20441,
+"purchases": 3,
+"value": 499.35,
+"frequency": 1.8307
+},
+{
+"date": "2026-09-23",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 368.94,
+"clicks": 681,
+"impressions": 21876,
+"purchases": 9,
+"value": 1751.1,
+"frequency": 1.4728
+},
+{
+"date": "2026-09-23",
+"campaign": "USA CBO",
+"spend": 258.31,
+"clicks": 250,
+"impressions": 8330,
+"purchases": 3,
+"value": 460.76,
+"frequency": 1.396
+},
+{
+"date": "2026-09-23",
+"campaign": "WORLDWIDE 2.0",
+"spend": 112.48,
+"clicks": 156,
+"impressions": 6641,
+"purchases": 3,
+"value": 240.0,
+"frequency": 1.458
+},
+{
+"date": "2026-09-23",
+"campaign": "Nasir | UK+IE LAL Sales Campaign -  22/09/2026",
+"spend": 116.53,
+"clicks": 59,
+"impressions": 2879,
+"purchases": 1,
+"value": 153.78,
+"frequency": 1.5371
+},
+{
+"date": "2026-09-23",
+"campaign": "Nasir | Worldwide | LAL|  Sales Campaign - 22/09/2026",
+"spend": 166.78,
+"clicks": 243,
+"impressions": 6689,
+"purchases": 1,
+"value": 61.75,
+"frequency": 1.4413
+},
+{
+"date": "2026-09-23",
+"campaign": "Nasir | USA | LAL Sales Campaign - 23/09/2026",
+"spend": 179.45,
+"clicks": 189,
+"impressions": 6028,
+"purchases": 1,
+"value": 307.48,
+"frequency": 1.3873
+},
+{
+"date": "2026-09-24",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 422.92,
+"clicks": 538,
+"impressions": 21847,
+"purchases": 4,
+"value": 992.5,
+"frequency": 1.7802
+},
+{
+"date": "2026-09-24",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 364.81,
+"clicks": 599,
+"impressions": 21847,
+"purchases": 4,
+"value": 590.91,
+"frequency": 1.4222
+},
+{
+"date": "2026-09-24",
+"campaign": "USA CBO",
+"spend": 205.93,
+"clicks": 150,
+"impressions": 5711,
+"purchases": 1,
+"value": 348.09,
+"frequency": 1.3397
+},
+{
+"date": "2026-09-24",
+"campaign": "WORLDWIDE 2.0",
+"spend": 103.71,
+"clicks": 152,
+"impressions": 6424,
+"purchases": 5,
+"value": 524.0,
+"frequency": 1.3521
+},
+{
+"date": "2026-09-24",
+"campaign": "Nasir | UK+IE LAL Sales Campaign -  22/09/2026",
+"spend": 87.31,
+"clicks": 34,
+"impressions": 1855,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.4852
+},
+{
+"date": "2026-09-24",
+"campaign": "Nasir | Worldwide | LAL|  Sales Campaign - 22/09/2026",
+"spend": 142.85,
+"clicks": 237,
+"impressions": 6610,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.413
+},
+{
+"date": "2026-09-24",
+"campaign": "Nasir | USA | LAL Sales Campaign - 23/09/2026",
+"spend": 155.61,
+"clicks": 185,
+"impressions": 6451,
+"purchases": 3,
+"value": 297.02,
+"frequency": 1.2679
+},
+{
+"date": "2026-09-24",
+"campaign": "Nasir | Worldwide | Retargeting Campaign - 24/09/2026",
+"spend": 124.54,
+"clicks": 70,
+"impressions": 3874,
+"purchases": 1,
+"value": 367.57,
+"frequency": 1.5361
+},
+{
+"date": "2026-09-25",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 386.04,
+"clicks": 429,
+"impressions": 18217,
+"purchases": 1,
+"value": 45.99,
+"frequency": 1.8399
+},
+{
+"date": "2026-09-25",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 336.33,
+"clicks": 552,
+"impressions": 17535,
+"purchases": 8,
+"value": 1030.82,
+"frequency": 1.4675
+},
+{
+"date": "2026-09-25",
+"campaign": "USA CBO",
+"spend": 189.54,
+"clicks": 145,
+"impressions": 5036,
+"purchases": 1,
+"value": 307.5,
+"frequency": 1.4855
+},
+{
+"date": "2026-09-25",
+"campaign": "WORLDWIDE 2.0",
+"spend": 87.86,
+"clicks": 176,
+"impressions": 7762,
+"purchases": 2,
+"value": 1400.0,
+"frequency": 1.3753
+},
+{
+"date": "2026-09-25",
+"campaign": "Nasir | UK+IE LAL Sales Campaign -  22/09/2026",
+"spend": 75.42,
+"clicks": 34,
+"impressions": 1830,
+"purchases": 1,
+"value": 110.0,
+"frequency": 1.4854
+},
+{
+"date": "2026-09-25",
+"campaign": "Nasir | Worldwide | LAL|  Sales Campaign - 22/09/2026",
+"spend": 153.27,
+"clicks": 170,
+"impressions": 6138,
+"purchases": 1,
+"value": 204.92,
+"frequency": 1.3912
+},
+{
+"date": "2026-09-25",
+"campaign": "Nasir | USA | LAL Sales Campaign - 23/09/2026",
+"spend": 121.74,
+"clicks": 193,
+"impressions": 5166,
+"purchases": 3,
+"value": 931.5,
+"frequency": 1.2359
+},
+{
+"date": "2026-09-25",
+"campaign": "Nasir | Worldwide | Retargeting Campaign - 24/09/2026",
+"spend": 99.64,
+"clicks": 58,
+"impressions": 3948,
+"purchases": 1,
+"value": 250.0,
+"frequency": 1.5161
+},
+{
+"date": "2026-09-26",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 351.97,
+"clicks": 426,
+"impressions": 15871,
+"purchases": 1,
+"value": 153.52,
+"frequency": 1.7737
+},
+{
+"date": "2026-09-26",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 306.83,
+"clicks": 425,
+"impressions": 13138,
+"purchases": 4,
+"value": 963.63,
+"frequency": 1.5115
+},
+{
+"date": "2026-09-26",
+"campaign": "USA CBO",
+"spend": 171.85,
+"clicks": 146,
+"impressions": 4267,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.3831
+},
+{
+"date": "2026-09-26",
+"campaign": "WORLDWIDE 2.0",
+"spend": 80.16,
+"clicks": 178,
+"impressions": 5420,
+"purchases": 4,
+"value": 1010.0,
+"frequency": 1.3175
+},
+{
+"date": "2026-09-26",
+"campaign": "Nasir | UK+IE LAL Sales Campaign -  22/09/2026",
+"spend": 93.38,
+"clicks": 49,
+"impressions": 2324,
+"purchases": 0,
+"value": 0.0,
+"frequency": 1.4516
+},
+{
+"date": "2026-09-26",
+"campaign": "Nasir | Worldwide | LAL|  Sales Campaign - 22/09/2026",
+"spend": 94.74,
+"clicks": 101,
+"impressions": 4464,
+"purchases": 5,
+"value": 697.8,
+"frequency": 1.2842
+},
+{
+"date": "2026-09-26",
+"campaign": "Nasir | USA | LAL Sales Campaign - 23/09/2026",
+"spend": 108.08,
+"clicks": 162,
+"impressions": 4008,
+"purchases": 1,
+"value": 316.92,
+"frequency": 1.2205
+},
+{
+"date": "2026-09-26",
+"campaign": "Nasir | Worldwide | Retargeting Campaign - 24/09/2026",
+"spend": 76.08,
+"clicks": 73,
+"impressions": 3599,
+"purchases": 4,
+"value": 721.64,
+"frequency": 1.5996
+},
+{
+"date": "2026-09-27",
+"campaign": "MM | UK  | SCALING | CBO",
+"spend": 243.23,
+"clicks": 282,
+"impressions": 9976,
+"purchases": 2,
+"value": 271.77,
+"frequency": 1.7853
+},
+{
+"date": "2026-09-27",
+"campaign": "MODERNO WORLDWIDE TEST",
+"spend": 400.62,
+"clicks": 532,
+"impressions": 16293,
+"purchases": 7,
+"value": 1206.14,
+"frequency": 1.4979
+},
+{
+"date": "2026-09-27",
+"campaign": "USA CBO",
+"spend": 234.32,
+"clicks": 178,
+"impressions": 5225,
+"purchases": 3,
+"value": 583.76,
+"frequency": 1.3978
+},
+{
+"date": "2026-09-27",
+"campaign": "WORLDWIDE 2.0",
+"spend": 229.16,
+"clicks": 385,
+"impressions": 13450,
+"purchases": 3,
+"value": 526.71,
+"frequency": 1.4631
+},
+{
+"date": "2026-09-27",
+"campaign": "Nasir | UK+IE LAL Sales Campaign -  22/09/2026",
+"spend": 127.02,
+"clicks": 89,
+"impressions": 3545,
+"purchases": 4,
+"value": 768.72,
+"frequency": 1.5541
+},
+{
+"date": "2026-09-27",
+"campaign": "Nasir | Worldwide | LAL|  Sales Campaign - 22/09/2026",
+"spend": 179.41,
+"clicks": 203,
+"impressions": 6709,
+"purchases": 2,
+"value": 741.21,
+"frequency": 1.2872
+},
+{
+"date": "2026-09-27",
+"campaign": "Nasir | USA | LAL Sales Campaign - 23/09/2026",
+"spend": 173.3,
+"clicks": 259,
+"impressions": 6188,
+"purchases": 3,
+"value": 388.86,
+"frequency": 1.2253
+},
+{
+"date": "2026-09-27",
+"campaign": "Nasir | Worldwide | Retargeting Campaign - 24/09/2026",
+"spend": 112.44,
+"clicks": 72,
+"impressions": 4654,
+"purchases": 2,
+"value": 404.21,
+"frequency": 1.7934
+}
+]
+}
