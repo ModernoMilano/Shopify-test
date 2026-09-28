@@ -451,6 +451,7 @@ const DEFAULT_SETTINGS = {
   reserveVat: false, breakEven: 2.0, buffer: 200000, payoutRatio: 0.86, payoutDelay: 3,
   softwareWeek: 30000, salesDay: 290000, metaDay: 160000, paypalDay: 30000, privateWeek: 150000,
   supplier: 300000, supplierDay: 2, forecastDays: 7, metaShareLimit: 0.4, feesLimit: 0.03,
+  shopReservePct: 0.095, shopReserveDays: 35,
 };
 const TABS = [["overzicht", "Overzicht"], ["geld", "Waar mijn geld staat"], ["bridge", "Winst naar bank"], ["prognose", "Prognose"], ["meta", "Meta ads"], ["bank", "Bank"], ["invoer", "Invoer en instellingen"]];
 const S = {
@@ -462,6 +463,8 @@ const S = {
   sales: { status: "idle", byDay: {}, err: null, at: null },
   meta: { status: "idle", rows: [], err: null, at: null },
   feesLive: { status: "idle", err: null, progress: "" },
+  paypal: { status: "idle", err: null, progress: "", at: null, since: null, complete: false }, pp: {},
+  disputes: { status: "idle", list: [] },
   perms: null, permState: {}, lastImport: null, bankFilter: { cat: "", q: "" }, fc: null,
 };
 if (!TABS.some((t) => t[0] === S.tab)) S.tab = "overzicht";
@@ -488,8 +491,8 @@ const uid = () => Math.random().toString(36).slice(2, 10);
 /* ============================================================
    Koppelingen (Shopify en Meta via je Claude-connectors)
    ============================================================ */
-const SHOPIFY = "Shopify", WINDSOR = "Windsor_ai";
-const SERVER_LABEL = { [SHOPIFY]: "Shopify", [WINDSOR]: "Windsor.ai" };
+const SHOPIFY = "Shopify", WINDSOR = "Windsor_ai", PAYPAL = "PayPal";
+const SERVER_LABEL = { [SHOPIFY]: "Shopify", [WINDSOR]: "Windsor.ai", [PAYPAL]: "PayPal" };
 function mcpMessage(e, server) {
   const n = SERVER_LABEL[server] || server;
   switch (e && e.code) {
@@ -541,7 +544,8 @@ function remoteRange() {
 }
 
 async function loadSales(force) {
-  const { from, to } = remoteRange();
+  // altijd minstens 90 dagen, voor de chargeback rate
+  const { from: f0, to } = remoteRange(), d90 = addDays(to, -89), from = f0 < d90 ? f0 : d90;
   S.sales.status = "laden"; renderStrip();
   try {
     const r = await call(SHOPIFY, "run-analytics-query", { query: `FROM sales SHOW orders, gross_sales, discounts, returns, net_sales, shipping_charges, taxes, total_sales TIMESERIES day SINCE ${from} UNTIL ${to}` }, { cache: force ? { refresh: true, staleTime: 120000 } : { staleTime: 120000 } });
@@ -574,19 +578,28 @@ async function loadMeta(force) {
   render();
 }
 
-/* Shopify Payments-fees per dag uit de transacties van orders. Fees staan in de valuta van de klant
-   en worden omgerekend met de koers van de transactie zelf. Afgelopen dagen worden bewaard. */
-const FEES_QUERY = `query Fees($q: String!, $after: String) { orders(first: 50, after: $after, query: $q, sortKey: CREATED_AT) { pageInfo { hasNextPage endCursor } nodes { createdAt test cancelledAt transactions(first: 10) { status amountSet { shopMoney { amount } presentmentMoney { amount } } fees { type amount { amount currencyCode } } } } } }`;
+/* Shopify Payments per dag uit de transacties van orders: wat er binnenkwam (c), wat terugging (r) en de fees (f).
+   Fees staan in de valuta van de klant en worden omgerekend met de koers van de transactie zelf.
+   Afgesloten dagen worden bewaard. Een refund telt op de dag van de order. */
+const FEES_QUERY = `query Fees($q: String!, $after: String) { orders(first: 50, after: $after, query: $q, sortKey: CREATED_AT) { pageInfo { hasNextPage endCursor } nodes { createdAt test cancelledAt transactions(first: 10) { kind status gateway amountSet { shopMoney { amount } presentmentMoney { amount } } fees { type amount { amount currencyCode } } } } } }`;
+const DISPUTES_QUERY = `query Disputes($after: String) { orders(first: 100, after: $after, query: "chargeback_status:*", sortKey: CREATED_AT, reverse: true) { pageInfo { hasNextPage endCursor } nodes { name createdAt test disputes { status initiatedAs } totalPriceSet { shopMoney { amount } } } } }`;
 function feeDay(k) { const m = S.fees[k.slice(0, 7)]; return m && m[k]; }
+/* Vanaf welke dag Shopify-data nodig is: de periode, plus genoeg dagen ervoor om te berekenen wat Shopify vasthoudt. */
+function shopWindowStart() {
+  const p = P(), cov = coverage(), today = dayKey(new Date());
+  let a = p.from < today ? p.from : today;
+  if (cov.last) { const c = addDays(cov.last, -30); if (c < a) a = c; }
+  return addDays(a, -(S.settings.shopReserveDays + S.settings.payoutDelay * 2 + 12));
+}
 async function loadFees(force) {
-  const p = P(), today = dayKey(new Date());
-  const days = eachDay(p.from, p.to > today ? today : p.to);
-  const need = days.filter((k) => k === today || !feeDay(k));
-  if (!need.length) { S.feesLive.status = "ok"; return; }
+  const today = dayKey(new Date());
+  const days = eachDay(shopWindowStart(), today);
+  const need = days.filter((k) => k === today || !(feeDay(k) && feeDay(k).v === 2));
+  if (!need.length) { S.feesLive.status = "ok"; loadDisputes(); return; }
   const from = need[0], to = need[need.length - 1];
   S.feesLive.status = "laden"; S.feesLive.progress = ""; renderStrip();
   const agg = {};
-  for (const k of eachDay(from, to)) agg[k] = { f: 0, fx: 0, n: 0, nf: 0 };
+  for (const k of eachDay(from, to)) agg[k] = { f: 0, fx: 0, n: 0, nf: 0, c: 0, r: 0 };
   try {
     let after = null, pages = 0;
     const q = `created_at:>='${startOfDayUtc(from).toISOString()}' created_at:<'${startOfDayUtc(addDays(to, 1)).toISOString()}'`;
@@ -601,8 +614,13 @@ async function loadFees(force) {
         a.n++;
         let seen = false;
         for (const t of o.transactions || []) {
-          if (t.status !== "SUCCESS" || !t.fees || !t.fees.length) continue;
+          if (t.status !== "SUCCESS") continue;
           const shop = Number(t.amountSet.shopMoney.amount), pres = Number(t.amountSet.presentmentMoney.amount);
+          if (t.gateway === "shopify_payments") {
+            if (t.kind === "SALE" || t.kind === "CAPTURE") a.c += shop * 100;
+            else if (t.kind === "REFUND") a.r += shop * 100;
+          }
+          if (!t.fees || !t.fees.length) continue;
           const rate = pres > 0 ? shop / pres : 1;
           for (const f of t.fees) {
             seen = true;
@@ -614,10 +632,10 @@ async function loadFees(force) {
       }
       after = conn.pageInfo.hasNextPage ? conn.pageInfo.endCursor : null;
       pages++; S.feesLive.progress = `${pages * 50} orders`; renderStrip();
-    } while (after && pages < 80);
+    } while (after && pages < 200);
     const byMonth = {};
     for (const [k, a] of Object.entries(agg)) {
-      const v = { f: Math.round(a.f), fx: Math.round(a.fx), n: a.n, nf: a.nf };
+      const v = { v: 2, f: Math.round(a.f), fx: Math.round(a.fx), n: a.n, nf: a.nf, c: Math.round(a.c), r: Math.round(a.r) };
       (byMonth[k.slice(0, 7)] = byMonth[k.slice(0, 7)] || {})[k] = v;
       (S.fees[k.slice(0, 7)] = S.fees[k.slice(0, 7)] || {})[k] = v;
     }
@@ -629,16 +647,173 @@ async function loadFees(force) {
     S.feesLive.status = "ok"; S.feesLive.err = null;
   } catch (e) { fail(S.feesLive, e, SHOPIFY); }
   render();
+  if (S.feesLive.status === "ok") loadDisputes();
 }
+/* Disputes en chargebacks staan op de order. Het bedrag is het orderbedrag, de datum is de orderdatum. */
+async function loadDisputes() {
+  S.disputes.status = "laden";
+  try {
+    const list = []; let after = null, pages = 0;
+    do {
+      const r = await call(SHOPIFY, "graphql_query", { query: DISPUTES_QUERY, variables: after ? { after } : {} }, { cache: false });
+      const conn = (jsonOf(r, (x) => x.data && x.data.orders) || {}).data?.orders;
+      if (!conn) throw { code: "tool_error", message: "onverwacht antwoord van Shopify" };
+      for (const o of conn.nodes) {
+        if (o.test) continue;
+        for (const d of o.disputes || []) list.push({ d: dayKey(new Date(o.createdAt)), name: o.name, amount: cents(o.totalPriceSet.shopMoney.amount), status: d.status, kind: d.initiatedAs });
+      }
+      after = conn.pageInfo.hasNextPage ? conn.pageInfo.endCursor : null; pages++;
+    } while (after && pages < 20);
+    S.disputes = { status: "ok", list };
+  } catch (e) { S.disputes = { status: "fout", list: [] }; }
+  render();
+}
+
+/* ---------- PayPal ---------- */
+/* PayPal-transacties naar bedragen per dag in euro. Per transactie telt alleen de eerste regel: latere regels zijn
+   statusupdates, soms zonder fee. Buitenlandse valuta gaan om met het wisselpaar (T0200) van die transactie.
+   net = verandering van het euro-saldo, lk = geld dat PayPal vasthoudt (holds, reserve, disputes). */
+const PP_FIELDS = ["s", "f", "n", "nx", "rf", "cb", "w", "net", "lk", "out", "meta"];
+function parsePaypal(records) {
+  const first = new Map();
+  for (const r of records) {
+    const t = r.transaction_info || r, key = t.transaction_id + "|" + t.transaction_event_code;
+    const have = first.get(key);
+    if (!have) first.set(key, { ...t });
+    else if (!have.fee_amount && t.fee_amount) have.fee_amount = t.fee_amount;
+  }
+  const list = [...first.values()].filter((t) => t.transaction_status !== "D" && !/^T13/.test(t.transaction_event_code));
+  const pairs = {};
+  for (const t of list) if (t.transaction_event_code === "T0200") {
+    const p = pairs[t.paypal_reference_id] || (pairs[t.paypal_reference_id] = {});
+    if (t.transaction_amount.currency_code === "EUR") p.eur = Number(t.transaction_amount.value); else p.fx = Number(t.transaction_amount.value);
+  }
+  const rateOf = (t) => { const p = pairs[t.transaction_id]; return p && p.eur && p.fx ? Math.abs(p.eur / p.fx) : null; };
+  const days = {};
+  for (const t of list) {
+    const code = t.transaction_event_code, cur = t.transaction_amount.currency_code, amt = Number(t.transaction_amount.value);
+    const fee = t.fee_amount ? Number(t.fee_amount.value) : 0;
+    const k = dayKey(new Date(t.transaction_initiation_date));
+    const d = days[k] || (days[k] = Object.fromEntries(PP_FIELDS.map((x) => [x, 0])));
+    if (cur === "EUR") d.net += (amt + fee) * 100;
+    if (code === "T0200") continue;
+    const rt = cur === "EUR" ? 1 : rateOf(t);
+    if (rt === null) { d.nx++; continue; }
+    const e = amt * rt * 100;
+    d.f -= fee * rt * 100;
+    if (/^T00/.test(code)) {
+      if (amt > 0) { d.s += e; d.n++; }
+      else if (/\b(ads?|facebook|meta)\b/i.test(t.transaction_subject || "")) d.meta -= e;
+      else d.out -= e;
+    } else if (/^T01/.test(code)) d.f -= e;
+    else if (/^T04/.test(code)) d.w -= e;
+    else if (code === "T1110" || code === "T1111" || /^T21/.test(code)) d.lk -= e;
+    else if (/^T12/.test(code) || code === "T1106") d.cb -= e;
+    else if (/^T11/.test(code)) d.rf -= e;
+  }
+  for (const d of Object.values(days)) for (const x of PP_FIELDS) d[x] = Math.round(d[x]);
+  return days;
+}
+const monthEnd = (m) => { const [y, mo] = m.split("-").map(Number); return new Date(Date.UTC(y, mo, 0)).toISOString().slice(0, 10); };
+const prevMonth = (m) => { const [y, mo] = m.split("-").map(Number); return new Date(Date.UTC(y, mo - 2, 1)).toISOString().slice(0, 7); };
+async function fetchPaypalMonth(m) {
+  const all = []; let page = 1, pages = 1;
+  do {
+    const r = await call(PAYPAL, "list_transactions", { start_date: m + "-01T00:00:00Z", end_date: monthEnd(m) + "T23:59:59Z", page_size: 500, page }, { cache: false });
+    const x = jsonOf(r, (y) => Array.isArray(y.transaction_details));
+    if (!x) throw { code: "tool_error", message: "onverwacht antwoord van PayPal" };
+    all.push(...x.transaction_details); pages = Number(x.total_pages) || 1; page++;
+  } while (page <= pages && page <= 40);
+  return all;
+}
+/* De hele PayPal-historie per maand (UTC). Afgesloten maanden worden bewaard, de lopende maand wordt elke keer
+   opgehaald. Terug tot twee lege maanden achter elkaar: dan is de rekening begonnen en klopt het saldo. */
+async function loadPaypal() {
+  S.paypal.status = "laden"; S.paypal.progress = ""; renderStrip();
+  try {
+    const today = dayKey(new Date());
+    let m = new Date().toISOString().slice(0, 7), empty = 0, i = 0;
+    for (; i < 36; i++) {
+      const closed = monthEnd(m) < addDays(today, -3);
+      let doc = S.pp[m];
+      if (!doc || !doc.closed) {
+        S.paypal.progress = m; renderStrip();
+        const recs = await fetchPaypalMonth(m);
+        doc = { days: parsePaypal(recs), n: recs.length, closed };
+        S.pp[m] = doc;
+        if (closed) { const d = doc; writeDoc("paypal/" + m, () => d); }
+      }
+      empty = doc.n ? 0 : empty + 1;
+      if (empty >= 2) break;
+      m = prevMonth(m);
+    }
+    S.paypal.complete = empty >= 2;
+    S.paypal.since = Object.keys(S.pp).filter((k) => S.pp[k].n).sort()[0] || null;
+    S.paypal.status = "ok"; S.paypal.err = null; S.paypal.at = Date.now();
+  } catch (e) { fail(S.paypal, e, PAYPAL); }
+  render();
+}
+function ppDays() {
+  const o = {};
+  for (const doc of Object.values(S.pp)) for (const [k, d] of Object.entries(doc.days || {})) {
+    const t = o[k] || (o[k] = Object.fromEntries(PP_FIELDS.map((x) => [x, 0])));
+    for (const x of PP_FIELDS) t[x] += d[x] || 0;
+  }
+  return o;
+}
+const ppOk = () => S.paypal.status === "ok";
+/* PayPal-saldo aan het eind van dag X: beschikbaar en vastgehouden. Alleen als de hele historie binnen is. */
+function ppAt(X, days) {
+  if (!ppOk() || !S.paypal.complete) return null;
+  days = days || ppDays();
+  let avail = 0, locked = 0;
+  for (const [k, d] of Object.entries(days)) if (k <= X) { avail += d.net; locked += d.lk; }
+  return { avail, locked, total: avail + locked };
+}
+
+/* ---------- wat Shopify vasthoudt, berekend ---------- */
+const addWorkdays = (k, n) => { let d = k; while (n > 0) { d = addDays(d, 1); if (isWorkday(d)) n--; } return d; };
+function shopNet(k) { const f = feeDay(k); return f && f.v === 2 ? f.c - f.r - f.f : null; }
+/* Een verkoop via Shopify Payments wordt na de payout-vertraging (werkdagen) uitbetaald, min het deel dat Shopify
+   als reserve vasthoudt; die reserve komt na het aantal reservedagen vrij. Geeft null als er dagen ontbreken. */
+function shopHeldAt(X) {
+  const s = S.settings, rp = s.shopReservePct, RD = s.shopReserveDays;
+  const nd = addWorkdays(X, 1);
+  let payout = 0, pending = 0, hold = 0;
+  for (const k of eachDay(addDays(X, -(RD + s.payoutDelay * 2 + 10)), X)) {
+    const net = shopNet(k); if (net === null) return null;
+    const pd = addWorkdays(k, s.payoutDelay);
+    if (pd > X) { if (pd === nd) payout += net * (1 - rp); else pending += net * (1 - rp); }
+    if (addDays(pd, RD) > X) hold += net * rp;
+  }
+  payout = Math.round(payout); pending = Math.round(pending); hold = Math.round(hold);
+  return { payout, payoutDate: nd, pending, hold, total: payout + pending + hold };
+}
+function shopNetBetween(a, b) { let t = 0; for (const k of eachDay(a, b)) { const n = shopNet(k); if (n === null) return null; t += n; } return t; }
+/* Uitbetaald door Shopify in (a, b]: wat er vastzat op a, plus nieuwe verkopen, min wat er vastzit op b. */
+function shopPaidBetween(a, b) {
+  const ha = shopHeldAt(a), hb = shopHeldAt(b), net = b > a ? shopNetBetween(addDays(a, 1), b) : 0;
+  return ha && hb && net !== null ? ha.total + net - hb.total : null;
+}
+/* Controle van de berekening: voorspelde Shopify-payouts tegen wat de bank echt ontving, over de laatste 30 dagen bank. */
+function shopCheck() {
+  const cov = coverage(); if (!cov.merged.length) return null;
+  const last = cov.merged[cov.merged.length - 1];
+  const a = addDays(last.to, -29) > last.from ? addDays(last.to, -29) : last.from;
+  const model = shopPaidBetween(addDays(a, -1), last.to); if (model === null) return null;
+  const bank = allTxs().filter((t) => t.c === "shopify_payout" && t.d >= a && t.d <= last.to).reduce((s, t) => s + t.a, 0);
+  return { from: a, to: last.to, model, bank, diff: bank - model };
+}
+
 async function grantAccess(server) {
   if (!S.perms) { toast("Toestemming vragen kan niet in deze weergave. Herlaad de pagina in claude.ai."); return; }
   const key = "mcp:" + server;
   const res = await S.perms.request([key]).catch(() => ({}));
   S.permState[server] = res[key] || "unavailable";
   if (res[key] === "denied") { render(); return; }
-  if (server === SHOPIFY) { loadSales(true); loadFees(false); } else loadMeta(true);
+  if (server === SHOPIFY) { loadSales(true); loadFees(false); } else if (server === PAYPAL) loadPaypal(); else loadMeta(true);
 }
-function loadRemote(force) { loadSales(force); loadMeta(force); loadFees(force); }
+function loadRemote(force) { loadSales(force); loadMeta(force); loadFees(force); if (force || S.paypal.status !== "ok") loadPaypal(); }
 
 /* ============================================================
    Cijfers voor een periode
@@ -669,14 +844,22 @@ function finance(p) {
   const bucket = (b) => Object.entries(bank).filter(([c]) => CAT[c] && CAT[c].bucket === b).reduce((s, [, v]) => s - v, 0);
   const metaRows = S.meta.rows.filter((r) => r.date >= p.from && r.date <= p.to);
   const metaSpend = S.meta.status === "ok" ? metaRows.reduce((s, r) => s + r.spend, 0) : null;
-  const metaPaid = -booked.filter((t) => t.c === "meta").reduce((s, t) => s + t.a, 0);
-  const meta = metaSpend !== null ? metaSpend : bucket("meta");
+  const pp = { f: 0, cb: 0, out: 0, meta: 0, nx: 0 };
+  if (ppOk()) { const pd = ppDays(); for (const k of eachDay(p.from, p.to)) { const d = pd[k]; if (d) for (const x of Object.keys(pp)) pp[x] += d[x]; } }
+  const metaPaid = -booked.filter((t) => t.c === "meta").reduce((s, t) => s + t.a, 0) + pp.meta;
+  const meta = metaSpend !== null ? metaSpend : bucket("meta") + pp.meta;
   let shopFees = 0, fx = 0, feeDaysMissing = 0, feeOrders = 0, feeOrdersNoData = 0;
   for (const k of days) { const f = feeDay(k); if (f) { shopFees += f.f; fx += f.fx; feeOrders += f.n; feeOrdersNoData += f.nf; } else feeDaysMissing++; }
-  const manFees = manualSum(["paypal_fees", "fees"], p);
-  const fees = shopFees + manFees;
-  const chargebacks = bucket("chargebacks") + manualSum(["chargebacks"], p);
-  const other = bucket("other") + manualSum(["other"], p);
+  // met PayPal gekoppeld tellen handmatige PayPal-fees niet meer mee, anders dubbel
+  const manFees = manualSum(ppOk() ? ["fees"] : ["paypal_fees", "fees"], p);
+  const fees = shopFees + pp.f + manFees;
+  const inP = (x) => x.d >= p.from && x.d <= p.to;
+  const lost = S.disputes.list.filter((x) => inP(x) && x.status === "LOST");
+  const shopCb = lost.reduce((a, x) => a + x.amount, 0);
+  // met disputes uit Shopify tellen handmatige chargebacks niet meer mee, anders dubbel
+  const manCb = S.disputes.status === "ok" ? 0 : manualSum(["chargebacks"], p);
+  const chargebacks = bucket("chargebacks") + manCb + shopCb + pp.cb;
+  const other = bucket("other") + manualSum(["other"], p) + pp.out;
   const team = bucket("team") + manualSum(["team"], p) + teamMonthly(p);
   const cogs = bucket("cogs") + manualSum(["cogs"], p);
   const res = pnl({ revenue, taxes, orders, cogs, meta, fees, chargebacks, other, team, inventory: manualSum(["inventory"], p) }, S.settings.reserveVat);
@@ -684,13 +867,13 @@ function finance(p) {
   const lines = [
     { key: "revenue", label: "Omzet", v: revenue, src: S.sales.status === "ok" ? ["Shopify"] : [S.sales.status === "laden" ? "laden" : "ontbreekt"], note: missingSales && S.sales.status === "ok" ? `${missingSales} dagen zonder data` : "" },
     { key: "cogs", label: "COGS en verzending", v: cogs, src: [hasBank ? "bank" : "ontbreekt"].concat(manualSum(["cogs"], p) ? ["handmatig"] : []) },
-    { key: "meta", label: "Meta ads", v: meta, src: metaSpend !== null ? ["Meta"] : [hasBank ? "bank" : "ontbreekt"], note: metaSpend !== null ? `verbruikt volgens Meta, betaald via bank ${euro(metaPaid, true)}` : "betaald volgens bank, Meta-koppeling niet bereikbaar" },
-    { key: "fees", label: "Shopify en PayPal fees", v: fees, src: (S.feesLive.status === "fout" && !shopFees ? ["ontbreekt"] : ["Shopify"]).concat(manFees ? ["handmatig"] : []), note: [fx ? `waarvan ${euro(fx, true)} wisselkoers-fee` : "", feeDaysMissing ? `${feeDaysMissing} dagen nog niet opgehaald` : "", manFees ? "PayPal-fees handmatig" : "PayPal-fees ontbreken"].filter(Boolean).join(", ") },
-    { key: "chargebacks", label: "Chargebacks en disputes", v: chargebacks, src: chargebacks ? ["handmatig"] : ["ontbreekt"], note: chargebacks ? "" : "je Shopify-koppeling mag geen disputes lezen; vul in bij Invoer" },
-    { key: "other", label: "Software, freelancers, boekhouder, bank", v: other, src: [hasBank ? "bank" : "ontbreekt"] },
+    { key: "meta", label: "Meta ads", v: meta, src: metaSpend !== null ? ["Meta"] : [hasBank ? "bank" : "ontbreekt"], note: metaSpend !== null ? `verbruikt volgens Meta, betaald via bank en PayPal ${euro(metaPaid, true)}` : "betaald volgens bank, Meta-koppeling niet bereikbaar" },
+    { key: "fees", label: "Shopify en PayPal fees", v: fees, src: (S.feesLive.status === "fout" && !shopFees ? ["ontbreekt"] : ["Shopify"]).concat(ppOk() ? ["PayPal"] : ["ontbreekt"], manFees ? ["handmatig"] : []), note: [shopFees || pp.f ? `Shopify ${euro(shopFees, true)}, PayPal ${ppOk() ? euro(pp.f, true) : "ontbreekt"}` : "", fx ? `waarvan ${euro(fx, true)} wisselkoers-fee bij Shopify` : "", feeDaysMissing ? `${feeDaysMissing} dagen nog niet opgehaald` : "", pp.nx ? `${pp.nx} PayPal-regels zonder koers` : ""].filter(Boolean).join(", ") },
+    { key: "chargebacks", label: "Chargebacks en disputes", v: chargebacks, src: (S.disputes.status === "ok" ? ["Shopify"] : ["ontbreekt"]).concat(ppOk() ? ["PayPal"] : [], manCb ? ["handmatig"] : []), note: [lost.length ? `${lost.length} verloren bij Shopify (${euro(shopCb, true)}, orderbedrag, op orderdatum)` : S.disputes.status === "ok" ? "geen verloren disputes bij Shopify" : "", ppOk() ? `PayPal ${euro(pp.cb, true)}` : ""].filter(Boolean).join(", ") },
+    { key: "other", label: "Software, freelancers, boekhouder, bank", v: other, src: [hasBank ? "bank" : "ontbreekt"].concat(pp.out ? ["PayPal"] : []), note: pp.out ? `waarvan ${euro(pp.out, true)} betaald vanuit PayPal` : "" },
     { key: "team", label: "Teamkosten", v: team, src: team ? (bucket("team") ? ["bank"] : ["handmatig"]) : ["ontbreekt"], note: team ? "" : "nog niet ingevoerd" },
   ];
-  return { p, res, lines, bank, eff, booked, metaSpend, metaPaid, metaRows, fx, feeOrders, feeOrdersNoData, missingSales, days };
+  return { p, res, lines, bank, eff, booked, metaSpend, metaPaid, metaRows, fx, feeOrders, feeOrdersNoData, missingSales, days, pp, lost };
 }
 function latestBalance(beforeKey) {
   const list = [...S.balances].filter((b) => !beforeKey || b.at <= beforeKey).sort((a, b) => a.at.localeCompare(b.at));
@@ -704,42 +887,73 @@ function bankBalanceAt(k) {
   const next = txs.find((t) => t.d > k);
   return next ? next.b - next.a : null;
 }
+/* Waar het geld nu staat. Bank uit het laatste afschrift, PayPal uit de hele PayPal-historie, Shopify berekend uit de
+   verkopen. Wat na het afschrift al naar de bank is gegaan staat apart als onderweg. Zonder berekening: handmatige stand. */
 function moneyNow() {
-  const snap = latestBalance();
+  const snap = latestBalance(), today = dayKey(new Date());
   const txs = allTxs().filter((t) => t.b !== null && t.b !== undefined);
   const lastTx = txs[txs.length - 1];
   const bankC = lastTx ? lastTx.b : snap && snap.bank != null ? snap.bank : 0;
-  const pos = { bank: bankC, paypal: snap ? snap.paypal : 0, payout: snap ? snap.payout : 0, pending: snap ? snap.pending : 0, hold: snap ? snap.hold : 0 };
-  const now = pos.bank + pos.paypal, soon = pos.payout + pos.pending, locked = pos.hold;
-  return { snap, bankDate: lastTx ? lastTx.d : null, bankSrc: lastTx ? "bank" : snap && snap.bank != null ? "handmatig" : "ontbreekt", pos, now, soon, locked, total: now + soon + locked, shopify: pos.payout + pos.pending + pos.hold };
+  const E = lastTx ? lastTx.d : null;
+  const days = ppOk() ? ppDays() : {};
+  const sh = shopHeldAt(today), pp = ppAt(today, days);
+  let transit = 0;
+  if (E && E < today) {
+    const paid = shopPaidBetween(E, today); if (paid !== null) transit += paid;
+    if (pp) for (const [k, d] of Object.entries(days)) if (k > E && k <= today) transit += d.w;
+  }
+  const pos = {
+    bank: bankC, transit: Math.round(transit),
+    paypal: pp ? pp.avail : snap ? snap.paypal : 0, ppLocked: pp ? pp.locked : 0,
+    payout: sh ? sh.payout : snap ? snap.payout : 0, pending: sh ? sh.pending : snap ? snap.pending : 0, hold: sh ? sh.hold : snap ? snap.hold : 0,
+  };
+  const now = pos.bank + pos.paypal, soon = pos.transit + pos.payout + pos.pending, locked = pos.hold + pos.ppLocked;
+  return {
+    snap, bankDate: E, bankSrc: lastTx ? "bank" : snap && snap.bank != null ? "handmatig" : "ontbreekt",
+    ppSrc: pp ? "PayPal" : snap ? "handmatig" : "ontbreekt", shopSrc: sh ? "berekend" : snap ? "handmatig" : "ontbreekt",
+    payoutDate: sh ? sh.payoutDate : snap && snap.payoutDate ? snap.payoutDate : null,
+    pos, now, soon, locked, total: now + soon + locked, shopify: pos.payout + pos.pending + pos.hold,
+  };
 }
 function bridge(f) {
-  const p = f.p;
-  const bankBegin = bankBalanceAt(addDays(p.from, -1)), bankEnd = bankBalanceAt(p.to);
-  const sb = latestBalance(p.from), se = latestBalance(p.to);
-  const sh = (b) => (b ? b.payout + b.pending + b.hold : null);
+  const p = f.p, today = dayKey(new Date());
+  const cov = coverage();
+  // alle standen op hetzelfde moment als het banksaldo: eind van de periode, of eerder als het afschrift eerder stopt
+  let end = p.to < today ? p.to : today;
+  if (cov.last && cov.last < end) end = cov.last;
+  const begin = addDays(p.from, -1);
+  const bankBegin = bankBalanceAt(begin), bankEnd = bankBalanceAt(end);
+  const snapSh = (b) => (b ? b.payout + b.pending + b.hold : null);
+  const hb = shopHeldAt(begin), he = shopHeldAt(end);
+  const shopBegin = hb ? hb.total : snapSh(latestBalance(p.from)), shopEnd = he ? he.total : snapSh(latestBalance(end));
+  const days = ppOk() ? ppDays() : null;
+  const pb = days && ppAt(begin, days), pe = days && ppAt(end, days);
   const missing = [];
   if (bankBegin === null) missing.push("banksaldo aan het begin");
   if (bankEnd === null) missing.push("banksaldo aan het eind");
-  if (!sb) missing.push("Shopify-saldo aan het begin");
-  if (!se) missing.push("Shopify-saldo aan het eind");
+  if (cov.last && end < (p.to < today ? p.to : addDays(today, -1))) missing.push(`bankafschrift na ${dayL(cov.last)}`);
+  if (shopBegin === null) missing.push("Shopify-saldo aan het begin");
+  if (shopEnd === null) missing.push("Shopify-saldo aan het eind");
+  if (!pb || !pe) missing.push("PayPal-saldo");
   const bankTot = totalsByCategory(f.booked);
   const priv = -(bankTot.private || 0);
   const loans = (bankTot.loan || 0) + (bankTot.owner_deposit || 0);
   const metaTiming = f.res.meta - f.metaPaid;
-  const shopGrowth = (sh(se) || 0) - (sh(sb) || 0);
+  const shopGrowth = (shopEnd || 0) - (shopBegin || 0);
+  const ppGrowth = pb && pe ? pe.total - pb.total : 0;
   const bankGrowth = (bankEnd || 0) - (bankBegin || 0);
-  const explained = f.res.profit - shopGrowth - priv + metaTiming + loans;
+  const explained = f.res.profit - shopGrowth - ppGrowth - priv + metaTiming + loans;
   const timing = bankGrowth - explained;
   const steps = [
     { key: "profit", label: "Winst", v: f.res.profit, ex: "Wat je in deze periode verdiende." },
-    { key: "shop", label: "Nog bij Shopify", v: -shopGrowth, ex: "Wat Shopify nog vasthoudt (payout, pending en reserve) is gegroeid en staat nog niet op je bank." },
+    { key: "shop", label: "Nog bij Shopify", v: -shopGrowth, ex: "Wat Shopify nog vasthoudt (payout, pending en reserve) is gegroeid en staat nog niet op je bank. Berekend uit je verkopen." },
+    { key: "paypal", label: "Nog bij PayPal", v: -ppGrowth, ex: "Je PayPal-saldo, inclusief wat PayPal vasthoudt, is gegroeid. Dat geld staat nog niet op je bank." },
     { key: "priv", label: "Naar privé", v: -priv, ex: "Opnames naar privé. Geen kosten, wel weg van de zakelijke rekening." },
     { key: "meta", label: "Meta verbruikt min betaald", v: metaTiming, ex: "Meta rekent achteraf af. Verbruikt maar nog niet betaald staat nog op je bank; betaald voor een vorige periode is er al af." },
     { key: "loans", label: "Lening en stortingen", v: loans, ex: "Geleend geld en eigen stortingen. Geen omzet, wel geld op de bank." },
     { key: "timing", label: "Timing en afronding", v: timing, ex: "Wat de stappen hierboven niet verklaren, bijvoorbeeld een leverancier die voor een andere periode is betaald." },
   ];
-  return { steps, bankBegin, bankEnd, bankGrowth, shopBegin: sh(sb), shopEnd: sh(se), timing, missing, warn: f.res.profit !== 0 && Math.abs(timing) > Math.abs(f.res.profit) * 0.05 };
+  return { steps, end, bankBegin, bankEnd, bankGrowth, shopBegin, shopEnd, ppBegin: pb ? pb.total : null, ppEnd: pe ? pe.total : null, timing, missing, warn: f.res.profit !== 0 && Math.abs(timing) > Math.abs(f.res.profit) * 0.05 };
 }
 function coverage() {
   const ranges = S.imports.filter((i) => i.from && i.to).map((i) => ({ from: i.from, to: i.to }));
@@ -752,9 +966,9 @@ function coverage() {
   return { merged, gaps, last, missingFrom, missingDays: missingFrom ? daysBetween(missingFrom, yesterday) + 1 : 0 };
 }
 function fcSettings() {
-  const s = S.settings, m = moneyNow(), snap = m.snap;
+  const s = S.settings, m = moneyNow();
   return {
-    days: s.forecastDays, start: addDays(dayKey(new Date()), 1), bank: m.pos.bank, payout: m.pos.payout, payoutDate: snap && snap.payoutDate ? snap.payoutDate : null,
+    days: s.forecastDays, start: addDays(dayKey(new Date()), 1), bank: m.pos.bank + m.pos.transit, payout: m.pos.payout, payoutDate: m.payoutDate,
     pending: m.pos.pending, pendingWorkdays: 3, salesDay: s.salesDay, ratio: s.payoutRatio, delay: s.payoutDelay, paypalDay: s.paypalDay, metaDay: s.metaDay,
     privateWeek: s.privateWeek, softwareWeek: s.softwareWeek, supplier: s.supplier, supplierDay: s.supplierDay, buffer: s.buffer, releaseAmount: 0, releaseDate: "", extraDay: 0,
   };
@@ -773,7 +987,9 @@ function alerts(f) {
   if (f.res.metaShare !== null && f.res.metaShare > s.metaShareLimit) out.push({ l: 2, t: "Meta is meer dan 40% van de omzet", b: `In deze periode ging ${pct(f.res.metaShare)} van de omzet naar Meta.`, tab: "meta" });
   if (f.res.revenue > 0 && f.feeOrders > 0 && f.res.fees / f.res.revenue > s.feesLimit) out.push({ l: 3, t: "Fees hoog", b: `Fees zijn ${pct(f.res.fees / f.res.revenue)} van de omzet. Normaal EU-tarief is 1,5 tot 2,5%. Waarvan ${euro(f.fx, true)} wisselkoers-fee op betalingen in GBP, USD en andere valuta.`, tab: "overzicht" });
   const cov = coverage(), unknown = allTxs().filter((t) => t.c === "unknown").length;
-  const issues = [unknown && `${unknown} bankmutaties nog niet ingedeeld`, cov.gaps.length && "gat in de bankdata", S.sales.status === "fout" && "Shopify niet bereikbaar", S.meta.status === "fout" && "Meta niet bereikbaar"].filter(Boolean);
+  const open = S.disputes.list.filter((x) => x.status === "NEEDS_RESPONSE");
+  if (open.length) out.push({ l: 2, t: `${open.length} ${open.length === 1 ? "dispute wacht" : "disputes wachten"} op je reactie`, b: `Orders ${open.map((x) => x.name).join(", ")}, samen ${euro(open.reduce((a, x) => a + x.amount, 0), true)}. Reageer in Shopify, anders gaan ze verloren.`, tab: "geld" });
+  const issues = [unknown && `${unknown} bankmutaties nog niet ingedeeld`, cov.gaps.length && "gat in de bankdata", S.sales.status === "fout" && "Shopify niet bereikbaar", S.meta.status === "fout" && "Meta niet bereikbaar", S.paypal.status === "fout" && "PayPal niet bereikbaar"].filter(Boolean);
   if (issues.length) out.push({ l: 3, t: "Data nog niet volledig", b: issues.join(", ") + ".", tab: "bank" });
   if (f.res.team === 0) out.push({ l: 3, t: "Winst niet volledig: teamkosten staan op € 0", b: "Voer je teamkosten per maand in, of deel teambetalingen in de bank in als Team.", tab: "invoer" });
   return out.sort((a, b) => a.l - b.l);
@@ -782,7 +998,7 @@ function alerts(f) {
 /* ============================================================
    Weergave
    ============================================================ */
-const SRC = { Shopify: ["uit Shopify", ""], bank: ["uit bank", ""], Meta: ["uit Meta", ""], handmatig: ["handmatig", "hand"], ontbreekt: ["ontbreekt", "miss"], laden: ["laden", ""] };
+const SRC = { Shopify: ["uit Shopify", ""], PayPal: ["uit PayPal", ""], berekend: ["berekend", ""], bank: ["uit bank", ""], Meta: ["uit Meta", ""], handmatig: ["handmatig", "hand"], ontbreekt: ["ontbreekt", "miss"], laden: ["laden", ""] };
 const badge = (s) => `<span class="badge ${SRC[s] ? SRC[s][1] : ""}">${esc(SRC[s] ? SRC[s][0] : s)}</span>`;
 const COST_COLOR = { cogs: "var(--c-cogs)", meta: "var(--c-meta)", fees: "var(--c-fees)", chargebacks: "var(--c-chargebacks)", other: "var(--c-other)", profit: "var(--c-profit)", team: "var(--c-team)" };
 const kpi = (l, v, s, tone) => `<div class="card kpi"><div class="l">${esc(l)}</div><div class="v num ${tone || ""}">${v}</div>${s ? `<div class="s">${s}</div>` : ""}</div>`;
@@ -802,11 +1018,11 @@ function renderStrip() {
   const cov = coverage(), unknown = allTxs().filter((t) => t.c === "unknown").length;
   const bankNeeded = !cov.last || cov.missingFrom;
   const st = (x, label) => `<span title="${esc(x.err || "")}">${srcDot(x.status)} ${label} <span class="muted">${x.status === "ok" ? "live" : x.status === "fout" ? "fout" : x.status === "laden" ? "laden" + (x.progress ? ", " + esc(x.progress) : "") : ""}</span></span>`;
-  let html = `<div class="strip"><b>Data</b>${st(S.sales, "Shopify omzet")}${st(S.feesLive, "Shopify fees")}${st(S.meta, "Meta")}
+  let html = `<div class="strip"><b>Data</b>${st(S.sales, "Shopify omzet")}${st(S.feesLive, "Shopify fees")}${st(S.paypal, "PayPal")}${st(S.meta, "Meta")}
     <span>${cov.last ? (bankNeeded ? '<span class="dot warn">●</span>' : '<span class="dot good">●</span>') : '<span class="dot warn">●</span>'} Bank <span class="muted">${cov.last ? "t/m " + dayL(cov.last) : "nog geen afschrift"}</span></span>
     ${unknown ? `<button class="btn ghost" type="button" data-tab="bank" data-cat="unknown">${unknown} bankmutaties indelen</button>` : ""}
     ${S.dbState !== "ok" ? `<span class="neg">Opslag: ${esc(S.dbState)}</span>` : ""}</div>`;
-  const failed = [S.sales, S.meta, S.feesLive].filter((x) => x.status === "fout");
+  const failed = [S.sales, S.meta, S.feesLive, S.paypal].filter((x) => x.status === "fout");
   const consentServers = [...new Set(failed.filter((x) => x.consent).map((x) => x.server))];
   const errs = [...new Set(failed.filter((x) => !x.consent).map((x) => x.err))];
   for (const srv of consentServers) {
@@ -833,7 +1049,7 @@ function renderStrip() {
   const gap = document.getElementById("gapText");
   gap.hidden = !cov.gaps.length;
   gap.textContent = cov.gaps.length ? `Gat in de bankdata: ${cov.gaps.map((g) => dayL(g.from) + " t/m " + dayL(g.to)).join(", ")}. Upload een afschrift van die periode.` : "";
-  const fr = [S.sales.at, S.meta.at].filter(Boolean);
+  const fr = [S.sales.at, S.meta.at, S.paypal.at].filter(Boolean);
   document.getElementById("freshness").textContent = fr.length ? "bijgewerkt " + new Date(Math.min(...fr)).toLocaleTimeString("nl-NL", { hour: "2-digit", minute: "2-digit" }) : "";
 }
 const DROP_ICON = '<svg class="dropicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="m7 8 5-5 5 5"/><path d="M20 15v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4"/></svg>';
@@ -894,8 +1110,23 @@ function viewOverview() {
 }
 
 function viewMoney() {
-  const m = moneyNow(), p = m.pos, s = m.snap;
-  const parts = [["bank", "Bank (Revolut)", p.bank, "Nu beschikbaar", "var(--text)", false, m.bankSrc], ["paypal", "PayPal", p.paypal, "Nu beschikbaar", "var(--s1)", false, s ? "handmatig" : "ontbreekt"], ["payout", "Shopify payout ingepland", p.payout, s && s.payoutDate ? dayL(s.payoutDate) : "Eerstvolgende werkdag", "var(--s3)", false, s ? "handmatig" : "ontbreekt"], ["pending", "Shopify pending", p.pending, "Komende werkdagen", "var(--s4)", false, s ? "handmatig" : "ontbreekt"], ["hold", "Shopify reserve (hold)", p.hold, "Op slot", "var(--s2)", true, s ? "handmatig" : "ontbreekt"]];
+  const m = moneyNow(), p = m.pos, today = dayKey(new Date());
+  const parts = [
+    ["bank", "Bank (Revolut)", p.bank, m.bankDate ? "Nu, saldo t/m " + dayL(m.bankDate) : "Nu beschikbaar", "var(--text)", false, m.bankSrc],
+    ["transit", "Onderweg naar bank", p.transit, "Na het laatste afschrift uitbetaald door Shopify en PayPal", "var(--s5, var(--s3))", false, m.bankDate ? "berekend" : "ontbreekt"],
+    ["paypal", "PayPal", p.paypal, "Nu beschikbaar", "var(--s1)", false, m.ppSrc],
+    ["ppLocked", "PayPal vastgehouden", p.ppLocked, "Holds, reserve en disputes", "var(--s1)", true, m.ppSrc],
+    ["payout", "Shopify payout ingepland", p.payout, m.payoutDate ? dayL(m.payoutDate) : "Eerstvolgende werkdag", "var(--s3)", false, m.shopSrc],
+    ["pending", "Shopify pending", p.pending, "Komende werkdagen", "var(--s4)", false, m.shopSrc],
+    ["hold", "Shopify reserve (hold)", p.hold, "Op slot", "var(--s2)", true, m.shopSrc],
+  ];
+  const chk = shopCheck(), s = S.settings;
+  const d90 = addDays(today, -89);
+  const cb90 = S.disputes.list.filter((x) => x.kind === "CHARGEBACK" && x.d >= d90);
+  const salesDays = eachDay(d90, today).filter((k) => S.sales.byDay[k]);
+  const orders90 = salesDays.length === 90 ? salesDays.reduce((a, k) => a + S.sales.byDay[k].orders, 0) : null;
+  const openD = S.disputes.list.filter((x) => !["WON", "LOST", "ACCEPTED", "CHARGE_REFUNDED"].includes(x.status));
+  const ppFirst = ppOk() ? Object.keys(ppDays()).sort()[0] : null, ppFrom = ppFirst ? dayL(ppFirst) : null;
   const byLender = {};
   for (const t of allTxs().filter((t) => t.c === "loan")) {
     const n = t.ds.replace(/^(Betaling van|To)\s+/i, "").trim().toUpperCase();
@@ -904,20 +1135,23 @@ function viewMoney() {
   }
   const lenders = Object.values(byLender);
   return `
-  <section><h1 class="serif" style="font-size:28px">Waar mijn geld staat</h1><p class="sub">Bank: laatste afschrift t/m ${dayL(m.bankDate)}. Shopify en PayPal: ${s ? "stand van " + dayL(s.at) : "nog niet ingevuld"}. Je Shopify-koppeling mag geen saldi lezen, dus die vul je in bij Invoer (1 minuut, uit Shopify, Finances, Payouts).</p></section>
-  <section class="grid kpis">${kpi("Totaal", euro(m.total, true))}${kpi("Direct beschikbaar", euro(m.now, true), "bank en PayPal", "good")}${kpi("Binnenkort", euro(m.soon, true), "payout en pending")}${kpi("Op slot", euro(m.locked, true), "Shopify reserve", "neg")}</section>
+  <section><h1 class="serif" style="font-size:28px">Waar mijn geld staat</h1><p class="sub">Bank: laatste afschrift t/m ${dayL(m.bankDate)}. PayPal: ${m.ppSrc === "PayPal" ? `live, berekend uit al je PayPal-transacties${ppFrom ? " sinds " + ppFrom : ""}` : S.paypal.status === "laden" ? "laden…" : "niet bereikbaar"}. Shopify: ${m.shopSrc === "berekend" ? `berekend uit je verkopen via Shopify Payments (uitbetaling na ${s.payoutDelay} werkdagen, reserve ${pct(s.shopReservePct)} voor ${s.shopReserveDays} dagen)` : m.shopSrc === "handmatig" ? "handmatige stand van " + dayL(m.snap.at) : S.feesLive.status === "laden" ? "laden…" : "ontbreekt"}.</p></section>
+  <section class="grid kpis">${kpi("Totaal", euro(m.total, true))}${kpi("Direct beschikbaar", euro(m.now, true), "bank en PayPal", "good")}${kpi("Binnenkort", euro(m.soon, true), "onderweg, payout en pending")}${kpi("Op slot", euro(m.locked, true), "reserves en holds", "neg")}</section>
   <section class="card"><h2>Verdeling</h2>
     ${m.total > 0 ? `<div class="costbar" style="height:38px">${parts.filter((x) => x[2] > 0).map((x) => `<div class="${x[5] ? "hatch" : ""}" title="${esc(x[1])}: ${euro(x[2])}" style="width:${(x[2] / m.total) * 100}%;background-color:${x[4]}"></div>`).join("")}</div>` : ""}
     <div class="scroll" style="margin-top:12px"><table><thead><tr><th>Plek</th><th class="r">Bedrag</th><th class="r">Aandeel</th><th>Beschikbaar</th></tr></thead><tbody>
     ${parts.map((x) => `<tr><td><div class="row" style="gap:6px"><i class="sw ${x[5] ? "hatch" : ""}" style="background-color:${x[4]}"></i>${esc(x[1])}${badge(x[6])}</div></td><td class="r">${euro(x[2])}</td><td class="r muted">${pct(div(x[2], m.total))}</td><td class="${x[5] ? "neg" : "dim"}">${esc(x[3])}</td></tr>`).join("")}
     </tbody><tfoot><tr><td>Totaal</td><td class="r">${euro(m.total)}</td><td></td><td></td></tr></tfoot></table></div>
     <p class="muted" style="font-size:12px;margin:10px 0 0">De ingeplande payout zit niet in pending en wordt apart geteld. Geld op slot is gearceerd.</p>
+    ${chk ? `<p class="dim" style="font-size:12.5px;margin:10px 0 0"><b>Controle Shopify-berekening</b> (${dayL(chk.from)} t/m ${dayL(chk.to)}): berekend ${euro(chk.model, true)} aan payouts, je bank ontving ${euro(chk.bank, true)}. ${Math.abs(chk.diff) <= Math.max(10000, Math.abs(chk.bank) * 0.05) ? '<span class="good">Klopt binnen 5%.</span>' : `<span class="warn">Verschil ${euro(chk.diff, true)}.</span> Disputes die Shopify inhoudt of een ander reservepercentage kunnen dit verklaren; pas de reserve aan bij Invoer en instellingen.`}</p>` : ""}
   </section>
   <section class="card"><h2>Shopify reserve (NDRP)</h2>
     <div class="grid kpis" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">
       <div><div class="dim">Vastgehouden</div><div class="num" style="font-size:20px;font-weight:600">${euro(p.hold)}</div></div>
-      <div><div class="dim">Chargeback rate (90 dagen)</div><div style="font-size:20px;font-weight:600">ontbreekt</div><div class="muted" style="font-size:12px">Je Shopify-koppeling mag geen disputes lezen. Exit: 30 dagen achter elkaar onder 1%.</div></div>
-    </div></section>
+      <div><div class="dim">Chargebacks (90 dagen)</div><div style="font-size:20px;font-weight:600">${S.disputes.status === "ok" ? cb90.length + (orders90 ? `, ${pct(cb90.length / orders90, 2)}` : "") : "ontbreekt"}</div><div class="muted" style="font-size:12px">${orders90 ? "van " + orders90 + " orders. " : "Orders van 90 dagen nog niet geladen. "}Exit: 30 dagen achter elkaar onder 1%.</div></div>
+    </div>
+    ${openD.length ? `<h3 style="margin:14px 0 6px;font-size:14px">Open disputes bij Shopify</h3><table><tbody>${openD.map((x) => `<tr><td>${esc(x.name)} <span class="muted">${dayL(x.d)}</span></td><td>${x.status === "NEEDS_RESPONSE" ? '<span class="neg">wacht op jouw reactie</span>' : '<span class="dim">in behandeling</span>'}</td><td class="dim">${x.kind === "CHARGEBACK" ? "chargeback" : "vraag"}</td><td class="r">${euro(x.amount)}</td></tr>`).join("")}</tbody></table>` : ""}
+  </section>
   ${lenders.length ? `<section class="card"><h2>Openstaande schuld ${badge("bank")}</h2><table><tbody>${lenders.map((l) => `<tr><td>Lening ${esc(l.n)}, sinds ${dayL(l.since)}${l.rep ? `, al ${euro(l.rep)} afgelost` : ""}</td><td class="r">${euro(l.rec - l.rep)}</td></tr>`).join("")}</tbody></table><p class="muted" style="font-size:12px;margin:8px 0 0">Een lening is geen omzet. Het geld staat op je bank, maar moet terug.</p></section>` : ""}`;
 }
 
@@ -932,7 +1166,7 @@ function viewBridge() {
   <section class="card"><h2>Uitleg per stap</h2><div class="scroll"><table><tbody>
     ${b.steps.map((s) => `<tr><td><b>${esc(s.label)}</b><div class="dim" style="font-size:12.5px">${esc(s.ex)}</div></td><td class="r ${s.v < 0 ? "neg" : ""}">${euro(s.v)}</td></tr>`).join("")}
   </tbody><tfoot><tr><td>Groei bankrekening<div class="muted" style="font-weight:400;font-size:12px">van ${euro(b.bankBegin)} naar ${euro(b.bankEnd)}</div></td><td class="r">${euro(b.bankGrowth)}</td></tr></tfoot></table></div>
-  <p class="muted" style="font-size:12px;margin:10px 0 0">Shopify-saldo (payout, pending en reserve): begin ${euro(b.shopBegin)}, eind ${euro(b.shopEnd)}.</p></section>`;
+  <p class="muted" style="font-size:12px;margin:10px 0 0">Standen per ${dayL(addDays(f.p.from, -1))} en ${dayL(b.end)}. Shopify (payout, pending en reserve, berekend): ${euro(b.shopBegin)} naar ${euro(b.shopEnd)}. PayPal (incl. vastgehouden): ${euro(b.ppBegin)} naar ${euro(b.ppEnd)}.</p></section>`;
 }
 
 function viewForecast() {
@@ -1048,26 +1282,14 @@ function viewInput() {
   const team = S.manual.filter((m) => m.kind === "team_month"), posts = S.manual.filter((m) => MANUAL_KINDS[m.kind]), inv = S.manual.filter((m) => m.kind === "open_invoice");
   const e2 = (c) => inEuro(c);
   return `
-  <section><h1 class="serif" style="font-size:28px">Invoer en instellingen</h1><p class="sub">Alleen wat je koppelingen niet kunnen lezen. Alles hier telt overal mee met het label handmatig.</p></section>
-  <section class="card"><h2>Shopify en PayPal saldo</h2><p class="dim" style="margin:0 0 10px">Uit Shopify, Finances, Payouts: de ingeplande payout, pending en reserve. En je PayPal-saldo. ${snap ? "Laatste stand: " + dayL(snap.at) + "." : ""}</p>
-    <form data-form="balance" class="formgrid">
-      <label>Datum<input class="input" type="date" id="bal_at" value="${today}" required></label>
-      <label>Payout ingepland (€)<input class="input" id="bal_payout" inputmode="decimal" value="${snap ? e2(snap.payout) : ""}" required></label>
-      <label>Payout datum<input class="input" type="date" id="bal_payoutDate" value="${snap && snap.payoutDate && snap.payoutDate >= today ? snap.payoutDate : ""}"></label>
-      <label>Pending (€)<input class="input" id="bal_pending" inputmode="decimal" value="${snap ? e2(snap.pending) : ""}" required></label>
-      <label>Reserve, hold (€)<input class="input" id="bal_hold" inputmode="decimal" value="${snap ? e2(snap.hold) : ""}" required></label>
-      <label>PayPal (€)<input class="input" id="bal_paypal" inputmode="decimal" value="${snap ? e2(snap.paypal) : ""}" required></label>
-      <label style="justify-content:flex-end"><button class="btn" type="submit">Stand opslaan</button></label>
-    </form>
-    ${S.balances.length ? `<details style="margin-top:10px"><summary class="dim">${S.balances.length} eerdere standen</summary><table><tbody>${[...S.balances].sort((a, b) => b.at.localeCompare(a.at)).map((b) => `<tr><td>${dayL(b.at)}</td><td class="r">payout ${euro(b.payout, true)}</td><td class="r">pending ${euro(b.pending, true)}</td><td class="r">hold ${euro(b.hold, true)}</td><td class="r">PayPal ${euro(b.paypal, true)}</td><td class="muted" style="font-size:12px">${esc(b.note || "")}</td><td class="r"><button class="btn ghost" style="padding:2px 8px" type="button" data-act="delBalance" data-id="${b.id}">verwijder</button></td></tr>`).join("")}</tbody></table></details>` : ""}
-  </section>
+  <section><h1 class="serif" style="font-size:28px">Invoer en instellingen</h1><p class="sub">Shopify, PayPal en Meta worden automatisch opgehaald en je bankafschrift sleep je erin. Hier vul je alleen in wat nergens anders staat, zoals teamkosten die niet via de bank gaan. Alles hier telt mee met het label handmatig.</p></section>
   <section class="card"><h2>Teamkosten per maand</h2>
     <form data-form="team" class="row"><input class="input" id="t_name" placeholder="rol of naam, bv. media buyer" required style="width:220px"><input class="input" id="t_amount" placeholder="per maand" inputmode="decimal" required style="width:110px"><label class="dim" style="font-size:12px">vanaf <input class="input" type="date" id="t_from" value="${ms}" required></label><label class="dim" style="font-size:12px">tot <input class="input" type="date" id="t_to"></label><button class="btn" type="submit">Toevoegen</button></form>
     <table style="margin-top:8px"><tbody>${team.map((m) => `<tr><td>${esc(m.label)}</td><td class="r">${euro(m.amount)} per maand</td><td class="dim">${dayL(m.from)} t/m ${m.to ? dayL(m.to) : "doorlopend"}</td><td class="r"><button class="btn ghost" style="padding:2px 8px" type="button" data-act="delManual" data-id="${m.id}">verwijder</button></td></tr>`).join("") || '<tr><td class="warn">Nog geen teamkosten. Lopen ze via Revolut, deel die betalingen dan in als Team bij Bank.</td></tr>'}</tbody></table>
   </section>
-  <section class="card"><h2>Overige posten over een periode</h2><p class="dim" style="margin:0 0 10px">Bijvoorbeeld chargebacks uit je Shopify-payouts of PayPal-fees. Het bedrag wordt over de dagen verdeeld.</p>
+  <section class="card"><h2>Overige posten over een periode</h2><p class="dim" style="margin:0 0 10px">Alleen voor kosten die niet in Shopify, PayPal of je bank staan. Het bedrag wordt over de dagen verdeeld.</p>
     <form data-form="manual" class="row"><select class="input" id="m_kind">${Object.entries(MANUAL_KINDS).map(([k, l]) => `<option value="${k}">${l}</option>`).join("")}</select><input class="input" id="m_label" placeholder="omschrijving" required style="width:200px"><input class="input" id="m_amount" placeholder="bedrag" inputmode="decimal" required style="width:110px"><label class="dim" style="font-size:12px">van <input class="input" type="date" id="m_from" value="${ms}" required></label><label class="dim" style="font-size:12px">t/m <input class="input" type="date" id="m_to" value="${today}" required></label><button class="btn" type="submit">Toevoegen</button></form>
-    <table style="margin-top:8px"><tbody>${posts.map((m) => `<tr><td>${esc(m.label)} <span class="muted" style="font-size:12px">${esc(MANUAL_KINDS[m.kind])}</span>${m.note ? `<div class="muted" style="font-size:12px">${esc(m.note)}</div>` : ""}</td><td class="r">${euro(m.amount)}</td><td class="dim" style="white-space:nowrap">${dayL(m.from)} t/m ${dayL(m.to)}</td><td class="r"><button class="btn ghost" style="padding:2px 8px" type="button" data-act="delManual" data-id="${m.id}">verwijder</button></td></tr>`).join("") || '<tr><td class="muted">Nog geen posten.</td></tr>'}</tbody></table>
+    <table style="margin-top:8px"><tbody>${posts.map((m) => `<tr><td>${esc(m.label)} <span class="muted" style="font-size:12px">${esc(MANUAL_KINDS[m.kind])}</span>${(m.kind === "paypal_fees" && ppOk()) || (m.kind === "chargebacks" && S.disputes.status === "ok") ? ' <span class="badge">telt niet mee, komt nu automatisch</span>' : ""}${m.note ? `<div class="muted" style="font-size:12px">${esc(m.note)}</div>` : ""}</td><td class="r">${euro(m.amount)}</td><td class="dim" style="white-space:nowrap">${dayL(m.from)} t/m ${dayL(m.to)}</td><td class="r"><button class="btn ghost" style="padding:2px 8px" type="button" data-act="delManual" data-id="${m.id}">verwijder</button></td></tr>`).join("") || '<tr><td class="muted">Nog geen posten.</td></tr>'}</tbody></table>
   </section>
   <section class="card"><h2>Openstaande leveranciersfacturen</h2><p class="dim" style="margin:0 0 10px">Nodig voor de waarschuwing fulfillment eerst.</p>
     <form data-form="invoice" class="row"><input class="input" id="i_sup" placeholder="leverancier" required style="width:200px"><input class="input" id="i_amount" placeholder="bedrag" inputmode="decimal" required style="width:110px"><label class="dim" style="font-size:12px">vervalt <input class="input" type="date" id="i_due"></label><button class="btn" type="submit">Toevoegen</button></form>
@@ -1084,9 +1306,27 @@ function viewInput() {
         <label>Vertraging uitbetaling (dagen)<input class="input" id="s_payoutDelay" type="number" min="0" value="${s.payoutDelay}"></label>
         <label>Prognose standaard (dagen)<input class="input" id="s_forecastDays" type="number" min="7" max="30" value="${s.forecastDays}"></label>
       </div>
+      <div class="formgrid">
+        <label>Shopify reserve (%)<input class="input" id="s_shopReservePct" value="${String(Math.round(s.shopReservePct * 1000) / 10).replace(".", ",")}"></label>
+        <label>Reserve vast (dagen)<input class="input" id="s_shopReserveDays" type="number" min="0" value="${s.shopReserveDays}"></label>
+      </div>
+      <p class="muted" style="font-size:12px;margin:0">Vertraging uitbetaling en reserve bepalen hoe het dashboard berekent wat Shopify nog vasthoudt. Bij Waar mijn geld staat zie je of de berekening klopt met je bank.</p>
       <div><button class="btn" type="submit">Instellingen opslaan</button></div>
     </form>
-  </section>`;
+  </section>
+  <details class="card"><summary><b>Shopify of PayPal saldo zelf invullen</b> <span class="muted">alleen als de automatische berekening ontbreekt</span></summary>
+    <p class="dim" style="margin:10px 0">Wordt alleen gebruikt als Shopify of PayPal niet bereikbaar is. ${snap ? "Laatste stand: " + dayL(snap.at) + "." : ""}</p>
+    <form data-form="balance" class="formgrid">
+      <label>Datum<input class="input" type="date" id="bal_at" value="${today}" required></label>
+      <label>Payout ingepland (€)<input class="input" id="bal_payout" inputmode="decimal" value="${snap ? e2(snap.payout) : ""}" required></label>
+      <label>Payout datum<input class="input" type="date" id="bal_payoutDate" value="${snap && snap.payoutDate && snap.payoutDate >= today ? snap.payoutDate : ""}"></label>
+      <label>Pending (€)<input class="input" id="bal_pending" inputmode="decimal" value="${snap ? e2(snap.pending) : ""}" required></label>
+      <label>Reserve, hold (€)<input class="input" id="bal_hold" inputmode="decimal" value="${snap ? e2(snap.hold) : ""}" required></label>
+      <label>PayPal (€)<input class="input" id="bal_paypal" inputmode="decimal" value="${snap ? e2(snap.paypal) : ""}" required></label>
+      <label style="justify-content:flex-end"><button class="btn" type="submit">Stand opslaan</button></label>
+    </form>
+    ${S.balances.length ? `<details style="margin-top:10px"><summary class="dim">${S.balances.length} eerdere standen</summary><table><tbody>${[...S.balances].sort((a, b) => b.at.localeCompare(a.at)).map((b) => `<tr><td>${dayL(b.at)}</td><td class="r">payout ${euro(b.payout, true)}</td><td class="r">pending ${euro(b.pending, true)}</td><td class="r">hold ${euro(b.hold, true)}</td><td class="r">PayPal ${euro(b.paypal, true)}</td><td class="muted" style="font-size:12px">${esc(b.note || "")}</td><td class="r"><button class="btn ghost" style="padding:2px 8px" type="button" data-act="delBalance" data-id="${b.id}">verwijder</button></td></tr>`).join("")}</tbody></table></details>` : ""}
+  </details>`;
 }
 
 /* ---------- grafieken (SVG, breedte volgt de container) ---------- */
@@ -1313,7 +1553,7 @@ document.addEventListener("submit", (e) => {
   if (kind === "settings") {
     const num = (id, d) => { const n = Number(String(val(id)).replace(",", ".")); return isFinite(n) && val(id) !== "" ? n : d; };
     const s = S.settings;
-    writeDoc("config/settings", (cur) => ({ ...DEFAULT_SETTINGS, ...(cur || {}), reserveVat: document.getElementById("s_reserveVat").checked, breakEven: num("s_breakEven", s.breakEven), buffer: parseEuroInput(val("s_buffer")) ?? s.buffer, softwareWeek: parseEuroInput(val("s_softwareWeek")) ?? s.softwareWeek, payoutRatio: num("s_payoutRatio", s.payoutRatio * 100) / 100, payoutDelay: num("s_payoutDelay", s.payoutDelay), forecastDays: num("s_forecastDays", s.forecastDays) })).then(() => { S.fc = null; toast("Instellingen opgeslagen"); });
+    writeDoc("config/settings", (cur) => ({ ...DEFAULT_SETTINGS, ...(cur || {}), reserveVat: document.getElementById("s_reserveVat").checked, breakEven: num("s_breakEven", s.breakEven), buffer: parseEuroInput(val("s_buffer")) ?? s.buffer, softwareWeek: parseEuroInput(val("s_softwareWeek")) ?? s.softwareWeek, payoutRatio: num("s_payoutRatio", s.payoutRatio * 100) / 100, payoutDelay: num("s_payoutDelay", s.payoutDelay), forecastDays: num("s_forecastDays", s.forecastDays), shopReservePct: num("s_shopReservePct", s.shopReservePct * 100) / 100, shopReserveDays: num("s_shopReserveDays", s.shopReserveDays) })).then(() => { S.fc = null; toast("Instellingen opgeslagen"); });
   }
 });
 
@@ -1363,24 +1603,27 @@ function buildWorkbook(X) {
     ["Winst per order", fx("B12/B18")],
     ["Btw in de omzet", nE(r.taxes)],
     ["Winst als btw afgedragen moet worden", fx("B4-SUM(B5:B10)-B21")],
-    ["Meta betaald via bank", nE(f.metaPaid)],
+    ["Meta betaald via bank en PayPal", nE(f.metaPaid)],
   ], [40, 16, 13, 30]);
 
   add("Geld", [
     title, [],
     ["Plek", "Bedrag", "Beschikbaar"],
     ["Bank (Revolut)", nE(m.pos.bank), "nu"],
+    ["Onderweg naar bank", nE(m.pos.transit), "na het laatste afschrift uitbetaald"],
     ["PayPal", nE(m.pos.paypal), "nu"],
-    ["Shopify payout ingepland", nE(m.pos.payout), m.snap && m.snap.payoutDate ? m.snap.payoutDate : "eerstvolgende werkdag"],
+    ["PayPal vastgehouden", nE(m.pos.ppLocked), "op slot"],
+    ["Shopify payout ingepland", nE(m.pos.payout), m.payoutDate || "eerstvolgende werkdag"],
     ["Shopify pending", nE(m.pos.pending), "komende werkdagen"],
     ["Shopify reserve (hold)", nE(m.pos.hold), "op slot"],
-    ["Totaal", fx("SUM(B4:B8)")],
+    ["Totaal", fx("SUM(B4:B10)")],
     [],
-    ["Direct beschikbaar", fx("B4+B5")],
-    ["Binnenkort", fx("B6+B7")],
-    ["Op slot", fx("B8")],
+    ["Direct beschikbaar", fx("B4+B6")],
+    ["Binnenkort", fx("B5+B8+B9")],
+    ["Op slot", fx("B7+B10")],
     [],
-    ["Stand Shopify en PayPal van", m.snap ? m.snap.at : "ontbreekt"],
+    ["Bron PayPal", m.ppSrc === "PayPal" ? "uit PayPal" : m.ppSrc],
+    ["Bron Shopify", m.shopSrc === "berekend" ? `berekend: uitbetaling na ${S.settings.payoutDelay} werkdagen, reserve ${Math.round(S.settings.shopReservePct * 1000) / 10}% voor ${S.settings.shopReserveDays} dagen` : m.shopSrc],
     ["Bank volgens afschrift t/m", m.bankDate || "ontbreekt"],
   ], [30, 16, 24]);
 
@@ -1389,19 +1632,22 @@ function buildWorkbook(X) {
     title, [],
     ["Stap", "Bedrag", "Uitleg"],
     ["Winst", fx("Overzicht!B12"), "uit het tabblad Overzicht"],
-    ["Shopify-saldo begin", nE(b.shopBegin), "payout + pending + reserve"],
+    ["Shopify-saldo begin", nE(b.shopBegin), "payout + pending + reserve, berekend"],
     ["Shopify-saldo eind", nE(b.shopEnd), ""],
     ["Nog bij Shopify", fx("-(B6-B5)"), "groei van wat Shopify vasthoudt"],
+    ["PayPal-saldo begin", nE(b.ppBegin), "incl. vastgehouden"],
+    ["PayPal-saldo eind", nE(b.ppEnd), ""],
+    ["Nog bij PayPal", fx("-(B9-B8)"), "groei van je PayPal-saldo"],
     ["Naar privé", nE(priv), "opnames, geen kosten"],
     ["Meta verbruikt", fx("Overzicht!B6"), ""],
-    ["Meta betaald via bank", fx("Overzicht!B23"), ""],
-    ["Meta verbruikt min betaald", fx("B9-B10"), ""],
+    ["Meta betaald via bank en PayPal", fx("Overzicht!B23"), ""],
+    ["Meta verbruikt min betaald", fx("B12-B13"), ""],
     ["Lening en stortingen", nE(loans), "geen omzet, wel geld op de bank"],
     ["Banksaldo begin", nE(b.bankBegin), ""],
-    ["Banksaldo eind", nE(b.bankEnd), ""],
-    ["Groei bankrekening", fx("B14-B13"), ""],
-    ["Timing en afronding", fx("B15-(B4+B7+B8+B11+B12)"), "wat de stappen niet verklaren"],
-    ["Controle (moet 0 zijn)", fx("B4+B7+B8+B11+B12+B16-B15"), ""],
+    ["Banksaldo eind", nE(b.bankEnd), "t/m " + b.end],
+    ["Groei bankrekening", fx("B17-B16"), ""],
+    ["Timing en afronding", fx("B18-(B4+B7+B10+B11+B14+B15)"), "wat de stappen niet verklaren"],
+    ["Controle (moet 0 zijn)", fx("B4+B7+B10+B11+B14+B15+B19-B18"), ""],
   ], [30, 16, 38]);
 
   const fs = S.fc || fcSettings(), fc = forecast(fs);
@@ -1482,19 +1728,20 @@ render();
     cfg("imports", (d) => (S.imports = (d && d.list) || []));
     cfg("budget", (d) => (S.budget = (d && d.entries) || []));
     db.collection("bank").onSnapshot((q) => { const o = {}; q.docs.forEach((d) => { o[d.id] = (d.data() || {}).txs || []; }); S.bank = o; render(); }, onErr);
+    db.collection("paypal").onSnapshot((q) => { q.docs.forEach((d) => { if (!S.pp[d.id] || !S.pp[d.id].closed) S.pp[d.id] = d.data(); }); render(); }, onErr);
     db.collection("fees").onSnapshot((q) => { q.docs.forEach((d) => { S.fees[d.id] = { ...(S.fees[d.id] || {}), ...((d.data() || {}).days || {}) }; }); render(); }, onErr);
   }
-  if (!mcp) { S.sales.status = S.meta.status = S.feesLive.status = "fout"; S.sales.err = S.meta.err = S.feesLive.err = mcpMessage({ code: "not_granted" }); render(); return; }
-  // eerst de bewaarde fees laten binnenkomen, dan pas ophalen wat ontbreekt
+  if (!mcp) { S.sales.status = S.meta.status = S.feesLive.status = S.paypal.status = "fout"; S.sales.err = S.meta.err = S.feesLive.err = S.paypal.err = mcpMessage({ code: "not_granted" }); render(); return; }
   S.perms = await cl.use("permissions");
   if (S.perms) {
-    const keys = ["mcp:" + SHOPIFY, "mcp:" + WINDSOR];
+    const keys = ["mcp:" + SHOPIFY, "mcp:" + WINDSOR, "mcp:" + PAYPAL];
     const st = await S.perms.state().catch(() => ({}));
     // één gebundelde vraag als nog niet alles is toegestaan; niet opnieuw vragen na een weigering
     if (keys.some((k) => st[k] === "prompt")) Object.assign(st, await S.perms.request(keys.filter((k) => st[k] === "prompt")).catch(() => ({})));
-    S.permState = { [SHOPIFY]: st[keys[0]], [WINDSOR]: st[keys[1]] };
+    S.permState = { [SHOPIFY]: st[keys[0]], [WINDSOR]: st[keys[1]], [PAYPAL]: st[keys[2]] };
   }
   loadSales(false); loadMeta(false);
-  setTimeout(() => loadFees(false), db ? 1500 : 0);
+  // eerst de bewaarde fees en PayPal-maanden laten binnenkomen, dan pas ophalen wat ontbreekt
+  setTimeout(() => { loadFees(false); loadPaypal(); }, db ? 1500 : 0);
 })();
 </script>
