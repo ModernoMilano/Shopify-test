@@ -1,0 +1,1266 @@
+<title>ModernoMilano Cijfers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap">
+<style>
+:root{
+  --brand:#e3e0d7;--bg:#f4f2ec;--surface:#fcfcfb;--surface-2:#efece4;--line:#e3e0d7;
+  --text:#121210;--text-2:#52514e;--text-3:#7a7974;--accent:#121210;--accent-text:#fff;
+  --grid:#e7e4dc;--neg:#c53030;--good:#1f7a1f;--warn:#9a5a00;--info:#2a78d6;
+  --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--s6:#008300;--s7:#4a3aa7;
+  --c-cogs:var(--s1);--c-meta:var(--s2);--c-fees:var(--s3);--c-chargebacks:var(--s4);--c-other:var(--s5);--c-profit:var(--s6);--c-team:var(--s7);
+  --sans:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --bg:#111110;--surface:#1a1a19;--surface-2:#242421;--line:#33322e;--text:#f5f3ee;--text-2:#c3c2b7;--text-3:#8f8e86;
+  --accent:#e3e0d7;--accent-text:#111110;--grid:#2c2b28;--neg:#ef6b6b;--good:#4cbf4c;--warn:#e0a030;--info:#3987e5;
+  --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s6:#008300;--s7:#9085e9}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --bg:#111110;--surface:#1a1a19;--surface-2:#242421;--line:#33322e;--text:#f5f3ee;--text-2:#c3c2b7;--text-3:#8f8e86;
+  --accent:#e3e0d7;--accent-text:#111110;--grid:#2c2b28;--neg:#ef6b6b;--good:#4cbf4c;--warn:#e0a030;--info:#3987e5;
+  --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s6:#008300;--s7:#9085e9}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.45;padding-inline:16px;padding-block:0 48px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto}
+h1,h2,h3{margin:0;text-wrap:balance}
+.serif{font-family:var(--serif)}
+.num{font-variant-numeric:tabular-nums}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:inherit}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);padding-block:14px 10px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.brandrow{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px}
+.brand{font-family:var(--serif);font-size:22px;letter-spacing:-.01em}
+.brand i{font-style:italic}
+.brand small{display:block;font-family:var(--sans);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-3)}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;margin-top:10px;scrollbar-width:none}
+nav.tabs button{border:0;background:transparent;padding:7px 11px;border-radius:8px;color:var(--text-2);white-space:nowrap;cursor:pointer}
+nav.tabs button[aria-current="page"]{background:var(--surface-2);color:var(--text);font-weight:600}
+.period{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:10px}
+.seg{display:flex;max-width:100%;overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:2px}
+.seg button{border:0;background:transparent;padding:5px 9px;border-radius:7px;color:var(--text-2);white-space:nowrap;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-text)}
+.input{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:6px 9px;min-width:0}
+.input:focus,button:focus-visible,.seg button:focus-visible{outline:2px solid var(--info);outline-offset:1px}
+.btn{display:inline-flex;align-items:center;gap:6px;border:0;border-radius:9px;padding:7px 13px;background:var(--accent);color:var(--accent-text);font-weight:500;cursor:pointer;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn:disabled{opacity:.5;cursor:default}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.card h2{font-size:15px;font-weight:600;margin-bottom:12px}
+.grid{display:grid;gap:12px}
+.kpis{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+.two{grid-template-columns:minmax(0,3fr) minmax(0,2fr)}
+@media (max-width:860px){.two{grid-template-columns:minmax(0,1fr)}}
+.kpi .l{font-size:12.5px;color:var(--text-2)}
+.kpi .v{font-size:22px;font-weight:600;letter-spacing:-.01em;margin-top:2px}
+.kpi .s{font-size:11.5px;color:var(--text-3);margin-top:2px}
+.neg{color:var(--neg)}.good{color:var(--good)}.warn{color:var(--warn)}.muted{color:var(--text-3)}.dim{color:var(--text-2)}
+.stack{display:flex;flex-direction:column;gap:18px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.headline{font-family:var(--serif);font-size:clamp(24px,4.2vw,38px);line-height:1.15;letter-spacing:-.01em}
+.headline em{color:var(--text-2)}
+.sub{color:var(--text-2);margin-top:8px;max-width:70ch}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;font-weight:500;color:var(--text-3);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tfoot td{border-top:1px solid var(--line);font-weight:600;border-bottom:0}
+.badge{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:0 6px;font-size:10.5px;line-height:17px;color:var(--text-3);white-space:nowrap;margin-left:4px}
+.badge.hand{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 40%,transparent)}
+.badge.miss{color:var(--neg);border-color:color-mix(in srgb,var(--neg) 40%,transparent)}
+.sw{display:inline-block;width:10px;height:10px;border-radius:3px;flex:none}
+.costbar{display:flex;gap:2px;height:30px;border-radius:7px;overflow:hidden}
+.legend{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:6px 28px;margin-top:14px}
+.legend li{display:flex;justify-content:space-between;align-items:center;gap:10px;list-style:none;min-width:0}
+.legend li>span:last-child{white-space:nowrap}
+.legend{padding:0}
+.alert{display:flex;gap:10px;align-items:flex-start;border-left:4px solid var(--text-3);padding:10px 12px;border-radius:10px;background:var(--surface);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.alert.l1{border-left-color:var(--neg)}.alert.l2{border-left-color:var(--warn)}
+.alert b{display:block;font-weight:600}
+.strip{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:13px}
+.dot{font-size:10px}
+.hatch{background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.55) 0 2px,transparent 2px 7px)}
+.chart{position:relative;width:100%}
+.chart svg{display:block;width:100%;height:auto}
+.tip{position:absolute;top:26px;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:12px;box-shadow:0 6px 24px rgba(0,0,0,.12);min-width:150px}
+.tip div{display:flex;justify-content:space-between;gap:12px}
+.chartlegend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--text-2);margin-bottom:6px}
+.chartlegend span{display:flex;align-items:center;gap:6px}
+.chartlegend i{display:inline-block;width:16px;height:2px;border-radius:2px}
+details summary{cursor:pointer}
+.formgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.formgrid label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:var(--text-2)}
+.formgrid label .input{color:var(--text)}
+.slider label{display:block;font-size:13px}
+.slider .top{display:flex;justify-content:space-between}
+input[type=range]{width:100%;accent-color:var(--text)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--accent);color:var(--accent-text);padding:9px 14px;border-radius:10px;z-index:50;max-width:calc(100% - 32px)}
+.empty{padding:28px;text-align:center;color:var(--text-3)}
+.loading{color:var(--text-3)}
+.pillsel{max-width:170px}
+@media (prefers-reduced-motion:no-preference){.fade{animation:fade .25s ease-out}@keyframes fade{from{opacity:.4}to{opacity:1}}}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brandrow">
+      <div class="brand">Moderno<i>Milano</i><small>Cijfers</small></div>
+      <div class="row"><span id="freshness" class="muted" style="font-size:12px"></span><button class="btn ghost" id="refresh" type="button">Vernieuwen</button></div>
+    </div>
+    <nav class="tabs" id="tabs" aria-label="Onderdelen"></nav>
+    <div class="period" id="period"></div>
+  </header>
+  <section class="card" style="margin-bottom:16px">
+    <div id="strip"></div>
+    <details id="bankNeed" hidden style="margin-top:10px;border-top:1px solid var(--line);padding-top:10px">
+      <summary id="bankNeedText"></summary>
+      <div style="margin-top:10px">
+        <form data-form="upload" class="row"><input type="file" name="file" multiple accept=".pdf,.csv,application/pdf,text/csv" aria-label="Bankafschrift"><button class="btn" type="submit">Afschrift uploaden</button></form>
+        <div id="stripResult"></div>
+      </div>
+    </details>
+    <p id="gapText" class="warn" hidden style="margin:8px 0 0;font-size:12.5px"></p>
+  </section>
+  <main id="view" class="stack"></main>
+</div>
+<div id="toast" class="toast" hidden></div>
+
+<script>
+"use strict";
+/* ============================================================
+   Hulpfuncties: datums (Amsterdam), bedragen, tekst
+   ============================================================ */
+const TZ = "Europe/Amsterdam";
+const keyFmt = new Intl.DateTimeFormat("en-CA", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit" });
+const dayKey = (d) => keyFmt.format(d);
+const addDays = (k, n) => { const [y, m, d] = k.split("-").map(Number); return new Date(Date.UTC(y, m - 1, d + n)).toISOString().slice(0, 10); };
+const eachDay = (a, b) => { const o = []; for (let k = a; k <= b; k = addDays(k, 1)) o.push(k); return o; };
+const daysBetween = (a, b) => Math.round((Date.parse(b + "T00:00:00Z") - Date.parse(a + "T00:00:00Z")) / 864e5);
+const isWorkday = (k) => { const w = new Date(k + "T00:00:00Z").getUTCDay(); return w >= 1 && w <= 5; };
+function tzOffsetMs(at) {
+  const p = new Intl.DateTimeFormat("en-US", { timeZone: TZ, hourCycle: "h23", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit" }).formatToParts(at);
+  const g = (t) => Number(p.find((x) => x.type === t).value);
+  return Date.UTC(g("year"), g("month") - 1, g("day"), g("hour"), g("minute"), g("second")) - at.getTime();
+}
+const startOfDayUtc = (k) => { const g = new Date(k + "T00:00:00Z"); return new Date(g.getTime() - tzOffsetMs(g)); };
+
+const eurF = new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR" });
+const eur0 = new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR", maximumFractionDigits: 0, minimumFractionDigits: 0 });
+function euro(c, round) {
+  if (c === null || c === undefined || !isFinite(c)) return "ontbreekt";
+  const v = round ? Math.round(c / 100) : Math.round(c) / 100;
+  return (round ? eur0 : eurF).format(v === 0 ? 0 : v);
+}
+const pct = (v, d = 1) => (v === null || v === undefined || !isFinite(v) ? "ontbreekt" : (v * 100).toFixed(d).replace(".", ",") + "%");
+const times = (v) => (v === null || v === undefined || !isFinite(v) ? "ontbreekt" : v.toFixed(2).replace(".", ",") + "x");
+const nlDay = new Intl.DateTimeFormat("nl-NL", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" });
+const dayL = (k) => (k ? nlDay.format(new Date(String(k).slice(0, 10) + "T00:00:00Z")).replace(/\./g, "") : "ontbreekt");
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const cents = (x) => Math.round(Number(x ?? 0) * 100);
+const div = (a, b) => (b === 0 ? null : a / b);
+function parseEuroInput(s) {
+  const t = String(s ?? "").replace(/[€\s]/g, "");
+  if (!t) return null;
+  const n = Number(t.includes(",") ? t.replace(/\./g, "").replace(",", ".") : t);
+  return isFinite(n) ? Math.round(n * 100) : null;
+}
+const inEuro = (c) => (c === null || c === undefined ? "" : (c / 100).toFixed(2).replace(".", ","));
+function toast(msg) { const t = document.getElementById("toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => (t.hidden = true), 3200); }
+const store = { get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch { return null; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} } };
+
+/* ============================================================
+   Periodes
+   ============================================================ */
+const PRESETS = [["today", "Vandaag"], ["yesterday", "Gisteren"], ["thisweek", "Deze week"], ["lastweek", "Vorige week"], ["mtd", "Deze maand"], ["lastmonth", "Vorige maand"], ["30d", "Laatste 30 dagen"]];
+const mondayOf = (k) => addDays(k, -((new Date(k + "T00:00:00Z").getUTCDay() + 6) % 7));
+function resolvePeriod(p) {
+  const today = dayKey(new Date());
+  if (p.preset === "custom" && p.from && p.to && p.from <= p.to) return { preset: "custom", from: p.from, to: p.to, label: "Eigen periode" };
+  let from = today, to = today;
+  switch (p.preset) {
+    case "yesterday": from = to = addDays(today, -1); break;
+    case "thisweek": from = mondayOf(today); break;
+    case "lastweek": from = addDays(mondayOf(today), -7); to = addDays(from, 6); break;
+    case "mtd": from = today.slice(0, 8) + "01"; break;
+    case "lastmonth": to = addDays(today.slice(0, 8) + "01", -1); from = to.slice(0, 8) + "01"; break;
+    case "30d": from = addDays(today, -29); break;
+    case "today": break;
+    default: p.preset = "mtd"; from = today.slice(0, 8) + "01";
+  }
+  return { preset: p.preset, from, to, label: (PRESETS.find((x) => x[0] === p.preset) || [, ""])[1] };
+}
+
+/* ============================================================
+   Rekenregels (getest in de repository: src/finance/calculations.ts)
+   ============================================================ */
+function pnl(i, reserveVat) {
+  const costs = i.cogs + i.meta + i.fees + i.chargebacks + i.other + i.team;
+  const gross = i.revenue - costs;
+  const profit = reserveVat ? gross - i.taxes : gross;
+  const nonMeta = costs - i.meta;
+  return {
+    ...i, costs, profit,
+    profitAfterVat: gross - i.taxes,
+    profitAfterInventory: profit + (i.inventory || 0),
+    margin: div(profit, i.revenue),
+    mer: div(i.revenue, i.meta),
+    breakEven: i.revenue - nonMeta > 0 ? i.revenue / (i.revenue - nonMeta) : null,
+    metaShare: div(i.meta, i.revenue), cogsShare: div(i.cogs, i.revenue),
+    aov: i.orders ? Math.round(i.revenue / i.orders) : null,
+    profitPerOrder: i.orders ? Math.round(profit / i.orders) : null,
+    cogsPerOrder: i.orders ? Math.round(i.cogs / i.orders) : null,
+  };
+}
+function forecast(s) {
+  const rows = [];
+  let bal = s.bank, payable = 0, schedPaid = false, pendDays = 0;
+  const pendPart = s.pendingWorkdays ? s.pending / s.pendingWorkdays : 0;
+  for (let i = 1; i <= s.days; i++) {
+    const date = addDays(s.start, i - 1), wd = isWorkday(date);
+    if (i - s.delay >= 1) payable += s.salesDay * s.ratio;
+    let shop = 0;
+    if (wd) {
+      if (!schedPaid && (!s.payoutDate || date >= s.payoutDate)) { shop += s.payout; schedPaid = true; }
+      else if (schedPaid && pendDays < s.pendingWorkdays) { shop += pendPart; pendDays++; }
+      shop += payable; payable = 0;
+    }
+    if (s.releaseAmount && s.releaseDate === date) shop += s.releaseAmount;
+    const supplier = s.supplierDay === i ? s.supplier : 0;
+    const ps = (s.privateWeek + s.softwareWeek) / 7;
+    const extra = s.extraDay || 0;
+    bal += shop + s.paypalDay - s.metaDay - supplier - ps - extra;
+    rows.push({ day: i, date, wd, shop: Math.round(shop), paypal: Math.round(s.paypalDay), meta: Math.round(s.metaDay), supplier: Math.round(supplier), other: Math.round(ps + extra), bal: Math.round(bal) });
+  }
+  const lowest = rows.reduce((lo, r) => (r.bal < lo.bal ? r : lo), rows[0] || { bal: s.bank, date: s.start });
+  const end = rows.length ? rows[rows.length - 1].bal : s.bank;
+  return { rows, lowest, end, after7: (rows[Math.min(6, rows.length - 1)] || { bal: s.bank }).bal, change: end - s.bank, belowBuffer: lowest.bal < s.buffer, belowZero: lowest.bal < 0 };
+}
+function mergeRanges(ranges) {
+  const out = [];
+  for (const r of [...ranges].filter((r) => r.from <= r.to).sort((a, b) => a.from.localeCompare(b.from))) {
+    const last = out[out.length - 1];
+    if (last && r.from <= addDays(last.to, 1)) { if (r.to > last.to) last.to = r.to; } else out.push({ ...r });
+  }
+  return out;
+}
+
+/* ============================================================
+   Bank: categorieën, regels, Revolut PDF en CSV
+   ============================================================ */
+const CATEGORIES = [
+  ["shopify_payout", "Inkomsten Shopify", "income"], ["paypal_payout", "Inkomsten PayPal", "income"],
+  ["loan", "Lening", "debt"], ["owner_deposit", "Eigen storting", "equity"],
+  ["meta", "Meta ads", "cost", "meta"], ["cogs", "COGS en verzending", "cost", "cogs"],
+  ["private", "Privé", "private"], ["software", "Software en tools", "cost", "other"],
+  ["freelancers", "Freelancers", "cost", "other"], ["accountant", "Boekhouder", "cost", "other"],
+  ["bank_fees", "Bankkosten", "cost", "other"], ["other_business", "Overig zakelijk", "cost", "other"],
+  ["chargebacks", "Chargebacks en disputes", "cost", "chargebacks"], ["team", "Team", "cost", "team"],
+  ["internal", "Interne boeking", "neutral"], ["unknown", "Onbekend", "unknown"],
+].map(([id, label, kind, bucket]) => ({ id, label, kind, bucket }));
+const CAT = Object.fromEntries(CATEGORIES.map((c) => [c.id, c]));
+const KIND_LABEL = { income: "omzet (cash)", cost: "kosten", debt: "schuld, geen omzet", equity: "eigen vermogen", private: "opname, geen kosten", neutral: "telt niet mee", unknown: "toewijzen" };
+const DEFAULT_RULES = [
+  ["Referentie: Lening", "in", "loan", 10], ["HR RJ KOMEN", "any", "loan", 10],
+  ["Betaling van GIJS BASTIAAN FONTEIN", "in", "owner_deposit", 10],
+  ["Tijdelijk geblokkeerd", "any", "internal", 10], ["Release", "in", "internal", 20],
+  ["STRIPE TECHNOLOGY", "in", "shopify_payout", 20], ["PAYPAL", "in", "paypal_payout", 20],
+  ["Facebk", "any", "meta", 20], ["Facebook", "any", "meta", 30], ["Meta Platforms", "any", "meta", 30],
+  ["Jinjiang Yuguang", "out", "cogs", 20], ["EAST BAITE", "out", "cogs", 20], ["Alibaba", "out", "cogs", 20], ["kungfubuy", "out", "cogs", 20],
+  ["To Gijs Bastiaan Fontein", "out", "private", 20], ["As Fontein", "any", "private", 20], ["Frederike", "any", "private", 20],
+  ["EUR Personal", "any", "private", 20], ["To EUR Pro", "in", "private", 20],
+  ["Chargeback.io", "out", "software", 20], ["Shopify*", "out", "software", 30], ["Klaviyo", "out", "software", 30],
+  ["Higgsfield", "out", "software", 30], ["Weglot", "out", "software", 30], ["Gorgias", "out", "software", 30],
+  ["OpenAI", "out", "software", 30], ["Google Workspace", "out", "software", 30], ["Apple.com", "out", "software", 30],
+  ["rinkel", "out", "software", 30], ["wetracked", "out", "software", 30],
+  ["Fiverr", "out", "freelancers", 30], ["OnlineJobs", "out", "freelancers", 30], ["Boekhouding", "out", "accountant", 30],
+].map(([pattern, direction, category, priority], i) => ({ id: "d" + i, pattern, direction, category, priority }));
+
+function matchRule(tx, rules) {
+  const hay = (tx.ds + "\n" + (tx.dt || "")).toLowerCase();
+  const dir = tx.a >= 0 ? "in" : "out";
+  for (const r of [...rules].sort((a, b) => a.priority - b.priority)) {
+    if (r.direction !== "any" && r.direction !== dir) continue;
+    if (hay.includes(String(r.pattern).toLowerCase())) return r;
+  }
+  return null;
+}
+/* Revolut telt transferkosten in het afgeschreven bedrag mee; die gaan naar bankkosten. */
+function splitAmounts(t) {
+  if (!t.f || t.a >= 0) return [[t.c, t.a]];
+  return [[t.c, t.a + t.f], ["bank_fees", -t.f]];
+}
+function totalsByCategory(txs) {
+  const o = {};
+  for (const t of txs) for (const [c, v] of splitAmounts(t)) o[c] = (o[c] || 0) + v;
+  return o;
+}
+
+const MONTHS = { jan: 1, feb: 2, mrt: 3, mar: 3, apr: 4, mei: 5, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, okt: 10, oct: 10, nov: 11, dec: 12 };
+function parseDutchDate(s) {
+  const m = String(s).trim().match(/^(\d{1,2}) (\w{3})\w* (\d{4})$/);
+  if (!m) return null;
+  const mo = MONTHS[m[2].toLowerCase()];
+  return mo ? `${m[3]}-${String(mo).padStart(2, "0")}-${m[1].padStart(2, "0")}` : null;
+}
+function parseEuroAmount(s) {
+  const m = String(s).trim().match(/^-?€\s?(-?[\d.]+,\d{2})$/);
+  if (!m) return null;
+  const n = Number(m[1].replace(/\./g, "").replace(",", "."));
+  return Math.round((String(s).trim().startsWith("-") ? -n : n) * 100);
+}
+const PERIOD_RE = /(?:transacties van|transactions from)\s+(\d{1,2} \w+ \d{4})\s+(?:aan|tot|t\/m|to|until)\s+(\d{1,2} \w+ \d{4})/i;
+const FOOTER_RE = /Verloren of gestolen|Revolut Bank UAB is|© \d{4} Revolut|Pagina \d/;
+
+function parseRevolutPdfItems(items) {
+  const lines = [];
+  for (const it of [...items].filter((i) => i.str.trim()).sort((a, b) => a.page - b.page || b.y - a.y || a.x - b.x)) {
+    const last = lines[lines.length - 1];
+    if (last && last.page === it.page && Math.abs(last.y - it.y) <= 2) last.items.push(it);
+    else lines.push({ page: it.page, y: it.y, items: [it] });
+  }
+  lines.forEach((l) => l.items.sort((a, b) => a.x - b.x));
+  const st = { opening: null, closing: null, from: null, to: null, txs: [] };
+  let cols = null, inTable = false, cur = null, det = [], lastPage = 0;
+  const flush = () => {
+    if (cur) {
+      cur.dt = det.join("\n");
+      const fee = cur.dt.match(/Kosten: €([\d.]+,\d{2})/);
+      if (fee) cur.f = parseEuroAmount("€" + fee[1]) || 0;
+      st.txs.push(cur);
+    }
+    cur = null; det = [];
+  };
+  for (const line of lines) {
+    const text = line.items.map((i) => i.str).join(" ");
+    if (!st.from) { const m = text.match(PERIOD_RE); if (m) { st.from = parseDutchDate(m[1]); st.to = parseDutchDate(m[2]); } }
+    if (line.page !== lastPage) { inTable = false; lastPage = line.page; }
+    if (st.opening === null && /^(Pro|Totaal)\b/.test(line.items[0].str.trim())) {
+      const a = line.items.map((i) => parseEuroAmount(i.str)).filter((x) => x !== null);
+      if (a.length === 4) { st.opening = a[0]; st.closing = a[3]; continue; }
+    }
+    const hOut = line.items.find((i) => i.str.includes("Uitgegeven geld"));
+    const hIn = line.items.find((i) => i.str.includes("Ontvangen geld"));
+    const hSal = line.items.find((i) => i.str.trim() === "Saldo");
+    const hDesc = line.items.find((i) => i.str.includes("Beschrijving"));
+    if (hOut && hIn && hSal && hDesc) { cols = { desc: hDesc.x, out: hOut.x, in: hIn.x, bal: hSal.x }; inTable = true; continue; }
+    if (!inTable || !cols) continue;
+    if (FOOTER_RE.test(text)) { flush(); inTable = false; continue; }
+    const date = parseDutchDate(line.items[0].str);
+    if (date && line.items[0].x < cols.desc - 5) {
+      flush();
+      let out = 0, inn = 0, bal = null; const desc = [];
+      for (const it of line.items.slice(1)) {
+        const a = parseEuroAmount(it.str);
+        if (a === null || it.x < cols.out - 10) { if (it.x < cols.out - 10) desc.push(it.str.trim()); continue; }
+        if (it.x < cols.in - 10) out += a; else if (it.x < cols.bal - 30) inn += a; else bal = a;
+      }
+      cur = { d: date, ds: desc.join(" "), dt: "", a: inn - out, f: 0, b: bal };
+    } else if (cur) {
+      const left = line.items.filter((i) => i.x < cols.out - 10).map((i) => i.str.trim()).join(" ");
+      const right = line.items.filter((i) => i.x >= cols.out - 10).map((i) => i.str.trim());
+      if (left) det.push(right.length ? `${left} (${right.join(" ")})` : left);
+    }
+  }
+  flush();
+  return st;
+}
+async function parseRevolutPdf(buf) {
+  if (!window.pdfjsLib) throw new Error("De PDF-lezer kon niet laden. Herlaad de pagina of gebruik de CSV-export.");
+  const doc = await window.pdfjsLib.getDocument({ data: new Uint8Array(buf), isEvalSupported: false }).promise;
+  const items = [];
+  for (let p = 1; p <= doc.numPages; p++) {
+    const page = await doc.getPage(p);
+    const tc = await page.getTextContent();
+    for (const it of tc.items) if ("str" in it) items.push({ page: p, x: it.transform[4], y: it.transform[5], str: it.str });
+  }
+  return parseRevolutPdfItems(items);
+}
+function parseCsv(text) {
+  const first = text.split(/\r?\n/, 1)[0] || "";
+  const sep = (first.match(/;/g) || []).length > (first.match(/,/g) || []).length ? ";" : ",";
+  const rows = []; let row = [], f = "", q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) { if (c === '"' && text[i + 1] === '"') { f += '"'; i++; } else if (c === '"') q = false; else f += c; }
+    else if (c === '"') q = true;
+    else if (c === sep) { row.push(f); f = ""; }
+    else if (c === "\n" || c === "\r") { if (c === "\r" && text[i + 1] === "\n") i++; row.push(f); rows.push(row); row = []; f = ""; }
+    else f += c;
+  }
+  if (f || row.length) { row.push(f); rows.push(row); }
+  return rows.filter((r) => r.some((x) => x.trim() !== ""));
+}
+function parseRevolutCsv(text) {
+  const [h, ...rows] = parseCsv(text.replace(/^﻿/, "").trim());
+  if (!h) return { opening: null, closing: null, from: null, to: null, txs: [] };
+  const hh = h.map((x) => x.trim().toLowerCase());
+  const pick = (...n) => hh.findIndex((x) => n.includes(x));
+  const iD = pick("date completed (utc)", "completed date", "date completed", "datum", "date"), iS = pick("date started (utc)", "started date");
+  const iDesc = pick("description", "beschrijving", "omschrijving"), iRef = pick("reference", "referentie"), iPay = pick("payer", "counterparty", "tegenpartij");
+  const iA = pick("amount", "bedrag"), iF = pick("fee", "kosten"), iB = pick("balance", "saldo"), iSt = pick("state", "status"), iT = pick("type");
+  if ((iD < 0 && iS < 0) || iA < 0) throw new Error("Onbekend CSV-formaat: kolommen voor datum en bedrag ontbreken.");
+  const num = (s) => { if (s === undefined || String(s).trim() === "") return null; const t = String(s).trim().replace(/[€\s]/g, ""); const n = Number(/,\d{1,2}$/.test(t) ? t.replace(/\./g, "").replace(",", ".") : t.replace(/,/g, "")); return isFinite(n) ? Math.round(n * 100) : null; };
+  const txs = [];
+  for (const r of rows) {
+    const state = iSt >= 0 ? String(r[iSt] || "").trim().toUpperCase() : "COMPLETED";
+    if (state && !["COMPLETED", "VOLTOOID"].includes(state)) continue;
+    const date = String(r[iD >= 0 ? iD : iS] || r[iS] || "").trim().slice(0, 10);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) continue;
+    const fee = Math.abs(num(r[iF]) || 0);
+    txs.push({
+      d: date, ds: String(r[iDesc] || "").trim(),
+      dt: [iT >= 0 && r[iT] ? "Type: " + r[iT] : "", iRef >= 0 && r[iRef] ? "Referentie: " + r[iRef] : "", iPay >= 0 && r[iPay] ? "Tegenpartij: " + r[iPay] : ""].filter(Boolean).join("\n"),
+      a: (num(r[iA]) || 0) - fee, f: fee, b: iB >= 0 ? num(r[iB]) : null,
+    });
+  }
+  txs.sort((a, b) => a.d.localeCompare(b.d));
+  return { opening: null, closing: null, from: txs[0]?.d || null, to: txs[txs.length - 1]?.d || null, txs };
+}
+function reconcile(st) {
+  const sum = st.txs.reduce((s, t) => s + t.a, 0);
+  const opening = st.opening ?? (st.txs[0] && st.txs[0].b !== null ? st.txs[0].b - st.txs[0].a : null);
+  const closing = st.closing ?? (st.txs.length ? st.txs[st.txs.length - 1].b : null);
+  let running = opening, breakAt = -1;
+  st.txs.forEach((t, i) => {
+    if (running === null) return;
+    running += t.a;
+    if (t.b !== null && t.b !== running) { if (breakAt < 0) breakAt = i; running = t.b; }
+  });
+  return { opening, closing, ok: opening !== null && closing !== null && opening + sum === closing && breakAt < 0, breakAt };
+}
+
+/* ============================================================
+   Staat
+   ============================================================ */
+const DEFAULT_SETTINGS = {
+  reserveVat: false, breakEven: 2.0, buffer: 200000, payoutRatio: 0.86, payoutDelay: 3,
+  softwareWeek: 30000, salesDay: 290000, metaDay: 160000, paypalDay: 30000, privateWeek: 150000,
+  supplier: 300000, supplierDay: 2, forecastDays: 7, metaShareLimit: 0.4, feesLimit: 0.03,
+};
+const TABS = [["overzicht", "Overzicht"], ["geld", "Waar mijn geld staat"], ["bridge", "Winst naar bank"], ["prognose", "Prognose"], ["meta", "Meta ads"], ["bank", "Bank"], ["invoer", "Invoer en instellingen"]];
+const S = {
+  tab: store.get("mm.tab") || "overzicht",
+  periodSel: store.get("mm.period") || { preset: "mtd" },
+  db: null, mcp: null, dbState: "laden", mcpState: "laden",
+  settings: { ...DEFAULT_SETTINGS }, rules: null, manual: [], balances: [], imports: [], budget: [],
+  bank: {}, fees: {},
+  sales: { status: "idle", byDay: {}, err: null, at: null },
+  meta: { status: "idle", rows: [], err: null, at: null },
+  feesLive: { status: "idle", err: null, progress: "" },
+  lastImport: null, bankFilter: { cat: "", q: "" }, fc: null,
+};
+if (!TABS.some((t) => t[0] === S.tab)) S.tab = "overzicht";
+const P = () => resolvePeriod(S.periodSel);
+const rules = () => S.rules || DEFAULT_RULES;
+const allTxs = () => Object.keys(S.bank).sort().flatMap((m) => S.bank[m] || []);
+
+/* ---------- db: schrijven, één schrijfactie tegelijk per document ---------- */
+const queues = {};
+function writeDoc(path, fn) {
+  if (!S.db) { toast("Opslaan kan niet: de opslag van deze pagina is niet beschikbaar."); return Promise.resolve(); }
+  queues[path] = (queues[path] || Promise.resolve()).then(async () => {
+    const ref = S.db.doc(path);
+    const snap = await ref.get();
+    const next = fn(snap.exists ? structuredClone(snap.data()) : null);
+    if (next) await ref.set(next);
+  }).catch((e) => {
+    toast(e && e.code === "quota_exceeded" ? "De opslag is vol. Verwijder oude gegevens." : "Opslaan mislukt: " + (e && e.message ? e.message : "onbekende fout"));
+  });
+  return queues[path];
+}
+const uid = () => Math.random().toString(36).slice(2, 10);
+
+/* ============================================================
+   Koppelingen (Shopify en Meta via je Claude-connectors)
+   ============================================================ */
+const SHOPIFY = "Shopify", WINDSOR = "Windsor_ai";
+const SERVER_LABEL = { [SHOPIFY]: "Shopify", [WINDSOR]: "Windsor.ai" };
+function mcpMessage(e, server) {
+  const n = SERVER_LABEL[server] || server;
+  switch (e && e.code) {
+    case "needs_reauth": return `Verbind ${n} opnieuw in claude.ai, Instellingen, Connectors.`;
+    case "server_not_connected": case "server_not_found": return `${n} is niet gekoppeld aan je Claude-account. Voeg hem toe in claude.ai, Instellingen, Connectors.`;
+    case "selection_required": return `Kies welke ${n}-koppeling deze pagina gebruikt.`;
+    case "not_in_manifest": return `${n} is niet toegestaan voor deze pagina. Herlaad en sta ${n} toe als erom gevraagd wordt.`;
+    case "blocked_by_policy": case "approval_required": return `${n} is geblokkeerd door de instellingen van je organisatie.`;
+    case "server_unavailable": return `${n} is even niet bereikbaar. Klik zo op Vernieuwen.`;
+    case "not_granted": case "capability_disabled": case "capability_removed": return "Koppelingen werken alleen als je deze pagina in claude.ai opent.";
+    case "tool_error": return `${n} gaf een fout: ${e.message}`;
+    default: return `${n}: ${(e && e.message) || "onbekende fout"}`;
+  }
+}
+async function call(server, tool, input, opts) {
+  if (!S.mcp) throw { code: "not_granted", message: "geen koppelingen" };
+  try { return await S.mcp.callTool(server, tool, input, opts); }
+  catch (e) {
+    if (e && e.retryable) { await new Promise((r) => setTimeout(r, Math.min(e.retryAfterMs || 1500, 8000) + Math.random() * 800)); return S.mcp.callTool(server, tool, input, opts); }
+    throw e;
+  }
+}
+/* Het antwoord van een connector: payload, structuredContent of JSON in een tekstblok. Neem de eerste die past. */
+function jsonOf(r, fits) {
+  const cands = [r && r.payload, r && r.structuredContent];
+  for (const b of (r && r.content) || []) if (b && b.type === "text") cands.push(b.text);
+  for (let c of cands) {
+    if (typeof c === "string") { try { c = JSON.parse(c); } catch { continue; } }
+    if (c && fits(c)) return c;
+  }
+  return null;
+}
+
+function remoteRange() {
+  const p = P(), today = dayKey(new Date()), recent = addDays(today, -3);
+  return { from: p.from < recent ? p.from : recent, to: today };
+}
+
+async function loadSales(force) {
+  const { from, to } = remoteRange();
+  S.sales.status = "laden"; renderStrip();
+  try {
+    const r = await call(SHOPIFY, "run-analytics-query", { query: `FROM sales SHOW orders, gross_sales, discounts, returns, net_sales, shipping_charges, taxes, total_sales TIMESERIES day SINCE ${from} UNTIL ${to}` }, { cache: force ? { refresh: true, staleTime: 120000 } : { staleTime: 120000 } });
+    const p = jsonOf(r, (x) => Array.isArray(x.rows) && Array.isArray(x.columns));
+    if (!p) throw { code: "tool_error", message: "onverwacht antwoord van de analytics-tool" };
+    const cols = p.columns.map((c) => c.name);
+    for (const row of p.rows || []) {
+      const o = Array.isArray(row) ? Object.fromEntries(cols.map((c, i) => [c, row[i]])) : row;
+      const k = String(o.day || "").slice(0, 10);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(k)) continue;
+      S.sales.byDay[k] = { orders: Number(o.orders || 0), gross: cents(o.gross_sales), discounts: cents(o.discounts), returns: cents(o.returns), shipping: cents(o.shipping_charges), taxes: cents(o.taxes), total: cents(o.total_sales) };
+    }
+    S.sales.status = "ok"; S.sales.err = null; S.sales.at = (r.cache && r.cache.storedAt) || Date.now();
+  } catch (e) { S.sales.status = "fout"; S.sales.err = mcpMessage(e, SHOPIFY); }
+  render();
+}
+const MARKETS = [[/\bUK\b|UK\+IE|\bIE\b/, "UK/IE"], [/\bDEU?\b|\bAT\b/, "DE/AT"], [/\bUSA?\b/, "USA"], [/SWIS|SWISS|\bCH\b/, "CH"], [/WORLDWIDE|\bWW\b/, "Worldwide"]];
+const marketOf = (c) => { const u = String(c).toUpperCase(); for (const [re, m] of MARKETS) if (re.test(u)) return m; return "Overig"; };
+async function loadMeta(force) {
+  const { from, to } = remoteRange();
+  S.meta.status = "laden"; renderStrip();
+  try {
+    const r = await call(WINDSOR, "get_data", { connector: "facebook", fields: ["date", "campaign", "spend", "clicks", "impressions", "actions_purchase", "action_values_purchase", "frequency"], date_from: from, date_to: to }, { cache: force ? { refresh: true, staleTime: 300000 } : { staleTime: 300000 } });
+    const p = jsonOf(r, (x) => Array.isArray(x) || Array.isArray(x.result) || Array.isArray(x.data));
+    if (!p) throw { code: "tool_error", message: "onverwacht antwoord van Windsor.ai" };
+    const list = Array.isArray(p) ? p : p.result || p.data;
+    S.meta.rows = list.map((x) => ({ date: String(x.date).slice(0, 10), campaign: String(x.campaign || "onbekend"), spend: cents(x.spend), clicks: Number(x.clicks || 0), impressions: Number(x.impressions || 0), purchases: Number(x.actions_purchase || 0), value: cents(x.action_values_purchase), freq: x.frequency == null ? null : Number(x.frequency) })).filter((x) => x.spend > 0 || x.impressions > 0);
+    S.meta.status = "ok"; S.meta.err = null; S.meta.at = (r.cache && r.cache.storedAt) || Date.now();
+  } catch (e) { S.meta.status = "fout"; S.meta.err = mcpMessage(e, WINDSOR); }
+  render();
+}
+
+/* Shopify Payments-fees per dag uit de transacties van orders. Fees staan in de valuta van de klant
+   en worden omgerekend met de koers van de transactie zelf. Afgelopen dagen worden bewaard. */
+const FEES_QUERY = `query Fees($q: String!, $after: String) { orders(first: 50, after: $after, query: $q, sortKey: CREATED_AT) { pageInfo { hasNextPage endCursor } nodes { createdAt test cancelledAt transactions(first: 10) { status amountSet { shopMoney { amount } presentmentMoney { amount } } fees { type amount { amount currencyCode } } } } } }`;
+function feeDay(k) { const m = S.fees[k.slice(0, 7)]; return m && m[k]; }
+async function loadFees(force) {
+  const p = P(), today = dayKey(new Date());
+  const days = eachDay(p.from, p.to > today ? today : p.to);
+  const need = days.filter((k) => k === today || !feeDay(k));
+  if (!need.length) { S.feesLive.status = "ok"; return; }
+  const from = need[0], to = need[need.length - 1];
+  S.feesLive.status = "laden"; S.feesLive.progress = ""; renderStrip();
+  const agg = {};
+  for (const k of eachDay(from, to)) agg[k] = { f: 0, fx: 0, n: 0, nf: 0 };
+  try {
+    let after = null, pages = 0;
+    const q = `created_at:>='${startOfDayUtc(from).toISOString()}' created_at:<'${startOfDayUtc(addDays(to, 1)).toISOString()}'`;
+    do {
+      const r = await call(SHOPIFY, "graphql_query", { query: FEES_QUERY, variables: after ? { q, after } : { q } }, { cache: false });
+      const conn = (jsonOf(r, (x) => x.data && x.data.orders) || {}).data?.orders;
+      if (!conn) throw { code: "tool_error", message: "onverwacht antwoord van Shopify" };
+      for (const o of conn.nodes) {
+        if (o.test || o.cancelledAt) continue;
+        const k = dayKey(new Date(o.createdAt));
+        const a = agg[k]; if (!a) continue;
+        a.n++;
+        let seen = false;
+        for (const t of o.transactions || []) {
+          if (t.status !== "SUCCESS" || !t.fees || !t.fees.length) continue;
+          const shop = Number(t.amountSet.shopMoney.amount), pres = Number(t.amountSet.presentmentMoney.amount);
+          const rate = pres > 0 ? shop / pres : 1;
+          for (const f of t.fees) {
+            seen = true;
+            const v = f.amount.currencyCode === "EUR" ? Number(f.amount.amount) : Number(f.amount.amount) * rate;
+            a.f += v * 100; if (f.type === "foreign_exchange_fee") a.fx += v * 100;
+          }
+        }
+        if (!seen) a.nf++;
+      }
+      after = conn.pageInfo.hasNextPage ? conn.pageInfo.endCursor : null;
+      pages++; S.feesLive.progress = `${pages * 50} orders`; renderStrip();
+    } while (after && pages < 80);
+    const byMonth = {};
+    for (const [k, a] of Object.entries(agg)) {
+      const v = { f: Math.round(a.f), fx: Math.round(a.fx), n: a.n, nf: a.nf };
+      (byMonth[k.slice(0, 7)] = byMonth[k.slice(0, 7)] || {})[k] = v;
+      (S.fees[k.slice(0, 7)] = S.fees[k.slice(0, 7)] || {})[k] = v;
+    }
+    // alleen afgesloten dagen bewaren; vandaag verandert nog
+    for (const [m, dd] of Object.entries(byMonth)) {
+      const done = Object.fromEntries(Object.entries(dd).filter(([k]) => k < today));
+      if (Object.keys(done).length) writeDoc(`fees/${m}`, (cur) => ({ days: { ...((cur && cur.days) || {}), ...done } }));
+    }
+    S.feesLive.status = "ok"; S.feesLive.err = null;
+  } catch (e) { S.feesLive.status = "fout"; S.feesLive.err = mcpMessage(e, SHOPIFY); }
+  render();
+}
+function loadRemote(force) { loadSales(force); loadMeta(force); loadFees(force); }
+
+/* ============================================================
+   Cijfers voor een periode
+   ============================================================ */
+function prorate(amount, from, to, pFrom, pTo) {
+  const a = from > pFrom ? from : pFrom, b = to < pTo ? to : pTo;
+  if (b < a) return 0;
+  return (amount * (daysBetween(a, b) + 1)) / (daysBetween(from, to) + 1);
+}
+function manualSum(kinds, p) {
+  return Math.round(S.manual.filter((m) => kinds.includes(m.kind)).reduce((s, m) => s + prorate(m.amount, m.from, m.to || m.from, p.from, p.to), 0));
+}
+function teamMonthly(p) {
+  return Math.round(S.manual.filter((m) => m.kind === "team_month").reduce((s, m) => {
+    const to = m.to || p.to; const a = m.from > p.from ? m.from : p.from, b = to < p.to ? to : p.to;
+    return b < a ? s : s + (m.amount * 12 * (daysBetween(a, b) + 1)) / 365;
+  }, 0));
+}
+function finance(p) {
+  const today = dayKey(new Date());
+  const days = eachDay(p.from, p.to > today ? today : p.to);
+  let revenue = 0, taxes = 0, orders = 0, missingSales = 0;
+  for (const k of days) { const r = S.sales.byDay[k]; if (r) { revenue += r.total; taxes += r.taxes; orders += r.orders; } else missingSales++; }
+  const txs = allTxs();
+  const eff = txs.filter((t) => { const e = t.pd || t.d; return e >= p.from && e <= p.to; });
+  const booked = txs.filter((t) => t.d >= p.from && t.d <= p.to);
+  const bank = totalsByCategory(eff);
+  const bucket = (b) => Object.entries(bank).filter(([c]) => CAT[c] && CAT[c].bucket === b).reduce((s, [, v]) => s - v, 0);
+  const metaRows = S.meta.rows.filter((r) => r.date >= p.from && r.date <= p.to);
+  const metaSpend = S.meta.status === "ok" ? metaRows.reduce((s, r) => s + r.spend, 0) : null;
+  const metaPaid = -booked.filter((t) => t.c === "meta").reduce((s, t) => s + t.a, 0);
+  const meta = metaSpend !== null ? metaSpend : bucket("meta");
+  let shopFees = 0, fx = 0, feeDaysMissing = 0, feeOrders = 0, feeOrdersNoData = 0;
+  for (const k of days) { const f = feeDay(k); if (f) { shopFees += f.f; fx += f.fx; feeOrders += f.n; feeOrdersNoData += f.nf; } else feeDaysMissing++; }
+  const manFees = manualSum(["paypal_fees", "fees"], p);
+  const fees = shopFees + manFees;
+  const chargebacks = bucket("chargebacks") + manualSum(["chargebacks"], p);
+  const other = bucket("other") + manualSum(["other"], p);
+  const team = bucket("team") + manualSum(["team"], p) + teamMonthly(p);
+  const cogs = bucket("cogs") + manualSum(["cogs"], p);
+  const res = pnl({ revenue, taxes, orders, cogs, meta, fees, chargebacks, other, team, inventory: manualSum(["inventory"], p) }, S.settings.reserveVat);
+  const hasBank = txs.length > 0;
+  const lines = [
+    { key: "revenue", label: "Omzet", v: revenue, src: S.sales.status === "ok" ? ["Shopify"] : [S.sales.status === "laden" ? "laden" : "ontbreekt"], note: missingSales && S.sales.status === "ok" ? `${missingSales} dagen zonder data` : "" },
+    { key: "cogs", label: "COGS en verzending", v: cogs, src: [hasBank ? "bank" : "ontbreekt"].concat(manualSum(["cogs"], p) ? ["handmatig"] : []) },
+    { key: "meta", label: "Meta ads", v: meta, src: metaSpend !== null ? ["Meta"] : [hasBank ? "bank" : "ontbreekt"], note: metaSpend !== null ? `verbruikt volgens Meta, betaald via bank ${euro(metaPaid, true)}` : "betaald volgens bank, Meta-koppeling niet bereikbaar" },
+    { key: "fees", label: "Shopify en PayPal fees", v: fees, src: (S.feesLive.status === "fout" && !shopFees ? ["ontbreekt"] : ["Shopify"]).concat(manFees ? ["handmatig"] : []), note: [fx ? `waarvan ${euro(fx, true)} wisselkoers-fee` : "", feeDaysMissing ? `${feeDaysMissing} dagen nog niet opgehaald` : "", manFees ? "PayPal-fees handmatig" : "PayPal-fees ontbreken"].filter(Boolean).join(", ") },
+    { key: "chargebacks", label: "Chargebacks en disputes", v: chargebacks, src: chargebacks ? ["handmatig"] : ["ontbreekt"], note: chargebacks ? "" : "je Shopify-koppeling mag geen disputes lezen; vul in bij Invoer" },
+    { key: "other", label: "Software, freelancers, boekhouder, bank", v: other, src: [hasBank ? "bank" : "ontbreekt"] },
+    { key: "team", label: "Teamkosten", v: team, src: team ? (bucket("team") ? ["bank"] : ["handmatig"]) : ["ontbreekt"], note: team ? "" : "nog niet ingevoerd" },
+  ];
+  return { p, res, lines, bank, eff, booked, metaSpend, metaPaid, metaRows, fx, feeOrders, feeOrdersNoData, missingSales, days };
+}
+function latestBalance(beforeKey) {
+  const list = [...S.balances].filter((b) => !beforeKey || b.at <= beforeKey).sort((a, b) => a.at.localeCompare(b.at));
+  return list[list.length - 1] || null;
+}
+function bankBalanceAt(k) {
+  const txs = allTxs().filter((t) => t.b !== null && t.b !== undefined);
+  let last = null;
+  for (const t of txs) if (t.d <= k) last = t;
+  if (last) return last.b;
+  const next = txs.find((t) => t.d > k);
+  return next ? next.b - next.a : null;
+}
+function moneyNow() {
+  const snap = latestBalance();
+  const txs = allTxs().filter((t) => t.b !== null && t.b !== undefined);
+  const lastTx = txs[txs.length - 1];
+  const bankC = lastTx ? lastTx.b : snap && snap.bank != null ? snap.bank : 0;
+  const pos = { bank: bankC, paypal: snap ? snap.paypal : 0, payout: snap ? snap.payout : 0, pending: snap ? snap.pending : 0, hold: snap ? snap.hold : 0 };
+  const now = pos.bank + pos.paypal, soon = pos.payout + pos.pending, locked = pos.hold;
+  return { snap, bankDate: lastTx ? lastTx.d : null, bankSrc: lastTx ? "bank" : snap && snap.bank != null ? "handmatig" : "ontbreekt", pos, now, soon, locked, total: now + soon + locked, shopify: pos.payout + pos.pending + pos.hold };
+}
+function bridge(f) {
+  const p = f.p;
+  const bankBegin = bankBalanceAt(addDays(p.from, -1)), bankEnd = bankBalanceAt(p.to);
+  const sb = latestBalance(p.from), se = latestBalance(p.to);
+  const sh = (b) => (b ? b.payout + b.pending + b.hold : null);
+  const missing = [];
+  if (bankBegin === null) missing.push("banksaldo aan het begin");
+  if (bankEnd === null) missing.push("banksaldo aan het eind");
+  if (!sb) missing.push("Shopify-saldo aan het begin");
+  if (!se) missing.push("Shopify-saldo aan het eind");
+  const bankTot = totalsByCategory(f.booked);
+  const priv = -(bankTot.private || 0);
+  const loans = (bankTot.loan || 0) + (bankTot.owner_deposit || 0);
+  const metaTiming = f.res.meta - f.metaPaid;
+  const shopGrowth = (sh(se) || 0) - (sh(sb) || 0);
+  const bankGrowth = (bankEnd || 0) - (bankBegin || 0);
+  const explained = f.res.profit - shopGrowth - priv + metaTiming + loans;
+  const timing = bankGrowth - explained;
+  const steps = [
+    { key: "profit", label: "Winst", v: f.res.profit, ex: "Wat je in deze periode verdiende." },
+    { key: "shop", label: "Nog bij Shopify", v: -shopGrowth, ex: "Wat Shopify nog vasthoudt (payout, pending en reserve) is gegroeid en staat nog niet op je bank." },
+    { key: "priv", label: "Naar privé", v: -priv, ex: "Opnames naar privé. Geen kosten, wel weg van de zakelijke rekening." },
+    { key: "meta", label: "Meta verbruikt min betaald", v: metaTiming, ex: "Meta rekent achteraf af. Verbruikt maar nog niet betaald staat nog op je bank; betaald voor een vorige periode is er al af." },
+    { key: "loans", label: "Lening en stortingen", v: loans, ex: "Geleend geld en eigen stortingen. Geen omzet, wel geld op de bank." },
+    { key: "timing", label: "Timing en afronding", v: timing, ex: "Wat de stappen hierboven niet verklaren, bijvoorbeeld een leverancier die voor een andere periode is betaald." },
+  ];
+  return { steps, bankBegin, bankEnd, bankGrowth, shopBegin: sh(sb), shopEnd: sh(se), timing, missing, warn: f.res.profit !== 0 && Math.abs(timing) > Math.abs(f.res.profit) * 0.05 };
+}
+function coverage() {
+  const ranges = S.imports.filter((i) => i.from && i.to).map((i) => ({ from: i.from, to: i.to }));
+  if (!ranges.length) { const t = allTxs(); if (t.length) ranges.push({ from: t[0].d, to: t[t.length - 1].d }); }
+  const merged = mergeRanges(ranges);
+  const gaps = []; for (let i = 1; i < merged.length; i++) gaps.push({ from: addDays(merged[i - 1].to, 1), to: addDays(merged[i].from, -1) });
+  const last = merged.length ? merged[merged.length - 1].to : null;
+  const yesterday = addDays(dayKey(new Date()), -1);
+  const missingFrom = last && last < yesterday ? addDays(last, 1) : null;
+  return { merged, gaps, last, missingFrom, missingDays: missingFrom ? daysBetween(missingFrom, yesterday) + 1 : 0 };
+}
+function fcSettings() {
+  const s = S.settings, m = moneyNow(), snap = m.snap;
+  return {
+    days: s.forecastDays, start: addDays(dayKey(new Date()), 1), bank: m.pos.bank, payout: m.pos.payout, payoutDate: snap && snap.payoutDate ? snap.payoutDate : null,
+    pending: m.pos.pending, pendingWorkdays: 3, salesDay: s.salesDay, ratio: s.payoutRatio, delay: s.payoutDelay, paypalDay: s.paypalDay, metaDay: s.metaDay,
+    privateWeek: s.privateWeek, softwareWeek: s.softwareWeek, supplier: s.supplier, supplierDay: s.supplierDay, buffer: s.buffer, releaseAmount: 0, releaseDate: "", extraDay: 0,
+  };
+}
+function alerts(f) {
+  const out = [], s = S.settings, m = moneyNow();
+  const fc = forecast({ ...fcSettings(), days: 7 });
+  if (fc.belowZero || fc.belowBuffer) out.push({ l: 1, t: fc.belowZero ? "Bank dreigt onder nul te komen" : "Bank komt onder je buffer", b: `Laagste punt de komende 7 dagen: ${euro(fc.lowest.bal, true)} op ${dayL(fc.lowest.date)}. Buffer: ${euro(s.buffer, true)}.`, tab: "prognose" });
+  const openInv = S.manual.filter((x) => x.kind === "open_invoice" && !x.paid).reduce((a, x) => a + x.amount, 0);
+  if (openInv > 0 && openInv > m.pos.bank + m.pos.payout) out.push({ l: 1, t: "Fulfillment eerst: Meta niet verhogen", b: `Openstaande leveranciersfacturen (${euro(openInv, true)}) zijn hoger dan bank plus ingeplande payout (${euro(m.pos.bank + m.pos.payout, true)}).`, tab: "invoer" });
+  const today = dayKey(new Date());
+  const last3 = [addDays(today, -3), addDays(today, -2), addDays(today, -1)];
+  const rev3 = last3.reduce((a, k) => a + ((S.sales.byDay[k] || {}).total || 0), 0);
+  const meta3 = S.meta.rows.filter((r) => last3.includes(r.date)).reduce((a, r) => a + r.spend, 0);
+  if (S.sales.status === "ok" && S.meta.status === "ok" && meta3 > 0 && rev3 / meta3 < s.breakEven) out.push({ l: 2, t: "Meta te duur", b: `MER van de laatste 3 dagen is ${times(rev3 / meta3)}, onder je break-even van ${times(s.breakEven)}.`, tab: "meta" });
+  if (f.res.metaShare !== null && f.res.metaShare > s.metaShareLimit) out.push({ l: 2, t: "Meta is meer dan 40% van de omzet", b: `In deze periode ging ${pct(f.res.metaShare)} van de omzet naar Meta.`, tab: "meta" });
+  if (f.res.revenue > 0 && f.feeOrders > 0 && f.res.fees / f.res.revenue > s.feesLimit) out.push({ l: 3, t: "Fees hoog", b: `Fees zijn ${pct(f.res.fees / f.res.revenue)} van de omzet. Normaal EU-tarief is 1,5 tot 2,5%. Waarvan ${euro(f.fx, true)} wisselkoers-fee op betalingen in GBP, USD en andere valuta.`, tab: "overzicht" });
+  const cov = coverage(), unknown = allTxs().filter((t) => t.c === "unknown").length;
+  const issues = [unknown && `${unknown} bankmutaties nog niet ingedeeld`, cov.gaps.length && "gat in de bankdata", S.sales.status === "fout" && "Shopify niet bereikbaar", S.meta.status === "fout" && "Meta niet bereikbaar"].filter(Boolean);
+  if (issues.length) out.push({ l: 3, t: "Data nog niet volledig", b: issues.join(", ") + ".", tab: "bank" });
+  if (f.res.team === 0) out.push({ l: 3, t: "Winst niet volledig: teamkosten staan op € 0", b: "Voer je teamkosten per maand in, of deel teambetalingen in de bank in als Team.", tab: "invoer" });
+  return out.sort((a, b) => a.l - b.l);
+}
+
+/* ============================================================
+   Weergave
+   ============================================================ */
+const SRC = { Shopify: ["uit Shopify", ""], bank: ["uit bank", ""], Meta: ["uit Meta", ""], handmatig: ["handmatig", "hand"], ontbreekt: ["ontbreekt", "miss"], laden: ["laden", ""] };
+const badge = (s) => `<span class="badge ${SRC[s] ? SRC[s][1] : ""}">${esc(SRC[s] ? SRC[s][0] : s)}</span>`;
+const COST_COLOR = { cogs: "var(--c-cogs)", meta: "var(--c-meta)", fees: "var(--c-fees)", chargebacks: "var(--c-chargebacks)", other: "var(--c-other)", profit: "var(--c-profit)", team: "var(--c-team)" };
+const kpi = (l, v, s, tone) => `<div class="card kpi"><div class="l">${esc(l)}</div><div class="v num ${tone || ""}">${v}</div>${s ? `<div class="s">${s}</div>` : ""}</div>`;
+const charts = {};
+
+function renderTabs() {
+  document.getElementById("tabs").innerHTML = TABS.map(([id, l]) => `<button type="button" data-tab="${id}" ${S.tab === id ? 'aria-current="page"' : ""}>${esc(l)}</button>`).join("");
+}
+function renderPeriod() {
+  const p = P();
+  document.getElementById("period").innerHTML =
+    `<div class="seg" role="group" aria-label="Periode">${PRESETS.map(([id, l]) => `<button type="button" data-preset="${id}" aria-pressed="${p.preset === id}">${l}</button>`).join("")}</div>
+     <form id="customPeriod" class="row"><input class="input" type="date" id="pFrom" value="${p.from}" aria-label="Van"><span class="muted">t/m</span><input class="input" type="date" id="pTo" value="${p.to}" aria-label="Tot en met"><button class="btn ghost" type="submit">Toon</button></form>`;
+}
+function srcDot(status) { return status === "ok" ? '<span class="dot good">●</span>' : status === "fout" ? '<span class="dot neg">●</span>' : '<span class="dot muted">●</span>'; }
+function renderStrip() {
+  const cov = coverage(), unknown = allTxs().filter((t) => t.c === "unknown").length;
+  const bankNeeded = !cov.last || cov.missingFrom;
+  const st = (x, label) => `<span title="${esc(x.err || "")}">${srcDot(x.status)} ${label} <span class="muted">${x.status === "ok" ? "live" : x.status === "fout" ? "fout" : x.status === "laden" ? "laden" + (x.progress ? ", " + esc(x.progress) : "") : ""}</span></span>`;
+  let html = `<div class="strip"><b>Data</b>${st(S.sales, "Shopify omzet")}${st(S.feesLive, "Shopify fees")}${st(S.meta, "Meta")}
+    <span>${cov.last ? (bankNeeded ? '<span class="dot warn">●</span>' : '<span class="dot good">●</span>') : '<span class="dot warn">●</span>'} Bank <span class="muted">${cov.last ? "t/m " + dayL(cov.last) : "nog geen afschrift"}</span></span>
+    ${unknown ? `<button class="btn ghost" type="button" data-tab="bank" data-cat="unknown">${unknown} bankmutaties indelen</button>` : ""}
+    ${S.dbState !== "ok" ? `<span class="neg">Opslag: ${esc(S.dbState)}</span>` : ""}</div>`;
+  const errs = [S.sales, S.meta, S.feesLive].filter((x) => x.status === "fout").map((x) => x.err);
+  if (errs.length) html += `<div class="neg" style="margin-top:8px;font-size:13px">${[...new Set(errs)].map(esc).join("<br>")}</div>`;
+  document.getElementById("strip").innerHTML = html;
+  // het uploadformulier blijft staan, zodat een gekozen bestand niet verdwijnt als de cijfers binnenkomen
+  const need = document.getElementById("bankNeed");
+  const wasHidden = need.hidden;
+  need.hidden = !bankNeeded && !S.lastImport;
+  if (wasHidden && !need.hidden && (!cov.last || cov.missingDays >= 7)) need.open = true;
+  document.getElementById("bankNeedText").innerHTML = bankNeeded
+    ? `<b>Bankafschrift nodig</b> <span class="dim">${cov.missingFrom ? `vanaf ${dayL(cov.missingFrom)} (${cov.missingDays} ${cov.missingDays === 1 ? "dag" : "dagen"}). Download in de Revolut-app een afschrift van ${dayL(cov.missingFrom)} tot vandaag.` : "Upload je eerste Revolut-afschrift (PDF uit de app of CSV)."}</span>`
+    : `<b>Bank bijgewerkt</b> <span class="dim">t/m ${dayL(cov.last)}</span>`;
+  document.getElementById("stripResult").innerHTML = importResult();
+  const gap = document.getElementById("gapText");
+  gap.hidden = !cov.gaps.length;
+  gap.textContent = cov.gaps.length ? `Gat in de bankdata: ${cov.gaps.map((g) => dayL(g.from) + " t/m " + dayL(g.to)).join(", ")}. Upload een afschrift van die periode.` : "";
+  const fr = [S.sales.at, S.meta.at].filter(Boolean);
+  document.getElementById("freshness").textContent = fr.length ? "bijgewerkt " + new Date(Math.min(...fr)).toLocaleTimeString("nl-NL", { hour: "2-digit", minute: "2-digit" }) : "";
+}
+function uploadForm(id) {
+  return `<form data-form="upload" id="${id}" class="row"><input type="file" name="file" multiple accept=".pdf,.csv,application/pdf,text/csv" aria-label="Bankafschrift"><button class="btn" type="submit">Afschrift uploaden</button></form>${importResult()}`;
+}
+function importResult() {
+  const r = S.lastImport;
+  return `${r ? `<div class="card" style="margin-top:10px;padding:10px 12px">${r.map((x) => `<div><b>${esc(x.file)}</b>${x.from ? ` <span class="dim">${dayL(x.from)} t/m ${dayL(x.to)}</span>` : ""}<br><span class="dim">${x.error ? `<span class="neg">${esc(x.error)}</span>` : `${x.added} nieuw, ${x.dup} al aanwezig. ${x.opening != null ? `Saldo ${euro(x.opening)} naar ${euro(x.closing)}. ` : ""}${x.ok ? '<span class="good">Sluit tot op de cent.</span>' : '<span class="neg">Saldo sluit niet, controleer het afschrift.</span>'}${x.unknown ? ` <span class="warn">${x.unknown} niet herkend: deel ze één keer in, daarna gaat het automatisch.</span>` : ""}`}</span></div>`).join("")}</div>` : ""}`;
+}
+
+function viewOverview() {
+  const f = finance(P()), r = f.res, m = moneyNow(), al = alerts(f);
+  const loading = S.sales.status === "laden" && !r.revenue;
+  const head = loading ? "Cijfers laden…" : r.revenue === 0 ? "Nog geen omzet in deze periode." : r.profit >= 0 ? `Je verdiende ${euro(r.profit, true)} in deze periode.` : `Je maakte ${euro(-r.profit, true)} verlies in deze periode.`;
+  const sub = m.soon + m.locked > m.now ? "Het meeste staat nog niet op je bank." : "Het grootste deel staat al op je bank of PayPal.";
+  const parts = [["cogs", "COGS en verzending", r.cogs], ["meta", "Meta ads", r.meta], ["fees", "Fees", r.fees], ["chargebacks", "Chargebacks", r.chargebacks], ["other", "Software en overig", r.other], ["profit", "Winst", r.profit], ["team", "Team", r.team]];
+  const pos = parts.filter((x) => x[2] > 0), tot = pos.reduce((a, x) => a + x[2], 0);
+  const days = f.days;
+  charts.ov1 = { dates: days, series: [{ label: "Omzet", color: "var(--text)", values: days.map((k) => (S.sales.byDay[k] ? S.sales.byDay[k].total : null)) }, { label: "Meta spend", color: "var(--c-meta)", values: days.map((k) => (S.meta.status === "ok" ? f.metaRows.filter((x) => x.date === k).reduce((a, x) => a + x.spend, 0) : null)) }] };
+  charts.ov2 = { dates: days, fmt: "x", ref: { v: S.settings.breakEven, label: "break-even " + times(S.settings.breakEven) }, series: [{ label: "MER", color: "var(--c-meta)", values: days.map((k, i) => { const mm = charts.ov1.series[1].values[i], rv = charts.ov1.series[0].values[i]; return mm && rv !== null ? rv / mm : null; }) }] };
+  return `
+  ${al.length ? `<div class="stack" style="gap:8px">${al.map((a) => `<div class="alert l${a.l}" role="${a.l === 1 ? "alert" : "status"}"><span aria-hidden="true" class="${a.l === 1 ? "neg" : a.l === 2 ? "warn" : "muted"}">${a.l === 1 ? "●" : a.l === 2 ? "▲" : "○"}</span><div><b>${esc(a.t)}</b><span class="dim">${esc(a.b)}</span> ${a.tab ? `<button class="btn ghost" style="margin-top:6px;padding:3px 9px" type="button" data-tab="${a.tab}">Bekijk</button>` : ""}</div></div>`).join("")}</div>` : ""}
+  <section>
+    <h1 class="headline">${head} ${r.revenue > 0 ? `<em>${sub}</em>` : ""}</h1>
+    <p class="sub">Omzet ${euro(r.revenue, true)}, ${r.orders} orders, winst ${euro(r.profit, true)}, marge ${pct(r.margin)}.${r.mer !== null ? ` Elke euro Meta leverde ${euro(Math.round(r.mer * 100))} omzet op.` : ""}${S.settings.reserveVat ? ` Btw (${euro(r.taxes, true)}) is gereserveerd.` : ""}</p>
+  </section>
+  <section class="card"><h2>Waar elke euro omzet naartoe gaat</h2>
+    ${tot > 0 ? `<div class="costbar" role="img" aria-label="Verdeling van de omzet">${pos.map((x) => `<div title="${esc(x[1])}: ${euro(x[2])}" style="width:${(x[2] / tot) * 100}%;background:${COST_COLOR[x[0]]}"></div>`).join("")}</div>` : '<p class="muted">Nog geen data in deze periode.</p>'}
+    <ul class="legend">${parts.map((x) => `<li><span class="row" style="gap:8px"><i class="sw" style="background:${COST_COLOR[x[0]]}"></i><span class="dim">${esc(x[1])}</span></span><span class="num ${x[2] < 0 ? "neg" : ""}">${euro(x[2], true)} <span class="muted">${pct(div(x[2], r.revenue))}</span></span></li>`).join("")}</ul>
+  </section>
+  <section class="grid kpis">
+    ${kpi("Omzet", euro(r.revenue, true), "incl. btw")}
+    ${kpi("Winst", euro(r.profit, true), "marge " + pct(r.margin), r.profit < 0 ? "neg" : "good")}
+    ${kpi("MER", times(r.mer), `break-even ${times(r.breakEven)}, afspraak ${times(S.settings.breakEven)}`, r.mer !== null && r.mer < S.settings.breakEven ? "neg" : "")}
+    ${kpi("AOV", euro(r.aov, true), r.orders + " orders")}
+    ${kpi("Winst per order", euro(r.profitPerOrder), "COGS per order " + euro(r.cogsPerOrder))}
+    ${kpi("Meta %", pct(r.metaShare), "van omzet", r.metaShare !== null && r.metaShare > S.settings.metaShareLimit ? "neg" : "")}
+    ${kpi("COGS %", pct(r.cogsShare), "van omzet")}
+    ${kpi("Na btw-afdracht", euro(r.profitAfterVat, true), `als ${euro(r.taxes, true)} btw afgedragen moet worden`)}
+    ${kpi("Na voorraadcorrectie", euro(r.profitAfterInventory, true), r.inventory ? "voorraadtoename is bezit" : "voorraadwaarde nog niet ingevuld")}
+    ${kpi("Geld totaal", euro(m.total, true), `<button class="btn ghost" style="padding:2px 8px" type="button" data-tab="geld">waar staat het</button>`)}
+  </section>
+  <section class="grid two">
+    <div class="card"><h2>Omzet en Meta per dag</h2><div class="chart" data-chart="ov1"></div></div>
+    <div class="card"><h2>MER per dag</h2><div class="chart" data-chart="ov2"></div></div>
+  </section>
+  <section class="card"><h2>Winst en verlies</h2><div class="scroll"><table><tbody>
+    ${f.lines.map((l) => `<tr><td><div class="row" style="gap:6px">${l.key !== "revenue" ? `<i class="sw" style="background:${COST_COLOR[l.key]}"></i>` : ""}${esc(l.label)}${l.src.map(badge).join("")}</div>${l.note ? `<div class="muted" style="font-size:12px">${esc(l.note)}</div>` : ""}</td><td class="r">${euro(l.key === "revenue" ? l.v : -l.v)}</td><td class="r muted">${pct(div(l.v, r.revenue))}</td></tr>`).join("")}
+    ${S.settings.reserveVat ? `<tr><td>Btw gereserveerd</td><td class="r">${euro(-r.taxes)}</td><td class="r muted">${pct(div(r.taxes, r.revenue))}</td></tr>` : ""}
+    </tbody><tfoot><tr><td>Winst</td><td class="r ${r.profit < 0 ? "neg" : "good"}">${euro(r.profit)}</td><td class="r">${pct(r.margin)}</td></tr></tfoot></table></div>
+    <p class="muted" style="font-size:12px;margin:10px 0 0">Privé-opnames, leningen en eigen stortingen tellen nooit mee. Btw in de omzet: ${euro(r.taxes)} (btw fix, reserveren kan bij Invoer en instellingen).</p>
+  </section>`;
+}
+
+function viewMoney() {
+  const m = moneyNow(), p = m.pos, s = m.snap;
+  const parts = [["bank", "Bank (Revolut)", p.bank, "Nu beschikbaar", "var(--text)", false, m.bankSrc], ["paypal", "PayPal", p.paypal, "Nu beschikbaar", "var(--s1)", false, s ? "handmatig" : "ontbreekt"], ["payout", "Shopify payout ingepland", p.payout, s && s.payoutDate ? dayL(s.payoutDate) : "Eerstvolgende werkdag", "var(--s3)", false, s ? "handmatig" : "ontbreekt"], ["pending", "Shopify pending", p.pending, "Komende werkdagen", "var(--s4)", false, s ? "handmatig" : "ontbreekt"], ["hold", "Shopify reserve (hold)", p.hold, "Op slot", "var(--s2)", true, s ? "handmatig" : "ontbreekt"]];
+  const byLender = {};
+  for (const t of allTxs().filter((t) => t.c === "loan")) {
+    const n = t.ds.replace(/^(Betaling van|To)\s+/i, "").trim().toUpperCase();
+    const x = byLender[n] || (byLender[n] = { n, since: t.d, rec: 0, rep: 0 });
+    if (t.a > 0) x.rec += t.a; else x.rep += -t.a;
+  }
+  const lenders = Object.values(byLender);
+  return `
+  <section><h1 class="serif" style="font-size:28px">Waar mijn geld staat</h1><p class="sub">Bank: laatste afschrift t/m ${dayL(m.bankDate)}. Shopify en PayPal: ${s ? "stand van " + dayL(s.at) : "nog niet ingevuld"}. Je Shopify-koppeling mag geen saldi lezen, dus die vul je in bij Invoer (1 minuut, uit Shopify, Finances, Payouts).</p></section>
+  <section class="grid kpis">${kpi("Totaal", euro(m.total, true))}${kpi("Direct beschikbaar", euro(m.now, true), "bank en PayPal", "good")}${kpi("Binnenkort", euro(m.soon, true), "payout en pending")}${kpi("Op slot", euro(m.locked, true), "Shopify reserve", "neg")}</section>
+  <section class="card"><h2>Verdeling</h2>
+    ${m.total > 0 ? `<div class="costbar" style="height:38px">${parts.filter((x) => x[2] > 0).map((x) => `<div class="${x[5] ? "hatch" : ""}" title="${esc(x[1])}: ${euro(x[2])}" style="width:${(x[2] / m.total) * 100}%;background-color:${x[4]}"></div>`).join("")}</div>` : ""}
+    <div class="scroll" style="margin-top:12px"><table><thead><tr><th>Plek</th><th class="r">Bedrag</th><th class="r">Aandeel</th><th>Beschikbaar</th></tr></thead><tbody>
+    ${parts.map((x) => `<tr><td><div class="row" style="gap:6px"><i class="sw ${x[5] ? "hatch" : ""}" style="background-color:${x[4]}"></i>${esc(x[1])}${badge(x[6])}</div></td><td class="r">${euro(x[2])}</td><td class="r muted">${pct(div(x[2], m.total))}</td><td class="${x[5] ? "neg" : "dim"}">${esc(x[3])}</td></tr>`).join("")}
+    </tbody><tfoot><tr><td>Totaal</td><td class="r">${euro(m.total)}</td><td></td><td></td></tr></tfoot></table></div>
+    <p class="muted" style="font-size:12px;margin:10px 0 0">De ingeplande payout zit niet in pending en wordt apart geteld. Geld op slot is gearceerd.</p>
+  </section>
+  <section class="card"><h2>Shopify reserve (NDRP)</h2>
+    <div class="grid kpis" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">
+      <div><div class="dim">Vastgehouden</div><div class="num" style="font-size:20px;font-weight:600">${euro(p.hold)}</div></div>
+      <div><div class="dim">Chargeback rate (90 dagen)</div><div style="font-size:20px;font-weight:600">ontbreekt</div><div class="muted" style="font-size:12px">Je Shopify-koppeling mag geen disputes lezen. Exit: 30 dagen achter elkaar onder 1%.</div></div>
+    </div></section>
+  ${lenders.length ? `<section class="card"><h2>Openstaande schuld ${badge("bank")}</h2><table><tbody>${lenders.map((l) => `<tr><td>Lening ${esc(l.n)}, sinds ${dayL(l.since)}${l.rep ? `, al ${euro(l.rep)} afgelost` : ""}</td><td class="r">${euro(l.rec - l.rep)}</td></tr>`).join("")}</tbody></table><p class="muted" style="font-size:12px;margin:8px 0 0">Een lening is geen omzet. Het geld staat op je bank, maar moet terug.</p></section>` : ""}`;
+}
+
+function viewBridge() {
+  const f = finance(P()), b = bridge(f);
+  charts.wf = { steps: b.steps, end: "Groei bankrekening" };
+  return `
+  <section><h1 class="serif" style="font-size:28px">Winst naar bank</h1><p class="sub">Waarom je winst niet één op één op je bankrekening verschijnt.</p></section>
+  ${b.missing.length ? `<div class="alert l2"><span class="warn">▲</span><div><b>Niet alles is bekend voor deze periode</b><span class="dim">Ontbreekt: ${esc(b.missing.join(", "))}. Timing en afronding is daardoor minder betrouwbaar.</span></div></div>` : ""}
+  ${b.warn ? `<div class="alert l2"><span class="warn">▲</span><div><b>Timing en afronding is meer dan 5% van de winst</b><span class="dim">Kijk bij Bank of een leveranciersbetaling bij een andere periode hoort, en pas daar de datum hoort bij periode aan.</span></div></div>` : ""}
+  <section class="card"><div class="chart" data-chart="wf"></div></section>
+  <section class="card"><h2>Uitleg per stap</h2><div class="scroll"><table><tbody>
+    ${b.steps.map((s) => `<tr><td><b>${esc(s.label)}</b><div class="dim" style="font-size:12.5px">${esc(s.ex)}</div></td><td class="r ${s.v < 0 ? "neg" : ""}">${euro(s.v)}</td></tr>`).join("")}
+  </tbody><tfoot><tr><td>Groei bankrekening<div class="muted" style="font-weight:400;font-size:12px">van ${euro(b.bankBegin)} naar ${euro(b.bankEnd)}</div></td><td class="r">${euro(b.bankGrowth)}</td></tr></tfoot></table></div>
+  <p class="muted" style="font-size:12px;margin:10px 0 0">Shopify-saldo (payout, pending en reserve): begin ${euro(b.shopBegin)}, eind ${euro(b.shopEnd)}.</p></section>`;
+}
+
+function viewForecast() {
+  if (!S.fc) S.fc = fcSettings();
+  const s = S.fc;
+  const sl = (k, l, max, step) => `<div class="slider"><label for="fc_${k}"><span class="top"><span class="dim">${l}</span><b class="num" id="fcv_${k}">${euro(s[k], true)}</b></span></label><input type="range" id="fc_${k}" data-fc="${k}" min="0" max="${max}" step="${step}" value="${s[k]}"></div>`;
+  return `
+  <section><h1 class="serif" style="font-size:28px">Prognose</h1><p class="sub">Banksaldo dag voor dag vanaf ${dayL(s.start)}. Shopify betaalt alleen op werkdagen uit. Schuiven is om mee te rekenen; met Opslaan worden het je standaardwaarden.</p></section>
+  <section class="grid" style="grid-template-columns:minmax(0,1fr)">
+    <div class="card stack" style="gap:12px">
+      <div class="seg" role="group" aria-label="Aantal dagen">${[7, 14, 30].map((n) => `<button type="button" data-fcdays="${n}" aria-pressed="${s.days === n}">${n} dagen</button>`).join("")}</div>
+      <div class="formgrid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">
+        ${sl("salesDay", "Shopify verkoop per dag", 1000000, 10000)}${sl("metaDay", "Meta per dag", 500000, 5000)}${sl("paypalDay", "PayPal per dag", 150000, 5000)}${sl("privateWeek", "Privé per week", 500000, 10000)}${sl("softwareWeek", "Software per week", 150000, 5000)}${sl("supplier", "Leveranciersbetaling", 2000000, 10000)}${sl("buffer", "Minimale buffer", 1000000, 10000)}
+        <div class="slider"><label for="fc_ratio"><span class="top"><span class="dim">Uitbetaald deel nieuwe sales</span><b id="fcv_ratio">${Math.round(s.ratio * 100)}%</b></span></label><input type="range" id="fc_ratio" data-fc="ratio" min="0.6" max="1" step="0.01" value="${s.ratio}"></div>
+      </div>
+      <div class="formgrid">
+        <label>Dag leveranciersbetaling<select class="input" id="fc_supplierDay" data-fcsel="supplierDay"><option value="0">Geen</option>${eachDay(s.start, addDays(s.start, s.days - 1)).map((k, i) => `<option value="${i + 1}" ${s.supplierDay === i + 1 ? "selected" : ""}>Dag ${i + 1}, ${dayL(k)}</option>`).join("")}</select></label>
+        <label>Vrijgave reserve, datum<input class="input" type="date" id="fc_releaseDate" data-fcsel="releaseDate" value="${s.releaseDate}"></label>
+        <label>Vrijgave reserve, bedrag (€)<input class="input" id="fc_releaseAmount" data-fceur="releaseAmount" inputmode="decimal" value="${inEuro(s.releaseAmount || null)}"></label>
+        <label>Teamkosten en overig per dag (€)<input class="input" id="fc_extraDay" data-fceur="extraDay" inputmode="decimal" value="${inEuro(s.extraDay || null)}"></label>
+      </div>
+      <div class="row"><button class="btn" type="button" data-act="fcSave">Opslaan als standaard</button><button class="btn ghost" type="button" data-act="fcReset">Terug naar standaard</button></div>
+    </div>
+    <div id="fcResults" class="stack"></div>
+  </section>`;
+}
+function renderForecastResults() {
+  const el = document.getElementById("fcResults"); if (!el) return;
+  const s = S.fc, a = forecast(s), b = forecast({ ...s, salesDay: 0, paypalDay: 0 });
+  const box = (n, f) => `<div class="card" ${f.belowZero || f.belowBuffer ? 'style="border-left:4px solid var(--neg)"' : ""}><b>${n}</b><table style="margin-top:6px"><tbody>
+    <tr><td class="dim">Saldo na ${Math.min(7, s.days)} dagen</td><td class="r"><b>${euro(f.after7, true)}</b></td></tr>
+    <tr><td class="dim">Laagste punt</td><td class="r ${f.belowZero || f.belowBuffer ? "neg" : ""}">${euro(f.lowest.bal, true)} <span class="muted">${dayL(f.lowest.date)}</span></td></tr>
+    <tr><td class="dim">Eindsaldo</td><td class="r">${euro(f.end, true)}</td></tr>
+    <tr><td class="dim">Verschil met nu</td><td class="r ${f.change < 0 ? "neg" : "good"}">${euro(f.change, true)}</td></tr></tbody></table>
+    ${f.belowZero ? '<p class="neg" style="margin:6px 0 0;font-size:12.5px">Saldo komt onder nul.</p>' : f.belowBuffer ? '<p class="neg" style="margin:6px 0 0;font-size:12.5px">Saldo komt onder je buffer.</p>' : ""}</div>`;
+  charts.fc = { dates: a.rows.map((r) => r.date), zero: true, series: [{ label: "Sales lopen door", color: "var(--c-profit)", values: a.rows.map((r) => r.bal) }, { label: "Alleen wat al klaarstaat", color: "var(--c-meta)", dashed: true, values: b.rows.map((r) => r.bal) }] };
+  el.innerHTML = `<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">${box("Sales lopen door", a)}${box("Alleen wat al klaarstaat", b)}</div>
+  <div class="card"><div class="chart" data-chart="fc"></div></div>
+  <div class="card scroll" style="padding:0"><table><thead><tr><th>Dag</th><th class="r">Shopify in</th><th class="r">PayPal in</th><th class="r">Meta</th><th class="r">Leverancier</th><th class="r">Privé, software</th><th class="r">Saldo</th></tr></thead><tbody>
+    <tr class="muted"><td>Nu</td><td colspan="5"></td><td class="r">${euro(s.bank, true)}</td></tr>
+    ${a.rows.map((r) => `<tr><td style="white-space:nowrap">${dayL(r.date)}${r.wd ? "" : ' <span class="muted">weekend</span>'}</td><td class="r">${r.shop ? euro(r.shop, true) : ""}</td><td class="r">${r.paypal ? euro(r.paypal, true) : ""}</td><td class="r">${r.meta ? euro(-r.meta, true) : ""}</td><td class="r">${r.supplier ? euro(-r.supplier, true) : ""}</td><td class="r">${r.other ? euro(-r.other, true) : ""}</td><td class="r ${r.bal < 0 ? "neg" : r.bal < s.buffer ? "warn" : ""}"><b>${euro(r.bal, true)}</b></td></tr>`).join("")}
+  </tbody></table></div>
+  <p class="muted" style="font-size:12px;margin:0">Eerst de ingeplande payout, dan pending verdeeld over 3 werkdagen, daarna nieuwe verkopen na ${s.delay} dagen als ${Math.round(s.ratio * 100)}% van de verkoop. Verkopen die in het weekend uitbetaalbaar worden, komen maandag binnen.</p>`;
+  drawCharts();
+}
+
+function viewMeta() {
+  const f = finance(P()), s = S.settings;
+  const aggr = (keyFn) => {
+    const m = {};
+    for (const r of f.metaRows) { const k = keyFn(r); const a = m[k] || (m[k] = { k, spend: 0, clicks: 0, imp: 0, pur: 0, val: 0, fw: 0 }); a.spend += r.spend; a.clicks += r.clicks; a.imp += r.impressions; a.pur += r.purchases; a.val += r.value; a.fw += (r.freq || 0) * r.impressions; }
+    return Object.values(m).sort((a, b) => b.spend - a.spend);
+  };
+  const table = (rows, label) => `<div class="scroll"><table><thead><tr><th>${label}</th><th class="r">Spend</th><th class="r">Aankopen</th><th class="r">Omzet (Meta)</th><th class="r">ROAS</th><th class="r">CPC</th><th class="r">CPM</th><th class="r">Frequency</th></tr></thead><tbody>
+    ${rows.map((a) => { const roas = div(a.val, a.spend), fr = a.imp ? a.fw / a.imp : null; return `<tr><td style="max-width:18rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(a.k)}">${esc(a.k)}</td><td class="r">${euro(a.spend, true)}</td><td class="r">${a.pur}</td><td class="r">${euro(a.val, true)}</td><td class="r ${roas !== null && roas < s.breakEven ? "neg" : "good"}"><b>${times(roas)}</b></td><td class="r">${a.clicks ? euro(Math.round(a.spend / a.clicks)) : "ontbreekt"}</td><td class="r">${a.imp ? euro(Math.round((a.spend / a.imp) * 1000)) : "ontbreekt"}</td><td class="r ${fr !== null && fr >= 2.5 ? "warn" : ""}">${fr === null ? "" : fr.toFixed(2).replace(".", ",")}</td></tr>`; }).join("") || `<tr><td colspan="8" class="empty">${S.meta.status === "laden" ? "Laden…" : S.meta.status === "fout" ? esc(S.meta.err) : "Geen Meta-data in deze periode."}</td></tr>`}
+  </tbody></table></div>`;
+  const value = f.metaRows.reduce((a, r) => a + r.value, 0), spend = f.metaSpend || 0;
+  const bl = [...S.budget].sort((a, b) => a.date.localeCompare(b.date));
+  const warnFor = (c, i) => {
+    const w = [];
+    if (c.old > 0 && (c.nw - c.old) / c.old > 0.2) w.push(`Verhoging van ${Math.round(((c.nw - c.old) / c.old) * 100)}%, meer dan 20%`);
+    const prev = bl.slice(0, i).reverse().find((x) => x.campaign === c.campaign);
+    if (prev && daysBetween(prev.date, c.date) < 3) w.push(`Maar ${daysBetween(prev.date, c.date)} dag(en) na de vorige ingreep, minimaal 3`);
+    if (bl.some((x) => x !== c && x.date === c.date)) w.push("Meerdere ingrepen op dezelfde dag");
+    return w;
+  };
+  return `
+  <section><h1 class="serif" style="font-size:28px">Meta ads</h1><p class="sub">Live uit Windsor.ai. Break-even afspraak ${times(s.breakEven)}, rood is eronder.</p></section>
+  <section class="grid kpis">${kpi("Spend", euro(spend, true), badge(S.meta.status === "ok" ? "Meta" : "ontbreekt"))}${kpi("Betaald (bank)", euro(f.metaPaid, true), "loopt achter op spend")}${kpi("Omzet volgens Meta", euro(value, true), "ROAS " + times(div(value, spend)))}${kpi("Omzet Shopify", euro(f.res.revenue, true), "MER " + times(div(f.res.revenue, spend)), spend && f.res.revenue / spend < s.breakEven ? "neg" : "")}${kpi("Meta %", pct(div(spend, f.res.revenue)), "spend / omzet")}${kpi("Break-even", times(f.res.breakEven), "berekend, afspraak " + times(s.breakEven))}</section>
+  <section class="card"><h2>Per campagne</h2>${table(aggr((r) => r.campaign), "Campagne")}<p class="muted" style="font-size:12px;margin:8px 0 0">CPC = spend / clicks. Frequency oranje vanaf 2,5: tijd voor nieuwe creatives.</p></section>
+  <section class="card"><h2>Per markt</h2>${table(aggr((r) => marketOf(r.campaign)), "Markt")}</section>
+  <section class="card"><h2>Budgetwijzigingen</h2><p class="dim" style="margin:0 0 10px">Protocol: max 20% per ingreep, minimaal 3 tot 4 dagen ertussen, nooit twee ingrepen tegelijk.</p>
+    <form data-form="budget" class="row"><input class="input" type="date" id="b_date" value="${dayKey(new Date())}" required><input class="input" id="b_campaign" list="campaigns" placeholder="Campagne" required style="width:240px"><datalist id="campaigns">${[...new Set(S.meta.rows.map((r) => r.campaign))].map((c) => `<option value="${esc(c)}">`).join("")}</datalist><input class="input" id="b_old" placeholder="oud budget" inputmode="decimal" required style="width:110px"><input class="input" id="b_new" placeholder="nieuw budget" inputmode="decimal" required style="width:110px"><button class="btn" type="submit">Toevoegen</button></form>
+    <div class="scroll" style="margin-top:10px"><table><tbody>${bl.map((c, i) => ({ c, w: warnFor(c, i) })).reverse().map(({ c, w }) => `<tr><td style="white-space:nowrap">${dayL(c.date)}</td><td>${esc(c.campaign)}</td><td class="r">${euro(c.old)} naar ${euro(c.nw)}</td><td>${w.map((x) => `<div class="neg" style="font-size:12px">${esc(x)}</div>`).join("")}</td><td class="r"><button class="btn ghost" style="padding:2px 8px" type="button" data-act="delBudget" data-id="${c.id}">verwijder</button></td></tr>`).join("") || '<tr><td class="muted">Nog geen wijzigingen gelogd.</td></tr>'}</tbody></table></div>
+  </section>`;
+}
+
+function viewBank() {
+  const p = P(), fl = S.bankFilter;
+  const txs = allTxs().filter((t) => { const e = t.pd || t.d; return e >= p.from && e <= p.to; });
+  const tot = totalsByCategory(txs);
+  const shown = txs.filter((t) => (!fl.cat || t.c === fl.cat) && (!fl.q || (t.ds + " " + t.dt).toLowerCase().includes(fl.q.toLowerCase())));
+  const cov = coverage();
+  const r = rules();
+  return `
+  <section><h1 class="serif" style="font-size:28px">Bank</h1><p class="sub">Revolut Pro. Upload je afschrift van elke periode; overlap wordt overgeslagen. Mutaties tellen in de periode van hun datum hoort bij periode.</p></section>
+  <section class="grid two">
+    <div class="card"><h2>Afschrift uploaden</h2>${uploadForm("bankUpload")}
+      <p class="muted" style="font-size:12px;margin:10px 0 0">Gedekt: ${cov.merged.map((x) => dayL(x.from) + " t/m " + dayL(x.to)).join(", ") || "nog niets"}. Het afschrift zelf wordt niet bewaard, alleen de mutaties.</p></div>
+    <div class="card"><h2>Totalen in deze periode</h2><table><tbody>
+      ${CATEGORIES.filter((c) => tot[c.id] !== undefined).map((c) => `<tr><td><button class="btn ghost" style="padding:2px 8px;border:0" type="button" data-bankcat="${c.id}">${esc(c.label)}</button> <span class="muted" style="font-size:11.5px">${KIND_LABEL[c.kind]}</span></td><td class="r ${tot[c.id] > 0 ? "good" : ""}">${euro(tot[c.id])}</td></tr>`).join("") || '<tr><td class="muted">Geen mutaties in deze periode.</td></tr>'}
+    </tbody></table></div>
+  </section>
+  <section class="card">
+    <form data-form="bankFilter" class="row" style="margin-bottom:10px"><input class="input" id="bf_q" placeholder="Zoek omschrijving…" value="${esc(fl.q)}" style="width:220px"><select class="input" id="bf_cat"><option value="">Alle categorieën</option>${CATEGORIES.map((c) => `<option value="${c.id}" ${fl.cat === c.id ? "selected" : ""}>${esc(c.label)}</option>`).join("")}</select><button class="btn ghost" type="submit">Filter</button>${fl.cat || fl.q ? '<button class="btn ghost" type="button" data-act="clearFilter">Wis filter</button>' : ""}<span class="muted" style="margin-left:auto">${shown.length} mutaties</span></form>
+    <div class="scroll"><table><thead><tr><th>Datum</th><th>Omschrijving</th><th class="r">Bedrag</th><th>Categorie</th><th>Hoort bij</th><th></th></tr></thead><tbody>
+    ${shown.map((t) => `<tr ${t.c === "unknown" ? 'style="background:var(--surface-2)"' : ""}><td style="white-space:nowrap">${dayL(t.d)}</td><td style="max-width:26rem"><b>${esc(t.ds)}</b><div class="muted" style="font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(t.dt)}">${esc(String(t.dt || "").split("\n").filter((l) => !l.startsWith("Kaart:")).join(", "))}</div>${t.n ? `<div class="warn" style="font-size:12px">${esc(t.n)}</div>` : ""}</td>
+      <td class="r ${t.a > 0 ? "good" : ""}">${euro(t.a)}${t.f ? `<div class="muted" style="font-size:11.5px">waarvan ${euro(t.f)} kosten</div>` : ""}</td>
+      <td><select class="input pillsel" data-txcat="${t.k}" aria-label="Categorie">${CATEGORIES.map((c) => `<option value="${c.id}" ${t.c === c.id ? "selected" : ""}>${esc(c.label)}</option>`).join("")}</select>${t.cs === "handmatig" ? '<div class="warn" style="font-size:11px">handmatig</div>' : ""}</td>
+      <td><input class="input" type="date" data-txpd="${t.k}" value="${t.pd || t.d}" style="width:140px;${t.pd ? "border-color:var(--warn)" : ""}" aria-label="Hoort bij periode"></td>
+      <td><button class="btn ghost" style="padding:2px 8px" type="button" data-act="ruleFromTx" data-k="${t.k}" title="Maak een regel zodat dit voortaan automatisch gaat">regel</button></td></tr>`).join("") || `<tr><td colspan="6" class="empty">${allTxs().length ? "Geen mutaties voor dit filter en deze periode." : "Nog geen bankmutaties. Upload je Revolut-afschrift."}</td></tr>`}
+    </tbody></table></div>
+  </section>
+  <section class="card"><h2>Regels</h2><p class="dim" style="margin:0 0 10px">Bevat de omschrijving of een detailregel de tekst, dan krijgt de mutatie de categorie. Lager nummer gaat voor. Handmatig ingedeelde mutaties blijven zoals ze zijn.</p>
+    <form data-form="rule" class="row" style="margin-bottom:10px"><input class="input" id="r_pattern" placeholder="tekst, bv. Klaviyo" required style="width:200px"><select class="input" id="r_dir"><option value="any">in en uit</option><option value="in">alleen ontvangen</option><option value="out">alleen uitgegeven</option></select><select class="input" id="r_cat">${CATEGORIES.filter((c) => c.id !== "unknown").map((c) => `<option value="${c.id}">${esc(c.label)}</option>`).join("")}</select><input class="input" id="r_prio" type="number" value="15" style="width:70px" aria-label="Prioriteit"><button class="btn" type="submit">Regel toevoegen</button></form>
+    <details><summary class="dim">${r.length} regels bekijken</summary><div class="scroll"><table><thead><tr><th>Tekst bevat</th><th>Richting</th><th>Categorie</th><th class="r">Nr</th><th></th></tr></thead><tbody>${[...r].sort((a, b) => a.priority - b.priority).map((x) => `<tr><td><code>${esc(x.pattern)}</code></td><td class="dim">${x.direction === "in" ? "ontvangen" : x.direction === "out" ? "uitgegeven" : "beide"}</td><td>${esc(CAT[x.category] ? CAT[x.category].label : x.category)}</td><td class="r">${x.priority}</td><td class="r"><button class="btn ghost" style="padding:2px 8px" type="button" data-act="delRule" data-id="${x.id}">verwijder</button></td></tr>`).join("")}</tbody></table></div></details>
+  </section>`;
+}
+
+const MANUAL_KINDS = { paypal_fees: "PayPal fees", chargebacks: "Chargebacks en disputes", fees: "Overige fees", cogs: "COGS (niet via bank)", other: "Overige kosten", team: "Teamkosten eenmalig", inventory: "Toename voorraadwaarde" };
+function viewInput() {
+  const s = S.settings, snap = latestBalance(), today = dayKey(new Date()), ms = today.slice(0, 8) + "01";
+  const team = S.manual.filter((m) => m.kind === "team_month"), posts = S.manual.filter((m) => MANUAL_KINDS[m.kind]), inv = S.manual.filter((m) => m.kind === "open_invoice");
+  const e2 = (c) => inEuro(c);
+  return `
+  <section><h1 class="serif" style="font-size:28px">Invoer en instellingen</h1><p class="sub">Alleen wat je koppelingen niet kunnen lezen. Alles hier telt overal mee met het label handmatig.</p></section>
+  <section class="card"><h2>Shopify en PayPal saldo</h2><p class="dim" style="margin:0 0 10px">Uit Shopify, Finances, Payouts: de ingeplande payout, pending en reserve. En je PayPal-saldo. ${snap ? "Laatste stand: " + dayL(snap.at) + "." : ""}</p>
+    <form data-form="balance" class="formgrid">
+      <label>Datum<input class="input" type="date" id="bal_at" value="${today}" required></label>
+      <label>Payout ingepland (€)<input class="input" id="bal_payout" inputmode="decimal" value="${snap ? e2(snap.payout) : ""}" required></label>
+      <label>Payout datum<input class="input" type="date" id="bal_payoutDate" value="${snap && snap.payoutDate && snap.payoutDate >= today ? snap.payoutDate : ""}"></label>
+      <label>Pending (€)<input class="input" id="bal_pending" inputmode="decimal" value="${snap ? e2(snap.pending) : ""}" required></label>
+      <label>Reserve, hold (€)<input class="input" id="bal_hold" inputmode="decimal" value="${snap ? e2(snap.hold) : ""}" required></label>
+      <label>PayPal (€)<input class="input" id="bal_paypal" inputmode="decimal" value="${snap ? e2(snap.paypal) : ""}" required></label>
+      <label style="justify-content:flex-end"><button class="btn" type="submit">Stand opslaan</button></label>
+    </form>
+    ${S.balances.length ? `<details style="margin-top:10px"><summary class="dim">${S.balances.length} eerdere standen</summary><table><tbody>${[...S.balances].sort((a, b) => b.at.localeCompare(a.at)).map((b) => `<tr><td>${dayL(b.at)}</td><td class="r">payout ${euro(b.payout, true)}</td><td class="r">pending ${euro(b.pending, true)}</td><td class="r">hold ${euro(b.hold, true)}</td><td class="r">PayPal ${euro(b.paypal, true)}</td><td class="muted" style="font-size:12px">${esc(b.note || "")}</td><td class="r"><button class="btn ghost" style="padding:2px 8px" type="button" data-act="delBalance" data-id="${b.id}">verwijder</button></td></tr>`).join("")}</tbody></table></details>` : ""}
+  </section>
+  <section class="card"><h2>Teamkosten per maand</h2>
+    <form data-form="team" class="row"><input class="input" id="t_name" placeholder="rol of naam, bv. media buyer" required style="width:220px"><input class="input" id="t_amount" placeholder="per maand" inputmode="decimal" required style="width:110px"><label class="dim" style="font-size:12px">vanaf <input class="input" type="date" id="t_from" value="${ms}" required></label><label class="dim" style="font-size:12px">tot <input class="input" type="date" id="t_to"></label><button class="btn" type="submit">Toevoegen</button></form>
+    <table style="margin-top:8px"><tbody>${team.map((m) => `<tr><td>${esc(m.label)}</td><td class="r">${euro(m.amount)} per maand</td><td class="dim">${dayL(m.from)} t/m ${m.to ? dayL(m.to) : "doorlopend"}</td><td class="r"><button class="btn ghost" style="padding:2px 8px" type="button" data-act="delManual" data-id="${m.id}">verwijder</button></td></tr>`).join("") || '<tr><td class="warn">Nog geen teamkosten. Lopen ze via Revolut, deel die betalingen dan in als Team bij Bank.</td></tr>'}</tbody></table>
+  </section>
+  <section class="card"><h2>Overige posten over een periode</h2><p class="dim" style="margin:0 0 10px">Bijvoorbeeld chargebacks uit je Shopify-payouts of PayPal-fees. Het bedrag wordt over de dagen verdeeld.</p>
+    <form data-form="manual" class="row"><select class="input" id="m_kind">${Object.entries(MANUAL_KINDS).map(([k, l]) => `<option value="${k}">${l}</option>`).join("")}</select><input class="input" id="m_label" placeholder="omschrijving" required style="width:200px"><input class="input" id="m_amount" placeholder="bedrag" inputmode="decimal" required style="width:110px"><label class="dim" style="font-size:12px">van <input class="input" type="date" id="m_from" value="${ms}" required></label><label class="dim" style="font-size:12px">t/m <input class="input" type="date" id="m_to" value="${today}" required></label><button class="btn" type="submit">Toevoegen</button></form>
+    <table style="margin-top:8px"><tbody>${posts.map((m) => `<tr><td>${esc(m.label)} <span class="muted" style="font-size:12px">${esc(MANUAL_KINDS[m.kind])}</span>${m.note ? `<div class="muted" style="font-size:12px">${esc(m.note)}</div>` : ""}</td><td class="r">${euro(m.amount)}</td><td class="dim" style="white-space:nowrap">${dayL(m.from)} t/m ${dayL(m.to)}</td><td class="r"><button class="btn ghost" style="padding:2px 8px" type="button" data-act="delManual" data-id="${m.id}">verwijder</button></td></tr>`).join("") || '<tr><td class="muted">Nog geen posten.</td></tr>'}</tbody></table>
+  </section>
+  <section class="card"><h2>Openstaande leveranciersfacturen</h2><p class="dim" style="margin:0 0 10px">Nodig voor de waarschuwing fulfillment eerst.</p>
+    <form data-form="invoice" class="row"><input class="input" id="i_sup" placeholder="leverancier" required style="width:200px"><input class="input" id="i_amount" placeholder="bedrag" inputmode="decimal" required style="width:110px"><label class="dim" style="font-size:12px">vervalt <input class="input" type="date" id="i_due"></label><button class="btn" type="submit">Toevoegen</button></form>
+    <table style="margin-top:8px"><tbody>${inv.map((m) => `<tr style="${m.paid ? "opacity:.5" : ""}"><td>${esc(m.label)}</td><td class="r">${euro(m.amount)}</td><td class="dim">${m.due ? "vervalt " + dayL(m.due) : ""}</td><td class="r"><button class="btn ghost" style="padding:2px 8px" type="button" data-act="toggleInvoice" data-id="${m.id}">${m.paid ? "Toch open" : "Betaald"}</button> <button class="btn ghost" style="padding:2px 8px" type="button" data-act="delManual" data-id="${m.id}">verwijder</button></td></tr>`).join("") || '<tr><td class="muted">Geen openstaande facturen.</td></tr>'}</tbody></table>
+  </section>
+  <section class="card"><h2>Instellingen</h2>
+    <form data-form="settings" class="stack" style="gap:12px">
+      <label class="row" style="gap:8px"><input type="checkbox" id="s_reserveVat" ${s.reserveVat ? "checked" : ""}> Btw reserveren <span class="muted" style="font-size:12px">standaard uit (btw fix); aan: de btw gaat van de winst af</span></label>
+      <div class="formgrid">
+        <label>Break-even ROAS afspraak<input class="input" id="s_breakEven" value="${String(s.breakEven).replace(".", ",")}"></label>
+        <label>Minimale bankbuffer (€)<input class="input" id="s_buffer" value="${e2(s.buffer)}"></label>
+        <label>Software per week (€)<input class="input" id="s_softwareWeek" value="${e2(s.softwareWeek)}"></label>
+        <label>Uitbetaalpercentage (%)<input class="input" id="s_payoutRatio" value="${Math.round(s.payoutRatio * 100)}"></label>
+        <label>Vertraging uitbetaling (dagen)<input class="input" id="s_payoutDelay" type="number" min="0" value="${s.payoutDelay}"></label>
+        <label>Prognose standaard (dagen)<input class="input" id="s_forecastDays" type="number" min="7" max="30" value="${s.forecastDays}"></label>
+      </div>
+      <div><button class="btn" type="submit">Instellingen opslaan</button></div>
+    </form>
+  </section>`;
+}
+
+/* ---------- grafieken (SVG, breedte volgt de container) ---------- */
+const fmtAxis = (v, f) => (f === "x" ? v.toFixed(1).replace(".", ",") + "x" : eur0.format(v / 100));
+function niceStep(range) { const raw = range / 4 || 1, mag = 10 ** Math.floor(Math.log10(raw)), n = raw / mag; return (n <= 1 ? 1 : n <= 2 ? 2 : n <= 5 ? 5 : 10) * mag; }
+function drawLine(el, spec) {
+  const W = Math.max(280, el.clientWidth), H = 230, PL = spec.fmt === "x" ? 44 : 64, PR = 10, PT = 12, PB = 24;
+  const all = spec.series.flatMap((s) => s.values.filter((v) => v !== null && isFinite(v)));
+  if (spec.ref) all.push(spec.ref.v); if (spec.zero) all.push(0);
+  if (!all.length) { el.innerHTML = '<p class="muted" style="padding:40px 0;text-align:center">Nog geen data.</p>'; return; }
+  const max = Math.max(...all, 0), min = Math.min(...all, 0), step = niceStep(max - min), top = Math.ceil(max / step) * step || step, bot = Math.floor(min / step) * step;
+  const iw = W - PL - PR, ih = H - PT - PB, n = spec.dates.length;
+  const x = (i) => PL + (n <= 1 ? iw / 2 : (i / (n - 1)) * iw), y = (v) => PT + ((top - v) / (top - bot || 1)) * ih;
+  const every = Math.max(1, Math.ceil(n / Math.max(2, Math.floor(iw / 80))));
+  let g = "";
+  for (let v = bot; v <= top + step / 2; v += step) g += `<line x1="${PL}" x2="${W - PR}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)"/><text x="${PL - 7}" y="${y(v)}" dy="0.32em" text-anchor="end" font-size="11" fill="var(--text-3)">${fmtAxis(v, spec.fmt)}</text>`;
+  if (spec.zero) g += `<line x1="${PL}" x2="${W - PR}" y1="${y(0)}" y2="${y(0)}" stroke="var(--neg)" stroke-dasharray="4 4" stroke-width="1.5"/>`;
+  if (spec.ref) g += `<line x1="${PL}" x2="${W - PR}" y1="${y(spec.ref.v)}" y2="${y(spec.ref.v)}" stroke="var(--text-3)" stroke-dasharray="4 4"/><text x="${W - PR}" y="${y(spec.ref.v) - 5}" text-anchor="end" font-size="11" fill="var(--text-2)">${esc(spec.ref.label)}</text>`;
+  spec.dates.forEach((d, i) => { if (i % every === 0) g += `<text x="${x(i)}" y="${H - 6}" text-anchor="middle" font-size="11" fill="var(--text-3)">${dayL(d)}</text>`; });
+  for (const s of spec.series) {
+    let d = ""; s.values.forEach((v, i) => { if (v === null || !isFinite(v)) return; d += (d && s.values[i - 1] !== null ? "L" : "M") + x(i).toFixed(1) + "," + y(v).toFixed(1); });
+    g += `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" ${s.dashed ? 'stroke-dasharray="5 4"' : ""}/>`;
+  }
+  const legend = spec.series.length > 1 ? `<div class="chartlegend">${spec.series.map((s) => `<span><i style="background:${s.color}"></i>${esc(s.label)}</span>`).join("")}</div>` : "";
+  el.innerHTML = `${legend}<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(spec.series.map((s) => s.label).join(", "))}">${g}<g class="hov"></g><rect x="${PL}" y="${PT}" width="${iw}" height="${ih}" fill="transparent"/></svg><div class="tip" hidden></div>`;
+  const svg = el.querySelector("svg"), hov = el.querySelector(".hov"), tip = el.querySelector(".tip");
+  const fv = (v) => (v === null || !isFinite(v) ? "ontbreekt" : spec.fmt === "x" ? times(v) : euro(v, true));
+  svg.addEventListener("pointermove", (ev) => {
+    const r = svg.getBoundingClientRect(), px = ((ev.clientX - r.left) / r.width) * W;
+    const i = Math.max(0, Math.min(n - 1, Math.round(((px - PL) / iw) * (n - 1))));
+    hov.innerHTML = `<line x1="${x(i)}" x2="${x(i)}" y1="${PT}" y2="${H - PB}" stroke="var(--text-3)"/>` + spec.series.map((s) => (s.values[i] === null || !isFinite(s.values[i]) ? "" : `<circle cx="${x(i)}" cy="${y(s.values[i])}" r="4.5" fill="${s.color}" stroke="var(--surface)" stroke-width="2"/>`)).join("");
+    tip.hidden = false;
+    tip.innerHTML = `<b>${dayL(spec.dates[i])}</b>` + spec.series.map((s) => `<div><span class="dim">${esc(s.label)}</span><span class="num">${fv(s.values[i])}</span></div>`).join("");
+    tip.style.left = Math.min(Math.max((x(i) / W) * 100 - 12, 0), 60) + "%";
+  });
+  svg.addEventListener("pointerleave", () => { hov.innerHTML = ""; tip.hidden = true; });
+}
+function drawWaterfall(el, spec) {
+  const W = Math.max(320, el.clientWidth), H = 290, PT = 26, PB = 58, PX = 6;
+  const all = [...spec.steps, { key: "end", label: spec.end, v: spec.steps.reduce((a, s) => a + s.v, 0) }];
+  let run = 0;
+  const bars = all.map((s, i) => { const end = i === all.length - 1; const st = end || i === 0 ? 0 : run; const en = end ? s.v : i === 0 ? s.v : run + s.v; if (!end) run = i === 0 ? s.v : run + s.v; return { ...s, st, en, end, first: i === 0 }; });
+  const vals = bars.flatMap((b) => [b.st, b.en, 0]), max = Math.max(...vals), min = Math.min(...vals);
+  const ih = H - PT - PB, y = (v) => PT + ((max - v) / (max - min || 1)) * ih, slot = (W - 2 * PX) / bars.length, bw = Math.min(64, slot * 0.6);
+  let g = `<line x1="${PX}" x2="${W - PX}" y1="${y(0)}" y2="${y(0)}" stroke="var(--grid)" stroke-width="1.5"/>`;
+  bars.forEach((b, i) => {
+    const bx = PX + i * slot + (slot - bw) / 2, t = y(Math.max(b.st, b.en)), h = Math.max(1, Math.abs(y(b.st) - y(b.en)));
+    const col = b.first ? "var(--c-profit)" : b.end ? "var(--text)" : b.v >= 0 ? "var(--good)" : "var(--neg)";
+    g += `<rect x="${bx}" y="${t}" width="${bw}" height="${h}" rx="3" fill="${col}" opacity="${b.first || b.end ? 1 : 0.85}"/>`;
+    if (i < bars.length - 1) g += `<line x1="${bx + bw}" x2="${bx + slot}" y1="${y(b.en)}" y2="${y(b.en)}" stroke="var(--text-3)" stroke-dasharray="2 3"/>`;
+    g += `<text x="${bx + bw / 2}" y="${t - 6}" text-anchor="middle" font-size="${W < 520 ? 10 : 12}" font-weight="500" fill="var(--text)">${b.v > 0 && !b.first && !b.end ? "+" : ""}${euro(b.v, true)}</text>`;
+    g += `<foreignObject x="${PX + i * slot}" y="${H - PB + 8}" width="${slot}" height="${PB}"><div xmlns="http://www.w3.org/1999/xhtml" style="font-size:${W < 520 ? 10 : 11.5}px;line-height:1.2;text-align:center;color:var(--text-2);padding:0 2px">${esc(b.label)}</div></foreignObject>`;
+  });
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Van winst naar bankrekening">${g}</svg>`;
+}
+function drawCharts() {
+  document.querySelectorAll("[data-chart]").forEach((el) => {
+    const spec = charts[el.dataset.chart]; if (!spec) return;
+    try { if (el.dataset.chart === "wf") drawWaterfall(el, spec); else drawLine(el, spec); } catch (e) { el.innerHTML = '<p class="muted">Grafiek kon niet getekend worden.</p>'; }
+  });
+}
+
+let renderPending = false;
+function render() {
+  const active = document.activeElement;
+  const editing = (el) => active && el.contains(active) && /INPUT|SELECT|TEXTAREA/.test(active.tagName);
+  renderTabs();
+  if (!editing(document.getElementById("period"))) renderPeriod();
+  renderStrip();
+  const v = document.getElementById("view");
+  const views = { overzicht: viewOverview, geld: viewMoney, bridge: viewBridge, prognose: viewForecast, meta: viewMeta, bank: viewBank, invoer: viewInput };
+  // formulieren niet overschrijven terwijl iemand typt; na het verlaten van het veld alsnog bijwerken
+  if (editing(v)) { renderPending = true; return; }
+  try { v.innerHTML = views[S.tab](); } catch (e) { v.innerHTML = `<div class="card neg">Deze pagina kon niet worden opgebouwd: ${esc(e.message)}</div>`; }
+  if (S.tab === "prognose") renderForecastResults();
+  drawCharts();
+}
+document.addEventListener("focusout", () => { if (renderPending) { renderPending = false; setTimeout(render, 50); } });
+let rz; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(drawCharts, 150); });
+
+/* ============================================================
+   Acties
+   ============================================================ */
+async function importFiles(files) {
+  const results = [];
+  const rs = rules();
+  for (const file of files) {
+    try {
+      const isPdf = /\.pdf$/i.test(file.name) || file.type === "application/pdf";
+      const st = isPdf ? await parseRevolutPdf(await file.arrayBuffer()) : parseRevolutCsv(await file.text());
+      const rec = reconcile(st);
+      const seen = {};
+      const txs = st.txs.map((t, i) => {
+        const base = [t.d, t.a, t.b ?? "", t.ds].join("|"); const occ = seen[base] || 0; seen[base] = occ + 1;
+        const r = matchRule(t, rs);
+        return { k: base + "|" + occ, d: t.d, ds: t.ds, dt: t.dt, a: t.a, f: t.f || 0, b: t.b ?? null, c: r ? r.category : "unknown", cs: "regel", i };
+      });
+      const byMonth = {};
+      for (const t of txs) (byMonth[t.d.slice(0, 7)] = byMonth[t.d.slice(0, 7)] || []).push(t);
+      let added = 0;
+      for (const [m, list] of Object.entries(byMonth)) {
+        await writeDoc(`bank/${m}`, (cur) => {
+          const have = (cur && cur.txs) || [];
+          const keys = new Set(have.map((t) => t.k));
+          const fresh = list.filter((t) => !keys.has(t.k));
+          added += fresh.length;
+          if (!fresh.length) return null;
+          const merged = [...have, ...fresh].sort((a, b) => a.d.localeCompare(b.d) || (a.i || 0) - (b.i || 0));
+          return { txs: merged };
+        });
+      }
+      const info = { file: file.name, from: st.from, to: st.to, n: txs.length, added, dup: txs.length - added, ok: rec.ok, opening: rec.opening, closing: rec.closing, unknown: txs.filter((t) => t.c === "unknown").length, at: new Date().toISOString() };
+      results.push(info);
+      await writeDoc("config/imports", (cur) => ({ list: [...((cur && cur.list) || []), { file: info.file, from: info.from, to: info.to, n: info.n, ok: info.ok, at: info.at }].slice(-200) }));
+    } catch (e) { results.push({ file: file.name, error: e && e.message ? e.message : String(e) }); }
+  }
+  S.lastImport = results; render();
+}
+async function recategorize(newRules) {
+  for (const m of Object.keys(S.bank)) {
+    await writeDoc(`bank/${m}`, (cur) => {
+      if (!cur) return null;
+      let changed = false;
+      const txs = cur.txs.map((t) => { if (t.cs === "handmatig") return t; const r = matchRule(t, newRules); const c = r ? r.category : "unknown"; if (c !== t.c) { changed = true; return { ...t, c }; } return t; });
+      return changed ? { txs } : null;
+    });
+  }
+}
+function updateTx(k, patch) {
+  const m = allTxs().find((t) => t.k === k); if (!m) return;
+  return writeDoc(`bank/${m.d.slice(0, 7)}`, (cur) => (cur ? { txs: cur.txs.map((t) => (t.k === k ? { ...t, ...patch } : t)) } : null));
+}
+function saveRules(list) { return writeDoc("config/rules", () => ({ rules: list })).then(() => recategorize(list)); }
+const saveManual = (fn) => writeDoc("config/manual", (cur) => ({ entries: fn((cur && cur.entries) || []) }));
+const val = (id) => (document.getElementById(id) || {}).value || "";
+
+document.addEventListener("click", (e) => {
+  const t = e.target.closest("button,[data-tab]"); if (!t) return;
+  if (t.dataset.tab) { S.tab = t.dataset.tab; store.set("mm.tab", S.tab); if (t.dataset.cat !== undefined) S.bankFilter = { cat: t.dataset.cat, q: "" }; window.scrollTo(0, 0); render(); return; }
+  if (t.dataset.preset) { S.periodSel = { preset: t.dataset.preset }; store.set("mm.period", S.periodSel); render(); loadRemote(false); return; }
+  if (t.dataset.bankcat) { S.bankFilter = { cat: t.dataset.bankcat, q: "" }; render(); return; }
+  if (t.dataset.fcdays) { S.fc.days = Number(t.dataset.fcdays); render(); return; }
+  if (t.id === "refresh") { loadRemote(true); return; }
+  const act = t.dataset.act; if (!act) return;
+  if (act === "clearFilter") { S.bankFilter = { cat: "", q: "" }; render(); }
+  if (act === "fcReset") { S.fc = fcSettings(); render(); }
+  if (act === "fcSave") { const f = S.fc; writeDoc("config/settings", (cur) => ({ ...DEFAULT_SETTINGS, ...(cur || {}), salesDay: f.salesDay, metaDay: f.metaDay, paypalDay: f.paypalDay, privateWeek: f.privateWeek, softwareWeek: f.softwareWeek, supplier: f.supplier, supplierDay: f.supplierDay, buffer: f.buffer, payoutRatio: f.ratio, forecastDays: f.days })).then(() => toast("Opgeslagen als standaard")); }
+  if (act === "delRule") saveRules(rules().filter((r) => r.id !== t.dataset.id)).then(() => toast("Regel verwijderd"));
+  if (act === "ruleFromTx") {
+    const tx = allTxs().find((x) => x.k === t.dataset.k); if (!tx) return;
+    if (tx.c === "unknown") { toast("Kies eerst een categorie, klik daarna op regel."); return; }
+    const pattern = tx.ds.replace(/^(To|Betaling van)\s+/i, "").trim();
+    saveRules([...rules(), { id: uid(), pattern, direction: tx.a >= 0 ? "in" : "out", category: tx.c, priority: 15 }]).then(() => toast(`Regel gemaakt: "${pattern}" wordt voortaan ${CAT[tx.c].label}`));
+  }
+  if (act === "delManual") saveManual((l) => l.filter((x) => x.id !== t.dataset.id));
+  if (act === "toggleInvoice") saveManual((l) => l.map((x) => (x.id === t.dataset.id ? { ...x, paid: !x.paid } : x)));
+  if (act === "delBalance") writeDoc("config/balances", (cur) => ({ entries: ((cur && cur.entries) || []).filter((x) => x.id !== t.dataset.id) }));
+  if (act === "delBudget") writeDoc("config/budget", (cur) => ({ entries: ((cur && cur.entries) || []).filter((x) => x.id !== t.dataset.id) }));
+});
+document.addEventListener("change", (e) => {
+  const t = e.target;
+  if (t.dataset.txcat) { updateTx(t.dataset.txcat, { c: t.value, cs: "handmatig" }); return; }
+  if (t.dataset.txpd) { const tx = allTxs().find((x) => x.k === t.dataset.txpd); if (tx) updateTx(tx.k, { pd: t.value && t.value !== tx.d ? t.value : null }); return; }
+  if (t.dataset.fcsel) { S.fc[t.dataset.fcsel] = t.dataset.fcsel === "supplierDay" ? Number(t.value) : t.value; renderForecastResults(); return; }
+  if (t.dataset.fceur) { S.fc[t.dataset.fceur] = parseEuroInput(t.value) || 0; renderForecastResults(); return; }
+});
+document.addEventListener("input", (e) => {
+  const t = e.target;
+  if (t.dataset.fc) {
+    const k = t.dataset.fc; S.fc[k] = Number(t.value);
+    const lab = document.getElementById("fcv_" + k); if (lab) lab.textContent = k === "ratio" ? Math.round(S.fc[k] * 100) + "%" : euro(S.fc[k], true);
+    renderForecastResults();
+  }
+});
+document.addEventListener("submit", (e) => {
+  const f = e.target; e.preventDefault();
+  if (f.id === "customPeriod") { const a = val("pFrom"), b = val("pTo"); if (a && b && a <= b) { S.periodSel = { preset: "custom", from: a, to: b }; store.set("mm.period", S.periodSel); render(); loadRemote(false); } return; }
+  const kind = f.dataset.form;
+  if (kind === "upload") { const files = [...f.querySelector("input[type=file]").files]; if (!files.length) { toast("Kies een PDF- of CSV-bestand"); return; } toast("Afschrift inlezen…"); importFiles(files).then(() => f.reset()); return; }
+  if (kind === "bankFilter") { S.bankFilter = { cat: val("bf_cat"), q: val("bf_q") }; document.activeElement && document.activeElement.blur(); render(); return; }
+  if (kind === "rule") { const pattern = val("r_pattern").trim(); if (!pattern) return; saveRules([...rules(), { id: uid(), pattern, direction: val("r_dir"), category: val("r_cat"), priority: Number(val("r_prio")) || 50 }]).then(() => toast("Regel toegevoegd en toegepast")); f.reset(); return; }
+  if (kind === "balance") {
+    const c = (id) => parseEuroInput(val(id)) ?? 0;
+    const entry = { id: uid(), at: val("bal_at"), payout: c("bal_payout"), payoutDate: val("bal_payoutDate") || null, pending: c("bal_pending"), hold: c("bal_hold"), paypal: c("bal_paypal") };
+    writeDoc("config/balances", (cur) => ({ entries: [...((cur && cur.entries) || []), entry] })).then(() => toast("Stand opgeslagen")); return;
+  }
+  if (kind === "team") { const a = parseEuroInput(val("t_amount")); if (a === null) return; saveManual((l) => [...l, { id: uid(), kind: "team_month", label: val("t_name"), amount: a, from: val("t_from"), to: val("t_to") || null }]).then(() => toast("Teamkosten toegevoegd")); f.reset(); return; }
+  if (kind === "manual") { const a = parseEuroInput(val("m_amount")); if (a === null) return; saveManual((l) => [...l, { id: uid(), kind: val("m_kind"), label: val("m_label"), amount: a, from: val("m_from"), to: val("m_to") || val("m_from") }]).then(() => toast("Post toegevoegd")); f.reset(); return; }
+  if (kind === "invoice") { const a = parseEuroInput(val("i_amount")); if (a === null) return; saveManual((l) => [...l, { id: uid(), kind: "open_invoice", label: val("i_sup"), amount: a, due: val("i_due") || null, paid: false }]).then(() => toast("Factuur toegevoegd")); f.reset(); return; }
+  if (kind === "budget") { const o = parseEuroInput(val("b_old")), n = parseEuroInput(val("b_new")); if (o === null || n === null) return; writeDoc("config/budget", (cur) => ({ entries: [...((cur && cur.entries) || []), { id: uid(), date: val("b_date"), campaign: val("b_campaign"), old: o, nw: n }] })).then(() => toast("Wijziging gelogd")); f.reset(); return; }
+  if (kind === "settings") {
+    const num = (id, d) => { const n = Number(String(val(id)).replace(",", ".")); return isFinite(n) && val(id) !== "" ? n : d; };
+    const s = S.settings;
+    writeDoc("config/settings", (cur) => ({ ...DEFAULT_SETTINGS, ...(cur || {}), reserveVat: document.getElementById("s_reserveVat").checked, breakEven: num("s_breakEven", s.breakEven), buffer: parseEuroInput(val("s_buffer")) ?? s.buffer, softwareWeek: parseEuroInput(val("s_softwareWeek")) ?? s.softwareWeek, payoutRatio: num("s_payoutRatio", s.payoutRatio * 100) / 100, payoutDelay: num("s_payoutDelay", s.payoutDelay), forecastDays: num("s_forecastDays", s.forecastDays) })).then(() => { S.fc = null; toast("Instellingen opgeslagen"); });
+  }
+});
+
+/* ============================================================
+   Opstarten
+   ============================================================ */
+render();
+(async () => {
+  const cl = window.claude;
+  if (!cl || !cl.use) { S.dbState = "niet beschikbaar buiten claude.ai"; S.mcpState = "niet beschikbaar"; S.sales.status = S.meta.status = S.feesLive.status = "fout"; S.sales.err = S.meta.err = "Open deze pagina in claude.ai om je koppelingen te gebruiken."; render(); return; }
+  const [db, mcp] = await Promise.all([cl.use("db"), cl.use("mcp")]);
+  S.db = db; S.mcp = mcp;
+  S.dbState = db ? "ok" : "niet beschikbaar";
+  if (db) {
+    const onErr = (e) => { S.dbState = e && e.code === "revoked" ? "geen toegang meer" : "fout"; render(); };
+    const cfg = (name, apply) => db.doc("config/" + name).onSnapshot((s) => { apply(s.exists ? s.data() : null); S.fc = S.fc && name !== "settings" && name !== "balances" ? S.fc : null; render(); }, onErr);
+    cfg("settings", (d) => (S.settings = { ...DEFAULT_SETTINGS, ...(d || {}) }));
+    cfg("rules", (d) => (S.rules = d && Array.isArray(d.rules) ? d.rules : null));
+    cfg("manual", (d) => (S.manual = (d && d.entries) || []));
+    cfg("balances", (d) => (S.balances = (d && d.entries) || []));
+    cfg("imports", (d) => (S.imports = (d && d.list) || []));
+    cfg("budget", (d) => (S.budget = (d && d.entries) || []));
+    db.collection("bank").onSnapshot((q) => { const o = {}; q.docs.forEach((d) => { o[d.id] = (d.data() || {}).txs || []; }); S.bank = o; render(); }, onErr);
+    db.collection("fees").onSnapshot((q) => { q.docs.forEach((d) => { S.fees[d.id] = { ...(S.fees[d.id] || {}), ...((d.data() || {}).days || {}) }; }); render(); }, onErr);
+  }
+  if (!mcp) { S.sales.status = S.meta.status = S.feesLive.status = "fout"; S.sales.err = S.meta.err = S.feesLive.err = mcpMessage({ code: "not_granted" }); render(); return; }
+  // eerst de bewaarde fees laten binnenkomen, dan pas ophalen wat ontbreekt
+  loadSales(false); loadMeta(false);
+  setTimeout(() => loadFees(false), db ? 1500 : 0);
+})();
+</script>
