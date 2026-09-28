@@ -109,7 +109,7 @@ input[type=range]{width:100%;accent-color:var(--text)}
   <header class="top">
     <div class="brandrow">
       <div class="brand">Moderno<i>Milano</i><small>Cijfers</small></div>
-      <div class="row"><span id="freshness" class="muted" style="font-size:12px"></span><button class="btn ghost" id="refresh" type="button">Vernieuwen</button></div>
+      <div class="row"><span id="freshness" class="muted" style="font-size:12px"></span><button class="btn ghost" id="refresh" type="button">Vernieuwen</button><button class="btn" id="excel" type="button" hidden>Excel</button></div>
     </div>
     <nav class="tabs" id="tabs" aria-label="Onderdelen"></nav>
     <div class="period" id="period"></div>
@@ -1237,14 +1237,159 @@ document.addEventListener("submit", (e) => {
 });
 
 /* ============================================================
+   Excel-export met echte formules (tabbladen zoals in de spec)
+   ============================================================ */
+function loadXlsx() {
+  if (window.XLSX) return Promise.resolve(window.XLSX);
+  return new Promise((res, rej) => {
+    const sc = document.createElement("script");
+    sc.src = "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js";
+    sc.onload = () => res(window.XLSX);
+    sc.onerror = () => rej(new Error("De Excel-module kon niet laden. Probeer het opnieuw."));
+    document.head.appendChild(sc);
+  });
+}
+const Z_EUR = '€ #,##0.00;[Red]-€ #,##0.00', Z_PCT = "0.0%", Z_X = '0.00"x"';
+const nE = (c) => (c === null || c === undefined ? "" : { t: "n", v: Math.round(c) / 100, z: Z_EUR });
+const fx = (f, z = Z_EUR) => ({ t: "n", f, z });
+function buildWorkbook(X) {
+  const p = P(), f = finance(p), r = f.res, m = moneyNow(), b = bridge(f);
+  const wb = X.utils.book_new();
+  const add = (name, rows, widths) => { const ws = X.utils.aoa_to_sheet(rows); ws["!cols"] = widths.map((w) => ({ wch: w })); X.utils.book_append_sheet(wb, ws, name); };
+  const src = (key) => (f.lines.find((l) => l.key === key) || { src: [] }).src.join(", ");
+  const title = [`ModernoMilano cijfers, ${p.from} t/m ${p.to}`];
+
+  // Overzicht: rij 4 omzet, 5 t/m 10 kosten, 11 btw-reservering, 12 winst
+  add("Overzicht", [
+    title, [],
+    ["Post", "Bedrag", "% van omzet", "Bron"],
+    ["Omzet (incl. btw)", nE(r.revenue), fx("B4/$B$4", Z_PCT), src("revenue")],
+    ["COGS en verzending", nE(r.cogs), fx("B5/$B$4", Z_PCT), src("cogs")],
+    ["Meta ads", nE(r.meta), fx("B6/$B$4", Z_PCT), src("meta")],
+    ["Shopify en PayPal fees", nE(r.fees), fx("B7/$B$4", Z_PCT), src("fees")],
+    ["Chargebacks en disputes", nE(r.chargebacks), fx("B8/$B$4", Z_PCT), src("chargebacks")],
+    ["Software, freelancers, boekhouder, bank", nE(r.other), fx("B9/$B$4", Z_PCT), src("other")],
+    ["Teamkosten", nE(r.team), fx("B10/$B$4", Z_PCT), src("team")],
+    ["Btw gereserveerd", nE(S.settings.reserveVat ? r.taxes : 0), fx("B11/$B$4", Z_PCT), S.settings.reserveVat ? "instelling aan" : "instelling uit (btw fix)"],
+    ["Winst", fx("B4-SUM(B5:B11)"), fx("B12/$B$4", Z_PCT)],
+    [],
+    ["Marge", fx("B12/B4", Z_PCT)],
+    ["MER (omzet / Meta)", fx("B4/B6", Z_X)],
+    ["Break-even ROAS", fx("B4/(B4-(B5+B7+B8+B9+B10))", Z_X)],
+    ["Break-even afspraak", { t: "n", v: S.settings.breakEven, z: Z_X }],
+    ["Orders", { t: "n", v: r.orders }],
+    ["AOV", fx("B4/B18")],
+    ["Winst per order", fx("B12/B18")],
+    ["Btw in de omzet", nE(r.taxes)],
+    ["Winst als btw afgedragen moet worden", fx("B4-SUM(B5:B10)-B21")],
+    ["Meta betaald via bank", nE(f.metaPaid)],
+  ], [40, 16, 13, 30]);
+
+  add("Geld", [
+    title, [],
+    ["Plek", "Bedrag", "Beschikbaar"],
+    ["Bank (Revolut)", nE(m.pos.bank), "nu"],
+    ["PayPal", nE(m.pos.paypal), "nu"],
+    ["Shopify payout ingepland", nE(m.pos.payout), m.snap && m.snap.payoutDate ? m.snap.payoutDate : "eerstvolgende werkdag"],
+    ["Shopify pending", nE(m.pos.pending), "komende werkdagen"],
+    ["Shopify reserve (hold)", nE(m.pos.hold), "op slot"],
+    ["Totaal", fx("SUM(B4:B8)")],
+    [],
+    ["Direct beschikbaar", fx("B4+B5")],
+    ["Binnenkort", fx("B6+B7")],
+    ["Op slot", fx("B8")],
+    [],
+    ["Stand Shopify en PayPal van", m.snap ? m.snap.at : "ontbreekt"],
+    ["Bank volgens afschrift t/m", m.bankDate || "ontbreekt"],
+  ], [30, 16, 24]);
+
+  const priv = b.steps.find((x) => x.key === "priv").v, loans = b.steps.find((x) => x.key === "loans").v;
+  add("Winst naar bank", [
+    title, [],
+    ["Stap", "Bedrag", "Uitleg"],
+    ["Winst", fx("Overzicht!B12"), "uit het tabblad Overzicht"],
+    ["Shopify-saldo begin", nE(b.shopBegin), "payout + pending + reserve"],
+    ["Shopify-saldo eind", nE(b.shopEnd), ""],
+    ["Nog bij Shopify", fx("-(B6-B5)"), "groei van wat Shopify vasthoudt"],
+    ["Naar privé", nE(priv), "opnames, geen kosten"],
+    ["Meta verbruikt", fx("Overzicht!B6"), ""],
+    ["Meta betaald via bank", fx("Overzicht!B23"), ""],
+    ["Meta verbruikt min betaald", fx("B9-B10"), ""],
+    ["Lening en stortingen", nE(loans), "geen omzet, wel geld op de bank"],
+    ["Banksaldo begin", nE(b.bankBegin), ""],
+    ["Banksaldo eind", nE(b.bankEnd), ""],
+    ["Groei bankrekening", fx("B14-B13"), ""],
+    ["Timing en afronding", fx("B15-(B4+B7+B8+B11+B12)"), "wat de stappen niet verklaren"],
+    ["Controle (moet 0 zijn)", fx("B4+B7+B8+B11+B12+B16-B15"), ""],
+  ], [30, 16, 38]);
+
+  const fs = S.fc || fcSettings(), fc = forecast(fs);
+  const fcRows = [["Prognose vanaf " + fs.start, "", "", "", "", "", "", ""], [], ["Datum", "Werkdag", "Shopify in", "PayPal in", "Meta", "Leverancier", "Privé en software", "Saldo"], ["Nu", "", "", "", "", "", "", nE(fs.bank)]];
+  fc.rows.forEach((x, i) => { const row = 5 + i; fcRows.push([x.date, x.wd ? "ja" : "nee", nE(x.shop), nE(x.paypal), nE(x.meta), nE(x.supplier), nE(x.other), fx(`H${row - 1}+C${row}+D${row}-E${row}-F${row}-G${row}`)]); });
+  const last = 4 + fc.rows.length;
+  fcRows.push([], ["Laagste saldo", "", "", "", "", "", "", fx(`MIN(H5:H${last})`)], ["Buffer", "", "", "", "", "", "", nE(fs.buffer)], ["Onder buffer?", "", "", "", "", "", "", { t: "s", f: `IF(H${last + 2}<H${last + 3},"ja","nee")` }]);
+  add("Prognose", fcRows, [14, 9, 13, 12, 12, 13, 17, 14]);
+
+  const txs = allTxs().filter((t) => { const e = t.pd || t.d; return e >= p.from && e <= p.to; });
+  const txRows = [["Datum", "Hoort bij", "Omschrijving", "Categorie", "Bedrag", "Waarvan transferkosten", "Bedrag excl. kosten", "Saldo", "Details"]];
+  txs.forEach((t, i) => { const row = 2 + i; txRows.push([t.d, t.pd || t.d, t.ds, CAT[t.c] ? CAT[t.c].label : t.c, nE(t.a), nE(t.f || 0), fx(`E${row}+F${row}`), nE(t.b), String(t.dt || "").replace(/\n/g, ", ")]); });
+  const n = txs.length + 1;
+  txRows[0].push("", "Categorie", "Totaal");
+  CATEGORIES.forEach((c, i) => {
+    const row = 2 + i;
+    const formula = c.id === "bank_fees" ? `SUMIF(D2:D${n},K${row},G2:G${n})-SUM(F2:F${n})` : `SUMIF(D2:D${n},K${row},G2:G${n})`;
+    while (txRows.length <= i + 1) txRows.push(["", "", "", "", "", "", "", "", ""]);
+    const r2 = txRows[i + 1];
+    while (r2.length < 9) r2.push("");
+    r2.push("", c.label, fx(formula));
+  });
+  add("Bankmutaties", txRows, [11, 11, 34, 22, 13, 12, 14, 13, 50, 2, 24, 14]);
+
+  const agg = {};
+  for (const x of f.metaRows) { const a = agg[x.campaign] || (agg[x.campaign] = { spend: 0, clicks: 0, imp: 0, pur: 0, val: 0 }); a.spend += x.spend; a.clicks += x.clicks; a.imp += x.impressions; a.pur += x.purchases; a.val += x.value; }
+  const metaRows = [["Campagne", "Markt", "Spend", "Aankopen", "Omzet (Meta)", "ROAS", "Clicks", "CPC", "Impressies", "CPM"]];
+  Object.entries(agg).sort((a, b2) => b2[1].spend - a[1].spend).forEach(([c, a], i) => { const row = 2 + i; metaRows.push([c, marketOf(c), nE(a.spend), a.pur, nE(a.val), fx(`IF(C${row}=0,"",E${row}/C${row})`, Z_X), a.clicks, fx(`IF(G${row}=0,"",C${row}/G${row})`), a.imp, fx(`IF(I${row}=0,"",C${row}/I${row}*1000)`)]); });
+  const mn = metaRows.length;
+  metaRows.push([], ["Totaal", "", fx(`SUM(C2:C${mn})`), fx(`SUM(D2:D${mn})`, "0"), fx(`SUM(E2:E${mn})`), fx(`E${mn + 2}/C${mn + 2}`, Z_X)]);
+  add("Meta", metaRows, [44, 11, 13, 10, 14, 9, 9, 9, 12, 9]);
+
+  const inv = [["Handmatige posten"], ["Soort", "Omschrijving", "Bedrag", "Van", "Tot en met"]];
+  for (const x of S.manual) inv.push([x.kind === "team_month" ? "Teamkosten per maand" : x.kind === "open_invoice" ? "Open factuur" + (x.paid ? " (betaald)" : "") : MANUAL_KINDS[x.kind] || x.kind, x.label, nE(x.amount), x.from || "", x.to || x.due || ""]);
+  inv.push([], ["Standen Shopify en PayPal"], ["Datum", "Payout", "Pending", "Reserve", "PayPal", "Notitie"]);
+  for (const x of [...S.balances].sort((a, b2) => a.at.localeCompare(b2.at))) inv.push([x.at, nE(x.payout), nE(x.pending), nE(x.hold), nE(x.paypal), x.note || ""]);
+  add("Invoer", inv, [26, 36, 14, 14, 14, 40]);
+  return wb;
+}
+async function exportExcel() {
+  const btn = document.getElementById("excel");
+  btn.disabled = true; btn.textContent = "Excel maken…";
+  try {
+    const X = await loadXlsx();
+    const wb = buildWorkbook(X);
+    const buf = X.write(wb, { bookType: "xlsx", type: "array" });
+    const p = P();
+    await S.downloads.save({ filename: `ModernoMilano ${p.from} tm ${p.to}.xlsx`, data: new Blob([buf]) });
+    toast("Excel opgeslagen");
+  } catch (e) {
+    const c = e && e.code;
+    if (c === "declined") toast("Opslaan geannuleerd");
+    else if (c === "rate_limited") toast("Er staat al een opslagvraag open");
+    else if (c === "unavailable" || c === "not_granted" || c === "capability_disabled") toast("Bestanden opslaan kan niet in deze weergave");
+    else toast("Excel maken mislukt: " + ((e && e.message) || "onbekende fout"));
+  } finally { btn.disabled = false; btn.textContent = "Excel"; }
+}
+document.getElementById("excel").addEventListener("click", exportExcel);
+
+/* ============================================================
    Opstarten
    ============================================================ */
 render();
 (async () => {
   const cl = window.claude;
   if (!cl || !cl.use) { S.dbState = "niet beschikbaar buiten claude.ai"; S.mcpState = "niet beschikbaar"; S.sales.status = S.meta.status = S.feesLive.status = "fout"; S.sales.err = S.meta.err = "Open deze pagina in claude.ai om je koppelingen te gebruiken."; render(); return; }
-  const [db, mcp] = await Promise.all([cl.use("db"), cl.use("mcp")]);
-  S.db = db; S.mcp = mcp;
+  const [db, mcp, downloads] = await Promise.all([cl.use("db"), cl.use("mcp"), cl.use("downloads")]);
+  S.db = db; S.mcp = mcp; S.downloads = downloads;
+  document.getElementById("excel").hidden = !downloads;
   S.dbState = db ? "ok" : "niet beschikbaar";
   if (db) {
     const onErr = (e) => { S.dbState = e && e.code === "revoked" ? "geen toegang meer" : "fout"; render(); };
