@@ -1,22 +1,25 @@
 import { PageHeader } from "@/components/PageHeader";
 import { Card, Kpi, SourceBadge, day, euro, pct } from "@/components/ui";
-import { moneyNow } from "@/finance/data";
+import { moneyNow, type Source } from "@/finance/data";
 import { chargebackHistory } from "@/finance/alerts";
 import { db } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
 export default async function MoneyPage() {
-  const [m, cb, lastPayout, loans] = await Promise.all([
+  const [m, cb, lastPayout, loans, loanTxs] = await Promise.all([
     moneyNow(),
     chargebackHistory(),
     db.shopifyPayout.findFirst({ where: { chargesCents: { not: null } }, orderBy: { payoutDate: "desc" } }),
     db.loan.findMany({ where: { active: true } }),
+    db.bankTransaction.findMany({ where: { category: "loan" }, orderBy: { bookedAt: "asc" } }),
   ]);
   const p = m.position;
+  const src = (s: string | undefined): Source => (s === "Shopify" || s === "PayPal" ? s : "handmatig");
+  const shopifySrc = src(m.snapshot?.shopifySource);
   const parts = [
     { key: "bank", label: "Bank (Revolut)", cents: p.bankCents, when: "Nu beschikbaar", color: "var(--text)", locked: false, source: m.bankSource },
-    { key: "paypal", label: "PayPal", cents: p.paypalCents, when: "Nu beschikbaar", color: "var(--series-1)", locked: false, source: "handmatig" as const },
+    { key: "paypal", label: "PayPal", cents: p.paypalCents, when: "Nu beschikbaar", color: "var(--series-1)", locked: false, source: src(m.snapshot?.paypalSource) },
     {
       key: "payout",
       label: "Shopify payout ingepland",
@@ -24,15 +27,30 @@ export default async function MoneyPage() {
       when: m.snapshot?.payoutScheduledDate ? day(m.snapshot.payoutScheduledDate) : "Eerstvolgende werkdag",
       color: "var(--series-3)",
       locked: false,
-      source: "handmatig" as const,
+      source: shopifySrc,
     },
-    { key: "pending", label: "Shopify pending", cents: p.pendingCents, when: "Komende werkdagen", color: "var(--series-4)", locked: false, source: "handmatig" as const },
-    { key: "hold", label: "Shopify reserve (hold)", cents: p.holdCents, when: "Op slot", color: "var(--series-2)", locked: true, source: "handmatig" as const },
+    { key: "pending", label: "Shopify pending", cents: p.pendingCents, when: "Komende werkdagen", color: "var(--series-4)", locked: false, source: shopifySrc },
+    { key: "hold", label: "Shopify reserve (hold)", cents: p.holdCents, when: "Op slot", color: "var(--series-2)", locked: true, source: src(m.snapshot?.holdSource) },
   ];
   const total = m.totalCents;
   const reservePct =
     lastPayout?.chargesCents && lastPayout.reservedFundsCents ? -lastPayout.reservedFundsCents / lastPayout.chargesCents : null;
-  const debt = loans.reduce((s, l) => s + l.principalCents - l.repaidCents, 0);
+  // leningen uit de bank: ontvangen (+) en aflossingen (-) per geldverstrekker
+  const byLender = new Map<string, { name: string; since: Date; receivedCents: number; repaidCents: number }>();
+  for (const t of loanTxs) {
+    const name = t.description.replace(/^(Betaling van|To)\s+/i, "").trim().toUpperCase();
+    const row = byLender.get(name) ?? { name, since: t.bookedAt, receivedCents: 0, repaidCents: 0 };
+    if (t.amountCents > 0) row.receivedCents += t.amountCents;
+    else row.repaidCents += -t.amountCents;
+    if (t.bookedAt < row.since) row.since = t.bookedAt;
+    byLender.set(name, row);
+  }
+  const lenders = [...byLender.values()].map((l) => ({
+    ...l,
+    openCents: l.receivedCents - l.repaidCents,
+    schedule: loans.find((x) => x.lender.toUpperCase() === l.name)?.schedule ?? null,
+  }));
+  const debt = lenders.reduce((s, l) => s + l.openCents, 0);
 
   return (
     <div className="mx-auto max-w-5xl">
@@ -40,8 +58,8 @@ export default async function MoneyPage() {
         title="Waar mijn geld staat"
         subtitle={
           m.snapshot
-            ? `Shopify en PayPal: stand van ${m.snapshot.takenAt.toLocaleString("nl-NL", { timeZone: "Europe/Amsterdam", dateStyle: "medium", timeStyle: "short" })}. Bank: ${m.bankDate ? day(m.bankDate) : "ontbreekt"}.`
-            : "Nog geen stand van Shopify en PayPal. Vul die in bij Handmatige invoer of koppel Shopify Payments."
+            ? `Shopify en PayPal: stand van ${m.snapshot.takenAt.toLocaleString("nl-NL", { timeZone: "Europe/Amsterdam", dateStyle: "medium", timeStyle: "short" })}. Bank: laatste afschrift t/m ${m.bankDate ? day(m.bankDate) : "ontbreekt"}.`
+            : "Nog geen stand van Shopify en PayPal. Die komt automatisch zodra Shopify en PayPal gekoppeld zijn."
         }
       />
 
@@ -126,19 +144,22 @@ export default async function MoneyPage() {
       </Card>
 
       {debt > 0 && (
-        <Card title="Openstaande schuld">
+        <Card title="Openstaande schuld" action={<SourceBadge source="bank" />}>
           <ul className="text-sm">
-            {loans.map((l) => (
-              <li key={l.id} className="flex justify-between border-b border-line py-1.5 last:border-0">
+            {lenders.map((l) => (
+              <li key={l.name} className="flex justify-between border-b border-line py-1.5 last:border-0">
                 <span>
-                  Lening {l.lender}, sinds {day(l.startDate)}
+                  Lening {l.name}, sinds {day(l.since)}
+                  {l.repaidCents > 0 && <span className="text-ink-3">, al {euro(l.repaidCents)} afgelost</span>}
                   {l.schedule && <span className="text-ink-3">, aflossing: {l.schedule}</span>}
                 </span>
-                <span className="num">{euro(l.principalCents - l.repaidCents)}</span>
+                <span className="num">{euro(l.openCents)}</span>
               </li>
             ))}
           </ul>
-          <p className="mt-2 text-xs text-ink-3">Een lening is geen omzet. Dit geld staat wel op je bank, maar moet terug.</p>
+          <p className="mt-2 text-xs text-ink-3">
+            Uit de bankmutaties met categorie Lening: ontvangen min afgelost. Een lening is geen omzet. Dit geld staat wel op je bank, maar moet terug.
+          </p>
         </Card>
       )}
     </div>

@@ -97,5 +97,6 @@ describe.skipIf(!fs.existsSync(fixture))("Revolut september 2026 (spec 5.3)", ()
     expect(eur("internal")).toBe(0);
     expect(txs.filter((t) => t.category === "shopify_payout")).toHaveLength(16);
     expect(txs.filter((t) => t.category === "paypal_payout")).toHaveLength(30);
-  });
+    expect([s.periodFrom, s.periodTo]).toEqual(["2026-09-01", "2026-09-27"]);
+  }, 30_000);
 });

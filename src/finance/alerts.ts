@@ -136,7 +136,8 @@ export async function computeAlerts(f: PeriodFinance, money: Money): Promise<Ale
 
   // 6. ongeverifieerde data
   const syncs = await db.sourceSync.findMany();
-  const stale = syncs.filter((x) => Date.now() - x.lastAt.getTime() > 24 * 3_600_000 || x.status !== "ok");
+  // de bank komt via upload binnen; die staat in de datastrook, niet als verouderde sync
+  const stale = syncs.filter((x) => x.source !== "revolut" && (Date.now() - x.lastAt.getTime() > 26 * 3_600_000 || x.status !== "ok"));
   const deviating = f.payouts.filter((p) => p.feesCents !== null && payoutDifference({
     chargesCents: p.chargesCents ?? 0,
     refundsCents: p.refundsCents ?? 0,

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { PeriodPicker } from "@/components/PeriodPicker";
 import { Alerts } from "@/components/Alerts";
+import { DataStatus } from "@/components/DataStatus";
 import { CostBar } from "@/components/CostBar";
 import { LineChart } from "@/components/LineChart";
 import { Card, Kpi, SourceBadge, day, euro, pct, times } from "@/components/ui";
@@ -63,6 +64,8 @@ export default async function Overview({ searchParams }: { searchParams: Promise
       <PageHeader title="Overzicht" subtitle={`${period.preset === "custom" ? "" : `${period.label}, `}${day(period.fromKey)} t/m ${day(period.toKey)}`}>
         <PeriodPicker period={period} basePath="/" />
       </PageHeader>
+
+      <DataStatus />
 
       <Alerts alerts={alerts} />
 

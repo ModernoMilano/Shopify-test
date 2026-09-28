@@ -44,6 +44,7 @@ const SOURCE_TEXT: Record<Source, string> = {
   payouts: "uit payouts",
   handmatig: "handmatig",
   Meta: "uit Meta",
+  PayPal: "uit PayPal",
   ontbreekt: "ontbreekt",
 };
 

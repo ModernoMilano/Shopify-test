@@ -1,0 +1,28 @@
+# Haalt elk uur alle data op (Shopify, Meta, PayPal) via de sync-endpoint van het online dashboard.
+# Nodig in GitHub (Settings, Secrets and variables, Actions):
+#   DASHBOARD_URL  bv. https://modernomilano-backoffice.vercel.app
+#   CRON_SECRET    dezelfde waarde als in Vercel
+name: Data ophalen
+
+on:
+  schedule:
+    - cron: "7 * * * *"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Sync aanroepen
+        env:
+          DASHBOARD_URL: ${{ secrets.DASHBOARD_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          if [ -z "$DASHBOARD_URL" ] || [ -z "$CRON_SECRET" ]; then
+            echo "DASHBOARD_URL of CRON_SECRET ontbreekt; overslaan."
+            exit 0
+          fi
+          curl --fail-with-body -sS --max-time 300 \
+            -H "Authorization: Bearer $CRON_SECRET" \
+            "$DASHBOARD_URL/api/cron/sync"

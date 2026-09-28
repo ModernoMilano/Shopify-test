@@ -211,6 +211,9 @@ model BankImport {
   format              String // pdf | csv
   openingBalanceCents Int?
   closingBalanceCents Int?
+  /// periode van het afschrift (uit de PDF-kop, of eerste en laatste mutatie bij CSV)
+  periodFrom          DateTime? @db.Date
+  periodTo            DateTime? @db.Date
   transactions        Int
   duplicates          Int
   reconciled          Boolean
@@ -263,6 +266,10 @@ model MoneySnapshot {
   holdCents            Int
   paypalCents          Int
   source               String    @default("handmatig")
+  /// herkomst per onderdeel: "Shopify" | "PayPal" | "handmatig"
+  shopifySource        String    @default("handmatig")
+  holdSource           String    @default("handmatig")
+  paypalSource         String    @default("handmatig")
   note                 String?
 }
 
@@ -326,6 +333,17 @@ model BudgetChange {
   newCents    Int
   note        String?
   createdAt   DateTime @default(now())
+}
+
+/// PayPal per dag (EUR), uit de Transaction Search API
+model PaypalDaily {
+  date             DateTime @id @db.Date
+  salesCents       Int
+  salesCount       Int
+  feesCents        Int
+  refundsCents     Int
+  withdrawalsCents Int
+  syncedAt         DateTime @default(now())
 }
 
 model SourceSync {

@@ -1,7 +1,7 @@
 /**
  * Shopify-connectors voor het financiële dashboard:
  *  - dagomzet via ShopifyQL (scope read_reports)
- *  - Shopify Payments: saldo, payouts en disputes (scopes read_shopify_payments_payouts,
+ *  - Shopify Payments: saldo, payouts, reserve en disputes (scopes read_shopify_payments_payouts,
  *    read_shopify_payments_accounts, read_shopify_payments_disputes)
  */
 import { db } from "@/lib/db";
@@ -70,13 +70,31 @@ export async function syncDailySales(fromKey: string, toKey: string) {
   }
 }
 
-const PAYMENTS_QUERY = /* GraphQL */ `
-  query Payments {
+const ACCOUNT_QUERY = /* GraphQL */ `
+  query PaymentsAccount {
     shopifyPaymentsAccount {
       balance { amount currencyCode }
-      payouts(first: 50, reverse: true) {
+      disputes(first: 100) {
         nodes {
-          id
+          legacyResourceId
+          amount { amount }
+          evidenceDueBy
+          initiatedAt
+          reasonDetails { reason }
+          status
+          order { name shippingAddress { countryCodeV2 } }
+        }
+      }
+    }
+  }
+`;
+
+const PAYOUTS_QUERY = /* GraphQL */ `
+  query Payouts($after: String) {
+    shopifyPaymentsAccount {
+      payouts(first: 100, after: $after, reverse: true) {
+        pageInfo { hasNextPage endCursor }
+        nodes {
           legacyResourceId
           issuedAt
           status
@@ -95,35 +113,15 @@ const PAYMENTS_QUERY = /* GraphQL */ `
           }
         }
       }
-      disputes(first: 50) {
-        nodes {
-          id
-          legacyResourceId
-          amount { amount }
-          evidenceDueBy
-          initiatedAt
-          reasonDetails { reason }
-          status
-          order { name shippingAddress { countryCodeV2 } }
-        }
-      }
     }
   }
 `;
 
 type Amt = { amount: string } | null;
-type PaymentsResult = {
+
+type AccountResult = {
   shopifyPaymentsAccount: {
-    balance: { amount: string }[];
-    payouts: {
-      nodes: {
-        legacyResourceId: string;
-        issuedAt: string;
-        status: string;
-        net: Amt;
-        summary: Record<string, Amt>;
-      }[];
-    };
+    balance: { amount: string; currencyCode: string }[];
     disputes: {
       nodes: {
         legacyResourceId: string;
@@ -138,17 +136,52 @@ type PaymentsResult = {
   } | null;
 };
 
-export async function syncShopifyPayments() {
-  try {
-    const data = await shopifyGraphQL<PaymentsResult>(PAYMENTS_QUERY);
-    const acc = data.shopifyPaymentsAccount;
-    if (!acc) throw new Error("Geen toegang tot Shopify Payments (controleer de scopes van de app)");
+type PayoutNode = {
+  legacyResourceId: string;
+  issuedAt: string;
+  status: string;
+  net: Amt;
+  summary: Record<string, Amt>;
+};
 
-    type Payout = NonNullable<PaymentsResult["shopifyPaymentsAccount"]>["payouts"]["nodes"][number];
-    const s = (p: Payout, k: string) => c(p.summary[k]?.amount);
+type PayoutsResult = {
+  shopifyPaymentsAccount: {
+    payouts: { pageInfo: { hasNextPage: boolean; endCursor: string | null }; nodes: PayoutNode[] };
+  } | null;
+};
+
+export type ShopifyPosition = {
+  payoutScheduledCents: number;
+  payoutScheduledDate: Date | null;
+  pendingCents: number;
+  /** reserve afgeleid uit alle payouts (vastgehouden min vrijgegeven); null als dat niet betrouwbaar kan */
+  holdCents: number | null;
+  payouts: number;
+  disputes: number;
+};
+
+export async function syncShopifyPayments(): Promise<ShopifyPosition> {
+  try {
+    const account = await shopifyGraphQL<AccountResult>(ACCOUNT_QUERY);
+    const acc = account.shopifyPaymentsAccount;
+    if (!acc) throw new Error("Geen toegang tot Shopify Payments (controleer de rechten van de app)");
+
+    // alle payouts ophalen: de reserve is de optelsom van wat ooit is vastgehouden en vrijgegeven
+    const payouts: PayoutNode[] = [];
+    let after: string | null = null;
+    do {
+      const page: PayoutsResult = await shopifyGraphQL<PayoutsResult>(PAYOUTS_QUERY, { after });
+      const conn = page.shopifyPaymentsAccount?.payouts;
+      if (!conn) break;
+      payouts.push(...conn.nodes);
+      after = conn.pageInfo.hasNextPage ? conn.pageInfo.endCursor : null;
+    } while (after);
+
+    const s = (p: PayoutNode, k: string) => c(p.summary[k]?.amount);
     let scheduled = 0;
     let scheduledDate: Date | null = null;
-    for (const p of acc.payouts.nodes) {
+    let reservedTotal = 0;
+    for (const p of payouts) {
       const date = new Date(`${p.issuedAt.slice(0, 10)}T00:00:00Z`);
       const fees = ["chargesFee", "refundsFee", "adjustmentsFee", "reservedFundsFee", "retriedPayoutsFee"].reduce((sum, k) => sum + s(p, k), 0);
       const row = {
@@ -163,14 +196,17 @@ export async function syncShopifyPayments() {
         totalCents: c(p.net?.amount),
         source: "api",
       };
+      reservedTotal += row.reservedFundsCents;
       await db.shopifyPayout.upsert({ where: { externalId: p.legacyResourceId }, create: { externalId: p.legacyResourceId, ...row }, update: row });
       if (["scheduled", "in_transit"].includes(row.status)) {
         scheduled += row.totalCents;
         if (!scheduledDate || date < scheduledDate) scheduledDate = date;
       }
     }
-    // samengevatte startwaarden overlappen met echte payouts
-    await db.shopifyPayout.deleteMany({ where: { source: "seed" } });
+    if (payouts.length) {
+      // samengevatte startwaarden en CSV-imports overlappen met echte payouts
+      await db.shopifyPayout.deleteMany({ where: { source: { in: ["seed", "csv"] } } });
+    }
 
     for (const d of acc.disputes.nodes) {
       const row = {
@@ -186,21 +222,18 @@ export async function syncShopifyPayments() {
       await db.dispute.upsert({ where: { id: d.legacyResourceId }, create: { id: d.legacyResourceId, ...row }, update: row });
     }
 
-    // Nieuwe stand: saldo bij Shopify = pending; hold (reserve) is niet via de API beschikbaar en blijft de laatste handmatige waarde
-    const last = await db.moneySnapshot.findFirst({ orderBy: { takenAt: "desc" } });
-    await db.moneySnapshot.create({
-      data: {
-        payoutScheduledCents: scheduled,
-        payoutScheduledDate: scheduledDate,
-        pendingCents: c(acc.balance[0]?.amount),
-        holdCents: last?.holdCents ?? 0,
-        paypalCents: last?.paypalCents ?? 0,
-        source: "shopify",
-        note: "payout en pending uit Shopify; hold en PayPal overgenomen van de vorige stand",
-      },
-    });
-    await markSync("shopify_payments", "ok", `${acc.payouts.nodes.length} payouts, ${acc.disputes.nodes.length} disputes`);
-    return { payouts: acc.payouts.nodes.length, disputes: acc.disputes.nodes.length };
+    const eur = acc.balance.find((b) => b.currencyCode === "EUR") ?? acc.balance[0];
+    // vastgehouden bedragen staan als negatief bedrag in de payouts; vrijgaven als positief
+    const hold = -reservedTotal;
+    await markSync("shopify_payments", "ok", `${payouts.length} payouts, ${acc.disputes.nodes.length} disputes`);
+    return {
+      payoutScheduledCents: scheduled,
+      payoutScheduledDate: scheduledDate,
+      pendingCents: c(eur?.amount),
+      holdCents: hold >= 0 ? hold : null,
+      payouts: payouts.length,
+      disputes: acc.disputes.nodes.length,
+    };
   } catch (e) {
     await markSync("shopify_payments", "fout", e instanceof Error ? e.message : String(e));
     throw e;

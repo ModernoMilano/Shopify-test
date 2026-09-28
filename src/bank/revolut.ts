@@ -20,8 +20,22 @@ export type ParsedTransaction = {
 export type ParsedStatement = {
   openingBalanceCents: number | null;
   closingBalanceCents: number | null;
+  /** periode van het afschrift, "YYYY-MM-DD"; bij CSV de eerste en laatste mutatie */
+  periodFrom?: string | null;
+  periodTo?: string | null;
   transactions: ParsedTransaction[];
 };
+
+const PERIOD = /(?:transacties van|transactions from)\s+(\d{1,2} \w+ \d{4})\s+(?:aan|tot|t\/m|to|until)\s+(\d{1,2} \w+ \d{4})/i;
+
+/** "Pro-transacties van 1 september 2026 aan 27 september 2026" → ["2026-09-01", "2026-09-27"] */
+export function parseStatementPeriod(text: string): [string, string] | null {
+  const m = text.match(PERIOD);
+  if (!m) return null;
+  const from = parseDutchDate(m[1]);
+  const to = parseDutchDate(m[2]);
+  return from && to ? [from, to] : null;
+}
 
 const MONTHS: Record<string, number> = {
   jan: 1, feb: 2, mrt: 3, mar: 3, apr: 4, mei: 5, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, okt: 10, oct: 10, nov: 11, dec: 12,
@@ -88,6 +102,10 @@ export function parseRevolutPdfItems(items: PdfTextItem[]): ParsedStatement {
   let lastPage = 0;
   for (const line of lines) {
     const text = line.items.map((i) => i.str).join(" ");
+    if (!statement.periodFrom) {
+      const period = parseStatementPeriod(text);
+      if (period) [statement.periodFrom, statement.periodTo] = period;
+    }
     if (line.page !== lastPage) {
       inTable = false;
       lastPage = line.page;
@@ -221,7 +239,13 @@ export function parseRevolutCsv(text: string): ParsedStatement {
     });
   }
   transactions.sort((a, b) => a.date.localeCompare(b.date));
-  return { openingBalanceCents: null, closingBalanceCents: null, transactions };
+  return {
+    openingBalanceCents: null,
+    closingBalanceCents: null,
+    periodFrom: transactions[0]?.date ?? null,
+    periodTo: transactions[transactions.length - 1]?.date ?? null,
+    transactions,
+  };
 }
 
 // ---------------------------------------------------------------------------

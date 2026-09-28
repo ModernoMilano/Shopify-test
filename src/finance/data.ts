@@ -8,7 +8,7 @@ import { CATEGORY_BY_ID, splitAmounts } from "@/bank/categories";
 import { cashBridge, moneyLocation, pnl, type Pnl } from "./calculations";
 import { getFinanceSettings } from "./settings";
 
-export type Source = "Shopify" | "bank" | "payouts" | "handmatig" | "Meta" | "ontbreekt";
+export type Source = "Shopify" | "bank" | "payouts" | "handmatig" | "Meta" | "PayPal" | "ontbreekt";
 
 export type PnlLine = { key: string; label: string; cents: number; sources: Source[]; note?: string };
 
@@ -48,7 +48,7 @@ export type PeriodFinance = Awaited<ReturnType<typeof periodFinance>>;
 export async function periodFinance(period: Pick<Period, "fromKey" | "toKey">) {
   const from = dateOnly(period.fromKey);
   const to = dateOnly(period.toKey);
-  const [settings, sales, txs, payouts, manual, expenses, bankCount] = await Promise.all([
+  const [settings, sales, txs, payouts, manual, expenses, bankCount, paypalDays] = await Promise.all([
     getFinanceSettings(),
     db.dailySales.findMany({ where: { date: { gte: from, lte: to } }, orderBy: { date: "asc" } }),
     bankTransactionsIn(period.fromKey, period.toKey),
@@ -56,6 +56,7 @@ export async function periodFinance(period: Pick<Period, "fromKey" | "toKey">) {
     db.manualEntry.findMany({ where: { periodStart: { lte: to }, periodEnd: { gte: from } } }),
     db.expense.findMany({ where: { category: "team" } }),
     db.bankTransaction.count(),
+    db.paypalDaily.findMany({ where: { date: { gte: from, lte: to } } }),
   ]);
 
   // --- omzet
@@ -97,7 +98,17 @@ export async function periodFinance(period: Pick<Period, "fromKey" | "toKey">) {
 
   const cogs = bankBucket("cogs") + manualSum("cogs");
   const meta = bankBucket("meta") + manualSum("meta");
-  const fees = payoutFees + manualSum("fees", "paypal_fees");
+  // PayPal-fees: uit PayPal voor de dagen waarvan data is, handmatig alleen voor de overige dagen
+  const paypalCovered = new Set(paypalDays.map((d) => keyOf(d.date)));
+  const paypalApiFees = paypalDays.reduce((s, d) => s + d.feesCents, 0);
+  let paypalManualFees = 0;
+  for (let t = from.getTime(); t <= to.getTime(); t += DAY) {
+    const dd = new Date(t);
+    if (paypalCovered.has(keyOf(dd))) continue;
+    for (const m of manual.filter((x) => x.kind === "paypal_fees")) paypalManualFees += prorate(m.amountCents, m.periodStart, m.periodEnd, dd, dd);
+  }
+  paypalManualFees = Math.round(paypalManualFees);
+  const fees = payoutFees + manualSum("fees") + paypalApiFees + paypalManualFees;
   const chargebacks = -payoutAdjustments + bankBucket("chargebacks") + manualSum("chargebacks");
   const other = bankBucket("other") + manualSum("other");
   const team = bankBucket("team") + manualSum("team") + teamFromExpenses;
@@ -133,7 +144,12 @@ export async function periodFinance(period: Pick<Period, "fromKey" | "toKey">) {
       key: "fees",
       label: "Shopify en PayPal fees",
       cents: fees,
-      sources: src(hasPayoutDetail && "payouts", manualSum("fees", "paypal_fees") !== 0 && "handmatig", !hasPayoutDetail && fees === 0 && "ontbreekt"),
+      sources: src(
+        hasPayoutDetail && "payouts",
+        paypalDays.length > 0 && "PayPal",
+        manualSum("fees") + paypalManualFees !== 0 && "handmatig",
+        !hasPayoutDetail && fees === 0 && "ontbreekt",
+      ),
     },
     {
       key: "chargebacks",

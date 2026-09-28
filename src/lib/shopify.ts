@@ -4,12 +4,40 @@ const API_VERSION = process.env.SHOPIFY_API_VERSION ?? "2026-07";
 
 export class ShopifyNotConfiguredError extends Error {
   constructor() {
-    super("SHOPIFY_STORE_DOMAIN en SHOPIFY_ADMIN_TOKEN zijn niet ingesteld");
+    super("Shopify is niet gekoppeld: zet SHOPIFY_STORE_DOMAIN en SHOPIFY_CLIENT_ID + SHOPIFY_CLIENT_SECRET (of SHOPIFY_ADMIN_TOKEN)");
   }
 }
 
 export function shopifyConfigured(): boolean {
-  return Boolean(process.env.SHOPIFY_STORE_DOMAIN && process.env.SHOPIFY_ADMIN_TOKEN);
+  return Boolean(
+    process.env.SHOPIFY_STORE_DOMAIN &&
+      (process.env.SHOPIFY_ADMIN_TOKEN || (process.env.SHOPIFY_CLIENT_ID && process.env.SHOPIFY_CLIENT_SECRET)),
+  );
+}
+
+let cachedToken: { value: string; expiresAt: number } | null = null;
+
+/**
+ * Toegangstoken voor de Admin API.
+ * - Oude custom app in de Shopify-admin: vaste token in SHOPIFY_ADMIN_TOKEN.
+ * - App uit het Dev Dashboard (standaard sinds 2026): Client ID + Secret, token via client credentials (24 uur geldig).
+ */
+async function accessToken(domain: string): Promise<string> {
+  if (process.env.SHOPIFY_ADMIN_TOKEN) return process.env.SHOPIFY_ADMIN_TOKEN;
+  const id = process.env.SHOPIFY_CLIENT_ID;
+  const secret = process.env.SHOPIFY_CLIENT_SECRET;
+  if (!id || !secret) throw new ShopifyNotConfiguredError();
+  if (cachedToken && cachedToken.expiresAt > Date.now() + 60_000) return cachedToken.value;
+  const res = await fetch(`https://${domain}/admin/oauth/access_token`, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ grant_type: "client_credentials", client_id: id, client_secret: secret }),
+    cache: "no-store",
+  });
+  if (!res.ok) throw new Error(`Shopify inloggen mislukt (${res.status}). Controleer Client ID, Secret en of de app op de winkel is geïnstalleerd.`);
+  const json = (await res.json()) as { access_token: string; expires_in?: number };
+  cachedToken = { value: json.access_token, expiresAt: Date.now() + (json.expires_in ?? 86_400) * 1000 };
+  return json.access_token;
 }
 
 type GraphQLResponse<T> = {
@@ -20,8 +48,8 @@ type GraphQLResponse<T> = {
 /** Admin GraphQL-call met retry bij throttling (Shopify rate limits). */
 export async function shopifyGraphQL<T>(query: string, variables: Record<string, unknown> = {}): Promise<T> {
   const domain = process.env.SHOPIFY_STORE_DOMAIN;
-  const token = process.env.SHOPIFY_ADMIN_TOKEN;
-  if (!domain || !token) throw new ShopifyNotConfiguredError();
+  if (!domain) throw new ShopifyNotConfiguredError();
+  const token = await accessToken(domain);
 
   for (let attempt = 0; ; attempt++) {
     const res = await fetch(`https://${domain}/admin/api/${API_VERSION}/graphql.json`, {

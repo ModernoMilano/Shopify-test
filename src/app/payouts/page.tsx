@@ -8,12 +8,18 @@ import { ImportPayouts } from "./ImportPayouts";
 export const dynamic = "force-dynamic";
 
 export default async function PayoutsPage() {
-  const [payouts, disputes, money, paypalFees, paypalIn] = await Promise.all([
+  const since30 = new Date(Date.now() - 30 * 86_400_000);
+  const [payouts, disputes, money, paypalFees, paypalIn, pp] = await Promise.all([
     db.shopifyPayout.findMany({ orderBy: { payoutDate: "desc" }, take: 120 }),
     db.dispute.findMany({ orderBy: [{ dueBy: "asc" }] }),
     moneyNow(),
     db.manualEntry.findMany({ where: { kind: "paypal_fees" }, orderBy: { periodStart: "desc" } }),
     db.bankTransaction.aggregate({ where: { category: "paypal_payout" }, _sum: { amountCents: true }, _count: true }),
+    db.paypalDaily.aggregate({
+      where: { date: { gte: since30 } },
+      _sum: { salesCents: true, salesCount: true, feesCents: true, refundsCents: true, withdrawalsCents: true },
+      _count: true,
+    }),
   ]);
   const withDiff = payouts.map((p) => ({
     p,
@@ -150,11 +156,23 @@ export default async function PayoutsPage() {
           <div>
             <div className="text-ink-2">Saldo</div>
             <div className="num text-lg font-semibold">{euro(money.position.paypalCents)}</div>
-            <div className="text-xs text-warn">handmatig, nog niet live</div>
+            {money.snapshot?.source === "paypal" ? (
+              <div className="text-xs text-ink-3">uit PayPal{money.snapshot.note ? `, ${money.snapshot.note.split(";")[0].replace("PayPal-saldo uit PayPal ", "")}` : ""}</div>
+            ) : (
+              <div className="text-xs text-warn">handmatig</div>
+            )}
           </div>
           <div>
             <div className="text-ink-2">Fees</div>
-            {paypalFees.length ? (
+            {pp._count > 0 ? (
+              <>
+                <div className="num text-lg font-semibold">{euro(pp._sum.feesCents ?? 0)}</div>
+                <div className="text-xs text-ink-3">
+                  laatste 30 dagen, uit PayPal: {pp._sum.salesCount ?? 0} verkopen voor {euro(pp._sum.salesCents ?? 0, true)}, fees{" "}
+                  {(pp._sum.salesCents ?? 0) > 0 ? `${(((pp._sum.feesCents ?? 0) / (pp._sum.salesCents ?? 1)) * 100).toFixed(1).replace(".", ",")}%` : ""}
+                </div>
+              </>
+            ) : paypalFees.length ? (
               paypalFees.map((f) => (
                 <div key={f.id} className="num">
                   {euro(f.amountCents)} <span className="text-xs text-warn">{f.label}, handmatig</span>
@@ -166,7 +184,8 @@ export default async function PayoutsPage() {
           </div>
         </div>
         <p className="mt-3 text-xs text-ink-3">
-          Verkopen, vastgehouden bedragen en live saldo komen later via de PayPal API (fase 3). Tot die tijd: saldo en fees handmatig bij Handmatige invoer.
+          Gekoppeld via de PayPal API (PAYPAL_CLIENT_ID en PAYPAL_SECRET). Nieuwe transacties verschijnen met ongeveer 3 uur vertraging. Zonder koppeling gelden de
+          handmatige fees en het handmatige saldo.
         </p>
       </Card>
     </div>

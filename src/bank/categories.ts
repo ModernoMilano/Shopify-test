@@ -71,7 +71,7 @@ export function matchRule<R extends Rule>(tx: Categorizable, rules: R[]): R | nu
  */
 export const DEFAULT_RULES: Rule[] = [
   { pattern: "Referentie: Lening", direction: "in", category: "loan", priority: 10 },
-  { pattern: "HR RJ KOMEN", direction: "in", category: "loan", priority: 10 },
+  { pattern: "HR RJ KOMEN", direction: "any", category: "loan", priority: 10 },
   { pattern: "Betaling van GIJS BASTIAAN FONTEIN", direction: "in", category: "owner_deposit", priority: 10 },
   { pattern: "Tijdelijk geblokkeerd", direction: "any", category: "internal", priority: 10 },
   { pattern: "Release", direction: "in", category: "internal", priority: 20 },

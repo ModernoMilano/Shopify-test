@@ -47,17 +47,33 @@ npm test
 
 Dit laadt de echte Shopify-dagomzet (augustus en september), de echte Meta-cijfers uit Windsor.ai, het Revolut-afschrift en de startwaarden uit de spec (saldi, payouts-samenvatting, PayPal-fees, lening). Alleen de financiële tabellen worden gewist.
 
-### Koppelingen
+## Wat automatisch gaat en wat niet
 
-- **Shopify**: maak een custom app met de scopes uit `.env.example` en zet de token in `SHOPIFY_ADMIN_TOKEN`. Daarna haalt Ophalen dagomzet, payouts, disputes, orders en producten op.
-- **Windsor.ai**: zet `WINDSOR_API_KEY`. Velden: spend, clicks, impressions, actions_purchase, action_values_purchase, frequency.
-- **Revolut**: importeer het afschrift (PDF uit de app of CSV-export) bij Bankmutaties. Dubbele mutaties worden overgeslagen.
+| Bron | Hoe | Wat |
+|---|---|---|
+| Shopify | automatisch, elk uur | dagomzet, orders, payouts, pending, reserve (afgeleid uit alle payouts), disputes |
+| Meta | automatisch via Windsor.ai | spend, clicks, aankopen, omzet per campagne en markt |
+| PayPal | automatisch via de PayPal API | verkopen, fees, opnames, saldo |
+| Revolut | **jij uploadt het afschrift** | alle bankmutaties; worden automatisch ingedeeld |
+
+Het overzicht laat bovenaan zien hoe actueel elke bron is en vanaf welke datum er een bankafschrift nodig is, met de uploadknop erbij. Een afschrift mag elke periode beslaan; overlap wordt overgeslagen. Mutaties die het systeem niet herkent wijs je één keer toe met "regel", daarna gaat het automatisch.
+
+## Online zetten (eenmalig, ongeveer 20 minuten)
+
+1. **Database**: maak een gratis project op neon.tech en kopieer de connection string (`DATABASE_URL`).
+2. **Shopify**: maak op dev.shopify.com een app, geef de scopes uit `.env.example`, installeer hem op je winkel en kopieer Client ID en Secret.
+3. **Windsor.ai**: kopieer je API key (onboard.windsor.ai).
+4. **PayPal**: Live-app met Transaction Search (developer.paypal.com). Client ID en Secret.
+5. **Vercel**: vercel.com, New Project, kies deze GitHub-repo. Zet bij Environment Variables alle waarden uit `.env.example`. Deploy. De tabellen worden bij de deploy automatisch aangemaakt.
+6. **Elk uur ophalen**: zet in GitHub (Settings, Secrets and variables, Actions) `DASHBOARD_URL` (je Vercel-adres) en `CRON_SECRET`. De workflow `Data ophalen` draait dan elk uur; Vercel zelf haalt daarnaast één keer per dag op.
+7. Open het dashboard, log in met `TEAM_USERS`, upload je laatste Revolut-afschrift. Klaar.
+
+Sleutels horen alleen in Vercel en GitHub Secrets, nooit in de code of in een chat.
+
+### Handmatig (optioneel)
+
 - **Shopify payouts zonder API**: Finances, Payouts, Export, en importeer de CSV bij Payouts en disputes.
-- **PayPal**: nog niet gekoppeld. Saldo en fees voorlopig handmatig.
-
-### Online zetten
-
-Werkt op Vercel met een Postgres-database (Neon of Supabase). `vercel.json` draait elk uur `/api/cron/sync`. Zet `CRON_SECRET` en `TEAM_USERS` in de omgevingsvariabelen. Met `TEAM_USERS` vraagt de browser om naam en wachtwoord.
+- **Handmatige invoer**: alleen nog voor wat nergens anders staat, zoals teamkosten die niet via Revolut lopen, openstaande leveranciersfacturen of voorraadwaarde.
 
 ## Tests
 

@@ -26,6 +26,8 @@ export type ImportSummary = {
   reconciled: boolean;
   opening: number | null;
   closing: number | null;
+  periodFrom: string | null;
+  periodTo: string | null;
   message?: string;
 };
 
@@ -75,6 +77,8 @@ export async function importStatement(fileName: string, bytes: Uint8Array): Prom
       format: isPdf ? "pdf" : "csv",
       openingBalanceCents: rec.opening,
       closingBalanceCents: rec.closing,
+      periodFrom: statement.periodFrom ? new Date(`${statement.periodFrom}T00:00:00Z`) : null,
+      periodTo: statement.periodTo ? new Date(`${statement.periodTo}T00:00:00Z`) : null,
       transactions: rows.length,
       duplicates: rows.length - fresh.length,
       reconciled: rec.ok,
@@ -97,6 +101,8 @@ export async function importStatement(fileName: string, bytes: Uint8Array): Prom
     reconciled: rec.ok,
     opening: rec.opening,
     closing: rec.closing,
+    periodFrom: statement.periodFrom ?? null,
+    periodTo: statement.periodTo ?? null,
     message,
   };
 }
