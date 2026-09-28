@@ -462,7 +462,7 @@ const S = {
   sales: { status: "idle", byDay: {}, err: null, at: null },
   meta: { status: "idle", rows: [], err: null, at: null },
   feesLive: { status: "idle", err: null, progress: "" },
-  lastImport: null, bankFilter: { cat: "", q: "" }, fc: null,
+  perms: null, permState: {}, lastImport: null, bankFilter: { cat: "", q: "" }, fc: null,
 };
 if (!TABS.some((t) => t[0] === S.tab)) S.tab = "overzicht";
 const P = () => resolvePeriod(S.periodSel);
@@ -501,8 +501,20 @@ function mcpMessage(e, server) {
     case "server_unavailable": return `${n} is even niet bereikbaar. Klik zo op Vernieuwen.`;
     case "not_granted": case "capability_disabled": case "capability_removed": return "Koppelingen werken alleen als je deze pagina in claude.ai opent.";
     case "tool_error": return `${n} gaf een fout: ${e.message}`;
+    case "consent_required": return `Deze pagina heeft nog geen toestemming om ${n} te gebruiken. Klik op Geef toegang.`;
     default: return `${n}: ${(e && e.message) || "onbekende fout"}`;
   }
+}
+/* Toestemming ontbreekt of is niet bevestigd: de viewer moet de connector voor deze pagina toestaan. */
+function needsConsent(e) {
+  if (!e) return false;
+  if (["consent_required", "not_in_manifest"].includes(e.code)) return true;
+  return /not confirmed|consent|not allowed|permission/i.test(e.message || "");
+}
+function fail(slot, e, server) {
+  slot.status = "fout"; slot.code = e && e.code; slot.server = server;
+  slot.consent = needsConsent(e);
+  slot.err = slot.consent ? `${SERVER_LABEL[server]} heeft nog geen toestemming voor deze pagina.` : mcpMessage(e, server);
 }
 async function call(server, tool, input, opts) {
   if (!S.mcp) throw { code: "not_granted", message: "geen koppelingen" };
@@ -543,7 +555,7 @@ async function loadSales(force) {
       S.sales.byDay[k] = { orders: Number(o.orders || 0), gross: cents(o.gross_sales), discounts: cents(o.discounts), returns: cents(o.returns), shipping: cents(o.shipping_charges), taxes: cents(o.taxes), total: cents(o.total_sales) };
     }
     S.sales.status = "ok"; S.sales.err = null; S.sales.at = (r.cache && r.cache.storedAt) || Date.now();
-  } catch (e) { S.sales.status = "fout"; S.sales.err = mcpMessage(e, SHOPIFY); }
+  } catch (e) { fail(S.sales, e, SHOPIFY); }
   render();
 }
 const MARKETS = [[/\bUK\b|UK\+IE|\bIE\b/, "UK/IE"], [/\bDEU?\b|\bAT\b/, "DE/AT"], [/\bUSA?\b/, "USA"], [/SWIS|SWISS|\bCH\b/, "CH"], [/WORLDWIDE|\bWW\b/, "Worldwide"]];
@@ -558,7 +570,7 @@ async function loadMeta(force) {
     const list = Array.isArray(p) ? p : p.result || p.data;
     S.meta.rows = list.map((x) => ({ date: String(x.date).slice(0, 10), campaign: String(x.campaign || "onbekend"), spend: cents(x.spend), clicks: Number(x.clicks || 0), impressions: Number(x.impressions || 0), purchases: Number(x.actions_purchase || 0), value: cents(x.action_values_purchase), freq: x.frequency == null ? null : Number(x.frequency) })).filter((x) => x.spend > 0 || x.impressions > 0);
     S.meta.status = "ok"; S.meta.err = null; S.meta.at = (r.cache && r.cache.storedAt) || Date.now();
-  } catch (e) { S.meta.status = "fout"; S.meta.err = mcpMessage(e, WINDSOR); }
+  } catch (e) { fail(S.meta, e, WINDSOR); }
   render();
 }
 
@@ -615,8 +627,16 @@ async function loadFees(force) {
       if (Object.keys(done).length) writeDoc(`fees/${m}`, (cur) => ({ days: { ...((cur && cur.days) || {}), ...done } }));
     }
     S.feesLive.status = "ok"; S.feesLive.err = null;
-  } catch (e) { S.feesLive.status = "fout"; S.feesLive.err = mcpMessage(e, SHOPIFY); }
+  } catch (e) { fail(S.feesLive, e, SHOPIFY); }
   render();
+}
+async function grantAccess(server) {
+  if (!S.perms) { toast("Toestemming vragen kan niet in deze weergave. Herlaad de pagina in claude.ai."); return; }
+  const key = "mcp:" + server;
+  const res = await S.perms.request([key]).catch(() => ({}));
+  S.permState[server] = res[key] || "unavailable";
+  if (res[key] === "denied") { render(); return; }
+  if (server === SHOPIFY) { loadSales(true); loadFees(false); } else loadMeta(true);
 }
 function loadRemote(force) { loadSales(force); loadMeta(force); loadFees(force); }
 
@@ -786,8 +806,17 @@ function renderStrip() {
     <span>${cov.last ? (bankNeeded ? '<span class="dot warn">●</span>' : '<span class="dot good">●</span>') : '<span class="dot warn">●</span>'} Bank <span class="muted">${cov.last ? "t/m " + dayL(cov.last) : "nog geen afschrift"}</span></span>
     ${unknown ? `<button class="btn ghost" type="button" data-tab="bank" data-cat="unknown">${unknown} bankmutaties indelen</button>` : ""}
     ${S.dbState !== "ok" ? `<span class="neg">Opslag: ${esc(S.dbState)}</span>` : ""}</div>`;
-  const errs = [S.sales, S.meta, S.feesLive].filter((x) => x.status === "fout").map((x) => x.err);
-  if (errs.length) html += `<div class="neg" style="margin-top:8px;font-size:13px">${[...new Set(errs)].map(esc).join("<br>")}</div>`;
+  const failed = [S.sales, S.meta, S.feesLive].filter((x) => x.status === "fout");
+  const consentServers = [...new Set(failed.filter((x) => x.consent).map((x) => x.server))];
+  const errs = [...new Set(failed.filter((x) => !x.consent).map((x) => x.err))];
+  for (const srv of consentServers) {
+    const denied = S.permState[srv] === "denied";
+    html += `<div class="alert l2" style="margin-top:10px"><span class="warn">▲</span><div><b>${esc(SERVER_LABEL[srv])} heeft nog geen toegang</b><span class="dim">${denied
+      ? `Je hebt ${esc(SERVER_LABEL[srv])} eerder geweigerd voor deze pagina. Zet het aan via het menu bovenaan de pagina (Permissions) en klik daarna op Vernieuwen.`
+      : `Claude vraagt per pagina of die je ${esc(SERVER_LABEL[srv])}-koppeling mag gebruiken. Die vraag is nog niet beantwoord.`}</span>
+      ${denied ? "" : `<button class="btn" style="margin-top:8px" type="button" data-act="grant" data-server="${esc(srv)}">Geef toegang aan ${esc(SERVER_LABEL[srv])}</button>`}</div></div>`;
+  }
+  if (errs.length) html += `<div class="neg" style="margin-top:8px;font-size:13px">${errs.map(esc).join("<br>")}</div>`;
   document.getElementById("strip").innerHTML = html;
   // het uploadformulier blijft staan, zodat een gekozen bestand niet verdwijnt als de cijfers binnenkomen
   const need = document.getElementById("bankNeed");
@@ -1211,6 +1240,7 @@ document.addEventListener("click", (e) => {
   if (t.dataset.fcdays) { S.fc.days = Number(t.dataset.fcdays); render(); return; }
   if (t.id === "refresh") { loadRemote(true); return; }
   const act = t.dataset.act; if (!act) return;
+  if (act === "grant") { grantAccess(t.dataset.server); return; }
   if (act === "clearFilter") { S.bankFilter = { cat: "", q: "" }; render(); }
   if (act === "fcReset") { S.fc = fcSettings(); render(); }
   if (act === "fcSave") { const f = S.fc; writeDoc("config/settings", (cur) => ({ ...DEFAULT_SETTINGS, ...(cur || {}), salesDay: f.salesDay, metaDay: f.metaDay, paypalDay: f.paypalDay, privateWeek: f.privateWeek, softwareWeek: f.softwareWeek, supplier: f.supplier, supplierDay: f.supplierDay, buffer: f.buffer, payoutRatio: f.ratio, forecastDays: f.days })).then(() => toast("Opgeslagen als standaard")); }
@@ -1456,6 +1486,14 @@ render();
   }
   if (!mcp) { S.sales.status = S.meta.status = S.feesLive.status = "fout"; S.sales.err = S.meta.err = S.feesLive.err = mcpMessage({ code: "not_granted" }); render(); return; }
   // eerst de bewaarde fees laten binnenkomen, dan pas ophalen wat ontbreekt
+  S.perms = await cl.use("permissions");
+  if (S.perms) {
+    const keys = ["mcp:" + SHOPIFY, "mcp:" + WINDSOR];
+    const st = await S.perms.state().catch(() => ({}));
+    // één gebundelde vraag als nog niet alles is toegestaan; niet opnieuw vragen na een weigering
+    if (keys.some((k) => st[k] === "prompt")) Object.assign(st, await S.perms.request(keys.filter((k) => st[k] === "prompt")).catch(() => ({})));
+    S.permState = { [SHOPIFY]: st[keys[0]], [WINDSOR]: st[keys[1]] };
+  }
   loadSales(false); loadMeta(false);
   setTimeout(() => loadFees(false), db ? 1500 : 0);
 })();
