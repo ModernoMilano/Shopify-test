@@ -1,4 +1,4 @@
-<title>ModernoMilano Orderachterstand</title>
+<title>ModernoMilano Order Backlog</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -43,7 +43,7 @@ button { cursor: pointer; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 a { color: var(--accent); }
 
-/* kop */
+/* header */
 .top { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 20px; }
 .top .sub { margin-top: 4px; color: var(--ink-2); max-width: 62ch; }
 .sync { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
@@ -69,7 +69,7 @@ button.kpi:hover { border-color: var(--ink-3); }
 .kpi.late .v { color: var(--late); } .kpi.warn .v { color: var(--warn); } .kpi.ok .v { color: var(--ok); } .kpi.part .v { color: var(--part); }
 .kpi.active { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 
-/* overzicht */
+/* overview */
 .grid2 { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; }
 @media (max-width: 860px) { .grid2 { grid-template-columns: 1fr; } }
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 12px; align-content: start; }
@@ -102,7 +102,7 @@ button.kpi:hover { border-color: var(--ink-3); }
 .chk { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-2); }
 .resultline { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 13px; color: var(--ink-2); }
 
-/* lijst */
+/* list */
 .list { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
 .row, .head { display: grid; grid-template-columns: 70px 150px minmax(160px, 1.2fr) minmax(160px, 1.3fr) 140px minmax(170px, 1.3fr) 118px; gap: 14px; padding: 12px 16px; align-items: start; }
 .head { background: var(--panel-2); border-bottom: 1px solid var(--line); font-size: 11px; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); font-weight: 600; padding-block: 9px; }
@@ -160,7 +160,7 @@ button.kpi:hover { border-color: var(--ink-3); }
 .log div { display: grid; grid-template-columns: 112px 1fr; gap: 8px; }
 .toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 9px 14px; border-radius: 8px; font-size: 13px; box-shadow: var(--shadow); z-index: 10; max-width: calc(100% - 32px); }
 
-/* telefoon */
+/* phone */
 @media (max-width: 980px) {
   .head { display: none; }
   .row { grid-template-columns: 64px 1fr; gap: 6px 12px; padding: 14px 14px 14px 16px; }
@@ -175,13 +175,13 @@ button.kpi:hover { border-color: var(--ink-3); }
 <div class="wrap">
   <header class="top">
     <div>
-      <div class="eyebrow">ModernoMilano · fulfilment</div>
-      <h1>Orderachterstand</h1>
-      <p class="sub">Alle open orders die nog niet (volledig) verzonden zijn, live uit Shopify. Normale verwerking is 1 tot 3 dagen; alles daarboven is te laat. Vul per order het probleem, de oplossing en de verwachting in.</p>
+      <div class="eyebrow">ModernoMilano · fulfillment</div>
+      <h1>Order backlog</h1>
+      <p class="sub">Every open order that has not been (fully) shipped, live from Shopify. Normal processing takes 1 to 3 days; anything older is late. Record the problem, the solution and the expected outcome for each order.</p>
     </div>
     <div class="sync">
-      <span id="syncTxt" class="small muted"><span class="dot"></span> Nog niet opgehaald</span>
-      <button class="btn" id="refresh" type="button">Vernieuwen</button>
+      <span id="syncTxt" class="small muted"><span class="dot"></span> Not loaded yet</span>
+      <button class="btn" id="refresh" type="button">Refresh</button>
       <button class="btn" id="csv" type="button" hidden>Export CSV</button>
     </div>
   </header>
@@ -191,55 +191,55 @@ button.kpi:hover { border-color: var(--ink-3); }
 
   <section class="grid2">
     <div class="card">
-      <div class="card-h"><h2>Hoe lang wachten de orders al</h2><span class="small faint">klik een balk om te filteren</span></div>
+      <div class="card-h"><h2>How long orders have been waiting</h2><span class="small faint">click a bar to filter</span></div>
       <div class="aging" id="aging"></div>
       <div class="legend">
-        <span><i style="background:var(--ok)"></i>binnen termijn (0 tot 3 dagen)</span>
-        <span><i style="background:var(--warn)"></i>te laat (4 tot 7)</span>
-        <span><i style="background:var(--late)"></i>ernstig te laat (8+)</span>
+        <span><i style="background:var(--ok)"></i>on time (0 to 3 days)</span>
+        <span><i style="background:var(--warn)"></i>late (4 to 7)</span>
+        <span><i style="background:var(--late)"></i>seriously late (8+)</span>
       </div>
     </div>
     <div class="card">
-      <div class="card-h"><h2>Opvolging</h2><span class="small faint">per status en probleem</span></div>
+      <div class="card-h"><h2>Follow-up</h2><span class="small faint">by status and problem</span></div>
       <div class="cats" id="cats"></div>
     </div>
   </section>
 
   <section class="filters">
-    <input type="search" id="q" placeholder="Zoek op ordernummer, naam, e-mail, product of notitie">
+    <input type="search" id="q" placeholder="Search by order number, name, email, product or note">
     <div class="seg" id="fsSeg">
-      <button type="button" data-v="all" class="on">Alles</button>
-      <button type="button" data-v="UNFULFILLED">Niet verzonden</button>
-      <button type="button" data-v="PARTIALLY_FULFILLED">Gedeeltelijk</button>
+      <button type="button" data-v="all" class="on">All</button>
+      <button type="button" data-v="UNFULFILLED">Unfulfilled</button>
+      <button type="button" data-v="PARTIALLY_FULFILLED">Partial</button>
     </div>
-    <select id="caseSel" aria-label="Opvolgstatus"></select>
-    <select id="countrySel" aria-label="Land"></select>
-    <select id="sortSel" aria-label="Sorteren">
-      <option value="old">Oudste eerst</option>
-      <option value="new">Nieuwste eerst</option>
-      <option value="value">Hoogste bedrag</option>
-      <option value="expect">Verwachte datum</option>
-      <option value="updated">Laatst bijgewerkt</option>
+    <select id="caseSel" aria-label="Follow-up status"></select>
+    <select id="countrySel" aria-label="Country"></select>
+    <select id="sortSel" aria-label="Sort">
+      <option value="old">Oldest first</option>
+      <option value="new">Newest first</option>
+      <option value="value">Highest amount</option>
+      <option value="expect">Expected date</option>
+      <option value="updated">Recently updated</option>
     </select>
-    <label class="chk"><input type="checkbox" id="hideDone"> Verberg afgehandeld</label>
+    <label class="chk"><input type="checkbox" id="hideDone"> Hide resolved</label>
   </section>
 
-  <div class="resultline"><span id="count"></span><button class="btn sm" id="reset" type="button" hidden>Filters wissen</button></div>
+  <div class="resultline"><span id="count"></span><button class="btn sm" id="reset" type="button" hidden>Clear filters</button></div>
 
   <section class="list" id="list">
-    <div class="head"><div>Dagen</div><div>Order</div><div>Klant</div><div>Nog te verzenden</div><div>Status</div><div>Probleem en opvolging</div><div>Verwachting</div></div>
-    <div id="rows"><div class="empty">Orders laden…</div></div>
+    <div class="head"><div>Days</div><div>Order</div><div>Customer</div><div>Still to ship</div><div>Status</div><div>Problem and follow-up</div><div>Expected</div></div>
+    <div id="rows"><div class="empty">Loading orders…</div></div>
   </section>
 </div>
 <div class="toast" id="toast" hidden></div>
 
 <script>
 /* ============================================================
-   Instellingen
+   Settings
    ============================================================ */
 const SHOPIFY = "Shopify";
-const LIMIT_DAYS = 3;               // normale verwerking: 1 tot 3 dagen
-const PAGE = 50, MAX_PAGES = 20;    // tot 1000 open orders
+const LIMIT_DAYS = 3;               // normal processing: 1 to 3 days
+const PAGE = 50, MAX_PAGES = 20;    // up to 1000 open orders
 const FILTER = "(fulfillment_status:unshipped OR fulfillment_status:partial) AND status:open";
 const QUERY = `query Backlog($first: Int!, $after: String, $q: String) {
   shop { myshopifyDomain }
@@ -259,42 +259,42 @@ const QUERY = `query Backlog($first: Int!, $after: String, $q: String) {
 }`;
 
 const CASE_STATUS = [
-  ["", "Geen opvolging", ""],
-  ["nieuw", "Nieuw", "late"],
-  ["onderzoek", "In onderzoek", "warn"],
-  ["leverancier", "Wacht op leverancier", "part"],
-  ["klant", "Wacht op klant", "part"],
-  ["onderweg", "Opgelost, wordt verzonden", "acc"],
-  ["afgehandeld", "Afgehandeld", "ok"],
+  ["", "No follow-up", ""],
+  ["nieuw", "New", "late"],
+  ["onderzoek", "Investigating", "warn"],
+  ["leverancier", "Waiting on supplier", "part"],
+  ["klant", "Waiting on customer", "part"],
+  ["onderweg", "Solved, shipping soon", "acc"],
+  ["afgehandeld", "Resolved", "ok"],
 ];
 const CATEGORIES = [
-  ["", "Kies een probleem"],
-  ["voorraad", "Niet op voorraad"],
-  ["leverancier", "Vertraging leverancier"],
-  ["variant", "Maat of variant probleem"],
-  ["adres", "Adresprobleem"],
-  ["betaling", "Betaling of terugbetaling"],
-  ["wijziging", "Klant wil wijzigen of annuleren"],
-  ["vervoerder", "Vervoerder of verzending"],
-  ["systeem", "Fout in app of koppeling"],
-  ["anders", "Anders"],
+  ["", "Choose a problem"],
+  ["voorraad", "Out of stock"],
+  ["leverancier", "Supplier delay"],
+  ["variant", "Size or variant issue"],
+  ["adres", "Address problem"],
+  ["betaling", "Payment or refund"],
+  ["wijziging", "Customer wants to change or cancel"],
+  ["vervoerder", "Carrier or shipping"],
+  ["systeem", "App or integration error"],
+  ["anders", "Other"],
 ];
 const statusLabel = (v) => (CASE_STATUS.find((s) => s[0] === (v || "")) || CASE_STATUS[0])[1];
 const statusTone = (v) => (CASE_STATUS.find((s) => s[0] === (v || "")) || CASE_STATUS[0])[2];
 const catLabel = (v) => (CATEGORIES.find((c) => c[0] === v) || ["", ""])[1];
 
 const BUCKETS = [
-  { k: "0-1", lbl: "0 tot 1 dag", min: 0, max: 1, tone: "ok" },
-  { k: "2-3", lbl: "2 tot 3 dagen", min: 2, max: 3, tone: "ok" },
-  { k: "4-7", lbl: "4 tot 7", min: 4, max: 7, tone: "warn" },
-  { k: "8-14", lbl: "8 tot 14", min: 8, max: 14, tone: "late" },
-  { k: "15-30", lbl: "15 tot 30", min: 15, max: 30, tone: "late" },
-  { k: "31-60", lbl: "31 tot 60", min: 31, max: 60, tone: "late" },
-  { k: "60+", lbl: "meer dan 60", min: 61, max: Infinity, tone: "late" },
+  { k: "0-1", lbl: "0 to 1 day", min: 0, max: 1, tone: "ok" },
+  { k: "2-3", lbl: "2 to 3 days", min: 2, max: 3, tone: "ok" },
+  { k: "4-7", lbl: "4 to 7", min: 4, max: 7, tone: "warn" },
+  { k: "8-14", lbl: "8 to 14", min: 8, max: 14, tone: "late" },
+  { k: "15-30", lbl: "15 to 30", min: 15, max: 30, tone: "late" },
+  { k: "31-60", lbl: "31 to 60", min: 31, max: 60, tone: "late" },
+  { k: "60+", lbl: "over 60", min: 61, max: Infinity, tone: "late" },
 ];
 
 /* ============================================================
-   Toestand
+   State
    ============================================================ */
 const S = {
   orders: [], total: null, domain: null, load: { status: "idle", err: null, code: null, at: null, progress: "" },
@@ -307,31 +307,31 @@ const saveF = () => { try { localStorage.setItem("mm-backlog-f", JSON.stringify(
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const eur = (n, cur) => new Intl.NumberFormat("nl-NL", { style: "currency", currency: cur || "EUR" }).format(n || 0);
+const eur = (n, cur) => new Intl.NumberFormat("en-IE", { style: "currency", currency: cur || "EUR" }).format(n || 0);
 const TZ = "Europe/Amsterdam";
-const fmtDate = (d, withTime) => new Date(d).toLocaleString("nl-NL", withTime ? { timeZone: TZ, day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" } : { timeZone: TZ, day: "numeric", month: "short", year: "numeric" });
-const fmtDay = (k) => k ? new Date(k + "T12:00:00").toLocaleDateString("nl-NL", { weekday: "short", day: "numeric", month: "short" }) : "";
+const fmtDate = (d, withTime) => new Date(d).toLocaleString("en-GB", withTime ? { timeZone: TZ, day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" } : { timeZone: TZ, day: "numeric", month: "short", year: "numeric" });
+const fmtDay = (k) => k ? new Date(k + "T12:00:00").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }) : "";
 const todayKey = () => new Date().toLocaleDateString("sv-SE", { timeZone: TZ });
 const ageDays = (d) => Math.max(0, Math.floor((Date.now() - new Date(d).getTime()) / 864e5));
 const toneFor = (days) => days <= LIMIT_DAYS ? "ok" : days <= 7 ? "warn" : "late";
 function toast(msg) { const t = $("toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => (t.hidden = true), 2600); }
-const FLAG_NAMES = (() => { try { return new Intl.DisplayNames(["nl"], { type: "region" }); } catch { return null; } })();
-const countryName = (c) => (c && FLAG_NAMES ? FLAG_NAMES.of(c) : c) || "Onbekend";
+const FLAG_NAMES = (() => { try { return new Intl.DisplayNames(["en"], { type: "region" }); } catch { return null; } })();
+const countryName = (c) => (c && FLAG_NAMES ? FLAG_NAMES.of(c) : c) || "Unknown";
 
 /* ============================================================
-   Shopify ophalen
+   Loading from Shopify
    ============================================================ */
 function mcpMessage(e) {
   switch (e && e.code) {
-    case "needs_reauth": return "Je Shopify-koppeling is verlopen. Verbind Shopify opnieuw in claude.ai, Instellingen, Connectors.";
-    case "server_not_connected": case "server_not_found": return "Shopify is niet gekoppeld aan je Claude-account. Voeg de Shopify-connector toe in claude.ai, Instellingen, Connectors.";
-    case "selection_required": return "Je hebt meer dan één Shopify-koppeling. Kies welke deze pagina gebruikt en klik op Vernieuwen.";
-    case "not_in_manifest": case "consent_required": return "Deze pagina heeft nog geen toestemming om Shopify te lezen.";
-    case "blocked_by_policy": case "approval_required": return "Shopify is geblokkeerd door de instellingen van je organisatie.";
-    case "server_unavailable": return "Shopify is even niet bereikbaar. Probeer het zo opnieuw met Vernieuwen.";
-    case "not_granted": case "capability_disabled": case "capability_removed": return "Live Shopify-data werkt alleen als je deze pagina in claude.ai opent.";
-    case "tool_error": return "Shopify gaf een fout: " + (e.message || "onbekend");
-    default: return "Ophalen mislukt: " + ((e && e.message) || "onbekende fout");
+    case "needs_reauth": return "Your Shopify connection has expired. Reconnect Shopify in claude.ai, Settings, Connectors.";
+    case "server_not_connected": case "server_not_found": return "Shopify is not connected to your Claude account. Add the Shopify connector in claude.ai, Settings, Connectors.";
+    case "selection_required": return "You have more than one Shopify connection. Choose which one this page uses, then click Refresh.";
+    case "not_in_manifest": case "consent_required": return "This page does not have permission to read Shopify yet.";
+    case "blocked_by_policy": case "approval_required": return "Shopify is blocked by your organization's settings.";
+    case "server_unavailable": return "Shopify can't be reached right now. Try again shortly with Refresh.";
+    case "not_granted": case "capability_disabled": case "capability_removed": return "Live Shopify data only works when you open this page in claude.ai.";
+    case "tool_error": return "Shopify returned an error: " + (e.message || "unknown");
+    default: return "Loading failed: " + ((e && e.message) || "unknown error");
   }
 }
 function payloadOf(r) {
@@ -362,7 +362,7 @@ function normalize(n) {
     id: String(n.legacyResourceId || String(n.id).split("/").pop()), gid: n.id, name: n.name, createdAt: n.createdAt,
     fs: n.displayFulfillmentStatus, fin: n.displayFinancialStatus, note: n.note || "", tags: n.tags || [],
     total: Number(money.amount || 0), cur: money.currencyCode || "EUR",
-    customer: c.displayName || a.name || "Onbekend", orders: Number(c.numberOfOrders || 0),
+    customer: c.displayName || a.name || "Unknown", orders: Number(c.numberOfOrders || 0),
     email: n.email || (c.defaultEmailAddress && c.defaultEmailAddress.emailAddress) || "",
     phone: n.phone || a.phone || (c.defaultPhoneNumber && c.defaultPhoneNumber.phoneNumber) || "",
     address: [a.address1, a.address2, [a.zip, a.city].filter(Boolean).join(" ")].filter(Boolean).join(", "), country: a.countryCodeV2 || "",
@@ -372,8 +372,8 @@ function normalize(n) {
 }
 async function loadOrders(force) {
   if (!S.mcp) return;
-  if (S.load.status === "laden") return;
-  S.load.status = "laden"; S.load.progress = ""; renderSync();
+  if (S.load.status === "loading") return;
+  S.load.status = "loading"; S.load.progress = ""; renderSync();
   const out = []; let after = null, pages = 0, storedAt = null;
   try {
     do {
@@ -381,38 +381,38 @@ async function loadOrders(force) {
       if (after) { variables.after = after; input.after = after; }
       const r = await callOnce(input, force);
       const d = payloadOf(r);
-      if (!d) throw { code: "tool_error", message: "onverwacht antwoord van Shopify" };
+      if (!d) throw { code: "tool_error", message: "unexpected response from Shopify" };
       if (pages === 0) { S.total = d.ordersCount ? d.ordersCount.count : null; S.domain = d.shop ? d.shop.myshopifyDomain : S.domain; }
       if (r.cache && r.cache.storedAt) storedAt = storedAt ? Math.min(storedAt, r.cache.storedAt) : r.cache.storedAt;
       for (const n of d.orders.nodes || []) out.push(normalize(n));
       after = d.orders.pageInfo && d.orders.pageInfo.hasNextPage ? d.orders.pageInfo.endCursor : null;
       pages++;
-      S.load.progress = `${out.length}${S.total ? " van " + S.total : ""}`; renderSync();
+      S.load.progress = `${out.length}${S.total ? " of " + S.total : ""}`; renderSync();
     } while (after && pages < MAX_PAGES);
     S.orders = out; S.load = { status: "ok", err: null, code: null, at: storedAt || Date.now(), progress: "", truncated: !!after };
   } catch (e) {
-    S.load = { status: "fout", err: mcpMessage(e), code: e && e.code, at: S.load.at, progress: "" };
+    S.load = { status: "error", err: mcpMessage(e), code: e && e.code, at: S.load.at, progress: "" };
     if (["needs_reauth", "server_not_connected", "blocked_by_policy", "approval_required", "not_in_manifest"].includes(e && e.code)) S.orders = [];
   }
   render();
 }
 
 /* ============================================================
-   Opvolging opslaan (gedeelde opslag van deze pagina)
+   Saving follow-up (this page's shared storage)
    ============================================================ */
 const queues = {}, timers = {};
 function caseOf(id) { return { ...(S.cases[id] || {}), ...(S.drafts[id] || {}) }; }
 function setDraft(id, patch, delay) {
   S.drafts[id] = { ...(S.drafts[id] || {}), ...patch };
-  S.saving[id] = "wacht"; renderSaveState(id);
+  S.saving[id] = "pending"; renderSaveState(id);
   clearTimeout(timers[id]); timers[id] = setTimeout(() => flush(id), delay == null ? 900 : delay);
 }
 function flush(id, logText) {
   clearTimeout(timers[id]);
-  if (!S.db) { S.saveErr[id] = "Opslaan kan niet: open deze pagina in claude.ai."; S.saving[id] = null; renderSaveState(id); return; }
+  if (!S.db) { S.saveErr[id] = "Can't save: open this page in claude.ai."; S.saving[id] = null; renderSaveState(id); return; }
   const patch = { ...(S.drafts[id] || {}) };
   const o = S.orders.find((x) => x.id === id);
-  S.saving[id] = "bezig"; renderSaveState(id);
+  S.saving[id] = "busy"; renderSaveState(id);
   queues[id] = (queues[id] || Promise.resolve()).then(async () => {
     const ref = S.db.doc("cases/" + id);
     const snap = await ref.get();
@@ -423,20 +423,20 @@ function flush(id, logText) {
     if (!prev.createdAt) next.createdAt = next.updatedAt;
     await ref.set(next);
     S.cases[id] = next;
-    // alleen velden weghalen die sindsdien niet opnieuw gewijzigd zijn
+    // only clear fields that have not been edited again since
     const d = S.drafts[id] || {};
     for (const k of Object.keys(patch)) if (d[k] === patch[k]) delete d[k];
     if (!Object.keys(d).length) delete S.drafts[id];
     S.saving[id] = "ok"; S.saveErr[id] = null;
   }).catch((e) => {
     S.saving[id] = null;
-    S.saveErr[id] = e && e.code === "quota_exceeded" ? "De opslag is vol." : e && (e.code === "permission_denied" || e.code === "not_granted") ? "Je hebt alleen leesrechten op deze pagina." : "Opslaan mislukt: " + ((e && e.message) || "onbekende fout");
+    S.saveErr[id] = e && e.code === "quota_exceeded" ? "Storage is full." : e && (e.code === "permission_denied" || e.code === "not_granted") ? "You only have read access to this page." : "Saving failed: " + ((e && e.message) || "unknown error");
   }).finally(() => { renderSaveState(id); renderSummary(); renderRows(); });
   return queues[id];
 }
 
 /* ============================================================
-   Afgeleide gegevens en filters
+   Derived data and filters
    ============================================================ */
 function enrich(o) {
   const c = caseOf(o.id), days = ageDays(o.createdAt), today = todayKey();
@@ -483,26 +483,26 @@ function sorted(list) {
 const filtersActive = () => { const f = S.f; return !!(f.q || f.fs !== "all" || f.cs || f.country || f.bucket || f.cat || f.kpi); };
 
 /* ============================================================
-   Tekenen
+   Rendering
    ============================================================ */
 function renderSync() {
   const l = S.load, el = $("syncTxt");
-  if (l.status === "laden") el.innerHTML = `<span class="dot busy"></span> Shopify ophalen${l.progress ? " · " + esc(l.progress) : ""}…`;
-  else if (l.status === "ok") el.innerHTML = `<span class="dot ok"></span> Bijgewerkt ${esc(fmtDate(l.at, true))}`;
-  else if (l.status === "fout") el.innerHTML = `<span class="dot err"></span> Niet bijgewerkt${l.at ? " sinds " + esc(fmtDate(l.at, true)) : ""}`;
-  else el.innerHTML = `<span class="dot"></span> Nog niet opgehaald`;
-  $("refresh").disabled = l.status === "laden" || !S.mcp;
+  if (l.status === "loading") el.innerHTML = `<span class="dot busy"></span> Loading from Shopify${l.progress ? " · " + esc(l.progress) : ""}…`;
+  else if (l.status === "ok") el.innerHTML = `<span class="dot ok"></span> Updated ${esc(fmtDate(l.at, true))}`;
+  else if (l.status === "error") el.innerHTML = `<span class="dot err"></span> Not updated${l.at ? " since " + esc(fmtDate(l.at, true)) : ""}`;
+  else el.innerHTML = `<span class="dot"></span> Not loaded yet`;
+  $("refresh").disabled = l.status === "loading" || !S.mcp;
 }
 function renderBanner() {
   const l = S.load, b = $("banner");
-  if (l.status === "fout") {
+  if (l.status === "error") {
     const consent = ["not_in_manifest", "consent_required"].includes(l.code) && S.perms;
-    b.innerHTML = `<div class="banner err"><span>${esc(l.err)}${S.orders.length ? " Je ziet de laatst opgehaalde orders." : ""}</span>${consent ? `<button class="btn primary" id="grant" type="button">Geef toegang tot Shopify</button>` : ""}</div>`;
+    b.innerHTML = `<div class="banner err"><span>${esc(l.err)}${S.orders.length ? " Showing the last loaded orders." : ""}</span>${consent ? `<button class="btn primary" id="grant" type="button">Give Shopify access</button>` : ""}</div>`;
     const g = $("grant"); if (g) g.onclick = async () => { const st = await S.perms.request(["mcp:" + SHOPIFY]).catch(() => ({})); if (st["mcp:" + SHOPIFY] === "granted") loadOrders(true); };
   } else if (l.status === "ok" && l.truncated) {
-    b.innerHTML = `<div class="banner">Er staan meer dan ${PAGE * MAX_PAGES} open orders; alleen de oudste ${S.orders.length} worden getoond.</div>`;
+    b.innerHTML = `<div class="banner">There are more than ${PAGE * MAX_PAGES} open orders; only the oldest ${S.orders.length} are shown.</div>`;
   } else if (!S.db && S.load.status !== "idle") {
-    b.innerHTML = `<div class="banner">De opslag van deze pagina is niet beschikbaar, dus notities worden niet bewaard.</div>`;
+    b.innerHTML = `<div class="banner">This page's storage is unavailable, so notes will not be saved.</div>`;
   } else b.innerHTML = "";
 }
 function renderSummary() {
@@ -515,62 +515,62 @@ function renderSummary() {
   };
   const tile = (key, v, l, tone) => `<button type="button" class="kpi ${tone || ""} ${S.f.kpi === key ? "active" : ""}" data-kpi="${key}"><span class="v">${v}</span><span class="l">${l}</span></button>`;
   $("kpis").innerHTML = [
-    tile("", k.open, `open orders${S.total != null && S.total !== k.open ? ` (Shopify telt ${S.total})` : ""}`),
-    tile("late", k.late, `te laat (meer dan ${LIMIT_DAYS} dagen)`, "late"),
-    tile("ok", k.ok, "binnen termijn", "ok"),
-    tile("part", k.part, "gedeeltelijk verzonden", "part"),
-    tile("nofollow", k.nofollow, "te laat zonder probleem ingevuld", k.nofollow ? "warn" : ""),
-    tile("expired", k.expired, "verwachte datum verstreken", k.expired ? "late" : ""),
-    tile("refund", k.refund, "terugbetaald of niets meer open", k.refund ? "warn" : ""),
-    `<div class="kpi"><span class="v">${esc(eur(k.value))}</span><span class="l">orderwaarde · oudste ${k.oldest} dagen</span></div>`,
+    tile("", k.open, `open orders${S.total != null && S.total !== k.open ? ` (Shopify counts ${S.total})` : ""}`),
+    tile("late", k.late, `late (over ${LIMIT_DAYS} days)`, "late"),
+    tile("ok", k.ok, "on time", "ok"),
+    tile("part", k.part, "partially fulfilled", "part"),
+    tile("nofollow", k.nofollow, "late with no problem filled in", k.nofollow ? "warn" : ""),
+    tile("expired", k.expired, "expected date passed", k.expired ? "late" : ""),
+    tile("refund", k.refund, "refunded or nothing left open", k.refund ? "warn" : ""),
+    `<div class="kpi"><span class="v">${esc(eur(k.value))}</span><span class="l">order value · oldest ${k.oldest} days</span></div>`,
   ].join("");
   document.querySelectorAll("[data-kpi]").forEach((b) => (b.onclick = () => { S.f.kpi = S.f.kpi === b.dataset.kpi ? "" : b.dataset.kpi; renderAll(); }));
 
-  // leeftijd
+  // age
   const counts = BUCKETS.map((b) => base.filter((x) => x.days >= b.min && x.days <= b.max).length);
   const max = Math.max(1, ...counts);
   $("aging").innerHTML = BUCKETS.map((b, i) => `<button type="button" class="age-row ${S.f.bucket === b.k ? "active" : ""}" data-b="${b.k}"><span class="lbl">${b.lbl}</span><span class="bar"><i style="width:${(counts[i] / max) * 100}%;background:var(--${b.tone})"></i></span><span class="n">${counts[i]}</span></button>`).join("");
   document.querySelectorAll("[data-b]").forEach((b) => (b.onclick = () => { S.f.bucket = S.f.bucket === b.dataset.b ? "" : b.dataset.b; renderAll(); }));
 
-  // opvolging: per status en per probleem
+  // follow-up: by status and by problem
   const byStatus = CASE_STATUS.map(([v, l, t]) => [v, l, t, base.filter((x) => (x.c.status || "") === v).length]).filter((r) => r[3]);
   const byCat = CATEGORIES.slice(1).map(([v, l]) => [v, l, base.filter((x) => x.c.category === v).length]).filter((r) => r[2]);
   const noCat = base.filter((x) => !x.c.category).length;
   $("cats").innerHTML = `<div class="eyebrow">Status</div>` +
     byStatus.map(([v, l, t, n]) => `<button type="button" class="cat-row ${S.f.cs === (v || "_none") ? "active" : ""}" data-cs="${v || "_none"}"><span><span class="chip ${t}">${esc(l)}</span></span><span class="n">${n}</span></button>`).join("") +
-    `<div class="eyebrow" style="margin-top:8px">Probleem</div>` +
+    `<div class="eyebrow" style="margin-top:8px">Problem</div>` +
     (byCat.length ? byCat.map(([v, l, n]) => `<button type="button" class="cat-row ${S.f.cat === v ? "active" : ""}" data-cat="${v}"><span>${esc(l)}</span><span class="n">${n}</span></button>`).join("") : "") +
-    `<button type="button" class="cat-row ${S.f.cat === "_none" ? "active" : ""}" data-cat="_none"><span class="muted">Nog geen probleem gekozen</span><span class="n">${noCat}</span></button>`;
+    `<button type="button" class="cat-row ${S.f.cat === "_none" ? "active" : ""}" data-cat="_none"><span class="muted">No problem chosen yet</span><span class="n">${noCat}</span></button>`;
   document.querySelectorAll("[data-cs]").forEach((b) => (b.onclick = () => { S.f.cs = S.f.cs === b.dataset.cs ? "" : b.dataset.cs; $("caseSel").value = S.f.cs; renderAll(); }));
   document.querySelectorAll("[data-cat]").forEach((b) => (b.onclick = () => { S.f.cat = S.f.cat === b.dataset.cat ? "" : b.dataset.cat; renderAll(); }));
 
-  // landen
+  // countries
   const countries = [...new Set(S.orders.map((o) => o.country))].sort((a, b) => countryName(a).localeCompare(countryName(b)));
   const cs = $("countrySel"), cur = S.f.country;
-  cs.innerHTML = `<option value="">Alle landen</option>` + countries.map((c) => `<option value="${esc(c)}">${esc(countryName(c))} (${S.orders.filter((o) => o.country === c).length})</option>`).join("");
+  cs.innerHTML = `<option value="">All countries</option>` + countries.map((c) => `<option value="${esc(c)}">${esc(countryName(c))} (${S.orders.filter((o) => o.country === c).length})</option>`).join("");
   cs.value = countries.includes(cur) ? cur : "";
 }
 function flagsFor(x) {
   const o = x.o, out = [];
-  out.push(o.fs === "PARTIALLY_FULFILLED" ? `<span class="chip part">Gedeeltelijk</span>` : `<span class="chip">Niet verzonden</span>`);
-  if (o.fin === "REFUNDED") out.push(`<span class="chip warn">Terugbetaald</span>`);
-  else if (o.fin === "PARTIALLY_REFUNDED") out.push(`<span class="chip warn">Deels terugbetaald</span>`);
+  out.push(o.fs === "PARTIALLY_FULFILLED" ? `<span class="chip part">Partial</span>` : `<span class="chip">Unfulfilled</span>`);
+  if (o.fin === "REFUNDED") out.push(`<span class="chip warn">Refunded</span>`);
+  else if (o.fin === "PARTIALLY_REFUNDED") out.push(`<span class="chip warn">Partially refunded</span>`);
   else if (o.fin && o.fin !== "PAID") out.push(`<span class="chip warn">${esc(o.fin.toLowerCase().replace(/_/g, " "))}</span>`);
-  if (x.nothingOpen) out.push(`<span class="chip warn">Niets meer open</span>`);
-  if (o.orders > 1) out.push(`<span class="chip acc">${o.orders}e order</span>`);
+  if (x.nothingOpen) out.push(`<span class="chip warn">Nothing left open</span>`);
+  if (o.orders > 1) out.push(`<span class="chip acc">Order #${o.orders} from this customer</span>`);
   return out.join("");
 }
 function rowHtml(x) {
   const o = x.o, c = x.c, open = o.lines.filter((l) => l.open > 0);
   const who = c.updatedBy && S.names[c.updatedBy] ? " · " + S.names[c.updatedBy] : "";
   return `<div class="row s-${x.tone} ${S.openId === o.id ? "open" : ""}" data-id="${o.id}" role="button" tabindex="0" aria-expanded="${S.openId === o.id}">
-    <div class="c-age"><span class="age ${x.tone}">${x.days}<small>${x.days === 1 ? "dag" : "dagen"}</small></span></div>
+    <div class="c-age"><span class="age ${x.tone}">${x.days}<small>${x.days === 1 ? "day" : "days"}</small></span></div>
     <div><div class="oname">${esc(o.name)}</div><div class="small faint">${esc(fmtDate(o.createdAt, true))}</div><div class="small muted">${esc(eur(o.total, o.cur))}</div></div>
     <div style="min-width:0"><div class="clip" style="font-weight:500">${esc(o.customer)}</div><div class="small faint clip">${esc(o.email)}</div><div class="small muted">${esc(countryName(o.country))}${o.phone ? " · " + esc(o.phone) : ""}</div></div>
-    <div class="items" style="min-width:0"><span class="cell-label">Open</span>${open.length ? open.slice(0, 3).map((l) => `<div class="it">${l.open}× ${esc(l.title)}${l.variant ? " · " + esc(l.variant) : ""}</div>`).join("") + (open.length > 3 ? `<div class="faint">+${open.length - 3} meer</div>` : "") : `<div class="faint">Geen open stuks meer</div>`}<div class="faint">${o.openQty} van ${o.qty} stuks open</div></div>
+    <div class="items" style="min-width:0"><span class="cell-label">Open</span>${open.length ? open.slice(0, 3).map((l) => `<div class="it">${l.open}× ${esc(l.title)}${l.variant ? " · " + esc(l.variant) : ""}</div>`).join("") + (open.length > 3 ? `<div class="faint">+${open.length - 3} more</div>` : "") : `<div class="faint">No open items left</div>`}<div class="faint">${o.openQty} of ${o.qty} items open</div></div>
     <div class="chips">${flagsFor(x)}</div>
-    <div style="min-width:0"><div class="chips">${c.status ? `<span class="chip ${statusTone(c.status)}">${esc(statusLabel(c.status))}</span>` : x.late ? `<span class="chip late">Geen opvolging</span>` : `<span class="chip">Nog binnen termijn</span>`}${c.category ? `<span class="chip">${esc(catLabel(c.category))}</span>` : ""}${c.contacted ? `<span class="chip ok">Klant ingelicht</span>` : ""}</div>${c.problem ? `<div class="small muted clip" style="margin-top:4px">${esc(c.problem)}</div>` : ""}${c.updatedAt ? `<div class="small faint">bijgewerkt ${esc(fmtDate(c.updatedAt, true))}${esc(who)}</div>` : ""}</div>
-    <div><span class="cell-label">Verwachting</span>${c.expectedDate ? `<div class="small ${x.expired ? "" : ""}" style="font-weight:600;color:${x.expired ? "var(--late)" : "var(--ink)"}">${esc(fmtDay(c.expectedDate))}</div>${x.expired ? `<div class="small" style="color:var(--late)">verstreken</div>` : ""}` : ""}${c.expectation ? `<div class="small muted clip">${esc(c.expectation)}</div>` : !c.expectedDate ? `<div class="small faint">nog niet ingevuld</div>` : ""}</div>
+    <div style="min-width:0"><div class="chips">${c.status ? `<span class="chip ${statusTone(c.status)}">${esc(statusLabel(c.status))}</span>` : x.late ? `<span class="chip late">No follow-up</span>` : `<span class="chip">Still on time</span>`}${c.category ? `<span class="chip">${esc(catLabel(c.category))}</span>` : ""}${c.contacted ? `<span class="chip ok">Customer informed</span>` : ""}</div>${c.problem ? `<div class="small muted clip" style="margin-top:4px">${esc(c.problem)}</div>` : ""}${c.updatedAt ? `<div class="small faint">updated ${esc(fmtDate(c.updatedAt, true))}${esc(who)}</div>` : ""}</div>
+    <div><span class="cell-label">Expected</span>${c.expectedDate ? `<div class="small ${x.expired ? "" : ""}" style="font-weight:600;color:${x.expired ? "var(--late)" : "var(--ink)"}">${esc(fmtDay(c.expectedDate))}</div>${x.expired ? `<div class="small" style="color:var(--late)">passed</div>` : ""}` : ""}${c.expectation ? `<div class="small muted clip">${esc(c.expectation)}</div>` : !c.expectedDate ? `<div class="small faint">not filled in yet</div>` : ""}</div>
   </div>${S.openId === o.id ? detailHtml(x) : ""}`;
 }
 function adminUrl(o) {
@@ -584,41 +584,41 @@ function detailHtml(x) {
   const log = Array.isArray(c.log) ? c.log.slice().reverse() : [];
   return `<div class="detail" data-detail="${id}">
     <div class="box">
-      <div class="card-h"><h3 style="font-size:15px">Klant en order</h3>${url ? `<a class="small" href="${esc(url)}" target="_blank" rel="noopener">Open in Shopify ↗</a>` : ""}</div>
+      <div class="card-h"><h3 style="font-size:15px">Customer and order</h3>${url ? `<a class="small" href="${esc(url)}" target="_blank" rel="noopener">Open in Shopify ↗</a>` : ""}</div>
       <dl class="kv">
-        <dt>Naam</dt><dd>${esc(o.customer)}${o.orders > 1 ? ` <span class="faint">(${o.orders} orders)</span>` : ""}</dd>
-        <dt>E-mail</dt><dd class="copyline">${o.email ? `<a href="mailto:${esc(o.email)}?subject=${encodeURIComponent("Your order " + o.name)}">${esc(o.email)}</a><button class="copy" type="button" data-copy="${esc(o.email)}">kopieer</button>` : `<span class="faint">onbekend</span>`}</dd>
-        <dt>Telefoon</dt><dd class="copyline">${o.phone ? `<span class="mono">${esc(o.phone)}</span><button class="copy" type="button" data-copy="${esc(o.phone)}">kopieer</button>${phoneDigits.length > 7 ? `<a class="small" href="https://wa.me/${esc(phoneDigits)}" target="_blank" rel="noopener">WhatsApp ↗</a>` : ""}` : `<span class="faint">niet opgegeven</span>`}</dd>
-        <dt>Adres</dt><dd>${esc(o.address)}<br>${esc(countryName(o.country))}</dd>
-        <dt>Verzending</dt><dd>${esc(o.shipping || "onbekend")}</dd>
-        <dt>Besteld</dt><dd>${esc(fmtDate(o.createdAt, true))} · <strong>${x.days} dagen geleden</strong></dd>
-        <dt>Betaling</dt><dd>${esc(eur(o.total, o.cur))} · ${esc((o.fin || "").toLowerCase().replace(/_/g, " "))}</dd>
-        ${o.note ? `<dt>Notitie klant</dt><dd>${esc(o.note)}</dd>` : ""}
+        <dt>Name</dt><dd>${esc(o.customer)}${o.orders > 1 ? ` <span class="faint">(${o.orders} orders)</span>` : ""}</dd>
+        <dt>Email</dt><dd class="copyline">${o.email ? `<a href="mailto:${esc(o.email)}?subject=${encodeURIComponent("Your order " + o.name)}">${esc(o.email)}</a><button class="copy" type="button" data-copy="${esc(o.email)}">copy</button>` : `<span class="faint">unknown</span>`}</dd>
+        <dt>Phone</dt><dd class="copyline">${o.phone ? `<span class="mono">${esc(o.phone)}</span><button class="copy" type="button" data-copy="${esc(o.phone)}">copy</button>${phoneDigits.length > 7 ? `<a class="small" href="https://wa.me/${esc(phoneDigits)}" target="_blank" rel="noopener">WhatsApp ↗</a>` : ""}` : `<span class="faint">not provided</span>`}</dd>
+        <dt>Address</dt><dd>${esc(o.address)}<br>${esc(countryName(o.country))}</dd>
+        <dt>Shipping</dt><dd>${esc(o.shipping || "unknown")}</dd>
+        <dt>Ordered</dt><dd>${esc(fmtDate(o.createdAt, true))} · <strong>${x.days} ${x.days === 1 ? "day" : "days"} ago</strong></dd>
+        <dt>Payment</dt><dd>${esc(eur(o.total, o.cur))} · ${esc((o.fin || "").toLowerCase().replace(/_/g, " "))}</dd>
+        ${o.note ? `<dt>Customer note</dt><dd>${esc(o.note)}</dd>` : ""}
         ${o.tags.length ? `<dt>Tags</dt><dd>${o.tags.map((t) => `<span class="chip">${esc(t)}</span>`).join(" ")}</dd>` : ""}
       </dl>
       <table class="lines"><tbody>${o.lines.map((l) => `<tr class="${l.open === 0 ? "done" : ""}"><td>${esc(l.title)}${l.variant ? ` <span class="faint">· ${esc(l.variant)}</span>` : ""}${l.sku ? ` <span class="faint mono">${esc(l.sku)}</span>` : ""}</td><td class="q">${l.open} / ${l.qty} open</td></tr>`).join("")}</tbody></table>
-      ${o.tracking.length ? `<div class="small"><div class="eyebrow" style="margin-bottom:4px">Al verzonden</div>${o.tracking.map((t) => `<div>${esc(fmtDate(t.at))} · ${t.url ? `<a href="${esc(t.url)}" target="_blank" rel="noopener" class="mono">${esc(t.number)}</a>` : `<span class="mono">${esc(t.number || "")}</span>`} <span class="faint">${esc(t.company || "")}</span></div>`).join("")}</div>` : ""}
+      ${o.tracking.length ? `<div class="small"><div class="eyebrow" style="margin-bottom:4px">Already shipped</div>${o.tracking.map((t) => `<div>${esc(fmtDate(t.at))} · ${t.url ? `<a href="${esc(t.url)}" target="_blank" rel="noopener" class="mono">${esc(t.number)}</a>` : `<span class="mono">${esc(t.number || "")}</span>`} <span class="faint">${esc(t.company || "")}</span></div>`).join("")}</div>` : ""}
     </div>
     <div class="box case">
-      <div class="card-h"><h3 style="font-size:15px">Opvolging</h3><span class="savestate" id="ss-${id}"></span></div>
+      <div class="card-h"><h3 style="font-size:15px">Follow-up</h3><span class="savestate" id="ss-${id}"></span></div>
       <div class="case-top">
-        <div class="field"><label for="st-${id}">Status</label><select id="st-${id}" data-f="status">${opt(CASE_STATUS.map((s) => [s[0], s[0] ? s[1] : "Kies een status"]), c.status)}</select></div>
-        <div class="field"><label for="ca-${id}">Soort probleem</label><select id="ca-${id}" data-f="category">${opt(CATEGORIES, c.category)}</select></div>
+        <div class="field"><label for="st-${id}">Status</label><select id="st-${id}" data-f="status">${opt(CASE_STATUS.map((s) => [s[0], s[0] ? s[1] : "Choose a status"]), c.status)}</select></div>
+        <div class="field"><label for="ca-${id}">Problem type</label><select id="ca-${id}" data-f="category">${opt(CATEGORIES, c.category)}</select></div>
       </div>
-      <div class="field problem"><label for="pr-${id}">Probleem <span class="hint">wat houdt de order tegen?</span></label><textarea id="pr-${id}" data-f="problem" rows="3" placeholder="Bijvoorbeeld: Riviera Set zwart maat S niet op voorraad bij leverancier">${esc(c.problem || "")}</textarea></div>
-      <div class="field solution"><label for="so-${id}">Oplossing <span class="hint">wat doen we eraan?</span></label><textarea id="so-${id}" data-f="solution" rows="3" placeholder="Bijvoorbeeld: nabesteld op 28 sep, klant alternatief maat M aangeboden">${esc(c.solution || "")}</textarea></div>
+      <div class="field problem"><label for="pr-${id}">Problem <span class="hint">what is holding the order up?</span></label><textarea id="pr-${id}" data-f="problem" rows="3" placeholder="For example: Riviera Set black size S out of stock at supplier">${esc(c.problem || "")}</textarea></div>
+      <div class="field solution"><label for="so-${id}">Solution <span class="hint">what are we doing about it?</span></label><textarea id="so-${id}" data-f="solution" rows="3" placeholder="For example: reordered on 28 Sep, offered the customer size M instead">${esc(c.solution || "")}</textarea></div>
       <div class="expect-row">
-        <div class="field expect"><label for="ex-${id}">Verwachting <span class="hint">wat gaat er gebeuren?</span></label><textarea id="ex-${id}" data-f="expectation" rows="2" placeholder="Bijvoorbeeld: binnen 5 werkdagen verzonden, levering rond 10 okt">${esc(c.expectation || "")}</textarea></div>
-        <div class="field"><label for="ed-${id}">Verwachte datum</label><input type="date" id="ed-${id}" data-f="expectedDate" value="${esc(c.expectedDate || "")}"></div>
+        <div class="field expect"><label for="ex-${id}">Expectation <span class="hint">what will happen next?</span></label><textarea id="ex-${id}" data-f="expectation" rows="2" placeholder="For example: ships within 5 business days, delivery around 10 Oct">${esc(c.expectation || "")}</textarea></div>
+        <div class="field"><label for="ed-${id}">Expected date</label><input type="date" id="ed-${id}" data-f="expectedDate" value="${esc(c.expectedDate || "")}"></div>
       </div>
       <div class="actions">
-        <label class="chk"><input type="checkbox" id="ct-${id}" data-f="contacted" ${c.contacted ? "checked" : ""}> Klant is ingelicht</label>
+        <label class="chk"><input type="checkbox" id="ct-${id}" data-f="contacted" ${c.contacted ? "checked" : ""}> Customer has been informed</label>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button class="btn sm" type="button" data-mail="${id}">Kopieer update-mail</button>
-          <button class="btn sm" type="button" data-close="${id}">Sluiten</button>
+          <button class="btn sm" type="button" data-mail="${id}">Copy update email</button>
+          <button class="btn sm" type="button" data-close="${id}">Close</button>
         </div>
       </div>
-      ${log.length ? `<div><div class="eyebrow" style="margin-bottom:4px">Geschiedenis</div><div class="log">${log.map((l) => `<div><span class="mono faint">${esc(fmtDate(l.at, true))}</span><span>${esc(l.text)}${l.by && S.names[l.by] ? ` <span class="faint">· ${esc(S.names[l.by])}</span>` : ""}</span></div>`).join("")}</div></div>` : ""}
+      ${log.length ? `<div><div class="eyebrow" style="margin-bottom:4px">History</div><div class="log">${log.map((l) => `<div><span class="mono faint">${esc(fmtDate(l.at, true))}</span><span>${esc(l.text)}${l.by && S.names[l.by] ? ` <span class="faint">· ${esc(S.names[l.by])}</span>` : ""}</span></div>`).join("")}</div></div>` : ""}
     </div>
   </div>`;
 }
@@ -626,20 +626,20 @@ function renderSaveState(id) {
   const el = $("ss-" + id); if (!el) return;
   const s = S.saving[id], err = S.saveErr[id], c = S.cases[id];
   el.className = "savestate" + (err ? " err" : "");
-  el.textContent = err ? err : s === "wacht" || s === "bezig" ? "Opslaan…" : s === "ok" ? "Opgeslagen" : c && c.updatedAt ? "Laatst bijgewerkt " + fmtDate(c.updatedAt, true) + (c.updatedBy && S.names[c.updatedBy] ? " door " + S.names[c.updatedBy] : "") : S.db ? "Wordt automatisch opgeslagen" : "";
+  el.textContent = err ? err : s === "pending" || s === "busy" ? "Saving…" : s === "ok" ? "Saved" : c && c.updatedAt ? "Last updated " + fmtDate(c.updatedAt, true) + (c.updatedBy && S.names[c.updatedBy] ? " by " + S.names[c.updatedBy] : "") : S.db ? "Saves automatically" : "";
 }
 function renderRows() {
-  // focus en cursor bewaren als iemand aan het typen is
+  // keep focus and cursor position while someone is typing
   const a = document.activeElement, keep = a && a.id && a.closest && a.closest("[data-detail]") ? { id: a.id, s: a.selectionStart, e: a.selectionEnd } : null;
   const all = S.orders.map(enrich), list = sorted(all.filter(matches));
-  $("count").textContent = S.load.status === "laden" && !S.orders.length ? "" : `${list.length} van ${all.length} open orders`;
+  $("count").textContent = S.load.status === "loading" && !S.orders.length ? "" : `${list.length} of ${all.length} open orders`;
   $("reset").hidden = !filtersActive();
   $("csv").hidden = !S.downloads || !S.orders.length;
   if (!S.orders.length) {
-    $("rows").innerHTML = `<div class="empty">${S.load.status === "laden" ? "Orders laden uit Shopify…" : S.load.status === "fout" ? esc(S.load.err) : S.load.status === "ok" ? "Geen open orders. Alles is verzonden." : "Orders laden…"}</div>`;
+    $("rows").innerHTML = `<div class="empty">${S.load.status === "loading" ? "Loading orders from Shopify…" : S.load.status === "error" ? esc(S.load.err) : S.load.status === "ok" ? "No open orders. Everything has shipped." : "Loading orders…"}</div>`;
     return;
   }
-  $("rows").innerHTML = list.length ? list.map(rowHtml).join("") : `<div class="empty">Geen orders met deze filters.</div>`;
+  $("rows").innerHTML = list.length ? list.map(rowHtml).join("") : `<div class="empty">No orders match these filters.</div>`;
   if (keep) { const el = $(keep.id); if (el) { el.focus(); try { if (keep.s != null) el.setSelectionRange(keep.s, keep.e); } catch {} } }
   if (S.openId) renderSaveState(S.openId);
   resolveNames();
@@ -659,14 +659,14 @@ async function resolveNames() {
 }
 
 /* ============================================================
-   Interactie
+   Interaction
    ============================================================ */
 $("rows").addEventListener("click", (ev) => {
   const t = ev.target;
   const cp = t.closest("[data-copy]");
-  if (cp) { copyText(cp.dataset.copy, "Gekopieerd"); return; }
+  if (cp) { copyText(cp.dataset.copy, "Copied"); return; }
   const m = t.closest("[data-mail]");
-  if (m) { const o = S.orders.find((x) => x.id === m.dataset.mail); if (o) copyText(mailText(o, caseOf(o.id)), "Update-mail gekopieerd"); return; }
+  if (m) { const o = S.orders.find((x) => x.id === m.dataset.mail); if (o) copyText(mailText(o, caseOf(o.id)), "Update email copied"); return; }
   const cl = t.closest("[data-close]");
   if (cl) { S.openId = null; renderRows(); return; }
   if (t.closest("[data-detail]") || t.closest("a")) return;
@@ -685,15 +685,15 @@ $("rows").addEventListener("change", (ev) => {
   const el = ev.target, f = el.dataset && el.dataset.f, box = el.closest("[data-detail]");
   if (!f || !box) return;
   const id = box.dataset.detail, prev = caseOf(id);
-  if (el.type === "checkbox") { S.drafts[id] = { ...(S.drafts[id] || {}), contacted: el.checked }; flush(id, el.checked ? "Klant ingelicht" : "Klant ingelicht uitgevinkt"); }
+  if (el.type === "checkbox") { S.drafts[id] = { ...(S.drafts[id] || {}), contacted: el.checked }; flush(id, el.checked ? "Customer informed" : "Customer informed unchecked"); }
   else if (f === "status") { S.drafts[id] = { ...(S.drafts[id] || {}), status: el.value }; flush(id, `Status: ${statusLabel(prev.status)} → ${statusLabel(el.value)}`); }
-  else if (f === "category") { S.drafts[id] = { ...(S.drafts[id] || {}), category: el.value, ...(prev.status ? {} : { status: "nieuw" }) }; flush(id, "Probleem: " + (catLabel(el.value) || "leeg")); }
+  else if (f === "category") { S.drafts[id] = { ...(S.drafts[id] || {}), category: el.value, ...(prev.status ? {} : { status: "nieuw" }) }; flush(id, "Problem: " + (catLabel(el.value) || "empty")); }
   else { flush(id); return; }
   renderAll();
 });
 $("rows").addEventListener("focusout", (ev) => {
   const box = ev.target.closest && ev.target.closest("[data-detail]");
-  if (box && S.drafts[box.dataset.detail] && S.saving[box.dataset.detail] === "wacht") flush(box.dataset.detail);
+  if (box && S.drafts[box.dataset.detail] && S.saving[box.dataset.detail] === "pending") flush(box.dataset.detail);
 });
 
 function copyText(text, msg) {
@@ -703,7 +703,7 @@ function copyText(text, msg) {
 function fallbackCopy(text, msg) {
   const ta = document.createElement("textarea"); ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select();
   let ok = false; try { ok = document.execCommand("copy"); } catch {}
-  ta.remove(); toast(ok ? msg : "Kopiëren lukt niet in deze weergave");
+  ta.remove(); toast(ok ? msg : "Copying doesn't work in this view");
 }
 function mailText(o, c) {
   const first = (o.customer || "").split(" ")[0] || "there";
@@ -718,7 +718,7 @@ function mailText(o, c) {
 
 $("q").addEventListener("input", (e) => { S.f.q = e.target.value.trim(); renderAll(); });
 $("fsSeg").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return; S.f.fs = b.dataset.v; document.querySelectorAll("#fsSeg button").forEach((x) => x.classList.toggle("on", x === b)); renderAll(); });
-$("caseSel").innerHTML = `<option value="">Alle opvolgstatussen</option>` + CASE_STATUS.map(([v, l]) => `<option value="${v || "_none"}">${esc(l)}</option>`).join("");
+$("caseSel").innerHTML = `<option value="">All follow-up statuses</option>` + CASE_STATUS.map(([v, l]) => `<option value="${v || "_none"}">${esc(l)}</option>`).join("");
 $("caseSel").addEventListener("change", (e) => { S.f.cs = e.target.value; renderAll(); });
 $("countrySel").addEventListener("change", (e) => { S.f.country = e.target.value; renderAll(); });
 $("sortSel").value = S.f.sort;
@@ -732,26 +732,26 @@ $("reset").addEventListener("click", () => {
 });
 $("refresh").addEventListener("click", () => loadOrders(true));
 
-/* CSV voor Excel (puntkomma, UTF-8 met BOM) */
+/* CSV for Excel (UTF-8 with BOM) */
 $("csv").addEventListener("click", async () => {
   const list = sorted(S.orders.map(enrich).filter(matches));
-  const cell = (v) => { const s = String(v == null ? "" : v); return /[";\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
-  const head = ["Order", "Besteld", "Dagen", "Shopify status", "Betaling", "Klant", "E-mail", "Telefoon", "Land", "Adres", "Open artikelen", "Open stuks", "Bedrag", "Opvolgstatus", "Soort probleem", "Probleem", "Oplossing", "Verwachting", "Verwachte datum", "Klant ingelicht", "Bijgewerkt"];
-  const rows = list.map(({ o, c, days }) => [o.name, fmtDate(o.createdAt, true), days, o.fs === "PARTIALLY_FULFILLED" ? "Gedeeltelijk" : "Niet verzonden", o.fin, o.customer, o.email, o.phone, countryName(o.country), o.address,
-    o.lines.filter((l) => l.open > 0).map((l) => `${l.open}x ${l.title}${l.variant ? " " + l.variant : ""}`).join(" | "), o.openQty, String(o.total.toFixed(2)).replace(".", ","),
-    c.status ? statusLabel(c.status) : "", catLabel(c.category), c.problem, c.solution, c.expectation, c.expectedDate, c.contacted ? "ja" : "", c.updatedAt ? fmtDate(c.updatedAt, true) : ""]);
-  const csv = "﻿" + [head, ...rows].map((r) => r.map(cell).join(";")).join("\r\n");
-  try { await S.downloads.save({ filename: `Orderachterstand ${todayKey()}.csv`, data: new Blob([csv], { type: "text/csv" }) }); toast("CSV opgeslagen"); }
-  catch (e) { const c = e && e.code; toast(c === "declined" ? "Opslaan geannuleerd" : c === "rate_limited" ? "Er staat al een opslagvraag open" : "CSV opslaan lukt niet in deze weergave"); }
+  const cell = (v) => { const s = String(v == null ? "" : v); return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
+  const head = ["Order", "Ordered", "Days", "Shopify status", "Payment", "Customer", "Email", "Phone", "Country", "Address", "Open items", "Open quantity", "Amount", "Follow-up status", "Problem type", "Problem", "Solution", "Expectation", "Expected date", "Customer informed", "Updated"];
+  const rows = list.map(({ o, c, days }) => [o.name, fmtDate(o.createdAt, true), days, o.fs === "PARTIALLY_FULFILLED" ? "Partially fulfilled" : "Unfulfilled", o.fin, o.customer, o.email, o.phone, countryName(o.country), o.address,
+    o.lines.filter((l) => l.open > 0).map((l) => `${l.open}x ${l.title}${l.variant ? " " + l.variant : ""}`).join(" | "), o.openQty, o.total.toFixed(2),
+    c.status ? statusLabel(c.status) : "", catLabel(c.category), c.problem, c.solution, c.expectation, c.expectedDate, c.contacted ? "yes" : "", c.updatedAt ? fmtDate(c.updatedAt, true) : ""]);
+  const csv = "﻿" + [head, ...rows].map((r) => r.map(cell).join(",")).join("\r\n");
+  try { await S.downloads.save({ filename: `Order backlog ${todayKey()}.csv`, data: new Blob([csv], { type: "text/csv" }) }); toast("CSV saved"); }
+  catch (e) { const c = e && e.code; toast(c === "declined" ? "Save cancelled" : c === "rate_limited" ? "A save request is already open" : "Saving a CSV doesn't work in this view"); }
 });
 
 /* ============================================================
-   Opstarten
+   Startup
    ============================================================ */
 render();
 (async () => {
   const cl = window.claude;
-  if (!cl || !cl.use) { S.load = { status: "fout", err: mcpMessage({ code: "not_granted" }), code: "not_granted", at: null }; render(); return; }
+  if (!cl || !cl.use) { S.load = { status: "error", err: mcpMessage({ code: "not_granted" }), code: "not_granted", at: null }; render(); return; }
   const [db, mcp, user, downloads] = await Promise.all([cl.use("db"), cl.use("mcp"), cl.use("user"), cl.use("downloads")]);
   S.db = db; S.mcp = mcp; S.user = user; S.downloads = downloads;
   S.perms = await cl.use("permissions");
@@ -762,7 +762,7 @@ render();
       S.cases = next; renderSummary(); renderRows();
     }, () => { renderBanner(); });
   }
-  if (!mcp) { S.load = { status: "fout", err: mcpMessage({ code: "not_granted" }), code: "not_granted", at: null }; render(); return; }
+  if (!mcp) { S.load = { status: "error", err: mcpMessage({ code: "not_granted" }), code: "not_granted", at: null }; render(); return; }
   loadOrders(false);
 })();
 </script>

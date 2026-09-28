@@ -9,12 +9,12 @@
 De rekenregels zijn dezelfde als in `src/finance` en `src/bank` (daar staan de tests).
 Wijzigen: pas `dashboard.html` aan en publiceer opnieuw naar dezelfde URL.
 
-## Orderachterstand
+## Order backlog
 
-`orders-achterstand.html` is gepubliceerd als Claude-artifact: https://claude.ai/artifact/EoC6GWMrwv3pPzhCsDzrWK
+`orders-achterstand.html` is published as a Claude artifact (English UI): https://claude.ai/artifact/EoC6GWMrwv3pPzhCsDzrWK
 
-- Haalt live via je Shopify-connector alle open orders op die **unfulfilled** of **gedeeltelijk verzonden** zijn (oudste eerst, tot 1000).
-- Leeftijd per order: 0 tot 3 dagen is binnen termijn, 4 tot 7 te laat, 8+ ernstig te laat (`LIMIT_DAYS` bovenaan het script).
-- Per order: klantgegevens (e-mail, telefoon, WhatsApp, adres), open artikelen, eerdere tracking, link naar Shopify-admin.
-- Opvolging per order: status, soort probleem, probleem, oplossing, verwachting en verwachte datum, vinkje "klant ingelicht", geschiedenis. Wordt automatisch bewaard in de gedeelde opslag van het artifact (collectie `cases`, document-id = Shopify order-id).
-- Knop "Kopieer update-mail" maakt een Engelse klantmail met de verwachting erin; "Export CSV" voor Excel.
+- Loads every open order that is **unfulfilled** or **partially fulfilled** live through the Shopify connector (oldest first, up to 1000).
+- Age per order: 0 to 3 days is on time, 4 to 7 late, 8+ seriously late (`LIMIT_DAYS` at the top of the script).
+- Per order: customer details (email, phone, WhatsApp, address), open items, earlier tracking, link to the Shopify admin.
+- Follow-up per order: status, problem type, problem, solution, expectation and expected date, a "customer informed" checkbox, and a history. Saved automatically in the artifact's shared storage (collection `cases`, document id = Shopify order id).
+- "Copy update email" builds a customer email containing the expectation; "Export CSV" downloads the filtered list.
