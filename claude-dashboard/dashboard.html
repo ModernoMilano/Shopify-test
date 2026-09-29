@@ -525,7 +525,7 @@ function needsConsent(e) {
 }
 function fail(slot, e, server) {
   slot.status = "fout"; slot.code = e && e.code; slot.server = server;
-  slot.consent = needsConsent(e);
+  slot.consent = needsConsent(e); slot.raw = e && e.message ? String(e.message).slice(0, 140) : "";
   slot.err = slot.consent ? `${SERVER_LABEL[server]} heeft nog geen toestemming voor deze pagina.` : mcpMessage(e, server);
 }
 async function call(server, tool, input, opts) {
@@ -819,6 +819,7 @@ async function grantAccess(server) {
   const key = "mcp:" + server;
   const res = await S.perms.request([key]).catch(() => ({}));
   S.permState[server] = res[key] || "unavailable";
+  toast(res[key] === "granted" ? `${SERVER_LABEL[server]} toegestaan, gegevens worden opgehaald` : `Toestemming voor ${SERVER_LABEL[server]}: ${res[key] || "niet beschikbaar"}`);
   if (res[key] === "denied") { render(); return; }
   if (server === SHOPIFY) { loadSales(true); loadFees(false); } else if (server === PAYPAL) loadPaypal(); else loadMeta(true);
 }
@@ -1035,10 +1036,14 @@ function renderStrip() {
   const consentServers = [...new Set(failed.filter((x) => x.consent).map((x) => x.server))];
   const errs = [...new Set(failed.filter((x) => !x.consent).map((x) => x.err))];
   for (const srv of consentServers) {
-    const denied = S.permState[srv] === "denied";
-    html += `<div class="alert l2" style="margin-top:10px"><span class="warn">▲</span><div><b>${esc(SERVER_LABEL[srv])} heeft nog geen toegang</b><span class="dim">${denied
-      ? `Je hebt ${esc(SERVER_LABEL[srv])} eerder geweigerd voor deze pagina. Zet het aan via het menu bovenaan de pagina (Permissions) en klik daarna op Vernieuwen.`
-      : `Claude vraagt per pagina of die je ${esc(SERVER_LABEL[srv])}-koppeling mag gebruiken. Die vraag is nog niet beantwoord.`}</span>
+    const ps = S.permState[srv], denied = ps === "denied", n = esc(SERVER_LABEL[srv]);
+    const raw = (failed.find((x) => x.server === srv && x.consent) || {}).raw;
+    html += `<div class="alert l2" style="margin-top:10px"><span class="warn">▲</span><div><b>${n} heeft nog geen toegang</b><span class="dim">${denied
+      ? `Je hebt ${n} eerder geweigerd voor deze pagina. Zet het aan via het menu bovenaan de pagina (Permissions) en klik daarna op Vernieuwen.`
+      : ps === "granted" || ps === "unavailable"
+      ? `De toestemming op deze pagina staat ${ps === "granted" ? "aan" : "niet open"}, maar ${n} weigert toch. Open claude.ai, Instellingen, Connectors, en verbind ${n} opnieuw. Herlaad daarna deze pagina.`
+      : `Je ${n}-koppeling werkt wel in Claude, maar deze pagina moet één keer toestemming krijgen om hem te gebruiken.`}</span>
+      <span class="muted" style="font-size:11.5px">toestemming: ${esc(ps || "onbekend")}${raw ? ", melding: " + esc(raw) : ""}</span>
       ${denied ? "" : `<button class="btn" style="margin-top:8px" type="button" data-act="grant" data-server="${esc(srv)}">Geef toegang aan ${esc(SERVER_LABEL[srv])}</button>`}</div></div>`;
   }
   if (errs.length) html += `<div class="neg" style="margin-top:8px;font-size:13px">${errs.map(esc).join("<br>")}</div>`;
