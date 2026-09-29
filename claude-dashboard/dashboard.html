@@ -1468,7 +1468,7 @@ async function askClaude(question) {
     c.msgs.push({ role: "assistant", content: text + (truncated ? "\n\n(Antwoord afgekapt, vraag iets kleiners.)" : "") });
   } catch (e) {
     if (e && e.text && e.code !== "refused") c.msgs.push({ role: "assistant", content: e.text + "\n\n(onderbroken)" });
-    if (!e || e.code !== "cancelled") c.error = sampleMessage(e);
+    if (!e || e.code !== "cancelled") c.error = sampleMessage(e) + ` (${(e && e.code) || "onbekend"}${e && e.message ? ": " + String(e.message).slice(0, 160) : ""})`;
     if (e && ["not_granted", "sampling_disabled", "not_declared", "capability_disabled", "capability_removed"].includes(e.code)) c.off = true;
   } finally {
     c.busy = false; c.pending = ""; c.status = ""; c.ctl = null;
@@ -1920,8 +1920,10 @@ render();
 (async () => {
   const cl = window.claude;
   if (!cl || !cl.use) { S.sampleState = "ok"; S.dbState = "niet beschikbaar buiten claude.ai"; S.mcpState = "niet beschikbaar"; S.sales.status = S.meta.status = S.feesLive.status = "fout"; S.sales.err = S.meta.err = "Open deze pagina in claude.ai om je koppelingen te gebruiken."; render(); return; }
-  const [db, mcp, downloads, sample] = await Promise.all([cl.use("db"), cl.use("mcp"), cl.use("downloads"), cl.use("sample")]);
-  S.db = db; S.mcp = mcp; S.downloads = downloads; S.sample = sample; S.sampleState = "ok";
+  // Claude-vragen los laden, zodat de rest van het dashboard er niet op wacht
+  cl.use("sample").then((x) => { S.sample = x; }, () => {}).finally(() => { S.sampleState = "ok"; render(); });
+  const [db, mcp, downloads] = await Promise.all([cl.use("db"), cl.use("mcp"), cl.use("downloads")]);
+  S.db = db; S.mcp = mcp; S.downloads = downloads;
   document.getElementById("excel").hidden = !downloads;
   S.dbState = db ? "ok" : "niet beschikbaar";
   if (db) {
