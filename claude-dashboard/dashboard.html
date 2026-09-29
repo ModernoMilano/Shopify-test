@@ -521,7 +521,7 @@ function mcpMessage(e, server) {
 function needsConsent(e) {
   if (!e) return false;
   if (["consent_required", "not_in_manifest"].includes(e.code)) return true;
-  return /not confirmed|consent|not allowed|permission/i.test(e.message || "");
+  return /(not|n't) confirmed|consent|not allowed|permission/i.test(e.message || "");
 }
 function fail(slot, e, server) {
   slot.status = "fout"; slot.code = e && e.code; slot.server = server;
@@ -1450,6 +1450,10 @@ const TOOL_LABEL = { cijfers_periode: "cijfers ophalen", dagcijfers: "dagcijfers
 async function askClaude(question) {
   const c = S.chat;
   if (!S.sample || c.busy || !question.trim()) return;
+  if (S.perms) {
+    const st = await S.perms.state("sample").catch(() => null);
+    if (st === "prompt") S.permState.sample = (await S.perms.request(["sample"]).catch(() => ({}))).sample;
+  }
   c.msgs.push({ role: "user", content: question.trim() });
   c.busy = true; c.pending = ""; c.status = "Denkt na…"; c.error = null; c.ctl = new AbortController();
   // het invoerveld loslaten, anders houdt render() de chat vast zolang je typt
@@ -1468,13 +1472,16 @@ async function askClaude(question) {
     c.msgs.push({ role: "assistant", content: text + (truncated ? "\n\n(Antwoord afgekapt, vraag iets kleiners.)" : "") });
   } catch (e) {
     if (e && e.text && e.code !== "refused") c.msgs.push({ role: "assistant", content: e.text + "\n\n(onderbroken)" });
+    // geen antwoord: de vraag terugzetten in het invoerveld in plaats van hem dubbel in het gesprek te laten staan
+    else if (c.msgs.length && c.msgs[c.msgs.length - 1].role === "user") c.retry = c.msgs.pop().content;
+    c.consent = !!(e && needsConsent(e));
     if (!e || e.code !== "cancelled") c.error = sampleMessage(e) + ` (${(e && e.code) || "onbekend"}${e && e.message ? ": " + String(e.message).slice(0, 160) : ""})`;
     if (e && ["not_granted", "sampling_disabled", "not_declared", "capability_disabled", "capability_removed"].includes(e.code)) c.off = true;
   } finally {
     c.busy = false; c.pending = ""; c.status = ""; c.ctl = null;
     try { store.set("mm.chat", c.msgs.slice(-20)); } catch {}
     render(); scrollChat();
-    const inp = document.getElementById("askInput"); if (inp && !c.off) inp.focus();
+    const inp = document.getElementById("askInput"); if (inp && !c.off) { if (c.retry) { inp.value = c.retry; c.retry = null; } inp.focus(); }
   }
 }
 function sampleMessage(e) {
@@ -1520,7 +1527,9 @@ function viewAsk() {
   <section><h1 class="serif" style="font-size:28px">Vraag het</h1><p class="sub">Stel een vraag over je cijfers. Claude rekent met de live data van dit dashboard. Elke vraag gebruikt je eigen Claude-tegoed.</p></section>
   <section class="card chat">
     <div id="chatLog" class="chatlog" aria-live="polite">${c.msgs.length || c.busy ? chatBubbles() : `<div class="dim" style="margin-bottom:8px">Bijvoorbeeld:</div><div class="chips">${ASK_EXAMPLES.map((q) => `<button type="button" class="btn ghost chip" data-act="askExample" data-q="${esc(q)}">${esc(q)}</button>`).join("")}</div>`}</div>
-    ${c.error ? `<p class="neg" style="font-size:13px;margin:8px 0 0">${esc(c.error)}</p>` : ""}
+    ${c.error ? (c.consent
+      ? `<div class="alert l2"><span class="warn">▲</span><div><b>Claude heeft nog geen toestemming op deze pagina</b><span class="dim">Klik op Geef toegang en sta Claude toe. Lukt dat niet, open dan het menu bovenaan de pagina (Permissions), zet Claude aan en herlaad.</span> <button class="btn" style="margin-top:6px;padding:3px 10px" type="button" data-act="askGrant">Geef toegang</button></div></div>`
+      : `<p class="neg" style="font-size:13px;margin:8px 0 0">${esc(c.error)}</p>`) : ""}
     <form data-form="ask" class="chatform">
       <textarea class="input" id="askInput" rows="2" placeholder="Stel je vraag, bijvoorbeeld: hoeveel winst over 30 dagen als de sales zo doorlopen?" ${c.busy ? "disabled" : ""}></textarea>
       <div class="row" style="gap:6px">${c.busy ? `<button class="btn ghost" type="button" data-act="askStop">Stop</button>` : `<button class="btn" type="submit">Vraag</button>`}${c.msgs.length && !c.busy ? `<button class="btn ghost" type="button" data-act="askReset">Nieuw gesprek</button>` : ""}</div>
@@ -1681,6 +1690,11 @@ document.addEventListener("click", (e) => {
   const act = t.dataset.act; if (!act) return;
   if (act === "grant") { grantAccess(t.dataset.server); return; }
   if (act === "askExample") { askClaude(t.dataset.q); return; }
+  if (act === "askGrant") {
+    const q = val("askInput"); const inp = document.getElementById("askInput"); if (inp) inp.value = "";
+    (S.perms ? S.perms.request(["sample"]).catch(() => ({})) : Promise.resolve({})).then((r) => { S.permState.sample = r.sample; S.chat.error = null; S.chat.consent = false; render(); if (q.trim()) askClaude(q); });
+    return;
+  }
   if (act === "askStop") { S.chat.ctl && S.chat.ctl.abort(); return; }
   if (act === "askReset") { S.chat.msgs = []; S.chat.error = null; store.set("mm.chat", []); render(); return; }
   if (act === "clearFilter") { S.bankFilter = { cat: "", q: "" }; render(); }
@@ -1942,11 +1956,11 @@ render();
   if (!mcp) { S.sales.status = S.meta.status = S.feesLive.status = S.paypal.status = "fout"; S.sales.err = S.meta.err = S.feesLive.err = S.paypal.err = mcpMessage({ code: "not_granted" }); render(); return; }
   S.perms = await cl.use("permissions");
   if (S.perms) {
-    const keys = ["mcp:" + SHOPIFY, "mcp:" + WINDSOR, "mcp:" + PAYPAL];
+    const keys = ["mcp:" + SHOPIFY, "mcp:" + WINDSOR, "mcp:" + PAYPAL, "sample"];
     const st = await S.perms.state().catch(() => ({}));
     // één gebundelde vraag als nog niet alles is toegestaan; niet opnieuw vragen na een weigering
     if (keys.some((k) => st[k] === "prompt")) Object.assign(st, await S.perms.request(keys.filter((k) => st[k] === "prompt")).catch(() => ({})));
-    S.permState = { [SHOPIFY]: st[keys[0]], [WINDSOR]: st[keys[1]], [PAYPAL]: st[keys[2]] };
+    S.permState = { [SHOPIFY]: st[keys[0]], [WINDSOR]: st[keys[1]], [PAYPAL]: st[keys[2]], sample: st.sample };
   }
   loadSales(false); loadMeta(false);
   // eerst de bewaarde fees en PayPal-maanden laten binnenkomen, dan pas ophalen wat ontbreekt
