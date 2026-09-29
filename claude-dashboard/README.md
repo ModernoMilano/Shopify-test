@@ -10,3 +10,9 @@
 
 De rekenregels zijn dezelfde als in `src/finance` en `src/bank` (daar staan de tests).
 Wijzigen: pas `dashboard.html` aan en publiceer opnieuw naar dezelfde URL.
+
+## Vraag het
+
+Tabblad met een chat (capability `sample`). Claude rekent niet uit het hoofd maar roept de rekenfuncties van de pagina aan:
+`cijfers_periode`, `dagcijfers`, `winst_prognose` (omzet, Meta en fees uit de laatste 14 dagen, COGS en vaste kosten uit
+de laatste 30 dagen bank), `geld_nu` en `kasprognose`. Elke vraag gebruikt het Claude-tegoed van wie de pagina opent.

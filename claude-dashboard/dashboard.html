@@ -69,6 +69,14 @@ td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 tfoot td{border-top:1px solid var(--line);font-weight:600;border-bottom:0}
 .badge{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:0 6px;font-size:10.5px;line-height:17px;color:var(--text-3);white-space:nowrap;margin-left:4px}
 .badge.hand{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 40%,transparent)}
+.chat{display:flex;flex-direction:column;gap:10px}
+.chatlog{max-height:min(60vh,560px);overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:2px}
+.msg{max-width:min(720px,92%);padding:10px 13px;border-radius:12px;line-height:1.5;font-size:14px;overflow-wrap:anywhere}
+.msg.user{align-self:flex-end;background:var(--accent);color:var(--accent-text);white-space:pre-wrap}
+.msg.assistant{align-self:flex-start;background:var(--surface-2)}
+.msg p{margin:0 0 6px}.msg p:last-child{margin:0}.msg ul{margin:4px 0 6px;padding-left:18px}.msg li{margin:2px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{white-space:normal;text-align:left;font-weight:400;font-size:13px}
+.chatform{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap}.chatform textarea{flex:1 1 260px;resize:vertical;font:inherit;min-height:44px}
 .badge.miss{color:var(--neg);border-color:color-mix(in srgb,var(--neg) 40%,transparent)}
 .sw{display:inline-block;width:10px;height:10px;border-radius:3px;flex:none}
 .costbar{display:flex;gap:2px;height:30px;border-radius:7px;overflow:hidden}
@@ -453,7 +461,7 @@ const DEFAULT_SETTINGS = {
   supplier: 300000, supplierDay: 2, forecastDays: 7, metaShareLimit: 0.4, feesLimit: 0.03,
   shopReservePct: 0.095, shopReserveDays: 35,
 };
-const TABS = [["overzicht", "Overzicht"], ["geld", "Waar mijn geld staat"], ["bridge", "Winst naar bank"], ["prognose", "Prognose"], ["meta", "Meta ads"], ["bank", "Bank"], ["invoer", "Invoer en instellingen"]];
+const TABS = [["overzicht", "Overzicht"], ["geld", "Waar mijn geld staat"], ["bridge", "Winst naar bank"], ["prognose", "Prognose"], ["meta", "Meta ads"], ["bank", "Bank"], ["vraag", "Vraag het"], ["invoer", "Invoer en instellingen"]];
 const S = {
   tab: store.get("mm.tab") || "overzicht",
   periodSel: store.get("mm.period") || { preset: "mtd" },
@@ -465,7 +473,8 @@ const S = {
   feesLive: { status: "idle", err: null, progress: "" },
   paypal: { status: "idle", err: null, progress: "", at: null, since: null, complete: false }, pp: {},
   disputes: { status: "idle", list: [] },
-  perms: null, permState: {}, lastImport: null, bankFilter: { cat: "", q: "" }, fc: null,
+  perms: null, permState: {}, sample: null, sampleState: "laden",
+  chat: { msgs: store.get("mm.chat") || [], busy: false, pending: "", status: "", error: null, ctl: null, off: false }, lastImport: null, bankFilter: { cat: "", q: "" }, fc: null,
 };
 if (!TABS.some((t) => t[0] === S.tab)) S.tab = "overzicht";
 const P = () => resolvePeriod(S.periodSel);
@@ -565,7 +574,7 @@ async function loadSales(force) {
 const MARKETS = [[/\bUK\b|UK\+IE|\bIE\b/, "UK/IE"], [/\bDEU?\b|\bAT\b/, "DE/AT"], [/\bUSA?\b/, "USA"], [/SWIS|SWISS|\bCH\b/, "CH"], [/WORLDWIDE|\bWW\b/, "Worldwide"]];
 const marketOf = (c) => { const u = String(c).toUpperCase(); for (const [re, m] of MARKETS) if (re.test(u)) return m; return "Overig"; };
 async function loadMeta(force) {
-  const { from, to } = remoteRange();
+  const { from: f0, to } = remoteRange(), d90 = addDays(to, -89), from = f0 < d90 ? f0 : d90;
   S.meta.status = "laden"; renderStrip();
   try {
     const r = await call(WINDSOR, "get_data", { connector: "facebook", fields: ["date", "campaign", "spend", "clicks", "impressions", "actions_purchase", "action_values_purchase", "frequency"], date_from: from, date_to: to }, { cache: force ? { refresh: true, staleTime: 300000 } : { staleTime: 300000 } });
@@ -1329,6 +1338,196 @@ function viewInput() {
   </details>`;
 }
 
+/* ============================================================
+   Vraag het: Claude beantwoordt vragen over de cijfers van dit dashboard.
+   Claude rekent niet zelf uit het hoofd maar roept de rekenfuncties van deze pagina aan (tools).
+   ============================================================ */
+const eurN = (c) => (c === null || c === undefined || !isFinite(c) ? null : Math.round(c) / 100);
+const isDay = (k) => /^\d{4}-\d{2}-\d{2}$/.test(String(k || ""));
+function aiFinance(from, to) {
+  if (!isDay(from) || !isDay(to) || from > to) throw new Error("gebruik from en to als YYYY-MM-DD, from voor to");
+  const f = finance({ from, to }), r = f.res, cov = coverage();
+  return {
+    periode: { van: from, tot_en_met: to }, bedragen_in: "euro",
+    omzet_incl_btw: eurN(r.revenue), btw_in_omzet: eurN(r.taxes), orders: r.orders,
+    kosten: Object.fromEntries(f.lines.filter((l) => l.key !== "revenue").map((l) => [l.label, { bedrag: eurN(l.v), bron: l.src.join(", "), toelichting: l.note || undefined }])),
+    winst: eurN(r.profit), marge: r.margin, mer: r.mer, break_even_roas: r.breakEven, aov: eurN(r.aov), winst_per_order: eurN(r.profitPerOrder),
+    btw_gereserveerd_in_winst: S.settings.reserveVat,
+    datagaten: { dagen_zonder_omzetdata: f.missingSales, bank_gedekt_tot: cov.last, meta_geladen_vanaf: S.meta.rows.length ? S.meta.rows.reduce((a, x) => (x.date < a ? x.date : a), "9999") : null },
+  };
+}
+function aiDaily(from, to) {
+  if (!isDay(from) || !isDay(to) || from > to) throw new Error("gebruik from en to als YYYY-MM-DD");
+  const days = eachDay(from, to).slice(-120), pd = ppOk() ? ppDays() : {};
+  return days.map((k) => {
+    const s = S.sales.byDay[k], fd = feeDay(k), meta = S.meta.rows.filter((x) => x.date === k).reduce((a, x) => a + x.spend, 0);
+    return { dag: k, omzet: s ? eurN(s.total) : null, orders: s ? s.orders : null, meta_spend: S.meta.status === "ok" ? eurN(meta) : null, fees_shopify: fd ? eurN(fd.f) : null, fees_paypal: pd[k] ? eurN(pd[k].f) : ppOk() ? 0 : null };
+  });
+}
+/* Winstprognose: omzet, Meta en fees uit de laatste basisdagen, COGS en chargebacks als percentage van de omzet en
+   vaste kosten per dag uit de laatste 30 dagen die de bank dekt. Deterministisch, zodat het antwoord klopt. */
+function aiProjection({ days, basisDays = 14, revenueChangePct = 0, metaChangePct = 0 }) {
+  days = Math.round(Number(days)); basisDays = Math.round(Number(basisDays) || 14);
+  if (!(days >= 1 && days <= 365)) throw new Error("days moet tussen 1 en 365 liggen");
+  if (!(basisDays >= 3 && basisDays <= 90)) throw new Error("basisDays moet tussen 3 en 90 liggen");
+  const today = dayKey(new Date()), bTo = addDays(today, -1), bFrom = addDays(bTo, -(basisDays - 1));
+  const live = finance({ from: bFrom, to: bTo }).res;
+  const cov = coverage(), cTo = cov.last && cov.last < bTo ? cov.last : bTo, cFrom = addDays(cTo, -29);
+  const cost = cov.last ? finance({ from: cFrom, to: cTo }).res : null;
+  if (!live.revenue) throw new Error("geen omzet in de basisperiode");
+  // delen door de dagen waarvoor echt omzetdata is, zodat een ontbrekende dag het gemiddelde niet omlaag trekt
+  const n = eachDay(bFrom, bTo).filter((k) => S.sales.byDay[k]).length || basisDays;
+  const rev = (live.revenue / n) * (1 + Number(revenueChangePct || 0) / 100);
+  const meta = (live.meta / n) * (1 + Number(metaChangePct || 0) / 100);
+  const ratio = (x, base) => (base && base.revenue ? x / base.revenue : null);
+  const cogsR = cost ? ratio(cost.cogs, cost) : null, cbR = cost ? ratio(cost.chargebacks, cost) : ratio(live.chargebacks, live), feeR = ratio(live.fees, live), taxR = ratio(live.taxes, live);
+  const otherD = cost ? cost.other / 30 : null, teamD = cost ? cost.team / 30 : null;
+  const R = rev * days;
+  const p = { omzet: R, cogs: cogsR === null ? null : R * cogsR, meta: meta * days, fees: R * feeR, chargebacks: R * (cbR || 0), overig: otherD === null ? null : otherD * days, team: teamD === null ? null : teamD * days };
+  const costs = p.cogs + p.meta + p.fees + p.chargebacks + p.overig + p.team;
+  const profit = p.cogs === null || p.overig === null ? null : R - costs - (S.settings.reserveVat ? R * taxR : 0);
+  return {
+    dagen: days, vanaf: today, tot_en_met: addDays(today, days - 1), bedragen_in: "euro",
+    aannames: {
+      basis_omzet_meta_fees: `${bFrom} t/m ${bTo} (${basisDays} dagen)`, omzet_per_dag: eurN(rev), orders_per_dag: Math.round((live.orders / n) * 10) / 10, dagen_met_omzetdata: n, meta_per_dag: eurN(meta),
+      basis_cogs_en_vaste_kosten: cost ? `${cFrom} t/m ${cTo} (laatste 30 dagen bank)` : "ontbreekt, geen bankafschrift",
+      cogs_pct_van_omzet: cogsR, fees_pct_van_omzet: feeR, chargebacks_pct_van_omzet: cbR, overig_per_dag: eurN(otherD), team_per_dag: eurN(teamD),
+      omzet_aanpassing_pct: Number(revenueChangePct || 0), meta_aanpassing_pct: Number(metaChangePct || 0), btw_gereserveerd: S.settings.reserveVat,
+    },
+    prognose: Object.fromEntries(Object.entries(p).map(([k, v]) => [k, eurN(v)])),
+    winst: eurN(profit), winst_per_dag: profit === null ? null : eurN(profit / days), marge: profit === null ? null : profit / R, mer: meta ? rev / meta : null,
+  };
+}
+function aiMoney() {
+  const m = moneyNow(), p = m.pos, cov = coverage();
+  return {
+    bedragen_in: "euro", bank: eurN(p.bank), bank_saldo_tot: m.bankDate, onderweg_naar_bank: eurN(p.transit), paypal: eurN(p.paypal), paypal_vastgehouden: eurN(p.ppLocked),
+    shopify_payout_ingepland: eurN(p.payout), shopify_payout_datum: m.payoutDate, shopify_pending: eurN(p.pending), shopify_reserve: eurN(p.hold),
+    direct_beschikbaar: eurN(m.now), binnenkort: eurN(m.soon), op_slot: eurN(m.locked), totaal: eurN(m.total),
+    bron_shopify: m.shopSrc, bron_paypal: m.ppSrc, bank_ontbreekt_vanaf: cov.missingFrom,
+    open_disputes_shopify: S.disputes.list.filter((x) => !["WON", "LOST", "ACCEPTED", "CHARGE_REFUNDED"].includes(x.status)).map((x) => ({ order: x.name, bedrag: eurN(x.amount), status: x.status })),
+  };
+}
+function aiCash(days) {
+  days = Math.round(Number(days) || 14);
+  if (!(days >= 1 && days <= 60)) throw new Error("days moet tussen 1 en 60 liggen");
+  const fc = forecast({ ...fcSettings(), days });
+  return { bedragen_in: "euro", start_bank_incl_onderweg: eurN(fcSettings().bank), buffer: eurN(S.settings.buffer), laagste: { dag: fc.lowest.date, saldo: eurN(fc.lowest.bal) }, eind: eurN(fc.end), onder_buffer: fc.belowBuffer, onder_nul: fc.belowZero, per_dag: fc.rows.map((r) => ({ dag: r.date, shopify: eurN(r.shop), paypal: eurN(r.paypal), meta: eurN(-r.meta), leverancier: eurN(-r.supplier), overig: eurN(-r.other), saldo: eurN(r.bal) })), aannames: { verkoop_per_dag: eurN(S.settings.salesDay), meta_per_dag: eurN(S.settings.metaDay), paypal_per_dag: eurN(S.settings.paypalDay) } };
+}
+const DAY_SCHEMA = { type: "object", properties: { from: { type: "string", description: "YYYY-MM-DD" }, to: { type: "string", description: "YYYY-MM-DD, tot en met" } }, required: ["from", "to"] };
+const AI_TOOLS = [
+  { name: "cijfers_periode", description: "Winst en verlies voor een periode: omzet, orders, elke kostensoort met bron, winst, marge, MER, break-even ROAS en datagaten. Bedragen in euro.", inputSchema: DAY_SCHEMA, execute: (i) => aiFinance(String(i.from), String(i.to)) },
+  { name: "dagcijfers", description: "Per dag: omzet, orders, Meta spend en fees, maximaal 120 dagen. Voor trends en vergelijkingen.", inputSchema: DAY_SCHEMA, execute: (i) => aiDaily(String(i.from), String(i.to)) },
+  { name: "winst_prognose", description: "Rekent de winst uit voor de komende N dagen als de verkoop op het huidige niveau doorloopt. Gebruik dit voor elke vraag over toekomstige winst. Optioneel omzet of Meta procentueel aanpassen voor een wat-als. Geeft de aannames terug.", inputSchema: { type: "object", properties: { days: { type: "integer", description: "aantal dagen vooruit, 1 tot 365" }, basisDays: { type: "integer", description: "aantal afgelopen dagen als basis, standaard 14" }, revenueChangePct: { type: "number", description: "omzet hoger of lager in procent, bv. 20 of -10" }, metaChangePct: { type: "number", description: "Meta-budget hoger of lager in procent" } }, required: ["days"] }, execute: (i) => aiProjection(i) },
+  { name: "geld_nu", description: "Waar het geld nu staat: bank, onderweg, PayPal, Shopify payout, pending en reserve, en open disputes.", execute: () => aiMoney() },
+  { name: "kasprognose", description: "Verwacht banksaldo per dag voor de komende N dagen (1 tot 60), met laagste punt en of het onder de buffer komt.", inputSchema: { type: "object", properties: { days: { type: "integer" } }, required: ["days"] }, execute: (i) => aiCash(i.days) },
+];
+function aiRules() {
+  const today = dayKey(new Date()), f = finance(P()), r = f.res;
+  return `Je bent de financiele assistent in het dashboard van ModernoMilano, een Nederlandse webshop in premium herenmode (dropshipping, Shopify, PayPal, Meta ads, Revolut). Vandaag is ${today} (${dayL(today)}).
+
+Regels:
+- Antwoord in het Nederlands, kort en concreet. Begin met het antwoord zelf, daarna hoe je eraan komt.
+- Gebruik nooit een gedachtestreepje of liggend streepje (geen – of —). Schrijf bedragen als € 1.234,56 of afgerond € 1.235.
+- Verzin geen cijfers. Haal ze op met de tools. Voor elke vraag over toekomstige winst gebruik je winst_prognose. Staat iets op null of ontbreekt data, zeg dan dat het ontbreekt.
+- Bij een prognose noem je de aannames (basisperiode, omzet per dag, Meta per dag) en dat het een schatting is.
+- Winst = omzet incl. btw min COGS, Meta, fees, chargebacks, overige kosten en team. Btw wordt ${S.settings.reserveVat ? "wel" : "niet"} gereserveerd. Privé-opnames en leningen zijn geen kosten of omzet.
+- Geen tabellen. Gebruik korte zinnen of een korte lijst met "- ".
+
+Wat de gebruiker nu op het scherm ziet: periode ${f.p.from} t/m ${f.p.to}, omzet ${euro(r.revenue, true)}, winst ${euro(r.profit, true)}, marge ${pct(r.margin)}, MER ${times(r.mer)}.`;
+}
+/* Zonder page tools: de belangrijkste cijfers meesturen in de vraag. */
+function aiContextNoTools() {
+  const today = dayKey(new Date()), y = addDays(today, -1);
+  const safe = (fn) => { try { return fn(); } catch (e) { return { fout: e.message }; } };
+  return "\n\nDe cijfers (JSON, euro):\n" + JSON.stringify({
+    laatste_30_dagen: safe(() => aiFinance(addDays(y, -29), y)), geld_nu: safe(aiMoney),
+    prognose_7: safe(() => aiProjection({ days: 7 })), prognose_14: safe(() => aiProjection({ days: 14 })), prognose_30: safe(() => aiProjection({ days: 30 })),
+    dagcijfers_30: safe(() => aiDaily(addDays(y, -29), y)),
+  });
+}
+const TOOL_LABEL = { cijfers_periode: "cijfers ophalen", dagcijfers: "dagcijfers bekijken", winst_prognose: "winst doorrekenen", geld_nu: "saldi bekijken", kasprognose: "kasstroom doorrekenen" };
+async function askClaude(question) {
+  const c = S.chat;
+  if (!S.sample || c.busy || !question.trim()) return;
+  c.msgs.push({ role: "user", content: question.trim() });
+  c.busy = true; c.pending = ""; c.status = "Denkt na…"; c.error = null; c.ctl = new AbortController();
+  // het invoerveld loslaten, anders houdt render() de chat vast zolang je typt
+  if (document.activeElement && document.activeElement.id === "askInput") document.activeElement.blur();
+  render(); scrollChat();
+  const caps = await S.sample.limits().catch(() => null);
+  const useTools = !!(caps && caps.tools);
+  const turns = c.msgs.slice(-12).map((m) => ({ role: m.role, content: m.content }));
+  if (turns[0].role !== "user") turns.shift();
+  const tools = useTools ? AI_TOOLS.map((t) => ({ ...t, execute: (i, ctx) => { c.status = (TOOL_LABEL[t.name] || t.name) + "…"; updateChatLive(); return t.execute(i || {}, ctx); } })) : undefined;
+  try {
+    const { text, truncated } = await S.sample([{ role: "user", content: aiRules() + (useTools ? "" : aiContextNoTools()) }, ...turns], {
+      cache: false, signal: c.ctl.signal, tools,
+      onText: ({ text }) => { c.pending = text; c.status = ""; updateChatLive(); },
+    });
+    c.msgs.push({ role: "assistant", content: text + (truncated ? "\n\n(Antwoord afgekapt, vraag iets kleiners.)" : "") });
+  } catch (e) {
+    if (e && e.text && e.code !== "refused") c.msgs.push({ role: "assistant", content: e.text + "\n\n(onderbroken)" });
+    if (!e || e.code !== "cancelled") c.error = sampleMessage(e);
+    if (e && ["not_granted", "sampling_disabled", "not_declared", "capability_disabled", "capability_removed"].includes(e.code)) c.off = true;
+  } finally {
+    c.busy = false; c.pending = ""; c.status = ""; c.ctl = null;
+    try { store.set("mm.chat", c.msgs.slice(-20)); } catch {}
+    render(); scrollChat();
+    const inp = document.getElementById("askInput"); if (inp && !c.off) inp.focus();
+  }
+}
+function sampleMessage(e) {
+  switch (e && e.code) {
+    case "not_granted": return "Je hebt deze pagina geen toestemming gegeven om Claude te gebruiken. Herlaad de pagina om het opnieuw te proberen.";
+    case "sampling_disabled": return "Claude is niet beschikbaar voor je account.";
+    case "rate_limited": return "Te veel vragen of je Claude-tegoed is op. Probeer het straks opnieuw.";
+    case "session_expired": return "Log opnieuw in bij claude.ai.";
+    case "prompt_too_large": return "Het gesprek is te lang geworden. Klik op Nieuw gesprek.";
+    case "refused": return "Claude kon deze vraag niet beantwoorden. Stel hem anders.";
+    default: return "Er ging iets mis. Probeer het opnieuw.";
+  }
+}
+function mdLite(s) {
+  const lines = esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").split("\n");
+  let out = "", inList = false;
+  for (const l of lines) {
+    const m = l.match(/^\s*[-*•]\s+(.*)/), h = l.match(/^#{1,4}\s+(.*)/);
+    if (m) { if (!inList) { out += "<ul>"; inList = true; } out += `<li>${m[1]}</li>`; continue; }
+    if (inList) { out += "</ul>"; inList = false; }
+    out += h ? `<p><b>${h[1]}</b></p>` : l.trim() ? `<p>${l}</p>` : "";
+  }
+  return out + (inList ? "</ul>" : "");
+}
+const ASK_EXAMPLES = ["Als de sales op dit niveau doorlopen, hoeveel winst heb ik over 30 dagen?", "Wat gebeurt er met mijn winst als ik Meta 20% verhoog en de omzet 10% stijgt?", "Kom ik de komende 14 dagen onder mijn bankbuffer?", "Waarom was mijn marge vorige week lager dan de week ervoor?"];
+function chatBubbles() {
+  const c = S.chat;
+  const b = c.msgs.map((m) => `<div class="msg ${m.role}">${m.role === "user" ? esc(m.content) : mdLite(m.content)}</div>`).join("");
+  const live = c.busy ? `<div class="msg assistant" id="chatLive">${c.pending ? mdLite(c.pending) : `<span class="muted">${esc(c.status || "Denkt na…")}</span>`}</div>` : "";
+  return b + live;
+}
+function updateChatLive() {
+  const el = document.getElementById("chatLive"); if (!el) return;
+  el.innerHTML = S.chat.pending ? mdLite(S.chat.pending) + (S.chat.status ? `<p class="muted">${esc(S.chat.status)}</p>` : "") : `<span class="muted">${esc(S.chat.status || "Denkt na…")}</span>`;
+  scrollChat();
+}
+function scrollChat() { const l = document.getElementById("chatLog"); if (l) l.scrollTop = l.scrollHeight; }
+function viewAsk() {
+  const c = S.chat;
+  if (S.sampleState === "laden") return `<section class="card"><p class="muted">Laden…</p></section>`;
+  if (!S.sample || c.off) return `<section><h1 class="serif" style="font-size:28px">Vraag het</h1></section><section class="card"><p>${esc(c.error || "Vragen stellen werkt alleen als je dit dashboard in claude.ai opent.")}</p></section>`;
+  return `
+  <section><h1 class="serif" style="font-size:28px">Vraag het</h1><p class="sub">Stel een vraag over je cijfers. Claude rekent met de live data van dit dashboard. Elke vraag gebruikt je eigen Claude-tegoed.</p></section>
+  <section class="card chat">
+    <div id="chatLog" class="chatlog" aria-live="polite">${c.msgs.length || c.busy ? chatBubbles() : `<div class="dim" style="margin-bottom:8px">Bijvoorbeeld:</div><div class="chips">${ASK_EXAMPLES.map((q) => `<button type="button" class="btn ghost chip" data-act="askExample" data-q="${esc(q)}">${esc(q)}</button>`).join("")}</div>`}</div>
+    ${c.error ? `<p class="neg" style="font-size:13px;margin:8px 0 0">${esc(c.error)}</p>` : ""}
+    <form data-form="ask" class="chatform">
+      <textarea class="input" id="askInput" rows="2" placeholder="Stel je vraag, bijvoorbeeld: hoeveel winst over 30 dagen als de sales zo doorlopen?" ${c.busy ? "disabled" : ""}></textarea>
+      <div class="row" style="gap:6px">${c.busy ? `<button class="btn ghost" type="button" data-act="askStop">Stop</button>` : `<button class="btn" type="submit">Vraag</button>`}${c.msgs.length && !c.busy ? `<button class="btn ghost" type="button" data-act="askReset">Nieuw gesprek</button>` : ""}</div>
+    </form>
+  </section>`;
+}
+
 /* ---------- grafieken (SVG, breedte volgt de container) ---------- */
 const fmtAxis = (v, f) => (f === "x" ? v.toFixed(1).replace(".", ",") + "x" : eur0.format(v / 100));
 function niceStep(range) { const raw = range / 4 || 1, mag = 10 ** Math.floor(Math.log10(raw)), n = raw / mag; return (n <= 1 ? 1 : n <= 2 ? 2 : n <= 5 ? 5 : 10) * mag; }
@@ -1397,7 +1596,7 @@ function render() {
   if (!editing(document.getElementById("period"))) renderPeriod();
   renderStrip();
   const v = document.getElementById("view");
-  const views = { overzicht: viewOverview, geld: viewMoney, bridge: viewBridge, prognose: viewForecast, meta: viewMeta, bank: viewBank, invoer: viewInput };
+  const views = { overzicht: viewOverview, geld: viewMoney, bridge: viewBridge, prognose: viewForecast, meta: viewMeta, bank: viewBank, vraag: viewAsk, invoer: viewInput };
   // formulieren niet overschrijven terwijl iemand typt; na het verlaten van het veld alsnog bijwerken
   if (editing(v)) { renderPending = true; return; }
   try { v.innerHTML = views[S.tab](); } catch (e) { v.innerHTML = `<div class="card neg">Deze pagina kon niet worden opgebouwd: ${esc(e.message)}</div>`; }
@@ -1481,6 +1680,9 @@ document.addEventListener("click", (e) => {
   if (t.id === "refresh") { loadRemote(true); return; }
   const act = t.dataset.act; if (!act) return;
   if (act === "grant") { grantAccess(t.dataset.server); return; }
+  if (act === "askExample") { askClaude(t.dataset.q); return; }
+  if (act === "askStop") { S.chat.ctl && S.chat.ctl.abort(); return; }
+  if (act === "askReset") { S.chat.msgs = []; S.chat.error = null; store.set("mm.chat", []); render(); return; }
   if (act === "clearFilter") { S.bankFilter = { cat: "", q: "" }; render(); }
   if (act === "fcReset") { S.fc = fcSettings(); render(); }
   if (act === "fcSave") { const f = S.fc; writeDoc("config/settings", (cur) => ({ ...DEFAULT_SETTINGS, ...(cur || {}), salesDay: f.salesDay, metaDay: f.metaDay, paypalDay: f.paypalDay, privateWeek: f.privateWeek, softwareWeek: f.softwareWeek, supplier: f.supplier, supplierDay: f.supplierDay, buffer: f.buffer, payoutRatio: f.ratio, forecastDays: f.days })).then(() => toast("Opgeslagen als standaard")); }
@@ -1527,6 +1729,9 @@ document.addEventListener("drop", (e) => {
   document.querySelectorAll(".drop.over").forEach((z) => z.classList.remove("over"));
   importFiles([...e.dataTransfer.files]);
 });
+document.addEventListener("keydown", (e) => {
+  if (e.target.id === "askInput" && e.key === "Enter" && !e.shiftKey && !e.isComposing) { e.preventDefault(); e.target.form.requestSubmit(); }
+});
 document.addEventListener("input", (e) => {
   const t = e.target;
   if (t.dataset.fc) {
@@ -1539,6 +1744,7 @@ document.addEventListener("submit", (e) => {
   const f = e.target; e.preventDefault();
   if (f.id === "customPeriod") { const a = val("pFrom"), b = val("pTo"); if (a && b && a <= b) { S.periodSel = { preset: "custom", from: a, to: b }; store.set("mm.period", S.periodSel); render(); loadRemote(false); } return; }
   const kind = f.dataset.form;
+  if (kind === "ask") { const q = val("askInput"); if (q.trim()) { document.getElementById("askInput").value = ""; askClaude(q); } return; }
   if (kind === "bankFilter") { S.bankFilter = { cat: val("bf_cat"), q: val("bf_q") }; document.activeElement && document.activeElement.blur(); render(); return; }
   if (kind === "rule") { const pattern = val("r_pattern").trim(); if (!pattern) return; saveRules([...rules(), { id: uid(), pattern, direction: val("r_dir"), category: val("r_cat"), priority: Number(val("r_prio")) || 50 }]).then(() => toast("Regel toegevoegd en toegepast")); f.reset(); return; }
   if (kind === "balance") {
@@ -1713,9 +1919,9 @@ document.getElementById("excel").addEventListener("click", exportExcel);
 render();
 (async () => {
   const cl = window.claude;
-  if (!cl || !cl.use) { S.dbState = "niet beschikbaar buiten claude.ai"; S.mcpState = "niet beschikbaar"; S.sales.status = S.meta.status = S.feesLive.status = "fout"; S.sales.err = S.meta.err = "Open deze pagina in claude.ai om je koppelingen te gebruiken."; render(); return; }
-  const [db, mcp, downloads] = await Promise.all([cl.use("db"), cl.use("mcp"), cl.use("downloads")]);
-  S.db = db; S.mcp = mcp; S.downloads = downloads;
+  if (!cl || !cl.use) { S.sampleState = "ok"; S.dbState = "niet beschikbaar buiten claude.ai"; S.mcpState = "niet beschikbaar"; S.sales.status = S.meta.status = S.feesLive.status = "fout"; S.sales.err = S.meta.err = "Open deze pagina in claude.ai om je koppelingen te gebruiken."; render(); return; }
+  const [db, mcp, downloads, sample] = await Promise.all([cl.use("db"), cl.use("mcp"), cl.use("downloads"), cl.use("sample")]);
+  S.db = db; S.mcp = mcp; S.downloads = downloads; S.sample = sample; S.sampleState = "ok";
   document.getElementById("excel").hidden = !downloads;
   S.dbState = db ? "ok" : "niet beschikbaar";
   if (db) {
