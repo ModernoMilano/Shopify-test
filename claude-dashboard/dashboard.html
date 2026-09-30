@@ -1120,9 +1120,37 @@ function viewOverview() {
     ${S.settings.reserveVat ? `<tr><td>Btw gereserveerd</td><td class="r">${euro(-r.taxes)}</td><td class="r muted">${pct(div(r.taxes, r.revenue))}</td></tr>` : ""}
     </tbody><tfoot><tr><td>Winst</td><td class="r ${r.profit < 0 ? "neg" : "good"}">${euro(r.profit)}</td><td class="r">${pct(r.margin)}</td></tr></tfoot></table></div>
     <p class="muted" style="font-size:12px;margin:10px 0 0">Privé-opnames, leningen en eigen stortingen tellen nooit mee. Btw in de omzet: ${euro(r.taxes)} (btw fix, reserveren kan bij Invoer en instellingen).</p>
-  </section>`;
+  </section>
+  ${quickBlock(f.p)}`;
 }
 
+/* ---------- correcties: een kost of factuur die nog niet in de bank staat, meetellen in deze periode ---------- */
+const QUICK_KINDS = { cogs: "COGS en verzending", other: "Overige kosten", team: "Teamkosten", fees: "Fees" };
+const QUICK_BUCKET = { cogs: "cogs", other: "other", team: "team" };
+/* Is de verwachte factuur inmiddels via de bank betaald? Zoek een uitgave kort na de datum met ongeveer hetzelfde bedrag. */
+function quickMatch(m) {
+  if (!m.expected) return null;
+  const until = addDays(m.from, 21), tol = Math.max(5000, Math.abs(m.amount) * 0.1);
+  const cand = allTxs().filter((t) => t.a < 0 && !t.pd && t.d > m.from && t.d <= until && (!QUICK_BUCKET[m.kind] || (CAT[t.c] && CAT[t.c].bucket === QUICK_BUCKET[m.kind]) || t.c === "unknown") && Math.abs(-t.a - m.amount) <= tol);
+  cand.sort((a, b) => Math.abs(-a.a - m.amount) - Math.abs(-b.a - m.amount));
+  return cand[0] || null;
+}
+function quickBlock(p) {
+  const today = dayKey(new Date()), def = p.to < today ? p.to : today < p.from ? p.from : today;
+  const list = S.manual.filter((m) => QUICK_KINDS[m.kind] && m.from <= p.to && (m.to || m.from) >= p.from).sort((a, b) => a.from.localeCompare(b.from));
+  return `<section class="card"><h2>Correcties voor deze periode</h2>
+    <p class="dim" style="margin:0 0 10px">Een factuur of kost die nog niet op je bank staat maar wel bij deze periode hoort. Hij telt meteen mee in de winst, met het label handmatig.</p>
+    <form data-form="quick" class="row" style="gap:8px;flex-wrap:wrap">
+      <input class="input" id="q_label" placeholder="omschrijving, bv. factuur leverancier" required style="flex:1 1 200px">
+      <input class="input" id="q_amount" placeholder="bedrag, bv. 5000" inputmode="decimal" required style="width:130px">
+      <select class="input" id="q_kind">${Object.entries(QUICK_KINDS).map(([k, l]) => `<option value="${k}">${l}</option>`).join("")}</select>
+      <label class="dim" style="font-size:12px">telt mee op <input class="input" type="date" id="q_date" value="${def}" min="${p.from}" max="${p.to}" required></label>
+      <button class="btn" type="submit">Toevoegen</button>
+    </form>
+    ${list.length ? `<table style="margin-top:10px"><tbody>${list.map((m) => { const hit = quickMatch(m); return `<tr><td>${esc(m.label)} <span class="muted" style="font-size:12px">${esc(QUICK_KINDS[m.kind])}${m.expected ? ", verwacht" : ""}</span>${hit ? `<div class="good" style="font-size:12px">Betaald op ${dayL(hit.d)} via de bank (${euro(-hit.a)}). <button class="btn ghost" style="padding:1px 8px" type="button" data-act="quickLink" data-id="${m.id}" data-k="${esc(hit.k)}">Koppel aan deze betaling</button></div>` : ""}</td><td class="dim" style="white-space:nowrap">${m.to && m.to !== m.from ? `${dayL(m.from)} t/m ${dayL(m.to)}` : dayL(m.from)}</td><td class="r">${euro(-m.amount)}</td><td class="r"><button class="btn ghost" style="padding:2px 8px" type="button" data-act="delManual" data-id="${m.id}">verwijder</button></td></tr>`; }).join("")}</tbody></table>
+    <p class="muted" style="font-size:12px;margin:8px 0 0">Komt de betaling later op je bank, klik dan op Koppel. De bankbetaling telt dan mee in deze periode en de correctie verdwijnt, zodat niets dubbel telt.</p>` : ""}
+  </section>`;
+}
 function viewMoney() {
   const m = moneyNow(), p = m.pos, today = dayKey(new Date());
   const parts = [
@@ -1712,6 +1740,11 @@ document.addEventListener("click", (e) => {
     const pattern = tx.ds.replace(/^(To|Betaling van)\s+/i, "").trim();
     saveRules([...rules(), { id: uid(), pattern, direction: tx.a >= 0 ? "in" : "out", category: tx.c, priority: 15 }]).then(() => toast(`Regel gemaakt: "${pattern}" wordt voortaan ${CAT[tx.c].label}`));
   }
+  if (act === "quickLink") {
+    const id = t.dataset.id, m = S.manual.find((x) => x.id === id); if (!m) return;
+    Promise.resolve(updateTx(t.dataset.k, { pd: m.from })).then(() => saveManual((l) => l.filter((x) => x.id !== id))).then(() => toast("Gekoppeld: de bankbetaling telt nu mee op " + dayL(m.from)));
+    return;
+  }
   if (act === "delManual") saveManual((l) => l.filter((x) => x.id !== t.dataset.id));
   if (act === "toggleInvoice") saveManual((l) => l.map((x) => (x.id === t.dataset.id ? { ...x, paid: !x.paid } : x)));
   if (act === "delBalance") writeDoc("config/balances", (cur) => ({ entries: ((cur && cur.entries) || []).filter((x) => x.id !== t.dataset.id) }));
@@ -1763,6 +1796,13 @@ document.addEventListener("submit", (e) => {
   const f = e.target; e.preventDefault();
   if (f.id === "customPeriod") { const a = val("pFrom"), b = val("pTo"); if (a && b && a <= b) { S.periodSel = { preset: "custom", from: a, to: b }; store.set("mm.period", S.periodSel); render(); loadRemote(false); } return; }
   const kind = f.dataset.form;
+  if (kind === "quick") {
+    const a = parseEuroInput(val("q_amount")), d = val("q_date");
+    if (a === null || !isDay(d)) { toast("Vul een bedrag en datum in"); return; }
+    const entry = { id: uid(), kind: val("q_kind"), label: val("q_label").trim() || "Correctie", amount: a, from: d, to: d, expected: true };
+    saveManual((l) => [...l, entry]).then(() => toast("Correctie toegevoegd, telt mee in de winst"));
+    f.reset(); document.activeElement && document.activeElement.blur(); return;
+  }
   if (kind === "ask") { const q = val("askInput"); if (q.trim()) { document.getElementById("askInput").value = ""; askClaude(q); } return; }
   if (kind === "bankFilter") { S.bankFilter = { cat: val("bf_cat"), q: val("bf_q") }; document.activeElement && document.activeElement.blur(); render(); return; }
   if (kind === "rule") { const pattern = val("r_pattern").trim(); if (!pattern) return; saveRules([...rules(), { id: uid(), pattern, direction: val("r_dir"), category: val("r_cat"), priority: Number(val("r_prio")) || 50 }]).then(() => toast("Regel toegevoegd en toegepast")); f.reset(); return; }
@@ -1771,10 +1811,10 @@ document.addEventListener("submit", (e) => {
     const entry = { id: uid(), at: val("bal_at"), payout: c("bal_payout"), payoutDate: val("bal_payoutDate") || null, pending: c("bal_pending"), hold: c("bal_hold"), paypal: c("bal_paypal") };
     writeDoc("config/balances", (cur) => ({ entries: [...((cur && cur.entries) || []), entry] })).then(() => toast("Stand opgeslagen")); return;
   }
-  if (kind === "team") { const a = parseEuroInput(val("t_amount")); if (a === null) return; saveManual((l) => [...l, { id: uid(), kind: "team_month", label: val("t_name"), amount: a, from: val("t_from"), to: val("t_to") || null }]).then(() => toast("Teamkosten toegevoegd")); f.reset(); return; }
-  if (kind === "manual") { const a = parseEuroInput(val("m_amount")); if (a === null) return; saveManual((l) => [...l, { id: uid(), kind: val("m_kind"), label: val("m_label"), amount: a, from: val("m_from"), to: val("m_to") || val("m_from") }]).then(() => toast("Post toegevoegd")); f.reset(); return; }
-  if (kind === "invoice") { const a = parseEuroInput(val("i_amount")); if (a === null) return; saveManual((l) => [...l, { id: uid(), kind: "open_invoice", label: val("i_sup"), amount: a, due: val("i_due") || null, paid: false }]).then(() => toast("Factuur toegevoegd")); f.reset(); return; }
-  if (kind === "budget") { const o = parseEuroInput(val("b_old")), n = parseEuroInput(val("b_new")); if (o === null || n === null) return; writeDoc("config/budget", (cur) => ({ entries: [...((cur && cur.entries) || []), { id: uid(), date: val("b_date"), campaign: val("b_campaign"), old: o, nw: n }] })).then(() => toast("Wijziging gelogd")); f.reset(); return; }
+  if (kind === "team") { const a = parseEuroInput(val("t_amount")); if (a === null) return; const e = { id: uid(), kind: "team_month", label: val("t_name"), amount: a, from: val("t_from"), to: val("t_to") || null }; saveManual((l) => [...l, e]).then(() => toast("Teamkosten toegevoegd")); f.reset(); return; }
+  if (kind === "manual") { const a = parseEuroInput(val("m_amount")); if (a === null) return; const e = { id: uid(), kind: val("m_kind"), label: val("m_label"), amount: a, from: val("m_from"), to: val("m_to") || val("m_from") }; saveManual((l) => [...l, e]).then(() => toast("Post toegevoegd")); f.reset(); return; }
+  if (kind === "invoice") { const a = parseEuroInput(val("i_amount")); if (a === null) return; const e = { id: uid(), kind: "open_invoice", label: val("i_sup"), amount: a, due: val("i_due") || null, paid: false }; saveManual((l) => [...l, e]).then(() => toast("Factuur toegevoegd")); f.reset(); return; }
+  if (kind === "budget") { const o = parseEuroInput(val("b_old")), n = parseEuroInput(val("b_new")); if (o === null || n === null) return; const e = { id: uid(), date: val("b_date"), campaign: val("b_campaign"), old: o, nw: n }; writeDoc("config/budget", (cur) => ({ entries: [...((cur && cur.entries) || []), e] })).then(() => toast("Wijziging gelogd")); f.reset(); return; }
   if (kind === "settings") {
     const num = (id, d) => { const n = Number(String(val(id)).replace(",", ".")); return isFinite(n) && val(id) !== "" ? n : d; };
     const s = S.settings;
