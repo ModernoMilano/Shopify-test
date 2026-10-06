@@ -47,16 +47,10 @@ Loafers worden tonaal gekozen: zwart bij zwart, moro of tabacco bij bruin en zan
 ## Toon
 
 - Rustig, zeker, onderkoeld. Korte zinnen. Italiaanse namen laten staan (Notte, Sabbia, Terra).
-- Geen uitroeptekens, geen hype ("must-have", "don't miss out"), hooguit één emoji.
+- Geen uitroeptekens, geen hype ("must-have", "don't miss out"), geen emoji in de feed.
 - Benoem het materiaal en het gevoel, niet de korting.
-- Huidige productteksten zijn Engels. **Nog te bepalen:** captions in het Engels, Nederlands of beide (zie README, open vragen).
+- Captions in het Engels (zoals alle vier de concurrenten), Stories en DM's in het Nederlands. Opbouw en hashtags: [`norm.md`](norm.md), hoofdstuk 7.
 
-## Contentmix (per negen posts, één volledig raster)
+## Contentmix
 
-| Pijler | Aantal | Wat |
-|---|---|---|
-| Product | 2 | Studio, ten voeten uit of halflang. Het product duidelijk en eerlijk. |
-| Editorial | 3 | Architectuur, Milanese binnenplaats, dorp, meer, interieur. Een moment. |
-| Ambacht | 2 | Macro van breisel en suède, still life van opgevouwen stukken. |
-| Styling | 1 | Carrousel: één look in drie beelden (geheel, detail, opgevouwen). |
-| Wereld | 1 | Weids landschap, figuur klein in beeld. Sfeer boven product. |
+Zie [`norm.md`](norm.md): hoofdstukken van 9 posts in rijen van 3, met 4 carrousels, 3 reels en 2 losse beelden, en 4 posts per week (zondag, maandag, woensdag, vrijdag). De pijlers zijn product, editorial, ambacht, styling en wereld.

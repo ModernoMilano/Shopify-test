@@ -74,6 +74,8 @@ export const PALETTES: Palette[] = [
   { id: "notte", name: "Notte", families: ["navy", "cream", "white", "grey", "blue"], mood: "deep navy with ivory and soft blue, crisp and nautical" },
   { id: "nero", name: "Nero assoluto", families: ["black", "charcoal", "white"], mood: "monochrome black, evening, graphic and calm" },
   { id: "oliva", name: "Oliva", families: ["green", "beige", "brown", "cream"], mood: "olive and sand, countryside and alpine calm" },
+  // Eén accent per look op een aardse basis (Cucinelli FW25 bordeaux, Loro Piana-lookbook met één kleur).
+  { id: "bordeaux", name: "Bordeaux", families: ["red", "brown", "camel", "cream", "charcoal"], mood: "one deep bordeaux accent on earthy browns, camel and cream" },
 ];
 
 export function paletteFits(palette: Palette, families: ColourFamily[]): boolean {

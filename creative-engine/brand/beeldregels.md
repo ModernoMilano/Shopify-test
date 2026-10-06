@@ -16,7 +16,7 @@ ModernoMilano verkoopt geen accessoires, dus ze komen nooit in beeld:
 
 > horloge, armband, ring, ketting, oorbellen, riem, das, vlinderdas, pochet, sjaal, hoed, pet, muts, zonnebril, bril, tas, rugzak, aktetas, handschoenen, sneakers, boots, zichtbare sokken, een onderhemd dat uitsteekt, een jas of trui die niet in de referenties zit.
 
-Ook nooit: logo's, labels, monogrammen, tekst, watermerken, tattoos, andere mensen op de achtergrond.
+Ook nooit: logo's, labels, monogrammen, tekst, watermerken, tattoos, andere mensen op de achtergrond, vrouwen (we verkopen geen dameskleding), en **auto's, boten of andere merkobjecten** (in de eigen feed stonden een Mercedes, een Aston Martin en een Riva; de luxemerken doen dit niet).
 
 ## 3. Clean look
 
@@ -26,6 +26,7 @@ Ook nooit: logo's, labels, monogrammen, tekst, watermerken, tattoos, andere mens
 | Zacht natuurlijk licht (raam, bewolkt, gouden uur) | Flitslicht, harde schaduwen, neon |
 | Tonaal palet, maximaal drie kleurfamilies | Felle contrasten, patronen naast patronen |
 | Echte huidstructuur, lichte filmkorrel | HDR, gladde CGI-huid, zware filters, vignet |
+| Gedempte filmische nabewerking op locatie, zwart-wit voor portretten (Cucinelli) | Verzadigde blauwe luchten als standaard |
 | Steen, travertin, kalkpleister, eiken, linnen | Plastic, glimmende oppervlakken, merkspullen |
 | Model dat rustig en zelfverzekerd oogt | Overdreven poses, schreeuwerige expressies |
 
@@ -33,17 +34,16 @@ Toegestane rekwisieten (geen kleding): een espressokopje, een olijftak, een linn
 
 ## 4. Casting
 
-- Mannen 25 tot 60, mediterrane uitstraling, verzorgd kort haar, natuurlijke stoppels of grijzend.
-- Rustig en zelfverzekerd. Glimlachen mag (Cucinelli), staren in de verte ook (Zegna, Loro Piana).
-- Geen sieraden, geen tattoos, geen zichtbare piercings.
-- Voor herkenbaarheid: één of twee vaste gezichten van het merk (zie `README.md`, vaste modellen).
+- Eén vast hoofdgezicht per hoofdstuk, 35 tot 55, grijs mag (Zegna met Mikkelsen, Cucinelli met ervaren modellen). Een tweede, jonger gezicht alleen voor twee mannen in beeld. Zie `src/creative/casting.ts`.
+- Alleen mannen. Rustig en zelfverzekerd. Glimlachen mag (Cucinelli), staren in de verte ook (Zegna, Loro Piana). In wijde beelden kijkt hij weg van de camera.
+- Geen sieraden, geen tattoos, geen zichtbare piercings, geen bekende gezichten of lookalikes.
 
 ## 5. Formaten
 
 | Waar | Formaat |
 |---|---|
 | Instagram feed en carrousel | 4:5 (1080 × 1350) |
-| Stories en reels | 9:16 (1080 × 1920) |
+| Stories en reels | 9:16 (1080 × 1920), de kern binnen het 4:5-midden |
 | Productpagina | 4:5 of 3:4 |
 
 Tekst en logo komen er pas bij het posten op, nooit in het gegenereerde beeld.
@@ -56,7 +56,7 @@ Een beeld gaat pas naar jou als het deze vragen doorstaat (`QA_QUESTIONS` in `sr
 2. Lijkt elk product op zijn productfoto (kleur, stof, kraag, knopen, zakken, lengte)?
 3. Zie je een accessoire?
 4. Zie je een logo, label of tekst?
-5. Klopt het aantal personen, en is de achtergrond leeg?
+5. Klopt het aantal personen (een hand telt als één), en is de achtergrond leeg?
 6. Loafers zonder sokken, of voeten uit beeld als er geen loafers in de look zitten?
 7. Is het clean?
 8. Kloppen handen, vingers en gezicht?

@@ -12,6 +12,8 @@ export interface Observation {
   /** Alles wat geen kledingstuk is maar wel gedragen wordt: horloge, riem, zonnebril... */
   accessories: string[];
   logosOrText: boolean;
+  /** Auto's, boten of andere herkenbare merkobjecten. */
+  brandedObjects?: string[];
   people: number;
   feetVisible: boolean;
   socksVisible: boolean;
@@ -39,6 +41,7 @@ export function judge(look: Look, shot: Shot, obs: Observation): Verdict {
     reasons.push(`meer zichtbare kledingstukken (${obs.garments.length}) dan in de look (${expected.length}): ${obs.garments.join(", ")}`);
   }
   if (obs.accessories.length) reasons.push(`accessoires die we niet verkopen: ${obs.accessories.join(", ")}`);
+  if (obs.brandedObjects?.length) reasons.push(`merkobjecten in beeld: ${obs.brandedObjects.join(", ")}`);
   if (obs.logosOrText) reasons.push("logo, label of tekst zichtbaar");
   if (obs.people !== shot.people) reasons.push(`aantal personen is ${obs.people}, verwacht ${shot.people}`);
   if (obs.feetVisible && !look.hasShoes) reasons.push("voeten in beeld terwijl de look geen loafers heeft");
@@ -55,7 +58,8 @@ export const QA_QUESTIONS = [
   "Vergelijk elk product met zijn referentiefoto: kleur, breisel of stof, kraag, knopen of rits, zakken, lengte.",
   "Zie je een horloge, sieraad, riem, bril, tas, hoofddeksel, sjaal of das?",
   "Zie je een logo, label, monogram of tekst (ook op de achtergrond)?",
-  "Klopt het aantal personen, en staat er niemand op de achtergrond?",
+  "Klopt het aantal personen (een hand of benen in een detailbeeld tellen als één), en staat er niemand op de achtergrond?",
+  "Staat er een auto, boot of ander object van een merk in beeld?",
   "Bij loafers: zijn de enkels bloot (geen sokken)? Zonder loafers in de look: zijn de voeten uit beeld?",
   "Is het beeld clean: rustige achtergrond, zacht natuurlijk licht, maximaal drie kleurfamilies?",
   "Zijn handen, vingers en gezicht natuurlijk?",

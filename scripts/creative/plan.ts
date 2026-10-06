@@ -1,6 +1,6 @@
-// Maakt een contentplan met looks, beeldtypes en complete beeldprompts.
+// Maakt een contentplan volgens de norm, met looks, beeldtypes, complete beeldprompts, reels en een captionopzet.
 //   npm run creative:plan -- --posts 9 --start 2026-10-12 --seed 3 --anchor milano-cashmere-torino-blazer-perla
-//   --casting "<<<element-id>>>, calm expression"  vervangt het standaardmodel (bv. een vast Higgsfield Element)
+//   --casting "<<<element-id>>>"   vervangt het hoofdgezicht (bv. een vast Higgsfield Element), --second idem voor de tweede man
 // Schrijft creative-engine/output/plan-<start>.json (voor Claude/Higgsfield) en .md (om te lezen).
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
@@ -26,20 +26,28 @@ const plan = makePlan(wardrobe, {
   anchors: args("anchor"),
   prefer,
   casting: arg("casting"),
+  secondCasting: arg("second"),
 });
 
+const FORMAT = { single: "los beeld", carousel: "carrousel", reel: "reel" };
+
 function md(entries: PlanEntry[]): string {
-  const out = [`# Contentplan vanaf ${start.toISOString().slice(0, 10)}`, ""];
+  const out = [`# Contentplan vanaf ${start.toISOString().slice(0, 10)}`, "", "Gelezen in rijen van 3. Regels: `creative-engine/brand/norm.md`.", ""];
   for (const e of entries) {
-    out.push(`## ${e.n}. ${e.date} · ${e.pillar} · ${e.format}`, "");
+    out.push(`## ${e.n}. ${e.date} · ${e.pillar} · ${FORMAT[e.format]}`, "");
     out.push(`**Look:** ${e.look.name} (${e.look.source === "house" ? "huislook" : "samengesteld"})`, "");
     for (const { item, as } of e.look.items) out.push(`- ${item.title} (${as.join("/")}) · €${item.priceEur}${item.url ? ` · ${item.url}` : ""}`);
-    out.push("", `**Invalshoek caption:** ${e.angle}`, "");
-    for (const f of e.frames) {
-      out.push(`### Beeld: ${f.shot.name} (${f.request.aspect})`, "", "Referenties:");
-      f.request.references.forEach((r, i) => out.push(`${i + 1}. ${r.label}: ${r.url}`));
-      out.push("", "```text", f.request.prompt, "```", "");
+    if (e.secondLook) {
+      out.push("", `**Tweede man:** ${e.secondLook.name}`, "");
+      for (const { item } of e.secondLook.items) out.push(`- ${item.title}${item.url ? ` · ${item.url}` : ""}`);
     }
+    out.push("", `**Caption:** ${e.caption.angle}`, "", "```text", "<kop>", "<een of twee zinnen>", e.caption.wearing, "", e.caption.hashtags.join(" "), "```", "");
+    e.frames.forEach((f, i) => {
+      out.push(`### Beeld ${i + 1}: ${f.shot.name} (${f.request.aspect})`, "", "Referenties:");
+      f.request.references.forEach((r, j) => out.push(`${j + 1}. ${r.label}: ${r.url}`));
+      out.push("", "```text", f.request.prompt, "```", "");
+    });
+    if (e.video) out.push(`### Reel (${e.video.model}, ${e.video.duration} s, ${e.video.aspect}, startframe = goedgekeurd beeld 1)`, "", "```text", e.video.prompt, "```", "");
   }
   return out.join("\n");
 }
@@ -49,4 +57,6 @@ const base = path.join(ROOT, "output", `plan-${start.toISOString().slice(0, 10)}
 writeFileSync(`${base}.json`, JSON.stringify(plan, null, 1) + "\n");
 writeFileSync(`${base}.md`, md(plan));
 console.log(`${plan.length} posts → ${path.relative(process.cwd(), base)}.{json,md}`);
-for (const e of plan) console.log(`${e.n}. ${e.date} ${e.pillar.padEnd(9)} ${e.frames.map((f) => f.shot.id).join("+").padEnd(28)} ${e.look.name}`);
+for (const e of plan) {
+  console.log(`${String(e.n).padStart(2)}. ${e.date} ${e.pillar.padEnd(9)} ${FORMAT[e.format].padEnd(10)} ${e.frames.map((f) => f.shot.id).join(" + ").padEnd(58)} ${e.look.name}`);
+}

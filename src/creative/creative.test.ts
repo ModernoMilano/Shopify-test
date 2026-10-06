@@ -2,10 +2,12 @@ import { describe, expect, it } from "vitest";
 import wardrobeJson from "../../creative-engine/data/wardrobe.json";
 import { fromWindsorRow, summarize } from "./competitors";
 import { composeLooks, houseLook, lookFamilies, lookFromItems, validateLook } from "./looks";
-import { makePlan } from "./plan";
+import { productName, seasonTag } from "./captions";
+import { castFor, FACES } from "./casting";
+import { DEFAULT_DAYS, makePlan, MAX_SAME_HERO } from "./plan";
 import { buildPrompt, FORBIDDEN } from "./prompt";
 import { judge, type Observation } from "./qa";
-import { SHOTS } from "./shots";
+import { deriveShot, shotById, SHOTS } from "./shots";
 import { seasonFor, splitTitle, toWardrobeItem, type ShopifyProductNode, type WardrobeItem } from "./wardrobe";
 
 const wardrobe = wardrobeJson.items as unknown as WardrobeItem[];
@@ -141,9 +143,16 @@ describe("prompt", () => {
     for (const f of FORBIDDEN) expect(req.prompt).toContain(f);
   });
 
+  it("noemt bij een halflang beeld geen loafers en geen enkels", () => {
+    const req = buildPrompt(look, SHOTS.find((s) => s.id === "milano-courtyard")!);
+    expect(req.prompt).toContain("The feet are out of frame.");
+    expect(req.prompt).not.toContain("bare ankles");
+    expect(req.references.some((r) => r.label.includes("LOAFER"))).toBe(false);
+  });
+
   it("houdt de voeten uit beeld als er geen loafers in de look zitten", () => {
     const noShoes = lookFromItems(look.items.filter((x) => !x.as.includes("shoes")), look.palette);
-    expect(buildPrompt(noShoes, SHOTS.find((s) => s.id === "studio-portrait")!).prompt).toContain("keep the feet out of frame");
+    expect(buildPrompt(noShoes, SHOTS.find((s) => s.id === "studio-full")!).prompt).toContain("keep the feet out of frame");
   });
 });
 
@@ -204,15 +213,121 @@ describe("concurrenten", () => {
 });
 
 describe("contentplan", () => {
-  const plan = makePlan(wardrobe, { start: new Date("2026-10-12"), posts: 9, seed: 2 });
+  const plan = makePlan(wardrobe, { start: new Date("2026-10-11"), posts: 18, seed: 2 });
+  const chapter = plan.slice(0, 9);
 
-  it("maakt een volledig raster op ma, wo en vr", () => {
-    expect(plan).toHaveLength(9);
-    for (const e of plan) expect([1, 3, 5]).toContain(new Date(e.date).getUTCDay());
-    expect(plan.find((e) => e.pillar === "styling")!.frames).toHaveLength(3);
+  it("post op zondag, maandag, woensdag en vrijdag", () => {
+    expect(plan).toHaveLength(18);
+    for (const e of plan) expect(DEFAULT_DAYS).toContain(new Date(e.date).getUTCDay());
+  });
+
+  it("heeft per hoofdstuk 4 carrousels, 3 reels en 2 losse beelden", () => {
+    const count = (f: string) => chapter.filter((e) => e.format === f).length;
+    expect([count("carousel"), count("reel"), count("single")]).toEqual([4, 3, 2]);
+    for (const e of chapter.filter((x) => x.format === "carousel")) expect(e.frames.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it("maakt reels in 9:16 met een beweging vanaf het goedgekeurde beeld", () => {
+    for (const e of plan.filter((x) => x.format === "reel")) {
+      expect(e.frames[0].request.aspect).toBe("9:16");
+      expect(e.video).toMatchObject({ model: "kling3_0", startFrame: "approved-still", aspect: "9:16", sound: "off" });
+    }
+  });
+
+  it("volgt de rasterregels: hooguit één studio-hoofdbeeld, nooit hetzelfde naast elkaar, hooguit twee keer hetzelfde", () => {
+    for (const part of [plan.slice(0, 9), plan.slice(9, 18)]) {
+      const heroes = part.map((e) => e.frames[0].shot.id);
+      expect(heroes.filter((h) => h.startsWith("studio")).length).toBeLessThanOrEqual(1);
+      heroes.forEach((h, i) => i > 0 && expect(h).not.toBe(heroes[i - 1]));
+      for (const h of heroes) expect(heroes.filter((x) => x === h).length).toBeLessThanOrEqual(MAX_SAME_HERO);
+    }
   });
 
   it("gebruikt full-body shots alleen voor looks met loafers", () => {
     for (const e of plan) for (const f of e.frames) if (f.shot.framing === "full-body") expect(e.look.hasShoes).toBe(true);
+  });
+
+  it("stuurt alleen foto's van eigen producten mee, en alleen van wat in beeld komt", () => {
+    for (const e of plan) {
+      for (const f of e.frames) {
+        const allowed = new Set(
+          [e.look, e.secondLook]
+            .filter(Boolean)
+            .flatMap((l) => l!.items.flatMap(({ item }) => wardrobe.filter((w) => w.line === item.line).flatMap((w) => w.images.all))),
+        );
+        for (const r of f.request.references) expect(allowed.has(r.url)).toBe(true);
+        expect(f.request.references.length).toBeLessThanOrEqual(14);
+      }
+    }
+  });
+
+  it("heeft een captionopzet met productregel en hooguit 4 hashtags", () => {
+    for (const e of plan) {
+      expect(e.caption.wearing.startsWith("Wearing: ")).toBe(true);
+      expect(e.caption.hashtags[0]).toBe("#ModernoMilano");
+      expect(e.caption.hashtags.length).toBeLessThanOrEqual(4);
+    }
+  });
+});
+
+describe("shots en prompts volgens de norm", () => {
+  const look = composeLooks(wardrobe, { season: "fw", count: 2, seed: 4 });
+
+  it("maakt zwart-wit portretten en gedempte locatiebeelden", () => {
+    expect(buildPrompt(look[0], shotById("bw-portrait")).prompt).toContain("Black-and-white");
+    expect(buildPrompt(look[0], shotById("volcanic-coast")).prompt).toContain("desaturated");
+  });
+
+  it("toont bij een schets en een hanger alleen het hoofdstuk", () => {
+    const sketch = buildPrompt(look[0], shotById("sketch"));
+    expect(sketch.prompt).toContain("pencil fashion sketch");
+    expect(sketch.prompt).toContain(look[0].items[0].item.title);
+    for (const { item } of look[0].items.slice(1)) expect(sketch.prompt).not.toContain(item.title);
+    expect(buildPrompt(look[0], shotById("hanger")).prompt).not.toContain("no hanger");
+  });
+
+  it("stapelt alle kleuren van hetzelfde stuk", () => {
+    const anchor = byTitle("MILANO CASHMERE CORTINA POLO - NAVY");
+    const l = lookFromItems([{ item: anchor, as: ["top"] }], null);
+    const req = buildPrompt(l, shotById("folded-stack"), { wardrobe });
+    const titles = new Set(req.references.map((r) => r.label));
+    expect(titles.size).toBeGreaterThan(1);
+    for (const t of titles) expect(t.startsWith("MILANO CASHMERE CORTINA POLO")).toBe(true);
+  });
+
+  it("kleedt bij twee generaties beide mannen alleen in eigen looks", () => {
+    const req = buildPrompt(look[0], shotById("two-generations"), { second: { look: look[1], casting: "a younger man" } });
+    expect(req.prompt).toContain("exactly two men");
+    for (const l of look) for (const { item } of l.items) expect(req.prompt).toContain(item.title);
+  });
+
+  it("verbiedt ook auto's, boten, koptelefoons en tassen", () => {
+    for (const f of ["cars", "boats", "headphones", "holdall", "women"]) expect(FORBIDDEN).toContain(f);
+  });
+
+  it("een afgeleid carrouselbeeld houdt plek en licht maar kadert anders", () => {
+    const d = deriveShot(shotById("milano-courtyard"), "detail");
+    expect(d.setting).toBe(shotById("milano-courtyard").setting);
+    expect(d.framing).toBe("detail");
+    expect(d.subject).toBe("anchor");
+  });
+});
+
+describe("captions en casting", () => {
+  it("schrijft productnamen zoals in de winkel", () => {
+    expect(productName("MILANO CASHMERE TORINO BLAZER - TORTORA")).toBe("Milano Cashmere Torino Blazer in Tortora");
+    expect(productName("MILANO REVERSO SABBIA SET")).toBe("Milano Reverso Sabbia Set");
+  });
+
+  it("geeft de juiste seizoenstag", () => {
+    expect(seasonTag("2026-10-11")).toBe("#ModernoMilanoFW26");
+    expect(seasonTag("2027-02-01")).toBe("#ModernoMilanoFW26");
+    expect(seasonTag("2027-05-01")).toBe("#ModernoMilanoSS27");
+  });
+
+  it("kiest per seed een vaste cast, alleen mannen", () => {
+    expect(castFor(3)).toEqual(castFor(3));
+    expect(castFor(1, { main: "<<<abc>>>" }).main.description).toBe("<<<abc>>>");
+    for (const f of FACES) expect(f.description).toMatch(/\bman\b/);
   });
 });

@@ -196,7 +196,7 @@ export function composeLooks(wardrobe: WardrobeItem[], opts: ComposeOptions): Lo
 function shoeRank(shoe: WardrobeItem, anchor: WardrobeItem): number {
   if (!anchor.family || !shoe.family) return 0;
   const i = SHOE_PAIRING[anchor.family].indexOf(shoe.family);
-  return i === -1 ? 20 : i * 5;
+  return i === -1 ? 100 : i * 5;
 }
 
 function fits(item: WardrobeItem, spec: SlotSpec): boolean {
@@ -219,7 +219,8 @@ function composeAround(
   const anchorSpec = template.slots.find((s) => fits(anchor, s))!;
 
   const palettes = PALETTES.filter((p) => !anchor.family || p.families.includes(anchor.family));
-  const palette = palettes[Math.floor(rand() * palettes.length)] ?? null;
+  if (palettes.length === 0) return null;
+  const palette = palettes[Math.floor(rand() * palettes.length)];
 
   const items: LookItem[] = [{ item: anchor, as: anchorSpec.kinds === "set" ? setCovers(anchor) : [anchorSpec.slot] }];
   const covered = new Set(items[0].as);
@@ -229,7 +230,7 @@ function composeAround(
     const options = pool
       .filter((w) => fits(w, spec))
       .filter((w) => w.line !== anchor.line && !items.some((x) => x.item.line === w.line))
-      .filter((w) => !palette || (w.family !== null && palette.families.includes(w.family)))
+      .filter((w) => w.family !== null && palette.families.includes(w.family))
       .filter((w) => {
         const families = new Set([...items.map((x) => x.item.family), w.family].filter(Boolean));
         return families.size <= 3;
@@ -244,6 +245,6 @@ function composeAround(
     covered.add(spec.slot);
   }
 
-  if (palette && !paletteFits(palette, lookFamilies({ items } as Look))) return null;
+  if (!paletteFits(palette, lookFamilies({ items } as Look))) return null;
   return lookFromItems(items, palette);
 }

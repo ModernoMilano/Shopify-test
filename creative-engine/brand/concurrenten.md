@@ -2,54 +2,46 @@
 
 Gevolgde accounts: [@zegna](https://www.instagram.com/zegna/), [@loropiana](https://www.instagram.com/loropiana/), [@boggimilanoofficial](https://www.instagram.com/boggimilanoofficial/), [@brunellocucinelli_brand](https://www.instagram.com/brunellocucinelli_brand/).
 
-> **Stand:** basisanalyse van oktober 2026, op basis van de huidige campagnes en de vaste beeldtaal van de merken.
-> Zodra Windsor.ai "Instagram Public" gekoppeld is, haalt Claude de echte posts op (zie `README.md`) en komen de cijfers per maand in `creative-engine/research/`.
+Het onderzoek met telling en bronnen staat in [`../research/2026-10-concurrenten.md`](../research/2026-10-concurrenten.md). De regels die eruit volgen, staan in [`norm.md`](norm.md). Hieronder per merk de kern.
 
-## Loro Piana: rust als statement
+## Brunello Cucinelli: kil landschap, zwart-wit, mensen van elke leeftijd
 
-- **FW26-campagne** door Mario Sorrenti (creatieve leiding Franck Durand), in de Menil Collection en de Rothko Chapel in Houston. Kleding in beweging en in gebruik, zonder dramatische styling, overdreven poses of zware effecten. Jonge en oudere modellen samen in dezelfde ruimte.
-- **Vaste beeldtaal:** tonale neutrale kleuren (havermout, greige, navy), veel lege ruimte, grondstoffen (baby cashmere, vicuña), macro's van stof, weidse landschappen, loafers zonder sokken, nergens een logo.
-- **Overnemen:** stille architectuur (shot `architecture`), beweging (lopen, niet poseren), macro van breisel (`texture`), still life (`still-life`), sokloze loafers.
-- **Niet overnemen:** posts die zo abstract zijn dat je het product niet meer ziet. Wij moeten ook verkopen.
+- **Nu in het raster:** een campagne op een zwart vulkanisch strand, gletsjers en lava. De kleuren zijn koel en ontkleurd. Bijna een derde is een zwart-wit portret. Jong en ouder door elkaar, onder wie een man met een grijze baard. Daarnaast events en potloodschetsen.
+- **Overnemen:** `volcanic-coast`, `snowfield`, `bw-portrait`, `sketch`, de afwisseling van wijd en close, en een ouder hoofdgezicht.
+- **Niet overnemen:** sjaals, dassen, riemen, bont, vrouwen (wij verkopen geen dameskleding) en events (die hebben we niet).
 
-## Zegna: tonaal van top tot teen, in de natuur
+## Loro Piana: het lookbook en de stilte
 
-- **FW26-show "A Family Closet"** (Alessandro Sartori, 16 januari 2026, Milaan): over tijd, continuïteit en doorgeven. Formeel en informeel door elkaar: gebreide stukken met tailoring.
-- **Vaste beeldtaal:** Oasi Zegna (bergen, bossen, wol en cashmere vanaf de bron), tonale outfits in één kleurfamilie, mannen klein in een groot landschap.
-- **Overnemen:** head-to-toe tonaal (onze paletten), landschap (`landscape`), twee generaties (`two-generations`), breigoed met een pantalon.
-- **Niet overnemen:** sneakers, stropdassen, overjassen. Die verkopen we niet.
+- **Nu in het raster:** negen tegels studio-lookbook op een warm gebroken witte achtergrond. Verder ambacht, macro's van stof en still lifes in historische interieurs. Geen logo's, weinig reels.
+  - Campagne FW26: Mario Sorrenti in de Menil Collection en de Rothko Chapel.
+  - SS27: gepresenteerd in de Biblioteca Braidense.
+- **Overnemen:** `studio-full` als vaste productslide, `texture`, `folded-stack`, `still-life`, `architecture`. Eén kleur per look. Een kop met een punt in de caption.
+- **Niet overnemen:** hoeden, mutsen, tassen, sjaals, ballerina's, vrouwen en accessoire-stills.
 
-## Brunello Cucinelli: warmte en menselijkheid
+## Zegna: tonaal, landschap, generaties (geen screenshot; uit gecontroleerde campagnes)
 
-- **FW26 menswear** (Milaan, 16 januari 2026): bruine trenchcoat over een crème col, een geruit jasje over een grijze col, gebroken witte broek. Laag over laag in neutrale tinten.
-- **Vaste beeldtaal:** Solomeo in Umbrië, warm zonlicht op steen, oudere knappe modellen met grijze baard die lachen, gelaagd cashmere, ambacht (handen van vakmensen), filosofische captions.
-- **Overnemen:** het dorp (`borgo`), interieur met zacht raamlicht (`interior`), lachende en oudere modellen, breisel over breisel (tee + cardigan, polo + Pieno gilet).
-- **Niet overnemen:** sjaals, pochetten, zonnebrillen en ceintuurs die Cucinelli vaak toevoegt.
+- **Campagnes:**
+  - Summer 2026 aan het Lago Maggiore met Mads Mikkelsen.
+  - Spring 2026 "Winter Garden" in de Oasi Zegna, met tonale styling ("camel on camel").
+  - AW25: Torino en de espresso.
+  - Fall 2026 Su Misura: een vader laat zijn jasje vermaken voor zijn zoon.
+  - De Mocassin is bedoeld om zonder sokken te dragen.
+- **Overnemen:** `landscape`, `lake-terrace`, `espresso-terrace`, `two-generations`, tonaal van top tot teen, één vast gezicht per seizoen, loafers zonder sokken.
+- **Niet overnemen:** pakken, overjassen, sneakers, de Riva-boot en de namen Oasi of Road 232.
 
-## Boggi Milano: dichtst bij onze prijs
+## Boggi Milano: de stad, de kust, de helderheid
 
-- **2026:** officieel formalwear-leverancier van het FIFA WK 2026 en het vrouwen-WK 2027, met een licentiecapsule. Nieuwe winkels, onder meer in Bali.
-- **Vaste beeldtaal:** commerciëler en vaker. Duidelijke productbeelden, stijltips, smart casual (polo met blazer), Riviera in de zomer, Milanese straten.
-- **Overnemen:** helderheid over het product, carrousels "één look, drie beelden" (`styling`), binnenplaats (`milano-courtyard`), Riviera in de zomer (`riviera`), een vast ritme.
-- **Niet overnemen:** uitverkoopsfeer, pakken en dassen, drukke stadsachtergronden met winkels en auto's.
+- **Nu in het raster:** Italiaanse steden en de Middellandse Zee, natuurlijk tot verzadigd licht, jonge mannen, vaak met z'n tweeën. Veel accessoires: zonnebrillen, weekendtassen, dassen.
+  - Sinds 14 september 2026 officieel formalwear-partner van AC Milan.
+  - FW25 speelt in kamers met lambrisering en schaakborden.
+  - SS26 "La Vacanza" speelt op Pantelleria en Sardinië.
+- **Overnemen:** `milano-courtyard`, `library-fireside`, `riviera` en `island-coast` in de zomer, `look-flatlay` en de productregel "Wearing:". Boggi zit het dichtst bij onze prijs en laat het product duidelijk zien.
+- **Niet overnemen:** zonnebrillen, tassen, dassen, pakken, logo-overlays en verzadigde blauwe luchten als standaard.
 
-## Samengevat: de ModernoMilano-mix
+## Wat dit betekent voor de eigen feed
 
-| Van | Nemen we | Shot in de engine |
-|---|---|---|
-| Loro Piana | rust, architectuur, beweging, stof van dichtbij | `architecture`, `texture`, `still-life` |
-| Zegna | tonaal, landschap, generaties | `landscape`, `two-generations`, `studio-full` |
-| Cucinelli | warmte, dorp, interieur, lachen | `borgo`, `interior`, `studio-portrait` |
-| Boggi | productduidelijkheid, styling, ritme | `styling`-carrousel, `milano-courtyard`, `riviera` |
-
-## Wat we per maand meten (zodra de koppeling er is)
-
-Per account, uit `summarize()` in `src/creative/competitors.ts`:
-
-- posts per week en verdeling foto, carrousel en video
-- gemiddelde interactie (likes + reacties) en interactie als % van volgers
-- welk type post het best scoort, en op welke weekdagen
-- meest gebruikte hashtags
-- top 5 posts van de maand, met link
-
-Dat gaat naar `creative-engine/research/<jaar>-<maand>.md`, met per punt wat het betekent voor ons volgende raster.
+Van de 17 tegels in de huidige feed breken er 7 de regels: een horloge, zonnebril of riem, of een auto of boot van een ander merk. Verder is 71% een los beeld en staat er geen enkele reel in. De norm draait dat om:
+- 4 carrousels, 3 reels en 2 losse beelden per 9 posts;
+- één vast gezicht;
+- alleen eigen kleding;
+- geen merkobjecten.

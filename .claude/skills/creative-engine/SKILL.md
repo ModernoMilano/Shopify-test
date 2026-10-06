@@ -16,7 +16,7 @@ Antwoord de gebruiker in het Nederlands. Prompts voor het beeldmodel zijn Engels
 5. **Elk beeld door de kwaliteitscontrole** (`QA_QUESTIONS` en `judge()` in `src/creative/qa.ts`) voordat je het als goed presenteert. Eén nee is afgekeurd.
 6. **Publiceren of iets veranderen in Shopify, Instagram of advertenties** alleen na expliciete toestemming per actie.
 
-Lees bij twijfel `creative-engine/brand/beeldregels.md`, `merk-dna.md` en `concurrenten.md`.
+Lees bij twijfel `creative-engine/brand/norm.md` (de norm), `beeldregels.md`, `merk-dna.md` en `concurrenten.md`.
 
 ## Werkwijze
 
@@ -26,29 +26,31 @@ Lees bij twijfel `creative-engine/brand/beeldregels.md`, `merk-dna.md` en `concu
 - `npm run creative:wardrobe -- --from all.json`. Meldt het script producten die het niet kon indelen, voeg dan een regel toe aan `LINE_RULES` in `src/creative/wardrobe.ts` en een test.
 - Bestsellers: `run-analytics-query` met `FROM sales SHOW net_items_sold GROUP BY product_title SINCE -60d UNTIL today ORDER BY net_items_sold DESC LIMIT 40` en zet de titels in `creative-engine/data/bestsellers.json`.
 
-### 2. Concurrenten (maandelijks, of als de gebruiker erom vraagt)
+### 2. Concurrenten (maandelijks, of als de gebruiker screenshots stuurt)
 
-- Windsor.ai-connector `instagram_public`. Controleer met `get_connectors` of hij gekoppeld is; zo niet, geef de gebruiker de link uit `get_connector_connect_info` en ga verder met de basisanalyse in `concurrenten.md`.
-- Velden opzoeken met `get_fields` (nooit raden), dan `get_data` voor de laatste 30 dagen van de vier accounts uit `COMPETITORS` in `src/creative/competitors.ts`.
-- Rijen omzetten met `fromWindsorRow()`, samenvatten met `summarize()`. Ontbreekt een veldnaam in `fromWindsorRow`, vul hem aan.
-- Schrijf `creative-engine/research/<jaar>-<maand>.md`: per account de cijfers, de top 5 posts met link, en drie concrete conclusies voor ons volgende raster (welke shots, welk formaat, welke dagen). Pas zo nodig `MIX` in `src/creative/plan.ts` aan.
+- **Screenshots van het raster** (de Windsor-koppeling lukt de gebruiker niet; dit is de hoofdroute): laat elke tegel door twee onafhankelijke agents coderen (formaat via het icoon rechtsboven, soort beeld, kader, nabewerking, personen, accessoires, logo's, merkobjecten) en vergelijk hun uitkomsten. Zie `creative-engine/research/data/2026-10-raster.json` voor het formaat.
+- **Webonderzoek** alleen via de zoekmachine (WebFetch en Instagram zijn geblokkeerd). Elke claim die in de norm komt, apart laten controleren; cijfers van analysesites spreken elkaar vaak tegen.
+- Lukt de Windsor-connector `instagram_public` toch (`get_connectors`): velden via `get_fields`, data via `get_data`, omzetten met `fromWindsorRow()` en samenvatten met `summarize()` (`src/creative/competitors.ts`).
+- Schrijf `creative-engine/research/<jaar>-<maand>-concurrenten.md` met telling en bronnen, en werk `brand/norm.md` en zo nodig `CHAPTER` in `src/creative/plan.ts` en `SHOTS` in `src/creative/shots.ts` bij.
 
 ### 3. Plan maken
 
-- `npm run creative:plan -- --posts 9 --start JJJJ-MM-DD [--seed N] [--anchor <handle>]...`
+- `npm run creative:plan -- --posts 9 --start JJJJ-MM-DD [--seed N] [--anchor <handle>]... [--casting "<<<element_id>>>"]`
+  - Een hoofdstuk is 9 posts: 4 carrousels, 3 reels, 2 losse beelden, gelezen in rijen van 3 (`CHAPTER` in `plan.ts`). Postdagen: zondag, maandag, woensdag en vrijdag.
   - `--anchor`: producten die er zeker in moeten (nieuwe drop, voorraad, campagne). Herhaalbaar.
-  - Andere `--seed` geeft een ander plan met dezelfde regels.
+  - `--casting`: het vaste gezicht. Staat er een Higgsfield Element-id in `creative-engine/data/models.json`, gebruik dan `<<<element_id>>>`. Zonder casting kiest de seed een gezicht uit `FACES` (`casting.ts`); houd binnen een hoofdstuk dezelfde seed aan.
 - Lees `creative-engine/output/plan-<start>.md` en laat de gebruiker de looks zien (titels, prijs, link) voordat je gaat genereren, tenzij hij al heeft gezegd dat je direct mag beginnen.
 
 ### 4. Genereren op Higgsfield
 
-- Per beeld in het plan (`frames[].request`):
-  1. Elke referentie-URL importeren met `media_import_url` (onthoud de `media_id` per URL in deze sessie, importeer niet twee keer).
-  2. `generate_image` (of `generate_image_batch` bij meerdere beelden) met `model: "nano_banana_pro"`, `aspect_ratio` en `resolution` uit de request, de `prompt` ongewijzigd, en `medias` als `{ value: media_id, role: "image_references" }` **in dezelfde volgorde als `references`** (de prompt verwijst naar "reference image #n").
-  3. Wachten met `jobs_wait`, tonen met één `show_generation_by_ids`.
-- Kosten: rond 2 credits per beeld (oktober 2026). Vraag `get_cost` bij grote batches en vraag toestemming boven de 50 credits.
+- Beelden (`frames[].request`):
+  1. Elke referentie-URL importeren met `media_import_url`. Kijk eerst in `creative-engine/data/higgsfield-media.json`: daar staan al geïmporteerde foto's met hun `media_id`. Nieuwe ids voeg je daaraan toe.
+  2. `generate_image_batch` (tot 12 per keer) met `model: "nano_banana_pro"`, `aspect_ratio` en `resolution` uit de request, de `prompt` ongewijzigd, en `medias` als `{ value: media_id, role: "image_references" }` **in dezelfde volgorde als `references`** (de prompt verwijst naar "reference image #n").
+  3. Wachten met `jobs_wait`, tonen met `show_generation_by_ids`. Wordt die uitvoer te groot, zet de links (`results.rawUrl`) dan in een tabel zoals `creative-engine/output/2026-10-06-testbeelden.md`.
+- Reels (`video`): pas nadat het eerste beeld van die post is goedgekeurd. `generate_video` met `model: "kling3_0"`, het goedgekeurde beeld als `start_image`, `duration`, `mode: "pro"`, `sound: "off"` en de `prompt` uit `video`. Muziek komt er pas bij het posten op, uit de Instagram-bibliotheek.
+- Kosten: rond 2 credits per beeld (oktober 2026). Vraag `get_cost` bij video en grote batches, en vraag toestemming boven de 50 credits, tenzij de gebruiker al een aantal heeft genoemd.
+- Higgsfield meldt de jobs als `nano_banana_2`, ook als `nano_banana_pro` is gevraagd. Meld dat als de kwaliteit tegenvalt.
 - Geen project aanmaken tenzij `get_preferences` dat zegt of de gebruiker erom vraagt.
-- Vaste modellen: staat er een Higgsfield Element-id in `creative-engine/data/models.json`, zet dan `<<<element_id>>>` in de casting (`--casting` of `buildPrompt(..., { casting })`).
 
 ### 5. Kwaliteitscontrole
 
@@ -58,7 +60,7 @@ Lees bij twijfel `creative-engine/brand/beeldregels.md`, `merk-dna.md` en `concu
 
 ### 6. Opleveren
 
-- Per goedgekeurd beeld: datum, pijler, de producten (titel en link, voor product-tags) en een caption in de merktoon (`merk-dna.md`): rustig, kort, materiaal en gevoel, geen hype, hooguit één emoji.
+- Per goedgekeurde post: datum, pijler, formaat, de producten (titel en link, voor product-tags) en de caption volgens `norm.md` hoofdstuk 7. Het plan heeft al een `caption` met de `wearing`-regel en de hashtags; schrijf de kop (3 tot 7 woorden met een punt) en één of twee zinnen. Engels, geen emoji, geen uitroeptekens, geen "shop now", alleen claims uit de productdata.
 - Publiceren via Windsor (`instagram`, actie voor een beeldpost) alleen na toestemming per post.
 
 ## Bestanden
@@ -67,13 +69,15 @@ Lees bij twijfel `creative-engine/brand/beeldregels.md`, `merk-dna.md` en `concu
 |---|---|
 | `src/creative/wardrobe.ts` | Shopify-product naar garderobe-item (zone, kleur, seizoen, referentiefoto's) |
 | `src/creative/looks.ts` | Looks samenstellen en controleren, huislooks |
-| `src/creative/shots.ts` | De beeldtypes (studio, architectuur, landschap, dorp, macro...) |
+| `src/creative/shots.ts` | De beeldtypes (studio, architectuur, zwarte kust, sneeuwveld, schets, hanger, flatlay...) met nabewerking en beweging voor reels |
+| `src/creative/casting.ts` | Vaste gezichten per hoofdstuk |
+| `src/creative/captions.ts` | Captionopzet: productregel, hashtags, toonregels |
 | `src/creative/prompt.ts` | Prompt + referenties, verboden items, clean look |
 | `src/creative/qa.ts` | Kwaliteitscontrole |
 | `src/creative/competitors.ts` | Concurrentieposts omzetten en samenvatten |
-| `src/creative/plan.ts` | Contentplan met mix en data |
+| `src/creative/plan.ts` | Hoofdstukken van 9 posts volgens de norm, met reels en captionopzet |
 | `creative-engine/data/` | Garderobe, bestsellers, vaste modellen |
 | `creative-engine/output/` | Gegenereerde plannen |
-| `creative-engine/research/` | Maandelijkse concurrentie-analyses |
+| `creative-engine/research/` | Concurrentie-analyses met bronnen en ruwe data |
 
 Tests: `npx vitest run src/creative`. Typecheck: `npm run lint`.
