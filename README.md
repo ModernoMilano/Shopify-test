@@ -17,6 +17,10 @@ Financieel dashboard voor ModernoMilano. Het laat zien hoeveel winst je echt maa
 | Handmatige invoer | Stand van Shopify en PayPal, teamkosten, openstaande leveranciersfacturen, overige posten, leningen |
 | Instellingen en sync | Knop Ophalen met status per bron, btw reserveren, buffer, prognose-instellingen |
 
+## Creative engine
+
+Instagram-content in de stijl van Zegna, Loro Piana, Cucinelli en Boggi, met uitsluitend kleding uit de eigen winkel. Zie [`creative-engine/README.md`](creative-engine/README.md); Claude gebruikt de skill in `.claude/skills/creative-engine/`.
+
 ## Definities
 
 Alle formules staan in `src/finance/calculations.ts` en zijn getest.
