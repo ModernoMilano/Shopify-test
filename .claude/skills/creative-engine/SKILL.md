@@ -52,13 +52,28 @@ Lees bij twijfel `creative-engine/brand/norm.md` (de norm), `beeldregels.md`, `m
 - Higgsfield meldt de jobs als `nano_banana_2`, ook als `nano_banana_pro` is gevraagd. Meld dat als de kwaliteit tegenvalt.
 - Geen project aanmaken tenzij `get_preferences` dat zegt of de gebruiker erom vraagt.
 
+### 4b. Filmische serie (de stijl die de eigenaar wil, 6 oktober 2026)
+
+De eigenaar vond de eerste 20 beelden "te AI, geen creativiteit". Wat hij wel wil: de manier van fotograferen van Zegna (Mikkelsen-campagne, Venetië) en zijn eigen moodboard, **niet een vast model**, en ook beelden **zonder kleding die over Milaan of het moderne Milaan gaan**. Werkwijze:
+
+- Een serie van 10: ongeveer 4 sfeerbeelden van Milaan zonder mensen of kleding (Torre Velasca, de koepel van de Galleria, espresso aan de bar, een trappenhuis) en 6 productbeelden: van achteren, een detail met een hand, een gestapelde still life, een kledingstuk in ochtendlicht, een avondscène, een buitenscène (Comomeer, met een houten boot zonder merkteken).
+- Prompts als een brief voor een cameraman: lens, filmsoort (Kodak Vision3 500T, Portra), één lichtbron met richting, een echt moment, de uitsnede. Geen trefwoorden als "luxury", "clean" of "perfect". Wat niet mag: kort en positief ("bare hands and wrists"). Een lange lijst met verboden voorwerpen roept die voorwerpen juist op (in de eerste set kwam er zo een ring in beeld).
+- Bouwen: `python3 -I scripts/creative/cinematic_prompts.py <shots.json> <built.json>` (voorbeeld: `creative-engine/output/2026-10-06-zegna-stijl/shots.json`). Het script voegt de kledingregels en de referenties toe; shots zonder handles worden sfeerbeelden zonder kleding.
+- Bekende fouten:
+  - De Torino-blazer wordt enkelrijs en geweven getekend. Schrijf "DOUBLE-BREASTED, knitted, not woven" uit en geef de modelfoto als eerste referentie.
+  - Bij een zittende man komen de voeten met sokken in beeld. Laat het beeld dan op halve dij eindigen.
+  - Trappenhuizen krijgen een onmogelijk perspectief. Laat ze van onder naar het daklicht fotograferen, met één verdwijnpunt.
+
 ### 5. Kwaliteitscontrole
 
-- Download elk resultaat en bekijk het met de Read-tool. Lukt downloaden niet (netwerk geblokkeerd), zeg dat eerlijk en vraag de gebruiker de beelden zelf te controleren met de vragen uit `QA_QUESTIONS`. Presenteer een beeld dan nooit als goedgekeurd.
+- **Bekijken via de Higgsfield-sandbox**: in deze omgeving is de beeldhost geblokkeerd, maar `sandbox_exec` heeft internet. Download daar de resultaten en de productfoto's (cdn.shopify.com), maak er thumbnails van (640x800, JPEG) plus uitvergrote uitsneden van handen, polsen, voeten en kraag, en geef ze mee in `image_paths` (maximaal 4 per keer, samen 512 KB of minder). Zet variabelen met `;` en niet met `&&` als je curls op de achtergrond draait. Lukt dat ook niet, zeg dat eerlijk en presenteer een beeld nooit als goedgekeurd.
+- Laat bij een serie ook twee onafhankelijke controleurs kijken (workflow): één op de kleding- en accessoireregels, één op AI-fouten (anatomie, perspectief, tekst, randen).
 - Beantwoord per beeld `QA_QUESTIONS`, vul een `Observation` in en gebruik `judge()`.
 - Afgekeurd: opnieuw genereren (maximaal 3 keer per beeld) met de prompt plus één extra zin die het probleem benoemt, bijvoorbeeld "His wrists are bare: no watch, no bracelet." Niet retoucheren of bijwerken.
 
 ### 6. Opleveren
+
+- **De foto's**: de eigenaar wil één download met alleen de foto's, geen documenten en geen losse downloads. Maak in de Higgsfield-sandbox van de goedgekeurde beelden JPEG's op volle grootte (quality 95), genummerd met een Nederlandse titel ("01 Van achteren in het atrium.jpg"). Zet ze in één zip en vraag een upload-URL aan met `media_upload` (een zip is een "general file"). Upload in dezelfde sandbox-opdracht met `curl -X PUT -H 'Content-Type: application/octet-stream' -H 'If-None-Match: *'`, bevestig met `media_confirm` (type `file`) en controleer dat de link HTTP 200 geeft. Geef die ene link. In Google Drive kan Claude geen fotobestanden zetten, alleen documenten.
 
 - Per goedgekeurde post: datum, pijler, formaat, de producten (titel en link, voor product-tags) en de caption volgens `norm.md` hoofdstuk 7. Het plan heeft al een `caption` met de `wearing`-regel en de hashtags; schrijf de kop (3 tot 7 woorden met een punt) en één of twee zinnen. Engels, geen emoji, geen uitroeptekens, geen "shop now", alleen claims uit de productdata.
 - Publiceren via Windsor (`instagram`, actie voor een beeldpost) alleen na toestemming per post.
