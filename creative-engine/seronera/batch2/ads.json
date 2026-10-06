@@ -1,0 +1,8 @@
+[
+ {"id": 10, "bg": 51, "theme": "dark", "productTop": 720, "headline": "Made for the desk.", "sub": "Crocodile iPad cover · €250", "subColor": "#EFECEC", "scrim": "rgba(22,14,9,0.5)"},
+ {"id": 11, "bg": 32, "theme": "dark", "productTop": 760, "headline": "One skin. One piece.", "sub": "Crocodile iPad cover · €250"},
+ {"id": 12, "bg": 56, "theme": "light", "productTop": 720, "headline": "Never the same twice.", "sub": "Crocodile iPad cover · €250", "subColor": "#252525", "scrim": "rgba(239,236,236,0.6)"},
+ {"id": 13, "bg": 54, "theme": "dark", "productTop": 780, "headline": "Make it yours.", "sub": "Crocodile luggage tag · €35", "subColor": "#EFECEC", "scrim": "rgba(38,18,8,0.6)"},
+ {"id": 14, "bg": 55, "theme": "dark", "productTop": 720, "headline": "Easy to spot.", "sub": "Crocodile luggage tag · €35", "subColor": "#EFECEC", "scrim": "rgba(18,22,20,0.45)"},
+ {"id": 15, "bg": 26, "theme": "light", "productTop": 760, "headline": "Travel further afield.", "sub": "Crocodile luggage tag · €35", "subColor": "#252525"}
+]

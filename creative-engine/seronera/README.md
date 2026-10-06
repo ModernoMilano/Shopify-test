@@ -36,3 +36,21 @@ One ad with placement asset customization: Feed gets `_1x1.png`, Stories and Ree
 
 9 ads (3x Backstrap Belt Black €199, 3x Belt Cognac €149, 3x iPhone 17 Pro Max case €149), 24 Higgsfield credits (12 backgrounds at 2 credits, 3 of them redone).
 Download: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/99004c4a-4f67-4c96-8b2a-813dfb04ab02.zip
+
+## Batch 2 (2026-10-06): one file per ad
+
+From batch 2 on, every ad is **one 9:16 file** (1080x1920) that you upload as-is. Meta then crops the middle out of it for the feed:
+
+| Format | Visible part of the 9:16 |
+|---|---|
+| Reels/Stories | everything, minus the UI: y 270-1248 is free |
+| Feed 1:1 (Meta centre crop) | y 420-1500 |
+| Feed 4:5 (Meta centre crop) | y 285-1635 |
+| **Free in all three** | **x 65-1015, y 440-1230** |
+
+Layout: logo + headline (Trirong 72 px) + rule + subline in y 456-678, product from y ~720 to at most 1230. A soft gradient behind the text (it ends where the product starts) when the background is too busy. Checks are the same as batch 1 (safe zone, gap to the product, WCAG contrast per line). For the batch 2 settings: `batch2/ads.json`, `batch2/backgrounds.json`. Differences from `render.js`: SAFE y 440-1230, block top 456, headline 72 px, `white-space: nowrap`, scrim from y 300 to `productTop`.
+
+Product too big in the AI image? Generate at 1:1 with the product in the lower-middle and empty space at the top, then `outpaint_image` to 9:16 (2 credits). Outpainting first to a larger 1:1 (e.g. 3000x3000) zooms out further.
+
+6 ads (3x iPad cover €250, 3x luggage tag €35). Cost about 42 credits (including discarded attempts).
+Download: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/3dd4ddb5-951f-4abf-a2cb-961b51140805.zip

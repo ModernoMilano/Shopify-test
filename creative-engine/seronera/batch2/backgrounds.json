@@ -1,0 +1,16 @@
+{
+  "resultBase": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/",
+  "method": "nano_banana_pro 1:1 (2k), product centred in the lower-middle of the square, empty top 30%; then outpaint_image to 9:16 (2048x3641). The outpaint keeps the square exactly centred, so Meta's centre crop (1:1 and 4:5) shows the original square. #26 and #32 were generated straight at 9:16.",
+  "productPhotoMediaIds": {
+    "ipadCognac": "6f2ea56f-5ce1-4dd5-9a76-1773eed40406", "ipadBlack": "a24f93bc-45ef-4961-a189-c548e2c319ef", "ipadRed": "b8b11a0c-c55f-4502-8152-374ee7fc9f42",
+    "tagTobacco": "09f19086-d6d9-406c-9f9f-3a6014e006e8", "tagOrange": "edeb43a9-5960-4f2d-91fc-977c5a97805c", "tagBlack": "d7d950f3-033e-4c5c-b5f7-d4e5d1b8ee3b"
+  },
+  "used": [
+    { "bg": 51, "product": "ipadCognac", "scene": "walnut desk, window light (1:1 + outpaint)", "file": "hf_20261006_100934_f3996dd2-661f-40d4-8954-e800477ff3dd.png" },
+    { "bg": 32, "product": "ipadBlack", "scene": "forest-green marble plinth, spotlight (9:16)", "file": "hf_20261006_100342_1289f994-7563-4022-96d4-5c9bc98309fe.png" },
+    { "bg": 56, "product": "ipadRed", "scene": "travertine, palm shadows (1:1 + zoom-out outpaint 3000px + outpaint 9:16)", "file": "hf_20261006_101044_56a5ee67-e73a-47db-9bab-29cb9d0fea01.png" },
+    { "bg": 54, "product": "tagTobacco", "scene": "flat on cognac leather (1:1 + outpaint)", "file": "hf_20261006_100937_b1060cf9-7929-4ac5-bd6e-c163517235d8.png" },
+    { "bg": 55, "product": "tagOrange", "scene": "dark green-grey surface, spotlight (1:1 + outpaint)", "file": "hf_20261006_100940_11d2dba1-689b-4bf3-85eb-d3c96c3abbc8.png" },
+    { "bg": 26, "product": "tagBlack", "scene": "linen on safari deck at sunrise (9:16)", "file": "hf_20261006_100143_6f0e33e4-2727-41ab-b626-368907e77b62.png" }
+  ]
+}
