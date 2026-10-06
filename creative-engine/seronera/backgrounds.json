@@ -1,0 +1,19 @@
+{
+  "model": "nano_banana_pro",
+  "params": { "aspect_ratio": "9:16", "resolution": "2k", "mediaRole": "image_references" },
+  "costPerImageCredits": 2,
+  "resultBase": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/",
+  "promptTemplate": "{STYLE} product photograph, vertical 9:16 frame. Use the reference photo as the exact product: {PRODUCT} — keep shape, colour, scale pattern and hardware identical, do not redesign it. Scene: {SCENE}. COMPOSITION IS CRITICAL: the product is horizontally centred and lies entirely within the vertical band between {BAND_TOP}% and {BAND_BOTTOM}% of the image height, about {WIDTH}% of the image width. The top {TOP_EMPTY}% of the frame is only {TOP_FILL} (no objects). Everything below {BOTTOM_EMPTY}% of the height is only {BOTTOM_FILL} (no objects). Absolutely no text, letters, logos or watermarks anywhere apart from the tiny existing engraving on the buckle. Photorealistic, medium-format camera, 90mm lens, f/8. resolution: 2k",
+  "notes": "Keep text out of the generated image; text is composited by render.js. Product top must sit below ~y 600 (of 1920) for a 1-line headline, below ~y 680 for 2 lines. Check every background with qa.py before rendering.",
+  "used": [
+    { "bg": 1,  "product": "backstrapBeltBlack", "scene": "coiled on deep forest-green marble plinth, low-key spotlight", "file": "hf_20261006_091943_1d27663b-8206-4176-a59b-946e1f4d092e.png" },
+    { "bg": 12, "product": "backstrapBeltBlack", "scene": "granite boulder in savanna at golden hour, acacia, seamless sky", "file": "hf_20261006_092228_06276ea3-fb4f-47e2-b363-266da8999454.png" },
+    { "bg": 3,  "product": "backstrapBeltBlack", "scene": "rolled on taupe linen, atelier, window light", "file": "hf_20261006_091943_825c91c5-bcec-48f2-bf82-9606394b8523.png" },
+    { "bg": 4,  "product": "beltCognac", "scene": "off-white travertine, palm-leaf shadows", "file": "hf_20261006_091943_2486a186-480c-477b-9e36-8d32d2fa221a.png" },
+    { "bg": 5,  "product": "beltCognac", "scene": "dark green-grey pedestal, golden rim light", "file": "hf_20261006_091944_319dfa70-06d6-4417-ad95-fba6953c0374.png" },
+    { "bg": 6,  "product": "beltCognac", "scene": "wind-rippled African sand, early morning", "file": "hf_20261006_091943_a025b542-4d14-42a4-9ab7-a90d4a3f5cd2.png" },
+    { "bg": 17, "product": "iphone17ProMaxCaseHimalayanBlack", "scene": "upright on forest-green marble block, spotlight, small in frame", "file": "hf_20261006_092228_9954b1f0-a728-47b6-b8fa-30bc84437566.png" },
+    { "bg": 18, "product": "iphone17ProMaxCaseHimalayanBlack", "scene": "flat on dark river stone at dawn, mist", "file": "hf_20261006_092228_6ff4cff6-ed74-4591-b55f-4cfd6161f6dd.png" },
+    { "bg": 9,  "product": "iphone17ProMaxCaseHimalayanBlack", "scene": "taupe leather desk blotter, window light", "file": "hf_20261006_091944_39ac7346-921b-4001-adcc-4a5e752a398d.png" }
+  ]
+}

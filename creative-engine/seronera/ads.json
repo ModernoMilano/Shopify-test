@@ -1,0 +1,11 @@
+[
+ {"id": 1, "bg": 1, "theme": "dark", "productTop": 740, "headline": "No two are alike.", "sub": "Genuine crocodile leather · €199"},
+ {"id": 2, "bg": 12, "theme": "light", "productTop": 880, "maxLines": 1, "headline": "Born in Africa.", "sub": "The Backstrap Belt · €199"},
+ {"id": 3, "bg": 3, "theme": "light", "productTop": 780, "headline": "Crafted in South&nbsp;Africa.", "sub": "Backstrap belt in black · €199", "subColor": "#252525", "scrim": "rgba(239,236,236,0.62)", "scrimH": 820},
+ {"id": 4, "bg": 4, "theme": "light", "productTop": 760, "headline": "Warm cognac.<br>Quiet luxury.", "sub": "Genuine crocodile leather · €149"},
+ {"id": 5, "bg": 5, "theme": "dark", "productTop": 712, "headline": "The finishing touch.", "sub": "The cognac belt · €149"},
+ {"id": 6, "bg": 6, "theme": "light", "productTop": 860, "headline": "The serene nature<br>of Africa.", "sub": "Genuine crocodile leather · €149"},
+ {"id": 7, "bg": 17, "theme": "dark", "productTop": 632, "maxLines": 1, "headline": "Hold something rare.", "sub": "Crocodile leather case · €149"},
+ {"id": 8, "bg": 18, "theme": "light", "productTop": 760, "headline": "Nature, held<br>in your hand.", "sub": "Crocodile leather case · €149"},
+ {"id": 9, "bg": 9, "theme": "dark", "productTop": 640, "maxLines": 1, "headline": "Rare by nature.", "sub": "Crocodile leather case · €149", "subColor": "#EFECEC", "scrim": "rgba(28,25,20,0.6)", "scrimH": 840}
+]

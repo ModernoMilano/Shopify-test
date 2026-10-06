@@ -1,0 +1,37 @@
+{
+  "name": "Seronera",
+  "site": "https://seronera.shop",
+  "shopifyTheme": "Craft 15.4.1 (theme 'SERONERA COPY - GIJS')",
+  "tagline": "We welcome you to visit Seronera and experience the serene nature of Africa.",
+  "fonts": {
+    "heading": { "family": "Trirong", "weight": 300, "source": "Google Fonts" },
+    "body": { "family": "Quattrocento Sans", "weight": 400, "source": "Google Fonts" },
+    "googleCss": "https://fonts.googleapis.com/css2?family=Trirong:wght@300;400&family=Quattrocento+Sans:wght@400;700&display=swap"
+  },
+  "colors": {
+    "forestGreen": "#11381D",
+    "greenGrey": "#2C332F",
+    "taupe": "#716A56",
+    "gold": "#A38A56",
+    "offWhite": "#EFECEC",
+    "black": "#252525",
+    "grey": "#505655"
+  },
+  "adTextColors": {
+    "onDark": { "headline": "#EFECEC", "sub": "#C8AE78", "rule": "#A38A56" },
+    "onLight": { "headline": "#252525", "sub": "#4A4436", "rule": "#A38A56" }
+  },
+  "logo": {
+    "wordmark": "https://seronera.shop/cdn/shop/t/18/assets/Logo_Black.png?v=96956270509520972381790773450",
+    "badge": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/Logo_Icon_ae10d18d-cce7-483c-bd47-6d5265bd3777.png?v=1780296158&width=600"
+  },
+  "buttons": { "radius": 0, "borderWidth": 1 },
+  "higgsfield": {
+    "adsStudioBrandId": "bc40dc39-0efc-475c-ad85-d08da1a677fa",
+    "productPhotoMediaIds": {
+      "backstrapBeltBlack": "a7207b2d-0ba6-478c-a9a0-e189fce8ee2b",
+      "beltCognac": "afe42d1f-5667-46f3-bf63-a1501f0a0d00",
+      "iphone17ProMaxCaseHimalayanBlack": "76e97f4a-3e08-4449-8c36-66cc13f4d013"
+    }
+  }
+}
