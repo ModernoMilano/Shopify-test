@@ -16,7 +16,7 @@ ModernoMilano verkoopt geen accessoires, dus ze komen nooit in beeld:
 
 > horloge, armband, ring, ketting, oorbellen, riem, das, vlinderdas, pochet, sjaal, hoed, pet, muts, zonnebril, bril, tas, rugzak, aktetas, handschoenen, sneakers, boots, zichtbare sokken, een onderhemd dat uitsteekt, een jas of trui die niet in de referenties zit.
 
-Ook nooit: logo's, labels, monogrammen, tekst, watermerken, tattoos, andere mensen op de achtergrond, vrouwen (we verkopen geen dameskleding), en **auto's, boten of andere merkobjecten** (in de eigen feed stonden een Mercedes, een Aston Martin en een Riva; de luxemerken doen dit niet).
+Ook nooit: logo's, labels, monogrammen, tekst, watermerken, tattoos, andere mensen op de achtergrond, vrouwen (we verkopen geen dameskleding), en **merktekens**: een klassieke auto of houten motorboot mag als decor (Zegna doet het in Venetië, en het staat in je eigen moodboard), maar altijd zonder embleem, logo of leesbaar kenteken, en nooit als hoofdonderwerp.
 
 ## 3. Clean look
 

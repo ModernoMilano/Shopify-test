@@ -301,8 +301,9 @@ describe("shots en prompts volgens de norm", () => {
     for (const l of look) for (const { item } of l.items) expect(req.prompt).toContain(item.title);
   });
 
-  it("verbiedt ook auto's, boten, koptelefoons en tassen", () => {
-    for (const f of ["cars", "boats", "headphones", "holdall", "women"]) expect(FORBIDDEN).toContain(f);
+  it("verbiedt merktekens op auto's en boten, koptelefoons en tassen", () => {
+    for (const f of ["car or boat badges, emblems or brand names", "readable number plates", "headphones", "holdall", "women"]) expect(FORBIDDEN).toContain(f);
+    expect(FORBIDDEN).not.toContain("cars");
   });
 
   it("een afgeleid carrouselbeeld houdt plek en licht maar kadert anders", () => {

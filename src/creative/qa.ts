@@ -12,7 +12,7 @@ export interface Observation {
   /** Alles wat geen kledingstuk is maar wel gedragen wordt: horloge, riem, zonnebril... */
   accessories: string[];
   logosOrText: boolean;
-  /** Auto's, boten of andere herkenbare merkobjecten. */
+  /** Merktekens, emblemen of kentekens op auto's en boten, of andere herkenbare merkobjecten. */
   brandedObjects?: string[];
   people: number;
   feetVisible: boolean;
@@ -59,7 +59,7 @@ export const QA_QUESTIONS = [
   "Zie je een horloge, sieraad, riem, bril, tas, hoofddeksel, sjaal of das?",
   "Zie je een logo, label, monogram of tekst (ook op de achtergrond)?",
   "Klopt het aantal personen (een hand of benen in een detailbeeld tellen als één), en staat er niemand op de achtergrond?",
-  "Staat er een auto, boot of ander object van een merk in beeld?",
+  "Staat er een merkteken, embleem of leesbaar kenteken op een auto of boot, of een ander object van een merk in beeld?",
   "Bij loafers: zijn de enkels bloot (geen sokken)? Zonder loafers in de look: zijn de voeten uit beeld?",
   "Is het beeld clean: rustige achtergrond, zacht natuurlijk licht, maximaal drie kleurfamilies?",
   "Zijn handen, vingers en gezicht natuurlijk?",

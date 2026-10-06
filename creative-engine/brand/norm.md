@@ -65,7 +65,7 @@ De carrousels zijn vast opgebouwd:
 | Tonaal kleden, met hooguit één accentkleur per look (bijvoorbeeld Bordeaux). | Zegna SS26: "camel on camel, olive on khaki, sand on sand". Loro Piana zet in het lookbook per look één kleur in. |
 | Minstens 1 op de 3 posts toont een gelaagde look: cardigan, vest of gilet over een polo of tee. | Cucinelli en Boggi tonen steeds laag over laag. |
 | In een wijd landschap is de man minstens een kwart van de beeldhoogte. Het product moet herkenbaar blijven. | Eigen keuze: wij moeten verkopen, en hebben het bereik van de grote merken niet. |
-| **Nooit** auto's, boten of andere merkobjecten. | In de rasters van Cucinelli en Loro Piana staan geen merkobjecten. In de eigen feed stonden een Mercedes, een Aston Martin en een Riva. |
+| Een klassieke auto of houten motorboot mag als decor, **zonder** embleem, logo of leesbaar kenteken, en nooit als hoofdonderwerp. | Zegna zet zijn mannen in Venetië op houten motorboten. Het moodboard van de eigenaar (6 oktober) heeft een zilveren oldtimer in de sneeuw, een landhuis met een donkere sportwagen en een motorboot van boven. |
 
 ## 5. Beeldtypes (`src/creative/shots.ts`)
 

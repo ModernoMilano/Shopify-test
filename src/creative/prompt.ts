@@ -15,7 +15,7 @@ export const FORBIDDEN = [
   "visible socks", "sneakers", "boots", "any shoes other than the referenced loafers",
   "undershirt or extra layer peeking out", "coat, suit or garment that is not in the references",
   "logos", "brand labels", "monograms", "text", "watermarks",
-  "cars", "boats", "branded objects",
+  "car or boat badges, emblems or brand names", "readable number plates", "branded objects",
   "tattoos", "women", "other people in the background",
 ];
 
