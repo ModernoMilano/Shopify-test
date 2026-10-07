@@ -21,4 +21,6 @@ Afgekeurd en opnieuw gemaakt:
 - **8**: voeten met zwarte sokken in beeld. Opnieuw gemaakt met een uitsnede tot halve dij.
 - **10**: onmogelijk perspectief (tegelijk naar boven en naar beneden kijken). Opnieuw gemaakt van onder naar het daklicht.
 
+**Download (zip met de 10 JPEG's, 17 MB):** https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/0a802112-395d-45cd-ae03-2779a0cc9e28.zip. Bij foto 3 is een smalle zwarte filmrand weggesneden.
+
 Gecontroleerd via de Higgsfield-sandbox: elk beeld volledig en met uitvergrote handen en voeten, naast de productfoto's.
