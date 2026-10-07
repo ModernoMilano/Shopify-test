@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__HIGGSFIELD",
+      "mcp__Shopify",
+      "mcp__Google_Drive"
+    ]
+  }
+}
