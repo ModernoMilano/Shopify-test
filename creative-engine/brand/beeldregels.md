@@ -16,7 +16,7 @@ ModernoMilano verkoopt geen accessoires, dus ze komen nooit in beeld:
 
 > horloge, armband, ring, ketting, oorbellen, riem, das, vlinderdas, pochet, sjaal, hoed, pet, muts, zonnebril, bril, tas, rugzak, aktetas, handschoenen, sneakers, boots, zichtbare sokken, een onderhemd dat uitsteekt, een jas of trui die niet in de referenties zit.
 
-Ook nooit: logo's, labels, monogrammen, tekst, watermerken, tattoos, andere mensen op de achtergrond, vrouwen (we verkopen geen dameskleding), en **merktekens**: een klassieke auto of houten motorboot mag als decor (Zegna doet het in Venetië, en het staat in je eigen moodboard), maar altijd zonder embleem, logo of leesbaar kenteken, en nooit als hoofdonderwerp.
+Ook nooit: logo's, labels, monogrammen, tekst (met één uitzondering: het ModernoMilano-necklabel, zie hieronder), watermerken, tattoos, andere mensen op de achtergrond, vrouwen (we verkopen geen dameskleding), en **merktekens**: een klassieke auto of houten motorboot mag als decor (Zegna doet het in Venetië, en het staat in je eigen moodboard), maar altijd zonder embleem, logo of leesbaar kenteken, en nooit als hoofdonderwerp.
 
 ## 3. Clean look
 
@@ -30,11 +30,14 @@ Ook nooit: logo's, labels, monogrammen, tekst, watermerken, tattoos, andere mens
 | Steen, travertin, kalkpleister, eiken, linnen | Plastic, glimmende oppervlakken, merkspullen |
 | Model dat rustig en zelfverzekerd oogt | Overdreven poses, schreeuwerige expressies |
 
+**Uitzondering: het necklabel.** Sinds 7 oktober mag het eigen ModernoMilano-label in beeld, ingenaaid binnenin de nek: ivoor satijn, fijne stiklijn langs de randen, korte kanten omgevouwen en vastgestikt, met het zwarte script-logo 'ModernoMilano' en verder niets (geen maatlabel). Referenties: `brand/assets/necklabel.jpg` en het logo. Altijd rechtop en correct gespeld; een verkeerd gespeld of los, onleesbaar label is afkeur.
+
 Toegestane rekwisieten (geen kleding): een espressokopje, een olijftak, een linnen stoel, een stenen balustrade. Maximaal één per beeld.
 
 ## 4. Casting
 
-- Eén vast hoofdgezicht per hoofdstuk, 35 tot 55, grijs mag (Zegna met Mikkelsen, Cucinelli met ervaren modellen). Een tweede, jonger gezicht alleen voor twee mannen in beeld. Zie `src/creative/casting.ts`.
+- Sinds 7 oktober: modellen tussen ongeveer **20 en 40 jaar met een Italiaans/mediterraan uiterlijk** (olijfkleurige huid, donker haar; noem een stad zoals Napels of Palermo in de omschrijving). Varieer per beeld. Zie `MEN` in `output/2026-10-07-100-gevarieerd/shots100.py`.
+- Eerder: één vast hoofdgezicht per hoofdstuk, 35 tot 55 (`src/creative/casting.ts`); dat geldt niet meer voor sfeerbeelden.
 - Alleen mannen. Rustig en zelfverzekerd. Glimlachen mag (Cucinelli), staren in de verte ook (Zegna, Loro Piana). In wijde beelden kijkt hij weg van de camera.
 - Geen sieraden, geen tattoos, geen zichtbare piercings, geen bekende gezichten of lookalikes.
 
@@ -46,7 +49,7 @@ Toegestane rekwisieten (geen kleding): een espressokopje, een olijftak, een linn
 | Stories en reels | 9:16 (1080 × 1920), de kern binnen het 4:5-midden |
 | Productpagina | 4:5 of 3:4 |
 
-Tekst en logo komen er pas bij het posten op, nooit in het gegenereerde beeld.
+Tekst en logo komen er pas bij het posten op, nooit in het gegenereerde beeld. Het ingenaaide necklabel is de enige uitzondering.
 
 ## 6. Kwaliteitscontrole
 
@@ -55,7 +58,7 @@ Een beeld gaat pas naar jou als het deze vragen doorstaat (`QA_QUESTIONS` in `sr
 1. Staat er een kledingstuk of schoen in beeld dat niet in de look zit?
 2. Lijkt elk product op zijn productfoto (kleur, stof, kraag, knopen, zakken, lengte)?
 3. Zie je een accessoire?
-4. Zie je een logo, label of tekst?
+4. Zie je een logo, label of tekst, anders dan het correct gespelde ModernoMilano-necklabel?
 5. Klopt het aantal personen (een hand telt als één), en is de achtergrond leeg?
 6. Loafers zonder sokken, of voeten uit beeld als er geen loafers in de look zitten?
 7. Is het clean?
