@@ -93,6 +93,22 @@ De batch van 100 oogde te AI. De oorzaken:
 
 De tekstblokken in `model.json` draaien dat allemaal om: één gezicht, waist-up, rustige gesloten mond, één lichtbron die je kunt aanwijzen, wat leven in de verte en geen filmrandjes.
 
+## Lessen uit de set van 25 (8 oktober)
+
+- **Haar:** het element maakt zijn haar in de nek vaak iets langer dan op de referentiefoto's. Dat is geen reden om af te keuren. Wel afkeuren: een lok over het voorhoofd, een andere kleur, een baard of een ander gezicht.
+- **Haarregel:** "kort in de nek" in de prompt gaf soms een fade of pompadour. Gebruik de haarregel uit `output/2026-10-08-luca-25/shots.py` (`ID_LINE`).
+- **Stukken die het beeldmodel slecht tekent** (kies ze niet voor een hoofdrol of video):
+  - de Sartoriale-broek: krijgt een gulp en een omslag;
+  - het Imperial-jack: wordt een trainingsjack;
+  - de Midnight-set: de twee lagen vloeien in elkaar over;
+  - de Tabacco-set;
+  - het navy Lounge-vest: krijgt steekzakken.
+- **Stukken die het wel betrouwbaar tekent:** Onyx, Bellagio, de Lido- en Bergamo-polo's, de Signature-broek en de loafers.
+- **Wit T-shirt:** een wit crew-neck T-shirt onder een jas is een eigen product (Puro Supima) en mag.
+- **Video zonder hoofd:** het model zet de kin toch in beeld. Snijd het startbeeld bovenaan 160 tot 200 px bij, met 9:16 behouden, en de video zelf 150 px.
+- **Bewegen in video:** geen grote hoofddraai, want het haar vervormt. Versmelten voorbijgangers op de achtergrond, knip de clip dan voor dat moment af.
+- **Resolutie:** 2K is genoeg voor Instagram (1080 px breed) en kost de helft van 4K.
+
 ## Hoe het personage gebouwd is
 
 1. De vier foto's van de eigenaar zijn klein (200–350 px breed). Ze zijn opgeschaald naar 4K, en daarna is gecontroleerd dat het gezicht niet veranderde. In `model.json` is `media_id` de import van het kleine origineel en `upscale_job_id` de 4K-versie.
