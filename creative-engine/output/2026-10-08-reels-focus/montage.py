@@ -72,6 +72,11 @@ def text_layer(lines, yc, fonts):
         specs.append((s, f, track, wdt, size * 1.25, CREAM if style == "small" else YELLOW))
     total = sum(x[4] for x in specs)
     y = yc * H - total / 2
+    # Een zachte donkere waas achter het tekstblok, zodat geel ook op crème en licht hout leesbaar blijft.
+    scrim = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    bw = max(x[3] for x in specs) + 220
+    ImageDraw.Draw(scrim).ellipse(((W - bw) / 2, y - 70, (W + bw) / 2, y + total + 50), fill=(20, 12, 8, 105))
+    scrim = scrim.filter(ImageFilter.GaussianBlur(45))
     for s, f, track, wdt, lh, col in specs:
         x = (W - wdt) / 2
         for c in s:
@@ -80,7 +85,7 @@ def text_layer(lines, yc, fonts):
             x += d.textlength(c, font=f) + track
         y += lh
     sh = sh.filter(ImageFilter.GaussianBlur(6))
-    return Image.alpha_composite(sh, lay)
+    return Image.alpha_composite(Image.alpha_composite(scrim, sh), lay)
 
 
 def grade(fr, rng):
