@@ -250,5 +250,77 @@
   "kern": "Goed: de hand klopt en licht en stof ogen echt.",
   "details": "Er is geen gezicht in beeld. Het beeld stopt bij de schouder. · De linkerhand ligt op het bovenbeen en heeft vijf vingers met natuurlijke knokkels en nagels. De pols toont echte haartjes en aderen. · De mouwstrepen kloppen met het product: twee dunne crème strepen en een bredere crème band, met een mocha boord. · Kleine punten: de huid van de vingers is iets gladder dan bij de pols, maar niet wasachtig. De zijstreep van de broek is niet te zien door de houding.",
   "gezicht_px": 0
+ },
+ {
+  "check_id": "lago_b_draft1:kleding",
+  "beeld": "lago_b_draft1",
+  "agent": "Kleding-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: gilet en polo kloppen in alle beelden, zonder extra spullen of tekst.",
+  "details": "Het zwarte mouwloze gilet van MILANO NOBILE klopt in alle 20 beelden van 0 tot 4,75 seconden, met opstaande kraag, rits met klein metalen trekkertje en een zakje voor. · Eronder draagt hij een zwarte gebreide trui met lange mouwen en een kleine polokraag, en het gilet verandert niet van vorm of kleur. · Er zijn geen sieraden, horloge, bril, handen of extra kleding, er staat geen logo of tekst op de boot en er is geen tweede persoon. · Buiten de kleding om: rond 2,25 tot 2,75 seconden gaan zijn ogen dicht, en zijn hoofd zakt na 3 seconden nog door tot het einde.",
+  "gezicht_px": 130
+ },
+ {
+  "check_id": "lago_b_draft1:echtheid",
+  "beeld": "lago_b_draft1",
+  "agent": "Echtheid-controleur",
+  "oordeel": "afgekeurd",
+  "kern": "Afgekeurd: zijn ogen gaan dicht en zijn hoofd staat na 3 seconden niet stil.",
+  "details": "Rond 2,3 seconden gaan zijn ogen helemaal dicht en ze blijven dicht tot 5,0 seconden, terwijl de opdracht was dat hij zijn blik maar iets laat zakken. · Zijn hoofd zakt nog door van 3 tot 4 seconden en staat pas rond 4,3 seconden stil, dus het logo komt op een hoofd dat nog beweegt, en de buiging is veel groter dan bedoeld. · Gezicht, haar, gilet en camera zijn wel goed: het is in elk beeld dezelfde man als op de voorbeeldfoto's, zonder flikkering of vervorming. · Voor de nieuwe versie: zijn ogen blijven de hele tijd duidelijk open, hij knikt zijn kin maar een klein beetje, is klaar voor 2,5 seconden en blijft daarna stil tot het einde.",
+  "gezicht_px": 150
+ },
+ {
+  "check_id": "lago_a_draft:kleding",
+  "beeld": "lago_a_draft",
+  "agent": "Kleding-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: alle kleding klopt met de producten, alleen de schouders opnieuw controleren.",
+  "details": "Er zijn geen fouten in kleding of regels gevonden in de 16 beelden van dit filmpje van 4,04 seconden. · Het zwarte gilet met rits en opstaande kraag, de zwarte polo met twee grijze knopen en de zwarte broek met trekkoord kloppen met de productfoto's. · Let op: van voren lijkt het geheel bijna op het vest met rits en lange mouwen, omdat de mouwen van de polo wegvallen tegen het gilet. Controleer de schouders opnieuw in de eindversie. · Er is geen ring, horloge, logo, tekst of tweede persoon te zien. Over 4 seconden beweegt het beeld bijna niet, alleen het water glinstert.",
+  "gezicht_px": 95
+ },
+ {
+  "check_id": "lago_a_draft:echtheid",
+  "beeld": "lago_a_draft",
+  "agent": "Echtheid-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: het gezicht blijft steeds hetzelfde, maar de camera beweegt bijna niet.",
+  "details": "Het gezicht blijft gelijk in alle 16 beelden, om de 0,25 seconde bekeken, en ook in het laatste beeld. Ogen, neus, kaak en het naar achteren gekamde bruine haar passen bij de foto's van het model. · Het gezicht is ongeveer 95 pixels breed. Het is wat zacht, maar niet wazig of wasachtig: je ziet de huid en een klein moedervlekje op de wang. · Zijn linkerhand op de voorruit heeft vier vingers en blijft in elk beeld gelijk. Niets flikkert en er staan geen letters op de boot. · Let op: de camera staat bijna stil en vaart niet mee met de boot. Alleen het water glinstert, waardoor het lijkt op een stilstaande foto.",
+  "gezicht_px": 95
+ },
+ {
+  "check_id": "lago_a_final:kleding",
+  "beeld": "lago_a_final",
+  "agent": "Kleding-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: de kleding klopt en verandert in geen enkel beeld.",
+  "details": "Het zwarte gilet met rits en geribde opstaande kraag krijgt nergens mouwen, ook niet op 0, 2 en 4 seconden. · De polo is zwart met grijze knopen, en de zwarte broek heeft een trekkoord met metalen uiteinden, zoals op productfoto 2. · Klein punt, geen afkeuring: de knoopsluiting van de polo is donkergrijs in plaats van zwart, maar dat blijft gelijk in alle 16 beelden. · Hij draagt geen horloge, ring of armband, er is geen tweede persoon en de boot heeft geen logo of tekst.",
+  "gezicht_px": 265
+ },
+ {
+  "check_id": "lago_a_final:echtheid",
+  "beeld": "lago_a_final",
+  "agent": "Echtheid-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: hetzelfde gezicht in elk beeld, en handen en gilet blijven natuurlijk.",
+  "details": "Het gezicht is in alle 17 gecontroleerde beelden hetzelfde, scherp en met een natuurlijke huid, niet wasachtig. · De linkerhand op de voorruit houdt de hele video dezelfde vorm, en de rechterhand blijft rustig in de broekzak. · Op 2,0 seconden en in het laatste beeld op 4,0 seconden zit een kleine sprong in het beeld, maar er vervormt niets. Kijk daar even naar op normale snelheid. · Klein punt, geen afkeuring: door het tegenlicht lijkt het haar iets donkerder bruin, en het gezicht iets langer en smaller dan voorbeeldfoto 1.",
+  "gezicht_px": 210
+ },
+ {
+  "check_id": "lago_b_draft2:kleding",
+  "beeld": "lago_b_draft2",
+  "agent": "Kleding-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: de kleding klopt met de productfoto en er zijn geen extra spullen.",
+  "details": "De controleur bekeek 20 beelden, één per kwart seconde, en vond geen fout in de kleding. · De zwarte gilet zonder mouwen klopt met de productfoto: geribde opstaande kraag, rits, geribde armsgaten en een geribde zak onderaan, gelijk van 0 tot 4,75 seconden. · Onder de gilet zit een zwarte gebreide polo met lange mouwen, met kraag en knoop zichtbaar bij de hals en zonder strepen op de mouwen. · Er zijn geen accessoires zoals horloge, ketting, bril of hoed, de boot heeft geen logo of letters en er staat geen andere persoon in beeld.",
+  "gezicht_px": 150
+ },
+ {
+  "check_id": "lago_b_draft2:echtheid",
+  "beeld": "lago_b_draft2",
+  "agent": "Echtheid-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: de man lijkt op het vaste model en zijn ogen blijven open.",
+  "details": "Gezicht en haar komen overeen met de foto's van het vaste model en blijven gelijk in alle 121 beelden. · De ogen zijn steeds open, op één gewone knipper rond 0,42 tot 0,67 seconden na, ook van 2,3 tot 5,0 seconden waar de eerste versie werd afgekeurd. · Het hoofd schuift tussen 3,0 en 3,9 seconden een klein beetje opzij, is terug bij 4,5 seconden en staat daarna helemaal stil tot 5,0 seconden. · De camera staat vast op de boot, het beeld flikkert niet en gezicht, haar en gilet vervormen niet.",
+  "gezicht_px": 150
  }
 ]

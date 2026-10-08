@@ -51,6 +51,14 @@ b("p_antr", "pioggia", "Productfoto Total Antracite", "productfoto", "Uit de win
 b("p_blu", "giardino", "Productfoto Blu & Crema", "productfoto", "Uit de winkel: navy gilet met crème binnenkant.", "", 0, "", S+"f9cc26b6-128d-4daa-8dbb-9973ca7216a1.png?v=1791398240")
 b("p_mocha", "sera", "Productfoto Dark Mocha", "productfoto", "Flat-lay uit de winkel met de witte tee eronder.", "", 0, "", S+"dark_mocha.png?v=1787091946")
 b("p_mocha_j", "sera", "Productfoto Dark Mocha jas", "productfoto", "De jas gevouwen: crème rand om de capuchon, geen koordjes.", "", 0, "", S+"Scherm_afbeelding2026-02-13om16.45.40.png?v=1787671383")
+
+# Video's (Seedance 2.5). Clips met een voorbeeldframe; de link opent de clip.
+b("lago_a_draft", "lago", "Shot A, concept 480p", "goedgekeurd", "Rustig, Luca herkenbaar; de boot vaart nauwelijks zichtbaar.", "Kleding- en Echtheid-controleur", 12, "cb6ea9b6-ce98-4a8d-8ab7-b713034c3a28", C+"hf_20261008_220138_cb6ea9b6-ce98-4a8d-8ab7-b713034c3a28.mp4", "2026-10-08T22:01:38Z", "A")
+b("lago_a_final", "lago", "Shot A, 1080p", "gekozen", "Afgemaakt uit het concept; de geribde armsgaten zijn op beide schouders te zien.", "Kleding- en Echtheid-controleur", 48, "99e40dbb-52b0-423d-8fd6-f1167f2f5851", C+"hf_20261008_220850_99e40dbb-52b0-423d-8fd6-f1167f2f5851.mp4", "2026-10-08T22:08:50Z", "A")
+b("lago_b_draft1", "lago", "Shot B, concept 1", "afgekeurd", "Vanaf 2,3 s gaan zijn ogen dicht en buigt hij zijn hoofd tot 4,3 s, onder het logo.", "Echtheid-controleur", 15, "c9dba5b0-3de2-4db9-b19d-5f99f8d28f33", C+"hf_20261008_220436_c9dba5b0-3de2-4db9-b19d-5f99f8d28f33.mp4", "2026-10-08T22:04:36Z", "B")
+b("lago_b_draft2", "lago", "Shot B, concept 2", "goedgekeurd", "Ogen open, hoofd recht, camera vast op de boot; één natuurlijke knipper.", "Kleding- en Echtheid-controleur", 15, "5bc76890-1435-417b-86f6-c769b0a1d9eb", C+"hf_20261008_221325_5bc76890-1435-417b-86f6-c769b0a1d9eb.mp4", "2026-10-08T22:13:25Z", "B")
+b("lago_b_final", "lago", "Shot B, 1080p", "gekozen", "Afgemaakt uit concept 2.", "Regisseur", 60, "104510a3-7c38-4375-adae-32a0dc4a583d", C+"hf_20261008_222006_104510a3-7c38-4375-adae-32a0dc4a583d.mp4", "2026-10-08T22:20:06Z", "B")
+b("lago_montage", "lago", "Eindvideo Il lago, 9 s met logo", "in controle", "Shot A met langzame inzoom, harde snede, shot B, logo de laatste 2 s. Wacht op jouw feedback.", "", 0, "b0a52a2d-37b3-44f9-94c2-0b9daf77a757", "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/b0a52a2d-37b3-44f9-94c2-0b9daf77a757.mp4", "2026-10-08T22:22:40Z", "")
 J("beelden", B)
 
 th = json.load(open(os.path.join(D, "thumbs.json")))
@@ -61,11 +69,11 @@ AGENTS = [
  dict(agent="Beeldmaker", wie="Nano Banana Pro op Higgsfield", rol="Maakt de startbeelden in 4K, met Luca en de echte productfoto's als referentie.", status="klaar voor nu", volgorde=2),
  dict(agent="Kleding-controleur", wie="Claude-agent, één per beeld", rol="Legt elk beeld naast de productfoto's: kleur, kraag, rits, strepen, geen accessoires, jouw regels.", status="klaar voor nu", volgorde=3),
  dict(agent="Echtheid-controleur", wie="Claude-agent, één per beeld", rol="Kijkt of het Luca is en of het echt oogt: handen, huid, licht, geen tekst of AI-fouten.", status="klaar voor nu", volgorde=4),
- dict(agent="Prompt-nakijkers", wie="3 Claude-agents en een samenvatter", rol="Lezen de Seedance-prompts na op beweging, kleding en startbeeld, vóór er credits naar video gaan.", status="bezig", volgorde=5),
- dict(agent="Samenvatter", wie="Claude-agents", rol="Zet de bevindingen van de controleurs om in gewoon Nederlands voor dit dashboard.", status="bezig", volgorde=6),
+ dict(agent="Prompt-nakijkers", wie="3 Claude-agents en een samenvatter", rol="Lezen de Seedance-prompts na op beweging, kleding en startbeeld, vóór er credits naar video gaan.", status="klaar", volgorde=5),
+ dict(agent="Samenvatter", wie="Claude-agents", rol="Zet de bevindingen van de controleurs om in gewoon Nederlands voor dit dashboard.", status="klaar voor nu", volgorde=6),
  dict(agent="Eigenaar", wie="Jij", rol="Keurt de startbeelden goed; daarna pas gaan er credits naar video.", status="aan zet straks", volgorde=7),
  dict(agent="Videomaker", wie="Seedance 2.5 op Higgsfield", rol="Maakt van een goedgekeurd startbeeld een clip: eerst een concept in 480p, dan 1080p.", status="wacht", volgorde=8),
- dict(agent="Monteur", wie="ffmpeg in de Higgsfield-sandbox", rol="Zet de twee shots aan elkaar, legt de snede gelijk en zet je logo erop.", status="wacht", volgorde=9),
+ dict(agent="Monteur", wie="ffmpeg in de Higgsfield-sandbox", rol="Zet de twee shots aan elkaar, legt de snede gelijk en zet je logo erop.", status="klaar voor nu", volgorde=9),
 ]
 J("agents", AGENTS)
 
@@ -92,6 +100,23 @@ l("2026-10-08T21:42:14Z", "Echtheid-controleur", "Bijsnede van de boot en close-
 l("2026-10-08T21:42:58Z", "Samenvatter", "Bevindingen van de controleurs naar gewoon Nederlands voor dit dashboard.", "", "")
 l("2026-10-08T21:43:30Z", "Regisseur", "Dashboard gestart: voorbeeldbeelden gemaakt via de Higgsfield-sandbox.", "", "")
 l("2026-10-08T21:45:52Z", "Echtheid-controleur", "Mouwdetail 2 goedgekeurd: alle acht startbeelden van de vier video's zijn nu goed.", "sera", "det31")
+l("2026-10-08T21:57:20Z", "Prompt-nakijkers", "Voorcontrole klaar: kijkrichting, camera op de boot, hand en rits bij Blu & Crema en de open Mocha-jas aangepast.", "", "")
+l("2026-10-08T21:59:40Z", "Regisseur", "Startbeelden als zip op volle grootte naar de eigenaar gestuurd.", "", "")
+l("2026-10-08T22:00:50Z", "Eigenaar", "Akkoord op de startbeelden.", "", "")
+l("2026-10-08T22:01:40Z", "Videomaker", "Il lago, shot A: concept in 480p gestart (12 credits).", "lago", "comoAcrop")
+l("2026-10-08T22:03:30Z", "Regisseur", "Eigen controle concept A: rustig en Luca herkenbaar, maar de boot vaart nauwelijks zichtbaar.", "lago", "lago_a_draft")
+l("2026-10-08T22:04:36Z", "Videomaker", "Il lago, shot B: concept gestart (15 credits).", "lago", "comoB21")
+l("2026-10-08T22:05:30Z", "Eigenaar", "Geen meerkeuzevragen meer: kies zelf de aanbevolen weg.", "", "")
+l("2026-10-08T22:08:01Z", "Echtheid-controleur", "Concept A goedgekeurd door beide controleurs.", "lago", "lago_a_draft")
+l("2026-10-08T22:08:50Z", "Videomaker", "Shot A afgemaakt in 1080p (48 credits). In de montage komt er een langzame inzoom bij.", "lago", "lago_a_final")
+l("2026-10-08T22:12:48Z", "Echtheid-controleur", "Concept B afgekeurd: zijn ogen gaan vanaf 2,3 s dicht en hij buigt te ver.", "lago", "lago_b_draft1")
+l("2026-10-08T22:13:25Z", "Videomaker", "Concept 2 van shot B: ogen open, vanaf seconde 3 stil (15 credits).", "lago", "lago_b_draft2")
+l("2026-10-08T22:14:30Z", "Eigenaar", "Laat de eerste video eerst zien, dan feedback voor de volgende.", "", "")
+l("2026-10-08T22:15:23Z", "Kleding-controleur", "Shot A in 1080p goedgekeurd door beide controleurs.", "lago", "lago_a_final")
+l("2026-10-08T22:19:46Z", "Echtheid-controleur", "Concept 2 van shot B goedgekeurd: ogen open, camera vast.", "lago", "lago_b_draft2")
+l("2026-10-08T22:20:06Z", "Videomaker", "Shot B afgemaakt in 1080p (60 credits).", "lago", "lago_b_final")
+l("2026-10-08T22:22:40Z", "Monteur", "Il lago gemonteerd: 9 s, harde snede, logo de laatste 2 s.", "lago", "lago_montage")
+l("2026-10-08T22:23:30Z", "Regisseur", "Il lago naar de eigenaar gestuurd voor feedback; de andere video's wachten daarop.", "lago", "lago_montage")
 J("log", L)
 
 K = [
@@ -100,19 +125,21 @@ K = [
  dict(nr=3, stap="Mocha met juiste productfoto's", soort="uitgegeven", credits=8),
  dict(nr=4, stap="Close-up op de boot", soort="uitgegeven", credits=4),
  dict(nr=5, stap="Mouwdetail Mocha", soort="uitgegeven", credits=8),
- dict(nr=6, stap="Startbeeld B Antracite en Blu", soort="gepland", credits=8),
- dict(nr=7, stap="Concept-video's 480p", soort="gepland", credits=108),
- dict(nr=8, stap="Video's afmaken in 1080p", soort="gepland", credits=432),
+ dict(nr=6, stap="Il lago: concepten (A, B, B opnieuw)", soort="uitgegeven", credits=42),
+ dict(nr=7, stap="Il lago: 1080p (A en B)", soort="uitgegeven", credits=108),
+ dict(nr=8, stap="Startbeeld B Antracite en Blu", soort="gepland", credits=8),
+ dict(nr=9, stap="Concepten Pioggia, Giardino, Sera", soort="gepland", credits=81),
+ dict(nr=10, stap="1080p Pioggia, Giardino, Sera", soort="gepland", credits=324),
 ]
 J("kosten", K)
-J("saldo", [dict(moment="Start van de serie", credits=653.55), dict(moment="Nu", credits=589.55)])
+J("saldo", [dict(moment="Start van de serie", credits=653.55), dict(moment="Nu", credits=439.55)])
 
 STEPS = ["Draaiboek", "Startbeelden", "Controle startbeelden", "Jouw akkoord", "Voorcontrole prompts", "Concept-video 480p", "Controle video", "Afmaken 1080p", "Snede en logo", "Oplevering"]
 ST = {
- "lago": ["klaar", "klaar", "klaar", "wacht", "bezig", "wacht", "wacht", "wacht", "wacht", "wacht"],
- "pioggia": ["klaar", "klaar", "klaar", "wacht", "bezig", "wacht", "wacht", "wacht", "wacht", "wacht"],
- "giardino": ["klaar", "klaar", "klaar", "wacht", "bezig", "wacht", "wacht", "wacht", "wacht", "wacht"],
- "sera": ["klaar", "klaar", "klaar", "wacht", "bezig", "wacht", "wacht", "wacht", "wacht", "wacht"],
+ "lago": ["klaar", "klaar", "klaar", "klaar", "klaar", "klaar", "klaar", "klaar", "klaar", "bezig"],
+ "pioggia": ["klaar", "klaar", "klaar", "klaar", "klaar", "wacht", "wacht", "wacht", "wacht", "wacht"],
+ "giardino": ["klaar", "klaar", "klaar", "klaar", "klaar", "wacht", "wacht", "wacht", "wacht", "wacht"],
+ "sera": ["klaar", "klaar", "klaar", "klaar", "klaar", "wacht", "wacht", "wacht", "wacht", "wacht"],
 }
 J("stappen", [dict(video=v, nr=i+1, stap=s, status=st[i]) for v, st in ST.items() for i, s in enumerate(STEPS)])
 print("ok", len(B), len(L))

@@ -130,7 +130,7 @@
     <div class="uw-tile"><span class="lab">Credits over</span><span class="num dash-skeleton" data-source="saldo" data-field="credits" data-where="moment=Nu">—</span><span class="sub">van <span data-source="saldo" data-field="credits" data-where="moment=Start%20van%20de%20serie">—</span> bij de start</span></div>
     <div class="uw-tile"><span class="lab">Uitgegeven aan beelden</span><span class="num dash-skeleton" data-source="uitgaven" data-field="uitgegeven">—</span><span class="sub">credits, tot nu toe</span></div>
     <div class="uw-tile"><span class="lab">Nog gepland voor video</span><span class="num dash-skeleton" data-source="uitgaven" data-field="gepland">—</span><span class="sub">reserve daarna: <span data-source="budget" data-field="reserve">—</span></span></div>
-    <div class="uw-tile"><span class="lab">Beelden gemaakt</span><span class="num dash-skeleton" data-source="telling" data-field="gemaakt">—</span><span class="sub"><span data-source="telling" data-field="bruikbaar">—</span> bruikbaar, <span data-source="telling" data-field="afgekeurd">—</span> afgekeurd</span></div>
+    <div class="uw-tile"><span class="lab">Beelden en clips gemaakt</span><span class="num dash-skeleton" data-source="telling" data-field="gemaakt">—</span><span class="sub"><span data-source="telling" data-field="bruikbaar">—</span> bruikbaar, <span data-source="telling" data-field="afgekeurd">—</span> afgekeurd</span></div>
     <div class="uw-tile"><span class="lab">Controles gedaan</span><span class="num dash-skeleton" data-source="telling" data-field="controles">—</span><span class="sub"><span data-source="telling" data-field="goed">—</span> goed, <span data-source="telling" data-field="fout">—</span> afgekeurd</span></div>
   </section>
 
@@ -145,7 +145,7 @@
   <section class="uw-sec" id="videos">
     <header>
       <h2>De vier video's</h2>
-      <p class="uw-note">Elke video heeft twee shots en één snede, geen tekst en je logo de laatste 2 seconden. Groen omlijnd is klaar, oranje is bezig.</p>
+      <p class="uw-note">Elke video heeft twee shots en één snede, geen tekst en je logo de laatste 2 seconden. Groen omlijnd is klaar, oranje is bezig. Bij een clip opent de link de video zelf.</p>
     </header>
     <div class="uw-videos" id="uw-videos" data-source="videos stappen beelden voorbeelden controles"></div>
   </section>
@@ -328,7 +328,7 @@ dash.calc('stand', {
     if (Number(b.credits) > 0) meta.push(nf.format(Number(b.credits)) + ' credits');
     if (b.beoordeeld_door) meta.push('Oordeel: ' + b.beoordeeld_door);
     if (meta.length) info.append(mk('p', 'meta', meta.join(' · ')));
-    if (b.link) { const a = mk('a', null, 'Open in volle grootte'); a.href = b.link; a.target = '_blank'; a.rel = 'noopener'; info.append(a); }
+    if (b.link) { const a = mk('a', null, /\.mp4$/.test(b.link) ? 'Bekijk de video' : 'Open in volle grootte'); a.href = b.link; a.target = '_blank'; a.rel = 'noopener'; info.append(a); }
     const mine = controles.filter((r) => r.beeld === b.id);
     if (mine.length) {
       const ul = mk('ul', 'uw-checks');
