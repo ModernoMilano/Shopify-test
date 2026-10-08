@@ -67,12 +67,12 @@ export function hashtags(look: Look, date: string): string[] {
   return tags.slice(0, MAX_HASHTAGS);
 }
 
-export function captionDraft(input: { pillar: Pillar; look: Look; secondLook?: Look; date: string }): CaptionDraft {
+export function captionDraft(input: { pillar: Pillar; look: Look; date: string }): CaptionDraft {
   return {
     angle: ANGLES[input.pillar],
     headline: "",
     body: "",
-    wearing: wearingLine(input.look, input.secondLook),
+    wearing: wearingLine(input.look),
     hashtags: hashtags(input.look, input.date),
   };
 }

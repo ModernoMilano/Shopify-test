@@ -1,8 +1,11 @@
 // Van look + shot naar een beeldprompt met de echte productfoto's als referentie, en van een goedgekeurd beeld naar een reel.
 // De prompt is Engels (dat volgen beeldmodellen het best); de regels erin zijn de harde merkregels.
+// Staat er iemand in beeld, dan is dat het vaste model (casting.ts). Standaard komt zijn gezicht via het Higgsfield-element
+// (de placeholder in de prompt) en gaan alleen productfoto's mee (#1..#n). Alleen in de terugval zonder element gaan
+// zijn gezichtsfoto's als eerste mee (#1-#3), de productfoto's daarna. Nooit een andere man en nooit twee.
 
 import { FAMILY_WORDS } from "./colours";
-import { DEFAULT_FACE } from "./casting";
+import { MODEL } from "./casting";
 import { lookFromItems, type Look, type LookItem } from "./looks";
 import type { Aspect, Grade, Shot } from "./shots";
 import type { Slot, WardrobeItem } from "./wardrobe";
@@ -16,26 +19,53 @@ export const FORBIDDEN = [
   "undershirt or extra layer peeking out", "coat, suit or garment that is not in the references",
   "logos", "brand labels", "monograms", "text", "watermarks",
   "car or boat badges, emblems or brand names", "readable number plates", "branded objects",
-  "tattoos", "women", "other people in the background",
+  "tattoos", "women",
 ];
 
+/** Andere mensen. Op een openbare plek mogen 2 of 3 verre, onscherpe voorbijgangers (MODEL.publicPlaces), verder niemand. */
+const OTHER_PEOPLE = { public: "any other person who is near, sharp or recognisable", private: "other people" };
+
+/**
+ * Filmrol-woorden. In de batch van 100 gaven ze nepfilmranden en opgeplakte korrel, dus ze komen in geen enkele prompt.
+ * Ook geen los "film": alleen het vaste "No film borders" uit realism_en mag. Voorlopig komt er ook achteraf geen korrel bij.
+ */
+export const FILM_WORDS = [
+  "Kodak", "Portra", "Ektar", "Vision3", "Fuji", "Fujifilm", "Cinestill", "Ilford",
+  "photographed on film", "shot on film", "film photograph", "film stock", "35mm film", "film grain", "film look",
+  "still from a film", "film still", "filmic", "analog", "analogue", "grain", "grainy", "halation",
+];
+const escapeRe = (w: string) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+export const FILM_RE = new RegExp(`\\b(?:${FILM_WORDS.map(escapeRe).join("|")})\\b|\\bfilm\\b(?! borders)`, "i");
+export const hasFilmWords = (text: string) => FILM_RE.test(text);
+
 export const CLEAN_LOOK =
-  "Clean quiet-luxury aesthetic: uncluttered composition, generous negative space, muted tonal colour palette, " +
-  "soft natural light, fine natural skin texture, subtle analogue film grain, " +
-  "no HDR, no heavy filters, no lens flare, no vignette, no text or graphics. Looks like a real editorial photograph, not CGI.";
+  "Calm, uncluttered composition with room around the subject and a muted tonal colour palette; " +
+  "no HDR, no heavy filters, no lens flare, no vignette, no text or graphics. A real editorial photograph, not CGI.";
 
 const GRADE: Record<Grade, string> = {
   natural: "Colour: true-to-life natural colours, neutral white balance.",
-  "muted-warm": "Colour: gently muted, warm filmic grade with soft contrast; the garment colours stay true and recognisable.",
-  "muted-cool": "Colour: desaturated, slightly cool filmic grade with soft contrast, like a quiet film photograph; the garment colours stay recognisable.",
-  bw: "Black-and-white fine-art photograph with rich greys, soft contrast and fine grain.",
+  "muted-warm": "Colour: gently muted, warm grade with soft contrast; the garment colours stay true and recognisable.",
+  "muted-cool": "Colour: desaturated, slightly cool grade with soft contrast; the garment colours stay recognisable.",
+  bw: "Black-and-white photograph with rich greys and soft contrast.",
 };
 
-export { DEFAULT_FACE };
+/** Hoogstens zoveel referentiebeelden per opdracht (gezicht en producten samen). */
+export const MAX_REFERENCES = 14;
+
+/**
+ * Met het model in beeld hoogstens zoveel productfoto's, zodat zijn gezicht niet verwatert (model.json → rules).
+ * Elk product krijgt er wel altijd minstens één: een look van 5 stukken krijgt er dus 5.
+ */
+export const MAX_PRODUCT_REFS_WITH_MODEL = 4;
 
 export interface Reference {
+  /** product = foto van een ModernoMilano-product. face = gezichtsfoto van het model, alleen in de terugval zonder element (vooraan). */
+  kind: "face" | "product";
+  /** Product: de Shopify-URL (importeren met media_import_url). Gezicht: het bestand in de repo (niet importeren). */
   url: string;
   label: string;
+  /** Het Higgsfield-id voor `medias`. Bij een gezichtsfoto de 4K-versie (upscale_job_id uit model.json). */
+  mediaId?: string;
 }
 
 export interface GenerationRequest {
@@ -46,13 +76,17 @@ export interface GenerationRequest {
   references: Reference[];
 }
 
+/**
+ * Video volgens model.json → rules.video: nooit vanuit alleen tekst, altijd vanaf een goedgekeurde foto.
+ * Kling 3.0 (mode pro, zonder geluid); Kling gebruikt het element alleen samen met die `start_image`.
+ */
 export interface VideoRequest {
   model: "kling3_0";
-  /** Het goedgekeurde beeld (in 9:16) is het startframe. */
+  mode: "pro";
+  /** Het goedgekeurde beeld (in 9:16) is het startframe (`start_image`). */
   startFrame: "approved-still";
   aspect: "9:16";
   duration: number;
-  mode: "pro";
   sound: "off";
   prompt: string;
 }
@@ -115,9 +149,12 @@ function layering(look: Look): string | null {
   return parts.length ? `Layering: ${parts.join("; ")}.` : null;
 }
 
-/** Referentielijst: per product de hoofdfoto, plus een modelfoto als die er is (beter voor pasvorm). Nummering loopt door over looks. */
-export function references(looks: Look[], perItem = 2): { refs: Reference[]; index: Map<string, number[]> } {
-  const refs: Reference[] = [];
+/**
+ * Referentielijst: eerst `lead` (alleen in de terugval: de gezichtsfoto's van het model), dan per product de hoofdfoto,
+ * plus een modelfoto als die er is (beter voor pasvorm). De productnummers lopen door na `lead`.
+ */
+export function references(looks: Look[], perItem = 2, lead: Reference[] = []): { refs: Reference[]; index: Map<string, number[]> } {
+  const refs: Reference[] = [...lead];
   const index = new Map<string, number[]>();
   for (const look of looks) {
     for (const { item } of wearingOrder(look)) {
@@ -125,7 +162,7 @@ export function references(looks: Look[], perItem = 2): { refs: Reference[]; ind
       const urls = [item.images.primary, item.images.model, item.images.detail].filter((u): u is string => Boolean(u));
       const unique = [...new Set(urls)].slice(0, perItem);
       index.set(item.id, unique.map((url) => {
-        refs.push({ url, label: item.title });
+        refs.push({ kind: "product", url, label: item.title });
         return refs.length;
       }));
     }
@@ -133,36 +170,74 @@ export function references(looks: Look[], perItem = 2): { refs: Reference[]; ind
   return { refs, index };
 }
 
+/**
+ * Hoe zijn gezicht in beeld komt. element (standaard): de element-placeholder in de prompt, geen gezichtsfoto's in medias.
+ * refs: de terugval als het element niet werkt; dan gaan ref-1, ref-4 en ref-2 (4K) als #1-#3 vooraan mee.
+ */
+export type FaceMode = "element" | "refs";
+
+/**
+ * De gezichtsfoto's van het model voor dit shot: alleen in de terugval (refs), in de volgorde van model.json → face_ref_order.
+ * Bij een detail (gezicht uit beeld) is één foto genoeg voor huid en handen.
+ */
+export function faceReferences(shot: Shot, faces: FaceMode = "element"): Reference[] {
+  if (shot.people === 0 || faces === "element") return [];
+  const refs = shot.framing === "detail" ? MODEL.fallbackFaceRefs.slice(0, 1) : MODEL.fallbackFaceRefs;
+  return refs.map((r): Reference => ({ kind: "face", url: r.file, label: `ModernoMilano model (face, ${r.id})`, mediaId: r.upscaleJobId }));
+}
+
+/** Productfoto's per stuk met het model in beeld: binnen MAX_PRODUCT_REFS_WITH_MODEL en MAX_REFERENCES, minstens één. */
+function productsPerItem(items: number, faces: number): number {
+  const budget = Math.min(MAX_REFERENCES - faces, MAX_PRODUCT_REFS_WITH_MODEL);
+  return Math.max(1, Math.min(2, Math.floor(budget / Math.max(1, items))));
+}
+
+/** "#1" of "#1-#4". */
+const span = (from: number, to: number) => (from === to ? `#${from}` : `#${from}-#${to}`);
+const sentence = (text: string) => `${text[0].toUpperCase()}${text.slice(1)}.`;
+
+/** De ene lichtbron op hem: die van het shot, anders het standaardlicht van het model. Bij een detail het licht van de plek. */
+function keyLight(shot: Shot): string {
+  if (shot.framing === "detail") return `One motivated light source: ${shot.light}; his skin and the fabric share that same light.`;
+  return shot.keyLight ?? MODEL.light;
+}
+
 export interface PromptOptions {
   aspect?: Aspect;
+  /** Standaard 4k met het model in beeld (zijn gezicht moet scherp zijn), anders 2k. */
   resolution?: "2k" | "4k";
-  /** Beschrijving van het hoofdgezicht (of `<<<element_id>>>`). */
-  casting?: string;
-  /** Voor beelden met twee mannen: de look en het gezicht van de tweede, jongere man. */
-  second?: { look: Look; casting: string };
   /** Nodig voor shots die alle kleuren van een stuk tonen. */
   wardrobe?: WardrobeItem[];
+  /** Standaard element; refs alleen als het element niet werkt (zie FaceMode). */
+  faces?: FaceMode;
 }
 
 export function buildPrompt(look: Look, shot: Shot, opts: PromptOptions = {}): GenerationRequest {
   const main = subjectOf(look, shot, opts.wardrobe);
-  const duo = shot.people === 2 && opts.second ? subjectOf(opts.second.look, shot, opts.wardrobe) : null;
-  const { refs, index } = references(duo ? [main, duo] : [main]);
   const hasPerson = shot.people > 0;
+  const detail = hasPerson && shot.framing === "detail";
+  const viaRefs = opts.faces === "refs";
+  const faces = faceReferences(shot, opts.faces);
+  const k = faces.length;
+  const { refs, index } = references([main], hasPerson ? productsPerItem(main.items.length, k) : 2, faces);
   const sketch = shot.render === "sketch";
-  const hasShoes = main.hasShoes && (!duo || duo.hasShoes);
   const palette = look.palette && shot.subject !== "line" ? ` Colour mood: ${look.palette.mood}.` : "";
-  const casting = opts.casting ?? DEFAULT_FACE;
+
+  // Standaard brengt het element zijn gezicht; zijn gezicht wordt dan niet opnieuw in woorden beschreven (dat vecht met
+  // het element). Alleen in de terugval zijn zijn gezichtsfoto's #1..#k, met identity_en erbij.
+  const hisRefs = viaRefs
+    ? ` His reference ${k === 1 ? "image is" : "images are"} ${span(1, k)}: use ${k === 1 ? "it" : "them"} only for him and ignore ${k === 1 ? "its" : "their"} clothing, light and setting.`
+    : "";
+  const him = viaRefs ? `the man in reference ${k === 1 ? "image" : "images"} ${span(1, k)}` : MODEL.elementPlaceholder;
 
   let subject: string;
   let wardrobe: string;
-  if (duo) {
-    subject = `Subjects: exactly two men. The older man: ${casting}. The younger man: ${opts.second!.casting}. Pose: ${shot.pose}.`;
-    wardrobe =
-      `The older man wears ONLY the following ModernoMilano pieces and nothing else:\n- ${wardrobeLines(main, index).join("\n- ")}\n\n` +
-      `The younger man wears ONLY the following ModernoMilano pieces and nothing else:\n- ${wardrobeLines(duo, index).join("\n- ")}`;
-  } else if (hasPerson) {
-    subject = shot.framing === "detail" ? `Subject: only part of the man is visible (${shot.pose}).` : `Subject: ${casting}. Pose: ${shot.pose}.`;
+  if (hasPerson) {
+    subject = detail
+      ? `Subject: only part of him is visible (${shot.pose}); his face is out of frame. He is ${him}: the same skin tone, hands and build.${hisRefs}`
+      : viaRefs
+        ? `Subject: ${him}, ${MODEL.identity}. ${MODEL.keep}${hisRefs} Pose: ${shot.pose}.`
+        : `Subject: ${him}. ${MODEL.keep} Pose: ${shot.pose}.`;
     wardrobe = `He wears ONLY the following ModernoMilano pieces and nothing else:\n- ${wardrobeLines(main, index).join("\n- ")}`;
   } else if (sketch) {
     subject = `Subject: ${shot.pose}.`;
@@ -174,47 +249,81 @@ export function buildPrompt(look: Look, shot: Shot, opts: PromptOptions = {}): G
 
   const fidelity =
     "Reproduce every garment exactly as in its reference: same colour and shade, same knit or weave texture, same collar, " +
-    "same number and position of buttons or zip, same pockets, same length and fit. Do not add, remove or redesign any detail.";
+    "same number and position of buttons or zip, same pockets, same length and fit. Do not add, remove or redesign any detail." +
+    (hasPerson
+      ? refs.length === k + 1
+        ? ` The garment reference (#${k + 1}) is only for the clothes: ignore any person or face in it.`
+        : ` The garment references (${span(k + 1, refs.length)}) are only for the clothes: ignore any person or face in them.`
+      : "");
 
   const feetInFrame = shot.framing === "full-body" || shot.subject === "lower";
   const feet = !hasPerson
     ? null
     : !feetInFrame
       ? "The feet are out of frame."
-      : hasShoes
-        ? "The loafers are worn sockless with bare ankles visible."
+      : main.hasShoes
+        ? "The loafers are worn sockless with bare ankles visible, a mirrored left and right pair."
         : "No shoes are part of this look: keep the feet out of frame.";
 
+  // framing_en hoort bij locatiebeelden tot de taille of driekwart; niet bij de studio en niet bij ten voeten uit.
+  const framing = hasPerson && !detail && shot.pillar !== "product" && shot.framing !== "full-body";
+  const forbidden = [...FORBIDDEN, shot.publicPlace ? OTHER_PEOPLE.public : OTHER_PEOPLE.private];
+
+  // Licht, uitsnede en uitdrukking vooraan, de kledingregels erachter. Met hem in beeld is er één lichtbron (keyLight),
+  // dus geen tweede lichtbeschrijving in de Setting-regel.
   const prompt = [
     sketch ? "Photograph of a pencil fashion sketch." : `${FRAMING[shot.framing]}.`,
-    `Setting: ${shot.setting}. Light: ${shot.light}. Camera: ${shot.camera}.`,
+    hasPerson ? `Setting: ${shot.setting}. Camera: ${shot.camera}.` : `Setting: ${shot.setting}. Light: ${shot.light}. Camera: ${shot.camera}.`,
     subject,
+    framing ? `Framing: ${MODEL.framing}.` : null,
+    hasPerson ? keyLight(shot) : null,
+    hasPerson && !detail ? `Expression: ${MODEL.expression}.` : null,
+    hasPerson && !detail ? `For him: ${MODEL.mustNot.join("; ")}.` : null,
+    shot.publicPlace ? sentence(MODEL.publicPlaces) : null,
     wardrobe,
     main.items.length > 1 ? layering(main) : null,
     fidelity,
     feet,
-    `Absolutely none of the following may appear: ${FORBIDDEN.join(", ")}.`,
+    `Absolutely none of the following may appear: ${forbidden.join(", ")}.`,
     sketch ? "Clean, calm, generous empty paper around the drawing." : `${CLEAN_LOOK}${palette} ${GRADE[shot.grade]}`,
+    hasPerson ? MODEL.realism : null,
   ]
     .filter(Boolean)
     .join("\n\n");
 
-  return { model: "nano_banana_pro", aspect: opts.aspect ?? "4:5", resolution: opts.resolution ?? "2k", prompt, references: refs };
+  return {
+    model: "nano_banana_pro",
+    aspect: opts.aspect ?? "4:5",
+    resolution: opts.resolution ?? (hasPerson ? "4k" : "2k"),
+    prompt,
+    references: refs,
+  };
 }
 
-/** Reel van een goedgekeurd beeld: rustige beweging, kleding en gezicht blijven exact gelijk. */
+/** Reel van een goedgekeurd beeld: rustige beweging; het model, de kleding en de plek blijven exact gelijk. */
 export function buildMotion(shot: Shot): VideoRequest {
-  const who = shot.people > 0 ? "the man, his face, every garment, the loafers" : "every garment";
+  const person = shot.people > 0;
+  const detail = person && shot.framing === "detail";
   return {
     model: "kling3_0",
+    mode: "pro",
     startFrame: "approved-still",
     aspect: "9:16",
-    duration: shot.pillar === "product" ? 6 : 10,
-    mode: "pro",
+    duration: 5,
     sound: "off",
-    prompt:
-      `Animate this exact photograph: ${shot.motion}. Keep ${who}, the colours and the setting exactly as in the start frame: ` +
-      "garments must not change colour, shape, length or details. No new objects, no accessories, no text, no extra people. " +
-      "Calm, slow, real-time motion, one continuous shot, no cuts, no zoom effects, no camera shake.",
+    prompt: [
+      `Start from the approved still: it is the first frame. Animate it: ${shot.motion}.`,
+      detail
+        ? `He is ${MODEL.elementPlaceholder}; his face stays out of frame for the whole shot; keep the same skin tone, hands and build; the camera does not tilt up. No other man appears.`
+        : person
+          ? `He is ${MODEL.elementPlaceholder}: keep exactly the same man as in the approved still, with the same face, hair, brows, eyes, jaw and build from the first frame to the last. ` +
+            "No other man appears. Small natural movement only: no full head turn, nothing passes in front of his face."
+          : null,
+      `Keep ${person ? "every garment, the loafers" : "every garment"}, the colours and the setting exactly as in the start frame: ` +
+        "garments must not change colour, shape, length or details. No new objects, no accessories, no text, no extra people. " +
+        "Calm, slow, real-time motion, one continuous shot, no cuts, no zoom effects, no camera shake.",
+    ]
+      .filter(Boolean)
+      .join(" "),
   };
 }

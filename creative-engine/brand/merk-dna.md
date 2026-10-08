@@ -10,7 +10,7 @@ Italiaanse quiet luxury voor mannen, in cashmere, zachte sets en suède loafers,
 |---|---|---|
 | Cashmere breigoed (87 producten) | Cortina, Bergamo, Sorrento en Lido polo, Vela, Verona cardigan, Bellagio, Pieno gilet, Camicia | Het hart van het merk: textuur, warmte, kwaliteit |
 | Sets | Cashmere Lounge Set, Reverso-sets, Imperial Zip Set, Knitted Cashmere Set | Bestsellers: compleet, makkelijk, herkenbaar |
-| Huislooks (bundel inclusief loafers) | Terra, Tabacco, Avorio, Eleganza, Nobile, Notte, Onice, Supremo, Azzurro, Ghiaccio | Kant-en-klare outfits, ideaal voor full-body beelden |
+| Huislooks (bundel inclusief loafers) | Terra, Tabacco, Avorio, Eleganza, Nobile, Notte, Onice, Supremo, Azzurro, Ghiaccio | Kant-en-klare outfits, ideaal voor de studioslide ten voeten uit |
 | Buitenlagen | Torino blazer, Hooded en Classic jacket, Reverso, Prime en Capri gilet | Gelaagdheid, herfst en winter |
 | Broeken | Sartoriale, Signature, Atelier, Classico, Como, joggers | Basis van elke look |
 | Schoenen | Suede Loafer in 10 kleuren | De enige schoen die in beeld mag |
@@ -51,7 +51,7 @@ Sinds 8 oktober 2026 staat in alle content één vaste man. Hij hoort bij het me
 - Midden twintig, donker kastanjebruin haar dat naar achteren valt, een brede kaak, een vage stoppelbaard en een atletisch postuur.
 - Rustig en zeker. Mond dicht, blik meestal langs de camera. Hij poseert niet en lacht niet breeduit.
 - Hij draagt alleen ModernoMilano, zonder sieraden of accessoires.
-- Nooit een ander model en nooit twee mannen in één beeld.
+- Nooit een ander model en nooit twee mannen in één beeld. Verre, onscherpe voorbijgangers op een openbare plek tellen niet mee.
 - Hij lijkt niet op een bekend persoon, en we vergelijken hem met niemand.
 
 Wie hij is, de referentiefoto's en hoe hij in beeld komt: [`model.md`](model.md). De regels in beeld: [`beeldregels.md`](beeldregels.md), hoofdstuk 4.

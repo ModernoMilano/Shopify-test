@@ -46,7 +46,7 @@ Hij krijgt nooit:
 - hoge of gebogen wenkbrauwen;
 - blond, rood of zwart haar, een fade, wet-look gel of een middenscheiding met gordijntjes.
 
-Verder nooit een brede tandenlach, en nooit een andere man of twee mannen in één beeld. Hij lijkt niet op een acteur of bekend persoon, en we vergelijken hem ook met niemand.
+Verder nooit een brede tandenlach, en nooit een andere man of twee mannen in één beeld. Verre, onscherpe voorbijgangers op een openbare plek tellen niet mee. Hij lijkt niet op een acteur of bekend persoon, en we vergelijken hem ook met niemand.
 
 ## Hoe hij in beeld komt
 
@@ -54,29 +54,31 @@ Verder nooit een brede tandenlach, en nooit een andere man of twee mannen in é�
 
 - **Model**: Nano Banana Pro, 4K, 4:5.
 - **Prompt**: zet het element `<<<4c170ca1-19b2-49db-b217-d1c6e0b543e7>>>` erin. Higgsfield voegt dan zelf zijn gezicht toe.
-- **Productfoto's**: de echte foto's als `image_references`, maximaal 4 per beeld.
-- **Vaste tekstblokken** uit `model.json` → `prompt`: `keep_en`, `realism_en`, `light_default_en`, `expression_en` en `framing_en`.
+- **Referenties**: alleen de echte productfoto's als `image_references`, maximaal 4 per beeld (een look van 5 stukken: één per stuk). Geen gezichtsfoto's: het element brengt zijn gezicht.
+- **Vaste tekstblokken** uit `model.json` → `prompt`: `keep_en`, `realism_en`, `light_default_en`, `expression_en` en `framing_en`, en op openbare plekken `public_places_en`. Niet `identity_en`: een gezicht in woorden vecht met het element.
+- **Eerst testen**: de nummering met element plus productfoto's is nog niet getest. Maak vóór de eerste batch één testbeeld en controleer dat "reference image #n" het juiste stuk pakt.
+- **Terugval zonder element**: ref-1, ref-4 en ref-2 in 4K (`face_ref_order`) als eerste referenties (#1-#3), dan de producten, met `identity_en` en zonder placeholder. Ref-3 gaat niet mee: van achteren zegt hij te weinig over zijn gezicht.
 
 ### Portret- en sfeerfoto's waar het gezicht centraal staat
 
 - **Model**: Soul 2.0 met Soul ID `9047016d-76a7-454b-bc9b-c2268778f00a` (`soul_2`), 2K, 3:4. Daarna bijsnijden naar 4:5.
-- **Waarom**: dit geeft de echtste huid en het vaste gezicht.
-- **Beperking**: er past maar één productfoto per beeld bij. Gebruik het dus voor eenvoudige outfits.
+- **Waarom**: dit geeft de echtste huid.
+- **Beperking**: zonder productfoto. Soul gebruikt een meegegeven foto als basis en maakt dan die productfoto na, zonder hem (getest 8 oktober). De kleding staat dus alleen in de tekst en klopt maar bij benadering, en zijn gezicht lijkt minder dan met het element. Alleen voor snelle sfeerportretten buiten het plan, met een eenvoudige outfit.
 
 ### Video
 
 Maak nooit video vanuit alleen tekst. Begin altijd met een goedgekeurde foto van hem:
 
-- **Model**: Seedance 2.0, 5 seconden, 1080p.
-- **Startbeeld**: `start_image` is die foto.
-- **Prompt**: het element in de prompt, zodat het gezicht vast blijft.
+- **Model**: Kling 3.0 (`mode: "pro"`, zonder geluid), 5 seconden, 9:16. Seedance 2.0 kan ook, maar kost ongeveer vijf keer zoveel.
+- **Startbeeld**: `start_image` is die foto, in 9:16.
+- **Prompt**: het element in de prompt, zodat het gezicht vast blijft. Kling gebruikt het element alleen samen met dat startbeeld.
 - **Beweging**: rustig en natuurlijk, zoals lopen, een mouw rechttrekken of over het water kijken. Geen volledige hoofddraai en niets voor zijn gezicht.
 
 ### Altijd
 
 - Maximaal 12 beelden per batch, daarna eerst controleren.
-- In elk beeld met een gezicht is dat gezicht minstens ongeveer 500 px breed.
-- **Controle**: leg elk beeld naast ref-1 en ref-4. Is het niet duidelijk dezelfde man, dan wordt het afgekeurd.
+- In elk beeld met een gezicht is dat gezicht minstens ongeveer 500 px breed. Dat geldt alleen voor foto's waarin zijn gezicht herkenbaar in beeld is. In wijde beelden (landschap, sneeuwveld, kust) staat hij van achteren of opzij en is zijn gezicht niet te lezen; dan vervalt deze regel. Bij een reel ook.
+- **Controle**: leg elk beeld waarin zijn gezicht herkenbaar is naast ref-1 en ref-4. Is het niet duidelijk dezelfde man, dan wordt het afgekeurd.
 
 ## Waarom zo (lessen uit de batch van 100)
 
@@ -93,7 +95,7 @@ De tekstblokken in `model.json` draaien dat allemaal om: één gezicht, waist-up
 
 ## Hoe het personage gebouwd is
 
-1. De vier foto's van de eigenaar zijn klein (200–350 px breed). Ze zijn opgeschaald naar 4K, en daarna is gecontroleerd dat het gezicht niet veranderde.
+1. De vier foto's van de eigenaar zijn klein (200–350 px breed). Ze zijn opgeschaald naar 4K, en daarna is gecontroleerd dat het gezicht niet veranderde. In `model.json` is `media_id` de import van het kleine origineel en `upscale_job_id` de 4K-versie.
 2. Van drie daarvan (ref-1, ref-4, ref-2) is het Higgsfield-element `modernomilano-model` gemaakt.
 3. Met dat element zijn 8 neutrale portretten gemaakt (voor, driekwart, profiel, verschillende lichtsituaties). 7 kwamen overeen en zijn goedgekeurd.
 4. Op de 4 foto's en die 7 portretten is de Soul ID "ModernoMilano Luca" getraind (Soul 2.0, 25 credits).

@@ -1,9 +1,11 @@
 // Maakt een contentplan volgens de norm, met looks, beeldtypes, complete beeldprompts, reels en een captionopzet.
 //   npm run creative:plan -- --posts 9 --start 2026-10-12 --seed 3 --anchor milano-cashmere-torino-blazer-perla
-//   --casting "<<<element-id>>>"   vervangt het hoofdgezicht (bv. een vast Higgsfield Element), --second idem voor de tweede man
+// Het model is altijd hetzelfde (creative-engine/data/model.json); daar is geen optie voor. Zijn gezicht komt via het
+// Higgsfield-element. Werkt het element niet, voeg dan --face-refs toe: dan gaan zijn gezichtsfoto's als #1-#3 mee.
 // Schrijft creative-engine/output/plan-<start>.json (voor Claude/Higgsfield) en .md (om te lezen).
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
+import { MODEL } from "../../src/creative/casting";
 import { makePlan, type PlanEntry } from "../../src/creative/plan";
 import type { WardrobeItem } from "../../src/creative/wardrobe";
 
@@ -25,29 +27,35 @@ const plan = makePlan(wardrobe, {
   seed: Number(arg("seed") ?? 1),
   anchors: args("anchor"),
   prefer,
-  casting: arg("casting"),
-  secondCasting: arg("second"),
+  faces: process.argv.includes("--face-refs") ? "refs" : "element",
 });
 
 const FORMAT = { single: "los beeld", carousel: "carrousel", reel: "reel" };
 
 function md(entries: PlanEntry[]): string {
-  const out = [`# Contentplan vanaf ${start.toISOString().slice(0, 10)}`, "", "Gelezen in rijen van 3. Regels: `creative-engine/brand/norm.md`.", ""];
+  const out = [
+    `# Contentplan vanaf ${start.toISOString().slice(0, 10)}`,
+    "",
+    "Gelezen in rijen van 3. Regels: `creative-engine/brand/norm.md`.",
+    "",
+    `Model: altijd hetzelfde (\`creative-engine/data/model.json\`), element \`${MODEL.elementPlaceholder}\`. ` +
+      (process.argv.includes("--face-refs")
+        ? "Terugval zonder element: in elk beeld met hem staan zijn gezichtsfoto's (4K) als eerste referenties, daarna de producten. "
+        : "Zijn gezicht komt via het element; de referenties zijn alleen productfoto's. ") +
+      `Stuur \`medias\` in precies de volgorde van de referenties. Maximaal ${MODEL.batchMax} beelden per batch.`,
+    "",
+  ];
   for (const e of entries) {
     out.push(`## ${e.n}. ${e.date} · ${e.pillar} · ${FORMAT[e.format]}`, "");
     out.push(`**Look:** ${e.look.name} (${e.look.source === "house" ? "huislook" : "samengesteld"})`, "");
     for (const { item, as } of e.look.items) out.push(`- ${item.title} (${as.join("/")}) · €${item.priceEur}${item.url ? ` · ${item.url}` : ""}`);
-    if (e.secondLook) {
-      out.push("", `**Tweede man:** ${e.secondLook.name}`, "");
-      for (const { item } of e.secondLook.items) out.push(`- ${item.title}${item.url ? ` · ${item.url}` : ""}`);
-    }
     out.push("", `**Caption:** ${e.caption.angle}`, "", "```text", "<kop>", "<een of twee zinnen>", e.caption.wearing, "", e.caption.hashtags.join(" "), "```", "");
     e.frames.forEach((f, i) => {
       out.push(`### Beeld ${i + 1}: ${f.shot.name} (${f.request.aspect})`, "", "Referenties:");
-      f.request.references.forEach((r, j) => out.push(`${j + 1}. ${r.label}: ${r.url}`));
+      f.request.references.forEach((r, j) => out.push(`${j + 1}. ${r.label}: ${r.url}${r.mediaId ? ` (id voor medias: ${r.mediaId})` : ""}`));
       out.push("", "```text", f.request.prompt, "```", "");
     });
-    if (e.video) out.push(`### Reel (${e.video.model}, ${e.video.duration} s, ${e.video.aspect}, startframe = goedgekeurd beeld 1)`, "", "```text", e.video.prompt, "```", "");
+    if (e.video) out.push(`### Reel (${e.video.model}, mode ${e.video.mode}, ${e.video.duration} s, ${e.video.aspect}, geluid ${e.video.sound}, startframe = goedgekeurd beeld 1)`, "", "```text", e.video.prompt, "```", "");
   }
   return out.join("\n");
 }

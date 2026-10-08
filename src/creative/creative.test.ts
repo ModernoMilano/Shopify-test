@@ -1,16 +1,28 @@
+import { existsSync } from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
+import modelJson from "../../creative-engine/data/model.json";
 import wardrobeJson from "../../creative-engine/data/wardrobe.json";
 import { fromWindsorRow, summarize } from "./competitors";
 import { composeLooks, houseLook, lookFamilies, lookFromItems, validateLook } from "./looks";
 import { productName, seasonTag } from "./captions";
-import { castFor, FACES } from "./casting";
-import { DEFAULT_DAYS, makePlan, MAX_SAME_HERO } from "./plan";
-import { buildPrompt, FORBIDDEN } from "./prompt";
-import { judge, type Observation } from "./qa";
+import * as casting from "./casting";
+import { MODEL, modelFrom } from "./casting";
+import { CHAPTER, DEFAULT_DAYS, makePlan, MAX_FULL_BODY_SHARE, MAX_SAME_HERO, PERSON_FRAMES, type PlanEntry } from "./plan";
+import { buildMotion, buildPrompt, FORBIDDEN, hasFilmWords, MAX_PRODUCT_REFS_WITH_MODEL, MAX_REFERENCES } from "./prompt";
+import { judge, MAX_PASSERS_BY, QA_QUESTIONS, type Observation } from "./qa";
 import { deriveShot, shotById, SHOTS } from "./shots";
 import { seasonFor, splitTitle, toWardrobeItem, type ShopifyProductNode, type WardrobeItem } from "./wardrobe";
 
 const wardrobe = wardrobeJson.items as unknown as WardrobeItem[];
+const REPO = path.resolve(__dirname, "../..");
+/** De gezichtsfoto's van de terugval: ref-1, ref-4, ref-2 in 4K (model.json → face_ref_order). */
+const FALLBACK_IDS = ["ref-1", "ref-4", "ref-2"].map((id) => modelJson.higgsfield.face_refs.find((r) => r.file.endsWith(`/${id}.jpg`))!.upscale_job_id);
+/** Een tweede of andere man in een shottekst of prompt (de vaste must_not-regel van het model niet meegerekend). */
+const SECOND_MAN = /exactly two men|two men\b|\bmen\b|older man|younger man|second man|another man|his son|father|brothers?\b/i;
+/** Een gezicht of haar dat niet het zijne is (model.json → must_not_en). */
+const OTHER_FACE = /beard|moustache|mustache|goatee|grey hair|gray hair|silver|blond|bald|in his (forties|fifties|sixties)/i;
+const own = (prompt: string) => prompt.replace(`For him: ${MODEL.mustNot.join("; ")}.`, "");
 const img = (name: string) => ({ image: { url: `https://cdn.shopify.com/s/files/1/x/files/${name}?v=1` } });
 
 const polo: ShopifyProductNode = {
@@ -137,8 +149,8 @@ describe("prompt", () => {
     const req = buildPrompt(look, studio);
     const allowed = new Set(look.items.flatMap(({ item }) => item.images.all));
     for (const { item } of look.items) expect(req.prompt).toContain(item.title);
-    for (const r of req.references) expect(allowed.has(r.url)).toBe(true);
-    expect(req.references.length).toBeLessThanOrEqual(14);
+    for (const r of req.references.filter((x) => x.kind === "product")) expect(allowed.has(r.url)).toBe(true);
+    expect(req.references.length).toBeLessThanOrEqual(MAX_REFERENCES);
     expect(req.prompt).toContain("ONLY the following ModernoMilano pieces");
     for (const f of FORBIDDEN) expect(req.prompt).toContain(f);
   });
@@ -153,6 +165,146 @@ describe("prompt", () => {
   it("houdt de voeten uit beeld als er geen loafers in de look zitten", () => {
     const noShoes = lookFromItems(look.items.filter((x) => !x.as.includes("shoes")), look.palette);
     expect(buildPrompt(noShoes, SHOTS.find((s) => s.id === "studio-full")!).prompt).toContain("keep the feet out of frame");
+  });
+
+  it("stuurt standaard alleen productfoto's mee: het element brengt zijn gezicht", () => {
+    for (const shot of SHOTS.filter((s) => s.people === 1)) {
+      const req = buildPrompt(look, shot, { wardrobe });
+      expect(req.references.every((r) => r.kind === "product")).toBe(true);
+      expect(req.references.length).toBeGreaterThan(0);
+      expect(req.references.length).toBeLessThanOrEqual(MAX_PRODUCT_REFS_WITH_MODEL);
+      expect(req.prompt).toContain(MODEL.elementPlaceholder);
+      expect(req.prompt).not.toContain(MODEL.identity);
+      expect(req.resolution).toBe("4k");
+    }
+  });
+
+  it("zet in de terugval ref-1, ref-4 en ref-2 (4K) vooraan, nooit ref-3", () => {
+    for (const shot of SHOTS.filter((s) => s.people === 1)) {
+      const req = buildPrompt(look, shot, { wardrobe, faces: "refs" });
+      const k = shot.framing === "detail" ? 1 : 3;
+      expect(req.references.slice(0, k).map((r) => r.kind)).toEqual(Array(k).fill("face"));
+      expect(req.references.slice(0, k).map((r) => r.mediaId)).toEqual(FALLBACK_IDS.slice(0, k));
+      expect(req.references.slice(k).every((r) => r.kind === "product")).toBe(true);
+      expect(req.references.some((r) => r.url.endsWith("ref-3.jpg"))).toBe(false);
+      expect(req.references.length).toBeLessThanOrEqual(MAX_REFERENCES);
+      expect(req.prompt).not.toContain(MODEL.elementPlaceholder);
+    }
+  });
+
+  it("nummert de producten vanaf #1, en in de terugval na de gezichtsfoto's", () => {
+    const req = buildPrompt(look, studio);
+    expect(req.prompt).toContain("exactly as shown in reference image #1");
+    expect(req.prompt).toContain(`The garment references (#1-#${req.references.length})`);
+    expect(req.prompt).not.toContain("His reference image");
+    const fallback = buildPrompt(look, studio, { faces: "refs" });
+    expect(fallback.prompt).toContain("Subject: the man in reference images #1-#3, ");
+    expect(fallback.prompt).toContain("His reference images are #1-#3");
+    expect(fallback.prompt).toContain("exactly as shown in reference image #4");
+    expect(fallback.prompt).toContain(`The garment references (#4-#${fallback.references.length})`);
+    for (let n = 1; n <= 3; n++) expect(fallback.prompt).not.toMatch(new RegExp(`reference image #${n}\\b`));
+    // Zonder persoon geen gezicht, en de producten beginnen bij #1.
+    const flat = buildPrompt(look, shotById("look-flatlay"));
+    expect(flat.references.every((r) => r.kind === "product")).toBe(true);
+    expect(flat.prompt).toContain("exactly as shown in reference image #1");
+    expect(flat.prompt).not.toContain(MODEL.elementPlaceholder);
+    expect(flat.resolution).toBe("2k");
+  });
+
+  it("beperkt de productfoto's als het model in beeld is", () => {
+    // Vier stukken met elk een hoofd-, model- en detailfoto: zonder grens zouden het er 8 zijn.
+    const layered = lookFromItems(
+      [
+        { item: byTitle("MILANO CASHMERE TORINO BLAZER - NOTTE"), as: ["outer"] },
+        { item: byTitle("MILANO CASHMERE BELLAGIO - BLUE"), as: ["mid"] },
+        { item: byTitle("MILANO CASHMERE LIDO - NOTTE"), as: ["top"] },
+        { item: byTitle("MILANO CASHMERE COMODO JOGGER - NAVY"), as: ["bottom"] },
+      ],
+      null,
+    );
+    for (const { item } of layered.items) expect([item.images.primary, item.images.model, item.images.detail].every(Boolean)).toBe(true);
+    for (const faces of ["element", "refs"] as const) {
+      const products = buildPrompt(layered, shotById("milano-courtyard"), { faces }).references.filter((r) => r.kind === "product");
+      expect(products).toHaveLength(MAX_PRODUCT_REFS_WITH_MODEL);
+      for (const { item } of layered.items) expect(products.filter((r) => r.label === item.title)).toHaveLength(1);
+    }
+    // Zonder persoon geen grens van 4: twee foto's per stuk.
+    expect(buildPrompt(layered, shotById("look-flatlay")).references).toHaveLength(8);
+  });
+
+  it("beschrijft het model met element, realisme, licht en uitdrukking, maar niet zijn gezicht in woorden", () => {
+    const courtyard = shotById("milano-courtyard");
+    const req = buildPrompt(look, courtyard);
+    expect(req.prompt).toContain(`Subject: ${MODEL.elementPlaceholder}. ${MODEL.keep} Pose: `);
+    expect(req.prompt).not.toContain(MODEL.identity);
+    expect(req.prompt).toContain(MODEL.realism);
+    expect(req.prompt).toContain(courtyard.keyLight!);
+    expect(req.prompt).toContain(`Framing: ${MODEL.framing}.`);
+    expect(req.prompt).toContain(MODEL.expression);
+    for (const rule of MODEL.mustNot) expect(req.prompt).toContain(rule);
+    // Licht, uitsnede en uitdrukking vóór de kledingregels, en maar één lichtbeschrijving.
+    const at = (text: string) => req.prompt.indexOf(text);
+    for (const t of [courtyard.keyLight!, MODEL.framing, MODEL.expression]) expect(at(t)).toBeLessThan(at("He wears ONLY"));
+    expect(req.prompt).not.toContain(`Light: ${courtyard.light}`);
+    // Zonder eigen lichtbron het standaardlicht van het model.
+    expect(buildPrompt(look, { ...courtyard, keyLight: undefined }).prompt).toContain(MODEL.light);
+    // De studio en ten voeten uit krijgen geen framing_en (dat zegt "waist-up or three-quarter by default").
+    const studioReq = buildPrompt(look, studio);
+    expect(studioReq.prompt).toContain(studio.keyLight!);
+    expect(studioReq.prompt).not.toContain(MODEL.light);
+    expect(studioReq.prompt).not.toContain(MODEL.framing);
+    expect(buildPrompt(look, shotById("landscape")).prompt).not.toContain(MODEL.framing);
+    // Zonder persoon blijft het licht in de Setting-regel staan.
+    expect(buildPrompt(look, shotById("hanger")).prompt).toContain(`Light: ${shotById("hanger").light}`);
+    // Bij een detail is het gezicht uit beeld: wel het element, geen gezichtsbeschrijving of uitdrukking.
+    const detail = buildPrompt(look, shotById("texture"));
+    expect(detail.prompt).toContain(MODEL.elementPlaceholder);
+    expect(detail.prompt).toContain("his face is out of frame");
+    expect(detail.prompt).not.toContain(MODEL.identity);
+    expect(detail.prompt).not.toContain(MODEL.expression);
+  });
+
+  it("gebruikt geen filmrol-woorden in de prompts", () => {
+    for (const shot of SHOTS) {
+      for (const faces of ["element", "refs"] as const) expect(hasFilmWords(buildPrompt(look, shot, { wardrobe, faces }).prompt)).toBe(false);
+      expect(hasFilmWords(buildMotion(shot).prompt)).toBe(false);
+    }
+    for (const bad of ["like a quiet film photograph", "fine grain", "slight halation", "shot on 35mm film stock", "Fuji colours", "analogue look"]) {
+      expect(hasFilmWords(bad)).toBe(true);
+    }
+    expect(hasFilmWords(MODEL.realism)).toBe(false); // "No film borders" mag
+  });
+
+  it("zet op een openbare plek verre voorbijgangers in de prompt, en elders niemand", () => {
+    for (const shot of SHOTS) {
+      const prompt = buildPrompt(look, shot, { wardrobe }).prompt;
+      if (shot.publicPlace) {
+        expect(prompt).toContain(MODEL.publicPlaces.slice(1));
+        expect(prompt).toContain("any other person who is near, sharp or recognisable");
+        expect(shot.setting).not.toMatch(/\bempty\b|nobody else|no other people/);
+      } else {
+        expect(prompt).not.toContain(MODEL.publicPlaces.slice(1));
+        expect(prompt).toMatch(/, other people\./);
+      }
+    }
+    expect(SHOTS.filter((s) => s.publicPlace).map((s) => s.id).sort()).toEqual(["borgo", "espresso-terrace", "loafer-walk", "milano-courtyard", "riviera"]);
+  });
+
+  it("begint een reel bij het goedgekeurde beeld en houdt precies dezelfde man", () => {
+    const v = buildMotion(shotById("milano-courtyard"));
+    expect(v).toMatchObject({ model: "kling3_0", mode: "pro", startFrame: "approved-still", aspect: "9:16", duration: 5, sound: "off" });
+    expect(v.prompt).toContain("Start from the approved still");
+    expect(v.prompt).toContain(MODEL.elementPlaceholder);
+    expect(v.prompt).toContain("exactly the same man");
+    expect(buildMotion(shotById("hanger")).prompt).not.toContain(MODEL.elementPlaceholder);
+  });
+
+  it("vraagt bij een reel van een detail niet om zijn gezicht", () => {
+    const v = buildMotion(shotById("loafer-walk"));
+    expect(v.prompt).toContain(MODEL.elementPlaceholder);
+    expect(v.prompt).toContain("his face stays out of frame for the whole shot");
+    expect(v.prompt).toContain("the camera does not tilt up");
+    expect(v.prompt).not.toContain("same face");
   });
 });
 
@@ -169,6 +321,9 @@ describe("kwaliteitscontrole", () => {
     socksVisible: false,
     clean: true,
     anatomyOk: true,
+    faceVisible: true,
+    sameModel: true,
+    faceWidthPx: MODEL.faceMinPx + 100,
   };
 
   it("keurt een schoon beeld goed", () => {
@@ -184,6 +339,51 @@ describe("kwaliteitscontrole", () => {
 
   it("keurt af als een product niet op de referentie lijkt", () => {
     expect(judge(look, shot, { ...ok, matches: { "MILANO TERRA SET": false } }).approved).toBe(false);
+  });
+
+  it("keurt af als het niet dezelfde man is als het model", () => {
+    const v = judge(look, shot, { ...ok, sameModel: false });
+    expect(v.approved).toBe(false);
+    expect(v.reasons).toEqual(["niet dezelfde man als op de referentiefoto's (brand/assets/model)"]);
+  });
+
+  it("keurt twee mannen, een te klein gezicht of een nepfoto af", () => {
+    expect(judge(look, shot, { ...ok, people: 2 }).approved).toBe(false);
+    expect(judge(look, shot, { ...ok, faceWidthPx: MODEL.faceMinPx - 1 }).approved).toBe(false);
+    expect(judge(look, shot, { ...ok, faceWidthPx: MODEL.faceMinPx }).approved).toBe(true);
+    expect(judge(look, shot, { ...ok, realPhoto: false }).approved).toBe(false);
+  });
+
+  it("laat een beeld zonder zichtbaar gezicht toe (sameModel null)", () => {
+    const noFace = { ...ok, faceVisible: false, sameModel: null, faceWidthPx: undefined };
+    expect(judge(look, shotById("texture"), { ...noFace, feetVisible: false }).approved).toBe(true);
+    // Van achteren in een wijd beeld: geen gezicht om te vergelijken of te meten.
+    expect(judge(look, shotById("landscape"), noFace).approved).toBe(true);
+  });
+
+  it("keurt af als zijn gezicht in beeld is maar niet beoordeeld of gemeten", () => {
+    const unjudged = judge(look, shot, { ...ok, sameModel: null });
+    expect(unjudged.approved).toBe(false);
+    expect(unjudged.reasons).toEqual(["zijn gezicht is in beeld, maar niet naast de referentiefoto's gelegd"]);
+    expect(judge(look, shotById("bw-portrait"), { ...ok, feetVisible: false, sameModel: null }).approved).toBe(false);
+    const unmeasured = judge(look, shot, { ...ok, faceWidthPx: undefined });
+    expect(unmeasured.reasons).toEqual(["breedte van zijn gezicht niet gemeten"]);
+  });
+
+  it("staat verre voorbijgangers alleen toe op een openbare plek, hooguit 3", () => {
+    const courtyard = shotById("milano-courtyard");
+    expect(judge(look, courtyard, { ...ok, passersBy: 2 }).approved).toBe(true);
+    expect(judge(look, courtyard, { ...ok, passersBy: MAX_PASSERS_BY + 1 }).approved).toBe(false);
+    expect(judge(look, shot, { ...ok, passersBy: 1 }).approved).toBe(false);
+    // Een tweede scherpe, herkenbare persoon is nooit een voorbijganger.
+    expect(judge(look, courtyard, { ...ok, people: 2 }).approved).toBe(false);
+  });
+
+  it("vraagt bij elk beeld of het dezelfde man is en hoe breed zijn gezicht is", () => {
+    expect(QA_QUESTIONS.some((q) => q.includes("is dit dezelfde man als in brand/assets/model?"))).toBe(true);
+    expect(QA_QUESTIONS.some((q) => q.includes("faceVisible") && q.includes("sameModel null"))).toBe(true);
+    expect(QA_QUESTIONS.some((q) => q.includes("in pixels (faceWidthPx)"))).toBe(true);
+    expect(QA_QUESTIONS.some((q) => q.includes("passersBy"))).toBe(true);
   });
 });
 
@@ -230,7 +430,7 @@ describe("contentplan", () => {
   it("maakt reels in 9:16 met een beweging vanaf het goedgekeurde beeld", () => {
     for (const e of plan.filter((x) => x.format === "reel")) {
       expect(e.frames[0].request.aspect).toBe("9:16");
-      expect(e.video).toMatchObject({ model: "kling3_0", startFrame: "approved-still", aspect: "9:16", sound: "off" });
+      expect(e.video).toMatchObject({ model: "kling3_0", mode: "pro", startFrame: "approved-still", aspect: "9:16", sound: "off" });
     }
   });
 
@@ -247,16 +447,68 @@ describe("contentplan", () => {
     for (const e of plan) for (const f of e.frames) if (f.shot.framing === "full-body") expect(e.look.hasShoes).toBe(true);
   });
 
+  it("toont hem hooguit 2 op de 10 beelden ten voeten uit", () => {
+    const share = (p: PlanEntry[]) => {
+      const person = p.flatMap((e) => e.frames).filter((f) => f.shot.people === 1);
+      return person.filter((f) => f.shot.framing === "full-body").length / person.length;
+    };
+    for (const start of ["2026-10-11", "2026-05-03"]) {
+      for (const seed of [1, 2, 3, 5]) {
+        for (const posts of [2, 9, 18, 27]) expect(share(makePlan(wardrobe, { start: new Date(start), posts, seed }))).toBeLessThanOrEqual(0.2);
+      }
+    }
+    expect(MAX_FULL_BODY_SHARE).toBe(0.2);
+    // De studioslide van de productcarrousel gaat voor: in een heel hoofdstuk staat hij ten voeten uit.
+    expect(plan.filter((e) => e.frames[0].shot.id === "studio-full").length).toBeGreaterThan(0);
+    for (const e of plan) {
+      if (e.pillar === "styling" && e.format === "carousel") expect(e.frames.map((f) => f.shot.id)).toContain("studio-portrait");
+    }
+  });
+
+  it("rekent het quotum met het echte aantal beelden met hem per post", () => {
+    plan.forEach((e, i) => expect(e.frames.filter((f) => f.shot.people === 1).length).toBe(PERSON_FRAMES[CHAPTER[i % CHAPTER.length].kind]));
+  });
+
   it("stuurt alleen foto's van eigen producten mee, en alleen van wat in beeld komt", () => {
     for (const e of plan) {
       for (const f of e.frames) {
-        const allowed = new Set(
-          [e.look, e.secondLook]
-            .filter(Boolean)
-            .flatMap((l) => l!.items.flatMap(({ item }) => wardrobe.filter((w) => w.line === item.line).flatMap((w) => w.images.all))),
-        );
-        for (const r of f.request.references) expect(allowed.has(r.url)).toBe(true);
-        expect(f.request.references.length).toBeLessThanOrEqual(14);
+        const allowed = new Set(e.look.items.flatMap(({ item }) => wardrobe.filter((w) => w.line === item.line).flatMap((w) => w.images.all)));
+        const products = f.request.references.filter((x) => x.kind === "product");
+        for (const r of products) expect(allowed.has(r.url)).toBe(true);
+        expect(f.request.references.length).toBeLessThanOrEqual(MAX_REFERENCES);
+        if (f.shot.people === 1) {
+          // Hoogstens 4; alleen een look van 5 stukken krijgt er 5, één per stuk.
+          const pieces = new Set(products.map((r) => r.label)).size;
+          expect(products.length).toBeLessThanOrEqual(Math.max(MAX_PRODUCT_REFS_WITH_MODEL, pieces));
+          if (pieces > MAX_PRODUCT_REFS_WITH_MODEL) expect(products.length).toBe(pieces);
+        }
+      }
+    }
+  });
+
+  it("zet in elk beeld en elke reel alleen het vaste model, nooit een tweede man", () => {
+    for (const e of plan) {
+      expect(e).not.toHaveProperty("secondLook");
+      for (const f of e.frames) {
+        expect(f.request.references.every((r) => r.kind === "product")).toBe(true);
+        expect(f.request.prompt.includes(MODEL.elementPlaceholder)).toBe(f.shot.people === 1);
+        expect(f.request.prompt).not.toContain(MODEL.identity);
+        expect(own(f.request.prompt)).not.toMatch(SECOND_MAN);
+        expect(hasFilmWords(f.request.prompt)).toBe(false);
+      }
+      if (e.video) {
+        expect(e.video.prompt).not.toMatch(SECOND_MAN);
+        if (e.frames[0].shot.people === 1) expect(e.video.prompt).toContain(MODEL.elementPlaceholder);
+      }
+    }
+  });
+
+  it("zet in de terugval zijn gezichtsfoto's vooraan in elk beeld met hem", () => {
+    for (const e of makePlan(wardrobe, { start: new Date("2026-10-11"), posts: 9, seed: 2, faces: "refs" })) {
+      for (const f of e.frames) {
+        const faces = f.request.references.filter((r) => r.kind === "face").map((r) => r.mediaId);
+        expect(faces).toEqual(f.shot.people === 0 ? [] : FALLBACK_IDS.slice(0, f.shot.framing === "detail" ? 1 : 3));
+        expect(f.request.references.slice(0, faces.length).every((r) => r.kind === "face")).toBe(true);
       }
     }
   });
@@ -295,10 +547,17 @@ describe("shots en prompts volgens de norm", () => {
     for (const t of titles) expect(t.startsWith("MILANO CASHMERE CORTINA POLO")).toBe(true);
   });
 
-  it("kleedt bij twee generaties beide mannen alleen in eigen looks", () => {
-    const req = buildPrompt(look[0], shotById("two-generations"), { second: { look: look[1], casting: "a younger man" } });
-    expect(req.prompt).toContain("exactly two men");
-    for (const l of look) for (const { item } of l.items) expect(req.prompt).toContain(item.title);
+  it("heeft geen shot met twee mannen, ook niet in het hoofdstukschema", () => {
+    expect(SHOTS.every((s) => s.people === 0 || s.people === 1)).toBe(true);
+    expect(SHOTS.some((s) => s.id === "two-generations")).toBe(false);
+    for (const slot of CHAPTER) for (const season of ["fw", "ss"] as const) expect(slot.heroes(season)).not.toContain("two-generations");
+    for (const s of SHOTS) {
+      const text = `${s.setting} ${s.pose} ${s.motion} ${s.camera} ${s.light} ${s.keyLight ?? ""}`;
+      expect(text).not.toMatch(SECOND_MAN);
+      expect(text).not.toMatch(OTHER_FACE);
+      expect(text).not.toMatch(/\bcentred\b|towards? the camera/i);
+    }
+    for (const s of SHOTS) expect(own(buildPrompt(look[0], s, { wardrobe }).prompt)).not.toMatch(SECOND_MAN);
   });
 
   it("verbiedt merktekens op auto's en boten, koptelefoons en tassen", () => {
@@ -314,7 +573,7 @@ describe("shots en prompts volgens de norm", () => {
   });
 });
 
-describe("captions en casting", () => {
+describe("captions en het vaste model", () => {
   it("schrijft productnamen zoals in de winkel", () => {
     expect(productName("MILANO CASHMERE TORINO BLAZER - TORTORA")).toBe("Milano Cashmere Torino Blazer in Tortora");
     expect(productName("MILANO REVERSO SABBIA SET")).toBe("Milano Reverso Sabbia Set");
@@ -326,9 +585,31 @@ describe("captions en casting", () => {
     expect(seasonTag("2027-05-01")).toBe("#ModernoMilanoSS27");
   });
 
-  it("kiest per seed een vaste cast, alleen mannen", () => {
-    expect(castFor(3)).toEqual(castFor(3));
-    expect(castFor(1, { main: "<<<abc>>>" }).main.description).toBe("<<<abc>>>");
-    for (const f of FACES) expect(f.description).toMatch(/\bman\b/);
+  it("heeft precies één model, uit model.json", () => {
+    expect(Object.keys(casting).sort()).toEqual(["MODEL", "modelFrom"]);
+    expect(MODEL.id).toBe(modelJson.id);
+    expect(MODEL.identity).toBe(modelJson.prompt.identity_en);
+    expect(MODEL.identity).toMatch(/\bman\b/);
+    expect(MODEL.keep).toContain("does not resemble any actor or public figure");
+    expect(MODEL.elementPlaceholder).toBe(`<<<${MODEL.elementId}>>>`);
+    expect(MODEL.soulId).toBe(modelJson.higgsfield.soul_id);
+    expect(MODEL.faceRefs.length).toBeGreaterThan(0);
+    for (const r of MODEL.faceRefs) {
+      expect(existsSync(path.join(REPO, r.file))).toBe(true);
+      expect(r.mediaId).toMatch(/^[0-9a-f-]{36}$/);
+      expect(r.upscaleJobId).toMatch(/^[0-9a-f-]{36}$/);
+    }
+    expect(MODEL.fallbackFaceRefs.map((r) => r.id)).toEqual(["ref-1", "ref-4", "ref-2"]);
+    expect(MODEL.fallbackFaceRefs.map((r) => r.upscaleJobId)).toEqual(FALLBACK_IDS);
+    expect(MODEL.mustNot.join(" ")).toContain("never a second man who is near, sharp or recognisable");
+  });
+
+  it("stopt als er iets van het model ontbreekt", () => {
+    const broken = JSON.parse(JSON.stringify(modelJson));
+    broken.higgsfield.face_refs[0].media_id = "";
+    expect(() => modelFrom(broken)).toThrow(/face_refs\[0\]\.media_id/);
+    expect(() => modelFrom({ ...modelJson, prompt: { ...modelJson.prompt, identity_en: undefined } })).toThrow(/identity_en/);
+    expect(() => modelFrom({ ...modelJson, higgsfield: { ...modelJson.higgsfield, element_placeholder: "<<<x>>>" } })).toThrow(/element_placeholder/);
+    expect(() => modelFrom({ ...modelJson, higgsfield: { ...modelJson.higgsfield, face_ref_order: ["ref-9"] } })).toThrow(/ref-9/);
   });
 });

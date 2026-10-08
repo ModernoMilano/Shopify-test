@@ -5,7 +5,7 @@ Deze regels gelden voor elk beeld dat de engine maakt. Ze staan ook in de code (
 ## 1. Alleen ModernoMilano aan het lijf
 
 - Elk zichtbaar kledingstuk en elke schoen is een **actief product** uit de winkel (`creative-engine/data/wardrobe.json`).
-- Elk product gaat mee als **referentiefoto**, zodat het model het namaakt in de juiste kleur, het juiste breisel, de juiste kraag, knopen en zakken.
+- Elk product gaat mee als **referentiefoto**, zodat het beeldmodel het namaakt in de juiste kleur, het juiste breisel, de juiste kraag, knopen en zakken.
 - Een look heeft precies één bovenstuk en één broek of short. Daarnaast mag er maximaal één tussenlaag (cardigan, gebreide gilet), één buitenlaag (blazer, jas, bodywarmer) en één paar loafers bij.
 - **Geen loafers in de look, dan geen voeten in beeld.** Het beeld wordt dan op kniehoogte of hoger afgesneden.
 - Loafers worden **zonder sokken** gedragen, met blote enkels.
@@ -16,28 +16,28 @@ ModernoMilano verkoopt geen accessoires, dus ze komen nooit in beeld:
 
 > horloge, armband, ring, ketting, oorbellen, riem, das, vlinderdas, pochet, sjaal, hoed, pet, muts, zonnebril, bril, tas, rugzak, aktetas, handschoenen, sneakers, boots, zichtbare sokken, een onderhemd dat uitsteekt, een jas of trui die niet in de referenties zit.
 
-Ook nooit: logo's, labels, monogrammen, tekst (met één uitzondering: het ModernoMilano-necklabel, zie hieronder), watermerken, tattoos, andere mensen die je echt ziet (op openbare plekken mogen alleen 2 of 3 verre voorbijgangers, zie hoofdstuk 3), vrouwen (we verkopen geen dameskleding), en **merktekens**: een klassieke auto of houten motorboot mag als decor (Zegna doet het in Venetië, en het staat in je eigen moodboard), maar altijd zonder embleem, logo of leesbaar kenteken, en nooit als hoofdonderwerp.
+Ook nooit: logo's, labels, monogrammen, tekst (met één uitzondering: het ModernoMilano-necklabel, zie hieronder), watermerken, tattoos, andere mensen dichtbij, scherp of herkenbaar (op openbare plekken mogen alleen 2 of 3 verre, onscherpe voorbijgangers, zie hoofdstuk 3), vrouwen (we verkopen geen dameskleding; ook een verre voorbijganger is geen vrouw), en **merktekens**: een klassieke auto of houten motorboot mag als decor (Zegna doet het in Venetië, en het staat in je eigen moodboard), maar altijd zonder embleem, logo of leesbaar kenteken, en nooit als hoofdonderwerp.
 
 ## 3. Clean look en echt beeld
 
 | Wel | Niet |
 |---|---|
-| Rustige compositie, uit het midden, iets zachts op de voorgrond | Drukke achtergronden, winkelstraten, auto's, maar ook lege, steriele straten; gecentreerde, symmetrische plaatjes |
+| Rustige compositie, uit het midden, iets zachts op de voorgrond | Drukke achtergronden; winkels, borden of auto's dichtbij en scherp; maar ook lege, steriele straten; gecentreerde, symmetrische plaatjes |
 | Eén lichtbron die je kunt aanwijzen (lage zon, raam, lamp), en het licht op hem klopt met de achtergrond | Flitslicht, harde schaduwen, neon, een onzichtbare softbox op zijn gezicht |
 | Tonaal palet, maximaal drie kleurfamilies | Felle contrasten, patronen naast patronen |
 | Echte huid: mat, fijne structuur, een vage stoppelbaard | HDR, gladde CGI-huid, wasglans, opgeplakte poriën of puistjes, zware filters, vignet |
 | Stof met zichtbaar breisel en zachte plooien bij ellebogen en taille | Breisel als vilt, perfect geperste of gespiegelde vouwen |
-| Gedempte nabewerking met zachte contrasten (warm of koel per seizoen, zie de norm), zwart-wit voor portretten (Cucinelli). Korrel komt er pas in de nabewerking bij | Verzadigde blauwe luchten als standaard, teal-en-oranje, filmranden |
+| Gedempte nabewerking met zachte contrasten: standaard warm, in herfst en winter iets koeler (zie de norm); zwart-wit voor portretten (Cucinelli). Korrel vraag je nooit in de prompt, en voorlopig komt hij er ook achteraf niet bij | Verzadigde blauwe luchten als standaard, teal-en-oranje, filmranden |
 | Steen, travertin, kalkpleister, eiken, linnen | Plastic, glimmende oppervlakken, merkspullen |
 | Model dat rustig en zelfverzekerd oogt: mond dicht, blik langs de camera | Tandenlach, recht in de lens poseren, overdreven poses |
 
 **Echt, niet AI.** De batch van 100 (7 oktober) oogde te AI. Sindsdien:
 
-- **Geen filmwoorden in de prompt**: geen Kodak, Portra, Vision3, "on film" of "film grain". Die gaven nepranden en een korrellaag. Alleen camera en lens.
-- **Uitsnede**: standaard tot de taille of driekwart, van opzij, over de schouder of van achteren. Ten voeten uit hooguit 2 op de 10 beelden.
-- **Gezicht groot genoeg**: elk beeld met een persoon in 4k, en zijn gezicht is minstens ongeveer 500 px breed.
+- **Geen filmwoorden in de prompt**: geen Kodak, Portra, Fuji, Vision3, "film", "grain" of "halation". Die gaven nepranden en een korrellaag. Alleen camera en lens.
+- **Uitsnede**: standaard tot de taille of driekwart, van opzij, over de schouder of van achteren. Ten voeten uit hooguit 2 op de 10 beelden: de studioslide van de productcarrousel en wijde locatiebeelden (zwarte kust, landschap, sneeuwveld), waarin hij van achteren of opzij staat.
+- **Gezicht groot genoeg**: elk beeld met een persoon in 4k (Soul 2.0-portretten: 2k, het maximum van dat model), en zijn gezicht is minstens ongeveer 500 px breed als het herkenbaar in beeld is (zie vraag 9).
 - **Openbare plekken** (straat, kanaal, station): 2 of 3 verre voorbijgangers, klein en onscherp, gezichten onleesbaar. Winkelborden alleen ver weg en onleesbaar.
-- **Plekken en licht**: Milaan in de meerderheid. Eén plek hooguit ongeveer 15% van een set, ook het Comomeer. Hooguit 1 zonsondergang of blauw uur per 10 beelden, en ook bewolkte of grijze ochtenden.
+- **Plekken en licht**: een set is één batch of losse serie van hooguit 12 beelden. Daarin is Milaan in de meerderheid en is één plek hooguit ongeveer 15%, ook het Comomeer. Hooguit 1 zonsondergang of blauw uur per 10 beelden, en ook bewolkte of grijze ochtenden. Het contentplan volgt de hoofdstukken van de norm.
 - **Kleine batches**: hooguit 12 beelden, dan eerst controleren.
 
 De Engelse tekstblokken hiervoor staan in `creative-engine/data/model.json` (`realism_en`, `light_default_en`, `expression_en`, `framing_en`, `public_places_en`).
@@ -72,11 +72,11 @@ Een beeld gaat pas naar jou als het deze vragen doorstaat (`QA_QUESTIONS` in `sr
 2. Lijkt elk product op zijn productfoto (kleur, stof, kraag, knopen, zakken, lengte)?
 3. Zie je een accessoire?
 4. Zie je een logo, label of tekst, anders dan het correct gespelde ModernoMilano-necklabel?
-5. Klopt het aantal personen (een hand telt als één): alleen hij, of niemand bij een still life? Voorbijgangers alleen ver weg, klein en onscherp, op een openbare plek.
+5. Klopt het aantal personen (een hand telt als één): alleen hij, of niemand bij een still life? Voorbijgangers alleen ver weg, klein en onscherp, op een openbare plek, hooguit 3.
 6. Loafers zonder sokken, of voeten uit beeld als er geen loafers in de look zitten?
 7. Is het clean, en klopt het licht op hem met de achtergrond?
 8. Kloppen handen, vingers en gezicht?
-9. **Is het dezelfde man als op ref-1 en ref-4?** Leg ze naast elkaar: wenkbrauwen, ogen, kaak, lippen, haar, leeftijd en postuur. Is zijn gezicht minstens ongeveer 500 px breed?
-10. Ziet het eruit als een echte foto: huid zonder wasglans of opgeplakte poriën, stof met echt breisel en plooien, mond dicht, geen filmranden in de hoeken?
+9. **Is het dezelfde man als op ref-1 en ref-4?** Leg ze naast elkaar: wenkbrauwen, ogen, kaak, lippen, haar, leeftijd en postuur. Is zijn gezicht minstens ongeveer 500 px breed? Dit geldt alleen voor foto's waarin zijn gezicht herkenbaar in beeld is. In wijde beelden (landschap, sneeuwveld, kust) staat hij van achteren of opzij en is zijn gezicht niet te lezen; dan is vraag 9 n.v.t.
+10. Ziet het eruit als een echte foto: huid zonder wasglans of opgeplakte poriën, stof met echt breisel en plooien, mond dicht, loafers als gespiegeld paar (links en rechts), geen filmranden in de hoeken?
 
-Eén nee is afgekeurd. Dan wordt het beeld opnieuw gemaakt, niet bijgewerkt. Bij een reel stel je vraag 9 op het begin, het midden en het einde: verandert zijn gezicht, dan is de reel afgekeurd.
+Eén nee is afgekeurd. Dan wordt het beeld opnieuw gemaakt, niet bijgewerkt. Bij een reel vraag je op het begin, het midden en het einde alleen of het dezelfde man is, niet de 500 px: verandert zijn gezicht, dan is de reel afgekeurd.

@@ -53,6 +53,12 @@
         "view": "driekwart, lopend op een brug"
       }
     ],
+    "face_refs_note": "media_id = de import van het originele, kleine bestand (208-348 px breed). upscale_job_id = de 4K-versie (Higgsfield image job); het element is van die 4K-versies gemaakt. Standaard gaan er geen gezichtsfoto's mee: het element brengt zijn gezicht. Alleen in de terugval zonder element gaan de 4K-versies uit face_ref_order mee als eerste referenties. ref-3 (van achteren, kijkt omlaag) is te zwak voor zijn gezicht.",
+    "face_ref_order": [
+      "ref-1",
+      "ref-4",
+      "ref-2"
+    ],
     "element_sources": [
       "603d494f-d72d-4f7c-a2f6-c21d3b445030",
       "0eda0253-6087-4aa8-8daa-2b5f2c6d3b51",
@@ -113,7 +119,7 @@
       "no high or arched brows",
       "no blond, red or black hair; no fade, undercut, wet-look gel or centre-parted curtains",
       "no toothy grin and no forced smoulder",
-      "never a different man, and never two men in one picture"
+      "never a different man, and never a second man who is near, sharp or recognisable: he is the only man in focus"
     ],
     "realism_en": "An unretouched photograph. Natural healthy skin with fine real texture and a faint stubble shadow, matte, with no beauty glow, no airbrushing and no painted-on pores or spots. The clothes are real fabric with visible knit stitch and soft creases at the elbows and waist. Real optics: full-frame digital camera, shallow depth of field, slight lens softness at the edges. No film borders, no frame, no text, no logos.",
     "light_default_en": "One motivated light source: the low sun behind him to one side puts a warm rim on his hair and shoulder while his face sits in soft open shade; the background is a stop darker and out of focus; muted warm colour, lifted blacks, soft contrast; no HDR, no teal-and-orange grade.",
@@ -122,11 +128,11 @@
     "public_places_en": "two or three distant passers-by, small and out of focus, faces unreadable; any shop signs far away and too blurred to read"
   },
   "rules": {
-    "image_model_with_products": "nano_banana_pro, resolution 4k, aspect 4:5, element placeholder in the prompt, product photos as image_references (max 4 per shot)",
+    "image_model_with_products": "nano_banana_pro, resolution 4k, aspect 4:5, element placeholder in the prompt, only product photos as image_references (max 4 per shot; a look of 5 pieces gets one photo per piece). No face photos in medias and no identity_en: the element brings his face. Fallback without the element: the 4K face refs in face_ref_order first as #1-#3, then the products, with identity_en and without the placeholder",
     "image_model_portrait": "soul_2 with soul_id, quality 2k, aspect 3:4, WITHOUT product images: a media with role 'image' is used as the base image and Soul simply re-renders that product photo without him (tested 8 Oct 2026). Text-only clothing on Soul gives realistic skin but a weaker face match and approximate garments, so use the element route as the default and Soul only for quick, cheap face-led mood shots.",
     "video": "image-to-video from an approved still with kling3_0 (mode pro, sound off, 5 s, aspect 9:16 with a 9:16 start frame, about 8.75 credits) and the element placeholder in the prompt; seedance_2_0 std 1080p gives the same route at about 45 credits (720p about 22.5). Small natural movement, no full head turns.",
     "batch_max": 12,
     "face_min_px": 500,
-    "qa": "Every picture with a face next to the reference images: is it the same man? If not, reject it."
+    "qa": "Every picture in which his face is recognisable, next to ref-1 and ref-4: is it the same man? If not, reject it. face_min_px applies only to photos in which his face is recognisable, not to reels, shots from behind or wide shots from the side."
   }
 }

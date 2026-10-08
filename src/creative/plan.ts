@@ -1,11 +1,12 @@
 // Contentplan volgens de norm (creative-engine/brand/norm.md): hoofdstukken van 9 posts, gelezen in rijen van 3.
 // Per hoofdstuk: 4 carrousels, 3 reels, 2 losse beelden; maximaal 1 studiobeeld als hoofdbeeld; nooit hetzelfde
-// beeldtype naast elkaar; één vast gezicht. Elke regel bevat de complete opdracht voor het beeldmodel.
+// beeldtype naast elkaar. In alle beelden en reels staat hetzelfde vaste model (casting.ts), nooit een tweede man.
+// Ten voeten uit hooguit 2 op de 10 beelden met hem (MAX_FULL_BODY_SHARE); de studioslide van de productcarrousel gaat voor.
+// Elke regel bevat de complete opdracht voor het beeldmodel.
 
 import { captionDraft, type CaptionDraft } from "./captions";
-import { castFor, type Cast } from "./casting";
 import { composeLooks, validateLook, type Look } from "./looks";
-import { buildMotion, buildPrompt, type GenerationRequest, type VideoRequest } from "./prompt";
+import { buildMotion, buildPrompt, type FaceMode, type GenerationRequest, type VideoRequest } from "./prompt";
 import { deriveShot, shotById, type Pillar, type Shot } from "./shots";
 import { isInSeason, seasonFor, type Season, type WardrobeItem } from "./wardrobe";
 
@@ -22,8 +23,6 @@ export interface PlanEntry {
   pillar: Pillar;
   format: Format;
   look: Look;
-  /** Alleen bij twee mannen in beeld. */
-  secondLook?: Look;
   frames: Frame[];
   /** Bij een reel: de beweging, met het eerste (goedgekeurde) beeld als startframe. */
   video?: VideoRequest;
@@ -46,8 +45,8 @@ const WALKS = (s: Exclude<Season, "all">) =>
   s === "fw" ? ["milano-courtyard", "architecture", "volcanic-coast", "borgo"] : ["milano-courtyard", "architecture", "borgo"];
 const WORLD = (s: Exclude<Season, "all">) =>
   s === "fw"
-    ? ["landscape", "snowfield", "espresso-terrace", "bw-portrait", "two-generations"]
-    : ["island-coast", "espresso-terrace", "bw-portrait", "two-generations"];
+    ? ["landscape", "snowfield", "espresso-terrace", "bw-portrait"]
+    : ["island-coast", "espresso-terrace", "bw-portrait"];
 
 /**
  * Eén hoofdstuk van 9 posts. Rij 1: opener, product, ambacht. Rij 2: styling, reel, loafers.
@@ -55,7 +54,8 @@ const WORLD = (s: Exclude<Season, "all">) =>
  */
 export const CHAPTER: ChapterSlot[] = [
   { pillar: "editorial", kind: "single", heroes: EDITORIAL },
-  { pillar: "product", kind: "product-carousel", heroes: () => ["studio-full"] },
+  // Ten voeten uit zolang het quotum het toelaat, anders halflang.
+  { pillar: "product", kind: "product-carousel", heroes: () => ["studio-full", "studio-portrait"] },
   { pillar: "craft", kind: "craft-carousel", heroes: () => ["texture"] },
   { pillar: "styling", kind: "styling-carousel", heroes: EDITORIAL },
   { pillar: "editorial", kind: "reel", heroes: WALKS },
@@ -68,6 +68,18 @@ export const CHAPTER: ChapterSlot[] = [
 /** Maximaal zo vaak hetzelfde hoofdbeeld per hoofdstuk. */
 export const MAX_SAME_HERO = 2;
 
+/** Ten voeten uit hooguit dit deel van de beelden met hem (model.json → framing_en: hooguit 2 op de 10). */
+export const MAX_FULL_BODY_SHARE = 0.2;
+
+/** Zoveel beelden met hem per soort post (zie de opbouw in makePlan). */
+export const PERSON_FRAMES: Record<SlotKind, number> = {
+  single: 1,
+  "product-carousel": 3,
+  "craft-carousel": 1,
+  "styling-carousel": 3,
+  reel: 1,
+};
+
 export interface PlanOptions {
   start: Date;
   posts: number;
@@ -76,9 +88,8 @@ export interface PlanOptions {
   seed?: number;
   anchors?: string[];
   prefer?: string[];
-  /** Vervangt het hoofdgezicht (bv. `<<<element_id>>>`). */
-  casting?: string;
-  secondCasting?: string;
+  /** Standaard element. refs alleen als het Higgsfield-element niet werkt (zie FaceMode in prompt.ts). */
+  faces?: FaceMode;
 }
 
 export const DEFAULT_DAYS = [0, 1, 3, 5];
@@ -103,8 +114,12 @@ export function makePlan(wardrobe: WardrobeItem[], opts: PlanOptions): PlanEntry
     .filter((l) => validateLook(l, wardrobe, season).every((i) => i.level !== "error"));
   if (looks.length === 0) return [];
 
-  const cast: Cast = castFor(seed, { main: opts.casting, second: opts.secondCasting });
   const dates = nextDates(opts.start, opts.posts, opts.days ?? DEFAULT_DAYS);
+  const slots = dates.map((_, i) => CHAPTER[i % CHAPTER.length]);
+  // Het quotum ten voeten uit voor het hele plan. Eerst is er plek voor de studioslide van elke productcarrousel,
+  // wat overblijft mag naar wijde locatiebeelden.
+  let fullLeft = Math.floor(MAX_FULL_BODY_SHARE * slots.reduce((n, s) => n + PERSON_FRAMES[s.kind], 0));
+  let studioLeft = Math.min(fullLeft, slots.filter((s) => s.kind === "product-carousel").length);
   const pool = wardrobe.filter((w) => isInSeason(w, season));
   // Per hoofdstuk hooguit MAX_SAME_HERO keer hetzelfde hoofdbeeld; over het hele plan wordt er doorgeroteerd.
   const heroCount = new Map<string, number>();
@@ -119,14 +134,15 @@ export function makePlan(wardrobe: WardrobeItem[], opts: PlanOptions): PlanEntry
     return pick;
   };
 
-  const pickHero = (ids: string[], look: Look): Shot => {
+  /** mayFull: past er nog een beeld ten voeten uit in het quotum. inOrder: de eerste die mag, in plaats van doorroteren. */
+  const pickHero = (ids: string[], look: Look, mayFull: boolean, inOrder = false): Shot => {
     const candidates = ids
       .map(shotById)
       .filter((s) => s.season === "all" || s.season === season)
-      .filter((s) => look.hasShoes || s.framing !== "full-body");
+      .filter((s) => s.framing !== "full-body" || (look.hasShoes && mayFull));
     const fresh = candidates.filter((s) => s.id !== previousHero && (heroCount.get(s.id) ?? 0) < MAX_SAME_HERO);
     const list = fresh.length ? fresh : candidates;
-    const shot = [...list].sort((a, b) => (totalCount.get(a.id) ?? 0) - (totalCount.get(b.id) ?? 0))[0];
+    const shot = inOrder ? list[0] : [...list].sort((a, b) => (totalCount.get(a.id) ?? 0) - (totalCount.get(b.id) ?? 0))[0];
     heroCount.set(shot.id, (heroCount.get(shot.id) ?? 0) + 1);
     totalCount.set(shot.id, (totalCount.get(shot.id) ?? 0) + 1);
     previousHero = shot.id;
@@ -134,25 +150,17 @@ export function makePlan(wardrobe: WardrobeItem[], opts: PlanOptions): PlanEntry
   };
 
   return dates.map((date, i) => {
-    const slot = CHAPTER[i % CHAPTER.length];
+    const slot = slots[i];
     if (i % CHAPTER.length === 0) heroCount.clear();
     // Styling, opener en wereldbeeld krijgen bij voorkeur een gelaagde look (norm: minstens 1 op 3 posts gelaagd).
     const wantLayers = slot.kind === "styling-carousel" || (slot.kind === "single" && slot.pillar !== "product");
     const look = takeLook(wantLayers ? (l) => layered(l) && garments(l) >= 2 : undefined);
-    const hero = pickHero(slot.heroes(season), look);
+    const studio = slot.kind === "product-carousel";
+    const hero = studio ? pickHero(slot.heroes(season), look, studioLeft > 0, true) : pickHero(slot.heroes(season), look, fullLeft - studioLeft > 0);
+    if (studio) studioLeft = Math.max(0, studioLeft - 1);
+    if (hero.framing === "full-body") fullLeft--;
 
-    let secondLook: Look | undefined;
-    if (hero.people === 2) {
-      secondLook = takeLook((l) => l.hasShoes && l.palette?.id === look.palette?.id);
-    }
-
-    const request = (shot: Shot, aspect: "4:5" | "9:16" = "4:5") =>
-      buildPrompt(look, shot, {
-        aspect,
-        wardrobe: pool,
-        casting: cast.main.description,
-        second: secondLook ? { look: secondLook, casting: cast.second.description } : undefined,
-      });
+    const request = (shot: Shot, aspect: "4:5" | "9:16" = "4:5") => buildPrompt(look, shot, { aspect, wardrobe: pool, faces: opts.faces });
 
     let shots: Shot[];
     let format: Format;
@@ -170,9 +178,8 @@ export function makePlan(wardrobe: WardrobeItem[], opts: PlanOptions): PlanEntry
         format = "carousel";
         break;
       case "styling-carousel":
-        shots = [hero, shotById("studio-full"), deriveShot(hero, "detail"), shotById("look-flatlay")].filter(
-          (s) => look.hasShoes || s.framing !== "full-body",
-        );
+        // Dezelfde look in de studio is halflang: ten voeten uit telt mee in het quotum.
+        shots = [hero, shotById("studio-portrait"), deriveShot(hero, "detail"), shotById("look-flatlay")];
         format = "carousel";
         break;
       case "reel":
@@ -188,10 +195,9 @@ export function makePlan(wardrobe: WardrobeItem[], opts: PlanOptions): PlanEntry
       pillar: slot.pillar,
       format,
       look,
-      secondLook,
       frames,
       video: format === "reel" ? buildMotion(hero) : undefined,
-      caption: captionDraft({ pillar: slot.pillar, look, secondLook, date }),
+      caption: captionDraft({ pillar: slot.pillar, look, date }),
     };
     return entry;
   });

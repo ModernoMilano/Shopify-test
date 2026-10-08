@@ -5,7 +5,7 @@ Maakt Instagram-content in de stijl van Zegna, Loro Piana, Brunello Cucinelli en
 ```text
 Shopify (232 actieve producten) ──► garderobe ──► looks ──► plan (norm) ──► prompt + productfoto's ──► Higgsfield ──► kwaliteitscontrole ──► jij
                                        ▲            ▲            ▲                                          │
-Bestsellers (ShopifyQL) ───────────────┘            │            │                                          └──► reel (Seedance, vanaf het goedgekeurde beeld)
+Bestsellers (ShopifyQL) ───────────────┘            │            │                                          └──► reel (Kling, vanaf het goedgekeurde beeld)
 Merk-DNA, paletten, vast model ─────────────────────┘            │
 Concurrenten (screenshots + gecontroleerd webonderzoek) ─────────┘
 ```
@@ -28,7 +28,7 @@ npm run creative:plan -- --posts 9 --start 2026-10-11 --seed 2 --anchor milano-c
 npx vitest run src/creative                       # de regels testen
 ```
 
-Voorbeeldplan (18 posts, 2 hoofdstukken): `output/plan-2026-10-11.md`. De 20 testbeelden van 6 oktober staan in `output/2026-10-06-testbeelden.md`.
+Voorbeeldplan (18 posts, 2 hoofdstukken, gemaakt met `--posts 18 --start 2026-10-11 --seed 2`): `output/plan-2026-10-11.md`. De 20 testbeelden van 6 oktober staan in `output/2026-10-06-testbeelden.md`.
 
 ## Bestanden
 
@@ -50,7 +50,7 @@ Voorbeeldplan (18 posts, 2 hoofdstukken): `output/plan-2026-10-11.md`. De 20 tes
 
 1. **Garderobe**: alleen actieve producten, ingedeeld naar zone (top, tussenlaag, buitenlaag, broek, schoen). Sets worden opgesplitst in hun stukken.
 2. **Looks**: precies één top en één broek, hooguit één tussenlaag, één buitenlaag en één paar loafers. Eén palet, hooguit drie kleurfamilies en tonaal gekozen loafers. Zonder loafers geen voeten in beeld.
-3. **Prompt**: elk zichtbaar product gaat mee als referentiefoto. De prompt zegt "alleen deze stukken en niets anders" en noemt elk verboden item: horloge, riem, sjaal, bril, tas, sokken, logo's, auto's, boten, vrouwen, omstanders. Bij halflange beelden gaan de loafers niet mee, omdat de voeten dan buiten beeld vallen.
+3. **Prompt**: elk zichtbaar product gaat mee als referentiefoto. De prompt zegt "alleen deze stukken en niets anders" en noemt elk verboden item: horloge, riem, sjaal, bril, tas, sokken, logo's, merktekens op auto's en boten, vrouwen, andere mensen dichtbij (op openbare plekken alleen verre, onscherpe voorbijgangers). Bij halflange beelden gaan de loafers niet mee, omdat de voeten dan buiten beeld vallen.
 4. **Kwaliteitscontrole**: elk beeld wordt beoordeeld. Eén afwijking en het wordt opnieuw gemaakt.
 
 Alle vier staan in code met tests (`src/creative/`), zodat de regels niet per ongeluk verdwijnen.
@@ -65,7 +65,7 @@ Sinds 8 oktober 2026 staat in elke foto en elke video dezelfde man. Nooit een an
 |---|---|---|
 | **De 20 testbeelden beoordelen** | Claude kan ze vanuit deze omgeving niet openen. Jouw oordeel per beeld (goed, afkeuren, waarom) bepaalt wat er aan de prompts verandert | Jij |
 | **De originele foto's van het model in hoge resolutie** | De vier referenties zijn kleine schermafbeeldingen (208 tot 348 px breed). Liefst 5 tot 20 foto's van minstens 1024 px: van voren, driekwart, profiel, neutraal en lachend, in verschillend licht. Daarmee worden de Soul ID en het element opnieuw gemaakt en wordt zijn gezicht scherper | Jij |
-| **Echte productfoto's** (plat of op paspop: voor, achter, detail) | Veel productfoto's zijn zelf AI-beelden. Het model maakt na wat het ziet: hoe echter de referentie, hoe trouwer het product | Jij of een fotograaf |
+| **Echte productfoto's** (plat of op paspop: voor, achter, detail) | Veel productfoto's zijn zelf AI-beelden. Het beeldmodel maakt na wat het ziet: hoe echter de referentie, hoe trouwer het product | Jij of een fotograaf |
 | Netwerktoegang voor `cdn.shopify.com`, `d8j0ntlcm91z4.cloudfront.net` en `d2ol7oe51mr4n9.cloudfront.net` | Daarna controleert Claude elk beeld zelf voordat jij het ziet | Jij, in de instellingen van de omgeving |
 | **Elke maand screenshots** van de vier rasters (en Zegna, die nog ontbreekt) | De Windsor-koppeling lukt niet. Met screenshots wordt de norm elke maand bijgewerkt met echte beelden | Jij, 5 minuten per maand |
 | Cijfers uit Instagram Insights, elke eerste maandag van de maand | Meten of de norm werkt (zie `norm.md`, hoofdstuk 8) | Jij |
