@@ -1,0 +1,60 @@
+{
+  "note": "Het enige model van ModernoMilano. Elke foto en video met een persoon gebruikt deze man, nooit een andere en nooit twee. Bron van waarheid voor de engine (src/creative/casting.ts), de Python-builders en de creative-engine skill. Uitleg: creative-engine/brand/model.md.",
+  "id": "modernomilano-model",
+  "name": "Luca",
+  "since": "2026-10-08",
+  "higgsfield": {
+    "element_id": "4c170ca1-19b2-49db-b217-d1c6e0b543e7",
+    "element_name": "modernomilano-model",
+    "element_placeholder": "<<<4c170ca1-19b2-49db-b217-d1c6e0b543e7>>>",
+    "element_image_models": ["nano_banana_pro", "nano_banana_2", "gpt_image_2", "seedream_v4_5", "seedream_v5_lite", "cinematic_studio_2_5"],
+    "element_video_models": ["seedance_2_0", "cinematic_studio_3_0", "cinematic_studio_video_v2", "kling3_0 (alleen met start_image)"],
+    "soul_id": "9047016d-76a7-454b-bc9b-c2268778f00a",
+    "soul_type": "soul_2",
+    "soul_models": ["soul_2", "soul_cinematic"],
+    "face_refs": [
+      { "file": "creative-engine/brand/assets/model/ref-1.jpg", "media_id": "987017a9-586e-4841-9a41-4abb89b6a4e1", "upscale_job_id": "603d494f-d72d-4f7c-a2f6-c21d3b445030", "view": "vooraanzicht, zittend op een dak in Milaan" },
+      { "file": "creative-engine/brand/assets/model/ref-2.jpg", "media_id": "73e7f568-d388-48d6-8c73-499819c985b3", "upscale_job_id": "1e5c3fed-e12a-4845-94dd-0b2d40a39ead", "view": "close-up, driekwart, Navigli (haar hier anders gekamd)" },
+      { "file": "creative-engine/brand/assets/model/ref-3.jpg", "media_id": "c9e16fbb-8591-4f0f-8ff6-fa59524b2835", "upscale_job_id": "5a634776-6cf2-4866-aa7d-fd477bfa56fe", "view": "van achteren/opzij, kijkt omlaag; ware haarkleur" },
+      { "file": "creative-engine/brand/assets/model/ref-4.jpg", "media_id": "7ce9828b-f9e8-4fba-8aa6-34fb1c80ea32", "upscale_job_id": "0eda0253-6087-4aa8-8daa-2b5f2c6d3b51", "view": "driekwart, lopend op een brug" }
+    ],
+    "element_sources": ["603d494f-d72d-4f7c-a2f6-c21d3b445030", "0eda0253-6087-4aa8-8daa-2b5f2c6d3b51", "1e5c3fed-e12a-4845-94dd-0b2d40a39ead"],
+    "bank": [
+      { "job_id": "04204c1e-2242-4e57-aa7e-0941d177c8d3", "view": "vooraanzicht, wit T-shirt, kalkwand", "in_soul": true },
+      { "job_id": "cd868f19-c434-4686-baee-aa6e5bd9fcf8", "view": "driekwart links", "in_soul": false, "why": "haar bijna zwart, gezicht harder" },
+      { "job_id": "b6a3a2ca-694e-47fd-b13e-d9f1bffa542c", "view": "driekwart rechts, bewolkte straat", "in_soul": true },
+      { "job_id": "de085085-5196-46c1-a6e3-b8675dbcc58e", "view": "profiel", "in_soul": true },
+      { "job_id": "ef2945b3-ddf0-4749-b181-f1110184a540", "view": "halflang, lamplicht, navy polo", "in_soul": true },
+      { "job_id": "043ef6e7-bda4-4b0d-be06-2f81c672e2d0", "view": "van boven, espresso", "in_soul": true },
+      { "job_id": "dad1c61b-b7a8-4570-a770-3d2ced4c05ca", "view": "zijkant, Navigli, bewolkt", "in_soul": true },
+      { "job_id": "50025959-b326-4752-b427-7a50bd0e777b", "view": "close-up, dak, laag zonlicht", "in_soul": true }
+    ]
+  },
+  "prompt": {
+    "identity_en": "a man in his mid-twenties with dark chestnut-brown hair, long and full on top, combed up and back from a soft break on his right so a soft wave falls over his left temple, the sides swept back over the tops of his ears; thick, dark, nearly straight brows set low over deep-set hazel-brown eyes; a rectangular face with defined cheekbones, a broad jaw with sharp angles below the ears and a broad squared chin; a straight nose with a rounded tip; full lips, the lower lip fuller and slightly forward; a faint stubble shadow; light warm skin; a long neck, broad relaxed shoulders and an athletic build",
+    "keep_en": "He is exactly the man in the reference images: keep his face, brows, eyes, jaw, lips, hair colour, hair length and the way his hair is combed; do not make him older, narrow his jaw, arch his brows, change his hair colour or smooth his skin. He does not resemble any actor or public figure.",
+    "must_not_en": [
+      "no beard, goatee or moustache; never more than light stubble",
+      "not older than about thirty; no grey hair",
+      "no blue or grey eyes",
+      "no narrow V-shaped jaw or pointed chin",
+      "no high or arched brows",
+      "no blond, red or black hair; no fade, undercut, wet-look gel or centre-parted curtains",
+      "no toothy grin and no forced smoulder",
+      "never a different man, and never two men in one picture"
+    ],
+    "realism_en": "An unretouched photograph. Natural healthy skin with fine real texture and a faint stubble shadow, matte, with no beauty glow, no airbrushing and no painted-on pores or spots. The clothes are real fabric with visible knit stitch and soft creases at the elbows and waist. Real optics: full-frame digital camera, shallow depth of field, slight lens softness at the edges. No film borders, no frame, no text, no logos.",
+    "light_default_en": "One motivated light source: the low sun behind him to one side puts a warm rim on his hair and shoulder while his face sits in soft open shade; the background is a stop darker and out of focus; muted warm colour, lifted blacks, soft contrast; no HDR, no teal-and-orange grade.",
+    "expression_en": "a calm, closed-mouth expression, eyes off camera, caught between moments; at most a faint closed-mouth smile",
+    "framing_en": "waist-up or three-quarter by default, off-centre, seen from the side, over the shoulder or from behind, with something soft in the foreground; full length at most two in ten pictures",
+    "public_places_en": "two or three distant passers-by, small and out of focus, faces unreadable; any shop signs far away and too blurred to read"
+  },
+  "rules": {
+    "image_model_with_products": "nano_banana_pro, resolution 4k, aspect 4:5, element placeholder in the prompt, product photos as image_references (max 4 per shot)",
+    "image_model_portrait": "soul_2 with soul_id, quality 2k, aspect 3:4 (crop to 4:5), max 1 product image",
+    "video": "image-to-video from an approved still: seedance_2_0, 5 s, 1080p, start_image = approved still job_id, element placeholder in the prompt; small natural movement, no full head turns",
+    "batch_max": 12,
+    "face_min_px": 500,
+    "qa": "Every picture with a face next to the reference images: is it the same man? If not, reject it."
+  }
+}
