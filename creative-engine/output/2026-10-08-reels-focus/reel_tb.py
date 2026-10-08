@@ -100,12 +100,16 @@ MOTION = {
           "settles."),
     # B begint waar A eindigt (startbeeld = laatste frame van A, gilet omgekeerd). Voorcontrole 8 okt: klaar met bewegen na
     # ongeveer 3 s, want het logo staat de laatste 2 s in beeld; blik naar links houden, niet naar de camera.
-    "B": ("He keeps leaning lightly with his left shoulder against the stone column on the right of the frame, both hands in "
-          "his trouser pockets, his gaze out over the courtyard past the left edge of the frame. With a slow breath he gently "
-          "lowers his chin and eyes a little to the paving ahead of him on the left, his face still turned to the left, and by "
-          "the third second he has settled against the column; for the last two seconds he stays calm and still, only "
-          "breathing softly. The handheld camera holds still with a faint natural sway."),
+    # Concept 1 van B (8 okt) viel af: het opende niet op het startbeeld (andere camerapositie, hoofd omhoog) en de
+    # "handheld"-camera dreef de hele shot opzij, ook onder het logo. Nu een vaste camera op statief.
+    "B": ("The shot opens exactly on the start frame, with the same framing, background, head angle and closed lips. The "
+          "camera is locked off on a tripod and stays perfectly still for the whole shot. He keeps leaning lightly with his "
+          "left shoulder against the stone column on the right of the frame, both hands in his trouser pockets, his gaze out "
+          "over the courtyard past the left edge of the frame. With a slow breath he gently lowers his chin and eyes a little "
+          "to the paving ahead of him on the left, his face still turned to the left, and by the third second he has settled "
+          "against the column; for the last two seconds he stays calm and still, only breathing softly."),
 }
+TAKE = {"A": "one continuous handheld take.", "B": "one continuous take from the fixed camera."}
 TEE = {"A": "over the deep bordeaux T-shirt.",
        "B": "over the deep bordeaux T-shirt, which hangs loose and untucked at the same length throughout."}
 SIDE = {"A": "bordeaux outside, cream only inside the collar and along the open front edges",
@@ -117,7 +121,7 @@ def video(clip, start):
     prompt = (f"{MOTION[clip]} Small, natural movement. He is the man in the start frame and in the reference images; use the "
               "reference images only for his face and hair. He keeps the same face, hair and clothes throughout: the sleeveless "
               f"gilet stays {SIDE[clip]} for the whole shot, {TEE[clip]} His face stays clear, his wrists bare. The "
-              "courtyard stays quiet and still around him. Real-time motion with natural motion blur, one continuous handheld take.")
+              "courtyard stays quiet and still around him. Real-time motion with natural motion blur, " + TAKE[clip])
     medias = [{"role": "start_image", "value": start}] + [{"role": "image_references", "value": f} for f in faces]
     return {"model": "seedance_2_5", "mode": "omni_reference", "resolution": "480p", "draft": True, "bitrate_mode": "high",
             "duration": 5, "aspect_ratio": "9:16", "generate_audio": False, "prompt": prompt, "medias": medias,
