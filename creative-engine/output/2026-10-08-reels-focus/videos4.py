@@ -8,6 +8,8 @@ Gebruik:
   python3 -I videos4.py starts                    -> ronde 1: requests voor generate_image_batch (2 varianten per beeld)
   python3 -I videos4.py como_b <job como_a> [left|right]  -> ronde 2: shot B op de boot, dichterbij (bewerking van como_a)
   python3 -I videos4.py mocha_a <job mocha_b>     -> ronde 2: shot A van Dark Mocha, het detail (bewerking van mocha_b)
+  python3 -I videos4.py mocha_c <job mocha_b>     -> Sera, macro van de crème band om de capuchon en de rits (wens eigenaar)
+  python3 -I videos4.py mocha_d <job mocha_b>     -> Sera, macro van de twee crème strepen langs het been
   python3 -I videos4.py como_c <job como_a>       -> shot C op de boot: detail van hand, kleding en boot (feedback eigenaar)
   python3 -I videos4.py reverse <antracite|blu> <media laatste frame A>  -> startbeeld B van een Reverso-video
   python3 -I videos4.py draft <shot> [start]     -> Seedance 2.5, concept 480p (shot: como_a, como_b, antracite_a, ...)
@@ -248,6 +250,42 @@ def mocha_a(job_b):
     return req(parts, [job_b] + MOCHA["refs"][1:])
 
 
+# Sera met de nadruk op macro's (wens eigenaar 8 okt, 23:00): "de crème lijn" loopt door de video, van de band om de
+# capuchon via de strepen op de mouw (mocha_a) naar de strepen langs het been; daarna pas hij in de fauteuil (mocha_b).
+def mocha_c(job_b):
+    parts = [
+        "An extreme close detail from the same scene as reference image #1, at the same moment: the same armchair, the same "
+        "warm lamp light, the same clothes. The camera is very close beside him on the lamp side and frames only the base of "
+        "his neck and the top of his chest, as in reference image #1: the hood of the dark mocha knit jacket lying flat around "
+        "the back of his neck; the plain cream band that edges the opening of the hood, curving around the side of his neck "
+        "and running down to the top of the dark silver zip; the open front edges of the jacket with the small dark silver zip "
+        "teeth; and the plain white crew-neck T-shirt beneath. The top edge of the frame cuts just below his jaw: his face is "
+        "not in the picture, only the side of his neck.",
+        "The warm floor lamp on his left rakes across the knit and shows every stitch and the soft halo of the cashmere "
+        "fibres; the cream band catches the light; behind, the cool blue dusk of the window and a few blurred warm city "
+        "lights, far out of focus. Muted warm colour, soft contrast, no HDR.",
+        "The pieces are these ModernoMilano pieces, reproduced exactly as in the reference images:\n" + MOCHA["text"],
+        "The cream band is one plain, flat knitted band. No hands are in the picture.", REAL,
+        "Full-frame digital camera, 100mm macro lens at f/2.8."]
+    return req(parts, [job_b] + MOCHA["refs"][1:])
+
+
+def mocha_d(job_b):
+    parts = [
+        "A close detail from the same scene as reference image #1, at the same moment: the same armchair, the same warm lamp "
+        "light, the same clothes. The camera is low and close beside the armchair and frames only the leg nearest the camera "
+        "as he sits, from the middle of his thigh to just below his knee, as in reference image #1: the matching dark mocha "
+        "knit trousers with the wide and the thin cream stripe running down the outer side of the leg in one long, clean line "
+        "through the frame, over the bend of the knee; the worn cognac leather of the armchair soft beside it. His face and "
+        "his hands are not in the picture.",
+        "The warm floor lamp rakes along the knit and the two cream stripes and shows every stitch and the soft halo of the "
+        "cashmere fibres; the background falls away into soft warm shadow and the blurred blue of the window. Muted warm "
+        "colour, soft contrast, no HDR.",
+        "The pieces are these ModernoMilano pieces, reproduced exactly as in the reference images:\n" + MOCHA["text"],
+        REAL, "Full-frame digital camera, 100mm macro lens at f/2.8."]
+    return req(parts, [job_b] + MOCHA["refs"][1:])
+
+
 def reverse(video, last_frame):
     prod = {"antracite": ANTRACITE, "blu": BLU}[video]
     o, i = prod["outside"], prod["inside"]
@@ -370,11 +408,33 @@ SHOT = {
         clothes=("the dark mocha brown knit sleeve keeps its cream stripes exactly as in the start frame, straight and "
                  "continuous down to the ribbed cuff"),
         still="The city lights stay soft and blurred behind the glass."),
+    "mocha_c": dict(dur=4, face=False, take="one continuous take with a macro lens.",
+        motion=("An extreme close detail of the plain cream band that edges the hood of his knit jacket, at the side of his "
+                "neck. The camera glides very slowly down along the cream band towards the top of the zip and settles by the "
+                "third second, while the warm lamp light rakes across the knit and the soft cashmere fibres catch the light. "
+                "He breathes slowly and calmly, so the knit rises and falls very softly. The frame stays on the cream band, "
+                "the knit and the white T-shirt for the whole shot."),
+        clothes=("the dark mocha brown hooded knit jacket stays open exactly as in the start frame, with the plain cream "
+                 "band edging its hood and the white T-shirt beneath unchanged"),
+        bare="The top of the frame stays just below his jaw. ",
+        still="The city lights stay soft and blurred far behind."),
+    "mocha_d": dict(dur=4, face=False, take="one continuous take with a macro lens.",
+        motion=("A close detail of his leg as he sits in the cognac leather armchair: the dark mocha knit trousers with the "
+                "wide and the thin cream stripe running down the outer side of the leg. The camera glides slowly along the two "
+                "cream stripes towards his knee and settles by the third second, while the warm lamp light slides softly along "
+                "the knit. His leg stays relaxed and still. The frame stays on the knit, the cream stripes and the leather "
+                "for the whole shot."),
+        clothes=("the matching dark mocha knit trousers keep the wide and the thin cream stripe exactly as in the start "
+                 "frame, straight and continuous"),
+        bare="Only the knit, the stripes and the leather are in the frame. ",
+        still="The room stays quiet and dim around the lamp light."),
     "mocha_b": dict(dur=5, face=True, take="one continuous take from the fixed camera.",
+        # Les uit Il lago (concept 1 van como_b): ogen open en stil vanaf seconde 3 benoemen, anders gaan de ogen dicht.
         motion=(LOCKED + "The camera is locked off on a tripod and stays perfectly still for the whole shot. He sits back "
                 "in the cognac leather armchair, his right hand resting on his thigh, his face in profile turned to the right "
-                "of the frame. With a slow breath he lifts his chin slightly, his face still turned to the right, and by the "
-                "third second he is still; for the last two seconds he stays calm, only breathing softly. The small city "
+                "of the frame, looking out of the window, his eyes open and steady on the city lights. With one slow, calm "
+                "breath he lifts his chin very slightly, his face still turned to the right; from the third second he holds "
+                "this pose completely still, his eyes still open, only breathing softly until the end. The small city "
                 "lights twinkle softly far behind the glass."),
         clothes=("the dark mocha brown hooded knit jacket stays open and unzipped over the white T-shirt exactly as in the "
                  "start frame, its hood lying flat behind his neck with the opening edged only by the plain cream band, its "
@@ -391,7 +451,7 @@ def video(shot, start=None):
            "hair. He keeps the same face, hair and clothes throughout: " if c["face"] else
            "He keeps the same clothes throughout: ")
     prompt = (f"{c['motion']} Small, natural movement. {who}{c['clothes']}. "
-              + ("His face stays clear, his wrists bare. " if c["face"] else "His hand and wrist stay bare. ")
+              + (c.get("bare") or ("His face stays clear, his wrists bare. " if c["face"] else "His hand and wrist stay bare. "))
               + f"{c['still']} Real-time motion with natural motion blur, {c['take']}")
     medias = [{"role": "start_image", "value": start}]
     if c["face"]:
@@ -411,8 +471,8 @@ if __name__ == "__main__":
     cmd, args = sys.argv[1], sys.argv[2:]
     if cmd == "starts":
         out = [{"index": 2 * n + v, "params": START[k]()} for n, k in enumerate(START) for v in range(2)]
-    elif cmd in ("como_b", "como_c", "mocha_a"):
-        f = {"como_b": como_b, "como_c": como_c, "mocha_a": mocha_a}[cmd]
+    elif cmd in ("como_b", "como_c", "mocha_a", "mocha_c", "mocha_d"):
+        f = {"como_b": como_b, "como_c": como_c, "mocha_a": mocha_a, "mocha_c": mocha_c, "mocha_d": mocha_d}[cmd]
         out = [{"index": v, "params": f(*args)} for v in range(2)]
     elif cmd == "reverse":
         out = reverse(args[0], args[1])
