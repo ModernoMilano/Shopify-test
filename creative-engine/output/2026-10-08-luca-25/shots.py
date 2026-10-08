@@ -23,6 +23,7 @@ FEET = {
     "none": "His feet are not in the picture.",
 }
 NOTEXT = "No text, no logos, no badges, no film borders, no frame."
+RES = "4k"
 # Na batch 2 (8 okt): het gezicht dreef af in haarlengte, haarkleur en oogkleur.
 ID_LINE = ("He is in his mid-twenties, with only a faint stubble shadow (never a beard or moustache), dark warm brown eyes "
            "(never blue or grey) and warm chestnut-brown hair (not espresso, not near-black) swept back with volume on top, "
@@ -63,7 +64,7 @@ def person(s):
         parts.append(s["fix"])
     parts += [P["realism_en"], f"Full-frame digital camera, {s['lens']}."]
     ar = s.get("ar", "4:5")
-    return {"model": "nano_banana_pro", "resolution": "4k", "aspect_ratio": ar, "prompt": "\n\n".join(parts), "medias": medias}
+    return {"model": "nano_banana_pro", "resolution": RES, "aspect_ratio": ar, "prompt": "\n\n".join(parts), "medias": medias}
 
 
 def detail(s):
@@ -85,7 +86,7 @@ def detail(s):
     parts += [P["realism_en"], f"{s['lens']}."]
     if not s.get("label"):
         parts.append(NOTEXT)
-    return {"model": "nano_banana_pro", "resolution": "4k", "aspect_ratio": s.get("ar", "4:5"), "prompt": "\n\n".join(parts), "medias": medias}
+    return {"model": "nano_banana_pro", "resolution": RES, "aspect_ratio": s.get("ar", "4:5"), "prompt": "\n\n".join(parts), "medias": medias}
 
 
 def mood(s):
@@ -264,6 +265,32 @@ V["V04"]["fix"] = "The navy jacket has the cream-and-white stripe down the outer
 V["V05"]["fix"] = "Both of his wrists are bare, with no bracelet or band."
 
 
+# ---------- Na de controle van batch 3 (8 okt) ----------
+# M02 en M04 hadden drie pogingen: nieuwe opzet. V02 krijgt een eenvoudiger outfit (de Tabacco-set kwam
+# twee keer als gebreide hoodie terug). Bar-scènes zonder flessen, tramstraat zonder winkels.
+S["M02"].update(keys=["bellagio_burgundy", "tee"],
+                worn="The burgundy cashmere cardigan zipped halfway over the white T-shirt.",
+                fix="The frame ends at his waist; nothing below the cardigan hem is visible.")
+S["M04"].update(title="Op de achtersteven in Varenna",
+                scene="Late afternoon on Lake Como: {M} sits on the varnished mahogany stern of an old wooden runabout moored at a stone jetty in Varenna, one arm resting along the gunwale, looking out over the water. Framed from the waist up, seen from the side, a coiled rope soft in the foreground. The boat has no badges, lettering or numbers.",
+                worn="The sleeveless beige knit gilet zipped over the beige long-sleeve knit polo.",
+                fix="The frame ends at his waist, so his trousers and feet are not visible; the gilet has a fine heathered knit and a ribbed stand collar.")
+S["M08"].update(scene="An overcast morning at a tram stop in central Milan: {M} stands on the kerb with his hands in his jacket pockets, seen from the side and turned away from the camera, looking down the street, while an old orange tram slides past on the far track behind him, motion-blurred. Across the street only the plain ochre wall of an old palazzo with closed green shutters, no shops. Three-quarter length, off-centre to the left.",
+                fix="The tram is plain orange with blank dark windows and no route number, destination board or lettering; the joggers have the cream stripe running the full length of each outer leg, exactly as in the product photo.")
+_BAR = "Nobody stands behind the bar; behind it only plain shelves with stacked white cups and saucers, softly out of focus, no bottles."
+S["M09"].update(scene=S["M09"]["scene"].replace("Nobody stands behind the bar; behind it only plain wooden shelves with unlabelled bottles, softly out of focus.", _BAR),
+                fix="The navy jacket has a flat, pointed shirt collar with two collar points lying open on his chest, not a stand-up collar, and a tonal navy zip.")
+V["V02"].update(keys=["bergamo_bordeaux", "sart_charcoal", "loafer_nero"],
+                worn="The deep bordeaux long-sleeve knit polo with the top button open; the charcoal tailored trousers; black suede loafers.")
+V["V03"].update(scene=V["V03"]["scene"].replace("Nobody stands behind the bar; behind it only plain wooden shelves with unlabelled bottles, softly out of focus.", _BAR),
+                fix="The oatmeal hooded jacket has a dark gunmetal zip on a dark tape, exactly as in the product photo.")
+V["V04"].update(keys=["twotone_navy", "tee", "loafer_notte"],
+                scene="A Brera street on an overcast morning: {M} walks slowly along the pavement, seen from the front and slightly to the side. The top edge of the frame falls at the base of his neck, well below the chin, so no part of his mouth, chin or jaw is visible; the frame runs from there down to his feet, so the focus is entirely on the clothes.",
+                worn="The navy cashmere zip jacket with the cream-and-white sleeve stripes, zipped up to the middle of his chest over the white T-shirt; matching navy joggers with the side stripe; navy suede loafers.")
+for _k in ("M02", "M04", "M08", "M09"):
+    FIXES[_k] = S[_k]["fix"]
+
+
 def video(i, start_job):
     """Kling 3.0 image-to-video vanaf een goedgekeurd 9:16-startbeeld (model.json rules.video)."""
     v = V[i]
@@ -284,7 +311,7 @@ def build(i):
     if s["kind"] == "p":
         r = person(s)
         if s.get("headless"):
-            r["prompt"] = (r["prompt"].replace(P["keep_en"], "Keep his build, jaw line and skin exactly as in the reference images; his face is not in the picture.")
+            r["prompt"] = (r["prompt"].replace(P["keep_en"], "Keep his build and skin exactly as in the reference images; his head, chin and mouth are not in the picture.")
                            .replace(f"Expression: {P['expression_en']}.\n\n", "").replace(ID_LINE + "\n\n", ""))
         return r
     return detail(s) if s["kind"] == "d" else mood(s)
@@ -295,5 +322,8 @@ if __name__ == "__main__":
         pairs = [a.split("=") for a in sys.argv[2:]]
         print(json.dumps([{"index": k + 1, "params": video(i, j)} for k, (i, j) in enumerate(pairs)], ensure_ascii=False))
         sys.exit(0)
+    if sys.argv[1:2] == ["--2k"]:
+        RES = "2k"
+        sys.argv.pop(1)
     ids = sys.argv[1:] or list(S)
     print(json.dumps([{"index": k + 1, "params": build(i)} for k, i in enumerate(ids)], ensure_ascii=False))
