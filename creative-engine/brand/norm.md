@@ -21,7 +21,7 @@ Van Zegna is geen screenshot gezien. Wat over Zegna in deze norm staat, komt uit
 
 ## 2. Hoofdstukken van 9 posts, gelezen in rijen van 3
 
-Een seizoen is één hoofdstuk: één soort plek, één palet, één vast gezicht. Dat deden alle merken in de screenshots:
+Een seizoen is één hoofdstuk: één soort plek en één palet. Het model is in alle hoofdstukken dezelfde man (hoofdstuk 6). Eén shoot per hoofdstuk deden alle merken in de screenshots:
 - **Cucinelli:** rij 1 en 2 zijn één shoot aan een zwarte kust en op een gletsjer.
 - **Loro Piana:** negen opeenvolgende tegels zijn één studio-lookbook.
 - **Boggi:** één rij is één reisverhaal.
@@ -47,8 +47,8 @@ De carrousels zijn vast opgebouwd:
 - **Ambacht:** stof van dichtbij, alle kleuren gestapeld, schets.
 - **Styling:** de look op locatie, dezelfde look in de studio, een detail uit dezelfde shoot, de flatlay met alle stukken.
 
-**Reels** maakt de engine van een goedgekeurd beeld in 9:16, met Kling 3.0. Het beeld is het startframe, de beweging is rustig en er is geen geluid.
-- Lengte: 6 tot 10 seconden per shot; voor 12 tot 20 seconden combineer je 2 of 3 shots.
+**Reels** maakt de engine van een goedgekeurd beeld in 9:16, met Seedance 2.0 (image-to-video, nooit vanuit alleen tekst). Het beeld is het startframe, het vaste model blijft via het Higgsfield-element hetzelfde, de beweging is rustig en er is geen geluid.
+- Lengte: 5 seconden per shot; voor 10 tot 20 seconden combineer je 2 tot 4 shots.
 - Muziek: één instrument of omgevingsgeluid, uit de Instagram-bibliotheek. Geen trending pop, geen voice-over.
 - Geen tekst in beeld.
 
@@ -60,10 +60,11 @@ De carrousels zijn vast opgebouwd:
 | **Gedempte, filmische nabewerking**: koel en ontkleurd in de herfst en winter, warm gedempt in de zomer. Studio blijft natuurgetrouw. | Cucinelli: 12 van de 24 tegels koel ontkleurd. Zegna en Loro Piana Holiday 2025: "muted tones and soft focus". |
 | **Zwart-wit portret** als vast beeldtype, ongeveer 1 per 9 posts. | Cucinelli: 7 van de 24 tegels zwart-wit, vooral close-portretten. |
 | Wijd en dichtbij afwisselen: na hooguit 2 wijde beelden volgt een halflang beeld, een detail of een still life. | In alle drie de rasters. |
-| Kijk weg van de camera in wijde beelden. Recht in de lens alleen bij een portret. | Cucinelli, en meestal ook Boggi. |
+| Hij kijkt langs de camera, met de mond dicht. Recht in de lens hooguit bij een portret. Geen tandenlach. | Cucinelli, en meestal ook Boggi. In de batch van 100 (7 oktober) oogden lachjes recht in de lens als stockfoto's. |
 | Bewegen, niet poseren: lopen, een espresso, een kraag rechtzetten. | Zegna AW25: Mikkelsen loopt door Torino en neemt een espresso. Loro Piana FW26: kleding "in motion and in use". |
 | Tonaal kleden, met hooguit één accentkleur per look (bijvoorbeeld Bordeaux). | Zegna SS26: "camel on camel, olive on khaki, sand on sand". Loro Piana zet in het lookbook per look één kleur in. |
 | Minstens 1 op de 3 posts toont een gelaagde look: cardigan, vest of gilet over een polo of tee. | Cucinelli en Boggi tonen steeds laag over laag. |
+| Standaard tot de taille of driekwart. Ten voeten uit hooguit 2 op de 10 beelden, en zijn gezicht is minstens ongeveer 500 px breed. | Batch van 100 (7 oktober): kleine gezichten in beelden van top tot teen oogden AI. |
 | In een wijd landschap is de man minstens een kwart van de beeldhoogte. Het product moet herkenbaar blijven. | Eigen keuze: wij moeten verkopen, en hebben het bereik van de grote merken niet. |
 | Een klassieke auto of houten motorboot mag als decor, **zonder** embleem, logo of leesbaar kenteken, en nooit als hoofdonderwerp. | Zegna zet zijn mannen in Venetië op houten motorboten. Het moodboard van de eigenaar (6 oktober) heeft een zilveren oldtimer in de sneeuw, een landhuis met een donkere sportwagen en een motorboot van boven. |
 
@@ -75,16 +76,16 @@ De carrousels zijn vast opgebouwd:
 | Ambacht | stof van dichtbij, alle kleuren gestapeld, schets, still life |
 | Styling | flatlay van de look (plus de carrouselbeelden hierboven) |
 | Editorial | zwarte kust (herfst/winter), Milanese binnenplaats, stille architectuur, bibliotheek bij het vuur (herfst/winter), Italiaans dorp, balustrade aan het water, bewoond interieur, stenen kade (zomer) |
-| Wereld | weids landschap, sneeuwveld (herfst/winter), eilandkust (zomer), espresso op het plein, portret in zwart-wit, twee generaties |
+| Wereld | weids landschap, sneeuwveld (herfst/winter), eilandkust (zomer), espresso op het plein, portret in zwart-wit |
 
-## 6. Casting (`src/creative/casting.ts`)
+## 6. Casting: één vast model (`creative-engine/data/model.json`)
 
-- **Eén vast hoofdgezicht per hoofdstuk**, 35 tot 55 jaar. Grijs haar of een grijze baard mag.
-  - Basis: Zegna draagt elk seizoen met Mads Mikkelsen. Cucinelli zet ervaren modellen naast jonge; zijn Fall 2026-edit draait om Francisco Henriques.
-- **Een tweede, jonger gezicht** (25 tot 35) alleen voor twee generaties of twee vrienden.
+- **Eén vast model in alle hoofdstukken**: dezelfde man in elke foto en elke video. Wie hij is: [`model.md`](model.md).
+  - Basis: Zegna werkt elk seizoen met hetzelfde gezicht, en dat maakt het merk herkenbaar. De batch van 100 met tien verschillende mannen (7 oktober) oogde als stockfoto's.
+- **Geen tweede gezicht.** Nooit twee mannen in één beeld, in geen enkel beeldtype.
 - **Alleen mannen.** We verkopen alleen herenkleding.
-- Geen bekende gezichten en geen lookalikes: wij hebben geen ambassadeurs.
-- Zodra je een gezicht kiest, wordt het een vast Higgsfield Element. Dan komt in elk beeld dezelfde man terug.
+- Geen bekende gezichten en geen lookalikes: wij hebben geen ambassadeurs. We vergelijken hem met niemand.
+- Hij komt in beeld via een vast Higgsfield-element (foto's met producten), een Soul ID (portretten) of een goedgekeurde foto als startbeeld (video). De werkwijze staat in `model.md` en in de skill.
 
 ## 7. Captions (`src/creative/captions.ts`)
 

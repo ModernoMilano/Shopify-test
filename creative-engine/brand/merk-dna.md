@@ -44,6 +44,18 @@ Paletten uit `src/creative/colours.ts`. Elke look valt in één palet, met maxim
 
 Loafers worden tonaal gekozen: zwart bij zwart, moro of tabacco bij bruin en zand, navy bij navy.
 
+## Het gezicht van ModernoMilano
+
+Sinds 8 oktober 2026 staat in alle content één vaste man. Hij hoort bij het merk, net als de paletten en de loafers: wie de feed ziet, herkent hem.
+
+- Midden twintig, donker kastanjebruin haar dat naar achteren valt, een brede kaak, een vage stoppelbaard en een atletisch postuur.
+- Rustig en zeker. Mond dicht, blik meestal langs de camera. Hij poseert niet en lacht niet breeduit.
+- Hij draagt alleen ModernoMilano, zonder sieraden of accessoires.
+- Nooit een ander model en nooit twee mannen in één beeld.
+- Hij lijkt niet op een bekend persoon, en we vergelijken hem met niemand.
+
+Wie hij is, de referentiefoto's en hoe hij in beeld komt: [`model.md`](model.md). De regels in beeld: [`beeldregels.md`](beeldregels.md), hoofdstuk 4.
+
 ## Toon
 
 - Rustig, zeker, onderkoeld. Korte zinnen. Italiaanse namen laten staan (Notte, Sabbia, Terra).
