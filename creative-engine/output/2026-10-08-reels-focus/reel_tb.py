@@ -39,6 +39,11 @@ SET = ("MILANO REVERSO SET TOTAL BORDEAUX, three pieces:\n"
        "bordeaux as the trousers.\n"
        "- Deep bordeaux trousers in the same smooth matte fabric as the gilet: an elasticated waistband with belt loops, slanted side "
        "pockets, a slim tapered leg.")
+SLEEVELESS = ("The gilet is clearly SLEEVELESS, exactly as in reference image #1: its armholes are cut wide, sit just inside the "
+              "line of his shoulders and are finished with a narrow cream edge where the cream inside shows (as in reference "
+              "image #3). The short sleeves of "
+              "the bordeaux T-shirt come out from under those armholes, so it is always clear where the gilet ends and the "
+              "T-shirt sleeve begins; the gilet never looks like a jacket with short sleeves.")
 TAIL = [P["keep_en"], ID_LINE, "The pieces are these ModernoMilano pieces, reproduced exactly as in the reference images:\n" + SET,
         f"{HANDS} His feet are not in the picture. He is the only person in the picture.", REAL,
         "Full-frame digital camera, 50mm lens at f/2."]
@@ -49,7 +54,10 @@ def start_a():
         f"The same photograph as reference image #1: the same man ({EL}), the same courtyard, the same pose, light, lens and framing. "
         "Only one thing changes: his crew-neck T-shirt is now deep bordeaux, the same bordeaux as his trousers and the outside of "
         "the gilet, exactly as in reference image #2, so the whole outfit is bordeaux. The gilet stays exactly as it is in "
-        "reference image #1: open, bordeaux side out, cream only inside the stand collar and along the open front edges."] + TAIL
+        "reference image #1: open, bordeaux side out, cream only inside the stand collar and along the open front edges.",
+        # Ronde 1 (8 okt): met een tee in dezelfde kleur liep het armsgat over in de mouw en leek het gilet een jasje met korte
+        # mouwen. Het gilet is mouwloos; de crème binnenkant geeft een smalle rand langs de armsgaten (zie de flat-lay).
+        SLEEVELESS] + TAIL
     medias = [{"value": A2, "role": "image_references"}, {"value": FRONT, "role": "image_references"},
               {"value": FLAT, "role": "image_references"}]
     req = {"model": "nano_banana_pro", "resolution": "4k", "aspect_ratio": "9:16", "prompt": "\n\n".join(parts), "medias": medias}
@@ -62,7 +70,8 @@ def start_b(last_frame):
         "his head and eyes, the same light, lens and framing. Only one thing changes: he now wears the gilet REVERSED, with the "
         "CREAM side out, exactly as in reference image #2. The bordeaux side is now the inside: it shows only inside the stand "
         "collar and along the open front edges. The gilet is open exactly as far as in reference image #1, over the same deep "
-        "bordeaux T-shirt; the bordeaux trousers stay exactly the same."] + TAIL
+        "bordeaux T-shirt; the bordeaux trousers stay exactly the same.", "The gilet is clearly sleeveless: the short sleeves of the bordeaux T-shirt come out from under its armholes, where "
+        "a narrow bordeaux edge of the inside shows against the cream."] + TAIL
     medias = [{"value": last_frame, "role": "image_references"}, {"value": REVERSED, "role": "image_references"},
               {"value": DETAIL, "role": "image_references"}]
     return {"model": "nano_banana_pro", "resolution": "4k", "aspect_ratio": "9:16", "prompt": "\n\n".join(parts), "medias": medias}
@@ -70,15 +79,18 @@ def start_b(last_frame):
 
 # ---------- Video (Seedance 2.5, model.json rules.video; lessen van de proefreel in README.md) ----------
 MOTION = {
-    # Zelfde beweging als de goedgekeurde clip A van de proefreel, nu over 5 seconden.
+    # Zelfde beweging als de goedgekeurde clip A van de proefreel, nu over 5 seconden. Voorcontrole 8 okt: de blik en de
+    # camera moeten tot stilstand komen, want het laatste frame wordt het startbeeld van B.
     "A": ("He keeps leaning lightly with his left shoulder against the stone column on the right of the frame, both hands in "
           "his trouser pockets. He takes a slow breath and slowly lifts his chin and eyes from the paving to look out into the "
-          "courtyard past the left edge of the frame, then holds still. The open front of the gilet moves slightly as he "
-          "breathes. The handheld camera drifts a few centimetres closer."),
+          "courtyard past the left edge of the frame, then holds that look, calm and still, until the end of the shot. The "
+          "open front of the gilet moves slightly as he breathes. The handheld camera drifts a few centimetres closer, then "
+          "settles."),
     # B begint waar A eindigt (startbeeld = laatste frame van A, gilet omgekeerd): blik nog omhoog, dan rustig weer omlaag.
     "B": ("He keeps leaning lightly with his left shoulder against the stone column on the right of the frame, both hands in "
           "his trouser pockets. He holds his gaze out over the courtyard for a moment, takes a slow breath, then slowly lowers "
-          "his eyes back to the paving and settles against the column. The handheld camera holds still with a faint natural sway."),
+          "his eyes back to the paving and settles against the column, calm and still until the end of the shot. The handheld "
+          "camera holds still with a faint natural sway."),
 }
 SIDE = {"A": "bordeaux outside, cream only inside the collar and along the open front edges",
         "B": "cream outside, bordeaux only inside the collar and along the open front edges"}
@@ -87,8 +99,8 @@ SIDE = {"A": "bordeaux outside, cream only inside the collar and along the open 
 def video(clip, start):
     faces = [r["upscale_job_id"] for r in HF["face_refs"] if any(r["file"].endswith(f"/{x}.jpg") for x in HF["video_face_refs"])]
     prompt = (f"{MOTION[clip]} Small, natural movement. He is the man in the start frame and in the reference images; use the "
-              "reference images only for his face and hair. He keeps the same face, hair and clothes throughout: the gilet stays "
-              f"{SIDE[clip]} for the whole shot, over the deep bordeaux T-shirt. His face stays clear, his wrists bare. The "
+              "reference images only for his face and hair. He keeps the same face, hair and clothes throughout: the sleeveless "
+              f"gilet stays {SIDE[clip]} for the whole shot, over the deep bordeaux T-shirt. His face stays clear, his wrists bare. The "
               "courtyard stays quiet and still around him. Real-time motion with natural motion blur, one continuous handheld take.")
     medias = [{"role": "start_image", "value": start}] + [{"role": "image_references", "value": f} for f in faces]
     return {"model": "seedance_2_5", "mode": "omni_reference", "resolution": "480p", "draft": True, "bitrate_mode": "high",
