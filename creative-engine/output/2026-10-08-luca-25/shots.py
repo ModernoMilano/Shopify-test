@@ -318,6 +318,39 @@ for _k in ("M11", "M13", "D03"):
     FIXES[_k] = S[_k]["fix"]
 
 
+# ---------- Na de controle van batch 5 (8 okt): laatste ronde ----------
+# Wat het model steeds verkeerd tekende (Sartoriale-broek met gulp en omslag, Imperial-jack als trainingsjack,
+# de dubbele laag van de Midnight-set, de Tabacco-set) is vervangen door stukken die het betrouwbaar goed maakt.
+V["V02"].update(keys=["bergamo_bordeaux", "sig_trousers_grey", "loafer_nero"],
+                worn="The deep bordeaux long-sleeve knit polo with the top button open; the light grey trousers; black suede loafers.",
+                fix="The car has no badges, emblems, number plate, plate holder or plate frame anywhere. The light grey trousers have a plain hem with no turn-ups. His left hand rests flat on the top edge of the car door.")
+V["V05"].update(keys=["onyx", "loafer_nero"],
+                worn="The black cashmere zip jacket with the ribbed stand collar zipped halfway over the white T-shirt; the black cashmere joggers; black suede loafers.",
+                fix="Both of his wrists are bare. Under the jacket only the plain white crew-neck T-shirt shows; there is no hood.")
+S["M13"].update(keys=["vest_black", "tee"],
+                worn="The black fine-knit zip cardigan zipped halfway over the white T-shirt, the beige lining of its stand collar just visible.",
+                fix="He has only a faint stubble shadow, and his hair is soft and swept back, not a sculpted pompadour, with no shaved or tapered sides.")
+S["A06"].update(title="Ivoor op het balkon", keys=["bellagio_ivory"],
+                scene="On a small iron balcony with red geraniums above a Brera street: the ivory cashmere zip cardigan lies folded over the back of a rattan chair.",
+                arranged="Slightly rumpled, not pressed, one sleeve falling loose over the armrest.", fix="")
+S["D03"].update(keys=["verona_navy"],
+                scene="Macro detail: a man's fingers pull up the silver zip of a navy knit cardigan towards its pointed shirt collar; only his hand and the cardigan front are in frame, and the frame ends just below the collar.",
+                light="Soft daylight from the right; the knit stitch and the zip teeth sharp.",
+                people="Only his bare hand is visible, with no ring or watch; no face, chin or neck in the picture.",
+                fix="The cuff is the ribbed knit cuff of the product photo, and the zip is one continuous silver zip.")
+S["A07"] = dict(kind="a", title="Chroom en achterlicht", lens="85mm lens at f/2.8",
+                scene="Close detail of the chrome rear bumper and round tail light of a cream 1960s Italian convertible parked on a cobbled Milan side street, an ochre wall soft and out of focus behind it.",
+                light="Low morning sun from the left, a warm highlight along the chrome.",
+                fix="The car has no badge, emblem, script, number plate or plate holder anywhere.")
+S["D07"] = dict(kind="d", title="Loafers aan dek", keys=["loafer_tabacco_hero"], lens="100mm macro lens at f/4",
+                scene="Still life on the varnished mahogany deck of an old wooden runabout on Lake Como: a pair of cognac suede loafers stands next to a coiled cream rope, the water soft and out of focus behind.",
+                light="Late afternoon sun from the left, warm reflections on the varnish.",
+                arranged="A mirrored left and right pair, side by side, slightly angled.",
+                fix="The loafers have the moccasin seam across the toe and thick white rubber soles, no penny strap; the boat has no badges or lettering.")
+for _k in ("M13", "D03"):
+    FIXES[_k] = S[_k]["fix"]
+
+
 def video(i, start_job):
     """Kling 3.0 image-to-video vanaf een goedgekeurd 9:16-startbeeld (model.json rules.video)."""
     v = V[i]
