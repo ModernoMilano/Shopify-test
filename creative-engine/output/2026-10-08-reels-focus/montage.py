@@ -52,18 +52,26 @@ def still_frames(path, dur, zoom, crop=None):
         yield im.resize((W, H), Image.LANCZOS, box=(x0, y0, x0 + cw, y0 + ch))
 
 
-def clip_frames(path, start, dur, tmp, crop=None):
-    """crop = [x0, y0, x1, y1] als fractie, bv. om een clip die wijder begint dan zijn startbeeld op de vorige te laten aansluiten."""
+def clip_frames(path, start, dur, tmp, crop=None, zoom=None):
+    """crop = [x0, y0, x1, y1] als fractie, bv. om een clip die wijder begint dan zijn startbeeld op de vorige te laten aansluiten.
+    zoom = [van, tot]: een langzame camerabeweging naar binnen over de hele snede (Una giornata, 8 okt: shot A van Il lago
+    lag bijna stil; 1.0 -> 1.04 geeft leven zonder nieuwe clip)."""
     os.makedirs(tmp, exist_ok=True)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(start), "-i", path, "-t", str(dur), "-vf", f"fps={FPS}",
                     "-q:v", "1", f"{tmp}/%04d.png"], check=True)
     files = sorted(os.listdir(tmp))[: round(dur * FPS)]
-    for f in files:
+    n = len(files)
+    for k, f in enumerate(files):
         im = Image.open(f"{tmp}/{f}").convert("RGB")
         if crop:
             w, h = im.size
             im = im.resize((W, H), Image.LANCZOS, box=(crop[0] * w, crop[1] * h, crop[2] * w, crop[3] * h))
-        yield cover(im)
+        im = cover(im)
+        if zoom:
+            z = zoom[0] + (zoom[1] - zoom[0]) * (k / max(1, n - 1))
+            cw, ch = W / z, H / z
+            im = im.resize((W, H), Image.LANCZOS, box=((W - cw) / 2, (H - ch) / 2, (W + cw) / 2, (H + ch) / 2))
+        yield im
 
 
 def text_layer(lines, yc, fonts):
@@ -134,7 +142,7 @@ def main(cfg_path, out):
     n = 0
     for i, c in enumerate(cfg["cuts"]):
         p = local[c["src"]]
-        frames = (clip_frames(p, c.get("from", 0), c["dur"], f"tmp{i}", c.get("crop")) if p.endswith(".mp4")
+        frames = (clip_frames(p, c.get("from", 0), c["dur"], f"tmp{i}", c.get("crop"), c.get("zoom")) if p.endswith(".mp4")
                   else still_frames(p, c["dur"], c.get("zoom", [1.0, 1.05]), c.get("crop")))
         t = texts.get(i)
         layer = text_layer(t["lines"], t.get("y", 0.6), cfg["fonts"]) if t else None
