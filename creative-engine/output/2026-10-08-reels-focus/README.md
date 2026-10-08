@@ -56,7 +56,7 @@ Het detail in snede 4 is een uitsnede uit startbeeld B (4K). Er is geen extra be
 - 24 voor 2 concepten;
 - 96 voor het afmaken van 2 clips in 1080p.
 
-## Reel 2: "Total Bordeaux", één snede (in de maak)
+## Reel 2: "Total Bordeaux", één snede (opgeleverd)
 
 Wens van de eigenaar (8 oktober), na de proefreel:
 - de vele snedes zagen er slecht uit;
@@ -69,3 +69,44 @@ Budget afgesproken: maximaal ongeveer 180 credits.
 - **Opzet:** `reel_tb.py`. Shot A (5 s) heeft de bordeaux kant buiten. Het laatste frame van A wordt, met alleen het gilet omgekeerd, het startbeeld van shot B (5 s). Zo valt de snede op de beweging en begint de video niet opnieuw.
 - **Regel van de eigenaar voor de Reverso-gilets:** de binnenkleur is alleen te zien binnen in de kraag en langs de open voorkant, **niet bij de armsgaten**. Het moet toch duidelijk een bodywarmer blijven. Bij bordeaux op bordeaux lukt dat met diepe armsgaten binnen het schouderpunt: de schoudernaad en de mouw van de tee zijn zichtbaar, met een schaduwlijn en verschil in stof. Een crème bies of band bij de armen las als een streep op een jasje met korte mouwen; dat waren rondes 1 tot 3, die door de controle werden afgekeurd.
 - **Startbeeld A:** ronde 4, Y0 (`66db5823-11ca-4cb1-a1dc-b23e82aff434`), door de eigenaar goedgekeurd ("perfect zo").
+
+### Oplevering
+
+Opgeleverd als één zip: `ModernoMilano-Reverso-Total-Bordeaux-reel.zip` (12 MB). Daarin zitten de video (10,0 s, 1080×1920, 24 fps, H.264, zonder geluid en zonder tekst) en `Cover.jpg`.
+
+Link: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/5c68bab9-108e-4cd5-b443-c470f604b8c4.zip
+
+De montage staat in `reel_tb-edit.json`:
+- shot A van 5 s;
+- een harde snede;
+- shot B van 5 s, 2,75% ingezoomd zodat hij op het laatste frame van A valt (gemeten met `align.py`);
+- het logo op 40% van de breedte in het midden, de laatste 2 s, met 0,5 s opkomen en het beeld 18% donkerder.
+
+| Id | Job | Controle |
+|---|---|---|
+| Startbeeld A (Y0, ronde 4) | `66db5823-11ca-4cb1-a1dc-b23e82aff434` | eigenaar en beide controles goed |
+| Clip A, concept / 1080p | `e076b507-34eb-4c37-8f18-d366ece36e1c` / `e1dfe650-dd2a-4a7d-a644-d7409ecfb11b` | beide goed / beide goed |
+| Laatste frame van A (upload) | `8d6bfe7a-d68c-4e8c-91cd-95557f4a2429` | |
+| Startbeeld B (ronde 2) | `c6512078-30e2-4408-8f8e-810d80831bf5` | beide goed |
+| Clip B, concept 2 / 1080p | `7fea5b6b-5611-4445-a48c-b5d4d1fec538` / `6caa5655-b860-4a8f-9916-d256c6094c18` | beide goed / beide goed |
+
+### Wat niet lukte
+
+- **Startbeeld A, rondes 1 tot 3:** het gilet las als een jasje met korte mouwen. Rondes 2 en 3 hadden ook crème bij de armen, wat de eigenaar daarna uitsloot.
+- **Startbeeld B, ronde 1:** de tee zat hoger, waardoor de band van de broek zichtbaar was en het beeld bij de snede zou verspringen.
+- **Clip B, concept 1:** het opende niet op het startbeeld (andere camerapositie, hoofd omhoog), en de camera "handheld met lichte deining" dreef de hele shot opzij, ook onder het logo.
+
+### Lessen
+
+- **Snede op de beweging:** begin B met het laatste frame van A en verander alleen wat moet veranderen. Noem in de prompt alles wat gelijk moet blijven, zoals de lengte van de tee.
+- **Vaste camera:** voor een shot dat op een snede moet aansluiten, of waar een logo over komt, een "locked off tripod camera" vragen en de prompt laten beginnen met "The shot opens exactly on the start frame". Een handheld-camera laat Seedance afwijken van het startbeeld.
+- **Rest bij de snede:** wat er dan nog verschilt (een paar procent schaal), meet `align.py` weg in de montage.
+- **Logo:** het witte handschriftlogo is leesbaar op 40% van de breedte met een zachte schaduw en het beeld 18% donkerder, ook boven het crème gilet.
+
+### Kosten
+
+858,55 credits ervoor en 653,55 erna, dus **205 credits**, de afgesproken bovengrens:
+- 40 voor 9 startbeelden in 4K;
+- 45 voor 3 concepten;
+- 120 voor het afmaken van 2 clips in 1080p.
+
