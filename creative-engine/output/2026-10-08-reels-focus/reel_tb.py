@@ -98,12 +98,16 @@ MOTION = {
           "courtyard past the left edge of the frame, then holds that look, calm and still, until the end of the shot. The "
           "open front of the gilet moves slightly as he breathes. The handheld camera drifts a few centimetres closer, then "
           "settles."),
-    # B begint waar A eindigt (startbeeld = laatste frame van A, gilet omgekeerd): blik nog omhoog, dan rustig weer omlaag.
+    # B begint waar A eindigt (startbeeld = laatste frame van A, gilet omgekeerd). Voorcontrole 8 okt: klaar met bewegen na
+    # ongeveer 3 s, want het logo staat de laatste 2 s in beeld; blik naar links houden, niet naar de camera.
     "B": ("He keeps leaning lightly with his left shoulder against the stone column on the right of the frame, both hands in "
-          "his trouser pockets. He holds his gaze out over the courtyard for a moment, takes a slow breath, then slowly lowers "
-          "his eyes back to the paving and settles against the column, calm and still until the end of the shot. The handheld "
-          "camera holds still with a faint natural sway."),
+          "his trouser pockets, his gaze out over the courtyard past the left edge of the frame. With a slow breath he gently "
+          "lowers his chin and eyes a little to the paving ahead of him on the left, his face still turned to the left, and by "
+          "the third second he has settled against the column; for the last two seconds he stays calm and still, only "
+          "breathing softly. The handheld camera holds still with a faint natural sway."),
 }
+TEE = {"A": "over the deep bordeaux T-shirt.",
+       "B": "over the deep bordeaux T-shirt, which hangs loose and untucked at the same length throughout."}
 SIDE = {"A": "bordeaux outside, cream only inside the collar and along the open front edges",
         "B": "cream outside, bordeaux only inside the collar and along the open front edges"}
 
@@ -112,7 +116,7 @@ def video(clip, start):
     faces = [r["upscale_job_id"] for r in HF["face_refs"] if any(r["file"].endswith(f"/{x}.jpg") for x in HF["video_face_refs"])]
     prompt = (f"{MOTION[clip]} Small, natural movement. He is the man in the start frame and in the reference images; use the "
               "reference images only for his face and hair. He keeps the same face, hair and clothes throughout: the sleeveless "
-              f"gilet stays {SIDE[clip]} for the whole shot, over the deep bordeaux T-shirt. His face stays clear, his wrists bare. The "
+              f"gilet stays {SIDE[clip]} for the whole shot, {TEE[clip]} His face stays clear, his wrists bare. The "
               "courtyard stays quiet and still around him. Real-time motion with natural motion blur, one continuous handheld take.")
     medias = [{"role": "start_image", "value": start}] + [{"role": "image_references", "value": f} for f in faces]
     return {"model": "seedance_2_5", "mode": "omni_reference", "resolution": "480p", "draft": True, "bitrate_mode": "high",
