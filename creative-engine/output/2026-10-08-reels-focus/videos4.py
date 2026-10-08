@@ -272,7 +272,7 @@ PRESET_DECLINE = "24bae836-2c4a-48e0-89b6-49fcc0b21612"
 START_IMG = {
     "como_a": "304515f9-5388-4a7b-a8c2-5f06eb77a44d",
     "como_b": "7292b98e-3543-489b-88e2-727ac10f9835",
-    "como_c": "14882de2-e866-4817-8374-6f7570fb1dff",
+    "como_c": "a3e5b43c-ef18-44a3-abfe-1c7adddeb7c8",  # bijsnede van job 14882de2 (zonder het keurmerk op de ruit)
     "antracite_a": "6f98f485-59f7-4e29-a5a0-baf6c7789207",
     "blu_a": "b3851105-101c-41c6-9e16-ad4e5ad5abf2",
     "mocha_a": "98e8323c-ebb0-4e04-82cc-1d0391ab05e7",  # detail 2 (detail 1 afgekeurd: broek zonder streep)
@@ -308,9 +308,9 @@ SHOT = {
     # 1c. Detail tussen A en B (feedback eigenaar 8 okt: A te lang, een andere hoek, dichter op kleding en boot).
     "como_c": dict(dur=4, face=False, take="one continuous take from the camera fixed on the boat.",
         motion=("A close detail shot of his hand and forearm resting on the chrome frame of the windscreen. The boat glides "
-                "slowly forward; the camera is fixed to the boat at his side, so his hand, the chrome frame and the deck stay "
-                "in place in the frame, while the warm sunlight and the long golden reflections slide slowly along the "
-                "varnished mahogany and the chrome, and the lake glitters softly beyond. His fingers relax and move slightly "
+                "slowly forward; the camera is fixed to the boat at his side, so his hand, the chrome post of the windscreen and "
+                "the cream leather stay in place in the frame, while the warm sunlight and its reflections slide slowly along "
+                "the chrome and the lake glitters softly beyond. His fingers relax and move slightly "
                 "once, then rest; the knit sleeve stirs faintly in the breeze. The frame stays on his hand, the knit and the "
                 "boat for the whole shot."),
         clothes=("the black long-sleeve knit polo sleeve with its ribbed cuff and the black knit gilet with its zip and "

@@ -1,6 +1,8 @@
 {"src": {"A": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261008_220850_99e40dbb-52b0-423d-8fd6-f1167f2f5851.mp4",
-         "B": "PENDING",
+         "C": "PENDING",
+         "B": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261008_222006_104510a3-7c38-4375-adae-32a0dc4a583d.mp4",
          "LOGO": "https://raw.githubusercontent.com/ModernoMilano/Shopify-test/claude/jolly-cray-abusr6/creative-engine/brand/assets/logo-moderno-milano.png"},
- "cuts": [{"src": "A", "from": 0, "dur": 3.95, "zoom": [1.0, 1.04]},
+ "cuts": [{"src": "A", "from": 0, "dur": 2.3, "zoom": [1.0, 1.025]},
+          {"src": "C", "from": 0.6, "dur": 2.5},
           {"src": "B", "from": 0, "dur": 5.0}],
  "logo": {"src": "LOGO", "width": 0.40, "seconds": 2.0, "y": 0.5, "fade": 0.5, "dim": 0.18}}
