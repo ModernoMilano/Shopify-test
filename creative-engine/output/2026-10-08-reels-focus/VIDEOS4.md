@@ -59,6 +59,7 @@ Wens van de eigenaar.
 - **Snede** naar dichterbij.
 - **Shot B (5 s, logo):** de camera staat vast op de boot zelf. Hij zit in driekwart profiel en kijkt over het water. Achter hem schuiven het glinsterende meer en de bergen langzaam voorbij. Na 3 s is hij tot rust gekomen; dan komt het logo.
 - **Startbeelden:** A eerst. B is een bewerking van het gekozen A-beeld, zodat licht, boot en kleding gelijk blijven.
+- **Opgeleverd (8 oktober), versie 2 na feedback van de eigenaar:** shot A ingekort tot 2,3 s, dan een snede naar een detail van 2,5 s (hand en mouw op de chromen stijl van de voorruit, zonder gezicht), dan shot B met het logo. Samen 9,75 s. Details en link in `README.md`.
 
 ### 2. "Pioggia": MILANO REVERSO SET TOTAL ANTRACITE (grijze ochtend, Milaan)
 
@@ -81,6 +82,13 @@ Wens van de eigenaar.
 - **Snede** naar wijder.
 - **Shot B (5 s, logo):** hij zit in de leren fauteuil bij het hoge raam, in de witte PURO SUPIMA MERCER TEE onder de half dichtgeritste jas, en kijkt naar buiten. Hij leunt met een rustige ademhaling achterover.
 - **Startbeelden:** B eerst. A (het detail) is een bewerking van het gekozen B-beeld.
+
+## Feedback van de eigenaar voor de volgende video's
+
+"Het eerste shot is te lang, er moet een cut komen van een andere angle, dichter op de kleding en de details, en het moet echt echt lijken." Dat geldt ook voor Pioggia, Giardino en Sera:
+- **Pioggia en Giardino:** A kort (ongeveer 2,3 s), dan een detail van de kraag met de binnenkleur, dan B (het omgekeerde gilet) met het logo. Het detail direct in 720p (28 credits) in plaats van concept plus 1080p.
+- **Sera** begint al met een detail, dus die blijft bij twee shots, elk 4 s.
+- **Budget:** 371,55 credits over. Het plan kost ongeveer 432, dus zonder ongeveer 100 credits bij te kopen stop ik vóór Sera.
 
 ## Regels die blijven gelden
 

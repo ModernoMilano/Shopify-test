@@ -322,5 +322,104 @@
   "kern": "Goed: de man lijkt op het vaste model en zijn ogen blijven open.",
   "details": "Gezicht en haar komen overeen met de foto's van het vaste model en blijven gelijk in alle 121 beelden. · De ogen zijn steeds open, op één gewone knipper rond 0,42 tot 0,67 seconden na, ook van 2,3 tot 5,0 seconden waar de eerste versie werd afgekeurd. · Het hoofd schuift tussen 3,0 en 3,9 seconden een klein beetje opzij, is terug bij 4,5 seconden en staat daarna helemaal stil tot 5,0 seconden. · De camera staat vast op de boot, het beeld flikkert niet en gezicht, haar en gilet vervormen niet.",
   "gezicht_px": 150
+ },
+ {
+  "check_id": "como_c-40:kleding",
+  "beeld": "comoC40",
+  "agent": "Kleding-controleur",
+  "oordeel": "afgekeurd",
+  "kern": "Afgekeurd: een klein ingeëtst keurmerk met letters op het glas van de voorruit.",
+  "details": "Rechts van de chromen bout op de stijl van de voorruit staat een stempel van een glasfabrikant, met een paar regels letters en cijfers. Dat mag niet. · Verder klopt alles: het zwarte gilet met staande geribde kraag, rits en geribd armsgat over de mouw van de polo, en de geribde manchet. · Geen horloge of ring, geen voeten en geen tweede persoon. Van zijn gezicht zijn alleen de kin en de hals te zien.",
+  "gezicht_px": 0
+ },
+ {
+  "check_id": "como_c-40:echtheid",
+  "beeld": "comoC40",
+  "agent": "Echtheid-controleur",
+  "oordeel": "afgekeurd",
+  "kern": "Afgekeurd: het stempel op de voorruit bestaat uit verzonnen tekens, een typisch teken van AI.",
+  "details": "Linksonder op het glas staat een vaag stempel dat leest als nepletters en -cijfers. · Klein punt: linksonder lijkt de broek eerder donkerblauw dan zwart. · Goed: de hand heeft een duim en vier vingers met echte knokkels en nagels, het chroom weerspiegelt de huid, de kikker heeft gewone schroeven zonder embleem en de vier hoeken zijn schoon.",
+  "gezicht_px": 0
+ },
+ {
+  "check_id": "como_c-41:kleding",
+  "beeld": "comoC41",
+  "agent": "Kleding-controleur",
+  "oordeel": "afgekeurd",
+  "kern": "Afgekeurd: op het glas van de voorruit staat een stempel van drie regels letters.",
+  "details": "Linksonder op het glas, net boven de crème rubberen rand, staat een ingeëtst merkteken dat op 100% duidelijk als letters leest. · Klein punt: achter het bovenste knoopje van de polo is de stof donkergrijs in plaats van zwart, misschien door het licht. · Gilet, polo met grijze knopen en broek met metalen puntjes aan de koordjes kloppen. De hand is goed en er zijn geen accessoires.",
+  "gezicht_px": 0
+ },
+ {
+  "check_id": "como_c-41:echtheid",
+  "beeld": "comoC41",
+  "agent": "Echtheid-controleur",
+  "oordeel": "afgekeurd",
+  "kern": "Afgekeurd: een stempel met nepletters op de voorruit.",
+  "details": "Het stempel linksonder op de driehoekige ruit leest als onzin, en dat verraadt AI. · Klein: sommige dingen achter het glas zijn vaag, en de weerspiegeling van de kikker in het vernis staat iets scheef. · Goed: geen gezicht in beeld, een echte hand die op de rand van de voorruit rust, licht dat klopt en schone hoeken.",
+  "gezicht_px": 0
+ },
+ {
+  "check_id": "regie:comoCcrop",
+  "beeld": "comoCcrop",
+  "agent": "Regisseur",
+  "oordeel": "goed",
+  "kern": "Variant 1 bijgesneden: het stempel valt buiten beeld, zonder nieuwe credits.",
+  "details": "De bovenste 3963 pixels, vanaf 300 pixels van links, in 9:16. Hand, breisel, gilet en chroom blijven erin. · Daarna door beide controleurs bekeken als onderdeel van het concept: geen letters meer op het glas.",
+  "gezicht_px": 0
+ },
+ {
+  "check_id": "como_c-draft1:kleding",
+  "beeld": "lago_c_draft",
+  "agent": "Kleding-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: gilet, mouw en manchet kloppen in elk frame en de hand blijft natuurlijk.",
+  "details": "16 frames bekeken, om de 0,25 s, plus uitvergrote handen aan het begin, in het midden en aan het eind. · De vingers gaan in één rustige beweging van gekruld naar ontspannen, zonder vervormen of extra vingers. · Geen horloge of ring, en geen embleem of letters op de stijl, het glas of het hout. · Klein punt: het dek achter de stijl lijkt licht hout in plaats van donker mahonie.",
+  "gezicht_px": 0
+ },
+ {
+  "check_id": "como_c-draft1:echtheid",
+  "beeld": "lago_c_draft",
+  "agent": "Echtheid-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: het oogt als een echte opname, zonder flikkeren of vervormen.",
+  "details": "Kleine afwijking van de opdracht: de hand rust niet op de chromen stijl maar hangt ernaast; alleen de manchet ligt erop. · Alle 97 frames bekeken: steeds een duim en vier vingers, en de helderheid blijft gelijk. · Geen gezicht, geen letters op glas of chroom, geen randen en geen HDR-look.",
+  "gezicht_px": 0
+ },
+ {
+  "check_id": "lago-montage:kleding",
+  "beeld": "lago_montage",
+  "agent": "Kleding-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: de kleding klopt in beide shots en het logo is goed leesbaar.",
+  "details": "36 frames bekeken, om de 0,25 s, plus uitsneden op 100%. · Gilet, polo en broek kloppen met de Nobile Set, zonder accessoires en zonder tweede persoon. · Het logo is goed gespeld en komt in met het beeld 18% donkerder. 'Milano' staat over het felle water maar blijft leesbaar.",
+  "gezicht_px": 265
+ },
+ {
+  "check_id": "lago-montage:echtheid",
+  "beeld": "lago_montage",
+  "agent": "Echtheid-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: dezelfde Luca in beide shots, met één duidelijke snede.",
+  "details": "Zijn gezicht is ongeveer 250 px breed in shot A en 360 px in shot B, scherp en met echte huid. · Twee gewone knipperingen in shot B; verder zijn zijn ogen open. · Voor de kijker: shot B is ongeveer 23% lichter en waziger dan A, en dat valt op bij de snede. · Een klein schokje van 3 px op 2,0 s, bij normale snelheid nauwelijks te zien.",
+  "gezicht_px": 250
+ },
+ {
+  "check_id": "lago-montage-v2:kleding",
+  "beeld": "lago_montage2",
+  "agent": "Kleding-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: de kleding blijft gelijk in alle drie de shots, en de snedes voelen rustig en luxe.",
+  "details": "39 frames bekeken, om de 0,25 s, plus volle frames op 1,0, 2,2, 2,4, 4,0, 4,9 en 9,6 s. · Het gilet zonder mouwen met geribde armsgaten, de polo met grijze knopen en de broek met koordjes kloppen in A, C en B. · Geen accessoires, geen letters op de voorruit in shot C en alleen je logo als tekst. · Precies twee snedes, op 2,29 s en 4,75 s. Van A naar C snijdt het op dezelfde arm op dezelfde stijl, en in A en B kijkt hij naar rechts.",
+  "gezicht_px": 220
+ },
+ {
+  "check_id": "lago-montage-v2:echtheid",
+  "beeld": "lago_montage2",
+  "agent": "Echtheid-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: dezelfde Luca in alle shots, scherp, met twee schone snedes.",
+  "details": "Wenkbrauwen, ogen, neus, lippen, kaak en het naar achteren gekamde haar kloppen met de referenties. Zijn gezicht is 250 tot 270 px breed in A en 350 px in B. · Klein: in shot C lijken een paar frames dubbel, wat een heel lichte hapering kan geven rond 3,2 tot 3,5 s. · Klein: tussen 3,2 en 3,6 s strekken de vingers zich, wat even lang kan ogen. De hand blijft wel steeds goed. · Twee gewone knipperingen in B. Het logo komt rustig in vanaf 7,8 s en is goed leesbaar.",
+  "gezicht_px": 260
  }
 ]

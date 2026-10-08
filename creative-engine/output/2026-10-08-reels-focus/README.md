@@ -110,3 +110,68 @@ De montage staat in `reel_tb-edit.json`:
 - 45 voor 3 concepten;
 - 120 voor het afmaken van 2 clips in 1080p.
 
+
+## Serie "Una giornata": video 1, Il lago (MILANO NOBILE SET)
+
+Het draaiboek staat in `VIDEOS4.md`, de opdrachten in `videos4.py` en de montage in `lago-edit.json`. Alle stappen staan ook in het dashboard [CREATIVE ENGINE](https://claude.ai/artifact/HaSkNEqUyTCC7Ta2uCgSR3).
+
+**Opbouw (versie 2, na feedback van de eigenaar).** Versie 1 had twee shots. De eigenaar vond shot A te lang en wilde een snede naar een andere hoek, dichter op de kleding en de details van de boot, en het moest echt ogen. Versie 2 bestaat daarom uit drie shots, samen 9,75 s:
+- shot A, 2,3 s, met een langzame inzoom van 2,5% in de montage;
+- detail C, 2,5 s;
+- shot B, 5 s, met het logo de laatste 2 s.
+
+Opgeleverd als één zip, `ModernoMilano-Il-lago.zip` (8 MB), met de video (9,75 s, 1080×1920, 24 fps, H.264, zonder geluid) en `Cover.jpg` (een frame uit shot B op 6,0 s, vóór het logo).
+
+Link: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/6dce78de-e98b-41b8-87c0-de8f7cf23b0b.zip
+
+De controle van versie 2 noemde twee kleine punten, geen van beide een afkeur:
+- in shot C lijken een paar frames dubbel, wat rond 3,2 tot 3,5 s een heel lichte hapering kan geven;
+- bij de eerste snede hangen de vingers aan het eind van A gestrekt en begint C met gekrulde vingers.
+
+| Wat | Job of media | Controle |
+|---|---|---|
+| Startbeeld A (bijsnede van `afc686cd`, zonder het merkteken op de ruit) | media `304515f9-5388-4a7b-a8c2-5f06eb77a44d` | beide goed |
+| Startbeeld B (bewerking van `afc686cd`) | `7292b98e-3543-489b-88e2-727ac10f9835` | beide goed |
+| Startbeelden detail C, 2 varianten | `14882de2-e866-4817-8374-6f7570fb1dff` en `29448168-1a03-445c-b790-1f53665a2d78` | beide afgekeurd: keurmerk met nepletters op het glas |
+| Startbeeld C (bijsnede van `14882de2`, zonder het keurmerk) | media `a3e5b43c-ef18-44a3-abfe-1c7adddeb7c8` | goed, gecontroleerd in het concept |
+| Clip A, concept en 1080p | `cb6ea9b6-ce98-4a8d-8ab7-b713034c3a28` en `99e40dbb-52b0-423d-8fd6-f1167f2f5851` | beide goed |
+| Clip B, concept 2 en 1080p | `5bc76890-1435-417b-86f6-c769b0a1d9eb` en `104510a3-7c38-4375-adae-32a0dc4a583d` | beide goed |
+| Clip C, concept en 1080p | `33a562bb-5a19-4c0c-bf0e-dd17eed97833` en `08a46084-eef9-42f1-a945-e6fb858e609f` | beide goed (1080p in de eindvideo) |
+| Montage versie 1 (8,96 s, A en B) | media `b0a52a2d-37b3-44f9-94c2-0b9daf77a757` | beide goed, vervangen na feedback |
+| Montage versie 2 (9,75 s, A, C en B) | media `a181f217-ede0-4e07-812b-3c7b9a34ae7b` | beide goed |
+
+### Wat niet lukte
+
+- **Startbeelden boot, ronde 1:**
+  - variant 1: het zwarte gilet op de zwarte polo las als een jasje met mouwen;
+  - variant 2: het gezicht oogde ouder.
+  Met een zin over de geribde armsgaten lukte het wel.
+- **Merktekens op glas:** het beeldmodel zet keurmerken en nepletters op de voorruit, ook als de prompt dat verbiedt (bij A en bij beide detailbeelden). De oplossing was steeds een bijsnede, geen retouche.
+- **Concept 1 van shot B:** "lowers his eyes" werd ogen dicht vanaf 2,3 s en een diepe buiging tot 4,3 s, onder het logo. In concept 2 bleven met "eyes open and steady on the horizon, head level" de ogen open en was hij stil.
+- **Shot A:** de boot vaart nauwelijks. Seedance maakte er een levende foto van, met alleen het glinsterende water. Dat is geaccepteerd, met een inzoom in de montage.
+
+### Lessen
+
+- Vraag bij een slotshot nooit om de blik te laten zakken. Vraag om open ogen, een recht hoofd en stilstand vanaf seconde 3.
+- Snijd bij een detail van een boot het glas weg, of laat het buiten beeld.
+- Seedance maakt minimaal 4 s. Een clip direct in 720p kost 28 credits, tegen 60 voor een concept plus 1080p.
+
+### Kosten
+
+653,55 credits bij de start van de serie en 371,55 erna, dus **282 credits**:
+- 64 voor alle startbeelden van de vier video's;
+- 218 voor Il lago:
+  - de startbeelden van detail C: 8;
+  - de concepten: A 12, B 15 + 15, C 12 (samen 54);
+  - 1080p: A 48, B 60, C 48 (samen 156).
+
+## Morgen verder (stand 8 oktober 2026, 22:45 UTC)
+
+- **Nog te maken:** Pioggia (Total Antracite), Giardino (Blu & Crema) en Sera (Dark Mocha). De startbeelden zijn goedgekeurd door de eigenaar, de prompts staan in `videos4.py` en zijn nagekeken.
+- **Feedback van de eigenaar meenemen:** een kort eerste shot en een snede naar een dichtere hoek op de kleding.
+  - Pioggia en Giardino: A, dan een close-up van de kraag met de binnenkant, dan B (gilet omgekeerd) met het logo.
+  - Sera begint al met een detail.
+- **Budget:** 371,55 credits.
+  - Pioggia en Giardino in drie shots kosten elk ongeveer 156 credits (detail direct in 720p).
+  - Sera kost ongeveer 120.
+  - Samen is dat ongeveer 432, dus er is ongeveer 60 credits tekort, zonder reserve. Advies aan de eigenaar: ongeveer 100 credits bijkopen, anders stoppen vóór Sera.

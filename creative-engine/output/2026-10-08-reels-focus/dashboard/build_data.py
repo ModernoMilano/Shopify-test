@@ -6,8 +6,8 @@ C = "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/"
 
 VIDEOS = [
  dict(video="lago", nr=1, titel="Il lago", product="MILANO NOBILE SET", moment="Late middag", plek="Comomeer bij Varenna, oude mahoniehouten motorboot",
-      idee="Zwart cashmere op warm mahonie en goud water. De camera vaart naast de boot mee, daarna dichtbij op de boot zelf.",
-      shot_a="4 s: de boot glijdt over het meer, de camera vaart mee", shot_b="5 s: dichtbij in profiel, camera vast op de boot, logo de laatste 2 s"),
+      idee="Zwart cashmere op warm mahonie en goud water. Kort de boot op het meer, dan een detail van hand, breisel en chroom, dan dichtbij op de boot zelf.",
+      shot_a="2,3 s: de boot op het meer met een langzame inzoom; dan 2,5 s detail van hand en mouw op de voorruit", shot_b="5 s: dichtbij in profiel, camera vast op de boot, logo de laatste 2 s"),
  dict(video="pioggia", nr=2, titel="Pioggia", product="MILANO REVERSO SET TOTAL ANTRACITE", moment="Grijze ochtend", plek="Arcade van een rationalistisch gebouw in Milaan, regen op straat",
       idee="Grijs op grijs. De camera schuift van achter een zuil vandaan; bij de snede is het gilet omgekeerd naar lichtgrijs.",
       shot_a="4 s: camera schuift langs de zuil, hij kijkt naar de regen", shot_b="5 s: zelfde moment, gilet omgekeerd, vaste camera, logo"),
@@ -58,22 +58,28 @@ b("lago_a_final", "lago", "Shot A, 1080p", "gekozen", "Afgemaakt uit het concept
 b("lago_b_draft1", "lago", "Shot B, concept 1", "afgekeurd", "Vanaf 2,3 s gaan zijn ogen dicht en buigt hij zijn hoofd tot 4,3 s, onder het logo.", "Echtheid-controleur", 15, "c9dba5b0-3de2-4db9-b19d-5f99f8d28f33", C+"hf_20261008_220436_c9dba5b0-3de2-4db9-b19d-5f99f8d28f33.mp4", "2026-10-08T22:04:36Z", "B")
 b("lago_b_draft2", "lago", "Shot B, concept 2", "goedgekeurd", "Ogen open, hoofd recht, camera vast op de boot; één natuurlijke knipper.", "Kleding- en Echtheid-controleur", 15, "5bc76890-1435-417b-86f6-c769b0a1d9eb", C+"hf_20261008_221325_5bc76890-1435-417b-86f6-c769b0a1d9eb.mp4", "2026-10-08T22:13:25Z", "B")
 b("lago_b_final", "lago", "Shot B, 1080p", "gekozen", "Afgemaakt uit concept 2.", "Regisseur", 60, "104510a3-7c38-4375-adae-32a0dc4a583d", C+"hf_20261008_222006_104510a3-7c38-4375-adae-32a0dc4a583d.mp4", "2026-10-08T22:20:06Z", "B")
-b("lago_montage", "lago", "Eindvideo Il lago, 9 s met logo", "in controle", "Shot A met langzame inzoom, harde snede, shot B, logo de laatste 2 s. Wacht op jouw feedback.", "", 0, "b0a52a2d-37b3-44f9-94c2-0b9daf77a757", "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/b0a52a2d-37b3-44f9-94c2-0b9daf77a757.mp4", "2026-10-08T22:22:40Z", "")
+b("comoC40", "lago", "Detail C, variant 1", "afgekeurd", "Een ingeëtst keurmerk met nepletters op het glas van de voorruit.", "Kleding- en Echtheid-controleur", 4, "14882de2-e866-4817-8374-6f7570fb1dff", u("222846","14882de2-e866-4817-8374-6f7570fb1dff"), "2026-10-08T22:28:46Z", "C")
+b("comoC41", "lago", "Detail C, variant 2", "afgekeurd", "Ook een stempel met drie regels nepletters op de voorruit.", "Kleding- en Echtheid-controleur", 4, "29448168-1a03-445c-b790-1f53665a2d78", u("222846","29448168-1a03-445c-b790-1f53665a2d78"), "2026-10-08T22:28:46Z", "C")
+b("comoCcrop", "lago", "Detail C, bijgesneden", "gekozen", "Variant 1 zonder het onderste deel met het stempel; hand, breisel, gilet en chroom blijven in beeld.", "Regisseur", 0, "a3e5b43c-ef18-44a3-abfe-1c7adddeb7c8", "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/a3e5b43c-ef18-44a3-abfe-1c7adddeb7c8.png", "2026-10-08T22:35:00Z", "C")
+b("lago_c_draft", "lago", "Detail C, concept 480p", "goedgekeurd", "Hand en mouw op de chromen stijl; de vingers ontspannen in één rustige beweging. Geen letters op het glas.", "Kleding- en Echtheid-controleur", 12, "33a562bb-5a19-4c0c-bf0e-dd17eed97833", C+"hf_20261008_223532_33a562bb-5a19-4c0c-bf0e-dd17eed97833.mp4", "2026-10-08T22:35:32Z", "C")
+b("lago_c_final", "lago", "Detail C, 1080p", "gekozen", "Afgemaakt uit het concept; gecontroleerd in de eindvideo.", "Kleding- en Echtheid-controleur", 48, "08a46084-eef9-42f1-a945-e6fb858e609f", C+"hf_20261008_223941_08a46084-eef9-42f1-a945-e6fb858e609f.mp4", "2026-10-08T22:39:41Z", "C")
+b("lago_montage", "lago", "Eindvideo Il lago, versie 1 (9 s)", "vervangen", "Jouw feedback: het eerste shot was te lang en er moest een snede naar dichterbij bij. Vervangen door versie 2.", "Eigenaar", 0, "b0a52a2d-37b3-44f9-94c2-0b9daf77a757", "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/b0a52a2d-37b3-44f9-94c2-0b9daf77a757.mp4", "2026-10-08T22:22:40Z", "")
+b("lago_montage2", "lago", "Eindvideo Il lago, versie 2 (9,75 s)", "gekozen", "A kort met inzoom, snede naar het detail van hand en boot, dan het profiel met het logo. Opgeleverd als zip met cover.", "Kleding- en Echtheid-controleur", 0, "a181f217-ede0-4e07-812b-3c7b9a34ae7b", "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/a181f217-ede0-4e07-812b-3c7b9a34ae7b.mp4", "2026-10-08T22:41:51Z", "")
 J("beelden", B)
 
 th = json.load(open(os.path.join(D, "thumbs.json")))
 J("voorbeelden", [dict(id=k, src=v) for k, v in th.items()])
 
 AGENTS = [
- dict(agent="Regisseur", wie="Claude, in deze chat", rol="Bedenkt de video's, schrijft de prompts, controleert zelf, snijdt bij en houdt de kosten bij.", status="bezig", volgorde=1),
+ dict(agent="Regisseur", wie="Claude, in deze chat", rol="Bedenkt de video's, schrijft de prompts, controleert zelf, snijdt bij en houdt de kosten bij.", status="klaar voor nu", volgorde=1),
  dict(agent="Beeldmaker", wie="Nano Banana Pro op Higgsfield", rol="Maakt de startbeelden in 4K, met Luca en de echte productfoto's als referentie.", status="klaar voor nu", volgorde=2),
  dict(agent="Kleding-controleur", wie="Claude-agent, één per beeld", rol="Legt elk beeld naast de productfoto's: kleur, kraag, rits, strepen, geen accessoires, jouw regels.", status="klaar voor nu", volgorde=3),
  dict(agent="Echtheid-controleur", wie="Claude-agent, één per beeld", rol="Kijkt of het Luca is en of het echt oogt: handen, huid, licht, geen tekst of AI-fouten.", status="klaar voor nu", volgorde=4),
  dict(agent="Prompt-nakijkers", wie="3 Claude-agents en een samenvatter", rol="Lezen de Seedance-prompts na op beweging, kleding en startbeeld, vóór er credits naar video gaan.", status="klaar", volgorde=5),
  dict(agent="Samenvatter", wie="Claude-agents", rol="Zet de bevindingen van de controleurs om in gewoon Nederlands voor dit dashboard.", status="klaar voor nu", volgorde=6),
- dict(agent="Eigenaar", wie="Jij", rol="Keurt de startbeelden goed; daarna pas gaan er credits naar video.", status="aan zet straks", volgorde=7),
- dict(agent="Videomaker", wie="Seedance 2.5 op Higgsfield", rol="Maakt van een goedgekeurd startbeeld een clip: eerst een concept in 480p, dan 1080p.", status="wacht", volgorde=8),
- dict(agent="Monteur", wie="ffmpeg in de Higgsfield-sandbox", rol="Zet de twee shots aan elkaar, legt de snede gelijk en zet je logo erop.", status="klaar voor nu", volgorde=9),
+ dict(agent="Eigenaar", wie="Jij", rol="Keurt de startbeelden goed; daarna pas gaan er credits naar video.", status="morgen verder", volgorde=7),
+ dict(agent="Videomaker", wie="Seedance 2.5 op Higgsfield", rol="Maakt van een goedgekeurd startbeeld een clip: eerst een concept in 480p, dan 1080p.", status="klaar voor nu", volgorde=8),
+ dict(agent="Monteur", wie="ffmpeg in de Higgsfield-sandbox", rol="Zet de shots aan elkaar, legt de snedes gelijk en zet je logo erop.", status="klaar voor nu", volgorde=9),
 ]
 J("agents", AGENTS)
 
@@ -117,6 +123,18 @@ l("2026-10-08T22:19:46Z", "Echtheid-controleur", "Concept 2 van shot B goedgekeu
 l("2026-10-08T22:20:06Z", "Videomaker", "Shot B afgemaakt in 1080p (60 credits).", "lago", "lago_b_final")
 l("2026-10-08T22:22:40Z", "Monteur", "Il lago gemonteerd: 9 s, harde snede, logo de laatste 2 s.", "lago", "lago_montage")
 l("2026-10-08T22:23:30Z", "Regisseur", "Il lago naar de eigenaar gestuurd voor feedback; de andere video's wachten daarop.", "lago", "lago_montage")
+l("2026-10-08T22:27:34Z", "Eigenaar", "Feedback op versie 1: het eerste shot is te lang; er moet een snede komen naar een andere hoek, dichter op de kleding en de boot.", "lago", "lago_montage")
+l("2026-10-08T22:28:46Z", "Beeldmaker", "Twee detailbeelden van hand, breisel en chroom op de voorruit (8 credits).", "lago", "comoC40")
+l("2026-10-08T22:28:52Z", "Echtheid-controleur", "Versie 1 van de montage goedgekeurd door beide controleurs; shot B is wel 23% lichter dan A.", "lago", "lago_montage")
+l("2026-10-08T22:34:18Z", "Echtheid-controleur", "Beide detailbeelden afgekeurd: een ingeëtst keurmerk met nepletters op het glas.", "lago", "comoC41")
+l("2026-10-08T22:35:00Z", "Regisseur", "Detail 1 bijgesneden zonder het stempel, zonder nieuwe credits.", "lago", "comoCcrop")
+l("2026-10-08T22:35:32Z", "Videomaker", "Detail C: concept van 4 s gestart (12 credits).", "lago", "lago_c_draft")
+l("2026-10-08T22:39:30Z", "Kleding-controleur", "Concept van detail C goedgekeurd door beide controleurs.", "lago", "lago_c_draft")
+l("2026-10-08T22:39:41Z", "Videomaker", "Detail C afgemaakt in 1080p (48 credits).", "lago", "lago_c_final")
+l("2026-10-08T22:41:51Z", "Monteur", "Il lago versie 2: A 2,3 s, detail C 2,5 s, B 5 s met het logo; samen 9,75 s.", "lago", "lago_montage2")
+l("2026-10-08T22:42:15Z", "Eigenaar", "Maak deze video af en stop dan; morgen verder.", "", "")
+l("2026-10-08T22:47:36Z", "Echtheid-controleur", "Versie 2 goedgekeurd door beide controleurs: dezelfde Luca in alle shots, precies twee snedes.", "lago", "lago_montage2")
+l("2026-10-08T22:48:30Z", "Regisseur", "Il lago opgeleverd als zip met de video en een cover. De andere drie video's wachten tot morgen.", "lago", "lago_montage2")
 J("log", L)
 
 K = [
@@ -125,18 +143,19 @@ K = [
  dict(nr=3, stap="Mocha met juiste productfoto's", soort="uitgegeven", credits=8),
  dict(nr=4, stap="Close-up op de boot", soort="uitgegeven", credits=4),
  dict(nr=5, stap="Mouwdetail Mocha", soort="uitgegeven", credits=8),
- dict(nr=6, stap="Il lago: concepten (A, B, B opnieuw)", soort="uitgegeven", credits=42),
- dict(nr=7, stap="Il lago: 1080p (A en B)", soort="uitgegeven", credits=108),
- dict(nr=8, stap="Startbeeld B Antracite en Blu", soort="gepland", credits=8),
- dict(nr=9, stap="Concepten Pioggia, Giardino, Sera", soort="gepland", credits=81),
- dict(nr=10, stap="1080p Pioggia, Giardino, Sera", soort="gepland", credits=324),
+ dict(nr=6, stap="Il lago: detailbeelden C", soort="uitgegeven", credits=8),
+ dict(nr=7, stap="Il lago: concepten (A, B twee keer, C)", soort="uitgegeven", credits=54),
+ dict(nr=8, stap="Il lago: 1080p (A, B, C)", soort="uitgegeven", credits=156),
+ dict(nr=9, stap="Pioggia: drie shots met detail", soort="gepland", credits=156),
+ dict(nr=10, stap="Giardino: drie shots met detail", soort="gepland", credits=156),
+ dict(nr=11, stap="Sera: twee shots", soort="gepland", credits=120),
 ]
 J("kosten", K)
-J("saldo", [dict(moment="Start van de serie", credits=653.55), dict(moment="Nu", credits=439.55)])
+J("saldo", [dict(moment="Start van de serie", credits=653.55), dict(moment="Nu", credits=371.55)])
 
 STEPS = ["Draaiboek", "Startbeelden", "Controle startbeelden", "Jouw akkoord", "Voorcontrole prompts", "Concept-video 480p", "Controle video", "Afmaken 1080p", "Snede en logo", "Oplevering"]
 ST = {
- "lago": ["klaar", "klaar", "klaar", "klaar", "klaar", "klaar", "klaar", "klaar", "klaar", "bezig"],
+ "lago": ["klaar", "klaar", "klaar", "klaar", "klaar", "klaar", "klaar", "klaar", "klaar", "klaar"],
  "pioggia": ["klaar", "klaar", "klaar", "klaar", "klaar", "wacht", "wacht", "wacht", "wacht", "wacht"],
  "giardino": ["klaar", "klaar", "klaar", "klaar", "klaar", "wacht", "wacht", "wacht", "wacht", "wacht"],
  "sera": ["klaar", "klaar", "klaar", "klaar", "klaar", "wacht", "wacht", "wacht", "wacht", "wacht"],
