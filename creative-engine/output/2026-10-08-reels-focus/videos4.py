@@ -6,7 +6,7 @@ Knitted Two-Tone Cashmere Set Dark Mocha. Eerst alle startbeelden ter goedkeurin
 
 Gebruik:
   python3 -I videos4.py starts                    -> ronde 1: requests voor generate_image_batch (2 varianten per beeld)
-  python3 -I videos4.py como_b <job como_a>       -> ronde 2: shot B op de boot, dichterbij (bewerking van como_a)
+  python3 -I videos4.py como_b <job como_a> [left|right]  -> ronde 2: shot B op de boot, dichterbij (bewerking van como_a)
   python3 -I videos4.py mocha_a <job mocha_b>     -> ronde 2: shot A van Dark Mocha, het detail (bewerking van mocha_b)
   python3 -I videos4.py reverse <antracite|blu> <media laatste frame A>  -> startbeeld B van een Reverso-video
 
@@ -191,12 +191,13 @@ START = {
 }
 
 
-def como_b(job_a):
+def como_b(job_a, side="right"):
+    """side: de kant van het beeld waar hij in como_a naar kijkt, zodat de kijkrichting over de snede gelijk blijft."""
     parts = [
         f"The same scene as reference image #1, a moment later, seen from a second camera: the same man ({EL}), the same old "
         "mahogany motor launch gliding across Lake Como, the same late-afternoon light and the same clothes. The camera is now "
         "on the boat itself, fixed on the deck beside the windscreen, and frames him from just above his head to the middle "
-        "of his chest; his face is in three-quarter profile turned to the left of the frame, looking ahead over the lake. "
+        f"of his chest; his face is in three-quarter profile turned to the {side} of the frame, looking ahead over the lake. "
         "Behind him the water glitters in the low sun and the far mountains are soft and out of focus.",
         "The same light as reference image #1: the warm low sun behind him puts a soft warm rim on his hair and shoulder, his "
         "face is in soft light reflected from the lake; muted warm colour, soft contrast, no HDR.",
@@ -247,7 +248,7 @@ if __name__ == "__main__":
         out = [{"index": 2 * n + v, "params": START[k]()} for n, k in enumerate(START) for v in range(2)]
     elif cmd in ("como_b", "mocha_a"):
         f = {"como_b": como_b, "mocha_a": mocha_a}[cmd]
-        out = [{"index": v, "params": f(args[0])} for v in range(2)]
+        out = [{"index": v, "params": f(*args)} for v in range(2)]
     elif cmd == "reverse":
         out = reverse(args[0], args[1])
     else:
