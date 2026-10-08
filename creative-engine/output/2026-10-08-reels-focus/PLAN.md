@@ -2,7 +2,7 @@
 
 De eigenaar wil nieuwe video's die zijn Canva-bord als inspiratie nemen (zie `research/2026-10-canva-videos.md`), met Seedance 2.5 (`model.json`, `rules.video`). Er komt alleen eigen kleding in beeld. De focus ligt op vier collecties: Reverso Collection, Cashmere Sets, Cashmere Tops en Bundle & Save.
 
-Status: **plan**. Er is nog niets gegenereerd. Seedance kost credits, dus de eigenaar kiest eerst.
+Status (8 oktober): de eigenaar koos eerst reel 1 als proef, in Bordeaux & Crema. Die proef is af en kostte 142 credits (zie `README.md`). De flat-lay is uit reel 1 gelaten. Reel 2 tot en met 4 wachten op zijn oordeel over de proef.
 
 ## Wat de winkel zegt (de enige claims die in beeld mogen)
 
@@ -36,7 +36,7 @@ Niet gebruiken: verzendbeloftes. De balk zegt "free … shipping on every order"
 
 ## Reel 1: "One gilet. Two looks." (Reverso Collection)
 
-Product: **MILANO REVERSO SET CREMA & NERO**. Het groot contrast maakt het omkeren in één snede zichtbaar. Alternatieven: MARRONE & CAMMELLO (warm, herfst) of BORDEAUX & CREMA.
+Product: **MILANO REVERSO SET BORDEAUX & CREMA** (keuze van de eigenaar): een bordeaux gilet met crème binnenkant, een crème tee en een bordeaux broek. De andere kandidaten waren CREMA & NERO en MARRONE & CAMMELLO. Zoals gemaakt: zie `README.md`. De flat-lay viel af, in de plaats daarvan kwam een detail uit startbeeld B.
 
 | # | Duur | Beeld | Tekst |
 |---|---|---|---|
@@ -88,7 +88,7 @@ Het promotieformat van bord 3-01 en 2-01, grotendeels gemaakt van materiaal uit 
 
 | # | Duur | Beeld | Tekst |
 |---|---|---|---|
-| 1 | 2 s | Stop-motion (foto's, zonder persoon): op dezelfde houten hanger tegen een kalkmuur wisselt de set elke 0,4 s (Reverso Crema & Nero, Champagne, Two-tone Navy, Dark Mocha) | We already matched your outfit. |
+| 1 | 2 s | Stop-motion (foto's, zonder persoon): op dezelfde houten hanger tegen een kalkmuur wisselt de set elke 0,4 s (Reverso Bordeaux & Crema, Champagne, Two-tone Navy, Dark Mocha; een gilet van de Reverso Set plat of op een hanger laten tekenen lukte in reel 1 niet, dus eerst testen of de productfoto gebruiken) | We already matched your outfit. |
 | 2 | 1,8 s | Clip A uit reel 1 | Mix & match. |
 | 3 | 1,8 s | Morning uit reel 3 | |
 | 4 | 1,8 s | Evening uit reel 3 | The more you add, the more you save. |
