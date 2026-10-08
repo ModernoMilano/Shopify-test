@@ -8,7 +8,9 @@ edit.json:
              {"src": "B", "dur": 1.0, "crop": [0.3, 0.25, 0.75, 0.6]},  # detail uit een still (fracties)
              {"src": "A", "from": 0.2, "dur": 2.2},                     # clip: stuk vanaf 'from'
              ...],
-   "text":  [{"cut": 0, "lines": [["One gilet.", 96]], "y": 0.6}, ...]}  # y = midden van het tekstblok (0-1)
+   "text":  [{"cut": 0, "lines": [["One gilet.", 96]], "y": 0.6}, ...],  # y = midden van het tekstblok (0-1)
+   "logo":  {"src": "LOGO", "width": 0.4, "seconds": 2.0, "y": 0.5, "fade": 0.5, "dim": 0.18}}
+            # logo (PNG met alfa) de laatste 'seconds' in het midden; komt in 'fade' s op, beeld 'dim' donkerder
 
 Harde snedes, 24 fps (zoals de clips), 1080x1920. Geen korrel en geen LUT (SKILL.md, "Echt, niet AI"): de beelden blijven zoals het
 model ze maakt. Tekst: gele schreefletter met zachte schaduw (Canva-bord 4-01), buiten de onderste 22% (de Instagram-knoppen).
@@ -91,12 +93,39 @@ def text_layer(lines, yc, fonts):
     return Image.alpha_composite(Image.alpha_composite(scrim, sh), lay)
 
 
+def logo_layer(path, spec):
+    """Het logo op breedte spec['width'] (fractie van 1080) met een zachte schaduw, op een doorzichtige laag van 1080x1920."""
+    lg = Image.open(path).convert("RGBA")
+    lg = lg.crop(lg.getbbox())
+    lw = round(W * spec.get("width", 0.4))
+    lg = lg.resize((lw, round(lg.size[1] * lw / lg.size[0])), Image.LANCZOS)
+    x, y = (W - lg.size[0]) // 2, round(spec.get("y", 0.5) * H - lg.size[1] / 2)
+    lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sh.paste((0, 0, 0, 255), (x + 2, y + 3), lg.getchannel("A").point(lambda v: int(v * 0.45)))
+    lay = Image.alpha_composite(lay, sh.filter(ImageFilter.GaussianBlur(5)))
+    lay.alpha_composite(lg, (x, y))
+    return lay
+
+
+def with_alpha(layer, a):
+    if a >= 1:
+        return layer
+    out = layer.copy()
+    out.putalpha(layer.getchannel("A").point(lambda v: int(v * a)))
+    return out
+
+
 def main(cfg_path, out):
     cfg = json.load(open(cfg_path))
     os.makedirs("src", exist_ok=True)
     os.makedirs("frames", exist_ok=True)
     local = {k: get(u, f"src/{k}{os.path.splitext(u.split('?')[0])[1]}") for k, u in cfg["src"].items()}
     texts = {t["cut"]: t for t in cfg.get("text", [])}
+    lspec = cfg.get("logo")
+    total = sum(round(c["dur"] * FPS) for c in cfg["cuts"])
+    llayer = logo_layer(local[lspec["src"]], lspec) if lspec else None
+    lstart = total - round(lspec.get("seconds", 2.0) * FPS) if lspec else total
     n = 0
     for i, c in enumerate(cfg["cuts"]):
         p = local[c["src"]]
@@ -113,6 +142,12 @@ def main(cfg_path, out):
                     lay = layer.copy()
                     lay.putalpha(layer.getchannel("A").point(lambda v: int(v * a)))
                 fr = Image.alpha_composite(fr, lay)
+            if llayer is not None and n >= lstart:
+                a = min(1.0, (n - lstart + 1) / max(1, round(lspec.get("fade", 0.5) * FPS)))
+                dim = lspec.get("dim", 0.0) * a
+                if dim:
+                    fr = Image.alpha_composite(fr, Image.new("RGBA", (W, H), (8, 5, 4, round(255 * dim))))
+                fr = Image.alpha_composite(fr, with_alpha(llayer, a))
             n += 1
             fr.convert("RGB").save(f"frames/{n:05d}.jpg", quality=95)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-framerate", str(FPS), "-i", "frames/%05d.jpg", "-c:v", "libx264",
