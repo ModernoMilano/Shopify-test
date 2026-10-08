@@ -39,11 +39,14 @@ SET = ("MILANO REVERSO SET TOTAL BORDEAUX, three pieces:\n"
        "bordeaux as the trousers.\n"
        "- Deep bordeaux trousers in the same smooth matte fabric as the gilet: an elasticated waistband with belt loops, slanted side "
        "pockets, a slim tapered leg.")
-SLEEVELESS = ("The gilet is clearly SLEEVELESS, exactly as in reference image #1: its armholes are cut wide, sit just inside the "
-              "line of his shoulders and are finished with a narrow cream edge where the cream inside shows (as in reference "
-              "image #3). The short sleeves of "
-              "the bordeaux T-shirt come out from under those armholes, so it is always clear where the gilet ends and the "
-              "T-shirt sleeve begins; the gilet never looks like a jacket with short sleeves.")
+# Ronde 2 (8 okt): een smalle crème bies op de schouderlijn las als een gepijpte mouwnaad. Nu de vorm van het gilet uit de
+# productfoto aan het model (#2): diepe armsgaten binnen het schouderpunt, de schouder van de tee zichtbaar, en de zakken.
+SLEEVELESS = ("The gilet is a SLEEVELESS vest, cut exactly like the gilet in reference image #2: its armholes are cut deep and sit "
+              "clearly inward of his shoulder points, so on both sides the shoulder of the bordeaux T-shirt and the top of its short "
+              "sleeve are plainly visible coming out of the open armhole, with a soft shadow where the edge of the gilet lies over "
+              "the T-shirt. Around each armhole the cream inside shows as a clearly visible cream band, as in reference image #3. "
+              "The gilet's two slanted welt pockets sit on its lower front panels. The T-shirt sleeve ends in its own hemmed edge "
+              "on the upper arm.")
 TAIL = [P["keep_en"], ID_LINE, "The pieces are these ModernoMilano pieces, reproduced exactly as in the reference images:\n" + SET,
         f"{HANDS} His feet are not in the picture. He is the only person in the picture.", REAL,
         "Full-frame digital camera, 50mm lens at f/2."]
@@ -53,8 +56,8 @@ def start_a():
     parts = [
         f"The same photograph as reference image #1: the same man ({EL}), the same courtyard, the same pose, light, lens and framing. "
         "Only one thing changes: his crew-neck T-shirt is now deep bordeaux, the same bordeaux as his trousers and the outside of "
-        "the gilet, exactly as in reference image #2, so the whole outfit is bordeaux. The gilet stays exactly as it is in "
-        "reference image #1: open, bordeaux side out, cream only inside the stand collar and along the open front edges.",
+        "the gilet, exactly as in reference image #2, so the whole outfit is bordeaux. The gilet hangs open as in reference "
+        "image #1, bordeaux side out, cream inside the stand collar and along the open front edges.",
         # Ronde 1 (8 okt): met een tee in dezelfde kleur liep het armsgat over in de mouw en leek het gilet een jasje met korte
         # mouwen. Het gilet is mouwloos; de crème binnenkant geeft een smalle rand langs de armsgaten (zie de flat-lay).
         SLEEVELESS] + TAIL
