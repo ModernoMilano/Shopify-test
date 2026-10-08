@@ -47,7 +47,7 @@ De carrousels zijn vast opgebouwd:
 - **Ambacht:** stof van dichtbij, alle kleuren gestapeld, schets.
 - **Styling:** de look op locatie, dezelfde look halflang in de studio, een detail uit dezelfde shoot, de flatlay met alle stukken.
 
-**Reels** maakt de engine van een goedgekeurd beeld in 9:16, met Kling 3.0 (image-to-video, nooit vanuit alleen tekst). Het beeld is het startframe, het vaste model blijft via het Higgsfield-element hetzelfde, de beweging is rustig en er is geen geluid.
+**Reels** maakt de engine van een goedgekeurd beeld in 9:16, alleen met Seedance 2.5 (image-to-video, nooit vanuit alleen tekst). Het beeld is het startframe. Het vaste model blijft hetzelfde via dat startbeeld en zijn gezichtsfoto's als referentie. De beweging is klein en echt en er is geen geluid. Er komt altijd eerst een concept in 480p, en dat wordt alleen na goedkeuring afgemaakt.
 - Lengte: voorlopig één clip van 5 seconden per reel. Langere reels van 2 tot 4 clips komen later.
 - Muziek: één instrument of omgevingsgeluid, uit de Instagram-bibliotheek. Geen trending pop, geen voice-over.
 - Geen tekst in beeld.

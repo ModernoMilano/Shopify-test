@@ -361,19 +361,45 @@ V["V05"]["motion"] = ("He walks slowly down the last three steps towards the cam
                       "at chest height and keeps the same framing, from the T-shirt collar down to his feet; the staircase stays the same from the first frame to the last.")
 
 
-def video(i, start_job):
-    """Kling 3.0 image-to-video vanaf een goedgekeurd 9:16-startbeeld (model.json rules.video)."""
+# ---------- Seedance 2.5 (8 okt, besluit eigenaar): kleine, echte bewegingen ----------
+# Geen lopen langs iets dat hij aanraakt, geen grote hoofddraai, camera rustig op borsthoogte bij clips zonder hoofd.
+V["V01"]["motion"] = ("The boat glides slowly forward; the wind lifts his hair and moves the knit; he keeps both hands on the wheel "
+                      "and looks ahead towards the shore. Very slow push-in from the deck.")
+V["V02"]["motion"] = ("He stands beside the car with one hand resting on the top of the door; a light breeze moves the knit; "
+                      "he glances down the street and back. Very slow push-in.")
+V["V03"]["motion"] = ("He lifts the cup slightly, pauses, then lowers it to the counter, still looking out towards the street door; "
+                      "his head stays turned the same way the whole time. Locked-off camera.")
+V["V04"]["motion"] = ("He stands still on the pavement and slowly pulls the zip of the jacket up from mid-chest towards the collar with one hand; "
+                      "the knit settles. The camera stays fixed at chest height, framing from the T-shirt collar down to his feet.")
+V["V05"]["motion"] = ("He stands on the steps and takes one slow step down, his arms relaxed; the knit and the joggers move naturally. "
+                      "The camera stays fixed at chest height, framing from the T-shirt collar down to his feet.")
+
+
+def video(i, start_job, draft=True):
+    """Seedance 2.5 image-to-video vanaf een goedgekeurd 9:16-startbeeld (model.json rules.video, sinds 8 okt).
+
+    Seedance 2.5 negeert het element: zijn gezicht komt uit het startbeeld en, als het in beeld is, uit de
+    4K-gezichtsfoto's in video_face_refs. Standaard een concept in 480p (draft); afmaken gaat met draft_job_id.
+    De vijf video's van deze set zijn nog met Kling 3.0 gemaakt (zie README).
+    """
     v = V[i]
+    hf = MODEL["higgsfield"]
+    faces = [] if v.get("headless") else [next(r["upscale_job_id"] for r in hf["face_refs"] if r["file"].endswith(f"/{ref}.jpg"))
+                                          for ref in hf["video_face_refs"]]
     keep = ("His head stays out of the frame for the whole shot; the camera never tilts up to his face. "
             "The clothes stay exactly as in the start frame." if v.get("headless") else
-            "He stays exactly the same man as in the start frame, with the same face, hair and clothes; no full head turn, nothing passes in front of his face.")
+            "He is the man in the start frame and in the reference images; use the reference images only for his face and hair. "
+            "Keep exactly the same man, with the same face, hair and clothes; no head turn of more than 45 degrees, nothing passes in front of his face.")
     m = v["motion"]
-    # Zonder gezicht geen element: dat zou het model naar zijn gezicht trekken.
-    lead = m if v.get("headless") else (EL + " " + m[3:] if m.startswith("He ") else f"The man is {EL}. {m}")
-    prompt = (f"{lead} Small, natural movement. {keep} Any distant passers-by keep walking, small and out of focus. "
-              "Real camera, natural motion blur, no text, no logos.")
-    return {"model": "kling3_0", "mode": "pro", "duration": 5, "aspect_ratio": "9:16", "sound": "off",
-            "prompt": prompt, "medias": [{"role": "start_image", "value": start_job}]}
+    lead = m if m.startswith("He ") or v.get("headless") else f"The man in the start frame: {m}"
+    prompt = (f"{lead} Small, natural movement. {keep} No new people; anyone already far in the background stays small, "
+              "out of focus and unchanged. Real-time motion with natural motion blur, one continuous shot, no text, no logos.")
+    medias = [{"role": "start_image", "value": start_job}] + [{"role": "image_references", "value": f} for f in faces]
+    params = {"model": "seedance_2_5", "mode": "omni_reference", "resolution": "1080p", "bitrate_mode": "high", "duration": 5,
+              "aspect_ratio": "9:16", "generate_audio": False, "prompt": prompt, "medias": medias}
+    if draft:
+        params["draft"] = True
+    return params
 
 
 def build(i):

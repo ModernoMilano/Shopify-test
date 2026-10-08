@@ -55,7 +55,13 @@ function md(entries: PlanEntry[]): string {
       f.request.references.forEach((r, j) => out.push(`${j + 1}. ${r.label}: ${r.url}${r.mediaId ? ` (id voor medias: ${r.mediaId})` : ""}`));
       out.push("", "```text", f.request.prompt, "```", "");
     });
-    if (e.video) out.push(`### Reel (${e.video.model}, mode ${e.video.mode}, ${e.video.duration} s, ${e.video.aspect}, geluid ${e.video.sound}, startframe = goedgekeurd beeld 1)`, "", "```text", e.video.prompt, "```", "");
+    if (e.video) {
+      const refs = e.video.faceRefs.length ? `, gezichtsfoto's ${e.video.faceRefs.map((r) => `${r.id} (${r.upscaleJobId})`).join(" en ")} als image_references` : "";
+      out.push(
+        `### Reel (${e.video.model}, ${e.video.mode}, ${e.video.resolution}, ${e.video.duration} s, ${e.video.aspect}, zonder geluid, startframe = goedgekeurd beeld 1${refs}; eerst een concept in 480p)`,
+        "", "```text", e.video.prompt, "```", "",
+      );
+    }
   }
   return out.join("\n");
 }

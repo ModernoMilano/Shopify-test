@@ -4,7 +4,7 @@ Opgeleverd als één zip: `ModernoMilano-Luca-25-fotos-5-videos.zip` (90 MB), me
 
 | Bestand | Wat |
 |---|---|
-| `shots.py` | Alle shots (M = model, D = macro, A = sfeer, V = startbeeld video), de vaste identiteitsregel, correcties per ronde en de Kling-videobouwer (`--video`) |
+| `shots.py` | Alle shots (M = model, D = macro, A = sfeer, V = startbeeld video), de vaste identiteitsregel, correcties per ronde en de videobouwer voor Seedance 2.5 (`--video`, standaard als concept) |
 | `fotos.tsv` | De 25 foto's in volgorde, met titel en eventuele bijsnede |
 | `videos.tsv` | De 5 video's met hun bewerking (inkorten, bovenkant bijsnijden) |
 | `bronnen.json` | Per id het Higgsfield-resultaat |
@@ -14,7 +14,7 @@ Opgeleverd als één zip: `ModernoMilano-Luca-25-fotos-5-videos.zip` (90 MB), me
 
 - **Model:** het element `modernomilano-model` (zie `brand/model.md`).
 - **Foto's:** Nano Banana Pro, in batches van maximaal 12, met de echte productfoto's als referentie. Rondes 1 tot 3 zijn in 4K gemaakt. Daarna is overgestapt op 2K om binnen de credits te blijven; dat is ruim boven de 1080 px breedte van Instagram.
-- **Video's:** Kling 3.0 pro, 5 seconden, vanaf een goedgekeurd 9:16-startbeeld.
+- **Video's:** Kling 3.0 pro, 5 seconden, vanaf een goedgekeurd 9:16-startbeeld. De eigenaar vond ze te duidelijk AI. Daarom gaan alle video's vanaf nu alleen met Seedance 2.5: eerst een concept in 480p, pas na de controle afmaken in 1080p (zie `brand/model.md`). `shots.py --video` bouwt die opdrachten al, met rustigere bewegingen.
 - **Controle:** elk beeld en elke video is gecontroleerd door twee onafhankelijke controleurs. De ene keek naar kleding en regels, de andere naar echtheid en identiteit.
 - **Kosten:** na de tweede ronde stond het saldo op 166 credits; na afloop is er 3,55 over.
 

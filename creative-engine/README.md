@@ -5,7 +5,7 @@ Maakt Instagram-content in de stijl van Zegna, Loro Piana, Brunello Cucinelli en
 ```text
 Shopify (232 actieve producten) ──► garderobe ──► looks ──► plan (norm) ──► prompt + productfoto's ──► Higgsfield ──► kwaliteitscontrole ──► jij
                                        ▲            ▲            ▲                                          │
-Bestsellers (ShopifyQL) ───────────────┘            │            │                                          └──► reel (Kling, vanaf het goedgekeurde beeld)
+Bestsellers (ShopifyQL) ───────────────┘            │            │                                          └──► reel (Seedance 2.5, vanaf het goedgekeurde beeld)
 Merk-DNA, paletten, vast model ─────────────────────┘            │
 Concurrenten (screenshots + gecontroleerd webonderzoek) ─────────┘
 ```

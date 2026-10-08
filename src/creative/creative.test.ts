@@ -290,19 +290,28 @@ describe("prompt", () => {
     expect(SHOTS.filter((s) => s.publicPlace).map((s) => s.id).sort()).toEqual(["borgo", "espresso-terrace", "loafer-walk", "milano-courtyard", "riviera"]);
   });
 
-  it("begint een reel bij het goedgekeurde beeld en houdt precies dezelfde man", () => {
+  it("maakt reels alleen met Seedance 2.5 vanaf het goedgekeurde beeld, eerst als concept", () => {
     const v = buildMotion(shotById("milano-courtyard"));
-    expect(v).toMatchObject({ model: "kling3_0", mode: "pro", startFrame: "approved-still", aspect: "9:16", duration: 5, sound: "off" });
+    expect(v).toMatchObject({
+      model: "seedance_2_5", mode: "omni_reference", startFrame: "approved-still", aspect: "9:16",
+      resolution: "1080p", bitrate: "high", duration: 5, audio: false, draftFirst: true,
+    });
     expect(v.prompt).toContain("Start from the approved still");
-    expect(v.prompt).toContain(MODEL.elementPlaceholder);
     expect(v.prompt).toContain("exactly the same man");
-    expect(buildMotion(shotById("hanger")).prompt).not.toContain(MODEL.elementPlaceholder);
+    // Seedance 2.5 negeert het element: zijn gezicht komt uit het startbeeld en de gezichtsfoto's.
+    expect(v.prompt).not.toContain(MODEL.elementPlaceholder);
+    expect(v.faceRefs.map((r) => r.id)).toEqual(["ref-1", "ref-4"]);
+    expect(v.prompt).toContain("no head turn of more than 45 degrees");
+    expect(v.prompt).toContain("no new people");
+    const still = buildMotion(shotById("hanger"));
+    expect(still.faceRefs).toEqual([]);
+    expect(still.prompt).not.toContain("reference images");
   });
 
   it("vraagt bij een reel van een detail niet om zijn gezicht", () => {
     const v = buildMotion(shotById("loafer-walk"));
-    expect(v.prompt).toContain(MODEL.elementPlaceholder);
-    expect(v.prompt).toContain("his face stays out of frame for the whole shot");
+    expect(v.faceRefs).toEqual([]);
+    expect(v.prompt).toContain("His face stays out of frame for the whole shot");
     expect(v.prompt).toContain("the camera does not tilt up");
     expect(v.prompt).not.toContain("same face");
   });
@@ -430,7 +439,7 @@ describe("contentplan", () => {
   it("maakt reels in 9:16 met een beweging vanaf het goedgekeurde beeld", () => {
     for (const e of plan.filter((x) => x.format === "reel")) {
       expect(e.frames[0].request.aspect).toBe("9:16");
-      expect(e.video).toMatchObject({ model: "kling3_0", mode: "pro", startFrame: "approved-still", aspect: "9:16", sound: "off" });
+      expect(e.video).toMatchObject({ model: "seedance_2_5", mode: "omni_reference", startFrame: "approved-still", aspect: "9:16", audio: false, draftFirst: true });
     }
   });
 
@@ -498,7 +507,11 @@ describe("contentplan", () => {
       }
       if (e.video) {
         expect(e.video.prompt).not.toMatch(SECOND_MAN);
-        if (e.frames[0].shot.people === 1) expect(e.video.prompt).toContain(MODEL.elementPlaceholder);
+        // Seedance 2.5 negeert het element; zijn gezicht komt uit het startbeeld en, als het in beeld is, de gezichtsfoto's.
+        expect(e.video.prompt).not.toContain(MODEL.elementPlaceholder);
+        const face = e.frames[0].shot.people === 1 && e.frames[0].shot.framing !== "detail";
+        expect(e.video.faceRefs.length > 0).toBe(face);
+        if (e.frames[0].shot.people === 1) expect(e.video.prompt).toMatch(/same man|His face stays out of frame/);
       }
     }
   });

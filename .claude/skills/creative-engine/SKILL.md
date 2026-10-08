@@ -38,12 +38,23 @@ Neem ids en Engelse tekstblokken altijd uit `creative-engine/data/model.json`, n
 - Geen productfoto in `medias`: Soul gebruikt een beeld met `role: "image"` als basis en maakt dan die productfoto na, zonder hem (getest 8 oktober). De kleding staat dus alleen in de tekst en wordt bij benadering; gebruik het alleen voor eenvoudige outfits en keur de kleding streng.
 - Prompt: `realism_en`, één lichtbron, `expression_en` en `framing_en`. Niet `keep_en` (dat verwijst naar referentiebeelden), geen placeholder (Soul 2.0 negeert het element) en geen "#n".
 
-**Video**
+**Video (alleen Seedance 2.5, besluit van de eigenaar op 8 oktober 2026)**
 
-- Nooit video vanuit alleen tekst. Altijd image-to-video vanaf een goedgekeurde foto van hem (`rules.video` in model.json).
-- `generate_video` met `model: "kling3_0"`, `mode: "pro"`, `sound: "off"`, `duration: 5`, `aspect_ratio: "9:16"` (met een startbeeld in 9:16), `medias: [{ role: "start_image", value: <job_id van de goedgekeurde foto> }]`, en de element-placeholder in de `prompt`, zodat zijn gezicht vast blijft. Kling gebruikt het element alleen samen met die `start_image`. Rond 8,75 credits per clip.
-- Kleine, natuurlijke beweging: lopen, een mouw rechttrekken, over het water kijken. Geen volledige hoofddraai en niets voor zijn gezicht. Bij een detail blijft zijn gezicht de hele clip uit beeld.
-- Alternatief: `seedance_2_0` (`mode: "std"`, `resolution: "1080p"`, `generate_audio: false`, 5 seconden), dezelfde route maar rond 45 credits (720p rond 22,5).
+Seedance 2.5 is duur, dus elke clip moet in één keer goed zijn. Werk daarom altijd zo:
+
+1. **Startbeeld.** Alleen een 9:16-beeld dat beide controles heeft doorstaan zonder uitzondering of eigen oordeel. Gebruik 4K. Bij een clip zonder hoofd staat de bovenrand in het beeld zelf al op de hals. Gaat de kin er toch in, snijd dan het startbeeld bij (9:16 behouden) en upload het; snijd nooit achteraf in de video. Geen voorbijgangers die dichtbij genoeg zijn om te bewegen.
+2. **Vooraf nalopen.** Laat de prompt en het startbeeld door een aparte agent controleren tegen deze regels, voordat er een credit wordt uitgegeven.
+3. **Concept.** Roep `generate_video` aan met deze instellingen:
+   - `model: "seedance_2_5"`, `mode: "omni_reference"`, `resolution: "1080p"`, `bitrate_mode: "high"`, `duration: 5`, `aspect_ratio: "9:16"`, `generate_audio: false`, `draft: true` (480p, rond 15 credits);
+   - in `medias` eerst `{ role: "start_image", value: <job_id of media_id van het startbeeld> }`;
+   - is zijn gezicht in beeld, dan daarna de 4K-gezichtsfoto's uit `higgsfield.video_face_refs` (ref-1 en ref-4, de `upscale_job_id`) als `{ role: "image_references" }`.
+
+   Seedance 2.5 negeert het element. Zet de placeholder dus niet in de prompt: de prompt noemt hem "the man in the start frame and in the reference images". Krijg je een `preset_recommendation`, herhaal de aanroep dan met `declined_preset_id`.
+4. **Controle.** Controleer het concept beeld voor beeld (elke 0,25 seconde) met de twee controleurs. Kijk naar het gezicht, de kleding, handen en voeten, of er mensen in elkaar overlopen, en of er tekst in beeld komt.
+5. **Afmaken.** Vraag met `get_cost` op wat afmaken kost, en maak alleen een goedgekeurd concept af met `draft_job_id`, in 1080p (een volledige clip in 1080p is rond 60 credits). Controleer het eindresultaat nog één keer.
+6. **Eén video tegelijk.** Mislukken twee concepten van dezelfde video, stop dan en overleg met de eigenaar, in plaats van door te gaan met credits uitgeven.
+7. **Beweging.** Kleine, echte bewegingen: wind in het haar en het breisel, ademhalen, een mouw rechttrekken, één blik opzij, of de camera die langzaam dichterbij komt. Laat hem niet langs dingen lopen terwijl hij ze aanraakt, geen hoofddraai van meer dan 45 graden, niets voor zijn gezicht, en geen nieuwe mensen. Bij een detail blijft zijn gezicht de hele clip uit beeld.
+8. **Ander model in het plan.** Noemt een plan of een oud bestand een ander videomodel (Kling, Seedance 2.0), gebruik dan toch Seedance 2.5.
 
 **Als het element niet werkt** (status niet `completed`, of een model zonder elementsupport): maak het plan opnieuw met `--face-refs` (de filmische serie ook, zie 4b). Dan staan ref-1, ref-4 en ref-2 (`higgsfield.face_ref_order`) als #1-#3 **vooraan** in `references`, met de 4K-versie (`upscale_job_id`) als `value`, en de productfoto's daarna. De prompt zegt dan "the man in reference images #1-#3" met `identity_en`, zonder placeholder. Ref-3 (van achteren) gaat niet mee. Meld het bij de oplevering.
 
@@ -110,7 +121,7 @@ De batch van 100 op 7 oktober oogde te AI. Daarom gelden deze regels voor elke p
   3. Beelden zonder persoon: `nano_banana_pro`, 2k mag, zonder placeholder.
   4. `generate_image_batch` met maximaal 12 beelden per keer. Daarna eerst stap 5, dan pas de volgende batch.
   5. Wachten met `jobs_wait`, tonen met `show_generation_by_ids`. Wordt die uitvoer te groot, zet de links (`results.rawUrl`) dan in een tabel zoals `creative-engine/output/2026-10-06-testbeelden.md`.
-- Reels (`video`): pas nadat het 9:16-beeld van die post is goedgekeurd. Het plan geeft `kling3_0`, `mode: "pro"`, `sound: "off"`, 5 seconden en 9:16; het goedgekeurde beeld is de `start_image` en de placeholder staat in `video.prompt`. Neem die prompt ongewijzigd over. Oude plannen met `seedance_2_0` of een andere lengte: opnieuw maken. Eén reel is voorlopig één clip van 5 seconden. Muziek komt er pas bij het posten op, uit de Instagram-bibliotheek.
+- Reels (`video`): pas nadat het 9:16-beeld van die post is goedgekeurd. Het plan geeft `seedance_2_5` met `omni_reference`, 1080p, 5 seconden, 9:16 en zonder geluid. Het goedgekeurde beeld is de `start_image`, en als zijn gezicht in beeld is staan de gezichtsfoto's in `video.faceRefs`. Neem `video.prompt` ongewijzigd over en volg de stappen onder "Video": eerst een concept, dan de controle, dan afmaken. Noemt een oud plan Kling of Seedance 2.0, gebruik dan toch Seedance 2.5. Eén reel is voorlopig één clip van 5 seconden. Muziek komt er pas bij het posten op, uit de Instagram-bibliotheek.
 - Kosten: rond 2 credits per beeld in 2k (oktober 2026); 4k en video kosten meer. Vraag `get_cost` bij 4k, video en batches, en vraag toestemming boven de 50 credits, tenzij de gebruiker al een aantal heeft genoemd.
 - Higgsfield meldt de jobs als `nano_banana_2`, ook als `nano_banana_pro` is gevraagd. Meld dat als de kwaliteit tegenvalt.
 - Geen project aanmaken tenzij `get_preferences` dat zegt of de gebruiker erom vraagt.
@@ -134,7 +145,7 @@ De eigenaar vond de eerste 20 beelden "te AI, geen creativiteit". Wat hij wel wi
 - **Op 100%** bekijken: huid, breisel, achtergrond, raamreflecties, schaal, voeten, en alle vier de hoeken (filmranden).
 - Laat bij een serie ook twee onafhankelijke controleurs kijken (workflow): één op de kleding- en accessoireregels, één op AI-fouten en echtheid (anatomie, perspectief, tekst, randen, licht dat niet klopt, een ander gezicht).
 - Beantwoord per beeld `QA_QUESTIONS`, vul een `Observation` in en gebruik `judge()`.
-- Reels: dezelfde gezichtsvraag op het begin, het midden en het einde (niet de 500 px). Verandert zijn gezicht, dan is de reel afgekeurd.
+- Reels: de gezichtsvraag op elk beeld, elke 0,25 seconde, niet alleen op het begin, het midden en het einde (de 500 px gelden niet). Verandert zijn gezicht, zijn haar of de kleding, lopen mensen op de achtergrond in elkaar over, of komt er tekst in beeld, dan is de reel afgekeurd. Bij een concept gaat er dan niets naar 1080p.
 - Afgekeurd: opnieuw genereren (maximaal 3 keer per beeld) met de prompt plus één extra zin die het probleem benoemt, bijvoorbeeld "His wrists are bare: no watch, no bracelet." Een afgekeurd beeld retoucheer je niet en werk je niet bij: je maakt het opnieuw.
 
 ### 6. Opleveren

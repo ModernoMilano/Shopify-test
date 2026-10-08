@@ -67,12 +67,15 @@ Verder nooit een brede tandenlach, en nooit een andere man of twee mannen in é�
 
 ### Video
 
-Maak nooit video vanuit alleen tekst. Begin altijd met een goedgekeurde foto van hem:
+Alleen met **Seedance 2.5** (besluit van de eigenaar, 8 oktober 2026). Maak nooit video vanuit alleen tekst; begin altijd met een goedgekeurde foto van hem.
 
-- **Model**: Kling 3.0 (`mode: "pro"`, zonder geluid), 5 seconden, 9:16. Seedance 2.0 kan ook, maar kost ongeveer vijf keer zoveel.
-- **Startbeeld**: `start_image` is die foto, in 9:16.
-- **Prompt**: het element in de prompt, zodat het gezicht vast blijft. Kling gebruikt het element alleen samen met dat startbeeld.
-- **Beweging**: rustig en natuurlijk, zoals lopen, een mouw rechttrekken of over het water kijken. Geen volledige hoofddraai en niets voor zijn gezicht.
+- **Startbeeld:** een 9:16-foto die beide controles heeft doorstaan zonder uitzondering, in 4K. Die gaat mee als `start_image`.
+- **Zijn gezicht:** Seedance 2.5 kent het element niet. Zijn gezicht komt uit het startbeeld en, als het in beeld is, uit ref-1 en ref-4 in 4K (`video_face_refs`) als `image_references`. De placeholder hoort niet in de prompt.
+- **Instellingen:** `mode: "omni_reference"`, 1080p, `bitrate_mode: "high"`, 5 seconden, zonder geluid.
+- **Eerst een concept:** een proefversie in 480p (`draft: true`, rond 15 credits). Controleer die beeld voor beeld, en maak hem pas daarna af met `draft_job_id`. Een volledige clip in 1080p kost rond 60 credits. Eén video tegelijk, en na twee mislukte concepten stoppen en overleggen.
+- **Beweging:** klein en echt: wind in het haar en het breisel, ademhalen, een blik opzij, of de camera die langzaam dichterbij komt. Hij loopt niet langs dingen die hij aanraakt, draait zijn hoofd niet meer dan 45 graden, en er komen geen nieuwe mensen in beeld.
+
+Waarom niet meer Kling 3.0: de vijf Kling-clips van 8 oktober zagen er volgens de eigenaar overduidelijk AI uit.
 
 ### Altijd
 
@@ -105,7 +108,7 @@ De tekstblokken in `model.json` draaien dat allemaal om: één gezicht, waist-up
   - het navy Lounge-vest: krijgt steekzakken.
 - **Stukken die het wel betrouwbaar tekent:** Onyx, Bellagio, de Lido- en Bergamo-polo's, de Signature-broek en de loafers.
 - **Wit T-shirt:** een wit crew-neck T-shirt onder een jas is een eigen product (Puro Supima) en mag.
-- **Video zonder hoofd:** het model zet de kin toch in beeld. Snijd het startbeeld bovenaan 160 tot 200 px bij, met 9:16 behouden, en de video zelf 150 px.
+- **Video zonder hoofd:** het model zet de kin toch in beeld. Snijd het startbeeld bovenaan 160 tot 200 px bij, met 9:16 behouden. Achteraf in de video snijden maakt het beeld zachter; voorkom het liever met een rustige camera op borsthoogte.
 - **Bewegen in video:** geen grote hoofddraai, want het haar vervormt. Versmelten voorbijgangers op de achtergrond, knip de clip dan voor dat moment af.
 - **Resolutie:** 2K is genoeg voor Instagram (1080 px breed) en kost de helft van 4K.
 

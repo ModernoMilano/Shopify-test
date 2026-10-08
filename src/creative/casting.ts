@@ -39,6 +39,11 @@ export interface Model {
    * (model.json → face_ref_order: ref-1, ref-4, ref-2). Standaard gaan er geen gezichtsfoto's mee; het element brengt zijn gezicht.
    */
   fallbackFaceRefs: FaceRef[];
+  /**
+   * Voor video: Seedance 2.5 kent het element niet. Als zijn gezicht in beeld is, gaan deze 4K-gezichtsfoto's
+   * (model.json → video_face_refs: ref-1, ref-4) mee als image_references, na het startbeeld.
+   */
+  videoFaceRefs: FaceRef[];
   /** Maximaal zoveel beelden per batch, daarna eerst controleren. */
   batchMax: number;
   /** Minimale breedte van zijn gezicht in het eindbeeld. */
@@ -55,6 +60,7 @@ export interface ModelFile {
     soul_id?: string;
     face_refs?: { file?: string; media_id?: string; upscale_job_id?: string; view?: string }[];
     face_ref_order?: string[];
+    video_face_refs?: string[];
   };
   prompt?: {
     identity_en?: string;
@@ -99,11 +105,15 @@ export function modelFrom(data: ModelFile): Model {
   });
   const order = need(hf.face_ref_order, "higgsfield.face_ref_order");
   if (order.length === 0) throw new Error("creative-engine/data/model.json mist higgsfield.face_ref_order");
-  const fallbackFaceRefs = order.map((id) => {
+  const pick = (key: string) => (id: string) => {
     const ref = faceRefs.find((r) => r.id === id);
-    if (!ref) throw new Error(`creative-engine/data/model.json: face_ref_order noemt ${id}, maar die staat niet in face_refs`);
+    if (!ref) throw new Error(`creative-engine/data/model.json: ${key} noemt ${id}, maar die staat niet in face_refs`);
     return ref;
-  });
+  };
+  const fallbackFaceRefs = order.map(pick("face_ref_order"));
+  const videoOrder = need(hf.video_face_refs, "higgsfield.video_face_refs");
+  if (videoOrder.length === 0) throw new Error("creative-engine/data/model.json mist higgsfield.video_face_refs");
+  const videoFaceRefs = videoOrder.map(pick("video_face_refs"));
   const mustNot = need(p.must_not_en, "prompt.must_not_en");
   if (mustNot.length === 0) throw new Error("creative-engine/data/model.json mist prompt.must_not_en");
 
@@ -123,6 +133,7 @@ export function modelFrom(data: ModelFile): Model {
     soulId: need(hf.soul_id, "higgsfield.soul_id"),
     faceRefs,
     fallbackFaceRefs,
+    videoFaceRefs,
     batchMax: data.rules?.batch_max ?? 12,
     faceMinPx: data.rules?.face_min_px ?? 500,
   };

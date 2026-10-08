@@ -5,7 +5,7 @@
 // zijn gezichtsfoto's als eerste mee (#1-#3), de productfoto's daarna. Nooit een andere man en nooit twee.
 
 import { FAMILY_WORDS } from "./colours";
-import { MODEL } from "./casting";
+import { MODEL, type FaceRef } from "./casting";
 import { lookFromItems, type Look, type LookItem } from "./looks";
 import type { Aspect, Grade, Shot } from "./shots";
 import type { Slot, WardrobeItem } from "./wardrobe";
@@ -77,17 +77,25 @@ export interface GenerationRequest {
 }
 
 /**
- * Video volgens model.json → rules.video: nooit vanuit alleen tekst, altijd vanaf een goedgekeurde foto.
- * Kling 3.0 (mode pro, zonder geluid); Kling gebruikt het element alleen samen met die `start_image`.
+ * Video volgens model.json → rules.video (besluit van de eigenaar, 8 oktober 2026): alleen Seedance 2.5, nooit vanuit
+ * alleen tekst. Het goedgekeurde beeld is het startframe. Seedance 2.5 kent het element niet: zijn gezicht komt uit het
+ * startbeeld en, als het in beeld is, uit de 4K-gezichtsfoto's (`videoFaceRefs`) als image_references.
+ * Altijd eerst een concept in 480p (`draft`), pas na de controle afmaken in 1080p.
  */
 export interface VideoRequest {
-  model: "kling3_0";
-  mode: "pro";
+  model: "seedance_2_5";
+  mode: "omni_reference";
   /** Het goedgekeurde beeld (in 9:16) is het startframe (`start_image`). */
   startFrame: "approved-still";
+  /** Gezichtsfoto's als `image_references`, na het startbeeld. Leeg als zijn gezicht niet in beeld komt. */
+  faceRefs: FaceRef[];
   aspect: "9:16";
+  resolution: "1080p";
+  bitrate: "high";
   duration: number;
-  sound: "off";
+  audio: false;
+  /** Eerst `draft: true` (480p); na goedkeuring afmaken met `draft_job_id`. */
+  draftFirst: true;
   prompt: string;
 }
 
@@ -304,24 +312,31 @@ export function buildPrompt(look: Look, shot: Shot, opts: PromptOptions = {}): G
 export function buildMotion(shot: Shot): VideoRequest {
   const person = shot.people > 0;
   const detail = person && shot.framing === "detail";
+  const face = person && !detail;
   return {
-    model: "kling3_0",
-    mode: "pro",
+    model: "seedance_2_5",
+    mode: "omni_reference",
     startFrame: "approved-still",
+    faceRefs: face ? MODEL.videoFaceRefs : [],
     aspect: "9:16",
+    resolution: "1080p",
+    bitrate: "high",
     duration: 5,
-    sound: "off",
+    audio: false,
+    draftFirst: true,
     prompt: [
       `Start from the approved still: it is the first frame. Animate it: ${shot.motion}.`,
       detail
-        ? `He is ${MODEL.elementPlaceholder}; his face stays out of frame for the whole shot; keep the same skin tone, hands and build; the camera does not tilt up. No other man appears.`
-        : person
-          ? `He is ${MODEL.elementPlaceholder}: keep exactly the same man as in the approved still, with the same face, hair, brows, eyes, jaw and build from the first frame to the last. ` +
-            "No other man appears. Small natural movement only: no full head turn, nothing passes in front of his face."
+        ? "His face stays out of frame for the whole shot; keep the same skin tone, hands and build; the camera does not tilt up. No other man appears."
+        : face
+          ? "He is the man in the start frame and in the reference images; use the reference images only for his face and hair. " +
+            "Keep exactly the same man, with the same face, hair, brows, eyes, jaw and build from the first frame to the last. " +
+            "No other man appears. Small natural movement only: no head turn of more than 45 degrees, nothing passes in front of his face."
           : null,
       `Keep ${person ? "every garment, the loafers" : "every garment"}, the colours and the setting exactly as in the start frame: ` +
-        "garments must not change colour, shape, length or details. No new objects, no accessories, no text, no extra people. " +
-        "Calm, slow, real-time motion, one continuous shot, no cuts, no zoom effects, no camera shake.",
+        "garments must not change colour, shape, length or details. No new objects, no accessories, no text, no new people; " +
+        "anyone already far in the background stays small, out of focus and unchanged. " +
+        "Real-time motion with natural motion blur, one continuous shot, no cuts, no zoom effects.",
     ]
       .filter(Boolean)
       .join(" "),
