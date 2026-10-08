@@ -25,9 +25,10 @@ FEET = {
 NOTEXT = "No text, no logos, no badges, no film borders, no frame."
 RES = "4k"
 # Na batch 2 (8 okt): het gezicht dreef af in haarlengte, haarkleur en oogkleur.
-ID_LINE = ("He is in his mid-twenties, with only a faint stubble shadow (never a beard or moustache), dark warm brown eyes "
-           "(never blue or grey) and warm chestnut-brown hair (not espresso, not near-black) swept back with volume on top, "
-           "kept short and neat at the back so the nape of his neck shows and no hair touches his collar.")
+# Na batch 4: "kort in de nek" gaf soms een strakke fade of pompadour; nu dichter bij model.md.
+ID_LINE = ("He is in his mid-twenties, with only a faint stubble shadow (never dense stubble or a beard), dark warm brown eyes "
+           "(never blue or grey) and warm chestnut-brown hair (not espresso, not near-black), full and swept back with soft natural "
+           "volume, the sides combed back over the tops of his ears; no fringe falling forward, no fade, no shaved sides, no pompadour.")
 
 
 def spec(k):
@@ -288,6 +289,29 @@ V["V04"].update(keys=["twotone_navy", "tee", "loafer_notte"],
                 scene="A Brera street on an overcast morning: {M} walks slowly along the pavement, seen from the front and slightly to the side. The top edge of the frame falls at the base of his neck, well below the chin, so no part of his mouth, chin or jaw is visible; the frame runs from there down to his feet, so the focus is entirely on the clothes.",
                 worn="The navy cashmere zip jacket with the cream-and-white sleeve stripes, zipped up to the middle of his chest over the white T-shirt; matching navy joggers with the side stripe; navy suede loafers.")
 for _k in ("M02", "M04", "M08", "M09"):
+    FIXES[_k] = S[_k]["fix"]
+
+
+# ---------- Na de controle van batch 4 (8 okt) ----------
+V["V02"]["fix"] = ("The car has no badges, emblems, number plate, plate holder or plate frame anywhere. The charcoal trousers are pull-on "
+                   "trousers with an elasticated drawstring waist and no zip fly, a straight relaxed leg and a plain hem with no turn-ups. "
+                   "His left hand rests flat on the top edge of the car door.")
+V["V03"]["fix"] = ("The oatmeal hooded jacket has a dark gunmetal zip, exactly as in the product photo. His fingers are completely bare, "
+                   "with no ring on any finger. The espresso cup is plain, fully opaque white porcelain.")
+V["V05"].update(keys=["imperial_brown", "tee", "loafer_moro"],
+                scene="Wide stone steps between old Milan palazzi in soft afternoon light: {M} walks slowly down the last steps towards the camera at an angle. The top edge of the frame falls at his collarbones, so his chin, mouth and face are never in the picture; the frame runs from there down to his feet, so the focus is entirely on the clothes.",
+                worn="The dark chocolate zip jacket with the pointed collar zipped halfway over the white T-shirt; matching trousers; dark brown suede loafers.",
+                motion="He walks slowly down the last three steps towards the camera, one hand brushing the stone balustrade; the camera glides backwards at chest height and keeps the same framing from his collarbones to his feet; the staircase and balustrade stay the same from the first frame to the last.",
+                fix="Both of his wrists are bare. Under the jacket only the plain white crew-neck T-shirt shows.")
+S["M11"].update(scene="Late afternoon on a footbridge over the Navigli in Milan: a close portrait of {M} from the chest up, seen in three-quarter view from his left, looking away down the canal, off-centre.",
+                fix="He looks away down the canal, not at the camera, his mouth relaxed and closed.")
+S["M13"]["fix"] += " He has only a faint stubble shadow, and his hair is soft and swept back, not a sculpted pompadour, with no shaved or tapered sides."
+S["D03"]["fix"] = ("Only one bare hand with five natural fingers; no ring, watch or bracelet. The zip is one continuous polished silver zip, "
+                   "the same metal above and below the slider, with a flat rectangular silver pull tab like the product photo.")
+# V04: het startbeeld is bijgesneden (bovenste 200 px eraf, 9:16 behouden) en als media geüpload: 81fdbca0-ec61-41d7-9d67-83ae2ba1ee39.
+V["V04"]["motion"] = ("As he walks, he pulls the zip of the jacket up from mid-chest towards the collar with one hand; the knit moves with each step. "
+                      "The camera tracks backwards at walking pace at chest height and keeps the same framing, from the T-shirt collar down to his feet.")
+for _k in ("M11", "M13", "D03"):
     FIXES[_k] = S[_k]["fix"]
 
 
