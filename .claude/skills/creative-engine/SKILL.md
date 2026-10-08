@@ -45,7 +45,7 @@ Seedance 2.5 is duur, dus elke clip moet in één keer goed zijn. Werk daarom al
 1. **Startbeeld.** Alleen een 9:16-beeld dat beide controles heeft doorstaan zonder uitzondering of eigen oordeel. Gebruik 4K. Bij een clip zonder hoofd staat de bovenrand in het beeld zelf al op de hals. Gaat de kin er toch in, snijd dan het startbeeld bij (9:16 behouden) en upload het; snijd nooit achteraf in de video. Geen voorbijgangers die dichtbij genoeg zijn om te bewegen.
 2. **Vooraf nalopen.** Laat de prompt en het startbeeld door een aparte agent controleren tegen deze regels, voordat er een credit wordt uitgegeven.
 3. **Concept.** Roep `generate_video` aan met deze instellingen:
-   - `model: "seedance_2_5"`, `mode: "omni_reference"`, `resolution: "1080p"`, `bitrate_mode: "high"`, `duration: 5`, `aspect_ratio: "9:16"`, `generate_audio: false`, `draft: true` (480p, rond 15 credits);
+   - `model: "seedance_2_5"`, `mode: "omni_reference"`, `resolution: "1080p"`, `bitrate_mode: "high"`, `duration: 5` (4 voor een clip die in een montage wordt geknipt, zoals de reels van `output/2026-10-08-reels-focus`), `aspect_ratio: "9:16"`, `generate_audio: false`, `draft: true` (480p, rond 15 credits; bij 4 seconden 12);
    - in `medias` eerst `{ role: "start_image", value: <job_id of media_id van het startbeeld> }`;
    - is zijn gezicht in beeld, dan daarna de 4K-gezichtsfoto's uit `higgsfield.video_face_refs` (ref-1 en ref-4, de `upscale_job_id`) als `{ role: "image_references" }`.
 

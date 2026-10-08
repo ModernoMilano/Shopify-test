@@ -94,14 +94,18 @@ def reversed_take(job_a):
 
 
 def mac():
+    # Ronde 1 (8 okt): zonder uitsnede verzon het model een ronde naad naast de rits en een platte zoom. Nu alleen de kraag.
     parts = [
-        "A close-up still life, seen from slightly above: the gilet lies on a cream linen sheet on an old oak table near a window. "
-        "The zip is half open and the top of the stand collar is folded back so both sides show at once: the deep bordeaux outside "
-        "and the cream inside, with the silver zip pull in the middle. Slightly rumpled, not pressed.",
-        "Soft window light from the left rakes across the fabric and shows its fine peached surface; shallow depth of field, the far "
-        "end of the gilet falls out of focus; muted warm colour, soft contrast.",
-        "The only clothing in the picture is this ModernoMilano piece, reproduced exactly as in the product reference images: "
-        f"{GILET}.",
+        "A close-up still life, seen from slightly above: the top of the gilet lies flat on a cream linen sheet on an old oak "
+        "table near a window, front facing up. The frame shows only the stand collar and the top 20 centimetres of the silver "
+        "zip: the zip is open at the top and the stand collar falls open so its cream inside faces the camera, next to the deep "
+        "bordeaux outside. Slightly rumpled, not pressed.",
+        "Soft window light from the left rakes across the fabric and shows its fine peached surface; shallow depth of field; "
+        "muted warm colour, soft contrast.",
+        "The only clothing in the picture is this ModernoMilano piece, reproduced exactly as in the product reference images "
+        "(reference image #1 shows this exact detail): " + GILET + ".",
+        "The front of the gilet is one smooth panel on each side of the zip: no extra seams, panels, piping or pockets near the "
+        "zip. The collar is a plain stand collar with the same fabric on both sides, bordeaux outside and cream inside.",
         "There are no people and no hands in the picture.", STILL_REAL, "100mm macro lens at f/4.", NOTEXT]
     return {"model": "nano_banana_pro", "resolution": "2k", "aspect_ratio": "9:16", "prompt": "\n\n".join(parts),
             "medias": [{"value": DETAIL, "role": "image_references"}, {"value": FLAT, "role": "image_references"}]}

@@ -9,11 +9,10 @@ edit.json:
              ...],
    "text":  [{"cut": 0, "lines": [["One gilet.", 96]], "y": 0.6}, ...]}  # y = midden van het tekstblok (0-1)
 
-Harde snedes, 30 fps, 1080x1920. Lichte korrel en één kleurcorrectie over alles, zodat stills en clips bij elkaar
-passen. Tekst: gele schreefletter met zachte schaduw (Canva-bord 4-01), buiten de onderste 22% (de Instagram-knoppen).
+Harde snedes, 30 fps, 1080x1920. Geen korrel en geen LUT (SKILL.md, "Echt, niet AI"): de beelden blijven zoals het
+model ze maakt. Tekst: gele schreefletter met zachte schaduw (Canva-bord 4-01), buiten de onderste 22% (de Instagram-knoppen).
 """
 import json, os, subprocess, sys
-import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 W, H, FPS = 1080, 1920, 30
@@ -88,20 +87,12 @@ def text_layer(lines, yc, fonts):
     return Image.alpha_composite(Image.alpha_composite(scrim, sh), lay)
 
 
-def grade(fr, rng):
-    a = np.asarray(fr).astype(np.float32)
-    a = 12 + a * (243 - 12) / 255  # zachte zwarten en witten
-    a += rng.normal(0, 2.6, a.shape[:2])[..., None]  # fijne korrel, gelijk over de kanalen
-    return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
-
-
 def main(cfg_path, out):
     cfg = json.load(open(cfg_path))
     os.makedirs("src", exist_ok=True)
     os.makedirs("frames", exist_ok=True)
     local = {k: get(u, f"src/{k}{os.path.splitext(u.split('?')[0])[1]}") for k, u in cfg["src"].items()}
     texts = {t["cut"]: t for t in cfg.get("text", [])}
-    rng = np.random.default_rng(7)
     n = 0
     for i, c in enumerate(cfg["cuts"]):
         p = local[c["src"]]
@@ -110,7 +101,7 @@ def main(cfg_path, out):
         t = texts.get(i)
         layer = text_layer(t["lines"], t.get("y", 0.6), cfg["fonts"]) if t else None
         for k, fr in enumerate(frames):
-            fr = grade(fr, rng).convert("RGBA")
+            fr = fr.convert("RGBA")
             if layer is not None:
                 a = min(1.0, (k + 1) / 6)  # tekst komt in 0,2 s op
                 lay = layer
