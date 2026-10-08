@@ -351,6 +351,11 @@ for _k in ("M13", "D03"):
     FIXES[_k] = S[_k]["fix"]
 
 
+# Na de laatste controle: de Onyx-jogger kreeg een gulp.
+V["V05"]["fix"] = ("Both of his wrists are bare. Under the jacket only the plain white crew-neck T-shirt shows; there is no hood. "
+                   "The black cashmere joggers have an elasticated waistband with a black drawstring tied at the front, no fly and no front seam, and ribbed ankle cuffs.")
+
+
 def video(i, start_job):
     """Kling 3.0 image-to-video vanaf een goedgekeurd 9:16-startbeeld (model.json rules.video)."""
     v = V[i]
