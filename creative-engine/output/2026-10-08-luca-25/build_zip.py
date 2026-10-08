@@ -2,7 +2,7 @@
 
 Verwacht src/<id>.png en src/<id>.mp4, en naast dit script fotos.tsv en videos.tsv:
   fotos.tsv:  nr <tab> id <tab> titel <tab> bijsnede (x0,y0,x1,y1 of -)
-  videos.tsv: nr <tab> id <tab> titel <tab> bewerking (- | trim:<sec> | croptop:<px>)
+  videos.tsv: nr <tab> id <tab> titel <tab> bewerking (- | trim:<sec> | croptop:<px>, te combineren met +)
 Bijsneden en inkorten zijn de enige bewerkingen: geen retouches. De randdetector van de 100-set meldt alleen nog
 (felle lucht gaf valse treffers); de dubbele controle beoordeelt de hoeken.
 """
@@ -58,17 +58,21 @@ def main():
     grid.save('prev/grid.jpg', quality=60)
     for line in open('videos.tsv', encoding='utf-8'):
         n, i, title, op = line.rstrip('\n').split('\t')
-        dst = f'{VIDEO}/{int(n)} {title}.mp4'; enc = ['-c:v', 'libx264', '-crf', '16', '-preset', 'slow', '-pix_fmt', 'yuv420p', '-an', '-movflags', '+faststart']
+        dst = f'{VIDEO}/{int(n)} {title}.mp4'
+        enc = ['-c:v', 'libx264', '-crf', '16', '-preset', 'slow', '-pix_fmt', 'yuv420p', '-an', '-movflags', '+faststart']
         if op == '-':
             cmd = ['ffmpeg', '-v', 'error', '-y', '-i', f'src/{i}.mp4', '-c', 'copy', '-an', dst]
-        elif op.startswith('trim:'):
-            cmd = ['ffmpeg', '-v', 'error', '-y', '-i', f'src/{i}.mp4', '-t', op[5:], *enc, dst]
-        elif op.startswith('croptop:'):
-            top = int(op[8:]); h = 1920 - top; w = round(h * 9 / 16) // 2 * 2
-            vf = f'crop={w}:{h}:{(1080 - w) // 2}:{top},scale=1080:1920:flags=lanczos'
-            cmd = ['ffmpeg', '-v', 'error', '-y', '-i', f'src/{i}.mp4', '-vf', vf, *enc, dst]
         else:
-            raise SystemExit(f'onbekende bewerking {op}')
+            vf, extra = [], []
+            for part in op.split('+'):  # bijvoorbeeld croptop:150+trim:3.5
+                if part.startswith('trim:'):
+                    extra = ['-t', part[5:]]
+                elif part.startswith('croptop:'):
+                    top = int(part[8:]); h = 1920 - top; w = round(h * 9 / 16) // 2 * 2
+                    vf = ['-vf', f'crop={w}:{h}:(iw-{w})/2:{top},scale=1080:1920:flags=lanczos']
+                else:
+                    raise SystemExit(f'onbekende bewerking {part}')
+            cmd = ['ffmpeg', '-v', 'error', '-y', '-i', f'src/{i}.mp4', *extra, *vf, *enc, dst]
         subprocess.run(cmd, check=True); log.append(f'video {n} {i} {op}')
     with zipfile.ZipFile('out.zip', 'w', zipfile.ZIP_STORED) as z:
         for d in (FOTO, VIDEO):
