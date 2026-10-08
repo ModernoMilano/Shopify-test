@@ -202,6 +202,13 @@ FIXES = {
     "A01": "The cream leather seats are completely plain with no stitched or embossed emblem, and the mahogany hull has only plain chrome trim with no script, nameplate or badge; the cushions are smooth and intact.",
     "A06": "The trousers have a single elasticated drawstring waistband draped over the chair back; the folded legs on the seat end in two plain hems, with no second waistband.",
 }
+FIXES.update({
+    "M13": "The black gilet has a smooth, flat matte shell with no quilting or horizontal channels and a thin white edge at the collar and armholes; the hooded jacket is black inside and out.",
+    "D02": "Only his chin and jaw edge show at the very top of the frame; no mouth or nose.",
+    "D03": "Only one bare hand with five natural fingers; no ring, watch or bracelet.",
+    "A05": "The bicycles are plain and old, with no brand names, logos or stickers anywhere.",
+    "M12": "The cardigan is zipped up to its own ribbed stand collar; no shirt collar or other garment shows above it.",
+})
 for _k, _v in FIXES.items():
     S[_k]["fix"] = _v
 
@@ -233,6 +240,12 @@ V = {
                 worn="The dark chocolate zip jacket with the pointed collar zipped halfway; matching trousers; dark brown suede loafers.",
                 motion="He comes down three steps, one hand brushing the stone balustrade, the trousers moving naturally; the camera stays at chest height and keeps his head out of frame."),
 }
+
+
+V["V01"]["fix"] = "The boat, its seats and the steering wheel have no badges, emblems, lettering or numbers."
+V["V02"]["fix"] = "The car has no badges, emblems, number plate, plate holder or plate frame anywhere."
+V["V04"]["fix"] = "The navy jacket has the cream-and-white stripe down the outer length of each sleeve and the joggers have the same stripe down each side."
+V["V05"]["fix"] = "Both of his wrists are bare, with no bracelet or band."
 
 
 def build(i):
