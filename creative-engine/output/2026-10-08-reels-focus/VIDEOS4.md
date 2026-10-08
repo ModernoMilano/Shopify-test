@@ -103,7 +103,7 @@ Wens van de eigenaar.
 
 ## Dashboard
 
-De eigenaar wil kunnen zien hoe alle agents samenwerken, met de beelden erbij. Daarvoor is er het dashboard "Productiekamer Una giornata": https://claude.ai/artifact/HaSkNEqUyTCC7Ta2uCgSR3
+De eigenaar wil kunnen zien hoe alle agents samenwerken, met de beelden erbij. Daarvoor is er het dashboard "CREATIVE ENGINE" (wens van de eigenaar: die naam, in hoofdletters): https://claude.ai/artifact/HaSkNEqUyTCC7Ta2uCgSR3
 
 - **Inhoud:** de keten van agents, de vier video's met hun stappen en beelden, het logboek en de kosten.
 - **Detail:** klik op een beeld voor alle controles van dat beeld, in gewoon Nederlands.

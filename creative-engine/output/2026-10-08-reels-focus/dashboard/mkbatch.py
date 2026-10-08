@@ -13,7 +13,7 @@ META = {
  "kosten": ("Kosten per stap", "Credits per stap: uitgegeven volgens het Higgsfield-saldo, gepland volgens het draaiboek."),
  "saldo": ("Higgsfield-saldo", "Het saldo bij de start van de serie en nu, uit de Higgsfield-balans."),
 }
-writes = [{"op": "set", "collection": "dash", "doc_id": "meta", "data": {"title": "Productiekamer Una giornata"}}]
+writes = [{"op": "set", "collection": "dash", "doc_id": "meta", "data": {"title": "CREATIVE ENGINE"}}]
 for k, (t, d) in META.items():
     if k not in blobs: continue
     writes.append({"op": "set", "collection": "datasets", "doc_id": k, "data": {
