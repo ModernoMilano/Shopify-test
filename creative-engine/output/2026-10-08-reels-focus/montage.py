@@ -5,17 +5,18 @@ edit.json:
   {"fonts": {"serif": "f/cg600.ttf"},
    "src":   {"A": "<url mp4>", "MAC": "<url png>", ...},
    "cuts":  [{"src": "MAC", "dur": 1.3, "zoom": [1.0, 1.06]},           # still: langzaam inzoomen
+             {"src": "B", "dur": 1.0, "crop": [0.3, 0.25, 0.75, 0.6]},  # detail uit een still (fracties)
              {"src": "A", "from": 0.2, "dur": 2.2},                     # clip: stuk vanaf 'from'
              ...],
    "text":  [{"cut": 0, "lines": [["One gilet.", 96]], "y": 0.6}, ...]}  # y = midden van het tekstblok (0-1)
 
-Harde snedes, 30 fps, 1080x1920. Geen korrel en geen LUT (SKILL.md, "Echt, niet AI"): de beelden blijven zoals het
+Harde snedes, 24 fps (zoals de clips), 1080x1920. Geen korrel en geen LUT (SKILL.md, "Echt, niet AI"): de beelden blijven zoals het
 model ze maakt. Tekst: gele schreefletter met zachte schaduw (Canva-bord 4-01), buiten de onderste 22% (de Instagram-knoppen).
 """
 import json, os, subprocess, sys
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
-W, H, FPS = 1080, 1920, 30
+W, H, FPS = 1080, 1920, 24  # Seedance 2.5 levert 24 fps; omzetten naar 30 geeft haperingen
 YELLOW, CREAM = (242, 209, 107), (245, 238, 225)
 
 
@@ -33,8 +34,11 @@ def cover(im):
     return im.resize((W, H), Image.LANCZOS, box=((nw - W) / 2 / s, (nh - H) / 2 / s, (nw + W) / 2 / s, (nh + H) / 2 / s))
 
 
-def still_frames(path, dur, zoom):
+def still_frames(path, dur, zoom, crop=None):
     im = Image.open(path).convert("RGB")
+    if crop:  # [x0, y0, x1, y1] als fractie van het beeld, bv. een detail uit een 4K-startbeeld
+        w, h = im.size
+        im = im.crop((round(crop[0] * w), round(crop[1] * h), round(crop[2] * w), round(crop[3] * h)))
     w, h = im.size
     s = max(W / w, H / h)
     bw, bh = W / s, H / s  # het 9:16-venster in bronpixels
@@ -97,13 +101,13 @@ def main(cfg_path, out):
     for i, c in enumerate(cfg["cuts"]):
         p = local[c["src"]]
         frames = (clip_frames(p, c.get("from", 0), c["dur"], f"tmp{i}") if p.endswith(".mp4")
-                  else still_frames(p, c["dur"], c.get("zoom", [1.0, 1.05])))
+                  else still_frames(p, c["dur"], c.get("zoom", [1.0, 1.05]), c.get("crop")))
         t = texts.get(i)
         layer = text_layer(t["lines"], t.get("y", 0.6), cfg["fonts"]) if t else None
         for k, fr in enumerate(frames):
             fr = fr.convert("RGBA")
             if layer is not None:
-                a = min(1.0, (k + 1) / 6)  # tekst komt in 0,2 s op
+                a = min(1.0, (k + 1) / 5)  # tekst komt in 0,2 s op
                 lay = layer
                 if a < 1:
                     lay = layer.copy()
