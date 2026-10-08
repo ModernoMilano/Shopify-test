@@ -23,6 +23,10 @@ FEET = {
     "none": "His feet are not in the picture.",
 }
 NOTEXT = "No text, no logos, no badges, no film borders, no frame."
+# Na batch 2 (8 okt): het gezicht dreef af in haarlengte, haarkleur en oogkleur.
+ID_LINE = ("He is in his mid-twenties, with only a faint stubble shadow (never a beard or moustache), dark warm brown eyes "
+           "(never blue or grey) and warm chestnut-brown hair (not espresso, not near-black) swept back with volume on top, "
+           "kept short and neat at the back so the nape of his neck shows and no hair touches his collar.")
 
 
 def spec(k):
@@ -48,7 +52,7 @@ def person(s):
         s["light"],
         f"Expression: {P['expression_en']}.",
         P["keep_en"],
-        "He is in his mid-twenties with only a faint stubble shadow (never a beard or moustache) and thick dark chestnut-brown hair swept back with volume.",
+        ID_LINE,
         "He wears only these ModernoMilano pieces, reproduced exactly as in the product reference images:\n" + "\n".join(lines),
         f"How they are worn: {s['worn']}",
         f"{HANDS} {FEET[s['feet']]} He is the only person near the camera.",
@@ -98,19 +102,19 @@ S = {
                 light="Soft, even overcast daylight from the open street on his right; a faint real shadow under him on the cobbles; muted warm colour, soft contrast.",
                 worn="The black gilet zipped halfway over the white T-shirt; black trousers; black suede loafers."),
     "M02": dict(kind="p", title="Blauw uur aan de Navigli", keys=["lounge_navy"], feet="none", public=True, lens="85mm lens at f/1.8",
-                scene="Blue hour on the Naviglio Grande in Milan: {M} leans with his forearms on the iron railing of the canal, seen from behind and slightly to the side, looking along the water while the warm lights of the old houses reflect in it. Waist-up, off-centre to the right, the railing soft in the foreground.",
+                scene="Blue hour on the Naviglio Grande in Milan: {M} leans with his forearms on the iron railing of the canal, seen from behind over his left shoulder, looking along the water while the warm lights of the old houses reflect in it. Waist-up, off-centre to the right, the railing soft in the foreground.",
                 light="His face and shoulder are lit only by the warm glow of a cafe window on his left; the cool blue dusk behind him; muted colour, soft contrast, no HDR.",
                 worn="The navy cashmere zip jacket zipped halfway; the joggers below, out of frame from the hips down."),
     "M03": dict(kind="p", title="Tegen de oude Spider", keys=["imperial_green", "loafer_moro"], feet="loafers", public=True, lens="50mm lens at f/2",
                 scene="Morning in a quiet side street in Milan: {M} leans against the rear wing of a cream 1960s Italian two-seater convertible with chrome bumpers and no badges, emblems or number plates, his arms loosely folded, looking down the street past the camera. Three-quarter length, framed off-centre, a curve of chrome soft in the foreground.",
                 light="Low morning sun from the left rakes along the facades and puts a warm rim on his hair and shoulder while his face sits in soft open shade; real shadows on the car and the cobbles.",
                 worn="The olive-green zip jacket zipped up to the chest; matching trousers; dark brown suede loafers."),
-    "M04": dict(kind="p", title="Op de achtersteven in Varenna", keys=["supremo_set"], feet="loafers", public=True, lens=L85,
-                scene="Late afternoon on Lake Como: {M} sits on the varnished mahogany stern of an old wooden runabout moored at a stone jetty in Varenna, one arm resting along the gunwale, looking out over the water. Three-quarter, seen from the side, a coiled rope soft in the foreground. The boat has no badges, lettering or numbers.",
+    "M04": dict(kind="p", title="Op de achtersteven in Varenna", keys=["supremo_set"], feet="none", public=True, lens=L85,
+                scene="Late afternoon on Lake Como: {M} sits on the varnished mahogany stern of an old wooden runabout moored at a stone jetty in Varenna, one arm resting along the gunwale, looking out over the water. Framed from the knees up, seen from the side, a coiled rope soft in the foreground. The boat has no badges, lettering or numbers.",
                 light="Warm side light from the low sun on his right; reflections of the water dance on the varnish; his face in soft light; the colourful houses behind out of focus.",
-                worn="The sleeveless beige knit gilet zipped over the beige long-sleeve knit polo; beige trousers; sand suede loafers."),
+                worn="The sleeveless beige knit gilet zipped over the beige long-sleeve knit polo; the beige knit trousers."),
     "M05": dict(kind="p", title="Espresso op het dak", keys=["camicia_grafite", "tee"], feet="none", lens=L85, soul_main="camicia_grafite",
-                scene="A grey morning on a Milan rooftop terrace among chimneys and terracotta roofs: {M} stands at the parapet holding a small espresso cup, looking out over the city. Waist-up, seen from the side, off-centre.",
+                scene="A grey morning on a Milan rooftop terrace among chimneys and terracotta roofs: {M} stands at the parapet holding a small espresso cup, looking out over the city. Waist-up, seen in three-quarter view from his left, off-centre.",
                 light="Soft grey daylight from the open sky on his left; the city behind a stop darker and out of focus; cool muted colour, soft contrast.",
                 worn="The charcoal knitted overshirt open over the white T-shirt."),
     "M06": dict(kind="p", title="Bij het hoge raam", keys=["lido_avena", "sart_charcoal"], feet="none", lens="50mm lens at f/2",
@@ -122,11 +126,11 @@ S = {
                 light="Soft daylight falls from the glass roof above him; gentle shadows; muted warm colour.",
                 worn="The black zip jacket zipped halfway over the white T-shirt; black joggers; black suede loafers."),
     "M08": dict(kind="p", title="Wachten op de tram", keys=["mocha_set", "loafer_moro"], feet="loafers", public=True, lens=L85,
-                scene="An overcast morning at a tram stop in central Milan: {M} stands on the kerb with his hands in his jacket pockets while an old orange tram slides past behind him, slightly motion-blurred. Three-quarter length, off-centre to the left, seen from the side. The tram shows no readable numbers or lettering.",
+                scene="An overcast morning at a tram stop in central Milan: {M} stands on the kerb with his hands in his jacket pockets, seen from the side and turned away from the camera, looking down the street, while an old orange tram slides past on the far track behind him, motion-blurred. Three-quarter length, off-centre to the left.",
                 light="Even grey daylight; a soft shadow under him; muted warm colour against the orange of the tram.",
                 worn="The dark mocha knit zip jacket zipped up, the cream stripes down the sleeves visible; matching joggers with the side stripe; dark brown suede loafers."),
     "M09": dict(kind="p", title="Aan de zinken bar", keys=["verona_navy", "tee"], feet="none", lens="50mm lens at f/1.8",
-                scene="Morning at the zinc counter of an old Milan coffee bar: {M} stands at the bar with one elbow on the counter and a small espresso cup, looking towards the street door. Waist-up, seen from the side, off-centre, a glass sugar jar soft in the foreground. Nobody stands behind the bar; the bottles and signs behind are blurred and unreadable.",
+                scene="Morning at the zinc counter of an old Milan coffee bar: {M} stands at the bar with one elbow on the counter and a small espresso cup, looking towards the street door. Waist-up, seen from the side, off-centre, a glass sugar jar soft in the foreground. Nobody stands behind the bar; behind it only plain wooden shelves with unlabelled bottles, softly out of focus.",
                 light="Daylight from the open street door on his left lights his face; the bar behind him is in warm shadow.",
                 worn="The navy zip jacket with its pointed collar zipped halfway over the white T-shirt."),
     "M10": dict(kind="p", title="De trappen van Bellagio", keys=["oliva_set", "loafer_moro"], feet="loafers", lens="35mm lens at f/2.8",
@@ -209,6 +213,18 @@ FIXES.update({
     "A05": "The bicycles are plain and old, with no brand names, logos or stickers anywhere.",
     "M12": "The cardigan is zipped up to its own ribbed stand collar; no shirt collar or other garment shows above it.",
 })
+# Correcties na de controle van batch 2 (8 okt): vervangen de eerdere zin.
+FIXES.update({
+    "M02": "His back and left shoulder face the camera, so the front of the jacket is not in the picture; the navy jacket is completely plain, with no pockets, and the frame ends at his waist.",
+    "M03": "His hair is short and neat at the back, the nape of his neck clearly visible and nothing touching the jacket collar; his face is lean with a sharply defined square jaw.",
+    "M04": "The trousers are the reference heathered light-oatmeal knit trousers with a drawstring waist and a stitched centre crease, not chinos; the gilet has a fine heathered knit and a ribbed stand collar.",
+    "M05": "He has only a very faint stubble shadow, no visible beard; his hair is short at the back and sides above the collar, with the nape visible.",
+    "M08": "The tram is plain orange with blank dark windows: no route number, no destination board and no lettering anywhere on it; the shopfronts carry no signage.",
+    "M09": "There are no signs, posters or labels anywhere in the bar; the wall behind the counter is plain.",
+    "M10": "His eyes are dark warm brown, never blue or grey; his hair is short and neat at the nape, well above the collar of the gilet.",
+    "A01": "The mahogany hull sides are smooth, unbroken varnished wood with only a thin plain chrome rub rail: no script, lettering, oval plate or nameplate anywhere on the boat; nothing intrudes at the edges of the frame.",
+    "A06": "The cream knit polo has a closed three-button placket with dark buttons; the dark chocolate jacket is a smooth shell zip blouson whose hood is lined in light beige, with no drawstrings; the trousers end in plain hems with no turn-ups.",
+})
 for _k, _v in FIXES.items():
     S[_k]["fix"] = _v
 
@@ -225,10 +241,10 @@ V = {
                 worn="The dark chocolate hooded jacket open over the cream knit polo; dark brown trousers; dark brown suede loafers.",
                 motion="He takes two slow steps along the car, lets his hand slide along the top of the door and stops, looking down the street. The camera drifts slowly beside him."),
     "V03": dict(kind="p", title="Espresso aan de bar", keys=["morbido_beige"], feet="none", lens="50mm lens at f/1.8", ar="9:16",
-                scene="Morning at the zinc counter of an old Milan coffee bar: {M} stands at the bar holding a small espresso cup, looking towards the street door. Waist-up, seen from the side, off-centre. Nobody stands behind the bar; bottles and signs blurred and unreadable.",
+                scene="Morning at the zinc counter of an old Milan coffee bar: {M} stands at the bar holding a small espresso cup, looking towards the street door. Waist-up, seen from the side, off-centre. Nobody stands behind the bar; behind it only plain wooden shelves with unlabelled bottles, softly out of focus.",
                 light="Daylight from the open street door on his left lights his face; the bar behind is in warm shadow.",
                 worn="The oatmeal hooded knit jacket zipped halfway, hood down.",
-                motion="He lifts the cup slightly, pauses, then sets it down on the saucer and glances towards the door. Very small natural movement, locked-off camera."),
+                motion="He lifts the cup slightly, pauses, then lowers it to the counter and glances towards the door. Locked-off camera."),
     "V04": dict(kind="p", title="Rits omhoog, hoofd buiten beeld", keys=["twotone_navy", "loafer_notte"], feet="loafers", public=True, lens="50mm lens at f/2.8", ar="9:16", headless=True,
                 scene="A Brera street on an overcast morning: {M} walks slowly along the pavement, seen from the front and slightly to the side. The frame runs from just below his chin down to his feet: the top of the frame cuts off his head just below the chin, so the focus is entirely on the clothes.",
                 light="Even grey daylight; soft shadows; muted warm colour.",
@@ -248,17 +264,36 @@ V["V04"]["fix"] = "The navy jacket has the cream-and-white stripe down the outer
 V["V05"]["fix"] = "Both of his wrists are bare, with no bracelet or band."
 
 
+def video(i, start_job):
+    """Kling 3.0 image-to-video vanaf een goedgekeurd 9:16-startbeeld (model.json rules.video)."""
+    v = V[i]
+    keep = ("His head stays out of the frame for the whole shot; the camera never tilts up to his face. "
+            "The clothes stay exactly as in the start frame." if v.get("headless") else
+            "He stays exactly the same man as in the start frame, with the same face, hair and clothes; no full head turn, nothing passes in front of his face.")
+    m = v["motion"]
+    # Zonder gezicht geen element: dat zou het model naar zijn gezicht trekken.
+    lead = m if v.get("headless") else (EL + " " + m[3:] if m.startswith("He ") else f"The man is {EL}. {m}")
+    prompt = (f"{lead} Small, natural movement. {keep} Any distant passers-by keep walking, small and out of focus. "
+              "Real camera, natural motion blur, no text, no logos.")
+    return {"model": "kling3_0", "mode": "pro", "duration": 5, "aspect_ratio": "9:16", "sound": "off",
+            "prompt": prompt, "medias": [{"role": "start_image", "value": start_job}]}
+
+
 def build(i):
     s = {**S, **V}[i]
     if s["kind"] == "p":
         r = person(s)
         if s.get("headless"):
             r["prompt"] = (r["prompt"].replace(P["keep_en"], "Keep his build, jaw line and skin exactly as in the reference images; his face is not in the picture.")
-                           .replace(f"Expression: {P['expression_en']}.\n\n", ""))
+                           .replace(f"Expression: {P['expression_en']}.\n\n", "").replace(ID_LINE + "\n\n", ""))
         return r
     return detail(s) if s["kind"] == "d" else mood(s)
 
 
 if __name__ == "__main__":
+    if sys.argv[1:2] == ["--video"]:  # --video V01=<job_id> ...
+        pairs = [a.split("=") for a in sys.argv[2:]]
+        print(json.dumps([{"index": k + 1, "params": video(i, j)} for k, (i, j) in enumerate(pairs)], ensure_ascii=False))
+        sys.exit(0)
     ids = sys.argv[1:] or list(S)
     print(json.dumps([{"index": k + 1, "params": build(i)} for k, i in enumerate(ids)], ensure_ascii=False))
