@@ -112,12 +112,18 @@ def mac():
 
 
 def flat():
+    # Ronde 1 (8 okt): het visgraatpatroon liep onderin uit elkaar. Ronde 2: een opgerolde tee las als een extra stuk en het
+    # gilet glansde. Nu rechte planken, de tee netjes gevouwen naast het gilet, alles mat.
     parts = [
-        "An overhead flat-lay on a pale oak herringbone floor in morning window light, with the soft shadows of the window bars "
-        "falling across it. The three pieces are laid out loosely, slightly rumpled, not pressed: the gilet with the bordeaux side "
-        "up and the zip half open so the cream inside shows at the collar; the cream T-shirt half under it, one sleeve falling "
-        "loose; the bordeaux trousers folded once below them. Some bare floor shows around the pieces.",
-        "One light source: the window at the top of the frame; muted warm colour, soft contrast.",
+        "An overhead flat-lay on a floor of pale, wide oak planks that all run straight from the top to the bottom of the frame, "
+        "every plank the same width, in morning window light, with the soft shadows of the window bars falling across it. "
+        "Three pieces, neatly laid out with a little space between them: at the top, the gilet lying flat with the bordeaux "
+        "side up and the zip closed to the chest, the cream inside showing only at the open stand collar; below it on the "
+        "left, the cream T-shirt folded into a neat rectangle with its crew neck visible; beside it on the right, the bordeaux "
+        "trousers folded once lengthwise. Some bare floor shows around each piece. The floor is clean and even all the way into "
+        "the bottom corners.",
+        "One light source: the window at the top of the frame; muted warm colour, soft contrast. All fabrics are matte, with "
+        "no shine.",
         "The only clothing in the picture is these ModernoMilano pieces, reproduced exactly as in the product reference images:\n" + SET,
         "There are no people and no hands in the picture.", STILL_REAL, "35mm lens at f/5.6, shot straight down.", NOTEXT]
     return {"model": "nano_banana_pro", "resolution": "2k", "aspect_ratio": "9:16", "prompt": "\n\n".join(parts),
@@ -126,23 +132,28 @@ def flat():
 
 # ---------- Video (Seedance 2.5, model.json rules.video) ----------
 MOTION = {
-    # Startbeelden A2 en B: hij leunt met een schouder tegen een zuil, beide handen in de broekzakken.
-    "A": ("He keeps leaning lightly with his shoulder against the stone column, both hands in his trouser pockets. He takes a "
-          "slow breath, lifts his gaze from the arcade floor and turns his head a little further towards the courtyard, then "
-          "settles. The open front of the gilet moves slightly as he breathes. The camera, handheld, drifts a few centimetres closer."),
-    "B": ("He keeps leaning lightly with his shoulder against the stone column, both hands in his trouser pockets. He shifts his "
-          "weight a little, raises his eyes towards the arches across the courtyard and holds them there. The camera, handheld, "
-          "holds still with a faint natural sway."),
+    # Startbeelden A2 en B: hij leunt met zijn linkerschouder tegen de zuil rechts in beeld, beide handen in de zakken, het
+    # hoofd al ongeveer 50 graden naar links met de blik op de stenen. Voorcontrole 8 okt: niet verder laten draaien.
+    "A": ("He keeps leaning lightly with his left shoulder against the stone column on the right of the frame, both hands in "
+          "his trouser pockets. He takes a slow breath and slowly lifts his chin and eyes from the paving to look out into the "
+          "courtyard past the left edge of the frame, then holds still. The open front of the gilet moves slightly as he "
+          "breathes. The handheld camera drifts a few centimetres closer."),
+    "B": ("He keeps leaning lightly with his left shoulder against the stone column on the right of the frame, both hands in "
+          "his trouser pockets. He breathes slowly, settles a little more against the column and lifts his eyes from the paving "
+          "to look out across the courtyard past the left edge of the frame, then holds that look. The handheld camera holds "
+          "still with a faint natural sway."),
 }
+SIDE = {"A": "bordeaux outside, cream only inside the collar and along the open front edges",
+        "B": "cream outside, bordeaux only inside the collar and along the open front edges"}
 
 
 def video(clip, start_job):
     faces = [r["upscale_job_id"] for r in HF["face_refs"] if any(r["file"].endswith(f"/{x}.jpg") for x in HF["video_face_refs"])]
+    # Geen opsomming van wat niet mag: dat plant het juist (voorcontrole 8 okt).
     prompt = (f"{MOTION[clip]} Small, natural movement. He is the man in the start frame and in the reference images; use the "
-              "reference images only for his face and hair. Keep exactly the same man, with the same face, hair and clothes: the "
-              "gilet keeps the same side out for the whole shot and nothing about the clothes changes. No head turn of more than 45 "
-              "degrees, nothing passes in front of his face. No new objects, no accessories, no text, no new people. Real-time "
-              "motion with natural motion blur, one continuous shot, no cuts, no zoom effects.")
+              "reference images only for his face and hair. He keeps the same face, hair and clothes throughout: the gilet stays "
+              f"{SIDE[clip]} for the whole shot. His face stays clear, his wrists bare. The courtyard stays quiet and still "
+              "around him. Real-time motion with natural motion blur, one continuous handheld take.")
     medias = [{"role": "start_image", "value": start_job}] + [{"role": "image_references", "value": f} for f in faces]
     return {"model": "seedance_2_5", "mode": "omni_reference", "resolution": "480p", "draft": True, "bitrate_mode": "high",
             "duration": 4, "aspect_ratio": "9:16", "generate_audio": False, "prompt": prompt, "medias": medias}
