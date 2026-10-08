@@ -308,6 +308,9 @@ S["M11"].update(scene="Late afternoon on a footbridge over the Navigli in Milan:
 S["M13"]["fix"] += " He has only a faint stubble shadow, and his hair is soft and swept back, not a sculpted pompadour, with no shaved or tapered sides."
 S["D03"]["fix"] = ("Only one bare hand with five natural fingers; no ring, watch or bracelet. The zip is one continuous polished silver zip, "
                    "the same metal above and below the slider, with a flat rectangular silver pull tab like the product photo.")
+# Les uit video 1: een grote hoofddraai laat het haar vervormen. Daarom blijft zijn hoofd in video 3 dezelfde kant op kijken.
+V["V03"]["motion"] = ("He lifts the cup slightly, pauses, then lowers it to the counter, still looking out towards the street door; "
+                      "his head stays turned the same way the whole time. Locked-off camera.")
 # V04: het startbeeld is bijgesneden (bovenste 200 px eraf, 9:16 behouden) en als media geüpload: 81fdbca0-ec61-41d7-9d67-83ae2ba1ee39.
 V["V04"]["motion"] = ("As he walks, he pulls the zip of the jacket up from mid-chest towards the collar with one hand; the knit moves with each step. "
                       "The camera tracks backwards at walking pace at chest height and keeps the same framing, from the T-shirt collar down to his feet.")
