@@ -52,13 +52,18 @@ def still_frames(path, dur, zoom, crop=None):
         yield im.resize((W, H), Image.LANCZOS, box=(x0, y0, x0 + cw, y0 + ch))
 
 
-def clip_frames(path, start, dur, tmp):
+def clip_frames(path, start, dur, tmp, crop=None):
+    """crop = [x0, y0, x1, y1] als fractie, bv. om een clip die wijder begint dan zijn startbeeld op de vorige te laten aansluiten."""
     os.makedirs(tmp, exist_ok=True)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(start), "-i", path, "-t", str(dur), "-vf", f"fps={FPS}",
-                    "-q:v", "2", f"{tmp}/%04d.jpg"], check=True)
+                    "-q:v", "1", f"{tmp}/%04d.png"], check=True)
     files = sorted(os.listdir(tmp))[: round(dur * FPS)]
     for f in files:
-        yield cover(Image.open(f"{tmp}/{f}").convert("RGB"))
+        im = Image.open(f"{tmp}/{f}").convert("RGB")
+        if crop:
+            w, h = im.size
+            im = im.resize((W, H), Image.LANCZOS, box=(crop[0] * w, crop[1] * h, crop[2] * w, crop[3] * h))
+        yield cover(im)
 
 
 def text_layer(lines, yc, fonts):
@@ -129,7 +134,7 @@ def main(cfg_path, out):
     n = 0
     for i, c in enumerate(cfg["cuts"]):
         p = local[c["src"]]
-        frames = (clip_frames(p, c.get("from", 0), c["dur"], f"tmp{i}") if p.endswith(".mp4")
+        frames = (clip_frames(p, c.get("from", 0), c["dur"], f"tmp{i}", c.get("crop")) if p.endswith(".mp4")
                   else still_frames(p, c["dur"], c.get("zoom", [1.0, 1.05]), c.get("crop")))
         t = texts.get(i)
         layer = text_layer(t["lines"], t.get("y", 0.6), cfg["fonts"]) if t else None
