@@ -256,7 +256,7 @@ START_IMG = {
     "como_b": "7292b98e-3543-489b-88e2-727ac10f9835",
     "antracite_a": "6f98f485-59f7-4e29-a5a0-baf6c7789207",
     "blu_a": "b3851105-101c-41c6-9e16-ad4e5ad5abf2",
-    "mocha_a": None,  # na de controle van het detail
+    "mocha_a": "98e8323c-ebb0-4e04-82cc-1d0391ab05e7",  # detail 2 (detail 1 afgekeurd: broek zonder streep)
     "mocha_b": None,  # bijsnede van job 7782c3c1
 }
 LOCKED = ("The shot opens exactly on the start frame, with the same framing, background, head angle and closed lips. ")
@@ -264,75 +264,89 @@ SHOT = {
     # 1. Il lago. A: meevaren naast de boot. B: camera vast op de boot, logo de laatste 2 s.
     "como_a": dict(dur=4, face=True, take="one continuous take from the camera boat.",
         motion=("The old mahogany motor launch glides slowly forward to the right across the calm lake. The camera travels "
-                "alongside on a second boat at the same speed, so he stays in the same place in the frame while the water "
-                "streams past the hull and the far shore and the village drift slowly to the left behind him. He stands at "
+                "alongside on a second boat at the same speed, so he and the chrome windscreen frame at the lower right stay in "
+                "the same place in the frame, while the lake water behind him streams slowly to the left and the far shore and "
+                "the village drift slowly to the left. He stands at "
                 "the windscreen, his left forearm resting on its chrome frame and his right hand in his trouser pocket, "
                 "looking ahead along the lake to the right of the frame; the breeze gently lifts a few strands of his hair. "
                 "He takes one slow breath and keeps looking ahead, calm, until the end of the shot."),
         clothes=("the black sleeveless knit gilet stays zipped halfway over the black long-sleeve knit polo for the whole "
-                 "shot, its ribbed armholes at his shoulders"),
+                 "shot, its ribbed armholes at his shoulders, with the black trousers"),
         still="The lake stays calm around the boat."),
     "como_b": dict(dur=5, face=True, take="one continuous take from the camera fixed on the boat.",
-        motion=(LOCKED + "The camera is mounted on the boat and stays perfectly still relative to him, while the glittering "
-                "lake and the soft mountains slide slowly past behind him from right to left. He keeps looking ahead over "
+        motion=(LOCKED + "The boat glides slowly forward to the right. The camera is rigidly fixed to the boat beside the "
+                "windscreen, so he, the chrome windscreen frame and the wooden steering wheel at the lower right stay exactly "
+                "in place in the frame for the whole shot; only the glittering water behind him streams slowly from right to "
+                "left, while the distant mountains barely drift. He keeps looking ahead over "
                 "the water to the right of the frame, and the breeze moves his hair a little. With a slow breath he lowers "
                 "his eyes slightly towards the water, and by the third second he is still; for the last two seconds he "
                 "stays calm, only breathing softly."),
-        clothes="the black sleeveless knit gilet stays zipped halfway over the black long-sleeve knit polo for the whole shot",
+        clothes=("the black sleeveless knit gilet stays zipped halfway over the black long-sleeve knit polo for the whole "
+                 "shot, its ribbed armholes at his shoulders"),
         still="The lake stays calm and empty around the boat."),
     # 2. Pioggia. A: de camera schuift iets naar links, de zuil glijdt verder uit beeld. B: vaste camera, gilet omgekeerd.
     "antracite_a": dict(dur=4, face=True, take="one continuous take on a slow dolly.",
         motion=("The camera glides slowly a little to the left, so the soft pillar at the right edge of the frame slides "
-                "further out of the picture, then the camera settles. He stands at the edge of the arcade with both hands "
-                "in his trouser pockets, looking out at the rain over the street; a steady rain falls in fine silver lines "
-                "beyond the arcade and ripples the puddles on the street. He slowly lifts his chin and eyes a little towards "
-                "the falling rain, then holds that look, calm and still, until the end of the shot."),
+                "further out of the picture, and the camera settles by the third second. He stands at the edge of the arcade "
+                "with both hands in his trouser pockets, looking out at the rain over the street past the right edge of the "
+                "frame; a steady rain falls in fine silver lines beyond the arcade onto the wet street. He slowly lifts his "
+                "chin and eyes a little towards the falling rain, his face still turned to the right, then holds that look, "
+                "calm and still, until the end of the shot."),
         clothes=("the sleeveless gilet stays dark anthracite outside, light pearl grey only inside the collar and along the "
-                 "open front edges, over the dark anthracite T-shirt"),
-        still="The arcade stays empty and quiet around him."),
+                 "open front edges for the whole shot, over the dark anthracite T-shirt, with the dark anthracite trousers"),
+        still=("Far across the street, the few small blurred figures under umbrellas stay small and soft in the distance. "
+               "The arcade stays empty and quiet around him.")),
     "antracite_b": dict(dur=5, face=True, take="one continuous take from the fixed camera.",
         motion=(LOCKED + "The camera is locked off on a tripod and stays perfectly still for the whole shot. He keeps "
                 "standing at the edge of the arcade with both hands in his trouser pockets, his gaze on the rain over the "
-                "street. With a slow breath he gently lowers his chin and eyes a little to the wet street, and by the third "
-                "second he is still; for the last two seconds he stays calm, only breathing softly. The rain keeps falling "
-                "steadily beyond the arcade."),
+                "street past the right edge of the frame. With a slow breath he gently lowers his chin and eyes a little to "
+                "the wet street, his face still turned to the right, and by the third second he is still; for the last two "
+                "seconds he stays calm, only breathing softly. The rain keeps falling steadily beyond the arcade."),
         clothes=("the sleeveless gilet stays light pearl grey outside, dark anthracite only inside the collar and along the "
-                 "open front edges, over the dark anthracite T-shirt, which hangs loose and untucked at the same length "
-                 "throughout"),
-        still="The arcade stays empty and quiet around him."),
+                 "open front edges for the whole shot, over the dark anthracite T-shirt, which hangs loose and untucked at the "
+                 "same length throughout, with the dark anthracite trousers"),
+        still=("Far across the street, the few small blurred figures under umbrellas stay small and soft in the distance. "
+               "The arcade stays empty and quiet around him.")),
     # 3. Giardino. A: hij trekt de rits een stukje verder op en steekt de hand in zijn zak. B: vaste camera, crème buiten.
     "blu_a": dict(dur=4, face=True, take="one continuous take on a slow dolly.",
-        motion=("He slowly pulls the silver zip of the navy gilet up a little further, to just below his collarbone, so "
-                "the stand collar stays open with its cream inside; then he lets go and slides that hand into his trouser "
-                "pocket and looks down the length of the pool. The camera pushes in slowly a few centimetres, then settles; "
-                "for the last second he holds still, calm."),
+        motion=("With his right hand, which already holds the small silver zip pull at his chest, he slowly draws the zip "
+                "of the navy gilet up in one smooth movement to just below his collarbone, while his left hand stays in his "
+                "trouser pocket; the stand collar stays open with its cream inside. Then he lets go and slides his right hand "
+                "into his right trouser pocket, his gaze staying past the left edge of the frame, as in the start frame. The "
+                "camera pushes in slowly a few centimetres and settles by the third second; for the last second he holds "
+                "still, calm."),
         clothes=("the sleeveless gilet stays deep navy outside, cream only inside the collar and along the open front "
-                 "edges, over the cream T-shirt"),
+                 "edges for the whole shot, over the cream T-shirt, with the deep navy trousers"),
         still="The garden stays quiet; the water of the pool barely moves."),
     "blu_b": dict(dur=5, face=True, take="one continuous take from the fixed camera.",
         motion=(LOCKED + "The camera is locked off on a tripod and stays perfectly still for the whole shot. He keeps "
-                "standing at the end of the pool with both hands in his trouser pockets, looking down the length of the "
-                "pool. A light breeze stirs the magnolia leaves and soft reflections ripple on the water. With a slow breath "
-                "he lifts his chin slightly, and by the third second he is still; for the last two seconds he stays calm, "
-                "only breathing softly."),
-        clothes=("the sleeveless gilet stays cream outside, deep navy only inside the collar and along the open front "
-                 "edges, over the cream T-shirt, which hangs loose and untucked at the same length throughout"),
+                "standing at the end of the pool with both hands in his trouser pockets, looking off to the left of the frame "
+                "past the camera. A light breeze stirs the magnolia leaves and soft reflections ripple on the water. With a "
+                "slow breath he lifts his chin slightly, his face still turned to the left, and by the third second he is "
+                "still; for the last two seconds he stays calm, only breathing softly."),
+        clothes=("the sleeveless gilet stays cream outside, zipped up to just below his collarbone exactly as in the start "
+                 "frame, deep navy only inside the collar and along the open front edges above the zip for the whole shot, "
+                 "over the cream T-shirt, which hangs loose and untucked at the same length throughout, with the deep navy "
+                 "trousers"),
         still="The garden stays quiet around him."),
     # 4. Sera. A: macro van mouw en hand, zonder gezicht. B: vaste camera in de fauteuil, logo de laatste 2 s.
     "mocha_a": dict(dur=4, face=False, take="one continuous take with a macro lens.",
-        motion=("A close detail shot of his forearm and hand resting on his thigh. The camera pushes in very slowly towards "
-                "his hand and the cuff, then settles, while the warm lamp light rakes across the knit. His fingers relax "
-                "and move slightly once, then rest. The frame stays on his forearm, hand and the knit for the whole shot."),
-        clothes=("the dark mocha knit sleeve keeps its two cream stripes straight and continuous down to the ribbed cuff"),
+        motion=("A close detail shot of his hand resting on his thigh, the knit sleeve and ribbed cuff beside the cognac "
+                "leather armrest. The camera pushes in very slowly towards his hand and the cuff, then settles, while the warm "
+                "lamp light rakes across the knit. His fingers relax and move slightly once, then rest. The frame stays on "
+                "his hand, the sleeve and the knit for the whole shot."),
+        clothes=("the dark mocha brown knit sleeve keeps its cream stripes exactly as in the start frame, straight and "
+                 "continuous down to the ribbed cuff"),
         still="The city lights stay soft and blurred behind the glass."),
     "mocha_b": dict(dur=5, face=True, take="one continuous take from the fixed camera.",
         motion=(LOCKED + "The camera is locked off on a tripod and stays perfectly still for the whole shot. He sits back "
-                "in the cognac leather armchair by the window, his right hand resting on his thigh, looking out of the "
-                "window at the city. With a slow breath he settles a little deeper into the chair and lifts his chin "
-                "slightly towards the window, and by the third second he is still; for the last two seconds he stays calm, "
-                "only breathing softly. The small city lights twinkle softly far behind the glass."),
-        clothes=("the dark mocha hooded knit jacket stays half zipped over the white T-shirt, its cream stripes running down "
-                 "the sleeves"),
+                "in the cognac leather armchair, his right hand resting on his thigh, his face in profile turned to the right "
+                "of the frame. With a slow breath he lifts his chin slightly, his face still turned to the right, and by the "
+                "third second he is still; for the last two seconds he stays calm, only breathing softly. The small city "
+                "lights twinkle softly far behind the glass."),
+        clothes=("the dark mocha brown hooded knit jacket stays open and unzipped over the white T-shirt exactly as in the "
+                 "start frame, its hood lying flat behind his neck with the opening edged only by the plain cream band, its "
+                 "cream stripes running down the sleeves, with the matching dark mocha trousers and their cream side stripes"),
         still="The room stays quiet and still around him."),
 }
 
