@@ -19,7 +19,7 @@ SOUL = MODEL["higgsfield"]["soul_id"]
 
 HANDS = "His hands and wrists are bare: no watch, no ring, no bracelet, no glasses, no bag."
 FEET = {
-    "loafers": "Loafers are worn without socks, ankles bare.",
+    "loafers": "Loafers are worn without socks, ankles bare. Both loafers are one mirrored pair in exactly the reference style: a plain vamp with moc-toe apron stitching and a small side tab, no penny strap or saddle band; both feet sit fully inside the shoes, heels in the heel cups.",
     "none": "His feet are not in the picture.",
 }
 NOTEXT = "No text, no logos, no badges, no film borders, no frame."
@@ -48,12 +48,15 @@ def person(s):
         s["light"],
         f"Expression: {P['expression_en']}.",
         P["keep_en"],
+        "He is in his mid-twenties with only a faint stubble shadow (never a beard or moustache) and thick dark chestnut-brown hair swept back with volume.",
         "He wears only these ModernoMilano pieces, reproduced exactly as in the product reference images:\n" + "\n".join(lines),
         f"How they are worn: {s['worn']}",
         f"{HANDS} {FEET[s['feet']]} He is the only person near the camera.",
     ]
     if s.get("public"):
         parts.append(P["public_places_en"][0].upper() + P["public_places_en"][1:] + ".")
+    if s.get("fix"):
+        parts.append(s["fix"])
     parts += [P["realism_en"], f"Full-frame digital camera, {s['lens']}."]
     ar = s.get("ar", "4:5")
     return {"model": "nano_banana_pro", "resolution": "4k", "aspect_ratio": ar, "prompt": "\n\n".join(parts), "medias": medias}
@@ -73,6 +76,8 @@ def detail(s):
         parts.append(base.LABEL.format(a=n + 1, b=n + 2).replace("The label is sharp and clearly legible.", "The label is small, curving with the collar, partly shaded, and legible."))
         parts.append("The only text anywhere in the picture is the 'ModernoMilano' wordmark on the neck label, spelled exactly like that. No other logos, labels or text.")
     parts.append(s.get("people", "There are no people in the picture."))
+    if s.get("fix"):
+        parts.append(s["fix"])
     parts += [P["realism_en"], f"{s['lens']}."]
     if not s.get("label"):
         parts.append(NOTEXT)
@@ -80,7 +85,7 @@ def detail(s):
 
 
 def mood(s):
-    parts = [s["scene"], s["light"], "There are no people and no clothing in the picture, apart from any distant passers-by named above.",
+    parts = [s["scene"], s["light"], "There are no people and no clothing in the picture, apart from any distant passers-by named above."] + ([s["fix"]] if s.get("fix") else []) + [
              "An unretouched photograph with real optics, natural colour, muted and soft in contrast; no HDR.", f"{s['lens']}.", NOTEXT]
     return {"model": "nano_banana_pro", "resolution": "2k", "aspect_ratio": "4:5", "prompt": "\n\n".join(parts), "medias": []}
 
@@ -185,6 +190,20 @@ S = {
                 light="Morning sun from the left, real shadows of the railing on the clothes.",
                 arranged="Slightly rumpled, not pressed, one sleeve falling loose over the armrest."),
 }
+
+# Correcties na de controle van batch 1 (8 okt): komen als extra zin in de prompt.
+FIXES = {
+    "M01": "He is seen in profile from the side as he walks past along the facade, not walking towards the camera. The gilet and trousers are true jet black, not navy; the gilet is zipped halfway and shows its slanted welt side pockets.",
+    "M02": "The navy cashmere zip jacket has a completely plain front body with no pockets of any kind, only the stand collar, the zip, ribbed cuffs and ribbed hem; the crop ends at his hips.",
+    "M03": "The car has no number plate, no plate holder and no plate frame anywhere; its rear panel is smooth. Both of his wrists are completely bare, with no bracelet, cord or band.",
+    "M04": "He sits with both feet flat on the deck in front of him, both feet fully inside their sand suede loafers, the legs clearly separate; the sleeveless gilet is zipped up over the polo.",
+    "M05": "He is clearly the young man of the reference images, about twenty-five, clean-shaven apart from a faint shadow, with no forehead lines.",
+    "D04": "The trousers are the pale light-stone ecru beige of the reference chino, clearly lighter and less saturated than the sand loafers, with a plain unrolled hem.",
+    "A01": "The cream leather seats are completely plain with no stitched or embossed emblem, and the mahogany hull has only plain chrome trim with no script, nameplate or badge; the cushions are smooth and intact.",
+    "A06": "The trousers have a single elasticated drawstring waistband draped over the chair back; the folded legs on the seat end in two plain hems, with no second waistband.",
+}
+for _k, _v in FIXES.items():
+    S[_k]["fix"] = _v
 
 # ---------- V: startbeelden voor de video's (9:16) ----------
 V = {
