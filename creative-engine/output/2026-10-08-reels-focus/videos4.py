@@ -8,6 +8,7 @@ Gebruik:
   python3 -I videos4.py starts                    -> ronde 1: requests voor generate_image_batch (2 varianten per beeld)
   python3 -I videos4.py como_b <job como_a> [left|right]  -> ronde 2: shot B op de boot, dichterbij (bewerking van como_a)
   python3 -I videos4.py mocha_a <job mocha_b>     -> ronde 2: shot A van Dark Mocha, het detail (bewerking van mocha_b)
+  python3 -I videos4.py como_c <job como_a>       -> shot C op de boot: detail van hand, kleding en boot (feedback eigenaar)
   python3 -I videos4.py reverse <antracite|blu> <media laatste frame A>  -> startbeeld B van een Reverso-video
   python3 -I videos4.py draft <shot> [start]     -> Seedance 2.5, concept 480p (shot: como_a, como_b, antracite_a, ...)
   python3 -I videos4.py final <shot> <start> <draft_job>  -> afmaken in 1080p
@@ -215,6 +216,23 @@ def como_b(job_a, side="right"):
     return req(parts, [job_a] + NOBILE["refs"][1:])
 
 
+def como_c(job_a):
+    """Shot C (feedback eigenaar 8 okt: shot A te lang, een snede naar een andere hoek, dichter op kleding en boot)."""
+    parts = [
+        f"A close detail from the same scene as reference image #1, at the same moment: the same man ({EL}), the same old "
+        "mahogany motor launch on Lake Como, the same late-afternoon light and the same clothes. The camera is close at his "
+        "side and frames only his forearm and relaxed bare hand resting on the chrome frame of the windscreen, exactly as in "
+        "reference image #1: the black long-sleeve knit polo sleeve with its ribbed cuff coming out of the ribbed armhole of "
+        "the black knit gilet, the edge of the gilet with its zip, and below them the varnished mahogany deck with a chrome "
+        "cleat and the cream leather seat; the lake glitters soft and out of focus beyond. His face is not in the picture.",
+        "The warm low sun from behind puts a soft rim on the knit and the hand and long golden reflections on the varnished "
+        "wood and the chrome; muted warm colour, soft contrast, no HDR.",
+        "The pieces are these ModernoMilano pieces, reproduced exactly as in the reference images:\n" + NOBILE["text"],
+        NO_BADGES, f"{HANDS} Natural hand with real skin texture and relaxed fingers.", REAL,
+        "Full-frame digital camera, 85mm lens at f/2.8."]
+    return req(parts, [job_a] + NOBILE["refs"][1:])
+
+
 def mocha_a(job_b):
     parts = [
         "A close detail from the same scene as reference image #1: the same armchair, the same warm lamp light, the same "
@@ -254,6 +272,7 @@ PRESET_DECLINE = "24bae836-2c4a-48e0-89b6-49fcc0b21612"
 START_IMG = {
     "como_a": "304515f9-5388-4a7b-a8c2-5f06eb77a44d",
     "como_b": "7292b98e-3543-489b-88e2-727ac10f9835",
+    "como_c": "14882de2-e866-4817-8374-6f7570fb1dff",
     "antracite_a": "6f98f485-59f7-4e29-a5a0-baf6c7789207",
     "blu_a": "b3851105-101c-41c6-9e16-ad4e5ad5abf2",
     "mocha_a": "98e8323c-ebb0-4e04-82cc-1d0391ab05e7",  # detail 2 (detail 1 afgekeurd: broek zonder streep)
@@ -286,6 +305,17 @@ SHOT = {
         clothes=("the black sleeveless knit gilet stays zipped halfway over the black long-sleeve knit polo for the whole "
                  "shot, its ribbed armholes at his shoulders"),
         still="The lake stays calm and empty around the boat."),
+    # 1c. Detail tussen A en B (feedback eigenaar 8 okt: A te lang, een andere hoek, dichter op kleding en boot).
+    "como_c": dict(dur=4, face=False, take="one continuous take from the camera fixed on the boat.",
+        motion=("A close detail shot of his hand and forearm resting on the chrome frame of the windscreen. The boat glides "
+                "slowly forward; the camera is fixed to the boat at his side, so his hand, the chrome frame and the deck stay "
+                "in place in the frame, while the warm sunlight and the long golden reflections slide slowly along the "
+                "varnished mahogany and the chrome, and the lake glitters softly beyond. His fingers relax and move slightly "
+                "once, then rest; the knit sleeve stirs faintly in the breeze. The frame stays on his hand, the knit and the "
+                "boat for the whole shot."),
+        clothes=("the black long-sleeve knit polo sleeve with its ribbed cuff and the black knit gilet with its zip and "
+                 "ribbed armhole stay exactly as in the start frame"),
+        still="The boat stays clean and plain, its chrome and wood unmarked."),
     # 2. Pioggia. A: de camera schuift iets naar links, de zuil glijdt verder uit beeld. B: vaste camera, gilet omgekeerd.
     "antracite_a": dict(dur=4, face=True, take="one continuous take on a slow dolly.",
         motion=("The camera glides slowly a little to the left, so the soft pillar at the right edge of the frame slides "
@@ -381,8 +411,8 @@ if __name__ == "__main__":
     cmd, args = sys.argv[1], sys.argv[2:]
     if cmd == "starts":
         out = [{"index": 2 * n + v, "params": START[k]()} for n, k in enumerate(START) for v in range(2)]
-    elif cmd in ("como_b", "mocha_a"):
-        f = {"como_b": como_b, "mocha_a": mocha_a}[cmd]
+    elif cmd in ("como_b", "como_c", "mocha_a"):
+        f = {"como_b": como_b, "como_c": como_c, "mocha_a": mocha_a}[cmd]
         out = [{"index": v, "params": f(*args)} for v in range(2)]
     elif cmd == "reverse":
         out = reverse(args[0], args[1])
