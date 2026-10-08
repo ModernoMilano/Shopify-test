@@ -3,8 +3,8 @@
 Verwacht src/<id>.png en src/<id>.mp4, en naast dit script fotos.tsv en videos.tsv:
   fotos.tsv:  nr <tab> id <tab> titel <tab> bijsnede (x0,y0,x1,y1 of -)
   videos.tsv: nr <tab> id <tab> titel <tab> bewerking (- | trim:<sec> | croptop:<px>)
-Bijsneden en inkorten zijn de enige bewerkingen: geen retouches. Een filmrand (bijna zwart of wit langs een
-hele kant) wordt net als bij de 100-set weggesneden, met behoud van de beeldverhouding.
+Bijsneden en inkorten zijn de enige bewerkingen: geen retouches. De randdetector van de 100-set meldt alleen nog
+(felle lucht gaf valse treffers); de dubbele controle beoordeelt de hoeken.
 """
 import os, subprocess, zipfile
 import numpy as np
@@ -47,7 +47,9 @@ def main():
         W, H = g.size
         t, b, l, r = border(g)
         if t or b or l or r:
-            g = fit(g, l, t, W - r, H - b, W, H); log.append(f'{i}: rand t{t} b{b} l{l} r{r}')
+            # Alleen melden: bij deze set zag de detector felle lucht en donkere kanten aan voor een filmrand,
+            # en de dubbele controle heeft de hoeken van elke foto al nagelopen.
+            log.append(f'{i}: mogelijke rand t{t} b{b} l{l} r{r} (niet gesneden)')
         g.save(f'{FOTO}/{int(n):02d} {title}.jpg', quality=95)
         thumbs.append(g.resize((160, 200)))
         log.append(f'{int(n):02d} {i} {g.size[0]}x{g.size[1]}')
