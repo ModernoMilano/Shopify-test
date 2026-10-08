@@ -191,6 +191,9 @@ export function toWardrobeItem(node: ShopifyProductNode): WardrobeItem | null {
     if (!pieces.some((x) => x.slot === "top") || !pieces.some((x) => x.slot === "bottom")) {
       for (const x of piecesFromDescription(description)) if (!pieces.some((y) => y.slot === x.slot)) pieces.push(x);
     }
+    // Het gilet van de Reverso-sets is licht en omkeerbaar, niet gewatteerd (de optie heet alleen "GILET").
+    if (/fully reversible gilet/i.test(description))
+      pieces = pieces.map((x) => (x.kind === "gilet" ? { ...x, label: "lightweight fully reversible gilet" } : x));
     season = setSeason(pieces, title, description);
   } else {
     const rule = LINE_RULES.find((r) => r.match.test(line));

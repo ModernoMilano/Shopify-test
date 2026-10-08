@@ -77,6 +77,17 @@ describe("garderobe", () => {
     expect(item.pieces.map((p) => p.slot).sort()).toEqual(["bottom", "mid", "outer", "top"]);
   });
 
+  it("noemt het gilet van een Reverso-set omkeerbaar, niet gewatteerd", () => {
+    const item = toWardrobeItem({
+      ...polo,
+      title: "MILANO REVERSO SET CREMA & NERO",
+      description: "The Milano Reverso Set pairs our fully reversible gilet with a matching Mercer Tee and Milano Classico Pants",
+      options: ["TROUSERS", "SHIRT", "GILET"].map((name) => ({ name, values: ["M"] })),
+    })!;
+    expect(item.pieces.find((p) => p.kind === "gilet")!.label).toBe("lightweight fully reversible gilet");
+    expect(byTitle("MILANO REVERSO SET TOTAL NERO").pieces.map((p) => p.label)).toContain("lightweight fully reversible gilet");
+  });
+
   it("vindt het palet van een bundel in de tekst", () => {
     const item = toWardrobeItem({ ...polo, title: "MILANO NOBILE SET", description: "four signature pieces in a sharp, monochrome black palette" })!;
     expect(item.family).toBe("black");

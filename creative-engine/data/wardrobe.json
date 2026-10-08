@@ -1,6 +1,6 @@
 {
- "generatedAt": "2026-10-06T16:40:28.548Z",
- "count": 232,
+ "generatedAt": "2026-10-08T18:11:50.385Z",
+ "count": 249,
  "items": [
   {
    "id": "10842717028689",
@@ -5957,7 +5957,7 @@
     {
      "slot": "outer",
      "kind": "gilet",
-     "label": "padded gilet"
+     "label": "lightweight fully reversible gilet"
     }
    ],
    "isSet": true,
@@ -6000,7 +6000,7 @@
     {
      "slot": "outer",
      "kind": "gilet",
-     "label": "padded gilet"
+     "label": "lightweight fully reversible gilet"
     }
    ],
    "isSet": true,
@@ -6090,7 +6090,7 @@
     {
      "slot": "outer",
      "kind": "gilet",
-     "label": "padded gilet"
+     "label": "lightweight fully reversible gilet"
     }
    ],
    "isSet": true,
@@ -6131,7 +6131,7 @@
     {
      "slot": "outer",
      "kind": "gilet",
-     "label": "padded gilet"
+     "label": "lightweight fully reversible gilet"
     }
    ],
    "isSet": true,
@@ -6174,7 +6174,7 @@
     {
      "slot": "outer",
      "kind": "gilet",
-     "label": "padded gilet"
+     "label": "lightweight fully reversible gilet"
     }
    ],
    "isSet": true,
@@ -6194,6 +6194,771 @@
      "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/ChatGPTImageSep1_2026_08_49_57PM.png?v=1788288607",
      "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/ChatGPTImageSep1_2026_08_51_18PM.png?v=1788288693",
      "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/hf_20260822_123729_57dfe4c6-a7a2-482e-832b-ce595c622694_min.webp?v=1787810820"
+    ]
+   }
+  },
+  {
+   "id": "11222677651793",
+   "handle": "milano-reverso-set-antracite-pietra",
+   "title": "MILANO REVERSO SET ANTRACITE & PIETRA",
+   "line": "MILANO REVERSO SET ANTRACITE & PIETRA",
+   "colour": "ANTRACITE",
+   "family": "charcoal",
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-antracite-pietra",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/874b940d-706a-4bff-9ba1-d25a1717db5a.png?v=1791398177",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/874b940d-706a-4bff-9ba1-d25a1717db5a.png?v=1791398177",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/d0bad191-9ff4-4542-8171-cbc3ae9b7fea.png?v=1791398177",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/4da40a85-75fa-4bb5-ad92-055377ef4f85.png?v=1791398176",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/6bc06c24-84a1-46c3-bd40-8d2c52868f7f.png?v=1791398176",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/00a8a3af-c459-4213-8d9e-d2de52df09c1.png?v=1791398176"
+    ]
+   }
+  },
+  {
+   "id": "11222679486801",
+   "handle": "milano-reverso-set-blu-crema",
+   "title": "MILANO REVERSO SET BLU & CREMA",
+   "line": "MILANO REVERSO SET BLU & CREMA",
+   "colour": null,
+   "family": null,
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-blu-crema",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/8eca763b-afa2-4db7-9ff2-d38dd4976e8e.png?v=1791398240",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/8eca763b-afa2-4db7-9ff2-d38dd4976e8e.png?v=1791398240",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/b4b5612c-29ce-4cd8-b4c6-aa6d6ed8e2ac.png?v=1791398241",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/f9cc26b6-128d-4daa-8dbb-9973ca7216a1.png?v=1791398240",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/64c37450-7197-45c7-98ae-810c6433bc97.png?v=1791398240",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/dccd6c2e-7fa4-4dba-a148-62d4637ed64a.png?v=1791398240"
+    ]
+   }
+  },
+  {
+   "id": "11222677225809",
+   "handle": "milano-reverso-set-bordeaux-crema",
+   "title": "MILANO REVERSO SET BORDEAUX & CREMA",
+   "line": "MILANO REVERSO SET BORDEAUX & CREMA",
+   "colour": "BORDEAUX",
+   "family": "red",
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-bordeaux-crema",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/3318de47-203e-4cf5-a02d-e40b8e43f757.png?v=1791398159",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/3318de47-203e-4cf5-a02d-e40b8e43f757.png?v=1791398159",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/608529d8-e280-4d4c-adee-d5dcfbffeccd.png?v=1791398160",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/dd89aa6b-4cb8-4918-8c21-088904306624.png?v=1791398159",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/ede251c4-e4cc-45ab-b2d7-03c802e1f424.png?v=1791398159",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/d0efc68c-d107-4f45-8bff-94d02b6af934.png?v=1791398159"
+    ]
+   }
+  },
+  {
+   "id": "11222678438225",
+   "handle": "milano-reverso-set-cammello-marrone",
+   "title": "MILANO REVERSO SET CAMMELLO & MARRONE",
+   "line": "MILANO REVERSO SET CAMMELLO & MARRONE",
+   "colour": "CAMMELLO",
+   "family": "camel",
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-cammello-marrone",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/d1f7e5a8-6ad9-42f9-8839-d6261e823164.png?v=1791398221",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/d1f7e5a8-6ad9-42f9-8839-d6261e823164.png?v=1791398221",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/86704032-0de0-41ce-8973-419fad97a0e5.png?v=1791398223",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/199fcac8-1420-4982-acd8-8d775a51d5fc.png?v=1791398221",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/2b9e0e5c-747f-4951-addd-2d91f1f49645.png?v=1791398220",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/83b4afd6-4187-4e3c-8968-fd2caf8d8b38.png?v=1791398221"
+    ]
+   }
+  },
+  {
+   "id": "11222679781713",
+   "handle": "milano-reverso-set-crema-blu",
+   "title": "MILANO REVERSO SET CREMA & BLU",
+   "line": "MILANO REVERSO SET CREMA & BLU",
+   "colour": null,
+   "family": null,
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-crema-blu",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/9dec4655-4842-4bfe-8f47-4236ca2219da.png?v=1791398250",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/9dec4655-4842-4bfe-8f47-4236ca2219da.png?v=1791398250",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/5c6ef527-2c9b-4cea-8ddf-b600fcd3a27c.png?v=1791398251",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/93665732-c564-4a0e-bf5d-7cdd0fc7deaf.png?v=1791398249",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/884810bd-c588-41fa-98c7-ff96afba70c5.png?v=1791398249",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/429875e9-2dae-415b-b498-cf36537ca5cb.png?v=1791398250"
+    ]
+   }
+  },
+  {
+   "id": "11222656188753",
+   "handle": "milano-reverso-set-crema-bordeaux",
+   "title": "MILANO REVERSO SET CREMA & BORDEAUX",
+   "line": "MILANO REVERSO SET CREMA & BORDEAUX",
+   "colour": "BORDEAUX",
+   "family": "red",
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-crema-bordeaux",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/10670997-7747-402e-81c9-af5449754974.png?v=1791397519",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/10670997-7747-402e-81c9-af5449754974.png?v=1791397519",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/5e5ec533-d1a6-4170-9813-0ad2fdcbe8a5.png?v=1791397521",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/722c5f24-55f2-4ac1-b3ed-203537f141b6.png?v=1791397519",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/de29302a-7621-45cf-967a-5f6583733135.png?v=1791397519",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/6a1bfa76-0f3d-4117-8227-bc369f4c6ab5.png?v=1791397520"
+    ]
+   }
+  },
+  {
+   "id": "11222677913937",
+   "handle": "milano-reverso-set-crema-nero",
+   "title": "MILANO REVERSO SET CREMA & NERO",
+   "line": "MILANO REVERSO SET CREMA & NERO",
+   "colour": "NERO",
+   "family": "black",
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-crema-nero",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/41ad5022-d194-4bb8-afef-beaf10115ef6.png?v=1791398194",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/41ad5022-d194-4bb8-afef-beaf10115ef6.png?v=1791398194",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/5a40505b-113f-47ab-a34c-f0399f376e4a.png?v=1791398194",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/28c40458-e396-4cc3-808d-e07246525390.png?v=1791398193",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/3d4fd5c7-b5b5-4bd8-ab2c-4ebfbd637f17.png?v=1791398194",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/f7e2e9e4-2697-4052-86da-b43e4d28acd7.png?v=1791398194"
+    ]
+   }
+  },
+  {
+   "id": "11222680076625",
+   "handle": "milano-reverso-set-crema-oliva",
+   "title": "MILANO REVERSO SET CREMA & OLIVA",
+   "line": "MILANO REVERSO SET CREMA & OLIVA",
+   "colour": "OLIVA",
+   "family": "green",
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-crema-oliva",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/0e0b6451-8f8b-4b31-8a3a-b6671f71a2be.png?v=1791398268",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/0e0b6451-8f8b-4b31-8a3a-b6671f71a2be.png?v=1791398268",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/08ad23bb-958d-49ea-9e2d-69a175b65b29.png?v=1791398269",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/4ade90d9-bef6-4dde-a0ce-0a3113659bbf.png?v=1791398267",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/e201eb38-b455-4198-b294-8692270d5af8.png?v=1791398268",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/d28b0083-1efa-409e-8f6f-8fe2ca9cfca9.png?v=1791398268"
+    ]
+   }
+  },
+  {
+   "id": "11222678765905",
+   "handle": "milano-reverso-set-marrone-cammello",
+   "title": "MILANO REVERSO SET MARRONE & CAMMELLO",
+   "line": "MILANO REVERSO SET MARRONE & CAMMELLO",
+   "colour": "CAMMELLO",
+   "family": "camel",
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-marrone-cammello",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/43357453-9fdd-4bf3-bfcf-0a2bac97a2e6.png?v=1791398234",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/43357453-9fdd-4bf3-bfcf-0a2bac97a2e6.png?v=1791398234",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/d7174117-d827-492d-b63d-543bd6eace07.png?v=1791398232",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/5a572e4c-a7f3-467f-9685-153a64137648.png?v=1791398232",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/677688af-1e32-42e0-8e42-fa42ae7178c2.png?v=1791398231",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/62cc0a8a-3782-4e5d-81fd-71967e270a0c.png?v=1791398232"
+    ]
+   }
+  },
+  {
+   "id": "11222680142161",
+   "handle": "milano-reverso-set-oliva-crema",
+   "title": "MILANO REVERSO SET OLIVA & CREMA",
+   "line": "MILANO REVERSO SET OLIVA & CREMA",
+   "colour": "OLIVA",
+   "family": "green",
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-oliva-crema",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/a857f55e-451f-4da5-b039-b94499a411f5.png?v=1791398277",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/a857f55e-451f-4da5-b039-b94499a411f5.png?v=1791398277",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/7a01a4d8-3338-41bd-b4c7-5ccc1879bd42.png?v=1791398278",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/af0b9e2a-4f0d-4ca7-af55-7fc5ea9a9f17.png?v=1791398277",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/8d46a9db-bf95-4ca8-8f26-dd3c11b39e8d.png?v=1791398277",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/3e0bbca2-6b25-48cd-b466-bacf1e55b636.png?v=1791398277"
+    ]
+   }
+  },
+  {
+   "id": "11222677455185",
+   "handle": "milano-reverso-set-pietra-antracite",
+   "title": "MILANO REVERSO SET PIETRA & ANTRACITE",
+   "line": "MILANO REVERSO SET PIETRA & ANTRACITE",
+   "colour": "ANTRACITE",
+   "family": "charcoal",
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-pietra-antracite",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/1766fc4a-5ffa-480d-aa6c-2a73ff39c467.png?v=1791398168",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/1766fc4a-5ffa-480d-aa6c-2a73ff39c467.png?v=1791398168",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/af781eab-69f8-4ffe-9e2c-99cdc059517c.png?v=1791398169",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/907b7c24-cefa-4f35-90f3-b82d2b4d7a43.png?v=1791398168",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/b402138f-de7b-4a77-9c66-02d9978f1d9f.png?v=1791398167",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/c732efa6-b1e1-4ce3-8989-2677b45607ff.png?v=1791398168"
+    ]
+   }
+  },
+  {
+   "id": "11222677815633",
+   "handle": "milano-reverso-set-total-antracite",
+   "title": "MILANO REVERSO SET TOTAL ANTRACITE",
+   "line": "MILANO REVERSO SET TOTAL ANTRACITE",
+   "colour": "ANTRACITE",
+   "family": "charcoal",
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-total-antracite",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/b73b8644-6af4-4e89-ae49-f8c9e159bddd.png?v=1791398185",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/b73b8644-6af4-4e89-ae49-f8c9e159bddd.png?v=1791398185",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/1deb495d-19b7-44ba-96c6-370b12876112.png?v=1791398185",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/74777dc3-7ce4-4fb1-bc85-739878e62324.png?v=1791398184",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/244a5adb-275a-4d3f-8608-2e75e39f9b55.png?v=1791398184",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/e306a50c-e2e6-45b1-912e-c0517762acec.png?v=1791398184"
+    ]
+   }
+  },
+  {
+   "id": "11222680011089",
+   "handle": "milano-reverso-set-total-blu",
+   "title": "MILANO REVERSO SET TOTAL BLU",
+   "line": "MILANO REVERSO SET TOTAL BLU",
+   "colour": null,
+   "family": null,
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-total-blu",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/9bf2a25b-5b42-4f5f-8e53-8e6bc89119b1.png?v=1791398259",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/9bf2a25b-5b42-4f5f-8e53-8e6bc89119b1.png?v=1791398259",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/3b81edae-5541-4b3f-bee5-8ceea9a6a59f.png?v=1791398260",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/6b1d0b5c-8167-4ef0-be24-5ea9214ec29d.png?v=1791398259",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/d2c35843-f0c4-46e1-a07e-2e703e3c85e3.png?v=1791398259",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/3e576606-fc63-4226-9c54-a472360cd56f.png?v=1791398259"
+    ]
+   }
+  },
+  {
+   "id": "11222676537681",
+   "handle": "milano-reverso-set-total-bordeaux",
+   "title": "MILANO REVERSO SET TOTAL BORDEAUX",
+   "line": "MILANO REVERSO SET TOTAL BORDEAUX",
+   "colour": "BORDEAUX",
+   "family": "red",
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-total-bordeaux",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/02f43607-0b98-40ad-bb7f-4ab3a0896540.png?v=1791398087",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/02f43607-0b98-40ad-bb7f-4ab3a0896540.png?v=1791398087",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/90a3039b-5f37-47a7-88fd-6f9645159f14.png?v=1791398087",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/e6cc0389-99cf-4e32-9b5b-bcf27850eb2f.png?v=1791398086",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/4f19ffbb-1ede-4caa-9a19-a2a7a24a70cd.png?v=1791398086",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/a757447a-9921-4206-9131-6f3aaa64bf68.png?v=1791398086"
+    ]
+   }
+  },
+  {
+   "id": "11222678307153",
+   "handle": "milano-reverso-set-total-marrone",
+   "title": "MILANO REVERSO SET TOTAL MARRONE",
+   "line": "MILANO REVERSO SET TOTAL MARRONE",
+   "colour": null,
+   "family": null,
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-total-marrone",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/f61d94e9-a473-4c3a-876f-79e985cde115.png?v=1791398213",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/f61d94e9-a473-4c3a-876f-79e985cde115.png?v=1791398213",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/7d987336-620c-4655-a8c9-939340a7568e.png?v=1791398213",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/6000fb4c-41b6-4cdf-bd6b-39cd3f75014f.png?v=1791398211",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/46e59864-c97d-4fd1-b7b4-81d2c9bf7f97.png?v=1791398212",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/622cdaea-1e9a-4cab-a7e8-f142acc2b1b2.png?v=1791398211"
+    ]
+   }
+  },
+  {
+   "id": "11222678176081",
+   "handle": "milano-reverso-set-total-nero",
+   "title": "MILANO REVERSO SET TOTAL NERO",
+   "line": "MILANO REVERSO SET TOTAL NERO",
+   "colour": "NERO",
+   "family": "black",
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-total-nero",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/de4ab903-36b0-40ea-b2c9-39b2cdc0afec.png?v=1791398203",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/de4ab903-36b0-40ea-b2c9-39b2cdc0afec.png?v=1791398203",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/ed0528b4-38aa-4d11-89aa-c67516dbdfd0.png?v=1791398203",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/43ac196e-6bc7-4f94-8ddd-45215b8f32a1.png?v=1791398202",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/85ce9686-48b8-411b-8d62-39a482df9563.png?v=1791398202",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/4a744719-7472-4ba2-9eab-e41e603d31ef.png?v=1791398202"
+    ]
+   }
+  },
+  {
+   "id": "11222681125201",
+   "handle": "milano-reverso-set-total-oliva",
+   "title": "MILANO REVERSO SET TOTAL OLIVA",
+   "line": "MILANO REVERSO SET TOTAL OLIVA",
+   "colour": "OLIVA",
+   "family": "green",
+   "pieces": [
+    {
+     "slot": "bottom",
+     "kind": "trousers",
+     "label": "tailored trousers"
+    },
+    {
+     "slot": "top",
+     "kind": "tee",
+     "label": "tee"
+    },
+    {
+     "slot": "outer",
+     "kind": "gilet",
+     "label": "lightweight fully reversible gilet"
+    }
+   ],
+   "isSet": true,
+   "alsoAs": [],
+   "season": "all",
+   "material": "cotton",
+   "priceEur": 200,
+   "url": "https://modernomilano.com/products/milano-reverso-set-total-oliva",
+   "collections": [
+    "BUNDLE & SAVE",
+    "REVERSO COLLECTION"
+   ],
+   "images": {
+    "primary": "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/bb1c67c1-2b4e-4b4f-8028-06dcb98bfdd5.png?v=1791398287",
+    "all": [
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/bb1c67c1-2b4e-4b4f-8028-06dcb98bfdd5.png?v=1791398287",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/7f712139-925c-4d96-87e5-cd87e0793a3a.png?v=1791398288",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/eab9f44d-ba21-485f-a717-3fae06412348.png?v=1791398287",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/a58e3441-e2cc-4fa8-b395-b70ce1b47a88.png?v=1791398288",
+     "https://cdn.shopify.com/s/files/1/1009/1197/2689/files/43f775f1-a12e-4c4b-b894-2972d08ba319.png?v=1791398287"
     ]
    }
   },
@@ -6314,7 +7079,7 @@
     {
      "slot": "outer",
      "kind": "gilet",
-     "label": "padded gilet"
+     "label": "lightweight fully reversible gilet"
     }
    ],
    "isSet": true,
