@@ -39,14 +39,18 @@ SET = ("MILANO REVERSO SET TOTAL BORDEAUX, three pieces:\n"
        "bordeaux as the trousers.\n"
        "- Deep bordeaux trousers in the same smooth matte fabric as the gilet: an elasticated waistband with belt loops, slanted side "
        "pockets, a slim tapered leg.")
-# Ronde 2 (8 okt): een smalle crème bies op de schouderlijn las als een gepijpte mouwnaad. Nu de vorm van het gilet uit de
-# productfoto aan het model (#2): diepe armsgaten binnen het schouderpunt, de schouder van de tee zichtbaar, en de zakken.
-SLEEVELESS = ("The gilet is a SLEEVELESS vest, cut exactly like the gilet in reference image #2: its armholes are cut deep and sit "
-              "clearly inward of his shoulder points, so on both sides the shoulder of the bordeaux T-shirt and the top of its short "
-              "sleeve are plainly visible coming out of the open armhole, with a soft shadow where the edge of the gilet lies over "
-              "the T-shirt. Around each armhole the cream inside shows as a clearly visible cream band, as in reference image #3. "
-              "The gilet's two slanted welt pockets sit on its lower front panels. The T-shirt sleeve ends in its own hemmed edge "
-              "on the upper arm.")
+# Ronde 2 en 3 (8 okt): een crème bies of band bij de armsgaten las als een streep of mouwnaad. De eigenaar: crème alleen
+# binnen in de kraag (en langs de open voorkant), NIET bij de armen, en toch duidelijk een bodywarmer. Dus: diepe armsgaten
+# binnen het schouderpunt, de schouder en mouw van de tee zichtbaar, schaduw en stofverschil in plaats van kleur.
+SLEEVELESS = ("The gilet is a SLEEVELESS bodywarmer, cut like the gilet in reference image #2. Its armholes are finished in "
+              "bordeaux, the same colour as its outside, exactly like the armhole edge in reference image #3: no cream shows at "
+              "the armholes at all. Cream shows only inside the stand collar and along the open front edges. It still reads "
+              "unmistakably as a sleeveless bodywarmer: the armholes are cut deep and sit clearly inward of his shoulder points, "
+              "so on both sides the T-shirt's shoulder seam and the top of its short sleeve are plainly visible outside the "
+              "gilet, with a soft shadow line where the gilet's armhole edge lies over the T-shirt. The gilet is a matte, "
+              "peached, slightly thicker fabric that stands a little away from the body at the armhole; the T-shirt is a thinner "
+              "jersey with a subtle sheen, so the two layers are easy to tell apart. The T-shirt sleeve ends in its own hemmed "
+              "edge on the upper arm. The gilet's two slanted welt pockets sit on its lower front panels.")
 TAIL = [P["keep_en"], ID_LINE, "The pieces are these ModernoMilano pieces, reproduced exactly as in the reference images:\n" + SET,
         f"{HANDS} His feet are not in the picture. He is the only person in the picture.", REAL,
         "Full-frame digital camera, 50mm lens at f/2."]
@@ -62,7 +66,7 @@ def start_a():
         # mouwen. Het gilet is mouwloos; de crème binnenkant geeft een smalle rand langs de armsgaten (zie de flat-lay).
         SLEEVELESS] + TAIL
     medias = [{"value": A2, "role": "image_references"}, {"value": FRONT, "role": "image_references"},
-              {"value": FLAT, "role": "image_references"}]
+              {"value": DETAIL, "role": "image_references"}]
     req = {"model": "nano_banana_pro", "resolution": "4k", "aspect_ratio": "9:16", "prompt": "\n\n".join(parts), "medias": medias}
     return [{"index": 0, "params": req}, {"index": 1, "params": dict(req)}]
 
@@ -73,8 +77,9 @@ def start_b(last_frame):
         "his head and eyes, the same light, lens and framing. Only one thing changes: he now wears the gilet REVERSED, with the "
         "CREAM side out, exactly as in reference image #2. The bordeaux side is now the inside: it shows only inside the stand "
         "collar and along the open front edges. The gilet is open exactly as far as in reference image #1, over the same deep "
-        "bordeaux T-shirt; the bordeaux trousers stay exactly the same.", "The gilet is clearly sleeveless: the short sleeves of the bordeaux T-shirt come out from under its armholes, where "
-        "a narrow bordeaux edge of the inside shows against the cream."] + TAIL
+        "bordeaux T-shirt; the bordeaux trousers stay exactly the same.", "The gilet is clearly a sleeveless bodywarmer: its armholes are finished in cream like the rest of the outside, "
+        "with no bordeaux at the armholes; bordeaux shows only inside the stand collar and along the open front edges. The "
+        "short sleeves of the bordeaux T-shirt come out from under the armholes."] + TAIL
     medias = [{"value": last_frame, "role": "image_references"}, {"value": REVERSED, "role": "image_references"},
               {"value": DETAIL, "role": "image_references"}]
     return {"model": "nano_banana_pro", "resolution": "4k", "aspect_ratio": "9:16", "prompt": "\n\n".join(parts), "medias": medias}
