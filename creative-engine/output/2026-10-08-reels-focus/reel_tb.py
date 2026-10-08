@@ -77,11 +77,15 @@ def start_b(last_frame):
         "his head and eyes, the same light, lens and framing. Only one thing changes: he now wears the gilet REVERSED, with the "
         "CREAM side out, exactly as in reference image #2. The bordeaux side is now the inside: it shows only inside the stand "
         "collar and along the open front edges. The gilet is open exactly as far as in reference image #1, over the same deep "
-        "bordeaux T-shirt; the bordeaux trousers stay exactly the same.", "The gilet is clearly a sleeveless bodywarmer: its armholes are finished in cream like the rest of the outside, "
+        "bordeaux T-shirt; the bordeaux trousers stay exactly the same.",
+        # Ronde 1 (8 okt): de tee zat hoger en de band van de broek werd zichtbaar; bij de harde snede verspringt dat.
+        "The T-shirt hangs loose and untucked over the trousers exactly as in reference image #1, at exactly the same length: "
+        "its hem fully covers the waistband of the trousers, so no waistband is visible. Everything except the gilet is "
+        "identical to reference image #1.", "The gilet is clearly a sleeveless bodywarmer: its armholes are finished in cream like the rest of the outside, "
         "with no bordeaux at the armholes; bordeaux shows only inside the stand collar and along the open front edges. The "
         "short sleeves of the bordeaux T-shirt come out from under the armholes."] + TAIL
-    medias = [{"value": last_frame, "role": "image_references"}, {"value": REVERSED, "role": "image_references"},
-              {"value": DETAIL, "role": "image_references"}]
+    # Geen detailfoto meer als referentie: die toont de elastische band van de broek groot in beeld.
+    medias = [{"value": last_frame, "role": "image_references"}, {"value": REVERSED, "role": "image_references"}]
     return {"model": "nano_banana_pro", "resolution": "4k", "aspect_ratio": "9:16", "prompt": "\n\n".join(parts), "medias": medias}
 
 
