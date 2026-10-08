@@ -267,7 +267,8 @@ SHOT = {
                 "alongside on a second boat at the same speed, so he and the chrome windscreen frame at the lower right stay in "
                 "the same place in the frame, while the lake water behind him streams slowly to the left and the far shore and "
                 "the village drift slowly to the left. He stands at "
-                "the windscreen, his left forearm resting on its chrome frame and his right hand in his trouser pocket, "
+                "the windscreen, the forearm nearest the right of the frame resting on its chrome frame and his other hand in "
+                "his trouser pocket, "
                 "looking ahead along the lake to the right of the frame; the breeze gently lifts a few strands of his hair. "
                 "He takes one slow breath and keeps looking ahead, calm, until the end of the shot."),
         clothes=("the black sleeveless knit gilet stays zipped halfway over the black long-sleeve knit polo for the whole "

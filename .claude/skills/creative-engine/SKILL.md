@@ -7,6 +7,8 @@ description: ModernoMilano creative engine. Use whenever the user asks for Insta
 
 Antwoord de gebruiker in het Nederlands. Prompts voor het beeldmodel zijn Engels.
 
+**Geen meerkeuzevragen** (eigenaar, 8 oktober 2026). Stel de eigenaar geen vragen met opties en een aanbevolen keuze. Kies zelf de optie die je zou aanbevelen, voer die uit en meld in één zin wat je koos en waarom. Dit verandert niets aan de toestemming per actie voor publiceren in Shopify, Instagram of advertenties (harde regel 6), en niets aan een budget dat de eigenaar heeft genoemd.
+
 ## Harde regels (nooit overslaan)
 
 1. **Alleen eigen kleding.** Elk zichtbaar kledingstuk en elke schoen is een actief product uit `creative-engine/data/wardrobe.json`. Verzin nooit een product. Een look die je zelf samenstelt, controleer je met `validateLook()` (`src/creative/looks.ts`).

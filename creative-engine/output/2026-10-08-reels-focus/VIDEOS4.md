@@ -87,7 +87,7 @@ Wens van de eigenaar.
 - **Regel van de eigenaar voor de Reverso-gilets:** de binnenkleur is alleen te zien in de kraag en langs de open voorkant, nooit bij de armsgaten. Het blijft toch duidelijk een bodywarmer, door diepe armsgaten waarboven de schouder en de mouw van de tee zichtbaar zijn. De flat-lay van een Reverso-set gaat niet mee als referentie, omdat daar de armsgaten in de binnenkleur zijn afgewerkt.
 - **Geen voeten in beeld**, want er zitten geen loafers in de look. De loafers van de Nobile Set blijven buiten beeld.
 - **Bij elk shot met een logo of met een snede op de beweging** staat de camera vast en opent de shot "exactly on the start frame".
-- **Elk beeld en elke clip gaat door twee controles** (kleding en echtheid): eerst een concept in 480p, dan pas 1080p. Na twee mislukte concepten van dezelfde video stop ik en vraag ik het de eigenaar.
+- **Elk beeld en elke clip gaat door twee controles** (kleding en echtheid): eerst een concept in 480p, dan pas 1080p. Na twee mislukte concepten van dezelfde video kies ik zelf de aanbevolen weg (meestal een nieuw startbeeld) en meld ik dat; de eigenaar wil geen meerkeuzevragen meer.
 
 ## Kosten (plan)
 
