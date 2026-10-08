@@ -274,14 +274,15 @@ SHOT = {
         clothes=("the black sleeveless knit gilet stays zipped halfway over the black long-sleeve knit polo for the whole "
                  "shot, its ribbed armholes at his shoulders, with the black trousers"),
         still="The lake stays calm around the boat."),
+    # Concept 1 (8 okt) afgekeurd: "lowers his eyes" werd ogen dicht vanaf 2,3 s en een diepe buiging tot 4,3 s.
     "como_b": dict(dur=5, face=True, take="one continuous take from the camera fixed on the boat.",
         motion=(LOCKED + "The boat glides slowly forward to the right. The camera is rigidly fixed to the boat beside the "
                 "windscreen, so he, the chrome windscreen frame and the wooden steering wheel at the lower right stay exactly "
                 "in place in the frame for the whole shot; only the glittering water behind him streams slowly from right to "
                 "left, while the distant mountains barely drift. He keeps looking ahead over "
-                "the water to the right of the frame, and the breeze moves his hair a little. With a slow breath he lowers "
-                "his eyes slightly towards the water, and by the third second he is still; for the last two seconds he "
-                "stays calm, only breathing softly."),
+                "the water to the right of the frame, his eyes open and steady on the horizon, his head level, and the breeze "
+                "moves a few strands of his hair. He takes one slow, calm breath; from the third second he holds this pose "
+                "completely still, his eyes still open, only breathing softly until the end."),
         clothes=("the black sleeveless knit gilet stays zipped halfway over the black long-sleeve knit polo for the whole "
                  "shot, its ribbed armholes at his shoulders"),
         still="The lake stays calm and empty around the boat."),
