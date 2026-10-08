@@ -1,0 +1,254 @@
+[
+ {
+  "check_id": "como_a-8:kleding",
+  "beeld": "como8",
+  "agent": "Kleding-controleur",
+  "oordeel": "afgekeurd",
+  "kern": "Afgekeurd: op de voorruit van de boot staat een embleem met letters.",
+  "details": "Op de voorruit, net rechts van het houten stuur, staat een wit embleem met twee regels letters, en dat mag niet op de boot. · Het gilet is echt zonder mouwen, maar de zwarte armsgaten vallen op zwart weinig op, dus klein bekeken lijkt het bijna een jasje met mouwen. · De rest van de kleding klopt: kraag met zilveren rits, geribde zoom, zak, zwarte polo met drie grijze knopen en zwarte broek met koordjes. · Er is geen horloge, ring of ander accessoire, geen voeten, geen tweede persoon en verder geen tekst in beeld.",
+  "gezicht_px": 680
+ },
+ {
+  "check_id": "como_a-8:echtheid",
+  "beeld": "como8",
+  "agent": "Echtheid-controleur",
+  "oordeel": "afgekeurd",
+  "kern": "Afgekeurd: op de voorruit staan onleesbare nepletters met een klein embleem.",
+  "details": "Op de voorruit staat een onleesbaar woord, iets als 'Cruiser', met een klein embleem erboven, en letters op de boot mogen niet. · Het is dezelfde man als op de voorbeeldfoto's, met een scherp en natuurlijk gezicht van ongeveer 650 pixels breed. · Handen en licht kloppen, maar in de vage stad achter zijn hoofd zit een heel lichte ruitjesstructuur, op zich geen reden om af te keuren. · Op normale grootte lijkt het gilet een jasje met rits en mouwen, want de geribde armsgaten zie je pas als je inzoomt.",
+  "gezicht_px": 650
+ },
+ {
+  "check_id": "mocha_b-11:kleding",
+  "beeld": "mocha11",
+  "agent": "Kleding-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: jasje en broek kloppen met de productfoto's, zonder extra accessoires.",
+  "details": "Het gebreide jasje klopt: mokkakleur, open metalen rits, crème band rond de capuchon, geen koordjes en een crème streep met twee bruine lijntjes op de mouw. · De broek klopt ook: mokka met crème zijstreep, twee bruine lijntjes en koordjes met metalen puntjes, met een wit T-shirt eronder. · Op zijn linkermouw zie je geen streep, maar dat past bij de houding, want die kant van de arm is van de camera af gedraaid. · Er is geen ring, horloge, bril of ander accessoire, geen voeten, geen tekst of logo en geen andere persoon in beeld.",
+  "gezicht_px": 460
+ },
+ {
+  "check_id": "mocha_b-11:echtheid",
+  "beeld": "mocha11",
+  "agent": "Echtheid-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: dezelfde man als op de voorbeeldfoto's, met een scherp en natuurlijk gezicht.",
+  "details": "Hij zit bijna van opzij, en wenkbrauwen, neus, kaak, lippen en lichte stoppels zijn gelijk aan de voorbeeldfoto's. · Zijn haar lijkt wat goudbruiner door de warme lamp, maar dat komt alleen door het licht. · Het gezicht is ongeveer 500 pixels breed, met echte huid en stoppels, en blijft scherp genoeg als je de foto bijsnijdt. · Handen, stoel, vloer, raam en hoeken zien er echt uit, alleen lijkt de kleding in het koele raamlicht iets grijzer dan de mokka van de productfoto.",
+  "gezicht_px": 500
+ },
+ {
+  "check_id": "como_a-0:kleding",
+  "beeld": "como0",
+  "agent": "Kleding-controleur",
+  "oordeel": "afgekeurd",
+  "kern": "Afgekeurd, want het zwarte gilet lijkt een jasje met rits en lange mouwen.",
+  "details": "Het zwarte gebreide gilet lijkt een jasje met rits en lange mouwen, niet een gilet zonder mouwen over een polo. · Bij de schouders is geen boord van het armgat te zien en er komt geen polomouw onder het gilet uit. · De zwarte polo, de zwarte broek en de polsen zonder sieraden zijn goed. Op de boot staat geen tekst of nummer. · Rechtsboven staat een klein wazig vlaggetje, waarschijnlijk zonder tekst. Dat mag, maar zonder is netter.",
+  "gezicht_px": 560
+ },
+ {
+  "check_id": "como_a-0:echtheid",
+  "beeld": "como0",
+  "agent": "Echtheid-controleur",
+  "oordeel": "goed",
+  "kern": "Goed, het model klopt en oogt echt, maar het gilet lijkt een jasje.",
+  "details": "Het gezicht klopt met de vaste modelfoto's: wenkbrauwen, ogen, kaak, haar en lichte stoppels. Het gezicht is scherp en de huid ziet er natuurlijk uit. · Buiten zijn eigen taak meldt hij dat het zwarte gilet leest als een vest met rits en mouwen. Volgens hem moet de kledingcontrole dit beeld waarschijnlijk afkeuren. · Beide handen zien er goed uit, zonder extra of vervormde vingers. Het licht van de lage zon past bij de rest van het beeld. · Klein punt: het houten stuurwiel zit op heuphoogte aan de zijwand van de boot. Iemand die boten kent, kan dat zien.",
+  "gezicht_px": 590
+ },
+ {
+  "check_id": "antracite_a-2:kleding",
+  "beeld": "antr2",
+  "agent": "Kleding-controleur",
+  "oordeel": "goed",
+  "kern": "Goed, alle kleding klopt met de drie productfoto's.",
+  "details": "Gilet, T-shirt en broek kloppen met de drie productfoto's. Het gilet zit met de antraciet kant naar buiten. · Het parelgrijs van de binnenkant is alleen te zien in de kraag en langs de open voorkant. Beide armgaten zijn donker antraciet, zonder lichte rand. · Het leest als een gilet zonder mouwen, want de mouw van het T-shirt komt uit het armgat. Zwak punt: shirt en gilet hebben dezelfde kleur, dus de lijn bij de schouder is maar licht te zien. · Geen voeten, geen sieraden, geen logo's en geen leesbare tekst. Op straat lopen alleen twee of drie kleine wazige mensen met paraplu's.",
+  "gezicht_px": 450
+ },
+ {
+  "check_id": "antracite_a-2:echtheid",
+  "beeld": "antr2",
+  "agent": "Echtheid-controleur",
+  "oordeel": "goed",
+  "kern": "Goed, het model klopt en het beeld oogt natuurlijk.",
+  "details": "Hij staat bijna van opzij, dus het gezicht kon alleen vanuit die hoek worden vergeleken. Wenkbrauwen, ogen, neus, lippen, kaak en bouw kloppen met de vaste modelfoto's. · Haar en huid zijn iets donkerder en koeler dan op de modelfoto's. Dat komt door het grijze weer en is geen fout. De stoppels zijn iets duidelijker, maar het is geen baard. · Klein foutje: het schuifje van de rits onderaan de voorkant ziet er wat klonterig en gesmolten uit. Op normale grootte zie je dat bijna niet. · De handen in de zakken, het licht en de regen passen bij elkaar. De hoeken zijn schoon en de kleuren zijn natuurlijk.",
+  "gezicht_px": 565
+ },
+ {
+  "check_id": "antracite_a-3:kleding",
+  "beeld": "antr3",
+  "agent": "Kleding-controleur",
+  "oordeel": "goed",
+  "kern": "Goed, het leest als een gilet zonder mouwen over een T-shirt.",
+  "details": "Geen regel overtreden. De rand van het armgat en de korte mouw hebben dezelfde kleur, maar je ziet een donkere naad en de mouw komt duidelijk onder het gilet uit. · Het parelgrijs van de binnenkant is alleen te zien in de kraag en langs de open voorkant. Dat mag. · Gilet en broek lijken iets donkerder dan op de productfoto. Dat komt door het grijze regenlicht, niet door de kleding. · Geen sieraden, geen voeten, geen logo's of tekst. Verderop in de galerij lopen een of twee kleine wazige mensen.",
+  "gezicht_px": 580
+ },
+ {
+  "check_id": "antracite_a-3:echtheid",
+  "beeld": "antr3",
+  "agent": "Echtheid-controleur",
+  "oordeel": "goed",
+  "kern": "Goed, het model klopt en het beeld oogt echt.",
+  "details": "Het gezicht klopt met de vaste modelfoto's: wenkbrauwen, bruine ogen, neus, lippen, kaak en lichte stoppels. Het gezicht is scherp, met een natuurlijke huid. · Door het grijze licht lijkt het haar iets donkerder en minder warm. Het is nog steeds kastanjebruin, naar achteren gekamd en zonder pony. Dit is geen fout. · De handen zien er goed uit. De linkerhand zit in de broekzak en van de rechterhand is een klein stukje te zien. · Rits, licht, natte stoep en regen zien er echt uit. De hoeken zijn schoon en er staat geen rare tekst in beeld.",
+  "gezicht_px": 520
+ },
+ {
+  "check_id": "blu_a-4:kleding",
+  "beeld": "blu4",
+  "agent": "Kleding-controleur",
+  "oordeel": "goed",
+  "kern": "Goed, de controleur vond geen enkel probleem.",
+  "details": "De kledingcontroleur vond geen fouten en schreef geen opmerkingen op. · Er is geen verbeterpunt meegegeven.",
+  "gezicht_px": 520
+ },
+ {
+  "check_id": "blu_a-4:echtheid",
+  "beeld": "blu4",
+  "agent": "Echtheid-controleur",
+  "oordeel": "goed",
+  "kern": "Goed, het model klopt en het beeld oogt natuurlijk.",
+  "details": "Het gezicht klopt met de vaste modelfoto's: wenkbrauwen, hazelgroene ogen, neus, lippen en kaak. Lichte stoppels, geen baard en een natuurlijke huid. · Het haar ligt iets platter en meer opzij dan op de modelfoto's. Het is dezelfde snit, alleen anders gekamd. Door het daglicht zijn de stoppels lichter en is het haar iets koeler van kleur. · De hand op de rits ziet er goed uit. Klein punt: de duim duwt onder het schuifje in plaats van het lipje vast te pakken. · Onderaan het gilet hangt een tweede schuifje, dus het is een rits met twee schuiven. Dat ziet er echt uit, maar op de productfoto staat misschien maar een schuifje.",
+  "gezicht_px": 520
+ },
+ {
+  "check_id": "blu_a-5:kleding",
+  "beeld": "blu5",
+  "agent": "Kleding-controleur",
+  "oordeel": "goed",
+  "kern": "Goed, gilet, T-shirt en broek kloppen met de productfoto's.",
+  "details": "Het gilet klopt: donkerblauw, crème kraag, zilveren rits over de hele lengte, steekzak en elastische zoom. · De crème kleur is alleen te zien in de kraag en langs de open voorkant. Beide armgaten zijn gewoon donkerblauw, dus het leest duidelijk als bodywarmer. · Het crème T-shirt en de donkerblauwe broek kloppen ook. Het T-shirt hangt onder het gilet uit, maar dat is styling. · Geen sieraden, geen voeten en geen logo's. Op de achtergrond staan geen mensen, tekst, auto's of boten.",
+  "gezicht_px": 590
+ },
+ {
+  "check_id": "blu_a-5:echtheid",
+  "beeld": "blu5",
+  "agent": "Echtheid-controleur",
+  "oordeel": "goed",
+  "kern": "Goed, het model klopt, met alleen een paar kleine opmerkingen.",
+  "details": "Het gezicht is scherp en klopt met de vaste modelfoto's: bruine ogen, rechte donkere wenkbrauwen, sterke kaak en gesloten mond. · Het haar is iets gladder en donkerder dan op de modelfoto's, maar nog steeds kastanjebruin, opzij naar achteren en zonder pony. De stoppels zijn lichter, maar wel te zien. · Het zwembad achter hem heeft een L-vorm en een stenen rand stopt plotseling aan de linkerkant. Het is wazig en ziet eruit als een gewone waterpartij. · Beide handen en armen zien er goed uit. De hoeken zijn schoon en de kleuren zijn warm en natuurlijk.",
+  "gezicht_px": 600
+ },
+ {
+  "check_id": "regie:como1",
+  "beeld": "como1",
+  "agent": "Regisseur",
+  "oordeel": "afgekeurd",
+  "kern": "Afgekeurd: zijn gezicht oogt ouder en langer dan Luca.",
+  "details": "Naast de vaste modelfoto's gelegd: het gezicht is ouder en smaller. · Daarom niet aan de controleurs gegeven; de andere varianten wel.",
+  "gezicht_px": 0
+ },
+ {
+  "check_id": "regie:mocha6",
+  "beeld": "mocha6",
+  "agent": "Regisseur",
+  "oordeel": "afgekeurd",
+  "kern": "Afgekeurd: de jas is grijs en de capuchon heeft koordjes.",
+  "details": "De jas oogt grijs in plaats van mokkabruin. · Aan de capuchon hangen koordjes; het product heeft die niet. · Het beeld is wijder dan gevraagd; zijn gezicht is klein.",
+  "gezicht_px": 0
+ },
+ {
+  "check_id": "regie:mocha7",
+  "beeld": "mocha7",
+  "agent": "Regisseur",
+  "oordeel": "afgekeurd",
+  "kern": "Afgekeurd: zelfde problemen als variant 1.",
+  "details": "Grijze jas en koordjes aan de capuchon.",
+  "gezicht_px": 0
+ },
+ {
+  "check_id": "regie:mocha9",
+  "beeld": "mocha9",
+  "agent": "Regisseur",
+  "oordeel": "afgekeurd",
+  "kern": "Afgekeurd: nog steeds koordjes aan de capuchon.",
+  "details": "De oorzaak was mijn eigen fout: als derde referentie ging de productfoto met een stapel in vier kleuren mee. · Daarna gecorrigeerd naar de foto van de gevouwen jas.",
+  "gezicht_px": 0
+ },
+ {
+  "check_id": "regie:mocha10",
+  "beeld": "mocha10",
+  "agent": "Regisseur",
+  "oordeel": "afgekeurd",
+  "kern": "Afgekeurd: koordjes aan de capuchon, zelfde verkeerde referentie.",
+  "details": "Gemaakt vóór de correctie van de referentie.",
+  "gezicht_px": 0
+ },
+ {
+  "check_id": "regie:mocha12",
+  "beeld": "mocha12",
+  "agent": "Regisseur",
+  "oordeel": "afgekeurd",
+  "kern": "Afgekeurd: één koordje met metalen puntje aan de capuchon.",
+  "details": "Ingezoomd op de capuchon: het koordje is duidelijk te zien. · De andere variant van deze ronde ging door naar de controleurs.",
+  "gezicht_px": 0
+ },
+ {
+  "check_id": "como_a-8crop:kleding",
+  "beeld": "comoAcrop",
+  "agent": "Kleding-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: de controleur vond geen fouten in de kleding.",
+  "details": "De controleur vond geen fouten in de kleding. · Er zijn geen opmerkingen of verbeterpunten genoteerd. · Het gezicht is ongeveer 640 pixels breed.",
+  "gezicht_px": 640
+ },
+ {
+  "check_id": "como_a-8crop:echtheid",
+  "beeld": "comoAcrop",
+  "agent": "Echtheid-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: het gezicht past bij de modelfoto's en er staan geen letters in beeld.",
+  "details": "Het gezicht is ongeveer 560 pixels breed en scherp, met een natuurlijke huid en een lichte stoppelschaduw. Wenkbrauwen, ogen, neus, lippen, kaak en haarlijn passen bij de modelfoto's. · Er staan nergens letters, emblemen of merktekens, ook niet op de voorruit, het chromen frame, het houten stuur of in de hoek rechtsonder. · De rechterhand klopt en rust op het chromen frame van de voorruit. De linkerhand zit in de broekzak. · Kleine punten: het haar lijkt iets koeler bruin door het tegenlicht. Bij sterk inzoomen zie je een zwak raster in de lucht en de bergen, op normale grootte niet.",
+  "gezicht_px": 560
+ },
+ {
+  "check_id": "como_b-21:kleding",
+  "beeld": "comoB21",
+  "agent": "Kleding-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: het gilet en de polo kloppen met de productfoto's.",
+  "details": "Het gilet klopt met de productfoto: geribde opstaande kraag, zilveren rits, geribde armsgaten en een geribde zakrand linksonder. · Onder het gilet zie je de mouw van de zwarte gebreide polo met lange mouwen. Er zijn geen andere kledingstukken en geen accessoires. · Op de boot en in de achtergrond staan geen emblemen, letters of cijfers, en er is geen andere persoon. · Kleine punten: de grijze knopen van de polo zijn niet te zien. De donkergrijze binnenkant van de kraag is maar vaag zichtbaar.",
+  "gezicht_px": 1050
+ },
+ {
+  "check_id": "como_b-21:echtheid",
+  "beeld": "comoB21",
+  "agent": "Echtheid-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: het gezicht past bij de modelfoto's en het beeld oogt echt.",
+  "details": "Het gezicht past bij de modelfoto's: wenkbrauwen, bruine ogen, neus, gesloten lippen, kaak en lichte stoppels kloppen, zonder baard. Ook leeftijd en bouw kloppen. · De huid ziet er natuurlijk uit, niet als plastic. Bij sterk inzoomen is het gezicht wel iets zacht. · Het haar lijkt iets lichter door het warme tegenlicht. Eén lok krult bij de slaap, maar het voorhoofd blijft vrij, dus het is geen pony. · De boot heeft geen emblemen, letters of cijfers. De hoeken van het beeld zijn schoon en de kleuren zijn niet overdreven.",
+  "gezicht_px": 1050
+ },
+ {
+  "check_id": "mocha_a-30:kleding",
+  "beeld": "det30",
+  "agent": "Kleding-controleur",
+  "oordeel": "afgekeurd",
+  "kern": "Afgekeurd: de broek mist de crème streep langs de zijkant.",
+  "details": "De broek heeft nergens de crème zijstreep. Op de productfoto's loopt die streep langs de buitennaad van het bovenbeen: een dunne crème lijn, een mocha lijn en een brede crème band. · Ook het been linksonder in beeld is effen mocha, zonder streep. · Geen reden voor afkeur, wel een opmerking: de gebreide broek heeft onregelmatige donkere vlekken. Die lijken op vlekken of ongelijke verf. · Wel goed: de strepen op de mouw van het jasje, de rits, de koordjes met metalen puntjes, het witte T-shirt en de hand zonder sieraden.",
+  "gezicht_px": 0
+ },
+ {
+  "check_id": "mocha_a-31:kleding",
+  "beeld": "det31",
+  "agent": "Kleding-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: geen fouten in de kleding, alleen kleine opmerkingen.",
+  "details": "De crème strepen op de mouw zijn op de onderarm te zien, zoals bij het product. Op de bovenarm is de streep maar een vage lichte lijn, omdat de arm van de camera af draait. · Het jasje lijkt iets pluiziger gebreid dan op de productfoto's. Kleur, rits, geribde boord en pasvorm kloppen wel. · De zijstrepen van de broek zijn niet te controleren, omdat de buitenkant van de bovenbenen buiten beeld valt. De koordjes met zilveren puntjes kloppen. · De hand heeft vijf vingers en draagt geen horloge, ring of armband. Op de achtergrond staan geen letters of logo's en geen andere persoon.",
+  "gezicht_px": 0
+ },
+ {
+  "check_id": "mocha_a-30:echtheid",
+  "beeld": "det30",
+  "agent": "Echtheid-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: de hand en de stof zien er echt uit.",
+  "details": "Er is geen gezicht in beeld, alleen de mouw, onderarm, hand, schoot, fauteuil en het raam. · De linkerhand heeft vijf vingers met natuurlijke knokkels, nagels, aderen en haartjes op de pols. Het licht valt op hand en stof op dezelfde manier. · Kleine opmerking: naast de twee dunne crème strepen op de onderarm zit een brede lichtgrijze band. Dat lijkt licht van het raam, maar je kunt het aanzien voor een derde streep. · De hoeken van het beeld zijn schoon en de kleuren zijn niet overdreven. De zijstreep van de broek is niet te zien, omdat alleen de bovenkant van het bovenbeen in beeld is.",
+  "gezicht_px": 0
+ },
+ {
+  "check_id": "mocha_a-31:echtheid",
+  "beeld": "det31",
+  "agent": "Echtheid-controleur",
+  "oordeel": "goed",
+  "kern": "Goed: de hand klopt en licht en stof ogen echt.",
+  "details": "Er is geen gezicht in beeld. Het beeld stopt bij de schouder. · De linkerhand ligt op het bovenbeen en heeft vijf vingers met natuurlijke knokkels en nagels. De pols toont echte haartjes en aderen. · De mouwstrepen kloppen met het product: twee dunne crème strepen en een bredere crème band, met een mocha boord. · Kleine punten: de huid van de vingers is iets gladder dan bij de pols, maar niet wasachtig. De zijstreep van de broek is niet te zien door de houding.",
+  "gezicht_px": 0
+ }
+]

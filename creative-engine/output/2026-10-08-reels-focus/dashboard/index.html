@@ -1,0 +1,453 @@
+<style>
+/* Productiekamer: de keten van agents bovenaan, daaronder per video de stappen en de beelden, dan logboek en kosten.
+   Kleur per agent uit dash.colors; status altijd als pil (goed / bezig / afgekeurd / wacht). */
+.uw { --uw-thumb: 5.5rem; display: grid; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); color: var(--color-fg); max-width: 78rem; margin-inline: auto; }
+.uw h1, .uw h2, .uw h3 { margin: 0; text-wrap: balance; }
+.uw-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); line-height: 1.15; }
+.uw-take { margin: var(--cds-gap-xs) 0 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-body); max-width: 65ch; }
+.uw-take b { color: var(--color-fg); font-weight: 600; font-variant-numeric: tabular-nums; }
+.uw-sec { display: grid; gap: var(--cds-gap-md); min-width: 0; }
+.uw-sec > header { display: grid; gap: var(--cds-gap-xs); }
+.uw-sec h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); }
+.uw-note { margin: 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); max-width: 70ch; }
+
+.uw-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: var(--cds-gap-md); }
+.uw-tile { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-md) var(--cds-pad-lg); display: grid; gap: var(--cds-gap-xs); align-content: start; }
+.uw-tile .lab { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.uw-tile .num { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.uw-tile .sub { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+
+.uw-pill { display: inline-flex; align-items: center; gap: .35em; border-radius: 999px; padding: .1em .6em; font-size: var(--cds-font-size-caption); line-height: 1.5; white-space: nowrap; border: 1px solid currentColor; }
+.uw-pill::before { content: ""; width: .45em; height: .45em; border-radius: 50%; background: currentColor; }
+.uw-pill.ok { color: var(--color-ok); }
+.uw-pill.bad { color: var(--color-bad); }
+.uw-pill.warn { color: var(--color-warn); }
+.uw-pill.mute { color: var(--color-fg-muted); }
+@media (prefers-reduced-motion: no-preference) {
+  .uw-pill.warn::before { animation: uw-pulse 1.6s var(--cds-ease-out) infinite; }
+  @keyframes uw-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+}
+
+/* De keten */
+.uw-chain { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15.5rem), 1fr)); gap: var(--cds-gap-md); }
+.uw-agent { position: relative; background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-md); display: grid; gap: var(--cds-gap-sm); align-content: start; min-width: 0; }
+.uw-agent .top { display: flex; align-items: center; gap: var(--cds-gap-sm); flex-wrap: wrap; }
+.uw-agent .nr { font-variant-numeric: tabular-nums; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.uw-agent .dot { width: .7rem; height: .7rem; border-radius: 50%; flex: none; }
+.uw-agent h3 { font-size: var(--cds-font-size-body); font-weight: 600; }
+.uw-agent .wie { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; }
+.uw-agent .rol { margin: 0; font-size: var(--cds-font-size-caption); line-height: 1.45; }
+.uw-agent .cnt { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+.uw-agent .cnt b { color: var(--color-fg); font-weight: 600; }
+.uw-agent .last { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.4; }
+.uw-agent .last time { color: var(--color-fg); font-variant-numeric: tabular-nums; margin-right: .35em; }
+.uw-mini { display: flex; gap: 4px; flex-wrap: wrap; }
+.uw-mini button { width: 2.1rem; aspect-ratio: 9 / 16; padding: 0; border: 1px solid var(--color-border-line); border-radius: 4px; overflow: hidden; background: var(--color-bg); cursor: pointer; }
+.uw-mini .ref { width: 2.1rem; aspect-ratio: 9 / 16; border: 1px solid var(--color-border-line); border-radius: 4px; overflow: hidden; display: block; }
+.uw-mini img, .uw-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Video's */
+.uw-videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: var(--cds-gap-md); }
+.uw-video { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-md); align-content: start; min-width: 0; scroll-margin-top: var(--cds-gap-xl); }
+.uw-video .kop { display: grid; gap: 2px; }
+.uw-video .eyebrow { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); letter-spacing: .04em; }
+.uw-video h3 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-heading); }
+.uw-video .prod { font-size: var(--cds-font-size-caption); font-weight: 600; letter-spacing: .02em; }
+.uw-video .idee { margin: 0; font-size: var(--cds-font-size-caption); line-height: 1.5; color: var(--color-fg-muted); }
+.uw-shots { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; font-size: var(--cds-font-size-caption); }
+.uw-shots b { font-weight: 600; margin-right: .3em; }
+.uw-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.uw-steps li { font-size: var(--cds-font-size-caption); border-radius: 4px; padding: .1em .45em; border: 1px solid var(--color-border-line); color: var(--color-fg-muted); white-space: nowrap; }
+.uw-steps li.ok { color: var(--color-ok); border-color: currentColor; }
+.uw-steps li.warn { color: var(--color-warn); border-color: currentColor; font-weight: 600; }
+.uw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--uw-thumb), 1fr)); gap: var(--cds-gap-sm); }
+.uw-thumb { position: relative; padding: 0; border: 1px solid var(--color-border-line); border-radius: 6px; overflow: hidden; aspect-ratio: 9 / 16; background: var(--color-bg); cursor: pointer; max-width: 100%; }
+.uw-thumb[aria-pressed="true"] { outline: 2px solid var(--color-fg); outline-offset: 1px; }
+.uw-thumb .tag { position: absolute; left: 4px; bottom: 4px; right: 4px; display: flex; }
+.uw-thumb .tag .uw-pill { background: var(--color-panel); max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+.uw-thumb.is-bad img { filter: saturate(.55) brightness(.9); }
+.uw button:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+
+.uw-detail { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: var(--cds-gap-md); border-top: 1px solid var(--color-border-line); padding-top: var(--cds-pad-md); }
+@media (max-width: 40rem) { .uw-detail { grid-template-columns: minmax(0, 1fr); } }
+.uw-detail .big { width: 100%; max-width: 15rem; aspect-ratio: 9 / 16; border-radius: 6px; overflow: hidden; border: 1px solid var(--color-border-line); }
+.uw-detail .big img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.uw-detail .info { display: grid; gap: var(--cds-gap-sm); align-content: start; min-width: 0; }
+.uw-detail h4 { margin: 0; font-size: var(--cds-font-size-body); font-weight: 600; }
+.uw-detail .reden { margin: 0; font-size: var(--cds-font-size-caption); line-height: 1.5; }
+.uw-detail .meta { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.uw-detail a { color: var(--color-fg); font-size: var(--cds-font-size-caption); }
+.uw-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--cds-gap-sm); }
+.uw-check { border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-sm) var(--cds-pad-md); display: grid; gap: 4px; }
+.uw-check .who { display: flex; align-items: center; gap: var(--cds-gap-sm); flex-wrap: wrap; font-size: var(--cds-font-size-caption); font-weight: 600; }
+.uw-check .who .dot { width: .6rem; height: .6rem; border-radius: 50%; }
+.uw-check .kern { margin: 0; font-size: var(--cds-font-size-caption); font-weight: 600; line-height: 1.45; }
+.uw-check ul { margin: 0; padding-left: 1.1em; display: grid; gap: 2px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.45; }
+.uw-empty { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+
+/* Logboek */
+.uw-filter { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); }
+.uw-filter button { font: inherit; font-size: var(--cds-font-size-caption); border: 1px solid var(--color-border-line); background: var(--color-panel); color: var(--color-fg); border-radius: 999px; padding: .2em .8em; cursor: pointer; }
+.uw-filter button[aria-pressed="true"] { background: var(--color-fg); color: var(--color-bg); border-color: var(--color-fg); }
+.uw-log { list-style: none; margin: 0; padding: 0; display: grid; background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); max-height: 34rem; overflow: auto; }
+.uw-log li { display: grid; grid-template-columns: 3.2rem minmax(0, 1fr) auto; gap: var(--cds-gap-sm); align-items: center; padding: var(--cds-pad-sm) var(--cds-pad-md); border-bottom: 1px solid var(--color-border-line); }
+.uw-log li:last-child { border-bottom: 0; }
+.uw-log time { font-variant-numeric: tabular-nums; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.uw-log .what { display: grid; gap: 2px; min-width: 0; }
+.uw-log .agent { display: inline-flex; align-items: center; gap: .4em; font-size: var(--cds-font-size-caption); font-weight: 600; }
+.uw-log .agent .dot { width: .55rem; height: .55rem; border-radius: 50%; }
+.uw-log .txt { font-size: var(--cds-font-size-caption); line-height: 1.45; }
+.uw-log .uw-mini button { width: 1.9rem; }
+
+/* Kosten */
+.uw-costs { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-lg); }
+.uw-budget { display: grid; gap: var(--cds-gap-sm); }
+.uw-budget .bar { display: flex; height: 1.1rem; border-radius: 999px; overflow: hidden; background: var(--cds-chart-grid); }
+.uw-budget .bar span { display: block; height: 100%; min-width: 2px; }
+.uw-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+.uw-legend span { display: inline-flex; align-items: center; gap: .4em; }
+.uw-legend i { width: .7rem; height: .7rem; border-radius: 3px; display: inline-block; }
+.uw-legend b { color: var(--color-fg); font-weight: 600; }
+.uw-bars { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--cds-gap-sm); }
+.uw-bars li { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr) 3.5rem; gap: var(--cds-gap-sm); align-items: center; font-size: var(--cds-font-size-caption); }
+@media (max-width: 36rem) { .uw-bars li { grid-template-columns: minmax(0, 1fr) 3.5rem; } .uw-bars .track { grid-column: 1 / -1; grid-row: 2; } }
+.uw-bars .track { height: .8rem; border-radius: 999px; background: var(--cds-chart-grid); overflow: hidden; }
+.uw-bars .track span { display: block; height: 100%; border-radius: 999px; }
+.uw-bars .val { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+[data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+</style>
+
+<div class="uw">
+  <header id="stand">
+    <h1 class="uw-title">Productiekamer Una giornata</h1>
+    <p class="uw-take" id="uw-take"><span class="dash-skeleton">—</span></p>
+  </header>
+
+  <section class="uw-tiles" id="cijfers" aria-label="Kerncijfers">
+    <div class="uw-tile"><span class="lab">Credits over</span><span class="num dash-skeleton" data-source="saldo" data-field="credits" data-where="moment=Nu">—</span><span class="sub">van <span data-source="saldo" data-field="credits" data-where="moment=Start%20van%20de%20serie">—</span> bij de start</span></div>
+    <div class="uw-tile"><span class="lab">Uitgegeven aan beelden</span><span class="num dash-skeleton" data-source="uitgaven" data-field="uitgegeven">—</span><span class="sub">credits, tot nu toe</span></div>
+    <div class="uw-tile"><span class="lab">Nog gepland voor video</span><span class="num dash-skeleton" data-source="uitgaven" data-field="gepland">—</span><span class="sub">reserve daarna: <span data-source="budget" data-field="reserve">—</span></span></div>
+    <div class="uw-tile"><span class="lab">Beelden gemaakt</span><span class="num dash-skeleton" data-source="telling" data-field="gemaakt">—</span><span class="sub"><span data-source="telling" data-field="bruikbaar">—</span> bruikbaar, <span data-source="telling" data-field="afgekeurd">—</span> afgekeurd</span></div>
+    <div class="uw-tile"><span class="lab">Controles gedaan</span><span class="num dash-skeleton" data-source="telling" data-field="controles">—</span><span class="sub"><span data-source="telling" data-field="goed">—</span> goed, <span data-source="telling" data-field="fout">—</span> afgekeurd</span></div>
+  </section>
+
+  <section class="uw-sec" id="keten">
+    <header>
+      <h2>Wie doet wat</h2>
+      <p class="uw-note">De keten van begin tot eind. Elke kaart is één agent of één model, met wat hij gedaan heeft en de beelden waar hij aan werkte. Klik op een beeld om het groot te zien met alle controles.</p>
+    </header>
+    <ol class="uw-chain" id="uw-chain" data-source="agents per_agent log controles beelden voorbeelden"></ol>
+  </section>
+
+  <section class="uw-sec" id="videos">
+    <header>
+      <h2>De vier video's</h2>
+      <p class="uw-note">Elke video heeft twee shots en één snede, geen tekst en je logo de laatste 2 seconden. Groen omlijnd is klaar, oranje is bezig.</p>
+    </header>
+    <div class="uw-videos" id="uw-videos" data-source="videos stappen beelden voorbeelden controles"></div>
+  </section>
+
+  <section class="uw-sec" id="logboek">
+    <header>
+      <h2>Logboek</h2>
+      <p class="uw-note">Alles wat er gebeurde, op volgorde, in jouw tijd.</p>
+    </header>
+    <div class="uw-filter" id="uw-filter" role="group" aria-label="Filter op video"></div>
+    <ol class="uw-log" id="uw-log" data-source="log beelden voorbeelden videos"></ol>
+  </section>
+
+  <section class="uw-sec" id="kosten">
+    <header>
+      <h2>Kosten in credits</h2>
+      <p class="uw-note">Wat al is uitgegeven en wat nog gepland staat. Seedance begint pas na jouw akkoord op de startbeelden.</p>
+    </header>
+    <div class="uw-costs" id="uw-costs" data-source="kosten saldo budget"></div>
+  </section>
+</div>
+
+<script>
+dash.calc('uitgaven', {
+  inputs: ['kosten'], title: 'Uitgegeven en gepland',
+  description: 'Telt de credits per soort op: uitgegeven en nog gepland.',
+  fn: (kosten) => [{
+    uitgegeven: kosten.filter((r) => r.soort === 'uitgegeven').reduce((s, r) => s + Number(r.credits), 0),
+    gepland: kosten.filter((r) => r.soort === 'gepland').reduce((s, r) => s + Number(r.credits), 0),
+  }],
+});
+dash.calc('budget', {
+  inputs: ['kosten', 'saldo'], title: 'Budget na het plan',
+  description: 'Saldo nu min wat nog gepland staat is de reserve.',
+  fn: (kosten, saldo) => {
+    const nu = Number((saldo.find((r) => r.moment === 'Nu') || {}).credits || 0);
+    const start = Number((saldo.find((r) => r.moment === 'Start van de serie') || {}).credits || 0);
+    const gepland = kosten.filter((r) => r.soort === 'gepland').reduce((s, r) => s + Number(r.credits), 0);
+    return [{ start, nu, uitgegeven: Math.round((start - nu) * 100) / 100, gepland, reserve: Math.round((nu - gepland) * 100) / 100 }];
+  },
+});
+dash.calc('telling', {
+  inputs: ['beelden', 'controles'], title: 'Beelden en controles',
+  description: 'Telt de gemaakte beelden, hun status en de oordelen van alle controles.',
+  fn: (beelden, controles) => [{
+    gemaakt: beelden.filter((r) => Number(r.credits) > 0).length,
+    bruikbaar: beelden.filter((r) => r.status === 'gekozen' || r.status === 'goedgekeurd').length,
+    afgekeurd: beelden.filter((r) => r.status === 'afgekeurd').length,
+    controles: controles.length,
+    goed: controles.filter((r) => r.oordeel === 'goed').length,
+    fout: controles.filter((r) => r.oordeel === 'afgekeurd').length,
+  }],
+});
+dash.calc('per_agent', {
+  inputs: ['agents', 'log', 'controles'], title: 'Werk per agent',
+  description: 'Telt per agent de regels in het logboek en de controles die hij deed.',
+  fn: (agents, log, controles) => agents.map((a) => ({
+    agent: a.agent,
+    acties: log.filter((r) => r.agent === a.agent).length,
+    controles: controles.filter((r) => r.agent === a.agent).length,
+  })),
+});
+dash.calc('stand', {
+  inputs: ['stappen', 'beelden'], title: 'Stand van zaken',
+  description: 'Hoeveel video’s goedgekeurde startbeelden hebben en hoeveel beelden gekozen zijn.',
+  fn: (stappen, beelden) => {
+    const vids = [...new Set(stappen.map((r) => r.video))];
+    const klaar = vids.filter((v) => stappen.some((r) => r.video === v && r.stap === 'Controle startbeelden' && r.status === 'klaar')).length;
+    const akkoord = stappen.some((r) => r.stap === 'Jouw akkoord' && r.status === 'klaar');
+    const video = stappen.some((r) => r.stap === 'Concept-video 480p' && r.status !== 'wacht');
+    return [{ klaar, totaal: vids.length, gekozen: beelden.filter((r) => r.status === 'gekozen').length, akkoord, video }];
+  },
+});
+
+(() => {
+  const STATUS = { gekozen: 'ok', goedgekeurd: 'ok', goed: 'ok', klaar: 'ok', 'klaar voor nu': 'ok', afgekeurd: 'bad', 'in controle': 'warn', bezig: 'warn', 'aan zet straks': 'warn', wacht: 'mute', referentie: 'mute', productfoto: 'mute' };
+  const RANK = { gekozen: 0, goedgekeurd: 1, 'in controle': 2, productfoto: 3, afgekeurd: 4, referentie: 5 };
+  const nf = new Intl.NumberFormat('nl-NL', { maximumFractionDigits: 2 });
+  const tf = (iso) => (iso ? new Date(iso).toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' }) : '');
+  const mk = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  const pill = (status) => mk('span', 'uw-pill ' + (STATUS[status] || 'mute'), status);
+  const enc = (v) => encodeURIComponent(String(v));
+  const state = { open: {}, filter: '' };
+  let colorOf = () => 'var(--color-fg-muted)';
+
+  const get = (id) => dash.data(id);
+  const rows = (id) => (get(id).status === 'ok' ? get(id).data : null);
+  const markCell = (node, source, field, where) => { node.setAttribute('data-source', source); node.setAttribute('data-field', field); if (where) node.setAttribute('data-where', where); return node; };
+
+  function openImage(id) {
+    const b = (rows('beelden') || []).find((r) => r.id === id);
+    if (!b) return;
+    const video = b.video === 'luca' ? null : b.video;
+    if (!video) return;
+    state.open[video] = id;
+    draw();
+    const card = document.getElementById('video-' + video);
+    if (card) { card.scrollIntoView({ block: 'start' }); dash.setLink(card.id); }
+  }
+
+  function thumbButton(id, thumbs, beelden, cls, onClick) {
+    const src = thumbs.get(id);
+    const b = beelden.find((r) => r.id === id);
+    const btn = mk('button', cls || '');
+    btn.type = 'button';
+    btn.title = b ? b.wat : id;
+    btn.setAttribute('aria-label', 'Bekijk ' + (b ? b.wat : id));
+    if (src) { const img = mk('img'); img.src = src; img.alt = ''; img.loading = 'lazy'; btn.append(img); }
+    btn.addEventListener('click', onClick || (() => openImage(id)));
+    return btn;
+  }
+
+  function drawTake() {
+    const p = document.getElementById('uw-take');
+    const s = rows('stand');
+    if (!s || !s.length) { p.replaceChildren(mk('span', 'dash-skeleton', '—')); return; }
+    const b = (field, v) => markCell(mk('b', null, nf.format(v)), 'stand', field);
+    const slot = s[0].video ? ' Seedance is aan het werk.' : s[0].akkoord ? ' Je hebt de startbeelden goedgekeurd; Seedance is aan de beurt.' : ' Seedance begint pas na jouw akkoord op de startbeelden.';
+    p.replaceChildren(b('klaar', s[0].klaar), ' van de ', b('totaal', s[0].totaal), ' video’s hebben goedgekeurde startbeelden en ', b('gekozen', s[0].gekozen),
+      ' beelden zijn gekozen.', slot);
+  }
+
+  function drawTiles() {
+    document.querySelectorAll('#cijfers [data-source]').forEach((n) => {
+      const src = n.getAttribute('data-source'); const field = n.getAttribute('data-field'); const where = n.getAttribute('data-where');
+      const r = rows(src);
+      n.classList.remove('dash-skeleton');
+      if (!r) { n.textContent = '—'; if (get(src).status === 'loading') n.classList.add('dash-skeleton'); return; }
+      let row = r[0];
+      if (where) { const [k, v] = where.split('='); row = r.find((x) => String(x[k]) === decodeURIComponent(v)); }
+      n.textContent = row && row[field] != null ? nf.format(Number(row[field])) : '—';
+    });
+  }
+
+  function drawChain(thumbs) {
+    const ol = document.getElementById('uw-chain');
+    const agents = rows('agents'); const per = rows('per_agent'); const log = rows('log'); const controles = rows('controles'); const beelden = rows('beelden');
+    if (!agents || !per || !log || !controles || !beelden) { ol.replaceChildren(mk('li', 'uw-agent dash-skeleton')); return; }
+    const list = [...agents].sort((a, b) => Number(a.volgorde) - Number(b.volgorde));
+    ol.replaceChildren(...list.map((a) => {
+      const li = mk('li', 'uw-agent'); li.id = 'agent-' + a.agent.toLowerCase().replace(/[^a-z]+/g, '-');
+      const top = mk('div', 'top');
+      const dot = mk('span', 'dot'); dot.style.background = colorOf(a.agent);
+      top.append(mk('span', 'nr', String(a.volgorde)), dot, mk('h3', null, a.agent), pill(a.status));
+      li.append(top, mk('p', 'wie', a.wie), mk('p', 'rol', a.rol));
+      const p = per.find((r) => r.agent === a.agent) || { acties: 0, controles: 0 };
+      const cnt = mk('div', 'cnt');
+      const w = 'agent=' + enc(a.agent);
+      cnt.append(markCell(mk('b', null, nf.format(p.acties)), 'per_agent', 'acties', w), ' in het logboek');
+      if (Number(p.controles) > 0) cnt.append(' · ', markCell(mk('b', null, nf.format(p.controles)), 'per_agent', 'controles', w), ' controles');
+      li.append(cnt);
+      const mine = log.filter((r) => r.agent === a.agent);
+      if (mine.length) {
+        const last = mine[mine.length - 1];
+        const lp = mk('p', 'last'); lp.append(mk('time', null, tf(last.tijd)), last.actie); li.append(lp);
+      }
+      if (a.agent === 'Echtheid-controleur') {
+        const refs = beelden.filter((r) => r.status === 'referentie');
+        if (refs.length) {
+          const p2 = mk('p', 'last', 'Vergelijkt elk gezicht met de vaste foto’s van Luca:'); li.append(p2);
+          const m2 = mk('div', 'uw-mini');
+          refs.forEach((r) => { const s = mk('span', 'ref'); const img = mk('img'); img.src = thumbs.get(r.id) || ''; img.alt = r.wat; s.append(img); m2.append(s); });
+          li.append(m2);
+        }
+      }
+      const ids = [...new Set([...controles.filter((r) => r.agent === a.agent).map((r) => r.beeld), ...mine.map((r) => r.beeld)].filter(Boolean))];
+      if (ids.length) { const m = mk('div', 'uw-mini'); ids.slice(0, 10).forEach((id) => m.append(thumbButton(id, thumbs, beelden))); li.append(m); }
+      return li;
+    }));
+  }
+
+  function detail(b, thumbs, controles) {
+    const d = mk('div', 'uw-detail'); d.id = 'detail-' + b.id;
+    const big = mk('div', 'big'); const src = thumbs.get(b.id);
+    if (src) { const img = mk('img'); img.src = src; img.alt = b.wat; big.append(img); }
+    const info = mk('div', 'info');
+    const h = mk('h4', null, b.wat); info.append(h, pill(b.status), mk('p', 'reden', b.reden));
+    const meta = [];
+    if (b.gemaakt) meta.push('Gemaakt om ' + tf(b.gemaakt));
+    if (Number(b.credits) > 0) meta.push(nf.format(Number(b.credits)) + ' credits');
+    if (b.beoordeeld_door) meta.push('Oordeel: ' + b.beoordeeld_door);
+    if (meta.length) info.append(mk('p', 'meta', meta.join(' · ')));
+    if (b.link) { const a = mk('a', null, 'Open in volle grootte'); a.href = b.link; a.target = '_blank'; a.rel = 'noopener'; info.append(a); }
+    const mine = controles.filter((r) => r.beeld === b.id);
+    if (mine.length) {
+      const ul = mk('ul', 'uw-checks');
+      mine.forEach((c) => {
+        const li = mk('li', 'uw-check');
+        const who = mk('div', 'who'); const dot = mk('span', 'dot'); dot.style.background = colorOf(c.agent);
+        who.append(dot, c.agent, pill(c.oordeel));
+        if (Number(c.gezicht_px) > 0) who.append(mk('span', 'nr', 'gezicht ' + nf.format(Number(c.gezicht_px)) + ' px'));
+        li.append(who, mk('p', 'kern', c.kern));
+        const parts = String(c.details || '').split(' · ').filter(Boolean);
+        if (parts.length) { const u = mk('ul'); parts.forEach((t) => u.append(mk('li', null, t))); li.append(u); }
+        ul.append(li);
+      });
+      info.append(ul);
+    } else if (b.status !== 'productfoto' && b.status !== 'referentie') {
+      info.append(mk('p', 'uw-empty', 'Nog geen controle-uitslag voor dit beeld.'));
+    }
+    d.append(big, info);
+    return d;
+  }
+
+  function drawVideos(thumbs) {
+    const box = document.getElementById('uw-videos');
+    const videos = rows('videos'); const stappen = rows('stappen'); const beelden = rows('beelden'); const controles = rows('controles');
+    if (!videos || !stappen || !beelden || !controles) { box.replaceChildren(mk('div', 'uw-video dash-skeleton')); return; }
+    box.replaceChildren(...[...videos].sort((a, b) => Number(a.nr) - Number(b.nr)).map((v) => {
+      const card = mk('article', 'uw-video'); card.id = 'video-' + v.video;
+      const kop = mk('div', 'kop');
+      kop.append(mk('span', 'eyebrow', v.nr + ' · ' + v.moment), mk('h3', null, v.titel), mk('span', 'prod', v.product), mk('span', 'eyebrow', v.plek));
+      card.append(kop, mk('p', 'idee', v.idee));
+      const shots = mk('ul', 'uw-shots');
+      [['Shot A', v.shot_a], ['Shot B', v.shot_b]].forEach(([k, t]) => { const li = mk('li'); li.append(mk('b', null, k), t); shots.append(li); });
+      card.append(shots);
+      const steps = mk('ol', 'uw-steps');
+      stappen.filter((r) => r.video === v.video).sort((a, b) => Number(a.nr) - Number(b.nr)).forEach((s) => {
+        const li = mk('li', STATUS[s.status] === 'ok' ? 'ok' : STATUS[s.status] === 'warn' ? 'warn' : '', s.stap);
+        li.title = s.stap + ': ' + s.status; steps.append(li);
+      });
+      card.append(steps);
+      const mine = beelden.filter((r) => r.video === v.video).sort((a, b) => (RANK[a.status] ?? 9) - (RANK[b.status] ?? 9));
+      const grid = mk('div', 'uw-grid');
+      mine.forEach((b) => {
+        const toggle = () => { state.open[v.video] = state.open[v.video] === b.id ? null : b.id; draw(); const f = document.querySelector('#video-' + v.video + ' .uw-thumb[data-id="' + b.id + '"]'); if (f) f.focus(); };
+        const btn = thumbButton(b.id, thumbs, beelden, 'uw-thumb' + (b.status === 'afgekeurd' ? ' is-bad' : ''), toggle);
+        btn.setAttribute('data-id', b.id);
+        btn.setAttribute('aria-pressed', state.open[v.video] === b.id ? 'true' : 'false');
+        const tag = mk('span', 'tag'); tag.append(pill(b.status)); btn.append(tag);
+        grid.append(btn);
+      });
+      card.append(grid);
+      const sel = mine.find((b) => b.id === state.open[v.video]);
+      if (sel) card.append(detail(sel, thumbs, controles));
+      return card;
+    }));
+  }
+
+  function drawLog(thumbs) {
+    const ol = document.getElementById('uw-log'); const bar = document.getElementById('uw-filter');
+    const log = rows('log'); const beelden = rows('beelden'); const videos = rows('videos');
+    if (!log || !beelden || !videos) { ol.replaceChildren(mk('li', 'dash-skeleton')); bar.replaceChildren(); return; }
+    const opts = [['', 'Alles'], ...[...videos].sort((a, b) => Number(a.nr) - Number(b.nr)).map((v) => [v.video, v.titel])];
+    bar.replaceChildren(...opts.map(([k, label]) => {
+      const b = mk('button', null, label); b.type = 'button'; b.setAttribute('aria-pressed', state.filter === k ? 'true' : 'false');
+      b.addEventListener('click', () => { state.filter = k; draw(); }); return b;
+    }));
+    const shown = log.filter((r) => !state.filter || r.video === state.filter || (r.beeld && (beelden.find((b) => b.id === r.beeld) || {}).video === state.filter));
+    ol.replaceChildren(...[...shown].sort((a, b) => String(b.tijd).localeCompare(String(a.tijd)) || Number(b.nr) - Number(a.nr)).map((r) => {
+      const li = mk('li'); li.setAttribute('data-key', String(r.nr));
+      const what = mk('div', 'what'); const ag = mk('span', 'agent'); const dot = mk('span', 'dot'); dot.style.background = colorOf(r.agent);
+      ag.append(dot, r.agent); what.append(ag, mk('span', 'txt', r.actie));
+      const right = mk('div', 'uw-mini'); if (r.beeld) right.append(thumbButton(r.beeld, thumbs, beelden));
+      li.append(mk('time', null, tf(r.tijd)), what, right); return li;
+    }));
+    if (!shown.length) ol.replaceChildren(mk('li', 'uw-empty', 'Geen regels voor deze video.'));
+  }
+
+  function drawCosts() {
+    const box = document.getElementById('uw-costs');
+    const kosten = rows('kosten'); const bud = rows('budget');
+    if (!kosten || !bud || !bud.length) { box.replaceChildren(mk('div', 'dash-skeleton')); return; }
+    const B = bud[0];
+    const cSpent = dash.colors[0]; const cPlan = dash.colors[2]; const cRes = 'var(--cds-chart-muted)';
+    const wrap = mk('div', 'uw-budget');
+    const bar = mk('div', 'bar'); bar.setAttribute('role', 'img');
+    bar.setAttribute('aria-label', 'Budget: ' + nf.format(B.uitgegeven) + ' uitgegeven, ' + nf.format(B.gepland) + ' gepland, ' + nf.format(B.reserve) + ' reserve, van ' + nf.format(B.start));
+    [[B.uitgegeven, cSpent], [B.gepland, cPlan], [Math.max(0, B.reserve), cRes]].forEach(([v, c]) => { const s = mk('span'); s.style.width = (100 * v / B.start) + '%'; s.style.background = c; bar.append(s); });
+    const leg = mk('div', 'uw-legend');
+    [['Uitgegeven', 'uitgegeven', cSpent], ['Gepland', 'gepland', cPlan], ['Reserve', 'reserve', cRes], ['Startsaldo', 'start', null]].forEach(([lab, f, c]) => {
+      const s = mk('span'); if (c) { const i = mk('i'); i.style.background = c; s.append(i); }
+      s.append(lab + ' ', markCell(mk('b', null, nf.format(B[f])), 'budget', f)); leg.append(s);
+    });
+    wrap.append(bar, leg);
+    const max = Math.max(...kosten.map((r) => Number(r.credits)));
+    const ul = mk('ol', 'uw-bars');
+    [...kosten].sort((a, b) => Number(a.nr) - Number(b.nr)).forEach((r) => {
+      const li = mk('li'); const lab = mk('span', null, r.stap + (r.soort === 'gepland' ? ' (gepland)' : ''));
+      const tr = mk('span', 'track'); const s = mk('span'); s.style.width = (100 * Number(r.credits) / max) + '%'; s.style.background = r.soort === 'gepland' ? cPlan : cSpent; tr.append(s);
+      li.append(lab, tr, markCell(mk('span', 'val', nf.format(Number(r.credits))), 'kosten', 'credits', 'nr=' + enc(r.nr)));
+      ul.append(li);
+    });
+    box.replaceChildren(wrap, ul);
+  }
+
+  function draw() {
+    const agents = rows('agents');
+    if (agents) {
+      const order = [...agents].sort((a, b) => Number(a.volgorde) - Number(b.volgorde)).map((a) => a.agent);
+      colorOf = (name) => { const i = order.indexOf(name); return i < 0 ? 'var(--color-fg-muted)' : dash.colors[i % dash.colors.length]; };
+    }
+    const th = rows('voorbeelden');
+    const thumbs = new Map((th || []).map((r) => [r.id, r.src]));
+    drawTake(); drawTiles(); drawChain(thumbs); drawVideos(thumbs); drawLog(thumbs); drawCosts();
+  }
+
+  let first = true;
+  dash.onData(() => {
+    draw();
+    if (first && rows('videos')) {
+      first = false;
+      const named = document.getElementById(location.hash.slice(1));
+      if (named) { named.scrollIntoView(); dash.setLink(named.id); }
+    }
+  });
+})();
+</script>

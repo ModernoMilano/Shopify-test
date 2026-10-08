@@ -100,3 +100,15 @@ Wens van de eigenaar.
 | 4 × shot B van 5 s (concept 15 + 1080p 60) | 300 |
 | **Totaal** | **604** |
 | Reserve voor een tweede concept of beeld | ongeveer 50 |
+
+## Dashboard
+
+De eigenaar wil kunnen zien hoe alle agents samenwerken, met de beelden erbij. Daarvoor is er het dashboard "Productiekamer Una giornata": https://claude.ai/artifact/HaSkNEqUyTCC7Ta2uCgSR3
+
+- **Inhoud:** de keten van agents, de vier video's met hun stappen en beelden, het logboek en de kosten.
+- **Detail:** klik op een beeld voor alle controles van dat beeld, in gewoon Nederlands.
+- **Bron:** `dashboard/`.
+  - `build_data.py` maakt de gegevensbestanden.
+  - `mkbatch.py` schrijft ze naar de store van het dashboard.
+  - `index.html` is de pagina.
+- **Voorbeeldbeelden:** 360 bij 640 pixels, verkleind in de Higgsfield-sandbox. De beeldhosts zijn vanuit deze omgeving geblokkeerd.

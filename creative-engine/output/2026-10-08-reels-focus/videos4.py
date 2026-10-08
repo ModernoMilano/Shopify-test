@@ -9,6 +9,9 @@ Gebruik:
   python3 -I videos4.py como_b <job como_a> [left|right]  -> ronde 2: shot B op de boot, dichterbij (bewerking van como_a)
   python3 -I videos4.py mocha_a <job mocha_b>     -> ronde 2: shot A van Dark Mocha, het detail (bewerking van mocha_b)
   python3 -I videos4.py reverse <antracite|blu> <media laatste frame A>  -> startbeeld B van een Reverso-video
+  python3 -I videos4.py draft <shot> [start]     -> Seedance 2.5, concept 480p (shot: como_a, como_b, antracite_a, ...)
+  python3 -I videos4.py final <shot> <start> <draft_job>  -> afmaken in 1080p
+  python3 -I videos4.py prompts                   -> alle Seedance-requests, voor de voorcontrole
 
 Lessen uit reel_tb.py (README): een vaste camera voor een shot met logo of een snede op de beweging; de binnenkleur van
 een Reverso-gilet alleen in de kraag en langs de open voorkant, niet bij de armsgaten; diepe armsgaten zodat een gilet in
@@ -30,7 +33,9 @@ HANDS = "His hands and wrists are bare: no watch, no ring, no bracelet, no glass
 REAL = P["realism_en"]  # met "visible knit stitch": goed voor de cashmere van Nobile en Dark Mocha
 REAL_SMOOTH = REAL.replace("The clothes are real fabric with visible knit stitch and soft creases at the elbows and waist.",
                            "The clothes are real fabric with soft natural creases at the waist and where the gilet folds.")
-NO_BADGES = "The boat has no badges, emblems, lettering or numbers anywhere."
+# Controle 8 okt (como_a-8): een geëtst merkteken met letters op het glas van de voorruit.
+NO_BADGES = ("The boat has no badges, emblems, lettering or numbers anywhere; the glass of its windscreen is completely "
+             "clean and clear, with no etched marks or lettering.")
 
 # ---------- Producten (media-ids uit higgsfield-media.json, productfoto's bekeken op 8 okt) ----------
 NOBILE = dict(refs=["1b62527d-d857-4a1c-91e3-8f5899a41e99", "647b6ea6-c23b-4fa4-995e-98e483d1a55d",
@@ -213,9 +218,10 @@ def como_b(job_a, side="right"):
 def mocha_a(job_b):
     parts = [
         "A close detail from the same scene as reference image #1: the same armchair, the same warm lamp light, the same "
-        "clothes. The camera is close beside the armchair and frames only his right forearm resting along the cognac leather "
-        "armrest with his relaxed bare hand hanging over its end, the sleeve of the dark mocha knit jacket with its two thin "
-        "cream stripes running down to the ribbed cuff, and the side of the jacket beside it. His face is not in the picture. "
+        "clothes. The camera is close beside the armchair and frames only his right forearm and his relaxed bare hand resting "
+        "on his thigh, as in reference image #1: the sleeve of the dark mocha knit jacket with its cream stripes running down "
+        "to the plain ribbed cuff, the side of the jacket and the knit trousers beside it, the cognac leather of the armchair "
+        "soft behind. His face is not in the picture. "
         "The warm lamp light rakes across the knit and shows every stitch and the soft halo of the cashmere fibres; behind, "
         "the dark window with the blurred warm lights of the city.",
         "The pieces are these ModernoMilano pieces, reproduced exactly as in the reference images:\n" + MOCHA["text"],
@@ -242,6 +248,119 @@ def reverse(video, last_frame):
     return req(parts, [last_frame, prod["refs"][2]])
 
 
+# ---------- Video (Seedance 2.5, model.json rules.video; lessen in README.md) ----------
+PRESET_DECLINE = "24bae836-2c4a-48e0-89b6-49fcc0b21612"
+# Goedgekeurde startbeelden (controle 8 okt). Como A is een bijsnede van job afc686cd (zonder het merkteken op de ruit).
+START_IMG = {
+    "como_a": "304515f9-5388-4a7b-a8c2-5f06eb77a44d",
+    "como_b": "7292b98e-3543-489b-88e2-727ac10f9835",
+    "antracite_a": "6f98f485-59f7-4e29-a5a0-baf6c7789207",
+    "blu_a": "b3851105-101c-41c6-9e16-ad4e5ad5abf2",
+    "mocha_a": None,  # na de controle van het detail
+    "mocha_b": None,  # bijsnede van job 7782c3c1
+}
+LOCKED = ("The shot opens exactly on the start frame, with the same framing, background, head angle and closed lips. ")
+SHOT = {
+    # 1. Il lago. A: meevaren naast de boot. B: camera vast op de boot, logo de laatste 2 s.
+    "como_a": dict(dur=4, face=True, take="one continuous take from the camera boat.",
+        motion=("The old mahogany motor launch glides slowly forward to the right across the calm lake. The camera travels "
+                "alongside on a second boat at the same speed, so he stays in the same place in the frame while the water "
+                "streams past the hull and the far shore and the village drift slowly to the left behind him. He stands at "
+                "the windscreen, his left forearm resting on its chrome frame and his right hand in his trouser pocket, "
+                "looking ahead along the lake to the right of the frame; the breeze gently lifts a few strands of his hair. "
+                "He takes one slow breath and keeps looking ahead, calm, until the end of the shot."),
+        clothes=("the black sleeveless knit gilet stays zipped halfway over the black long-sleeve knit polo for the whole "
+                 "shot, its ribbed armholes at his shoulders"),
+        still="The lake stays calm around the boat."),
+    "como_b": dict(dur=5, face=True, take="one continuous take from the camera fixed on the boat.",
+        motion=(LOCKED + "The camera is mounted on the boat and stays perfectly still relative to him, while the glittering "
+                "lake and the soft mountains slide slowly past behind him from right to left. He keeps looking ahead over "
+                "the water to the right of the frame, and the breeze moves his hair a little. With a slow breath he lowers "
+                "his eyes slightly towards the water, and by the third second he is still; for the last two seconds he "
+                "stays calm, only breathing softly."),
+        clothes="the black sleeveless knit gilet stays zipped halfway over the black long-sleeve knit polo for the whole shot",
+        still="The lake stays calm and empty around the boat."),
+    # 2. Pioggia. A: de camera schuift iets naar links, de zuil glijdt verder uit beeld. B: vaste camera, gilet omgekeerd.
+    "antracite_a": dict(dur=4, face=True, take="one continuous take on a slow dolly.",
+        motion=("The camera glides slowly a little to the left, so the soft pillar at the right edge of the frame slides "
+                "further out of the picture, then the camera settles. He stands at the edge of the arcade with both hands "
+                "in his trouser pockets, looking out at the rain over the street; a steady rain falls in fine silver lines "
+                "beyond the arcade and ripples the puddles on the street. He slowly lifts his chin and eyes a little towards "
+                "the falling rain, then holds that look, calm and still, until the end of the shot."),
+        clothes=("the sleeveless gilet stays dark anthracite outside, light pearl grey only inside the collar and along the "
+                 "open front edges, over the dark anthracite T-shirt"),
+        still="The arcade stays empty and quiet around him."),
+    "antracite_b": dict(dur=5, face=True, take="one continuous take from the fixed camera.",
+        motion=(LOCKED + "The camera is locked off on a tripod and stays perfectly still for the whole shot. He keeps "
+                "standing at the edge of the arcade with both hands in his trouser pockets, his gaze on the rain over the "
+                "street. With a slow breath he gently lowers his chin and eyes a little to the wet street, and by the third "
+                "second he is still; for the last two seconds he stays calm, only breathing softly. The rain keeps falling "
+                "steadily beyond the arcade."),
+        clothes=("the sleeveless gilet stays light pearl grey outside, dark anthracite only inside the collar and along the "
+                 "open front edges, over the dark anthracite T-shirt, which hangs loose and untucked at the same length "
+                 "throughout"),
+        still="The arcade stays empty and quiet around him."),
+    # 3. Giardino. A: hij trekt de rits een stukje verder op en steekt de hand in zijn zak. B: vaste camera, crème buiten.
+    "blu_a": dict(dur=4, face=True, take="one continuous take on a slow dolly.",
+        motion=("He slowly pulls the silver zip of the navy gilet up a little further, to just below his collarbone, so "
+                "the stand collar stays open with its cream inside; then he lets go and slides that hand into his trouser "
+                "pocket and looks down the length of the pool. The camera pushes in slowly a few centimetres, then settles; "
+                "for the last second he holds still, calm."),
+        clothes=("the sleeveless gilet stays deep navy outside, cream only inside the collar and along the open front "
+                 "edges, over the cream T-shirt"),
+        still="The garden stays quiet; the water of the pool barely moves."),
+    "blu_b": dict(dur=5, face=True, take="one continuous take from the fixed camera.",
+        motion=(LOCKED + "The camera is locked off on a tripod and stays perfectly still for the whole shot. He keeps "
+                "standing at the end of the pool with both hands in his trouser pockets, looking down the length of the "
+                "pool. A light breeze stirs the magnolia leaves and soft reflections ripple on the water. With a slow breath "
+                "he lifts his chin slightly, and by the third second he is still; for the last two seconds he stays calm, "
+                "only breathing softly."),
+        clothes=("the sleeveless gilet stays cream outside, deep navy only inside the collar and along the open front "
+                 "edges, over the cream T-shirt, which hangs loose and untucked at the same length throughout"),
+        still="The garden stays quiet around him."),
+    # 4. Sera. A: macro van mouw en hand, zonder gezicht. B: vaste camera in de fauteuil, logo de laatste 2 s.
+    "mocha_a": dict(dur=4, face=False, take="one continuous take with a macro lens.",
+        motion=("A close detail shot of his forearm and hand resting on his thigh. The camera pushes in very slowly towards "
+                "his hand and the cuff, then settles, while the warm lamp light rakes across the knit. His fingers relax "
+                "and move slightly once, then rest. The frame stays on his forearm, hand and the knit for the whole shot."),
+        clothes=("the dark mocha knit sleeve keeps its two cream stripes straight and continuous down to the ribbed cuff"),
+        still="The city lights stay soft and blurred behind the glass."),
+    "mocha_b": dict(dur=5, face=True, take="one continuous take from the fixed camera.",
+        motion=(LOCKED + "The camera is locked off on a tripod and stays perfectly still for the whole shot. He sits back "
+                "in the cognac leather armchair by the window, his right hand resting on his thigh, looking out of the "
+                "window at the city. With a slow breath he settles a little deeper into the chair and lifts his chin "
+                "slightly towards the window, and by the third second he is still; for the last two seconds he stays calm, "
+                "only breathing softly. The small city lights twinkle softly far behind the glass."),
+        clothes=("the dark mocha hooded knit jacket stays half zipped over the white T-shirt, its cream stripes running down "
+                 "the sleeves"),
+        still="The room stays quiet and still around him."),
+}
+
+
+def video(shot, start=None):
+    c = SHOT[shot]
+    start = start or START_IMG.get(shot)
+    faces = [r["upscale_job_id"] for r in HF["face_refs"] if any(r["file"].endswith(f"/{x}.jpg") for x in HF["video_face_refs"])]
+    who = ("He is the man in the start frame and in the reference images; use the reference images only for his face and "
+           "hair. He keeps the same face, hair and clothes throughout: " if c["face"] else
+           "He keeps the same clothes throughout: ")
+    prompt = (f"{c['motion']} Small, natural movement. {who}{c['clothes']}. "
+              + ("His face stays clear, his wrists bare. " if c["face"] else "His hand and wrist stay bare. ")
+              + f"{c['still']} Real-time motion with natural motion blur, {c['take']}")
+    medias = [{"role": "start_image", "value": start}]
+    if c["face"]:
+        medias += [{"role": "image_references", "value": f} for f in faces]
+    return {"model": "seedance_2_5", "mode": "omni_reference", "resolution": "480p", "draft": True, "bitrate_mode": "high",
+            "duration": c["dur"], "aspect_ratio": "9:16", "generate_audio": False, "prompt": prompt, "medias": medias,
+            "declined_preset_id": PRESET_DECLINE}
+
+
+def final(shot, start, draft_job):
+    p = video(shot, start)
+    p.update(resolution="1080p", draft=False, draft_job_id=draft_job)
+    return p
+
+
 if __name__ == "__main__":
     cmd, args = sys.argv[1], sys.argv[2:]
     if cmd == "starts":
@@ -251,6 +370,12 @@ if __name__ == "__main__":
         out = [{"index": v, "params": f(*args)} for v in range(2)]
     elif cmd == "reverse":
         out = reverse(args[0], args[1])
+    elif cmd == "draft":
+        out = video(*args)
+    elif cmd == "final":
+        out = final(*args)
+    elif cmd == "prompts":
+        out = {k: video(k, START_IMG.get(k) or "<start>") for k in SHOT}
     else:
         raise SystemExit(__doc__)
     print(json.dumps(out, ensure_ascii=False))
