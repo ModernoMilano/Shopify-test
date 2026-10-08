@@ -55,3 +55,17 @@ Het detail in snede 4 is een uitsnede uit startbeeld B (4K). Er is geen extra be
 - 22 voor 8 stills;
 - 24 voor 2 concepten;
 - 96 voor het afmaken van 2 clips in 1080p.
+
+## Reel 2: "Total Bordeaux", één snede (in de maak)
+
+Wens van de eigenaar (8 oktober), na de proefreel:
+- de vele snedes zagen er slecht uit;
+- dezelfde video, maar zonder tekst, met alleen het logo (`brand/assets/logo-moderno-milano.png`) klein in het midden in de laatste 2 seconden;
+- de MILANO REVERSO SET TOTAL BORDEAUX;
+- één snede naar de andere kant van de bodywarmer.
+
+Budget afgesproken: maximaal ongeveer 180 credits.
+
+- **Opzet:** `reel_tb.py`. Shot A (5 s) heeft de bordeaux kant buiten. Het laatste frame van A wordt, met alleen het gilet omgekeerd, het startbeeld van shot B (5 s). Zo valt de snede op de beweging en begint de video niet opnieuw.
+- **Regel van de eigenaar voor de Reverso-gilets:** de binnenkleur is alleen te zien binnen in de kraag en langs de open voorkant, **niet bij de armsgaten**. Het moet toch duidelijk een bodywarmer blijven. Bij bordeaux op bordeaux lukt dat met diepe armsgaten binnen het schouderpunt: de schoudernaad en de mouw van de tee zijn zichtbaar, met een schaduwlijn en verschil in stof. Een crème bies of band bij de armen las als een streep op een jasje met korte mouwen; dat waren rondes 1 tot 3, die door de controle werden afgekeurd.
+- **Startbeeld A:** ronde 4, Y0 (`66db5823-11ca-4cb1-a1dc-b23e82aff434`), door de eigenaar goedgekeurd ("perfect zo").
