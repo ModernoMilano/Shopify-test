@@ -7,27 +7,99 @@
     "element_id": "4c170ca1-19b2-49db-b217-d1c6e0b543e7",
     "element_name": "modernomilano-model",
     "element_placeholder": "<<<4c170ca1-19b2-49db-b217-d1c6e0b543e7>>>",
-    "element_image_models": ["nano_banana_pro", "nano_banana_2", "gpt_image_2", "seedream_v4_5", "seedream_v5_lite", "cinematic_studio_2_5"],
-    "element_video_models": ["seedance_2_0", "cinematic_studio_3_0", "cinematic_studio_video_v2", "kling3_0 (alleen met start_image)"],
+    "element_image_models": [
+      "nano_banana_pro",
+      "nano_banana_2",
+      "gpt_image_2",
+      "seedream_v4_5",
+      "seedream_v5_lite",
+      "cinematic_studio_2_5"
+    ],
+    "element_video_models": [
+      "seedance_2_0",
+      "cinematic_studio_3_0",
+      "cinematic_studio_video_v2",
+      "kling3_0 (alleen met start_image)"
+    ],
     "soul_id": "9047016d-76a7-454b-bc9b-c2268778f00a",
     "soul_type": "soul_2",
-    "soul_models": ["soul_2", "soul_cinematic"],
-    "face_refs": [
-      { "file": "creative-engine/brand/assets/model/ref-1.jpg", "media_id": "987017a9-586e-4841-9a41-4abb89b6a4e1", "upscale_job_id": "603d494f-d72d-4f7c-a2f6-c21d3b445030", "view": "vooraanzicht, zittend op een dak in Milaan" },
-      { "file": "creative-engine/brand/assets/model/ref-2.jpg", "media_id": "73e7f568-d388-48d6-8c73-499819c985b3", "upscale_job_id": "1e5c3fed-e12a-4845-94dd-0b2d40a39ead", "view": "close-up, driekwart, Navigli (haar hier anders gekamd)" },
-      { "file": "creative-engine/brand/assets/model/ref-3.jpg", "media_id": "c9e16fbb-8591-4f0f-8ff6-fa59524b2835", "upscale_job_id": "5a634776-6cf2-4866-aa7d-fd477bfa56fe", "view": "van achteren/opzij, kijkt omlaag; ware haarkleur" },
-      { "file": "creative-engine/brand/assets/model/ref-4.jpg", "media_id": "7ce9828b-f9e8-4fba-8aa6-34fb1c80ea32", "upscale_job_id": "0eda0253-6087-4aa8-8daa-2b5f2c6d3b51", "view": "driekwart, lopend op een brug" }
+    "soul_models": [
+      "soul_2",
+      "soul_cinematic"
     ],
-    "element_sources": ["603d494f-d72d-4f7c-a2f6-c21d3b445030", "0eda0253-6087-4aa8-8daa-2b5f2c6d3b51", "1e5c3fed-e12a-4845-94dd-0b2d40a39ead"],
+    "face_refs": [
+      {
+        "file": "creative-engine/brand/assets/model/ref-1.jpg",
+        "media_id": "987017a9-586e-4841-9a41-4abb89b6a4e1",
+        "upscale_job_id": "603d494f-d72d-4f7c-a2f6-c21d3b445030",
+        "view": "vooraanzicht, zittend op een dak in Milaan"
+      },
+      {
+        "file": "creative-engine/brand/assets/model/ref-2.jpg",
+        "media_id": "73e7f568-d388-48d6-8c73-499819c985b3",
+        "upscale_job_id": "1e5c3fed-e12a-4845-94dd-0b2d40a39ead",
+        "view": "close-up, driekwart, Navigli (haar hier anders gekamd)"
+      },
+      {
+        "file": "creative-engine/brand/assets/model/ref-3.jpg",
+        "media_id": "c9e16fbb-8591-4f0f-8ff6-fa59524b2835",
+        "upscale_job_id": "5a634776-6cf2-4866-aa7d-fd477bfa56fe",
+        "view": "van achteren/opzij, kijkt omlaag; ware haarkleur"
+      },
+      {
+        "file": "creative-engine/brand/assets/model/ref-4.jpg",
+        "media_id": "7ce9828b-f9e8-4fba-8aa6-34fb1c80ea32",
+        "upscale_job_id": "0eda0253-6087-4aa8-8daa-2b5f2c6d3b51",
+        "view": "driekwart, lopend op een brug"
+      }
+    ],
+    "element_sources": [
+      "603d494f-d72d-4f7c-a2f6-c21d3b445030",
+      "0eda0253-6087-4aa8-8daa-2b5f2c6d3b51",
+      "1e5c3fed-e12a-4845-94dd-0b2d40a39ead"
+    ],
     "bank": [
-      { "job_id": "04204c1e-2242-4e57-aa7e-0941d177c8d3", "view": "vooraanzicht, wit T-shirt, kalkwand", "in_soul": true },
-      { "job_id": "cd868f19-c434-4686-baee-aa6e5bd9fcf8", "view": "driekwart links", "in_soul": false, "why": "haar bijna zwart, gezicht harder" },
-      { "job_id": "b6a3a2ca-694e-47fd-b13e-d9f1bffa542c", "view": "driekwart rechts, bewolkte straat", "in_soul": true },
-      { "job_id": "de085085-5196-46c1-a6e3-b8675dbcc58e", "view": "profiel", "in_soul": true },
-      { "job_id": "ef2945b3-ddf0-4749-b181-f1110184a540", "view": "halflang, lamplicht, navy polo", "in_soul": true },
-      { "job_id": "043ef6e7-bda4-4b0d-be06-2f81c672e2d0", "view": "van boven, espresso", "in_soul": true },
-      { "job_id": "dad1c61b-b7a8-4570-a770-3d2ced4c05ca", "view": "zijkant, Navigli, bewolkt", "in_soul": true },
-      { "job_id": "50025959-b326-4752-b427-7a50bd0e777b", "view": "close-up, dak, laag zonlicht", "in_soul": true }
+      {
+        "job_id": "04204c1e-2242-4e57-aa7e-0941d177c8d3",
+        "view": "vooraanzicht, wit T-shirt, kalkwand",
+        "in_soul": true
+      },
+      {
+        "job_id": "cd868f19-c434-4686-baee-aa6e5bd9fcf8",
+        "view": "driekwart links",
+        "in_soul": false,
+        "why": "haar bijna zwart, gezicht harder"
+      },
+      {
+        "job_id": "b6a3a2ca-694e-47fd-b13e-d9f1bffa542c",
+        "view": "driekwart rechts, bewolkte straat",
+        "in_soul": true
+      },
+      {
+        "job_id": "de085085-5196-46c1-a6e3-b8675dbcc58e",
+        "view": "profiel",
+        "in_soul": true
+      },
+      {
+        "job_id": "ef2945b3-ddf0-4749-b181-f1110184a540",
+        "view": "halflang, lamplicht, navy polo",
+        "in_soul": true
+      },
+      {
+        "job_id": "043ef6e7-bda4-4b0d-be06-2f81c672e2d0",
+        "view": "van boven, espresso",
+        "in_soul": true
+      },
+      {
+        "job_id": "dad1c61b-b7a8-4570-a770-3d2ced4c05ca",
+        "view": "zijkant, Navigli, bewolkt",
+        "in_soul": true
+      },
+      {
+        "job_id": "50025959-b326-4752-b427-7a50bd0e777b",
+        "view": "close-up, dak, laag zonlicht",
+        "in_soul": true
+      }
     ]
   },
   "prompt": {
@@ -51,8 +123,8 @@
   },
   "rules": {
     "image_model_with_products": "nano_banana_pro, resolution 4k, aspect 4:5, element placeholder in the prompt, product photos as image_references (max 4 per shot)",
-    "image_model_portrait": "soul_2 with soul_id, quality 2k, aspect 3:4 (crop to 4:5), max 1 product image",
-    "video": "image-to-video from an approved still: seedance_2_0, 5 s, 1080p, start_image = approved still job_id, element placeholder in the prompt; small natural movement, no full head turns",
+    "image_model_portrait": "soul_2 with soul_id, quality 2k, aspect 3:4, WITHOUT product images: a media with role 'image' is used as the base image and Soul simply re-renders that product photo without him (tested 8 Oct 2026). Text-only clothing on Soul gives realistic skin but a weaker face match and approximate garments, so use the element route as the default and Soul only for quick, cheap face-led mood shots.",
+    "video": "image-to-video from an approved still with kling3_0 (mode pro, sound off, 5 s, aspect 9:16 with a 9:16 start frame, about 8.75 credits) and the element placeholder in the prompt; seedance_2_0 std 1080p gives the same route at about 45 credits (720p about 22.5). Small natural movement, no full head turns.",
     "batch_max": 12,
     "face_min_px": 500,
     "qa": "Every picture with a face next to the reference images: is it the same man? If not, reject it."
