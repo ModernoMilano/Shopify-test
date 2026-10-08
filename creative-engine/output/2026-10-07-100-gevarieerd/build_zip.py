@@ -20,29 +20,21 @@ def heal(g, cx, cy, rx, ry, pad=80, seed=7):
     f=f+noise[...,None]; soft=(np.asarray(m.filter(ImageFilter.GaussianBlur(6))).astype(np.float32)/255)[...,None]
     a[y0:y1,x0:x1]=win*(1-soft)+f*soft
     return Image.fromarray(np.clip(a,0,255).astype(np.uint8))
-def border(g, cap=0.12):
-    """Hoeveel px per kant (t, b, l, r) bij een filmrand hoort, ook met afgeronde hoeken.
-    Randkleur = de kleur in de uiterste hoeken (bijna zwart of bijna wit). Een rij/kolom telt als rand
-    zolang er aan een van beide uiteinden een aaneengesloten stuk van minstens 3 px in die kleur zit."""
+def border(g, cap=0.035):
+    """Filmrand per kant (t, b, l, r) in px. Alleen een kant waarvan de buitenste 3 lijnen voor minstens 60%
+    bijna zwart (<22) of bijna wit (>246) zijn telt als rand; dan naar binnen tot die kleur onder 1% van de
+    lijn zakt (zo gaan ook golvende, afgeronde filmhoeken mee), maximaal cap van de afmeting, plus 6 px."""
     a=np.asarray(g.convert('L')).astype(np.int16); h,w=a.shape
-    corners=[a[:6,:6],a[:6,-6:],a[-6:,:6],a[-6:,-6:]]
-    dark=sum(c.mean()<30 for c in corners); light=sum(c.mean()>232 for c in corners)
-    if max(dark,light)<2: return 0,0,0,0
-    m=(a<34) if dark>=light else (a>226)
-    def ends(line):
-        n=len(line); l=0
-        while l<n and line[l]: l+=1
-        r=0
-        while r<n and line[n-1-r]: r+=1
-        return l>=3 or r>=3
-    def depth(lines, n):
-        k=0; lim=int(n*cap)
-        while k<lim and ends(lines(k)): k+=1
-        return k if k<lim else 0
-    t=depth(lambda i:m[i],h); b=depth(lambda i:m[h-1-i],h)
-    l=depth(lambda i:m[:,i],w); r=depth(lambda i:m[:,w-1-i],w)
-    pad=lambda k:k+4 if k else 0
-    return pad(t),pad(b),pad(l),pad(r)
+    out=[]
+    for get,n in [(lambda i:a[i],h),(lambda i:a[h-1-i],h),(lambda i:a[:,i],w),(lambda i:a[:,w-1-i],w)]:
+        k=0
+        for m in (lambda x:x<22, lambda x:x>246):
+            if min(m(get(j)).mean() for j in range(3))>=0.6:
+                lim=int(n*cap); k=0
+                while k<lim and m(get(k)).mean()>=0.01: k+=1
+                k+=6; break
+        out.append(k)
+    return tuple(out)
 def fit(g,x0,y0,x1,y1,W,H):
     cw,ch=x1-x0,y1-y0
     if cw/ch>W/H: nw=round(ch*W/H); x0+=(cw-nw)//2; x1=x0+nw
@@ -62,8 +54,6 @@ for line in open('final100.tsv', encoding='utf-8'):
         before=g.resize((150,186))
         g=fit(g,l,t,W-r,H-b,W,H); log.append(f'{i}: rand t{t} b{b} l{l} r{r}')
         cropped.append((i,before,g.resize((150,186))))
-    left=border(g)
-    if any(left): log.append(f'{i}: NA HET BIJSNIJDEN NOG RAND {left}')
     g.save(f'{DIR}/{n:03d} {title}.jpg',quality=95); thumbs.append(g.resize((150,186)))
 grid=Image.new('RGB',(1500,1860),'white')
 for k,t in enumerate(thumbs): grid.paste(t,((k%10)*150,(k//10)*186))
