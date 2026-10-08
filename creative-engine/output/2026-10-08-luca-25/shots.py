@@ -356,6 +356,11 @@ V["V05"]["fix"] = ("Both of his wrists are bare. Under the jacket only the plain
                    "The black cashmere joggers have an elasticated waistband with a black drawstring tied at the front, no fly and no front seam, and ribbed ankle cuffs.")
 
 
+# Startbeeld video 5: V05d, bovenste 200 px eraf (9:16 behouden), geüpload als 0d3d7e84-b2d9-4a32-b7ea-e44df834443a.
+V["V05"]["motion"] = ("He walks slowly down the last three steps towards the camera, his arms swinging naturally; the camera glides backwards "
+                      "at chest height and keeps the same framing, from the T-shirt collar down to his feet; the staircase stays the same from the first frame to the last.")
+
+
 def video(i, start_job):
     """Kling 3.0 image-to-video vanaf een goedgekeurd 9:16-startbeeld (model.json rules.video)."""
     v = V[i]
