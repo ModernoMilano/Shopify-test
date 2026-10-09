@@ -10,11 +10,12 @@ Wat Seedance 2.5 doet (gemeten 9 okt op alle clips van Total Bordeaux en Il lago
 Samen met de trage beweging leest dat als "laggy slow motion" (eigenaar, 9 okt).
 
 Wat dit script doet: per stap de beweging meten met optische flow (DIS), die beweging gelijkmatig over de tijd verdelen
-(Gauss-gladmaken van de snelheid, het begin en eind blijven gelijk) en elk nieuw frame op zijn tijdstip maken uit de twee
-frames eromheen, met optische flow. Daarna elk frame middelen met zijn twee buren, die eerst met optische flow op dat frame
-worden gelegd (waar de uitlijning niet klopt telt de buur minder): dat haalt het pulseren om de 4 frames en het "koken" van
-breisel weg in stille stukken, zonder beweging uit te smeren. Tot slot de helderheid per frame gladmaken. Aantal frames,
-lengte en 24 fps blijven gelijk, dus de montage hoeft niet te veranderen. Geen korrel en geen LUT.
+(Gauss-gladmaken van de snelheid, het begin en eind blijven gelijk) en elk nieuw frame op zijn tijdstip maken door het
+dichtstbijzijnde echte frame met optische flow op volle grootte op zijn plek te schuiven (bicubisch). Twee frames mengen
+gebeurt niet: dat maakte de tussenbeelden zachter dan de echte en gaf een "ademende" scherpte (controle 9 okt). Ook het
+middelen met de buren is eruit: dat kostte de helft van het fijne detail (rits, haar) voor een pulseren van 0,36 grijswaarde
+dat niemand ziet. Tot slot de helderheid per frame gladmaken. Aantal frames, lengte en 24 fps blijven gelijk, dus de montage
+hoeft niet te veranderen. Geen korrel en geen LUT.
 """
 import os, subprocess, sys, tempfile
 import cv2
@@ -52,16 +53,16 @@ def flow(a, b, scale=0.5):
     return f
 
 
-def interp(a, b, f_small, t):
-    """Frame op tijd t (0..1) tussen a en b; f_small = flow a->b op halve grootte."""
+def interp(a, b, f, t):
+    """Frame op tijd t (0..1) tussen a en b: het dichtstbijzijnde frame, met flow f (a->b, volle grootte) op zijn plek
+    geschoven. Eén frame verschuiven houdt het detail; twee mengen maakt het zacht."""
     h, w = a.shape[:2]
-    f = cv2.resize(f_small, (w, h), interpolation=cv2.INTER_LINEAR) * (w / f_small.shape[1])
     gx, gy = np.meshgrid(np.arange(w, dtype=np.float32), np.arange(h, dtype=np.float32))
-    t = np.float32(t)
-    wa = cv2.remap(a, gx - t * f[..., 0], gy - t * f[..., 1], cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
-    wb = cv2.remap(b, gx + (1 - t) * f[..., 0], gy + (1 - t) * f[..., 1], cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
-    t = float(t)
-    return cv2.addWeighted(wa, 1 - t, wb, t, 0)
+    if t <= 0.5:
+        src, k = a, np.float32(-t)
+    else:
+        src, k = b, np.float32(1 - t)
+    return cv2.remap(src, gx + k * f[..., 0], gy + k * f[..., 1], cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
 
 
 def steps(frames):
@@ -89,34 +90,9 @@ def retime(frames, m):
         else:
             if i not in cache:
                 cache.clear()
-                cache[i] = flow(frames[i], frames[i + 1])
+                cache[i] = flow(frames[i], frames[i + 1], scale=1.0)
             out.append(interp(frames[i], frames[i + 1], cache[i], t))
     return out, tau
-
-
-def temporal(frames, err_scale=8.0):
-    """Gewogen gemiddelde 1/4, 1/2, 1/4 van de vorige, deze en de volgende frame, de buren uitgelijnd met optische flow."""
-    n = len(frames)
-    if n < 3:
-        return frames
-    h, w = frames[0].shape[:2]
-    gx, gy = np.meshgrid(np.arange(w, dtype=np.float32), np.arange(h, dtype=np.float32))
-    out = [frames[0]]
-    for k in range(1, n - 1):
-        c = frames[k].astype(np.float32)
-        acc, wsum = c * 0.5, np.full((h, w), 0.5, np.float32)
-        for j in (k - 1, k + 1):
-            f = flow(frames[k], frames[j])
-            f = cv2.resize(f, (w, h), interpolation=cv2.INTER_LINEAR) * (w / f.shape[1])
-            warped = cv2.remap(frames[j], gx + f[..., 0], gy + f[..., 1], cv2.INTER_LINEAR,
-                               borderMode=cv2.BORDER_REPLICATE).astype(np.float32)
-            err = np.abs(warped - c).mean(-1)
-            wj = 0.25 * np.exp(-(err / err_scale) ** 2)
-            acc += warped * wj[..., None]
-            wsum += wj
-        out.append(np.clip(np.rint(acc / wsum[..., None]), 0, 255).astype(np.uint8))
-    out.append(frames[-1])
-    return out
 
 
 def deflicker(frames, s=4.0, min_gain=0.002):
@@ -150,7 +126,6 @@ def process(src, dst, show=False):
     fr = read(src)
     m = steps(fr)
     out, tau = retime(fr, m)
-    out = temporal(out)
     out, lum, target = deflicker(out)
     write(out, dst)
     if show:
