@@ -24,8 +24,9 @@ de laatste 30 dagen bank), `geld_nu` en `kasprognose`. Elke vraag gebruikt het C
 Een brede check van het hele merk, live via je Claude-connectors:
 
 - **Brand check**: totaalscore en pijlers (winst na ads, ads-efficiëntie, groei, conversie, retouren, terugkerende klanten, levering), KPI's met vergelijking met de vorige periode, en een lijst "Wat nu" gesorteerd op geschatte impact per maand.
-- **Ads**: Meta per ad via Windsor.ai (`get_fields` om te zien welke velden er zijn, anders basisvelden plus losse optionele groepen). Oordeel per ad: Schalen, Verversen, Houden, Kijken, Stoppen of Te vroeg, op basis van break-even en doel-ROAS. Signalen: hoge frequentie, dalende CTR, zwakke hook, klikt wel maar koopt niet.
-- **Angles & copy**: prestaties per angle (automatisch uit naam en tekst, door Claude in te delen, of zelf per ad te kiezen), per primaire tekst, headline en video tegenover beeld.
+- **Ads overzicht**: KPI's, wat valt op, 90 dagen spend/ROAS/CPA/CTR/CPM, Meta-funnel van vertoning tot aankoop, campagnes met dagbudget en status, advertentiesets, markt en campagnetype.
+- **Per ad**: Meta via Windsor.ai (tien losse, geaggregeerde `get_data`-vragen: ads, vorige periode, teksten en status, copy, dagcijfers, leeftijd en geslacht, landen, plaatsingen, campagnes, sets). Oordeel per ad: Schalen, Verversen, Houden, Kijken, Stoppen of Te vroeg, op basis van break-even en doel-ROAS. Signalen: hoge frequentie, dalende CTR, zwakke hook, klikt wel maar koopt niet.
+- **Creatives & copy**: prestaties per angle, per creative (alle kopieën samen), per landingspagina, per formaat en knop; plus **Doelgroep** (leeftijd × geslacht, landen, plaatsingen). Angles (automatisch uit naam en tekst, door Claude in te delen, of zelf per ad te kiezen), per primaire tekst, headline en video tegenover beeld.
 - **Producten**, **Funnel & site**, **Klanten & markten** (incl. PayPal-disputes), **Actielijst** (gedeeld, in de artifact-database) en **Advies** (Claude met een samenvatting van alle cijfers, capability `sample`).
 - **Instellingen**: inkoop %, verzendkosten per order, betaalkosten en gewenste winst. Btw-aandeel, retour-aandeel en orderwaarde komen live uit Shopify.
 

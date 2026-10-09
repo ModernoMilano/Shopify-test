@@ -176,7 +176,7 @@ details summary{cursor:pointer;color:var(--text-2)}
    ============================================================ */
 const SHOP = "Shopify", WIN = "Windsor.ai", PP = "PayPal";
 const LABEL = { [SHOP]: "Shopify", [WIN]: "Meta (Windsor.ai)", [PP]: "PayPal" };
-const TABS = [["check", "Brand check"], ["ads", "Ads"], ["angles", "Angles & copy"], ["products", "Producten"], ["funnel", "Funnel & site"], ["markets", "Klanten & markten"], ["todo", "Actielijst"], ["advice", "Advies"], ["settings", "Instellingen"]];
+const TABS = [["check", "Brand check"], ["ads", "Ads overzicht"], ["adlist", "Per ad"], ["angles", "Creatives & copy"], ["audience", "Doelgroep"], ["products", "Producten"], ["funnel", "Funnel & site"], ["markets", "Klanten & markten"], ["todo", "Actielijst"], ["advice", "Advies"], ["settings", "Instellingen"]];
 const RANGES = [7, 14, 30, 60];
 const DEFAULTS = { cogsPct: 30, shipPerOrder: 8, feePct: 3, targetProfitPct: 15, minSpendFactor: 1, cogsByProduct: {} };
 
@@ -186,9 +186,9 @@ const S = {
   settings: { ...DEFAULTS },
   angles: {}, actions: [],
   shop: { status: "wacht", err: null, at: null, q: {} },
-  meta: { status: "wacht", err: null, at: null, rows: [], fields: [], notes: [] },
+  meta: { status: "wacht", err: null, at: null, q: {} },
   pp: { status: "wacht", err: null, disputes: null },
-  sort: {}, adFilter: { q: "", verdict: "", market: "", type: "" },
+  sort: {}, adFilter: { q: "", verdict: "", market: "", type: "", status: "active" },
   chat: [], chatBusy: false, angleBusy: false,
 };
 try { const t = localStorage.getItem("bc.tab"); if (t && TABS.some((x) => x[0] === t)) S.tab = t; const r = Number(localStorage.getItem("bc.range")); if (RANGES.includes(r)) S.range = r; } catch {}
@@ -307,80 +307,44 @@ async function loadShop(force) {
   render();
 }
 
-/* ---------- Meta via Windsor.ai ---------- */
-const WANT = {
-  id: ["ad_id"], ad: ["ad_name"], adset: ["adset_name"], campaign: ["campaign", "campaign_name"], date: ["date"],
-  spend: ["spend"], impr: ["impressions"], clicks: ["clicks"], link: ["link_clicks", "inline_link_clicks", "actions_link_click"], reach: ["reach"], freq: ["frequency"],
-  pur: ["actions_purchase", "actions_offsite_conversion_fb_pixel_purchase", "actions_omni_purchase"],
-  val: ["action_values_purchase", "action_values_offsite_conversion_fb_pixel_purchase", "action_values_omni_purchase"],
-  lpv: ["actions_landing_page_view"], atc: ["actions_add_to_cart", "actions_offsite_conversion_fb_pixel_add_to_cart", "actions_omni_add_to_cart"],
-  ic: ["actions_initiate_checkout", "actions_offsite_conversion_fb_pixel_initiate_checkout", "actions_omni_initiated_checkout"],
-  v3: ["actions_video_view", "video_3_sec_watched_actions"], thru: ["video_thruplay_watched_actions", "actions_video_thruplay"], p100: ["video_p100_watched_actions"],
-  body: ["body", "ad_creative_body", "creative_body", "ad_body"], title: ["title", "ad_creative_title", "creative_title", "ad_title"],
-};
-const CORE = ["date", "campaign", "adset_name", "ad_name", "spend", "impressions", "clicks", "actions_purchase", "action_values_purchase", "frequency"];
-const OPTIONAL_GROUPS = [["ad_id"], ["inline_link_clicks"], ["actions_landing_page_view", "actions_add_to_cart", "actions_initiate_checkout"], ["actions_video_view", "video_thruplay_watched_actions"], ["body", "title"]];
-
-function collectNames(x, out, depth = 0) {
-  if (depth > 6 || x == null) return;
-  if (typeof x === "string") { for (const t of x.split(/[\s,;"'`|()\[\]{}:]+/)) if (/^[a-z][a-z0-9_]{1,80}$/.test(t)) out.add(t); return; }
-  if (Array.isArray(x)) { for (const v of x) collectNames(v, out, depth + 1); return; }
-  if (typeof x === "object") for (const [k, v] of Object.entries(x)) { if (/^(id|name|field|field_id|key)$/.test(k) && typeof v === "string") out.add(v); else collectNames(v, out, depth + 1); }
+/* ---------- Meta via Windsor.ai ----------
+   Veldnamen gecontroleerd met get_fields voor connector "facebook". Elke sectie is een aparte, geaggregeerde
+   vraag (geen dagrijen per ad), zodat de antwoorden klein blijven. Faalt één sectie, dan werkt de rest gewoon. */
+const MET = ["spend", "impressions", "reach", "frequency", "clicks", "actions_link_click", "actions_landing_page_view", "actions_add_to_cart", "actions_initiate_checkout", "actions_purchase", "action_values_purchase"];
+const MET_S = ["spend", "impressions", "actions_link_click", "actions_add_to_cart", "actions_initiate_checkout", "actions_purchase", "action_values_purchase"];
+function metaRanges() { const t = today(); return { cur: [addDays(t, -(S.range - 1)), t], prev: [addDays(t, -(2 * S.range - 1)), addDays(t, -S.range)], d90: [addDays(t, -89), t] }; }
+function metaQueries() {
+  const R = metaRanges(), pos = [["spend", "gt", 0]];
+  return {
+    ads: { fields: ["ad_id", "ad_name", "adset_name", "campaign", ...MET, "actions_video_view", "video_thruplay_watched_actions_video_view"], range: R.cur, filters: pos },
+    adsPrev: { fields: ["ad_id", ...MET], range: R.prev, filters: pos },
+    cre: { fields: ["ad_id", "body", "title", "call_to_action_type", "link", "effective_status", "ad_created_time", "quality_ranking", "engagement_rate_ranking", "conversion_rate_ranking", "ad_preview_shareable_link", "spend"], range: R.cur, filters: pos },
+    copy: { fields: ["body", "title", ...MET_S], range: R.cur, filters: pos },
+    daily: { fields: ["date", ...MET], range: R.d90 },
+    demo: { fields: ["age", "gender", ...MET_S], range: R.cur },
+    country: { fields: ["country", ...MET_S], range: R.cur, filters: pos },
+    place: { fields: ["publisher_platform", "platform_position", ...MET_S], range: R.cur, filters: pos },
+    camps: { fields: ["campaign", "campaign_daily_budget", "campaign_effective_status", "campaign_objective", ...MET], range: R.cur, filters: pos },
+    adsets: { fields: ["campaign", "adset_name", "adset_daily_budget", "adset_effective_status", ...MET], range: R.cur, filters: pos },
+  };
 }
-function pickFields(avail) {
-  const map = {}, fields = new Set(["date"]);
-  for (const [k, cands] of Object.entries(WANT)) { const f = cands.find((c) => avail.has(c)); if (f) { map[k] = f; fields.add(f); } }
-  return { map, fields: [...fields] };
-}
-function metaRange() { const to = today(); return { from: addDays(to, -(S.range * 2 - 1)), to }; }
-async function windsor(fields, force) {
-  const { from, to } = metaRange();
-  const r = await call(WIN, "get_data", { connector: "facebook", fields, date_from: from, date_to: to }, { cache: force ? { refresh: true, staleTime: 300000, gcTime: 3600000 } : { staleTime: 300000, gcTime: 3600000 } });
+async function windsor(q, force) {
+  const input = { connector: "facebook", fields: q.fields, date_from: q.range[0], date_to: q.range[1] };
+  if (q.filters) input.filters = q.filters;
+  const r = await call(WIN, "get_data", input, { cache: force ? { refresh: true, staleTime: 300000, gcTime: 3600000 } : { staleTime: 300000, gcTime: 3600000 } });
   const p = jsonOf(r, (x) => Array.isArray(x) || Array.isArray(x.result) || Array.isArray(x.data));
   if (!p) throw { code: "tool_error", message: "onverwacht antwoord van Windsor.ai" };
   return { list: Array.isArray(p) ? p : p.result || p.data, at: (r.cache && r.cache.storedAt) || Date.now() };
 }
+async function pool(items, n, fn) { let i = 0; await Promise.all(Array.from({ length: n }, async () => { while (i < items.length) await fn(items[i++]); })); }
+const META_PART = { ads: "ads", adsPrev: "vorige periode", cre: "teksten en status", copy: "copy", daily: "dagcijfers", demo: "leeftijd en geslacht", country: "landen", place: "plaatsingen", camps: "campagnes", adsets: "advertentiesets" };
 async function loadMeta(force) {
   S.meta.status = "laden"; renderStrip();
-  const notes = [];
-  try {
-    let map = null, fields = null;
-    try {
-      const r = await call(WIN, "get_fields", { connector: "facebook" }, { cache: { staleTime: 300000, gcTime: 86400000 } });
-      const names = new Set(); collectNames(r.payload ?? r.structuredContent ?? (r.content || []).map((b) => b.text), names);
-      if (names.has("spend") && names.has("ad_name")) ({ map, fields } = pickFields(names));
-    } catch { /* geen veldenlijst: val terug op losse verzoeken */ }
-    let rows = [], at = 0;
-    if (map) {
-      try { const x = await windsor(fields, force); rows = x.list; at = x.at; }
-      catch (e) { notes.push("Uitgebreide velden gaven een fout, basisvelden gebruikt."); map = null; }
-    }
-    if (!map) {
-      map = { date: "date", campaign: "campaign", adset: "adset_name", ad: "ad_name", spend: "spend", impr: "impressions", clicks: "clicks", pur: "actions_purchase", val: "action_values_purchase", freq: "frequency" };
-      const base = await windsor(CORE, force); rows = base.list; at = base.at;
-      const key = (x) => [x.date, x.campaign, x.adset_name, x.ad_name].join("|");
-      const idx = new Map(rows.map((x) => [key(x), x]));
-      for (const g of OPTIONAL_GROUPS) {
-        try {
-          const extra = await windsor(["date", "campaign", "adset_name", "ad_name", ...g], force);
-          let hit = 0;
-          for (const x of extra.list) { const t = idx.get(key(x)); if (t) { for (const f of g) if (x[f] != null) { t[f] = x[f]; hit++; } } }
-          if (hit) for (const f of g) for (const [k, cands] of Object.entries(WANT)) if (cands.includes(f) && !map[k]) map[k] = f;
-        } catch { notes.push(`Niet beschikbaar in Windsor: ${g.join(", ")}`); }
-      }
-    }
-    const M = map;
-    S.meta.rows = rows.map((x) => ({
-      date: String(x[M.date] || "").slice(0, 10), campaign: String(x[M.campaign] || "onbekend"), adset: String(x[M.adset] || ""), ad: String(x[M.ad] || "onbekend"),
-      id: M.id ? String(x[M.id] || "") : "", spend: num(x[M.spend]), impr: num(x[M.impr]), clicks: num(x[M.clicks]), link: M.link ? num(x[M.link]) : null,
-      freq: M.freq && x[M.freq] != null ? num(x[M.freq]) : null, pur: num(x[M.pur]), val: num(x[M.val]),
-      lpv: M.lpv ? num(x[M.lpv]) : null, atc: M.atc ? num(x[M.atc]) : null, ic: M.ic ? num(x[M.ic]) : null,
-      v3: M.v3 ? num(x[M.v3]) : null, thru: M.thru ? num(x[M.thru]) : null,
-      body: M.body ? String(x[M.body] || "") : "", title: M.title ? String(x[M.title] || "") : "",
-    })).filter((x) => /^\d{4}-\d{2}-\d{2}$/.test(x.date) && (x.spend > 0 || x.impr > 0));
-    S.meta.fields = Object.keys(M); S.meta.notes = notes;
-    S.meta.status = "ok"; S.meta.err = null; S.meta.at = at;
-  } catch (e) { S.meta.status = "fout"; S.meta.err = errText(e, WIN); }
+  const qs = metaQueries(), out = {}, errs = []; let at = 0;
+  await pool(Object.keys(qs), 4, async (k) => { try { const x = await windsor(qs[k], force); out[k] = x.list; at = Math.max(at, x.at); } catch (e) { errs.push([k, e]); } });
+  if (!out.ads) { const e = (errs.find((x) => x[0] === "ads") || errs[0] || [])[1]; S.meta.status = "fout"; S.meta.err = errText(e, WIN); render(); return; }
+  S.meta.q = out; S.meta.status = "ok"; S.meta.at = at;
+  S.meta.err = errs.length ? `niet geladen: ${errs.map((x) => META_PART[x[0]]).join(", ")}` : null;
   render();
 }
 
@@ -432,96 +396,114 @@ function econ() {
 const MARKETS = [[/\bUK\b|UK\+IE|\bIE\b|\bGB\b/, "UK/IE"], [/\bDEU?\b|\bAT\b|\bDACH\b|GERMAN/, "DE/AT"], [/\bUSA?\b|\bUS\b/, "USA"], [/SWIS|SWISS|\bCH\b/, "CH"], [/WORLDWIDE|\bWW\b/, "Worldwide"], [/\bNL\b|BENELUX/, "NL"]];
 const marketOf = (c) => { const u = String(c).toUpperCase(); for (const [re, m] of MARKETS) if (re.test(u)) return m; return "Overig"; };
 const typeOf = (c, s) => { const u = (c + " " + s).toUpperCase(); if (/RETARG|\bRT\b|REMARK/.test(u)) return "Retargeting"; if (/TEST|\bABO\b/.test(u)) return "Testen"; if (/LAL|LOOKALIKE/.test(u)) return "Lookalike"; if (/SCAL|CBO|ADVANTAGE|ASC/.test(u)) return "Schalen"; return "Overig"; };
+// Volgorde telt: de eerste regel die past wint. Afgestemd op de teksten in het account (bundels, sale, cashmere, tijdloos).
 const ANGLE_RULES = [
+  [/\d+\s?% ?off|half price|on sale|now on sale|\bsale\b|save \d|save €|korting|rabatt|angebot|up to \d+%/i, "Korting & sale"],
+  [/ugc|review|testimonial|customer|klant|kunde|★|stars|sterren/i, "Social proof & UGC"],
+  [/unboxing|packaging|boxed|delivered properly|verpakking/i, "Unboxing & verpakking"],
+  [/bundle|matching|matched|complete look|one outfit|full outfit|buying looks|more pieces|one price|the set|paired|zero effort|bundel/i, "Bundel & complete look"],
+  [/travel|tracksuit|wherever|lounge|comfort|move with you|reis|reise/i, "Comfort & reizen"],
+  [/bestseller|best seller|jacket|studio/i, "Bestseller product"],
+  [/cashmere|kaschmir|kasjmier|autumn|winter|cold|herbst/i, "Cashmere & seizoen"],
+  [/timeless|quiet|not loud|the standard|milan|italian|refined|modern essence|zeitlos|elegan|swatches|craftsmanship/i, "Tijdloos & Italiaans"],
   [/gift|cadeau|geschenk|christmas|kerst|weihnacht|black friday/i, "Cadeau & seizoen"],
-  [/review|ugc|testimonial|customer|klant|kunde|★|stars|sterren/i, "Social proof"],
-  [/sale|% ?off|korting|rabatt|deal|free shipping|gratis|bogo|bundle|save/i, "Aanbieding & bundel"],
-  [/old money|quiet luxury|luxury|luxe|lusso|elegan|exclusive|imperial/i, "Quiet luxury"],
-  [/travel|voyage|airport|reis|reise|flight|vacation/i, "Reizen"],
-  [/lounge|comfort|cozy|cosy|home|relax|weekend/i, "Comfort & lounge"],
-  [/cashmere|kasjmier|kaschmir|soft|zacht|weich|knit|gebreid/i, "Cashmere & materiaal"],
-  [/fit|tailored|outfit|look|style|stijl|matching|set/i, "Stijl & fit"],
 ];
 function autoAngle(a) { const t = `${a.ad} ${a.body} ${a.title}`; for (const [re, n] of ANGLE_RULES) if (re.test(t)) return n; return "Niet herkend"; }
-const adKey = (r) => r.id || `${r.campaign}|${r.adset}|${r.ad}`;
-
-function blank(extra) { return { spend: 0, impr: 0, clicks: 0, link: 0, hasLink: false, pur: 0, val: 0, lpv: 0, atc: 0, ic: 0, v3: 0, thru: 0, hasFunnel: false, hasVideo: false, freqW: 0, ...extra }; }
-function addRow(a, r) {
-  a.spend += r.spend; a.impr += r.impr; a.clicks += r.clicks; a.pur += r.pur; a.val += r.val;
-  if (r.link != null) { a.link += r.link; a.hasLink = true; }
-  if (r.atc != null) { a.lpv += r.lpv || 0; a.atc += r.atc; a.ic += r.ic || 0; a.hasFunnel = true; }
-  if (r.v3 != null) { a.v3 += r.v3; a.thru += r.thru || 0; a.hasVideo = true; }
-  if (r.freq != null) a.freqW += r.freq * r.impr;
+const conceptOf = (name) => String(name || "").replace(/(\s*-\s*copy(\s*\d+)?)+\s*$/i, "").trim() || "(geen naam)";
+function destOf(link) {
+  if (!link) return "(catalogus of dynamisch)";
+  try { const u = new URL(link); return (u.pathname.replace(/\/$/, "") || "/") + (u.searchParams.get("discounts_code") || u.searchParams.get("discount") ? " (met code)" : ""); } catch { return String(link).slice(0, 60); }
 }
+function formatOf(a) {
+  if (/\{\{product/.test(a.title) || /catalog/i.test(a.ad)) return "Catalogus";
+  if (a.v3 > a.impr * 0.02 || /video|reel|\bvid\b/i.test(a.ad)) return "Video";
+  return "Beeld";
+}
+const RANK = { ABOVE_AVERAGE: ["boven gem.", "good"], AVERAGE: ["gemiddeld", "mute"], BELOW_AVERAGE_35: ["onderste 35%", "warn"], BELOW_AVERAGE_20: ["onderste 20%", "neg"], BELOW_AVERAGE_10: ["onderste 10%", "neg"] };
+const STATUS = { ACTIVE: ["Actief", "good"], PAUSED: ["Gepauzeerd", "mute"], CAMPAIGN_PAUSED: ["Campagne uit", "mute"], ADSET_PAUSED: ["Set uit", "mute"], DISAPPROVED: ["Afgekeurd", "neg"], WITH_ISSUES: ["Probleem", "neg"], IN_PROCESS: ["In behandeling", "info"], PENDING_REVIEW: ["In review", "info"] };
+
+const SUMF = ["spend", "impr", "reach", "clicks", "link", "lpv", "atc", "ic", "pur", "val", "v3", "thru", "freqW"];
+function blank(extra) { const o = {}; for (const f of SUMF) o[f] = 0; return Object.assign(o, extra); }
+function metricsOf(r) {
+  return { spend: num(r.spend), impr: num(r.impressions), reach: num(r.reach), clicks: num(r.clicks), link: num(r.actions_link_click), lpv: num(r.actions_landing_page_view), atc: num(r.actions_add_to_cart), ic: num(r.actions_initiate_checkout), pur: num(r.actions_purchase), val: num(r.action_values_purchase), v3: num(r.actions_video_view), thru: num(r.video_thruplay_watched_actions_video_view), freqW: num(r.frequency) * num(r.impressions) };
+}
+function addInto(a, m) { for (const f of SUMF) a[f] += m[f] || 0; return a; }
 function derive(a, E) {
-  a.roas = div(a.val, a.spend); a.cpa = div(a.spend, a.pur); a.ctr = div(a.hasLink ? a.link : a.clicks, a.impr); a.cpc = div(a.spend, a.hasLink ? a.link : a.clicks);
-  a.cpm = div(a.spend * 1000, a.impr); a.freq = a.impr ? a.freqW / a.impr : NaN; a.cvr = div(a.pur, a.hasLink ? a.link : a.clicks);
-  a.atcRate = a.hasFunnel ? div(a.atc, a.hasLink ? a.link : a.clicks) : NaN; a.hook = a.hasVideo ? div(a.v3, a.impr) : NaN; a.hold = a.hasVideo ? div(a.thru, a.v3) : NaN;
+  const cl = a.link || a.clicks;
+  a.roas = div(a.val, a.spend); a.cpa = div(a.spend, a.pur); a.ctr = div(cl, a.impr); a.cpc = div(a.spend, cl); a.cpm = div(a.spend * 1000, a.impr);
+  a.freq = a.impr && a.freqW ? a.freqW / a.impr : NaN; a.lpvRate = div(a.lpv, a.link); a.atcRate = div(a.atc, cl); a.icRate = div(a.ic, a.atc); a.purRate = div(a.pur, a.ic); a.cvr = div(a.pur, cl);
+  a.hook = a.v3 ? div(a.v3, a.impr) : NaN; a.hold = a.v3 ? div(a.thru, a.v3) : NaN; a.aov = div(a.val, a.pur);
   a.profit = a.val * E.contrib - a.spend;
   return a;
 }
 function verdict(a, prev, E, med) {
   const minSpend = E.beCpa * S.settings.minSpendFactor;
   const flags = [];
-  if (a.freq > 3.5) flags.push(["Hoge frequentie", "warn"]);
+  if (a.freq > 3) flags.push(["Hoge frequentie", "warn"]);
   if (prev && prev.impr > 1500 && a.impr > 1500 && a.ctr < prev.ctr * 0.75) flags.push(["CTR daalt", "warn"]);
+  if (prev && prev.spend > minSpend && a.spend > minSpend && a.roas < prev.roas * 0.7) flags.push(["ROAS zakt", "warn"]);
   if (Number.isFinite(a.hook) && a.hook < 0.2 && a.impr > 2000) flags.push(["Zwakke hook", "neg"]);
   if (a.ctr >= med.ctr && a.pur === 0 && a.spend > minSpend) flags.push(["Klikt wel, koopt niet", "warn"]);
   if (a.ctr < med.ctr * 0.7 && a.impr > 2000) flags.push(["Lage CTR", "neg"]);
+  if (a.atcRate < 0.04 && a.link > 300) flags.push(["Weinig in winkelwagen", "warn"]);
+  for (const r of a.rank || []) if (/BELOW/.test(r || "")) { flags.push(["Kwaliteit onder gemiddeld", "neg"]); break; }
   let v;
   if (a.spend < minSpend && a.pur < 2) v = ["Te vroeg", "mute", "Nog te weinig spend om te oordelen."];
-  else if (a.roas >= E.target && a.pur >= 3) v = ["Schalen", "good", "Boven je doel-ROAS. Budget +20% per 2 dagen of dupliceer naar schalen."];
-  else if (a.roas >= E.be) v = ["Houden", "info", "Winstgevend, maar onder doel. Laten lopen, nieuwe hook testen."];
-  else if (a.spend >= 2 * minSpend || (a.spend >= minSpend && a.pur === 0)) v = ["Stoppen", "neg", "Verliest geld boven break-even. Uitzetten."];
+  else if (a.roas >= E.target && a.pur >= 3) v = ["Schalen", "good", "Boven je doel-ROAS. Budget +20% per 2 dagen, of dupliceer naar een schaalcampagne."];
+  else if (a.roas >= E.be) v = ["Houden", "info", "Winstgevend, onder doel. Laten lopen en een nieuwe hook testen."];
+  else if (a.spend >= 2 * minSpend || (a.spend >= minSpend && a.pur === 0)) v = ["Stoppen", "neg", "Verliest geld onder break-even. Uitzetten."];
   else v = ["Kijken", "warn", "Onder break-even. Nog één budgetcyclus, dan beslissen."];
-  if (v[0] === "Schalen" && flags.some((f) => f[0] === "Hoge frequentie" || f[0] === "CTR daalt")) v = ["Verversen", "warn", "Wint, maar raakt moe. Maak varianten van deze ad voordat hij inzakt."];
+  if (v[0] === "Schalen" && flags.some((f) => ["Hoge frequentie", "CTR daalt", "ROAS zakt"].includes(f[0]))) v = ["Verversen", "warn", "Wint, maar raakt moe. Maak varianten met dezelfde angle en een nieuwe eerste seconde."];
   return { v, flags };
 }
 function median(arr) { const a = arr.filter(Number.isFinite).sort((x, y) => x - y); return a.length ? a[Math.floor(a.length / 2)] : NaN; }
-
+function groupRows(rows, keyFn, E, extra) {
+  const g = new Map();
+  for (const r of rows || []) { const k = keyFn(r); if (k == null) continue; if (!g.has(k)) g.set(k, blank({ key: k, n: 0, ...(extra ? extra(r) : {}) })); const x = g.get(k); x.n++; addInto(x, metricsOf(r)); }
+  return [...g.values()].map((x) => derive(x, E)).sort((a, b) => b.spend - a.spend);
+}
 function adModel() {
   if (S.meta.status !== "ok") return null;
-  const E = econ(), t = today(), cur = addDays(t, -(S.range - 1)), prevFrom = addDays(t, -(2 * S.range - 1));
-  const ads = new Map(), prev = new Map(), byDay = new Map();
-  for (const r of S.meta.rows) {
-    const k = adKey(r);
-    if (r.date >= cur) {
-      if (!ads.has(k)) ads.set(k, blank({ key: k, ad: r.ad, adset: r.adset, campaign: r.campaign, body: "", title: "" }));
-      const a = ads.get(k); addRow(a, r); if (r.body) a.body = r.body; if (r.title) a.title = r.title;
-      const d = byDay.get(r.date) || { spend: 0, val: 0, pur: 0 }; d.spend += r.spend; d.val += r.val; d.pur += r.pur; byDay.set(r.date, d);
-    } else if (r.date >= prevFrom) {
-      if (!prev.has(k)) prev.set(k, blank({}));
-      addRow(prev.get(k), r);
-    }
-  }
-  const list = [...ads.values()].map((a) => derive(a, E));
-  for (const p of prev.values()) derive(p, E);
+  const E = econ(), q = S.meta.q;
+  const cre = new Map();
+  for (const r of (q.cre || []).slice().sort((a, b) => num(b.spend) - num(a.spend))) if (!cre.has(r.ad_id)) cre.set(r.ad_id, r);
+  const prev = new Map(); for (const r of q.adsPrev || []) prev.set(r.ad_id, derive(addInto(blank({}), metricsOf(r)), E));
+  const list = (q.ads || []).map((r) => {
+    const c = cre.get(r.ad_id) || {};
+    return derive(addInto(blank({ key: r.ad_id || r.ad_name, id: r.ad_id || "", ad: r.ad_name || "onbekend", adset: r.adset_name || "", campaign: r.campaign || "onbekend", body: c.body || "", title: c.title || "", cta: c.call_to_action_type || "", url: c.link || "", status: c.effective_status || "", created: c.ad_created_time || "", rank: [c.quality_ranking, c.engagement_rate_ranking, c.conversion_rate_ranking], preview: c.ad_preview_shareable_link || "" }), metricsOf(r)), E);
+  });
+  const tot = derive(list.reduce((s, a) => addInto(s, a), blank({})), E);
+  const prevTot = derive([...prev.values()].reduce((s, a) => addInto(s, a), blank({})), E);
   const med = { ctr: median(list.filter((a) => a.impr > 1000).map((a) => a.ctr)) };
   for (const a of list) {
-    const p = prev.get(a.key);
-    a.prev = p || null;
-    const { v, flags } = verdict(a, p, E, med); a.verdict = v; a.flags = flags;
+    a.prev = prev.get(a.id) || null;
+    const { v, flags } = verdict(a, a.prev, E, med); a.verdict = v; a.flags = flags;
     a.market = marketOf(a.campaign + " " + a.adset); a.type = typeOf(a.campaign, a.adset);
-    a.format = a.hasVideo ? (a.v3 > 0 ? "Video" : "Beeld") : "Onbekend";
+    a.format = formatOf(a); a.concept = conceptOf(a.ad); a.dest = destOf(a.url);
+    a.ageDays = a.created ? Math.max(0, Math.round((Date.now() - new Date(a.created).getTime()) / 864e5)) : NaN;
     const manual = S.angles[a.key] || S.angles[a.ad];
     a.angle = manual || autoAngle(a); a.angleAuto = !manual;
   }
   list.sort((x, y) => y.spend - x.spend);
-  const tot = derive(list.reduce((s, a) => { for (const f of ["spend", "impr", "clicks", "link", "pur", "val", "lpv", "atc", "ic", "v3", "thru", "freqW"]) s[f] += a[f]; s.hasLink ||= a.hasLink; s.hasFunnel ||= a.hasFunnel; s.hasVideo ||= a.hasVideo; return s; }, blank({})), E);
-  const prevTot = derive([...prev.values()].reduce((s, a) => { for (const f of ["spend", "impr", "clicks", "link", "pur", "val", "freqW"]) s[f] += a[f]; s.hasLink ||= a.hasLink; return s; }, blank({})), E);
-  return { E, list, tot, prevTot, byDay, med };
+  const byDay = new Map((q.daily || []).map((r) => [String(r.date).slice(0, 10), derive(addInto(blank({}), metricsOf(r)), E)]));
+  const camps = groupRows(q.camps, (r) => r.campaign || "onbekend", E, (r) => ({ budget: r.campaign_daily_budget != null ? num(r.campaign_daily_budget) / 100 : null, status: r.campaign_effective_status || "", objective: r.campaign_objective || "" }));
+  const adsets = groupRows(q.adsets, (r) => (r.campaign || "") + " › " + (r.adset_name || ""), E, (r) => ({ campaign: r.campaign || "", adset: r.adset_name || "", budget: r.adset_daily_budget != null ? num(r.adset_daily_budget) / 100 : null, status: r.adset_effective_status || "" }));
+  for (const c of camps) { if (c.budget == null) { const s = adsets.filter((x) => x.campaign === c.key && x.status === "ACTIVE" && x.budget); if (s.length) { c.budget = sum(s, (x) => x.budget); c.abo = true; } } c.market = marketOf(c.key); c.type = typeOf(c.key, ""); }
+  return { E, list, tot, prevTot, byDay, med, camps, adsets };
 }
 function groupAds(list, keyFn, E) {
   const g = new Map();
   for (const a of list) {
     const k = keyFn(a); if (k == null || k === "") continue;
     if (!g.has(k)) g.set(k, blank({ key: k, n: 0, ads: [] }));
-    const x = g.get(k); x.n++; x.ads.push(a);
-    for (const f of ["spend", "impr", "clicks", "link", "pur", "val", "lpv", "atc", "ic", "v3", "thru", "freqW"]) x[f] += a[f];
-    x.hasLink ||= a.hasLink; x.hasFunnel ||= a.hasFunnel; x.hasVideo ||= a.hasVideo;
+    const x = g.get(k); x.n++; x.ads.push(a); addInto(x, a);
   }
   return [...g.values()].map((x) => derive(x, E)).sort((a, b) => b.spend - a.spend);
 }
+const PLACE = { feed: "Feed", facebook_reels: "Reels", instagram_reels: "Reels", instagram_stories: "Stories", facebook_stories: "Stories", facebook_reels_overlay: "Reels-overlay", instagram_explore_grid_home: "Explore", instagram_search: "Zoeken", search: "Zoeken", marketplace: "Marketplace", right_hand_column: "Rechterkolom", facebook_profile_feed: "Profiel-feed", facebook_notification: "Meldingen", instream_video: "In-stream video", threads_feed: "Feed", an_classic: "Klassiek", rewarded_video: "Beloningsvideo" };
+const PLAT = { facebook: "Facebook", instagram: "Instagram", threads: "Threads", audience_network: "Audience Network", messenger: "Messenger" };
+const placeName = (r) => `${PLAT[r.publisher_platform] || r.publisher_platform || "?"} ${PLACE[r.platform_position] || r.platform_position || ""}`.trim();
+const GENDER = { male: "Man", female: "Vrouw", unknown: "Onbekend" };
 
 function shopModel() {
   const q = S.shop.q; if (S.shop.status !== "ok") return null;
@@ -578,6 +560,15 @@ function suggestions() {
     if (clickNoBuy.length) out.push({ area: "Ads", title: `${clickNoBuy.length} ads trekken klikken maar geen kopers`, why: "De ad werkt, de landingspagina of het aanbod niet. Stuur ze naar de productpagina die het beste converteert, of laat de ad precies tonen wat de pagina belooft.", impact: NaN });
     const angles = groupAds(am.list, (a) => a.angle, E).filter((g) => g.spend > E.beCpa * 2);
     if (angles.length > 1) { const best = [...angles].sort((a, b) => b.roas - a.roas)[0], worst = [...angles].sort((a, b) => a.roas - b.roas)[0]; if (best.roas > worst.roas * 1.3) out.push({ area: "Angles", title: `Verschuif budget van "${worst.key}" naar "${best.key}"`, why: `"${best.key}" haalt ${times(best.roas)} ROAS, "${worst.key}" ${times(worst.roas)}. Maak 3 nieuwe ads in de winnende angle.`, impact: worst.spend * 0.5 * (best.roas - worst.roas) * E.contrib * m, unit: "extra winst" }); }
+    const q = S.meta.q;
+    const badC = groupRows(q.country, (r) => r.country, E).filter((x) => x.spend > E.beCpa * 3 && x.roas < E.be);
+    if (badC.length) out.push({ area: "Landen", title: `Minder budget naar ${badC.map((x) => x.key).join(", ")}`, why: `Deze landen blijven onder break-even (${badC.map((x) => `${x.key} ${times(x.roas)} op ${eur(x.spend)}`).join("; ")}). Sluit ze uit in de wereldwijde campagnes of geef ze een eigen campagne met lokale taal en prijzen.`, impact: -sum(badC, (x) => x.profit) * m * 0.6, unit: "minder verlies" });
+    const badP = groupRows(q.place, placeName, E).filter((x) => x.spend > E.beCpa * 1.5 && x.roas < E.be * 0.8);
+    if (badP.length) out.push({ area: "Plaatsingen", title: `Test zonder ${badP.map((x) => x.key).join(", ")}`, why: `${badP.map((x) => `${x.key}: ${times(x.roas)} op ${eur(x.spend)}`).join("; ")}. Sluit ze uit in één campagne en vergelijk na een week.`, impact: -sum(badP, (x) => Math.min(0, x.profit)) * m * 0.5, unit: "minder verlies" });
+    const scaleC = am.camps.filter((c) => c.status === "ACTIVE" && c.roas >= E.target && c.spend > E.beCpa * 3);
+    if (scaleC.length) out.push({ area: "Budget", title: `Verhoog budget van ${scaleC.map((c) => c.key).join(", ")}`, why: `${scaleC.map((c) => `${c.key}: ${times(c.roas)} ROAS, nu ${c.budget != null ? eur(c.budget) + " per dag" : "budget onbekend"}`).join("; ")}. Verhoog met 20% per 2 tot 3 dagen zolang de ROAS boven ${times(E.target)} blijft.`, impact: sum(scaleC, (c) => c.spend * 0.2 * (c.roas * 0.8 * E.contrib - 1)) * m, unit: "extra winst" });
+    const cutC = am.camps.filter((c) => c.status === "ACTIVE" && c.roas < E.be && c.spend > E.beCpa * 3);
+    if (cutC.length) out.push({ area: "Budget", title: `Verlaag of stop ${cutC.map((c) => c.key).join(", ")}`, why: `${cutC.map((c) => `${c.key}: ${times(c.roas)} ROAS op ${eur(c.spend)}`).join("; ")}. Zet de winnende ads uit deze campagne over naar een campagne die wel loont.`, impact: -sum(cutC, (c) => c.profit) * m * 0.7, unit: "minder verlies" });
   }
   if (sh) {
     const f = sh.F;
@@ -658,7 +649,7 @@ function renderTabs() {
 function render() {
   renderTabs(); renderStrip();
   const v = $("view"); const keep = v.querySelector("#chatInput")?.value;
-  const fn = { check: viewCheck, ads: viewAds, angles: viewAngles, products: viewProducts, funnel: viewFunnel, markets: viewMarkets, todo: viewTodo, advice: viewAdvice, settings: viewSettings }[S.tab];
+  const fn = { check: viewCheck, ads: viewAds, adlist: viewAdList, angles: viewAngles, audience: viewAudience, products: viewProducts, funnel: viewFunnel, markets: viewMarkets, todo: viewTodo, advice: viewAdvice, settings: viewSettings }[S.tab];
   v.innerHTML = fn();
   if (keep != null && $("chatInput")) $("chatInput").value = keep;
   const log = $("chatlog"); if (log) log.scrollTop = log.scrollHeight;
@@ -712,53 +703,149 @@ function sortList(list, tab, def) {
   return [...list].sort((a, b) => { const x = a[s.key], y = b[s.key]; if (typeof x === "string") return dir * String(x).localeCompare(String(y)); return dir * ((Number.isFinite(x) ? x : -Infinity) - (Number.isFinite(y) ? y : -Infinity)); });
 }
 const th = (tab, key, label, r = true) => `<th class="${r ? "r" : ""}" data-sort="${tab}:${key}">${esc(label)}${(S.sort[tab] || {}).key === key ? ((S.sort[tab].dir === "asc") ? " ↑" : " ↓") : ""}</th>`;
+const rcls = (v, E) => (!Number.isFinite(v) ? "" : v >= E.target ? "good" : v >= E.be ? "" : "neg");
+const roasTd = (g, E) => `<td class="r ${rcls(g.roas, E)}">${g.spend ? times(g.roas) : "–"}</td>`;
+const stPill = (s) => { const x = STATUS[s]; return x ? pill(x[0], x[1]) : s ? pill(s.toLowerCase(), "mute") : ""; };
+const metaRow = (g, E, opts = {}) => `<td class="r">${eur(g.spend)}</td>${roasTd(g, E)}<td class="r">${g.pur ? eur(g.cpa) : "–"}</td><td class="r">${int(g.pur)}</td><td class="r">${pct(g.ctr, 2)}</td><td class="r">${eur2(g.cpm)}</td>${opts.atc === false ? "" : `<td class="r">${pct(g.atcRate, 1)}</td>`}<td class="r ${g.profit >= 0 ? "good" : "neg"}">${eur(g.profit)}</td>`;
+const metaHead = (first, opts = {}) => `<tr><th>${esc(first)}</th><th class="r">Spend</th><th class="r">ROAS</th><th class="r">CPA</th><th class="r">Aank.</th><th class="r">CTR</th><th class="r">CPM</th>${opts.atc === false ? "" : '<th class="r">In wagen/klik</th>'}<th class="r">Winst*</th></tr>`;
+const winstNote = (E) => `<p class="note" style="margin-top:8px">*Winst = Meta-omzet × ${pct(E.contrib, 0)} (wat van elke euro overblijft na btw, retouren, inkoop, betaalkosten en verzending) min spend. Groen = boven doel-ROAS ${times(E.target)}, rood = onder break-even ${times(E.be)}.</p>`;
+
+function adInsights(am) {
+  const E = am.E, q = S.meta.q, out = [];
+  const camps = am.camps.filter((c) => c.spend > E.beCpa);
+  if (camps.length > 1) { const b = [...camps].sort((x, y) => y.roas - x.roas); out.push(["Beste campagne", `${b[0].key}: ${times(b[0].roas)} ROAS op ${eur(b[0].spend)}. Slechtste: ${b[b.length - 1].key} met ${times(b[b.length - 1].roas)}.`, "info"]); }
+  const below = am.list.filter((a) => a.roas < E.be && a.spend >= E.beCpa);
+  if (below.length) out.push(["Spend onder break-even", `${eur(sum(below, (a) => a.spend))} (${pct(div(sum(below, (a) => a.spend), am.tot.spend), 0)}) ging naar ${below.length} ads onder ${times(E.be)} ROAS.`, "neg"]);
+  const demo = groupRows(q.demo, (r) => r.gender, E);
+  const f = demo.find((x) => x.key === "female"), m = demo.find((x) => x.key === "male");
+  if (f && m && f.spend > 100) out.push(["Vrouwen in je doelgroep", `${eur(f.spend)} spend (${pct(div(f.spend, f.spend + m.spend), 0)}) op vrouwen met ${times(f.roas)} ROAS, tegen ${times(m.roas)} bij mannen.${f.roas < m.roas * 0.85 ? " Overweeg mannen-only voor koude doelgroepen; vrouwen kopen soms als cadeau, dus test dat eerst rond feestdagen." : ""}`, f.roas < E.be ? "warn" : "info"]);
+  const ages = groupRows((q.demo || []).filter((r) => r.age && r.age !== "Unknown"), (r) => r.age, E).filter((x) => x.spend > E.beCpa);
+  if (ages.length > 2) { const b = [...ages].sort((x, y) => y.roas - x.roas); out.push(["Leeftijd", `Beste ROAS bij ${b[0].key} (${times(b[0].roas)}), zwakste bij ${b[b.length - 1].key} (${times(b[b.length - 1].roas)}). De meeste spend gaat naar ${ages[0].key} (${pct(div(ages[0].spend, am.tot.spend), 0)}).`, "info"]); }
+  const cs = groupRows(q.country, (r) => r.country, E).filter((x) => x.spend > E.beCpa * 2);
+  const badC = cs.filter((x) => x.roas < E.be);
+  if (badC.length) out.push(["Landen onder break-even", badC.map((x) => `${x.key} ${times(x.roas)} (${eur(x.spend)})`).join(", ") + ".", "warn"]);
+  const goodC = cs.filter((x) => x.roas >= E.target && x.spend < am.tot.spend * 0.05);
+  if (goodC.length) out.push(["Landen met ruimte om te groeien", goodC.map((x) => `${x.key} ${times(x.roas)} op maar ${eur(x.spend)}`).join(", ") + ".", "good"]);
+  const pl = groupRows(q.place, placeName, E).filter((x) => x.spend > 100 && x.roas < E.be);
+  if (pl.length) out.push(["Plaatsingen onder break-even", pl.map((x) => `${x.key} ${times(x.roas)} (${eur(x.spend)})`).join(", ") + ".", "warn"]);
+  const fresh = am.list.filter((a) => a.ageDays <= 7 && a.status === "ACTIVE").length, active = am.list.filter((a) => a.status === "ACTIVE").length;
+  out.push(["Creatieve aanvoer", `${active} actieve ads met spend, waarvan ${fresh} in de laatste 7 dagen gelanceerd.${fresh < 3 ? " Lever elke week 3 tot 5 nieuwe creatives aan, anders raken je winnaars moe." : ""}`, fresh < 3 ? "warn" : "info"]);
+  const dis = am.list.filter((a) => a.status === "DISAPPROVED");
+  if (dis.length) out.push(["Afgekeurde ads", `${dis.length} ads zijn afgekeurd door Meta: ${dis.slice(0, 3).map((a) => a.ad).join(", ")}. Check in Ads Manager waarom; herhaalde afkeuring schaadt je account.`, "neg"]);
+  return out;
+}
+
 function viewAds() {
   const am = adModel(); if (!am) return metaWait();
-  const E = am.E, f = S.adFilter;
-  let list = am.list.filter((a) => (!f.q || `${a.ad} ${a.adset} ${a.campaign} ${a.angle}`.toLowerCase().includes(f.q.toLowerCase())) && (!f.verdict || a.verdict[0] === f.verdict) && (!f.market || a.market === f.market) && (!f.type || a.type === f.type));
-  list = sortList(list, "ads", { key: "spend", dir: "desc" });
-  const counts = {}; for (const a of am.list) counts[a.verdict[0]] = (counts[a.verdict[0]] || 0) + 1;
-  const vSpend = (v) => sum(am.list.filter((a) => a.verdict[0] === v), (a) => a.spend);
-  const opt = (arr, cur) => arr.map((x) => `<option ${x === cur ? "selected" : ""}>${esc(x)}</option>`).join("");
-  const markets = [...new Set(am.list.map((a) => a.market))], types = [...new Set(am.list.map((a) => a.type))];
+  const E = am.E, t = am.tot, p = am.prevTot, sh = shopModel();
+  const mer = sh ? div(sh.T.total, t.spend) : NaN;
   let h = `<section class="grid kpis">
-    ${kpi("Spend", eur(am.tot.spend), delta(am.tot.spend, am.prevTot.spend))}
-    ${kpi("ROAS (pixel)", times(am.tot.roas), delta(am.tot.roas, am.prevTot.roas), am.tot.roas >= E.be ? "" : "neg")}
-    ${kpi("CPA", eur(am.tot.cpa), `break-even CPA ${eur(E.beCpa)}`, am.tot.cpa <= E.beCpa ? "" : "neg")}
-    ${kpi("CTR", pct(am.tot.ctr, 2), delta(am.tot.ctr, am.prevTot.ctr))}
-    ${kpi("CPM", eur2(am.tot.cpm), delta(am.tot.cpm, am.prevTot.cpm, true))}
-    ${kpi("Frequentie", Number.isFinite(am.tot.freq) ? am.tot.freq.toFixed(2) : "–", "gewogen gemiddelde per dag")}
-  </section>
-  <section class="card"><h2>Oordeel per ad</h2><p class="lead">Break-even ROAS ${times(E.be)}, doel ${times(E.target)}, break-even CPA ${eur(E.beCpa)}. Een ad wordt pas beoordeeld na ${eur(E.beCpa * S.settings.minSpendFactor)} spend. Klik op een kolom om te sorteren.</p>
-  <div class="grid kpis" style="margin-bottom:12px">${[["Schalen", "good"], ["Verversen", "warn"], ["Houden", "info"], ["Kijken", "warn"], ["Stoppen", "neg"], ["Te vroeg", "mute"]].map(([v, c]) => `<button type="button" class="card kpi" data-verdict="${v}" style="text-align:left;cursor:pointer;${f.verdict === v ? "outline:2px solid var(--info)" : ""}"><div class="l">${pill(v, c)}</div><div class="v">${counts[v] || 0}</div><div class="s">${eur(vSpend(v))} spend</div></button>`).join("")}</div>
-  <div class="toolbar"><input class="input" id="adq" type="search" placeholder="Zoek ad, campagne of angle" value="${esc(f.q)}" style="flex:1 1 220px"><select class="input" id="admarket"><option value="">Alle markten</option>${opt(markets, f.market)}</select><select class="input" id="adtype"><option value="">Alle campagnetypes</option>${opt(types, f.type)}</select>${f.verdict ? `<button class="btn ghost small" type="button" data-verdict="">Toon alle oordelen</button>` : ""}<button class="btn ghost small" type="button" data-ask="Analyseer mijn Meta-ads: welke ads, angles en copy werken het best en waarom? Vergelijk de winnaars met de verliezers (hook, CTR, klik naar aankoop) en zeg per ad wat ik nu moet doen.">Laat Claude de ads analyseren</button></div>
-  <div class="scroll"><table><thead><tr>${th("ads", "ad", "Ad", false)}<th>Oordeel</th>${th("ads", "spend", "Spend")}${th("ads", "roas", "ROAS")}${th("ads", "cpa", "CPA")}${th("ads", "pur", "Aank.")}${th("ads", "ctr", "CTR")}${th("ads", "cpm", "CPM")}${am.tot.hasFunnel ? th("ads", "atcRate", "ATC/klik") : ""}${am.tot.hasVideo ? th("ads", "hook", "Hook") + th("ads", "hold", "Hold") : ""}${th("ads", "freq", "Freq.")}${th("ads", "profit", "Winst*")}</tr></thead><tbody>
-  ${list.map((a) => `<tr><td class="name"><b>${esc(a.ad)}</b><small>${esc(a.campaign)}${a.adset ? " · " + esc(a.adset) : ""}</small><small>${esc(a.market)} · ${esc(a.type)} · ${esc(a.format)} · <span title="${a.angleAuto ? "automatisch herkend" : "door jou gekozen"}">${esc(a.angle)}${a.angleAuto ? " (auto)" : ""}</span></small>${a.flags.map((x) => `<span class="badge ${x[1]}">${esc(x[0])}</span>`).join("")}</td><td>${pill(a.verdict[0], a.verdict[1])}<small class="note" style="display:block;max-width:200px;margin-top:3px">${esc(a.verdict[2])}</small></td><td class="r">${eur(a.spend)}</td><td class="r ${a.roas >= E.be ? "" : "neg"}">${times(a.roas)}</td><td class="r">${a.pur ? eur(a.cpa) : "–"}</td><td class="r">${int(a.pur)}</td><td class="r">${pct(a.ctr, 2)}${a.prev && Number.isFinite(a.prev.ctr) ? `<small class="note" style="display:block">was ${pct(a.prev.ctr, 2)}</small>` : ""}</td><td class="r">${eur2(a.cpm)}</td>${am.tot.hasFunnel ? `<td class="r">${pct(a.atcRate, 1)}</td>` : ""}${am.tot.hasVideo ? `<td class="r">${pct(a.hook, 0)}</td><td class="r">${pct(a.hold, 0)}</td>` : ""}<td class="r ${a.freq > 3.5 ? "warn" : ""}">${Number.isFinite(a.freq) ? a.freq.toFixed(2) : "–"}</td><td class="r ${a.profit >= 0 ? "good" : "neg"}">${eur(a.profit)}</td></tr>`).join("") || `<tr><td colspan="12" class="empty">Geen ads in dit filter.</td></tr>`}
-  </tbody></table></div><p class="note" style="margin-top:8px">*Winst = pixelomzet × wat er per euro overblijft na btw, retouren, inkoop, fees en verzending (${pct(E.contrib, 0)}) min spend. Hook = 3-seconden views / vertoningen, hold = ThruPlays / 3-seconden views.${S.meta.notes.length ? " " + esc(S.meta.notes.join(" ")) : ""}</p></section>`;
-  const camps = groupAds(am.list, (a) => a.campaign, E), mk = groupAds(am.list, (a) => a.market, E), ty = groupAds(am.list, (a) => a.type, E);
-  const gt = (rows, title, lead) => `<section class="card"><h2>${esc(title)}</h2>${lead ? `<p class="lead">${esc(lead)}</p>` : ""}<div class="scroll"><table><thead><tr><th>Naam</th><th class="r">Spend</th><th class="r">ROAS</th><th class="r">CPA</th><th class="r">Aank.</th><th class="r">CTR</th><th class="r">CPM</th><th class="r">Winst*</th></tr></thead><tbody>${rows.map((g) => `<tr><td>${esc(g.key)} <span class="muted">(${g.n})</span></td><td class="r">${eur(g.spend)}</td><td class="r ${g.roas >= E.be ? "" : "neg"}">${times(g.roas)}</td><td class="r">${g.pur ? eur(g.cpa) : "–"}</td><td class="r">${int(g.pur)}</td><td class="r">${pct(g.ctr, 2)}</td><td class="r">${eur2(g.cpm)}</td><td class="r ${g.profit >= 0 ? "good" : "neg"}">${eur(g.profit)}</td></tr>`).join("")}</tbody></table></div></section>`;
-  h += `<div class="grid two">${gt(mk, "Per markt", "Uit de campagnenaam: UK, DE, USA, CH, Worldwide.")}${gt(ty, "Per campagnetype", "Testen, schalen, lookalike en retargeting.")}</div>` + gt(camps, "Per campagne");
+    ${kpi("Spend", eur(t.spend), delta(t.spend, p.spend))}
+    ${kpi("Omzet volgens Meta", eur(t.val), delta(t.val, p.val))}
+    ${kpi("ROAS (Meta)", times(t.roas), delta(t.roas, p.roas), rcls(t.roas, E))}
+    ${kpi("MER (Shopify / Meta)", times(mer), "alle omzet gedeeld door spend", rcls(mer, E))}
+    ${kpi("Aankopen", int(t.pur), delta(t.pur, p.pur))}
+    ${kpi("CPA", eur(t.cpa), `break-even ${eur(E.beCpa)}`, t.cpa <= E.beCpa ? "" : "neg")}
+    ${kpi("CTR (link)", pct(t.ctr, 2), delta(t.ctr, p.ctr))}
+    ${kpi("CPM", eur2(t.cpm), delta(t.cpm, p.cpm, true))}
+    ${kpi("Frequentie", Number.isFinite(t.freq) ? t.freq.toFixed(2) : "–", "gemiddeld per ad, deze periode")}
+    ${kpi("Gem. orderwaarde (Meta)", eur(t.aov), delta(t.aov, p.aov))}
+  </section>`;
+  const ins = adInsights(am);
+  h += `<section class="card"><div class="row between"><div><h2>Wat valt op</h2><p class="lead">Automatisch uit je Meta-data van de laatste ${S.range} dagen.</p></div><button class="btn ghost small" type="button" data-ask="Analyseer mijn Meta-account als een senior media buyer: campagnestructuur, budgetverdeling, doelgroep, landen, plaatsingen en creatives. Wat moet ik deze week concreet veranderen, met welke budgetten?">Volledige analyse door Claude</button></div>${ins.map(([t2, x, c]) => `<div class="act"><span class="area">${pill(t2, c)}</span><div><p style="margin:0;color:var(--text)">${esc(x)}</p></div><span></span></div>`).join("")}</section>`;
+  const days = [...am.byDay.keys()].sort();
+  if (days.length) {
+    const roll = (i, f) => { const w = days.slice(Math.max(0, i - 6), i + 1).map((k) => am.byDay.get(k)); return f(w); };
+    const lbl = days.map((d) => d.slice(5).split("-").reverse().join("-"));
+    h += `<section class="card"><h2>Spend en ROAS per dag (90 dagen)</h2><p class="lead">ROAS als 7-daags gemiddelde, zodat losse dagen het beeld niet vertekenen. Rode lijn = break-even.</p>${lineChart(lbl, [
+      { name: "Spend", color: "var(--s2)", values: days.map((d) => am.byDay.get(d).spend), area: true },
+      { name: "ROAS (7 d)", color: "var(--s3)", right: true, values: days.map((_, i) => roll(i, (w) => div(sum(w, (x) => x.val), sum(w, (x) => x.spend)))) },
+    ], { fmt: eur, right: true, rfmt: times, refLine: E.be, refRight: true, refLabel: `break-even ${times(E.be)}`, label: "Spend en ROAS per dag" })}</section>
+    <div class="grid two"><section class="card"><h2>Kosten per aankoop (7 d)</h2>${lineChart(lbl, [{ name: "CPA", color: "var(--s1)", values: days.map((_, i) => roll(i, (w) => div(sum(w, (x) => x.spend), sum(w, (x) => x.pur)))) }], { fmt: eur, h: 190, refLine: E.beCpa, refLabel: `break-even ${eur(E.beCpa)}`, label: "CPA per dag" })}</section>
+    <section class="card"><h2>CTR en CPM (7 d)</h2>${lineChart(lbl, [{ name: "CPM", color: "var(--s4)", values: days.map((_, i) => roll(i, (w) => div(sum(w, (x) => x.spend) * 1000, sum(w, (x) => x.impr)))) }, { name: "CTR (link)", color: "var(--s6)", right: true, values: days.map((_, i) => roll(i, (w) => div(sum(w, (x) => x.link), sum(w, (x) => x.impr)))) }], { fmt: eur2, right: true, rfmt: (v) => pct(v, 2), h: 190, label: "CTR en CPM per dag" })}</section></div>`;
+  }
+  const step = (l, v, base, rate, prevRate, note) => `<div class="fstep"><span>${esc(l)}</span><span class="track"><i style="width:${clamp(Math.sqrt(div(v, base)) * 100, 0.6, 100)}%;background:var(--s2)"></i></span><span class="v">${int(v)} ${rate != null ? `<span class="muted">${pct(rate, rate < 0.1 ? 1 : 0)}${Number.isFinite(prevRate) ? ` · was ${pct(prevRate, prevRate < 0.1 ? 1 : 0)}` : ""}</span>` : ""}</span></div>${note ? `<p class="note" style="margin:0 0 4px 160px">${esc(note)}</p>` : ""}`;
+  h += `<section class="card"><h2>Van vertoning tot aankoop (Meta)</h2><p class="lead">Per stap het percentage van de stap ervoor, met de vorige periode erachter. De balk is op wortelschaal zodat de kleine stappen zichtbaar blijven.</p><div class="funnel">
+    ${step("Vertoningen", t.impr, t.impr)}
+    ${step("Linkklikken", t.link, t.impr, t.ctr, p.ctr)}
+    ${step("Pagina geladen", t.lpv, t.impr, t.lpvRate, p.lpvRate, t.lpvRate < 0.8 ? "Minder dan 80% van de klikken laadt de pagina: je site is te traag op mobiel." : "")}
+    ${step("In winkelwagen", t.atc, t.impr, div(t.atc, t.lpv), div(p.atc, p.lpv))}
+    ${step("Checkout gestart", t.ic, t.impr, t.icRate, p.icRate)}
+    ${step("Aankoop", t.pur, t.impr, t.purRate, p.purRate)}
+  </div><p class="note" style="margin-top:8px">Meta telt aankopen met zijn eigen attributie (standaard 7 dagen na klik, 1 dag na weergave). Shopify ziet daardoor vaak minder Meta-orders, of juist meer "direct".</p></section>`;
+  const camps = sortList(am.camps, "camps", { key: "spend", dir: "desc" });
+  const advice = (c) => c.status !== "ACTIVE" ? ["Uit", "mute"] : c.spend < E.beCpa ? ["Te vroeg", "mute"] : c.roas >= E.target ? ["Budget +20%", "good"] : c.roas >= E.be ? ["Laten lopen", "info"] : c.spend > E.beCpa * 3 ? ["Budget omlaag", "neg"] : ["Kijken", "warn"];
+  h += `<section class="card"><div class="row between"><div><h2>Campagnes</h2><p class="lead">Dagbudget zoals nu ingesteld in Meta (bij ABO de som van de actieve sets). Advies op basis van ROAS deze periode.</p></div></div><div class="scroll"><table><thead><tr>${th("camps", "key", "Campagne", false)}<th>Status</th>${th("camps", "budget", "Budget/dag")}${th("camps", "spend", "Spend")}${th("camps", "roas", "ROAS")}${th("camps", "cpa", "CPA")}${th("camps", "pur", "Aank.")}${th("camps", "ctr", "CTR")}${th("camps", "cpm", "CPM")}${th("camps", "freq", "Freq.")}${th("camps", "profit", "Winst*")}<th>Advies</th></tr></thead><tbody>
+    ${camps.map((c) => { const a = advice(c); return `<tr><td class="name"><b>${esc(c.key)}</b><small>${esc(c.market)} · ${esc(c.type)}${c.abo ? " · ABO" : ""}</small></td><td>${stPill(c.status)}</td><td class="r">${c.budget != null ? eur(c.budget) : "–"}</td><td class="r">${eur(c.spend)}<small class="note" style="display:block">${pct(div(c.spend, t.spend), 0)}</small></td>${roasTd(c, E)}<td class="r">${c.pur ? eur(c.cpa) : "–"}</td><td class="r">${int(c.pur)}</td><td class="r">${pct(c.ctr, 2)}</td><td class="r">${eur2(c.cpm)}</td><td class="r ${c.freq > 3 ? "warn" : ""}">${Number.isFinite(c.freq) ? c.freq.toFixed(2) : "–"}</td><td class="r ${c.profit >= 0 ? "good" : "neg"}">${eur(c.profit)}</td><td>${pill(a[0], a[1])}</td></tr>`; }).join("")}
+    <tr><td><b>Totaal actief budget</b></td><td></td><td class="r"><b>${eur(sum(am.camps.filter((c) => c.status === "ACTIVE"), (c) => c.budget || 0))}</b></td><td colspan="9"></td></tr>
+  </tbody></table></div>${winstNote(E)}
+  <details style="margin-top:12px"><summary>Advertentiesets (${am.adsets.length})</summary><div class="scroll" style="margin-top:8px"><table><thead><tr><th>Set</th><th>Status</th><th class="r">Budget/dag</th><th class="r">Spend</th><th class="r">ROAS</th><th class="r">CPA</th><th class="r">Aank.</th><th class="r">CTR</th><th class="r">CPM</th><th class="r">Freq.</th></tr></thead><tbody>${am.adsets.map((s) => `<tr><td class="name"><b>${esc(s.adset)}</b><small>${esc(s.campaign)}</small></td><td>${stPill(s.status)}</td><td class="r">${s.budget ? eur(s.budget) : "–"}</td><td class="r">${eur(s.spend)}</td>${roasTd(s, E)}<td class="r">${s.pur ? eur(s.cpa) : "–"}</td><td class="r">${int(s.pur)}</td><td class="r">${pct(s.ctr, 2)}</td><td class="r">${eur2(s.cpm)}</td><td class="r">${Number.isFinite(s.freq) ? s.freq.toFixed(2) : "–"}</td></tr>`).join("")}</tbody></table></div></details></section>`;
+  const mk = groupAds(am.list, (a) => a.market, E), ty = groupAds(am.list, (a) => a.type, E);
+  h += `<div class="grid two"><section class="card"><h2>Per markt</h2><p class="lead">Uit de campagnenaam.</p><div class="scroll"><table><thead>${metaHead("Markt", { atc: false })}</thead><tbody>${mk.map((g) => `<tr><td>${esc(g.key)}</td>${metaRow(g, E, { atc: false })}</tr>`).join("")}</tbody></table></div></section>
+  <section class="card"><h2>Per campagnetype</h2><p class="lead">Testen, schalen, lookalike, retargeting.</p><div class="scroll"><table><thead>${metaHead("Type", { atc: false })}</thead><tbody>${ty.map((g) => `<tr><td>${esc(g.key)}</td>${metaRow(g, E, { atc: false })}</tr>`).join("")}</tbody></table></div></section></div>`;
   return h;
 }
 
-/* ---------- Angles & copy ---------- */
+function viewAdList() {
+  const am = adModel(); if (!am) return metaWait();
+  const E = am.E, f = S.adFilter;
+  let list = am.list.filter((a) => (f.status !== "active" || a.status === "ACTIVE") && (!f.q || `${a.ad} ${a.adset} ${a.campaign} ${a.angle} ${a.body} ${a.title}`.toLowerCase().includes(f.q.toLowerCase())) && (!f.verdict || a.verdict[0] === f.verdict) && (!f.market || a.market === f.market) && (!f.type || a.type === f.type));
+  list = sortList(list, "ads", { key: "spend", dir: "desc" });
+  const total = list.length; if (!S.adShowAll) list = list.slice(0, 40);
+  const base = am.list.filter((a) => f.status !== "active" || a.status === "ACTIVE");
+  const counts = {}; for (const a of base) counts[a.verdict[0]] = (counts[a.verdict[0]] || 0) + 1;
+  const vSpend = (v) => sum(base.filter((a) => a.verdict[0] === v), (a) => a.spend);
+  const opt = (arr, cur) => arr.map((x) => `<option ${x === cur ? "selected" : ""}>${esc(x)}</option>`).join("");
+  const markets = [...new Set(am.list.map((a) => a.market))], types = [...new Set(am.list.map((a) => a.type))];
+  const hasVideo = am.list.some((a) => a.v3 > 0);
+  return `<section class="card"><h2>Oordeel per ad</h2><p class="lead">Break-even ROAS ${times(E.be)}, doel ${times(E.target)}, break-even CPA ${eur(E.beCpa)}. Een ad wordt pas beoordeeld na ${eur(E.beCpa * S.settings.minSpendFactor)} spend. "Was" = de ${S.range} dagen ervoor. Klik op een kolom om te sorteren.</p>
+  <div class="grid kpis" style="margin-bottom:12px">${[["Schalen", "good"], ["Verversen", "warn"], ["Houden", "info"], ["Kijken", "warn"], ["Stoppen", "neg"], ["Te vroeg", "mute"]].map(([v, c]) => `<button type="button" class="card kpi" data-verdict="${v}" style="text-align:left;cursor:pointer;${f.verdict === v ? "outline:2px solid var(--info)" : ""}"><div class="l">${pill(v, c)}</div><div class="v">${counts[v] || 0}</div><div class="s">${eur(vSpend(v))} spend</div></button>`).join("")}</div>
+  <div class="toolbar"><input class="input" id="adq" type="search" placeholder="Zoek op naam, campagne, angle of tekst" value="${esc(f.q)}" style="flex:1 1 220px"><select class="input" id="adstatus"><option value="active" ${f.status === "active" ? "selected" : ""}>Alleen actieve ads</option><option value="" ${f.status !== "active" ? "selected" : ""}>Alle ads met spend</option></select><select class="input" id="admarket"><option value="">Alle markten</option>${opt(markets, f.market)}</select><select class="input" id="adtype"><option value="">Alle campagnetypes</option>${opt(types, f.type)}</select>${f.verdict ? `<button class="btn ghost small" type="button" data-verdict="">Toon alle oordelen</button>` : ""}</div>
+  <div class="scroll"><table><thead><tr>${th("ads", "ad", "Ad", false)}<th>Oordeel</th>${th("ads", "spend", "Spend")}${th("ads", "roas", "ROAS")}${th("ads", "cpa", "CPA")}${th("ads", "pur", "Aank.")}${th("ads", "ctr", "CTR")}${th("ads", "cpm", "CPM")}${th("ads", "atcRate", "In wagen/klik")}${hasVideo ? th("ads", "hook", "Hook") : ""}${th("ads", "freq", "Freq.")}${th("ads", "ageDays", "Leeftijd")}${th("ads", "profit", "Winst*")}</tr></thead><tbody>
+  ${list.map((a) => `<tr><td class="name"><b>${esc(a.ad)}</b><small>${esc(a.campaign)}${a.adset ? " · " + esc(a.adset) : ""}</small><small>${stPill(a.status)} ${esc(a.format)} · <span title="${a.angleAuto ? "automatisch herkend" : "door jou gekozen"}">${esc(a.angle)}${a.angleAuto ? " (auto)" : ""}</span> · naar ${esc(a.dest)}${a.preview ? ` · <a href="${esc(a.preview)}" target="_blank" rel="noopener">bekijk ad</a>` : ""}</small>${a.title ? `<small>“${esc(a.title)}”</small>` : ""}${a.flags.map((x) => `<span class="badge ${x[1]}">${esc(x[0])}</span>`).join("")}${a.rank.some((r) => RANK[r]) ? `<small>Meta-ranking: kwaliteit ${esc((RANK[a.rank[0]] || ["?"])[0])}, interactie ${esc((RANK[a.rank[1]] || ["?"])[0])}, conversie ${esc((RANK[a.rank[2]] || ["?"])[0])}</small>` : ""}</td><td>${pill(a.verdict[0], a.verdict[1])}<small class="note" style="display:block;max-width:200px;margin-top:3px">${esc(a.verdict[2])}</small></td><td class="r">${eur(a.spend)}</td><td class="r ${rcls(a.roas, E)}">${times(a.roas)}${a.prev && a.prev.spend ? `<small class="note" style="display:block">was ${times(a.prev.roas)}</small>` : ""}</td><td class="r">${a.pur ? eur(a.cpa) : "–"}</td><td class="r">${int(a.pur)}</td><td class="r">${pct(a.ctr, 2)}${a.prev && Number.isFinite(a.prev.ctr) ? `<small class="note" style="display:block">was ${pct(a.prev.ctr, 2)}</small>` : ""}</td><td class="r">${eur2(a.cpm)}</td><td class="r">${pct(a.atcRate, 1)}</td>${hasVideo ? `<td class="r">${pct(a.hook, 0)}</td>` : ""}<td class="r ${a.freq > 3 ? "warn" : ""}">${Number.isFinite(a.freq) ? a.freq.toFixed(2) : "–"}</td><td class="r">${Number.isFinite(a.ageDays) ? a.ageDays + " d" : "–"}</td><td class="r ${a.profit >= 0 ? "good" : "neg"}">${eur(a.profit)}</td></tr>`).join("") || `<tr><td colspan="13" class="empty">Geen ads in dit filter.</td></tr>`}
+  </tbody></table></div>${total > list.length ? `<div class="row" style="margin-top:10px"><button class="btn ghost small" type="button" id="adShowAll">Toon alle ${total} ads</button></div>` : ""}${winstNote(E)}</section>`;
+}
+
+/* ---------- Creatives & copy ---------- */
 function viewAngles() {
   const am = adModel(); if (!am) return metaWait();
-  const E = am.E, angles = groupAds(am.list, (a) => a.angle, E), formats = groupAds(am.list, (a) => a.format, E);
-  const copies = groupAds(am.list.filter((a) => a.body), (a) => a.body.trim(), E).filter((g) => g.spend > 0);
-  const heads = groupAds(am.list.filter((a) => a.title), (a) => a.title.trim(), E);
-  const best = [...angles].filter((g) => g.spend >= E.beCpa).sort((a, b) => b.roas - a.roas)[0];
-  let h = `<section class="card"><div class="row between"><div><h2>Welke angle werkt</h2><p class="lead">Een angle is het verhaal waarmee je verkoopt: cashmere, quiet luxury, comfort, cadeau, aanbieding. Ads worden automatisch ingedeeld op naam en tekst; met de knop laat je Claude alle ads nauwkeuriger indelen, en bij elke ad kun je zelf een angle kiezen.</p></div><button class="btn small" type="button" id="angleAI" ${S.sample && !S.angleBusy ? "" : "disabled"}>${S.angleBusy ? "Claude deelt in…" : "Laat Claude angles indelen"}</button></div>
-  ${best ? `<p class="sub" style="margin:0 0 12px">Beste angle met genoeg data: <b>${esc(best.key)}</b> met ${times(best.roas)} ROAS op ${eur(best.spend)} spend.</p>` : ""}
+  const E = am.E, q = S.meta.q;
+  const angles = groupAds(am.list, (a) => a.angle, E);
+  const best = [...angles].filter((g) => g.spend >= E.beCpa * 2).sort((a, b) => b.roas - a.roas)[0];
+  let h = `<section class="card"><div class="row between"><div><h2>Welke angle werkt</h2><p class="lead">De angle is het verhaal waarmee een ad verkoopt. Automatisch herkend uit naam, tekst en headline; laat Claude alles opnieuw indelen of kies per ad zelf onderaan deze pagina.</p></div><button class="btn small" type="button" id="angleAI" ${S.sample && !S.angleBusy ? "" : "disabled"}>${S.angleBusy ? "Claude deelt in…" : "Laat Claude angles indelen"}</button></div>
+  ${best ? `<p class="sub" style="margin:0 0 12px">Beste angle met genoeg data: <b>${esc(best.key)}</b>, ${times(best.roas)} ROAS op ${eur(best.spend)} spend.</p>` : ""}
   ${hbars(angles.map((g) => ({ t: g.key, v: g.roas, label: `${times(g.roas)} · ${eur(g.spend)}`, c: g.roas >= E.target ? "var(--good)" : g.roas >= E.be ? "var(--s1)" : "var(--neg)" })), { fmt: times })}
-  <p class="note" style="margin-top:8px">Groen boven doel (${times(E.target)}), blauw boven break-even (${times(E.be)}), rood eronder.</p>
-  <div class="scroll" style="margin-top:12px"><table><thead><tr><th>Angle</th><th class="r">Ads</th><th class="r">Spend</th><th class="r">ROAS</th><th class="r">CPA</th><th class="r">CTR</th>${am.tot.hasVideo ? '<th class="r">Hook</th>' : ""}${am.tot.hasFunnel ? '<th class="r">ATC/klik</th>' : ""}<th class="r">Winst*</th><th></th></tr></thead><tbody>${angles.map((g) => `<tr><td><b>${esc(g.key)}</b></td><td class="r">${g.n}</td><td class="r">${eur(g.spend)}</td><td class="r ${g.roas >= E.be ? "" : "neg"}">${times(g.roas)}</td><td class="r">${g.pur ? eur(g.cpa) : "–"}</td><td class="r">${pct(g.ctr, 2)}</td>${am.tot.hasVideo ? `<td class="r">${pct(g.hook, 0)}</td>` : ""}${am.tot.hasFunnel ? `<td class="r">${pct(g.atcRate, 1)}</td>` : ""}<td class="r ${g.profit >= 0 ? "good" : "neg"}">${eur(g.profit)}</td><td><button class="btn ghost small" type="button" data-ask="${esc(`Schrijf 5 nieuwe Meta-ads voor ModernoMilano in de angle "${g.key}". Gebruik wat in mijn data het best werkt in deze angle (beste ads: ${g.ads.slice().sort((a, b) => b.roas - a.roas).slice(0, 3).map((a) => a.ad).join(", ")}). Per ad: hook voor de eerste 3 seconden, primaire tekst, headline en een beschrijving van het beeld of de video. In het Engels en Duits.`)}">Nieuwe ads</button></td></tr>`).join("")}</tbody></table></div></section>`;
-  h += `<div class="grid two"><section class="card"><h2>Video of beeld</h2>${formats.length && formats[0].key !== "Onbekend" ? hbars(formats.map((g) => ({ t: g.key, v: g.roas, label: `${times(g.roas)} · ${eur(g.spend)}` })), { fmt: times }) : `<p class="muted">Windsor levert geen videovelden voor dit account, dus video en beeld zijn niet te scheiden.</p>`}</section>
-  <section class="card"><h2>Hoe angles in te delen</h2><p class="lead" style="margin:0">Geef ads een naam met de angle erin, bijvoorbeeld <span class="num">UK | Cashmere | UGC v2</span>. Dan deelt het dashboard ze vanzelf goed in en zie je per angle wat werkt. Je kunt hieronder per ad ook een angle typen.</p></section></div>`;
-  h += `<section class="card"><h2>Welke ad copy werkt</h2><p class="lead">Ads met dezelfde primaire tekst samen genomen. ${copies.length ? "" : "Windsor gaf geen ad-teksten terug voor dit account; dan staan hieronder de ad-namen."}</p>
-  ${copies.length ? `<div class="scroll"><table><thead><tr><th>Primaire tekst</th><th class="r">Ads</th><th class="r">Spend</th><th class="r">ROAS</th><th class="r">CTR</th><th class="r">CPA</th></tr></thead><tbody>${copies.slice(0, 25).map((g) => `<tr><td class="name"><div class="copytext">${esc(g.key)}</div></td><td class="r">${g.n}</td><td class="r">${eur(g.spend)}</td><td class="r ${g.roas >= E.be ? "" : "neg"}">${times(g.roas)}</td><td class="r">${pct(g.ctr, 2)}</td><td class="r">${g.pur ? eur(g.cpa) : "–"}</td></tr>`).join("")}</tbody></table></div>` : ""}
-  ${heads.length ? `<h3 style="font-size:14px;margin:16px 0 8px">Headlines</h3>${hbars(heads.slice(0, 12).map((g) => ({ t: g.key, v: g.roas, label: `${times(g.roas)} · ${eur(g.spend)}`, c: g.roas >= E.be ? "var(--s1)" : "var(--neg)" })), { fmt: times })}` : ""}</section>`;
-  h += `<section class="card"><h2>Angle per ad</h2><p class="lead">Typ een angle om de automatische indeling te overschrijven. Wordt bewaard voor iedereen die dit dashboard opent.</p><div class="scroll"><table><thead><tr><th>Ad</th><th>Angle</th><th class="r">Spend</th><th class="r">ROAS</th></tr></thead><tbody>${am.list.slice(0, 80).map((a, i) => `<tr><td class="name"><b>${esc(a.ad)}</b><small>${esc(a.campaign)}</small></td><td><input class="input angleinput" list="angleList" id="ang-${i}" data-anglekey="${esc(a.key)}" value="${esc(a.angleAuto ? "" : a.angle)}" placeholder="${esc(a.angle)}"></td><td class="r">${eur(a.spend)}</td><td class="r ${a.roas >= E.be ? "" : "neg"}">${times(a.roas)}</td></tr>`).join("")}</tbody></table></div><datalist id="angleList">${[...new Set([...ANGLE_RULES.map((r) => r[1]), ...Object.values(S.angles)])].map((x) => `<option value="${esc(x)}">`).join("")}</datalist></section>`;
+  <div class="scroll" style="margin-top:12px"><table><thead><tr><th>Angle</th><th class="r">Ads</th>${metaHead("x").replace(/^<tr><th>x<\/th>/, "").replace(/<\/tr>$/, "")}<th></th></tr></thead><tbody>${angles.map((g) => `<tr><td><b>${esc(g.key)}</b></td><td class="r">${g.n}</td>${metaRow(g, E)}<td><button class="btn ghost small" type="button" data-ask="${esc(`Schrijf 5 nieuwe Meta-ads voor ModernoMilano in de angle "${g.key}". Gebruik wat in mijn data het best werkt binnen deze angle (beste ads: ${g.ads.slice().sort((a, b) => b.roas - a.roas).slice(0, 3).map((a) => `${a.ad}${a.title ? ` met headline "${a.title}"` : ""}`).join("; ")}). Per ad: hook voor de eerste seconde, primaire tekst, headline en een beschrijving van beeld of video. In het Engels en het Duits.`)}">Nieuwe ads</button></td></tr>`).join("")}</tbody></table></div></section>`;
+  const concepts = groupAds(am.list, (a) => a.concept, E).filter((g) => g.spend > 50);
+  h += `<section class="card"><h2>Creatives (zelfde beeld, alle kopieën samen)</h2><p class="lead">Ads met dezelfde naam zonder "Copy" zijn hetzelfde beeld in verschillende campagnes. De spreiding laat zien of het aan de creative ligt of aan de campagne en doelgroep.</p><div class="scroll"><table><thead><tr><th>Creative</th><th class="r">Kopieën</th><th class="r">ROAS laag–hoog</th>${metaHead("x").replace(/^<tr><th>x<\/th>/, "").replace(/<\/tr>$/, "")}</tr></thead><tbody>${concepts.slice(0, 30).map((g) => { const rs = g.ads.filter((a) => a.spend > 100).map((a) => a.roas); return `<tr><td class="name"><b>${esc(g.key)}</b><small>${esc([...new Set(g.ads.map((a) => a.format))].join(", "))} · ${esc(g.ads[0].angle)}</small></td><td class="r">${g.n}</td><td class="r">${rs.length > 1 ? `${times(Math.min(...rs))} – ${times(Math.max(...rs))}` : "–"}</td>${metaRow(g, E)}</tr>`; }).join("")}</tbody></table></div></section>`;
+  const copies = groupRows(q.copy, (r) => (r.body || "") + "\u0000" + (r.title || ""), E, (r) => ({ body: r.body || "", title: r.title || "" }));
+  for (const c of copies) c.angle = autoAngle({ ad: "", body: c.body, title: c.title });
+  h += `<section class="card"><h2>Welke ad copy werkt</h2><p class="lead">Elke combinatie van primaire tekst en headline. Zonder tekst = video- of catalogusads waarbij Meta de tekst niet apart rapporteert.</p><div class="scroll"><table><thead><tr><th>Tekst en headline</th><th>Angle</th>${metaHead("x").replace(/^<tr><th>x<\/th>/, "").replace(/<\/tr>$/, "")}</tr></thead><tbody>${copies.filter((c) => c.spend > 20).map((c) => `<tr><td class="name">${c.title ? `<b>${esc(c.title)}</b>` : ""}<div class="copytext">${esc(c.body || "(geen tekst gerapporteerd)")}</div></td><td><span class="badge">${esc(c.angle)}</span></td>${metaRow(c, E)}</tr>`).join("")}</tbody></table></div>${winstNote(E)}</section>`;
+  const heads = groupRows((q.copy || []).filter((r) => r.title), (r) => r.title.trim().toLowerCase(), E, (r) => ({ label: r.title.trim() })).filter((g) => g.spend > 50);
+  const dests = groupAds(am.list, (a) => a.dest, E);
+  const lp = new Map((S.shop.q.landing || []).map((l) => [String(l.landing_page_path || "").replace(/\/$/, "") || "/", l]));
+  h += `<div class="grid two"><section class="card"><h2>Headlines</h2>${hbars(heads.slice(0, 14).map((g) => ({ t: g.label, v: g.roas, label: `${times(g.roas)} · ${eur(g.spend)}`, c: g.roas >= E.target ? "var(--good)" : g.roas >= E.be ? "var(--s1)" : "var(--neg)" })), { fmt: times })}</section>
+  <section class="card"><h2>Formaat en knop</h2>${hbars(groupAds(am.list, (a) => a.format, E).map((g) => ({ t: g.key, v: g.roas, label: `${times(g.roas)} · ${eur(g.spend)}` })), { fmt: times })}<div style="height:12px"></div>${hbars(groupAds(am.list, (a) => a.cta || "geen", E).map((g) => ({ t: g.key.replace(/_/g, " ").toLowerCase(), v: g.roas, label: `${times(g.roas)} · ${eur(g.spend)}`, c: "var(--s4)" })), { fmt: times })}</section></div>
+  <section class="card"><h2>Waar de ads naartoe sturen</h2><p class="lead">Landingspagina van de ad, met de prestaties in Meta en hoe die pagina in Shopify converteert.</p><div class="scroll"><table><thead><tr><th>Pagina</th><th class="r">Ads</th><th class="r">Spend</th><th class="r">ROAS</th><th class="r">CPA</th><th class="r">In wagen/klik</th><th class="r">Shopify-conversie</th></tr></thead><tbody>${dests.map((g) => { const l = lp.get(g.key.replace(/ \(met code\)$/, "")); return `<tr><td style="overflow-wrap:anywhere">${esc(g.key)}</td><td class="r">${g.n}</td><td class="r">${eur(g.spend)}</td>${roasTd(g, E)}<td class="r">${g.pur ? eur(g.cpa) : "–"}</td><td class="r ${g.atcRate < 0.05 && g.link > 300 ? "neg" : ""}">${pct(g.atcRate, 1)}</td><td class="r">${l ? pct(num(l.conversion_rate), 2) : "–"}</td></tr>`; }).join("")}</tbody></table></div></section>`;
+  h += `<section class="card"><details><summary><b>Angle per ad aanpassen</b> <span class="muted">(top 80 op spend)</span></summary><p class="lead" style="margin-top:8px">Typ een angle om de automatische indeling te overschrijven. Wordt bewaard voor iedereen die dit dashboard opent.</p><div class="scroll"><table><thead><tr><th>Ad</th><th>Angle</th><th class="r">Spend</th><th class="r">ROAS</th></tr></thead><tbody>${am.list.slice(0, 80).map((a, i) => `<tr><td class="name"><b>${esc(a.ad)}</b><small>${esc(a.title || a.campaign)}</small></td><td><input class="input angleinput" list="angleList" id="ang-${i}" data-anglekey="${esc(a.key)}" value="${esc(a.angleAuto ? "" : a.angle)}" placeholder="${esc(a.angle)}"></td><td class="r">${eur(a.spend)}</td><td class="r ${rcls(a.roas, E)}">${times(a.roas)}</td></tr>`).join("")}</tbody></table></div></details><datalist id="angleList">${[...new Set([...ANGLE_RULES.map((r) => r[1]), ...Object.values(S.angles)])].map((x) => `<option value="${esc(x)}">`).join("")}</datalist></section>`;
+  return h;
+}
+
+/* ---------- Doelgroep & plaatsing ---------- */
+function viewAudience() {
+  const am = adModel(); if (!am) return metaWait();
+  const E = am.E, q = S.meta.q;
+  const demo = (q.demo || []).filter((r) => r.age && r.age !== "Unknown");
+  const ages = [...new Set(demo.map((r) => r.age))].sort(), gens = ["male", "female", "unknown"].filter((g) => demo.some((r) => r.gender === g));
+  const cell = (rows) => { const g = derive(rows.reduce((s, r) => addInto(s, metricsOf(r)), blank({})), E); return g; };
+  const maxSpend = Math.max(1, ...demo.map((r) => num(r.spend)));
+  let h = `<section class="card"><h2>Leeftijd en geslacht</h2><p class="lead">Per vak: ROAS en spend. Hoe donkerder het vak, hoe meer spend; de kleur van de ROAS zegt of het winstgevend is.</p><div class="scroll"><table><thead><tr><th>Leeftijd</th>${gens.map((g) => `<th class="r">${GENDER[g]}</th>`).join("")}<th class="r">Totaal</th></tr></thead><tbody>${ages.map((a) => { const tot = cell(demo.filter((r) => r.age === a)); return `<tr><td>${esc(a)}</td>${gens.map((g) => { const rows = demo.filter((r) => r.age === a && r.gender === g); const c = cell(rows); return `<td class="r" style="background:color-mix(in srgb,var(--s1) ${Math.round((c.spend / maxSpend) * 22)}%,transparent)"><b class="${rcls(c.roas, E)}">${c.spend ? times(c.roas) : "–"}</b><small class="note" style="display:block">${eur(c.spend)} · ${int(c.pur)} aank.</small></td>`; }).join("")}<td class="r"><b class="${rcls(tot.roas, E)}">${times(tot.roas)}</b><small class="note" style="display:block">${eur(tot.spend)}</small></td></tr>`; }).join("")}</tbody></table></div>
+  <div class="grid two" style="margin-top:14px"><div><h3 style="font-size:13px;margin-bottom:8px">Spend per geslacht</h3>${hbars(gens.map((g) => { const c = cell(demo.filter((r) => r.gender === g)); return { t: GENDER[g], v: c.spend, label: `${eur(c.spend)} · ${times(c.roas)}` }; }))}</div><div><h3 style="font-size:13px;margin-bottom:8px">ROAS per leeftijd</h3>${hbars(ages.map((a) => { const c = cell(demo.filter((r) => r.age === a)); return { t: a, v: c.roas, label: times(c.roas), c: c.roas >= E.target ? "var(--good)" : c.roas >= E.be ? "var(--s1)" : "var(--neg)" }; }), { fmt: times })}</div></div></section>`;
+  const sess = new Map((S.shop.q.countrySess || []).map((c) => [c.session_country, c]));
+  const cs = groupRows(q.country, (r) => r.country, E);
+  h += `<section class="card"><h2>Landen</h2><p class="lead">Waar Meta je ads vertoont en wat het daar oplevert, met de conversie van je winkel uit hetzelfde land.</p><div class="scroll"><table><thead><tr><th>Land</th><th class="r">Spend</th><th class="r">Aandeel</th><th class="r">ROAS</th><th class="r">CPA</th><th class="r">Aank.</th><th class="r">CTR</th><th class="r">CPM</th><th class="r">In wagen/klik</th><th class="r">Shopify-conversie</th><th class="r">Winst*</th></tr></thead><tbody>${cs.map((g) => { const s = sess.get(g.key); return `<tr><td>${esc(g.key)}</td><td class="r">${eur(g.spend)}</td><td class="r">${pct(div(g.spend, am.tot.spend), 0)}</td>${roasTd(g, E)}<td class="r">${g.pur ? eur(g.cpa) : "–"}</td><td class="r">${int(g.pur)}</td><td class="r">${pct(g.ctr, 2)}</td><td class="r">${eur2(g.cpm)}</td><td class="r">${pct(g.atcRate, 1)}</td><td class="r">${s ? pct(num(s.conversion_rate), 2) : "–"}</td><td class="r ${g.profit >= 0 ? "good" : "neg"}">${eur(g.profit)}</td></tr>`; }).join("")}</tbody></table></div>${winstNote(E)}</section>`;
+  const pl = groupRows(q.place, placeName, E);
+  h += `<section class="card"><h2>Plaatsingen</h2><p class="lead">Waar je ads verschijnen. Plaatsingen met spend en ROAS onder break-even kun je uitsluiten in de advertentieset, maar test dat per campagne: Advantage+ plaatsingen werken vaak beter als geheel.</p><div class="scroll"><table><thead>${metaHead("Plaatsing")}</thead><tbody>${pl.map((g) => `<tr><td>${esc(g.key)}</td>${metaRow(g, E)}</tr>`).join("")}</tbody></table></div></section>`;
   return h;
 }
 
@@ -867,14 +954,14 @@ function viewAdvice() {
 }
 function snapshot() {
   const sh = shopModel(), am = adModel(), E = econ(), r = (n, d = 2) => (Number.isFinite(n) ? Math.round(n * 10 ** d) / 10 ** d : null);
-  const ad = (a) => ({ ad: a.ad, campaign: a.campaign, adset: a.adset, market: a.market, type: a.type, angle: a.angle, format: a.format, spend: r(a.spend, 0), roas: r(a.roas), cpa: r(a.cpa, 0), purchases: a.pur, ctr: r(a.ctr, 4), cpm: r(a.cpm), freq: r(a.freq), hook: r(a.hook, 3), hold: r(a.hold, 3), atc_per_click: r(a.atcRate, 3), ctr_prev: a.prev ? r(a.prev.ctr, 4) : null, roas_prev: a.prev ? r(a.prev.roas) : null, profit: r(a.profit, 0), verdict: a.verdict[0], flags: a.flags.map((f) => f[0]), copy: a.body ? a.body.slice(0, 280) : undefined, headline: a.title || undefined });
+  const ad = (a) => ({ ad: a.ad, campaign: a.campaign, adset: a.adset, market: a.market, type: a.type, angle: a.angle, format: a.format, spend: r(a.spend, 0), roas: r(a.roas), cpa: r(a.cpa, 0), purchases: a.pur, ctr: r(a.ctr, 4), cpm: r(a.cpm), freq: r(a.freq), hook: r(a.hook, 3), hold: r(a.hold, 3), atc_per_click: r(a.atcRate, 3), ctr_prev: a.prev ? r(a.prev.ctr, 4) : null, roas_prev: a.prev ? r(a.prev.roas) : null, profit: r(a.profit, 0), verdict: a.verdict[0], flags: a.flags.map((f) => f[0]), status: a.status, dagen_live: a.ageDays, bestemming: a.dest, copy: a.body ? a.body.slice(0, 280) : undefined, headline: a.title || undefined });
   const grp = (g) => ({ name: g.key, ads: g.n, spend: r(g.spend, 0), roas: r(g.roas), cpa: r(g.cpa, 0), ctr: r(g.ctr, 4), profit: r(g.profit, 0) });
   const q = S.shop.q;
   return {
     periode_dagen: S.range, vandaag: today(), winkel: "ModernoMilano (modernomilano.com), herenmode: cashmere loungesets, gebreide sets, vests, jassen. Verkoopt via Meta-ads in UK, DE, USA en wereldwijd. Valuta EUR.",
     economie: { break_even_roas: r(E.be), doel_roas: r(E.target), break_even_cpa: r(E.beCpa, 0), over_per_euro_omzet: r(E.contrib, 3), aannames: S.settings },
     shopify: sh ? { omzet: r(sh.T.total, 0), omzet_vorige: r(sh.P.total, 0), orders: sh.T.orders, orders_vorige: sh.P.orders, aov: r(sh.T.aov, 0), retour_pct: r(sh.T.returnRate, 4), funnel: sh.F, funnel_vorige: sh.FP, terugkerend_pct: r(sh.returning, 4), tracking_sessies: sh.tracking, bestsellers_onder_nul: sh.negBest.map((p) => p.title) } : "niet geladen",
-    meta: am ? { totaal: { spend: r(am.tot.spend, 0), roas: r(am.tot.roas), cpa: r(am.tot.cpa, 0), ctr: r(am.tot.ctr, 4), cpm: r(am.tot.cpm), freq: r(am.tot.freq) }, vorige_periode: { spend: r(am.prevTot.spend, 0), roas: r(am.prevTot.roas), ctr: r(am.prevTot.ctr, 4) }, mer: sh ? r(sh.T.total / am.tot.spend) : null, ads: am.list.slice(0, 60).map(ad), angles: groupAds(am.list, (a) => a.angle, E).map(grp), markten: groupAds(am.list, (a) => a.market, E).map(grp), campagnetypes: groupAds(am.list, (a) => a.type, E).map(grp) } : "niet geladen",
+    meta: am ? { totaal: { spend: r(am.tot.spend, 0), roas: r(am.tot.roas), cpa: r(am.tot.cpa, 0), ctr: r(am.tot.ctr, 4), cpm: r(am.tot.cpm), freq: r(am.tot.freq) }, vorige_periode: { spend: r(am.prevTot.spend, 0), roas: r(am.prevTot.roas), ctr: r(am.prevTot.ctr, 4) }, mer: sh ? r(sh.T.total / am.tot.spend) : null, ads: am.list.slice(0, 60).map(ad), campagnes: am.camps.map((c) => ({ ...grp(c), status: c.status, budget_per_dag: c.budget, freq: r(c.freq) })), leeftijd_geslacht: groupRows(S.meta.q.demo, (x) => `${x.gender} ${x.age}`, E).filter((g) => g.spend > 20).map(grp), landen_meta: groupRows(S.meta.q.country, (x) => x.country, E).map(grp), plaatsingen: groupRows(S.meta.q.place, placeName, E).map(grp), copy: groupRows(S.meta.q.copy, (x) => (x.title || "") + " | " + String(x.body || "").slice(0, 160), E).filter((g) => g.spend > 50).slice(0, 25).map(grp), creatives: groupAds(am.list, (a) => a.concept, E).slice(0, 25).map(grp), bestemmingen: groupAds(am.list, (a) => a.dest, E).map(grp), angles: groupAds(am.list, (a) => a.angle, E).map(grp), markten: groupAds(am.list, (a) => a.market, E).map(grp), campagnetypes: groupAds(am.list, (a) => a.type, E).map(grp) } : "niet geladen",
     producten: (q.products || []).slice(0, 30).map((p) => ({ product: p.product_title, netto: r(num(p.net_sales), 0), stuks: num(p.quantity_ordered), retour_stuks: -num(p.quantity_returned) })),
     maten: (q.sizes || []).slice(0, 12).map((s) => ({ maat: s.product_variant_title, stuks: num(s.quantity_ordered), retour: -num(s.quantity_returned) })),
     landen: (q.countrySales || []).slice(0, 12).map((c) => ({ land: c.billing_country, netto: r(num(c.net_sales), 0), orders: num(c.orders), aov: r(num(c.average_order_value), 0) })),
@@ -931,7 +1018,7 @@ function viewSettings() {
   </form>
   <p class="sub">Uitkomst: van elke euro omzet blijft ${pct(E.contrib, 0)} over voor ads en winst. Break-even ROAS ${times(E.be)}, doel-ROAS ${times(E.target)}, break-even CPA ${eur(E.beCpa)}.</p></section>
   <section class="card"><h2>Inkoop per product</h2><p class="lead">Optioneel. Leeg laten = het percentage hierboven.</p><form id="cogsForm" class="formgrid">${prods.map((p, i) => `<label for="cp-${i}">${esc(p)}<input class="input num" id="cp-${i}" data-prod="${esc(p)}" type="number" min="0" max="95" step="1" placeholder="${st.cogsPct}" value="${st.cogsByProduct[p] != null ? st.cogsByProduct[p] : ""}"></label>`).join("") || `<p class="muted">Producten laden…</p>`}<div style="display:flex;align-items:flex-end"><button class="btn" type="submit">Opslaan</button></div></form></section>
-  <section class="card"><h2>Bronnen</h2><p class="lead" style="margin:0">Shopify: omzet, orders, retouren, sessies en funnel (ShopifyQL), voorraad (Admin API). Meta: per ad via Windsor.ai (${esc(S.meta.fields.join(", ") || "nog niet geladen")}). PayPal: open disputes. Alles wordt opgehaald met de koppelingen van wie de pagina opent; er staan geen sleutels in deze pagina.</p></section>`;
+  <section class="card"><h2>Bronnen</h2><p class="lead" style="margin:0">Shopify: omzet, orders, retouren, sessies en funnel (ShopifyQL), voorraad (Admin API). Meta via Windsor.ai: per ad, per campagne en set (met budget en status), teksten en headlines, dagcijfers (90 dagen), leeftijd en geslacht, landen en plaatsingen. PayPal: open disputes. Alles wordt opgehaald met de koppelingen van wie de pagina opent; er staan geen sleutels in deze pagina.</p></section>`;
 }
 
 /* ============================================================
@@ -969,12 +1056,14 @@ document.addEventListener("click", (ev) => {
   if (t.dataset.addaction != null) { const s = suggestions()[Number(t.dataset.addaction)]; if (s) addAction(s); return; }
   if (t.dataset.deltodo) { S.db && S.db.doc("acties/" + t.dataset.deltodo).delete().catch(() => toast("Verwijderen mislukt.")); return; }
   if (t.id === "angleAI") { classifyAngles(); return; }
+  if (t.id === "adShowAll") { S.adShowAll = true; render(); return; }
   if (t.id === "chatClear") { S.chat = []; render(); return; }
 });
 document.addEventListener("change", (ev) => {
   const t = ev.target;
   if (t.dataset.todo) { S.db && S.db.doc("acties/" + t.dataset.todo).update({ done: t.checked, doneAt: t.checked ? Date.now() : null }).catch(() => toast("Opslaan mislukt.")); return; }
   if (t.id === "admarket") { S.adFilter.market = t.value; render(); return; }
+  if (t.id === "adstatus") { S.adFilter.status = t.value; render(); return; }
   if (t.id === "adtype") { S.adFilter.type = t.value; render(); return; }
   if (t.dataset.anglekey) {
     const v = t.value.trim(); const next = { ...S.angles }; if (v) next[t.dataset.anglekey] = v; else delete next[t.dataset.anglekey];
