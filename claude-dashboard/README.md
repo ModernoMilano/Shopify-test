@@ -16,3 +16,17 @@ Wijzigen: pas `dashboard.html` aan en publiceer opnieuw naar dezelfde URL.
 Tabblad met een chat (capability `sample`). Claude rekent niet uit het hoofd maar roept de rekenfuncties van de pagina aan:
 `cijfers_periode`, `dagcijfers`, `winst_prognose` (omzet, Meta en fees uit de laatste 14 dagen, COGS en vaste kosten uit
 de laatste 30 dagen bank), `geld_nu` en `kasprognose`. Elke vraag gebruikt het Claude-tegoed van wie de pagina opent.
+
+# ModernoMilano Brand Check (tweede dashboard)
+
+`brand-check.html` is gepubliceerd als Claude-artifact: https://claude.ai/artifact/P3eRjdNbmRmRjizBVvdDDo
+
+Een brede check van het hele merk, live via je Claude-connectors:
+
+- **Brand check**: totaalscore en pijlers (winst na ads, ads-efficiëntie, groei, conversie, retouren, terugkerende klanten, levering), KPI's met vergelijking met de vorige periode, en een lijst "Wat nu" gesorteerd op geschatte impact per maand.
+- **Ads**: Meta per ad via Windsor.ai (`get_fields` om te zien welke velden er zijn, anders basisvelden plus losse optionele groepen). Oordeel per ad: Schalen, Verversen, Houden, Kijken, Stoppen of Te vroeg, op basis van break-even en doel-ROAS. Signalen: hoge frequentie, dalende CTR, zwakke hook, klikt wel maar koopt niet.
+- **Angles & copy**: prestaties per angle (automatisch uit naam en tekst, door Claude in te delen, of zelf per ad te kiezen), per primaire tekst, headline en video tegenover beeld.
+- **Producten**, **Funnel & site**, **Klanten & markten** (incl. PayPal-disputes), **Actielijst** (gedeeld, in de artifact-database) en **Advies** (Claude met een samenvatting van alle cijfers, capability `sample`).
+- **Instellingen**: inkoop %, verzendkosten per order, betaalkosten en gewenste winst. Btw-aandeel, retour-aandeel en orderwaarde komen live uit Shopify.
+
+Break-even ROAS = 1 / (wat er van €1 omzet incl. btw overblijft na btw, retouren, inkoop, betaalkosten en verzending).

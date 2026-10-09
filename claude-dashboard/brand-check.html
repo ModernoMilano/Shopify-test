@@ -1,0 +1,1008 @@
+<title>ModernoMilano Brand Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap">
+<style>
+/* Layout: sticky kop met tabbladen, daaronder per tabblad een samenvatting boven de details. Zelfde huisstijl als ModernoMilano Cijfers. */
+:root{
+  --bg:#f4f2ec;--surface:#fcfcfb;--surface-2:#efece4;--line:#e3e0d7;
+  --text:#121210;--text-2:#52514e;--text-3:#7a7974;--accent:#121210;--accent-text:#fff;
+  --grid:#e7e4dc;--neg:#c53030;--good:#1f7a1f;--warn:#9a5a00;--info:#2a78d6;
+  --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--s6:#4a3aa7;
+  --sans:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --bg:#111110;--surface:#1a1a19;--surface-2:#242421;--line:#33322e;--text:#f5f3ee;--text-2:#c3c2b7;--text-3:#8f8e86;
+  --accent:#e3e0d7;--accent-text:#111110;--grid:#2c2b28;--neg:#ef6b6b;--good:#4cbf4c;--warn:#e0a030;--info:#3987e5;
+  --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s6:#9085e9}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --bg:#111110;--surface:#1a1a19;--surface-2:#242421;--line:#33322e;--text:#f5f3ee;--text-2:#c3c2b7;--text-3:#8f8e86;
+  --accent:#e3e0d7;--accent-text:#111110;--grid:#2c2b28;--neg:#ef6b6b;--good:#4cbf4c;--warn:#e0a030;--info:#3987e5;
+  --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s6:#9085e9}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.45;padding-inline:16px;padding-block:0 48px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto}
+h1,h2,h3{margin:0;text-wrap:balance}
+.serif{font-family:var(--serif)}
+.num{font-variant-numeric:tabular-nums}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:inherit}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);padding-block:14px 10px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.brandrow{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px}
+.brand{font-family:var(--serif);font-size:22px;letter-spacing:-.01em}
+.brand i{font-style:italic}
+.brand small{display:block;font-family:var(--sans);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-3)}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;margin-top:10px;scrollbar-width:none}
+nav.tabs button{border:0;background:transparent;padding:7px 11px;border-radius:8px;color:var(--text-2);white-space:nowrap;cursor:pointer}
+nav.tabs button[aria-current="page"]{background:var(--surface-2);color:var(--text);font-weight:600}
+.seg{display:flex;max-width:100%;overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:2px}
+.seg button{border:0;background:transparent;padding:5px 9px;border-radius:7px;color:var(--text-2);white-space:nowrap;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-text)}
+.input{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:6px 9px;min-width:0}
+.input:focus,button:focus-visible,.seg button:focus-visible{outline:2px solid var(--info);outline-offset:1px}
+.btn{display:inline-flex;align-items:center;gap:6px;border:0;border-radius:9px;padding:7px 13px;background:var(--accent);color:var(--accent-text);font-weight:500;cursor:pointer;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn.small{padding:4px 9px;font-size:12.5px}
+.btn:disabled{opacity:.5;cursor:default}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;min-width:0}
+.card h2{font-size:15px;font-weight:600;margin-bottom:4px}
+.card .lead{color:var(--text-2);font-size:13px;margin:0 0 12px;max-width:80ch}
+.grid{display:grid;gap:12px}
+.kpis{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+.two{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.pillars{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+@media (max-width:860px){.two{grid-template-columns:minmax(0,1fr)}}
+.kpi .l{font-size:12.5px;color:var(--text-2)}
+.kpi .v{font-size:22px;font-weight:600;letter-spacing:-.01em;margin-top:2px;font-variant-numeric:tabular-nums}
+.kpi .s{font-size:11.5px;color:var(--text-3);margin-top:2px}
+.neg{color:var(--neg)}.good{color:var(--good)}.warn{color:var(--warn)}.muted{color:var(--text-3)}.dim{color:var(--text-2)}
+.stack{display:flex;flex-direction:column;gap:18px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.between{justify-content:space-between}
+.headline{font-family:var(--serif);font-size:clamp(24px,4.2vw,36px);line-height:1.15;letter-spacing:-.01em}
+.headline em{color:var(--text-2)}
+.sub{color:var(--text-2);margin-top:8px;max-width:75ch}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:500;color:var(--text-3);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:7px 9px;border-bottom:1px solid var(--line);white-space:nowrap}
+th[data-sort]{cursor:pointer}
+th[data-sort]:hover{color:var(--text)}
+td{padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.name{min-width:220px;max-width:420px}
+td.name small{display:block;color:var(--text-3);font-size:11.5px;margin-top:1px;overflow-wrap:anywhere}
+.pill{display:inline-flex;align-items:center;gap:5px;border-radius:99px;padding:1px 8px;font-size:11.5px;font-weight:600;white-space:nowrap;border:1px solid transparent}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill.good{background:color-mix(in srgb,var(--good) 12%,transparent);border-color:color-mix(in srgb,var(--good) 30%,transparent)}
+.pill.warn{background:color-mix(in srgb,var(--warn) 12%,transparent);border-color:color-mix(in srgb,var(--warn) 30%,transparent)}
+.pill.neg{background:color-mix(in srgb,var(--neg) 12%,transparent);border-color:color-mix(in srgb,var(--neg) 30%,transparent)}
+.pill.info{color:var(--info);background:color-mix(in srgb,var(--info) 12%,transparent);border-color:color-mix(in srgb,var(--info) 30%,transparent)}
+.pill.mute{color:var(--text-3);background:var(--surface-2)}
+.badge{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:0 6px;font-size:10.5px;line-height:17px;color:var(--text-3);white-space:nowrap;margin:1px 2px 1px 0}
+.badge.warn{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 40%,transparent)}
+.badge.neg{color:var(--neg);border-color:color-mix(in srgb,var(--neg) 40%,transparent)}
+.pillar{display:flex;flex-direction:column;gap:8px}
+.pillar .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.pillar h3{font-size:14px;font-weight:600}
+.score{font-size:30px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1}
+.score small{font-size:12px;color:var(--text-3);font-weight:400;margin-left:3px}
+.meter{height:6px;border-radius:6px;background:var(--surface-2);overflow:hidden}
+.meter i{display:block;height:100%;border-radius:6px}
+.pillar p{margin:0;color:var(--text-2);font-size:13px}
+.big{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px 22px;align-items:center}
+@media (max-width:620px){.big{grid-template-columns:minmax(0,1fr)}}
+.ring{width:132px;height:132px}
+.act{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 12px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
+.act:last-child{border-bottom:0}
+.act .imp{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.act .imp small{display:block;font-weight:400;color:var(--text-3);font-size:11px}
+.act b{display:block;font-weight:600}
+.act p{margin:2px 0 0;color:var(--text-2);font-size:13px}
+.act .area{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);padding-top:2px;min-width:64px}
+@media (max-width:560px){.act{grid-template-columns:minmax(0,1fr) auto}.act .area{grid-column:1/-1}}
+.bars{display:flex;flex-direction:column;gap:7px}
+.bar{display:grid;grid-template-columns:minmax(90px,170px) minmax(0,1fr) auto;gap:10px;align-items:center;font-size:13px}
+.bar .t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar .track{height:10px;border-radius:5px;background:var(--surface-2);overflow:hidden}
+.bar .track i{display:block;height:100%;border-radius:5px}
+.bar .v{font-variant-numeric:tabular-nums;white-space:nowrap;min-width:84px;text-align:right}
+.funnel{display:flex;flex-direction:column;gap:6px}
+.fstep{display:grid;grid-template-columns:150px minmax(0,1fr) 120px;gap:10px;align-items:center;font-size:13px}
+@media (max-width:560px){.fstep{grid-template-columns:100px minmax(0,1fr) 92px}}
+.fstep .track{height:22px;background:var(--surface-2);border-radius:6px;overflow:hidden}
+.fstep .track i{display:block;height:100%;background:var(--s1)}
+.fstep .v{text-align:right;font-variant-numeric:tabular-nums}
+.chart{position:relative;width:100%}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chartlegend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--text-2);margin-bottom:6px}
+.chartlegend span{display:flex;align-items:center;gap:6px}
+.chartlegend i{display:inline-block;width:14px;height:3px;border-radius:2px}
+.tip{position:absolute;top:8px;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:7px 9px;font-size:12px;box-shadow:0 6px 24px rgba(0,0,0,.12);min-width:150px;z-index:2}
+.tip div{display:flex;justify-content:space-between;gap:12px}
+.strip{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:12.5px}
+.strip .dot{font-size:9px}
+.alert{border-left:4px solid var(--warn);padding:10px 12px;border-radius:10px;background:var(--surface);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:13px}
+.alert.neg{border-left-color:var(--neg);color:var(--text)}
+.formgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.formgrid label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:var(--text-2)}
+.formgrid label .input{color:var(--text)}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.chat{display:flex;flex-direction:column;gap:10px}
+.chatlog{max-height:min(62vh,600px);overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:2px}
+.msg{max-width:min(760px,94%);padding:10px 13px;border-radius:12px;line-height:1.5;font-size:14px;overflow-wrap:anywhere}
+.msg.user{align-self:flex-end;background:var(--accent);color:var(--accent-text);white-space:pre-wrap}
+.msg.assistant{align-self:flex-start;background:var(--surface-2)}
+.msg p{margin:0 0 7px}.msg p:last-child{margin:0}.msg ul,.msg ol{margin:4px 0 7px;padding-left:20px}.msg li{margin:2px 0}.msg h4{margin:8px 0 4px;font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{white-space:normal;text-align:left;font-weight:400;font-size:13px}
+.chatform{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap}
+.chatform textarea{flex:1 1 260px;resize:vertical;min-height:46px}
+.todo{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 10px;align-items:start;padding:10px 0;border-bottom:1px solid var(--line)}
+.todo:last-child{border-bottom:0}
+.todo.done b{text-decoration:line-through;color:var(--text-3)}
+.todo input[type=checkbox]{width:17px;height:17px;margin-top:2px;accent-color:var(--text)}
+.todo p{margin:2px 0 0;color:var(--text-2);font-size:13px}
+.empty{padding:24px;text-align:center;color:var(--text-3)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--accent);color:var(--accent-text);padding:9px 14px;border-radius:10px;z-index:50;max-width:calc(100% - 32px)}
+details summary{cursor:pointer;color:var(--text-2)}
+.note{font-size:12px;color:var(--text-3)}
+.angleinput{width:150px;padding:3px 7px;font-size:12px}
+.copytext{white-space:pre-wrap;font-size:12.5px;color:var(--text-2);max-height:7.5em;overflow:auto}
+@media (prefers-reduced-motion:no-preference){.fade{animation:fade .25s ease-out}@keyframes fade{from{opacity:.4}to{opacity:1}}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brandrow">
+      <div class="brand">Moderno<i>Milano</i><small>Brand check</small></div>
+      <div class="row">
+        <div class="seg" id="rangeSeg" role="group" aria-label="Periode"></div>
+        <button class="btn ghost" id="refresh" type="button">Vernieuwen</button>
+      </div>
+    </div>
+    <nav class="tabs" id="tabs" aria-label="Onderdelen"></nav>
+  </header>
+  <section class="card" style="margin-bottom:16px"><div class="strip" id="strip"></div></section>
+  <main id="view" class="stack"></main>
+</div>
+<div id="toast" class="toast" hidden></div>
+
+<script>
+"use strict";
+/* ============================================================
+   Basis
+   ============================================================ */
+const SHOP = "Shopify", WIN = "Windsor_ai", PP = "PayPal";
+const LABEL = { [SHOP]: "Shopify", [WIN]: "Meta (Windsor.ai)", [PP]: "PayPal" };
+const TABS = [["check", "Brand check"], ["ads", "Ads"], ["angles", "Angles & copy"], ["products", "Producten"], ["funnel", "Funnel & site"], ["markets", "Klanten & markten"], ["todo", "Actielijst"], ["advice", "Advies"], ["settings", "Instellingen"]];
+const RANGES = [7, 14, 30, 60];
+const DEFAULTS = { cogsPct: 30, shipPerOrder: 8, feePct: 3, targetProfitPct: 15, minSpendFactor: 1, cogsByProduct: {} };
+
+const S = {
+  tab: "check", range: 30,
+  mcp: null, db: null, sample: null,
+  settings: { ...DEFAULTS },
+  angles: {}, actions: [],
+  shop: { status: "wacht", err: null, at: null, q: {} },
+  meta: { status: "wacht", err: null, at: null, rows: [], fields: [], notes: [] },
+  pp: { status: "wacht", err: null, disputes: null },
+  sort: {}, adFilter: { q: "", verdict: "", market: "", type: "" },
+  chat: [], chatBusy: false, angleBusy: false,
+};
+try { const t = localStorage.getItem("bc.tab"); if (t && TABS.some((x) => x[0] === t)) S.tab = t; const r = Number(localStorage.getItem("bc.range")); if (RANGES.includes(r)) S.range = r; } catch {}
+if (/^#[a-z]+$/.test(location.hash) && TABS.some((x) => "#" + x[0] === location.hash)) S.tab = location.hash.slice(1);
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const num = (v) => { const n = Number(v); return Number.isFinite(n) ? n : 0; };
+const fmtEur = new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
+const fmtEur2 = new Intl.NumberFormat("nl-NL", { style: "currency", currency: "EUR", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const fmtInt = new Intl.NumberFormat("nl-NL", { maximumFractionDigits: 0 });
+const eur = (n) => Number.isFinite(n) ? fmtEur.format(n) : "–";
+const eur2 = (n) => Number.isFinite(n) ? fmtEur2.format(n) : "–";
+const int = (n) => Number.isFinite(n) ? fmtInt.format(n) : "–";
+const pct = (n, d = 1) => Number.isFinite(n) ? (n * 100).toLocaleString("nl-NL", { minimumFractionDigits: d, maximumFractionDigits: d }) + "%" : "–";
+const times = (n) => Number.isFinite(n) ? n.toLocaleString("nl-NL", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + "×" : "–";
+const div = (a, b) => (b ? a / b : NaN);
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const sum = (arr, f) => arr.reduce((s, x) => s + (f ? f(x) : x), 0);
+const dayKey = (d) => { const z = new Date(d); return `${z.getFullYear()}-${String(z.getMonth() + 1).padStart(2, "0")}-${String(z.getDate()).padStart(2, "0")}`; };
+const addDays = (k, n) => { const d = new Date(k + "T12:00:00"); d.setDate(d.getDate() + n); return dayKey(d); };
+const today = () => dayKey(new Date());
+const signed = (n, f = pct) => (n > 0 ? "+" : "") + f(n);
+let toastT;
+function toast(t) { const el = $("toast"); el.textContent = t; el.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => (el.hidden = true), 4200); }
+
+/* ============================================================
+   Koppelingen
+   ============================================================ */
+function errText(e, server) {
+  const n = LABEL[server] || server;
+  switch (e && e.code) {
+    case "needs_reauth": return `Verbind ${n} opnieuw in claude.ai, Instellingen, Connectors.`;
+    case "server_not_connected": case "server_not_found": return `${n} is niet gekoppeld aan je Claude-account. Voeg hem toe in claude.ai, Instellingen, Connectors.`;
+    case "selection_required": return `Kies welke ${n}-koppeling deze pagina gebruikt.`;
+    case "not_in_manifest": case "consent_required": return `${n} heeft nog geen toestemming voor deze pagina. Klik op Vernieuwen en sta ${n} toe.`;
+    case "blocked_by_policy": return `${n} is geblokkeerd door de instellingen van je organisatie.`;
+    case "approval_required": return `${n} vraagt om goedkeuring. Klik op Vernieuwen en keur de aanvraag goed.`;
+    case "server_unavailable": return `${n} is even niet bereikbaar. Probeer het zo opnieuw.`;
+    case "not_granted": case "capability_disabled": case "capability_removed": return "Koppelingen werken alleen als je deze pagina in claude.ai opent.";
+    case "tool_error": return `${n} gaf een fout: ${String(e.message || "").slice(0, 160)}`;
+    default: return `${n}: ${(e && e.message) || "onbekende fout"}`;
+  }
+}
+async function call(server, tool, input, opts) {
+  if (!S.mcp) throw { code: "not_granted", message: "geen koppelingen" };
+  try { return await S.mcp.callTool(server, tool, input, opts); }
+  catch (e) {
+    if (e && e.retryable) { await new Promise((r) => setTimeout(r, Math.min(e.retryAfterMs || 1500, 8000) + Math.random() * 700)); return S.mcp.callTool(server, tool, input, opts); }
+    throw e;
+  }
+}
+function jsonOf(r, fits) {
+  const c = [r && r.payload, r && r.structuredContent];
+  for (const b of (r && r.content) || []) if (b && b.type === "text") c.push(b.text);
+  for (let x of c) {
+    if (typeof x === "string") { try { x = JSON.parse(x); } catch { continue; } }
+    if (x && fits(x)) return x;
+  }
+  return null;
+}
+function tableRows(r) {
+  const p = jsonOf(r, (x) => Array.isArray(x.rows) && Array.isArray(x.columns));
+  if (!p) throw { code: "tool_error", message: "onverwacht antwoord van Shopify Analytics" };
+  const cols = p.columns.map((c) => c.name);
+  return p.rows.map((row) => (Array.isArray(row) ? Object.fromEntries(cols.map((c, i) => [c, row[i]])) : row));
+}
+
+/* ---------- Shopify ---------- */
+function shopQueries() {
+  const R = S.range, R2 = R * 2;
+  return {
+    months: "FROM sales SHOW orders, gross_sales, discounts, sales_reversals, net_sales, shipping_charges, taxes, total_sales, average_order_value TIMESERIES month SINCE -365d UNTIL today",
+    days: `FROM sales SHOW orders, gross_sales, discounts, sales_reversals, net_sales, taxes, total_sales TIMESERIES day SINCE -${R2}d UNTIL today`,
+    products: `FROM sales SHOW net_sales, gross_sales, orders, quantity_ordered, quantity_returned, sales_reversals GROUP BY product_title SINCE -${R}d UNTIL today ORDER BY net_sales DESC LIMIT 60`,
+    sizes: `FROM sales SHOW quantity_ordered, quantity_returned GROUP BY product_variant_title SINCE -90d UNTIL today ORDER BY quantity_ordered DESC LIMIT 40`,
+    weeks: "FROM sessions SHOW sessions, sessions_with_cart_additions, sessions_that_reached_checkout, sessions_that_completed_checkout, conversion_rate TIMESERIES week SINCE -120d UNTIL today",
+    funnelNow: `FROM sessions SHOW sessions, sessions_with_cart_additions, sessions_that_reached_checkout, sessions_that_completed_checkout, conversion_rate SINCE -${R}d UNTIL today`,
+    funnelPrev: `FROM sessions SHOW sessions, sessions_with_cart_additions, sessions_that_reached_checkout, sessions_that_completed_checkout, conversion_rate SINCE -${R2}d UNTIL -${R + 1}d`,
+    device: `FROM sessions SHOW sessions, sessions_with_cart_additions, sessions_that_reached_checkout, sessions_that_completed_checkout, conversion_rate GROUP BY session_device_type SINCE -${R}d UNTIL today`,
+    countrySess: `FROM sessions SHOW sessions, sessions_with_cart_additions, sessions_that_reached_checkout, sessions_that_completed_checkout, conversion_rate GROUP BY session_country SINCE -${R}d UNTIL today ORDER BY sessions DESC LIMIT 20`,
+    countrySales: `FROM sales SHOW net_sales, orders, average_order_value, sales_reversals, gross_sales GROUP BY billing_country SINCE -${R}d UNTIL today ORDER BY net_sales DESC LIMIT 25`,
+    landing: `FROM sessions SHOW sessions, sessions_with_cart_additions, sessions_that_completed_checkout, conversion_rate GROUP BY landing_page_path SINCE -${R}d UNTIL today ORDER BY sessions DESC LIMIT 40`,
+    referrer: `FROM sales SHOW orders, net_sales GROUP BY order_referrer_source, order_referrer_name SINCE -${R}d UNTIL today ORDER BY net_sales DESC LIMIT 15`,
+    customers: "FROM sales SHOW new_customers, returning_customers, returning_customer_rate, customers TIMESERIES month SINCE -365d UNTIL today",
+    codes: `FROM sales SHOW orders, discounts, net_sales GROUP BY discount_code SINCE -${R}d UNTIL today ORDER BY orders DESC LIMIT 15`,
+  };
+}
+const STOCK_QUERY = `query Stock($after: String) { products(first: 100, after: $after, query: "status:active", sortKey: TITLE) { pageInfo { hasNextPage endCursor } nodes { title handle totalInventory tracksInventory priceRangeV2 { minVariantPrice { amount } } compareAtPriceRange { maxVariantCompareAtPrice { amount } } variants(first: 30) { nodes { title inventoryQuantity } } } } }`;
+
+async function loadShop(force) {
+  S.shop.status = "laden"; renderStrip();
+  const qs = shopQueries();
+  const cache = force ? { refresh: true, staleTime: 300000, gcTime: 3600000 } : { staleTime: 300000, gcTime: 3600000 };
+  const keys = Object.keys(qs), out = {}, errs = [];
+  let at = 0;
+  await Promise.all(keys.map(async (k) => {
+    try {
+      const r = await call(SHOP, "run-analytics-query", { query: qs[k] }, { cache });
+      out[k] = tableRows(r); at = Math.max(at, (r.cache && r.cache.storedAt) || Date.now());
+    } catch (e) { errs.push([k, e]); }
+  }));
+  try {
+    const nodes = []; let after = null, n = 0;
+    do {
+      const r = await call(SHOP, "graphql_query", { query: STOCK_QUERY, variables: after ? { after } : {} }, { cache });
+      const conn = (jsonOf(r, (x) => x.data && x.data.products) || {}).data?.products;
+      if (!conn) break;
+      nodes.push(...conn.nodes); after = conn.pageInfo.hasNextPage ? conn.pageInfo.endCursor : null;
+    } while (after && ++n < 5);
+    out.stock = nodes;
+  } catch (e) { errs.push(["stock", e]); }
+  S.shop.q = out;
+  if (errs.length === keys.length + 1) { S.shop.status = "fout"; S.shop.err = errText(errs[0][1], SHOP); }
+  else { S.shop.status = "ok"; S.shop.err = errs.length ? `${errs.length} onderdelen niet geladen (${errs.map((x) => x[0]).join(", ")})` : null; S.shop.at = at || Date.now(); }
+  render();
+}
+
+/* ---------- Meta via Windsor.ai ---------- */
+const WANT = {
+  id: ["ad_id"], ad: ["ad_name"], adset: ["adset_name"], campaign: ["campaign", "campaign_name"], date: ["date"],
+  spend: ["spend"], impr: ["impressions"], clicks: ["clicks"], link: ["link_clicks", "inline_link_clicks", "actions_link_click"], reach: ["reach"], freq: ["frequency"],
+  pur: ["actions_purchase", "actions_offsite_conversion_fb_pixel_purchase", "actions_omni_purchase"],
+  val: ["action_values_purchase", "action_values_offsite_conversion_fb_pixel_purchase", "action_values_omni_purchase"],
+  lpv: ["actions_landing_page_view"], atc: ["actions_add_to_cart", "actions_offsite_conversion_fb_pixel_add_to_cart", "actions_omni_add_to_cart"],
+  ic: ["actions_initiate_checkout", "actions_offsite_conversion_fb_pixel_initiate_checkout", "actions_omni_initiated_checkout"],
+  v3: ["actions_video_view", "video_3_sec_watched_actions"], thru: ["video_thruplay_watched_actions", "actions_video_thruplay"], p100: ["video_p100_watched_actions"],
+  body: ["body", "ad_creative_body", "creative_body", "ad_body"], title: ["title", "ad_creative_title", "creative_title", "ad_title"],
+};
+const CORE = ["date", "campaign", "adset_name", "ad_name", "spend", "impressions", "clicks", "actions_purchase", "action_values_purchase", "frequency"];
+const OPTIONAL_GROUPS = [["ad_id"], ["inline_link_clicks"], ["actions_landing_page_view", "actions_add_to_cart", "actions_initiate_checkout"], ["actions_video_view", "video_thruplay_watched_actions"], ["body", "title"]];
+
+function collectNames(x, out, depth = 0) {
+  if (depth > 6 || x == null) return;
+  if (typeof x === "string") { for (const t of x.split(/[\s,;"'`|()\[\]{}:]+/)) if (/^[a-z][a-z0-9_]{1,80}$/.test(t)) out.add(t); return; }
+  if (Array.isArray(x)) { for (const v of x) collectNames(v, out, depth + 1); return; }
+  if (typeof x === "object") for (const [k, v] of Object.entries(x)) { if (/^(id|name|field|field_id|key)$/.test(k) && typeof v === "string") out.add(v); else collectNames(v, out, depth + 1); }
+}
+function pickFields(avail) {
+  const map = {}, fields = new Set(["date"]);
+  for (const [k, cands] of Object.entries(WANT)) { const f = cands.find((c) => avail.has(c)); if (f) { map[k] = f; fields.add(f); } }
+  return { map, fields: [...fields] };
+}
+function metaRange() { const to = today(); return { from: addDays(to, -(S.range * 2 - 1)), to }; }
+async function windsor(fields, force) {
+  const { from, to } = metaRange();
+  const r = await call(WIN, "get_data", { connector: "facebook", fields, date_from: from, date_to: to }, { cache: force ? { refresh: true, staleTime: 300000, gcTime: 3600000 } : { staleTime: 300000, gcTime: 3600000 } });
+  const p = jsonOf(r, (x) => Array.isArray(x) || Array.isArray(x.result) || Array.isArray(x.data));
+  if (!p) throw { code: "tool_error", message: "onverwacht antwoord van Windsor.ai" };
+  return { list: Array.isArray(p) ? p : p.result || p.data, at: (r.cache && r.cache.storedAt) || Date.now() };
+}
+async function loadMeta(force) {
+  S.meta.status = "laden"; renderStrip();
+  const notes = [];
+  try {
+    let map = null, fields = null;
+    try {
+      const r = await call(WIN, "get_fields", { connector: "facebook" }, { cache: { staleTime: 300000, gcTime: 86400000 } });
+      const names = new Set(); collectNames(r.payload ?? r.structuredContent ?? (r.content || []).map((b) => b.text), names);
+      if (names.has("spend") && names.has("ad_name")) ({ map, fields } = pickFields(names));
+    } catch { /* geen veldenlijst: val terug op losse verzoeken */ }
+    let rows = [], at = 0;
+    if (map) {
+      try { const x = await windsor(fields, force); rows = x.list; at = x.at; }
+      catch (e) { notes.push("Uitgebreide velden gaven een fout, basisvelden gebruikt."); map = null; }
+    }
+    if (!map) {
+      map = { date: "date", campaign: "campaign", adset: "adset_name", ad: "ad_name", spend: "spend", impr: "impressions", clicks: "clicks", pur: "actions_purchase", val: "action_values_purchase", freq: "frequency" };
+      const base = await windsor(CORE, force); rows = base.list; at = base.at;
+      const key = (x) => [x.date, x.campaign, x.adset_name, x.ad_name].join("|");
+      const idx = new Map(rows.map((x) => [key(x), x]));
+      for (const g of OPTIONAL_GROUPS) {
+        try {
+          const extra = await windsor(["date", "campaign", "adset_name", "ad_name", ...g], force);
+          let hit = 0;
+          for (const x of extra.list) { const t = idx.get(key(x)); if (t) { for (const f of g) if (x[f] != null) { t[f] = x[f]; hit++; } } }
+          if (hit) for (const f of g) for (const [k, cands] of Object.entries(WANT)) if (cands.includes(f) && !map[k]) map[k] = f;
+        } catch { notes.push(`Niet beschikbaar in Windsor: ${g.join(", ")}`); }
+      }
+    }
+    const M = map;
+    S.meta.rows = rows.map((x) => ({
+      date: String(x[M.date] || "").slice(0, 10), campaign: String(x[M.campaign] || "onbekend"), adset: String(x[M.adset] || ""), ad: String(x[M.ad] || "onbekend"),
+      id: M.id ? String(x[M.id] || "") : "", spend: num(x[M.spend]), impr: num(x[M.impr]), clicks: num(x[M.clicks]), link: M.link ? num(x[M.link]) : null,
+      freq: M.freq && x[M.freq] != null ? num(x[M.freq]) : null, pur: num(x[M.pur]), val: num(x[M.val]),
+      lpv: M.lpv ? num(x[M.lpv]) : null, atc: M.atc ? num(x[M.atc]) : null, ic: M.ic ? num(x[M.ic]) : null,
+      v3: M.v3 ? num(x[M.v3]) : null, thru: M.thru ? num(x[M.thru]) : null,
+      body: M.body ? String(x[M.body] || "") : "", title: M.title ? String(x[M.title] || "") : "",
+    })).filter((x) => /^\d{4}-\d{2}-\d{2}$/.test(x.date) && (x.spend > 0 || x.impr > 0));
+    S.meta.fields = Object.keys(M); S.meta.notes = notes;
+    S.meta.status = "ok"; S.meta.err = null; S.meta.at = at;
+  } catch (e) { S.meta.status = "fout"; S.meta.err = errText(e, WIN); }
+  render();
+}
+
+/* ---------- PayPal ---------- */
+async function loadPaypal(force) {
+  S.pp.status = "laden";
+  try {
+    // Een filter op dispute_state wordt door PayPal geweigerd; haal alles op en filter hier.
+    const r = await call(PP, "list_disputes", { page_size: 50 }, { cache: force ? { refresh: true, staleTime: 300000 } : { staleTime: 300000 } });
+    const p = jsonOf(r, (x) => typeof x === "object") || {};
+    const items = p.disputes || p.items || (Array.isArray(p) ? p : []);
+    S.pp.disputes = items.map((d) => ({ id: d.dispute_id || d.id, reason: d.reason || "", status: d.status || "", stage: d.dispute_life_cycle_stage || "", outcome: d.outcome || "", amount: num(d.amount != null ? d.amount : (d.dispute_amount || {}).value), created: String(d.created_date || d.create_time || "").slice(0, 10) }));
+    S.pp.status = "ok"; S.pp.err = null;
+  } catch (e) { S.pp.status = "fout"; S.pp.err = errText(e, PP); }
+  render();
+}
+function loadAll(force) { loadShop(force); loadMeta(force); loadPaypal(force); }
+
+/* ============================================================
+   Rekenwerk
+   ============================================================ */
+function splitDays(rows, R) {
+  const t = today(), cur = addDays(t, -(R - 1)), prev = addDays(t, -(2 * R - 1));
+  const a = [], b = [];
+  for (const r of rows) { const k = String(r.day || r.date || "").slice(0, 10); if (k >= cur) a.push(r); else if (k >= prev) b.push(r); }
+  return [a, b];
+}
+function salesTotals(rows) {
+  const o = { orders: 0, gross: 0, disc: 0, rev: 0, net: 0, tax: 0, total: 0 };
+  for (const r of rows) { o.orders += num(r.orders); o.gross += num(r.gross_sales); o.disc += num(r.discounts); o.rev += num(r.sales_reversals); o.net += num(r.net_sales); o.tax += num(r.taxes); o.total += num(r.total_sales); }
+  o.aov = div(o.total, o.orders); o.returnRate = div(-o.rev, o.gross); o.taxShare = div(o.tax, o.total);
+  return o;
+}
+function econ() {
+  const st = S.settings, q = S.shop.q, days = q.days || [];
+  const [cur] = splitDays(days, S.range);
+  const t = salesTotals(cur.length ? cur : days);
+  const taxShare = Number.isFinite(t.taxShare) ? t.taxShare : 0.08;
+  const returnShare = Number.isFinite(t.returnRate) ? t.returnRate : 0.03;
+  const aov = Number.isFinite(t.aov) ? t.aov : 170;
+  // per euro omzet incl. btw (zo rapporteert Meta ook): wat blijft er over voor ads en winst?
+  const exVat = 1 - taxShare;
+  const contrib = exVat * (1 - returnShare) * (1 - st.cogsPct / 100) - st.feePct / 100 - st.shipPerOrder / aov;
+  const be = contrib > 0 ? 1 / contrib : Infinity;
+  const tgtContrib = contrib - st.targetProfitPct / 100;
+  const target = tgtContrib > 0 ? 1 / tgtContrib : Infinity;
+  return { contrib, be, target, beCpa: aov * contrib, aov, taxShare, returnShare };
+}
+const MARKETS = [[/\bUK\b|UK\+IE|\bIE\b|\bGB\b/, "UK/IE"], [/\bDEU?\b|\bAT\b|\bDACH\b|GERMAN/, "DE/AT"], [/\bUSA?\b|\bUS\b/, "USA"], [/SWIS|SWISS|\bCH\b/, "CH"], [/WORLDWIDE|\bWW\b/, "Worldwide"], [/\bNL\b|BENELUX/, "NL"]];
+const marketOf = (c) => { const u = String(c).toUpperCase(); for (const [re, m] of MARKETS) if (re.test(u)) return m; return "Overig"; };
+const typeOf = (c, s) => { const u = (c + " " + s).toUpperCase(); if (/RETARG|\bRT\b|REMARK/.test(u)) return "Retargeting"; if (/TEST|\bABO\b/.test(u)) return "Testen"; if (/LAL|LOOKALIKE/.test(u)) return "Lookalike"; if (/SCAL|CBO|ADVANTAGE|ASC/.test(u)) return "Schalen"; return "Overig"; };
+const ANGLE_RULES = [
+  [/gift|cadeau|geschenk|christmas|kerst|weihnacht|black friday/i, "Cadeau & seizoen"],
+  [/review|ugc|testimonial|customer|klant|kunde|★|stars|sterren/i, "Social proof"],
+  [/sale|% ?off|korting|rabatt|deal|free shipping|gratis|bogo|bundle|save/i, "Aanbieding & bundel"],
+  [/old money|quiet luxury|luxury|luxe|lusso|elegan|exclusive|imperial/i, "Quiet luxury"],
+  [/travel|voyage|airport|reis|reise|flight|vacation/i, "Reizen"],
+  [/lounge|comfort|cozy|cosy|home|relax|weekend/i, "Comfort & lounge"],
+  [/cashmere|kasjmier|kaschmir|soft|zacht|weich|knit|gebreid/i, "Cashmere & materiaal"],
+  [/fit|tailored|outfit|look|style|stijl|matching|set/i, "Stijl & fit"],
+];
+function autoAngle(a) { const t = `${a.ad} ${a.body} ${a.title}`; for (const [re, n] of ANGLE_RULES) if (re.test(t)) return n; return "Niet herkend"; }
+const adKey = (r) => r.id || `${r.campaign}|${r.adset}|${r.ad}`;
+
+function blank(extra) { return { spend: 0, impr: 0, clicks: 0, link: 0, hasLink: false, pur: 0, val: 0, lpv: 0, atc: 0, ic: 0, v3: 0, thru: 0, hasFunnel: false, hasVideo: false, freqW: 0, ...extra }; }
+function addRow(a, r) {
+  a.spend += r.spend; a.impr += r.impr; a.clicks += r.clicks; a.pur += r.pur; a.val += r.val;
+  if (r.link != null) { a.link += r.link; a.hasLink = true; }
+  if (r.atc != null) { a.lpv += r.lpv || 0; a.atc += r.atc; a.ic += r.ic || 0; a.hasFunnel = true; }
+  if (r.v3 != null) { a.v3 += r.v3; a.thru += r.thru || 0; a.hasVideo = true; }
+  if (r.freq != null) a.freqW += r.freq * r.impr;
+}
+function derive(a, E) {
+  a.roas = div(a.val, a.spend); a.cpa = div(a.spend, a.pur); a.ctr = div(a.hasLink ? a.link : a.clicks, a.impr); a.cpc = div(a.spend, a.hasLink ? a.link : a.clicks);
+  a.cpm = div(a.spend * 1000, a.impr); a.freq = a.impr ? a.freqW / a.impr : NaN; a.cvr = div(a.pur, a.hasLink ? a.link : a.clicks);
+  a.atcRate = a.hasFunnel ? div(a.atc, a.hasLink ? a.link : a.clicks) : NaN; a.hook = a.hasVideo ? div(a.v3, a.impr) : NaN; a.hold = a.hasVideo ? div(a.thru, a.v3) : NaN;
+  a.profit = a.val * E.contrib - a.spend;
+  return a;
+}
+function verdict(a, prev, E, med) {
+  const minSpend = E.beCpa * S.settings.minSpendFactor;
+  const flags = [];
+  if (a.freq > 3.5) flags.push(["Hoge frequentie", "warn"]);
+  if (prev && prev.impr > 1500 && a.impr > 1500 && a.ctr < prev.ctr * 0.75) flags.push(["CTR daalt", "warn"]);
+  if (Number.isFinite(a.hook) && a.hook < 0.2 && a.impr > 2000) flags.push(["Zwakke hook", "neg"]);
+  if (a.ctr >= med.ctr && a.pur === 0 && a.spend > minSpend) flags.push(["Klikt wel, koopt niet", "warn"]);
+  if (a.ctr < med.ctr * 0.7 && a.impr > 2000) flags.push(["Lage CTR", "neg"]);
+  let v;
+  if (a.spend < minSpend && a.pur < 2) v = ["Te vroeg", "mute", "Nog te weinig spend om te oordelen."];
+  else if (a.roas >= E.target && a.pur >= 3) v = ["Schalen", "good", "Boven je doel-ROAS. Budget +20% per 2 dagen of dupliceer naar schalen."];
+  else if (a.roas >= E.be) v = ["Houden", "info", "Winstgevend, maar onder doel. Laten lopen, nieuwe hook testen."];
+  else if (a.spend >= 2 * minSpend || (a.spend >= minSpend && a.pur === 0)) v = ["Stoppen", "neg", "Verliest geld boven break-even. Uitzetten."];
+  else v = ["Kijken", "warn", "Onder break-even. Nog één budgetcyclus, dan beslissen."];
+  if (v[0] === "Schalen" && flags.some((f) => f[0] === "Hoge frequentie" || f[0] === "CTR daalt")) v = ["Verversen", "warn", "Wint, maar raakt moe. Maak varianten van deze ad voordat hij inzakt."];
+  return { v, flags };
+}
+function median(arr) { const a = arr.filter(Number.isFinite).sort((x, y) => x - y); return a.length ? a[Math.floor(a.length / 2)] : NaN; }
+
+function adModel() {
+  if (S.meta.status !== "ok") return null;
+  const E = econ(), t = today(), cur = addDays(t, -(S.range - 1)), prevFrom = addDays(t, -(2 * S.range - 1));
+  const ads = new Map(), prev = new Map(), byDay = new Map();
+  for (const r of S.meta.rows) {
+    const k = adKey(r);
+    if (r.date >= cur) {
+      if (!ads.has(k)) ads.set(k, blank({ key: k, ad: r.ad, adset: r.adset, campaign: r.campaign, body: "", title: "" }));
+      const a = ads.get(k); addRow(a, r); if (r.body) a.body = r.body; if (r.title) a.title = r.title;
+      const d = byDay.get(r.date) || { spend: 0, val: 0, pur: 0 }; d.spend += r.spend; d.val += r.val; d.pur += r.pur; byDay.set(r.date, d);
+    } else if (r.date >= prevFrom) {
+      if (!prev.has(k)) prev.set(k, blank({}));
+      addRow(prev.get(k), r);
+    }
+  }
+  const list = [...ads.values()].map((a) => derive(a, E));
+  for (const p of prev.values()) derive(p, E);
+  const med = { ctr: median(list.filter((a) => a.impr > 1000).map((a) => a.ctr)) };
+  for (const a of list) {
+    const p = prev.get(a.key);
+    a.prev = p || null;
+    const { v, flags } = verdict(a, p, E, med); a.verdict = v; a.flags = flags;
+    a.market = marketOf(a.campaign + " " + a.adset); a.type = typeOf(a.campaign, a.adset);
+    a.format = a.hasVideo ? (a.v3 > 0 ? "Video" : "Beeld") : "Onbekend";
+    const manual = S.angles[a.key] || S.angles[a.ad];
+    a.angle = manual || autoAngle(a); a.angleAuto = !manual;
+  }
+  list.sort((x, y) => y.spend - x.spend);
+  const tot = derive(list.reduce((s, a) => { for (const f of ["spend", "impr", "clicks", "link", "pur", "val", "lpv", "atc", "ic", "v3", "thru", "freqW"]) s[f] += a[f]; s.hasLink ||= a.hasLink; s.hasFunnel ||= a.hasFunnel; s.hasVideo ||= a.hasVideo; return s; }, blank({})), E);
+  const prevTot = derive([...prev.values()].reduce((s, a) => { for (const f of ["spend", "impr", "clicks", "link", "pur", "val", "freqW"]) s[f] += a[f]; s.hasLink ||= a.hasLink; return s; }, blank({})), E);
+  return { E, list, tot, prevTot, byDay, med };
+}
+function groupAds(list, keyFn, E) {
+  const g = new Map();
+  for (const a of list) {
+    const k = keyFn(a); if (k == null || k === "") continue;
+    if (!g.has(k)) g.set(k, blank({ key: k, n: 0, ads: [] }));
+    const x = g.get(k); x.n++; x.ads.push(a);
+    for (const f of ["spend", "impr", "clicks", "link", "pur", "val", "lpv", "atc", "ic", "v3", "thru", "freqW"]) x[f] += a[f];
+    x.hasLink ||= a.hasLink; x.hasFunnel ||= a.hasFunnel; x.hasVideo ||= a.hasVideo;
+  }
+  return [...g.values()].map((x) => derive(x, E)).sort((a, b) => b.spend - a.spend);
+}
+
+function shopModel() {
+  const q = S.shop.q; if (S.shop.status !== "ok") return null;
+  const [cur, prev] = splitDays(q.days || [], S.range);
+  const T = salesTotals(cur), P = salesTotals(prev);
+  const fn = (q.funnelNow || [])[0] || {}, fp = (q.funnelPrev || [])[0] || {};
+  const funnel = (f) => ({ s: num(f.sessions), cart: num(f.sessions_with_cart_additions), co: num(f.sessions_that_reached_checkout), done: num(f.sessions_that_completed_checkout) });
+  const F = funnel(fn), FP = funnel(fp);
+  for (const f of [F, FP]) { f.cvr = div(f.done, f.s); f.atc = div(f.cart, f.s); f.toCo = div(f.co, f.cart); f.coDone = div(f.done, f.co); }
+  const cm = q.customers || [], lastFull = cm.slice(-2, -1)[0] || cm.slice(-1)[0] || {};
+  const tracking = (q.landing || []).filter((l) => /parcelpanel|track/i.test(l.landing_page_path || "")).reduce((s, l) => s + num(l.sessions), 0);
+  const stock = q.stock || [];
+  const soldTitles = new Set((q.products || []).slice(0, 25).map((p) => p.product_title));
+  const negBest = stock.filter((p) => soldTitles.has(p.title) && (p.variants?.nodes || []).some((v) => num(v.inventoryQuantity) < 0));
+  return { T, P, F, FP, returning: num(lastFull.returning_customer_rate), tracking, negBest, stock };
+}
+
+/* ---------- Pijlers ---------- */
+function statusOf(s) { return s >= 70 ? ["Goed", "good"] : s >= 45 ? ["Let op", "warn"] : ["Actie nodig", "neg"]; }
+function pillars() {
+  const sh = shopModel(), am = adModel(), E = econ(), out = [];
+  if (sh) {
+    const g = div(sh.T.total - sh.P.total, sh.P.total);
+    out.push({ key: "groei", name: "Groei", score: Number.isFinite(g) ? clamp(60 + g * 150, 5, 98) : 50, value: Number.isFinite(g) ? signed(g) : "–", text: Number.isFinite(g) ? `Omzet ${eur(sh.T.total)} in ${S.range} dagen, ${g >= 0 ? "meer" : "minder"} dan de ${S.range} dagen ervoor (${eur(sh.P.total)}).` : "Nog geen vergelijkbare periode." });
+    const cv = sh.F.cvr;
+    out.push({ key: "conversie", name: "Conversie", score: Number.isFinite(cv) ? clamp(20 + (cv - 0.006) * 4500, 5, 98) : 50, value: pct(cv, 2), text: `${pct(sh.F.atc, 1)} legt in winkelwagen, ${pct(sh.F.toCo, 0)} daarvan gaat naar checkout, ${pct(sh.F.coDone, 0)} rekent af.` });
+    const rr = sh.T.returnRate;
+    out.push({ key: "retour", name: "Retouren", score: Number.isFinite(rr) ? clamp(100 - rr * 900, 5, 98) : 50, value: pct(rr, 1), text: `${eur(-sh.T.rev)} teruggeboekt op ${eur(sh.T.gross)} bruto. Retouren lopen achter op de verkoop, dus check deze week opnieuw.` });
+    out.push({ key: "klanten", name: "Terugkerende klanten", score: clamp(25 + sh.returning * 400, 5, 98), value: pct(sh.returning, 1), text: `Van de klanten vorige maand kocht ${pct(sh.returning, 1)} al eerder. Voor kleding is 15 tot 25% haalbaar met e-mail en een tweede-aankoopflow.` });
+    const wismo = div(sh.tracking, sh.T.orders);
+    out.push({ key: "levering", name: "Levering & service", score: clamp(95 - (Number.isFinite(wismo) ? wismo * 18 : 0) - sh.negBest.length * 3, 5, 98), value: Number.isFinite(wismo) ? wismo.toLocaleString("nl-NL", { maximumFractionDigits: 1 }) + "× per order" : "–", text: `De trackingpagina werd ${int(sh.tracking)} keer als landingspagina geopend. ${sh.negBest.length} bestsellers staan onder nul voorraad (verkoop op nabestelling).` });
+  }
+  if (am && am.tot.spend > 0) {
+    const mer = sh ? div(sh.T.total, am.tot.spend) : NaN, ratio = div(mer, E.be);
+    out.unshift({ key: "winst", name: "Winst na ads", score: Number.isFinite(ratio) ? clamp(55 + (ratio - 1) * 110, 5, 98) : 50, value: "MER " + times(mer), text: `Elke euro Meta levert ${times(mer)} omzet op. Break-even ligt bij ${times(E.be)}, je doel bij ${times(E.target)}.` });
+    const waste = div(sum(am.list.filter((a) => a.verdict[0] === "Stoppen"), (a) => a.spend), am.tot.spend);
+    const tired = am.list.filter((a) => a.flags.some((f) => f[0] === "Hoge frequentie" || f[0] === "CTR daalt")).length;
+    out.splice(1, 0, { key: "ads", name: "Ads-efficiëntie", score: clamp(95 - waste * 220 - tired * 2, 5, 98), value: pct(waste, 0) + " verspild", text: `${eur(waste * am.tot.spend)} van ${eur(am.tot.spend)} ging naar ads onder break-even. ${tired} ads tonen vermoeidheid.` });
+  }
+  return out;
+}
+
+/* ---------- Acties uit de data, gesorteerd op geschatte impact per maand ---------- */
+function suggestions() {
+  const sh = shopModel(), am = adModel(), E = econ(), out = [], m = 30 / S.range;
+  if (am) {
+    const stop = am.list.filter((a) => a.verdict[0] === "Stoppen");
+    if (stop.length) { const loss = -sum(stop, (a) => Math.min(0, a.profit)); out.push({ area: "Ads", title: `Zet ${stop.length} verliesgevende ads uit`, why: `Samen ${eur(sum(stop, (a) => a.spend))} spend tegen gemiddeld ${times(div(sum(stop, (a) => a.val), sum(stop, (a) => a.spend)))} ROAS, onder je break-even van ${times(E.be)}. Grootste: ${stop.slice(0, 3).map((a) => a.ad).join(", ")}.`, impact: loss * m, unit: "minder verlies" }); }
+    const scale = am.list.filter((a) => a.verdict[0] === "Schalen");
+    if (scale.length) { const gain = sum(scale, (a) => a.spend * 0.3 * (a.roas * E.contrib - 1) * 0.7); out.push({ area: "Ads", title: `Schaal ${scale.length} winnende ads op`, why: `Boven je doel van ${times(E.target)}: ${scale.slice(0, 3).map((a) => `${a.ad} (${times(a.roas)})`).join(", ")}. Verhoog budget stapsgewijs met 20%. Schatting rekent met 30% meer budget en 30% lagere ROAS op het extra deel.`, impact: gain * m, unit: "extra winst" }); }
+    const tired = am.list.filter((a) => a.verdict[0] === "Verversen");
+    if (tired.length) out.push({ area: "Creatives", title: `Maak nieuwe varianten van ${tired.length} winnaars die moe worden`, why: `${tired.slice(0, 3).map((a) => a.ad).join(", ")}: frequentie of CTR gaat de verkeerde kant op. Zelfde angle, nieuwe eerste 3 seconden.`, impact: sum(tired, (a) => Math.max(0, a.profit)) * 0.3 * m, unit: "behouden winst" });
+    const clickNoBuy = am.list.filter((a) => a.flags.some((f) => f[0] === "Klikt wel, koopt niet"));
+    if (clickNoBuy.length) out.push({ area: "Ads", title: `${clickNoBuy.length} ads trekken klikken maar geen kopers`, why: "De ad werkt, de landingspagina of het aanbod niet. Stuur ze naar de productpagina die het beste converteert, of laat de ad precies tonen wat de pagina belooft.", impact: NaN });
+    const angles = groupAds(am.list, (a) => a.angle, E).filter((g) => g.spend > E.beCpa * 2);
+    if (angles.length > 1) { const best = [...angles].sort((a, b) => b.roas - a.roas)[0], worst = [...angles].sort((a, b) => a.roas - b.roas)[0]; if (best.roas > worst.roas * 1.3) out.push({ area: "Angles", title: `Verschuif budget van "${worst.key}" naar "${best.key}"`, why: `"${best.key}" haalt ${times(best.roas)} ROAS, "${worst.key}" ${times(worst.roas)}. Maak 3 nieuwe ads in de winnende angle.`, impact: worst.spend * 0.5 * (best.roas - worst.roas) * E.contrib * m, unit: "extra winst" }); }
+  }
+  if (sh) {
+    const f = sh.F;
+    if (f.coDone < 0.5 && f.co > 50) { const extra = f.co * (0.5 - f.coDone) * sh.T.aov; out.push({ area: "Checkout", title: `Checkout-afronding omhoog van ${pct(f.coDone, 0)} naar 50%`, why: `${int(f.co)} sessies bereikten de checkout, ${int(f.done)} rekenden af. Toon verzendkosten en levertijd vóór de checkout, zet Shop Pay, Apple Pay en Klarna bovenaan, en verstuur een herinneringsmail na 1 uur.`, impact: extra * m * E.contrib, unit: "extra winst" }); }
+    if (f.atc < 0.06 && f.s > 1000) out.push({ area: "Productpagina", title: `Meer bezoekers in de winkelwagen (nu ${pct(f.atc, 1)})`, why: "Mobiel is vrijwel al je verkeer. Zorg dat maat, prijs, levertijd en de knop zonder scrollen zichtbaar zijn, met een maattabel en reviews direct onder de knop.", impact: f.s * (0.06 - f.atc) * f.toCo * f.coDone * sh.T.aov * m * E.contrib, unit: "extra winst" });
+    const rr = sh.T.returnRate; if (rr > 0.05) out.push({ area: "Retouren", title: `Retouren terugdringen (${pct(rr, 1)} van bruto)`, why: "Kijk in Producten welke artikelen en maten het vaakst terugkomen. Een duidelijk maatadvies (\"valt klein, neem een maat groter\") is meestal de snelste winst.", impact: -sh.T.rev * 0.3 * m * (1 - E.taxShare), unit: "minder retour" });
+    if (sh.returning < 0.12) out.push({ area: "Retentie", title: "Bouw herhaalaankopen op met e-mail", why: `Maar ${pct(sh.returning, 1)} van de kopers komt terug. Een flow na levering (dag 7 review, dag 21 bijpassend item, dag 45 nieuwe kleur) met code NEXTORDER10 is de goedkoopste omzet die je kunt halen.`, impact: sh.T.orders * 0.05 * sh.T.aov * m * E.contrib, unit: "extra winst" });
+    if (Number.isFinite(div(sh.tracking, sh.T.orders)) && sh.tracking / sh.T.orders > 1) out.push({ area: "Service", title: "Minder klanten die hun pakket zoeken", why: `De trackingpagina kreeg ${int(sh.tracking)} sessies op ${int(sh.T.orders)} orders. Stuur proactief verzend- en vertragingsmails en vermeld de levertijd op de productpagina. Dat voorkomt ook chargebacks.`, impact: NaN });
+    const nad = (S.pp.disputes || []).filter((d) => d.reason === "MERCHANDISE_OR_SERVICE_NOT_AS_DESCRIBED");
+    if (nad.length >= 2) out.push({ area: "Disputes", title: `${nad.length} PayPal-disputes "niet zoals beschreven"`, why: `Samen ${eur(sum(nad, (d) => d.amount))}. Klanten vinden het product anders dan de ad of pagina belooft. Laat materiaal (percentage cashmere), pasvorm en kleur op de pagina precies kloppen met wat je levert, en reageer op open disputes met foto's en trackinginfo.`, impact: NaN });
+    if (sh.negBest.length) out.push({ area: "Voorraad", title: `${sh.negBest.length} bestsellers staan onder nul`, why: `${sh.negBest.slice(0, 4).map((p) => p.title).join(", ")}. Zet bij deze varianten een levertijd op de pagina of bestel bij, zodat er geen annuleringen en disputes uit komen.`, impact: NaN });
+  }
+  return out.sort((a, b) => (Number.isFinite(b.impact) ? b.impact : -1) - (Number.isFinite(a.impact) ? a.impact : -1));
+}
+
+/* ============================================================
+   Grafieken
+   ============================================================ */
+function lineChart(labels, series, o = {}) {
+  const W = 760, H = o.h || 220, L = 56, R = o.right ? 48 : 12, T = 10, B = 26;
+  const vals = series.filter((s) => !s.right).flatMap((s) => s.values).filter(Number.isFinite);
+  const max = Math.max(1, ...vals) * 1.08;
+  const rv = series.filter((s) => s.right).flatMap((s) => s.values).filter(Number.isFinite);
+  const rmax = rv.length ? Math.max(...rv) * 1.15 : 1;
+  const x = (i) => L + (labels.length < 2 ? 0 : (i * (W - L - R)) / (labels.length - 1));
+  const y = (v, r) => T + (H - T - B) * (1 - v / (r ? rmax : max));
+  const ticks = 4; let g = "";
+  for (let i = 0; i <= ticks; i++) { const v = (max * i) / ticks, yy = y(v); g += `<line x1="${L}" x2="${W - R}" y1="${yy}" y2="${yy}" stroke="var(--grid)"/><text x="${L - 6}" y="${yy + 4}" text-anchor="end" font-size="10.5" fill="var(--text-3)">${esc((o.fmt || int)(v))}</text>`; if (o.right && rv.length) { const rvv = (rmax * i) / ticks; g += `<text x="${W - R + 6}" y="${yy + 4}" font-size="10.5" fill="var(--text-3)">${esc((o.rfmt || int)(rvv))}</text>`; } }
+  const step = Math.max(1, Math.ceil(labels.length / 7));
+  labels.forEach((l, i) => { if (i % step === 0 || i === labels.length - 1) g += `<text x="${x(i)}" y="${H - 7}" text-anchor="middle" font-size="10.5" fill="var(--text-3)">${esc(l)}</text>`; });
+  for (const s of series) {
+    const pts = s.values.map((v, i) => (Number.isFinite(v) ? [x(i), y(v, s.right)] : null)).filter(Boolean);
+    if (!pts.length) continue;
+    if (s.area) g += `<path d="M${pts[0][0]},${y(0)} ${pts.map((p) => "L" + p.join(",")).join(" ")} L${pts[pts.length - 1][0]},${y(0)}Z" fill="${s.color}" opacity=".1"/>`;
+    g += `<polyline points="${pts.map((p) => p.join(",")).join(" ")}" fill="none" stroke="${s.color}" stroke-width="2" stroke-linejoin="round" ${s.dash ? 'stroke-dasharray="4 4"' : ""}/>`;
+    const e = pts[pts.length - 1]; g += `<circle cx="${e[0]}" cy="${e[1]}" r="3.5" fill="${s.color}"/>`;
+  }
+  if (o.refLine != null && Number.isFinite(o.refLine)) { const yy = y(o.refLine, o.refRight); g += `<line x1="${L}" x2="${W - R}" y1="${yy}" y2="${yy}" stroke="var(--neg)" stroke-dasharray="3 4"/><text x="${W - R - 4}" y="${yy - 5}" text-anchor="end" font-size="10.5" fill="var(--neg)">${esc(o.refLabel || "")}</text>`; }
+  const id = "c" + Math.random().toString(36).slice(2, 8);
+  CHARTS[id] = { labels, series, x, W, L, R, fmt: o.fmt, rfmt: o.rfmt };
+  return `<div class="chartlegend">${series.map((s) => `<span><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join("")}</div><div class="chart" data-chart="${id}"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(o.label || "grafiek")}">${g}<line class="hair" x1="0" x2="0" y1="${T}" y2="${H - B}" stroke="var(--text-3)" stroke-width="1" opacity="0"/></svg><div class="tip" hidden></div></div>`;
+}
+const CHARTS = {};
+document.addEventListener("pointermove", (ev) => {
+  const el = ev.target.closest && ev.target.closest(".chart"); document.querySelectorAll(".chart .tip").forEach((t) => { if (!el || !el.contains(t)) t.hidden = true; });
+  if (!el) return; const c = CHARTS[el.dataset.chart]; if (!c) return;
+  const svg = el.querySelector("svg"), r = svg.getBoundingClientRect(), sx = ((ev.clientX - r.left) / r.width) * c.W;
+  let best = 0, bd = Infinity; c.labels.forEach((_, i) => { const d = Math.abs(c.x(i) - sx); if (d < bd) { bd = d; best = i; } });
+  const hair = svg.querySelector(".hair"); hair.setAttribute("x1", c.x(best)); hair.setAttribute("x2", c.x(best)); hair.setAttribute("opacity", ".35");
+  const tip = el.querySelector(".tip"); tip.hidden = false;
+  tip.innerHTML = `<b>${esc(c.labels[best])}</b>` + c.series.map((s) => `<div><span>${esc(s.name)}</span><span class="num">${esc((s.right ? c.rfmt || int : c.fmt || int)(s.values[best]))}</span></div>`).join("");
+  const px = (c.x(best) / c.W) * r.width; tip.style.left = Math.min(Math.max(0, px + 12), r.width - 170) + "px";
+});
+function hbars(items, o = {}) {
+  const max = Math.max(1e-9, ...items.map((i) => Math.abs(i.v)));
+  return `<div class="bars">${items.map((i) => `<div class="bar"><span class="t" title="${esc(i.t)}">${esc(i.t)}</span><span class="track"><i style="width:${(Math.abs(i.v) / max) * 100}%;background:${i.c || o.color || "var(--s1)"}"></i></span><span class="v">${esc(i.label != null ? i.label : (o.fmt || eur)(i.v))}</span></div>`).join("")}</div>`;
+}
+function ring(score) {
+  const st = statusOf(score), r = 54, c = 2 * Math.PI * r, col = `var(--${st[1]})`;
+  return `<svg class="ring" viewBox="0 0 132 132" role="img" aria-label="Totaalscore ${Math.round(score)} van 100"><circle cx="66" cy="66" r="${r}" fill="none" stroke="var(--surface-2)" stroke-width="12"/><circle cx="66" cy="66" r="${r}" fill="none" stroke="${col}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${(score / 100) * c} ${c}" transform="rotate(-90 66 66)"/><text x="66" y="72" text-anchor="middle" font-size="30" font-weight="600" fill="var(--text)" font-family="Inter,system-ui,sans-serif">${Math.round(score)}</text><text x="66" y="92" text-anchor="middle" font-size="11" fill="var(--text-3)" font-family="Inter,system-ui,sans-serif">van 100</text></svg>`;
+}
+const pill = (t, c) => `<span class="pill ${c}">${esc(t)}</span>`;
+const kpi = (l, v, s, cls = "") => `<div class="card kpi"><div class="l">${esc(l)}</div><div class="v ${cls}">${v}</div>${s ? `<div class="s">${s}</div>` : ""}</div>`;
+const delta = (a, b, inverse) => { const d = div(a - b, Math.abs(b)); if (!Number.isFinite(d)) return ""; const good = inverse ? d < 0 : d > 0; return `<span class="${Math.abs(d) < 0.02 ? "muted" : good ? "good" : "neg"}">${signed(d, (n) => pct(n, 0))}</span> t.o.v. vorige ${S.range} dagen`; };
+
+/* ============================================================
+   Weergave
+   ============================================================ */
+function renderStrip() {
+  const dot = (s) => (s.status === "ok" ? (s.err ? "warn" : "good") : s.status === "fout" ? "neg" : "muted");
+  const item = (name, s) => `<span><span class="dot ${dot(s)}">●</span> ${esc(name)}: ${s.status === "ok" ? (s.at ? "bijgewerkt " + new Date(s.at).toLocaleTimeString("nl-NL", { hour: "2-digit", minute: "2-digit" }) : "ok") : s.status === "laden" ? "laden…" : s.status === "fout" ? esc(s.err) : "wacht op koppeling"}${s.status === "ok" && s.err ? ` <span class="warn">(${esc(s.err)})</span>` : ""}</span>`;
+  $("strip").innerHTML = item("Shopify", S.shop) + item("Meta via Windsor.ai", S.meta) + item("PayPal", S.pp) + (S.mcp ? "" : `<span class="muted">Live data werkt als je deze pagina in claude.ai opent.</span>`);
+}
+function renderTabs() {
+  $("tabs").innerHTML = TABS.map(([k, n]) => `<button type="button" data-tab="${k}" ${S.tab === k ? 'aria-current="page"' : ""}>${esc(n)}</button>`).join("");
+  $("rangeSeg").innerHTML = RANGES.map((r) => `<button type="button" data-range="${r}" aria-pressed="${S.range === r}">${r} d</button>`).join("");
+}
+function render() {
+  renderTabs(); renderStrip();
+  const v = $("view"); const keep = v.querySelector("#chatInput")?.value;
+  const fn = { check: viewCheck, ads: viewAds, angles: viewAngles, products: viewProducts, funnel: viewFunnel, markets: viewMarkets, todo: viewTodo, advice: viewAdvice, settings: viewSettings }[S.tab];
+  v.innerHTML = fn();
+  if (keep != null && $("chatInput")) $("chatInput").value = keep;
+  const log = $("chatlog"); if (log) log.scrollTop = log.scrollHeight;
+}
+const waiting = (what) => `<div class="card empty">${esc(what)}</div>`;
+function shopWait() { return S.shop.status === "fout" ? `<div class="alert neg">${esc(S.shop.err)}</div>` : waiting("Shopify-cijfers laden…"); }
+function metaWait() { return S.meta.status === "fout" ? `<div class="alert neg">${esc(S.meta.err)}</div>` : waiting("Meta-cijfers laden via Windsor.ai…"); }
+
+/* ---------- Brand check ---------- */
+function viewCheck() {
+  const sh = shopModel(), am = adModel(), E = econ(), P = pillars();
+  if (!sh && !am) return S.shop.status === "fout" && S.meta.status === "fout" ? shopWait() + metaWait() : waiting("Cijfers laden uit Shopify en Meta…");
+  const total = P.length ? sum(P, (p) => p.score) / P.length : 50;
+  const worst = [...P].sort((a, b) => a.score - b.score).slice(0, 2).map((p) => p.name.toLowerCase());
+  const mer = sh && am ? div(sh.T.total, am.tot.spend) : NaN;
+  const profitEst = sh && am ? sh.T.total * E.contrib - am.tot.spend : NaN;
+  const sug = suggestions();
+  let h = `<section class="card"><div class="big">${ring(total)}<div><h1 class="headline">${Number.isFinite(profitEst) ? `<em>Geschatte winst na ads:</em> ${eur(profitEst)}` : "Brand check"}</h1><p class="sub">In de laatste ${S.range} dagen. ${Number.isFinite(mer) ? `Je haalt ${times(mer)} omzet per euro Meta, break-even is ${times(E.be)}.` : ""} De grootste kansen zitten in ${esc(worst.join(" en ") || "de ads")}. Winst is een schatting met ${S.settings.cogsPct}% inkoop; pas dat aan bij Instellingen.</p></div></div></section>`;
+  if (sh) {
+    h += `<section class="grid kpis">
+      ${kpi("Omzet incl. btw", eur(sh.T.total), delta(sh.T.total, sh.P.total))}
+      ${kpi("Orders", int(sh.T.orders), delta(sh.T.orders, sh.P.orders))}
+      ${kpi("Gem. orderwaarde", eur(sh.T.aov), delta(sh.T.aov, sh.P.aov))}
+      ${am ? kpi("Meta spend", eur(am.tot.spend), delta(am.tot.spend, am.prevTot.spend)) : ""}
+      ${am ? kpi("MER (omzet / Meta)", times(mer), `break-even ${times(E.be)}`, mer >= E.be ? "good" : "neg") : ""}
+      ${am ? kpi("Meta ROAS (pixel)", times(am.tot.roas), `CPA ${eur(am.tot.cpa)}, break-even ${eur(E.beCpa)}`, am.tot.roas >= E.be ? "" : "neg") : ""}
+      ${kpi("Conversie", pct(sh.F.cvr, 2), delta(sh.F.cvr, sh.FP.cvr))}
+      ${kpi("Retouren", pct(sh.T.returnRate, 1), delta(sh.T.returnRate, sh.P.returnRate, true))}
+    </section>`;
+  }
+  h += `<section class="grid pillars">${P.map((p) => { const st = statusOf(p.score); return `<div class="card pillar"><div class="top"><h3>${esc(p.name)}</h3>${pill(st[0], st[1])}</div><div class="row between"><div class="score">${Math.round(p.score)}<small>/100</small></div><div class="num dim">${esc(p.value)}</div></div><div class="meter"><i style="width:${p.score}%;background:var(--${st[1]})"></i></div><p>${esc(p.text)}</p></div>`; }).join("")}</section>`;
+  h += `<section class="card"><div class="row between"><div><h2>Wat nu, op volgorde van impact</h2><p class="lead">Berekend uit je eigen cijfers. Impact is per maand, een schatting. Zet wat je gaat doen op je actielijst.</p></div><button class="btn ghost small" type="button" data-ask="Maak voor deze week een concreet plan van maximaal 5 acties om winstgevender te worden, op volgorde van impact. Per actie: wat ik precies aanpas, in welk scherm, en welk getal ik verwacht te zien bewegen.">Laat Claude een weekplan maken</button></div>
+    ${sug.length ? sug.map((s, i) => `<div class="act"><span class="area">${esc(s.area)}</span><div><b>${esc(s.title)}</b><p>${esc(s.why)}</p><div class="row" style="margin-top:6px"><button class="btn ghost small" type="button" data-addaction="${i}">Op actielijst</button><button class="btn ghost small" type="button" data-ask="${esc(`Help me met deze actie: ${s.title}. Context: ${s.why} Geef concrete stappen, en waar het om teksten gaat, schrijf ze voor me uit.`)}">Hulp van Claude</button></div></div><div class="imp">${Number.isFinite(s.impact) && s.impact > 0 ? "~" + eur(s.impact) : "–"}<small>${esc(s.unit || "")}</small></div></div>`).join("") : `<p class="muted">Nog geen suggesties: de cijfers laden of alles staat goed.</p>`}</section>`;
+  if (sh) {
+    const days = (S.shop.q.days || []).slice(-S.range);
+    const md = am ? am.byDay : new Map();
+    const labels = days.map((d) => String(d.day).slice(5).split("-").reverse().join("-"));
+    h += `<section class="card"><h2>Omzet en Meta per dag</h2><p class="lead">Omzet incl. btw uit Shopify, spend uit Meta, MER op de rechteras.</p>${lineChart(labels, [
+      { name: "Omzet", color: "var(--s1)", values: days.map((d) => num(d.total_sales)), area: true },
+      ...(am ? [{ name: "Meta spend", color: "var(--s2)", values: days.map((d) => (md.get(String(d.day).slice(0, 10)) || {}).spend || 0) }, { name: "MER", color: "var(--s3)", right: true, dash: true, values: days.map((d) => { const s = (md.get(String(d.day).slice(0, 10)) || {}).spend; return s ? num(d.total_sales) / s : NaN; }) }] : []),
+    ], { fmt: eur, right: !!am, rfmt: times, refLine: am ? E.be : null, refRight: true, refLabel: `break-even ${times(E.be)}`, label: "Omzet en spend per dag" })}</section>`;
+    const months = S.shop.q.months || [];
+    h += `<section class="card"><h2>Omzet per maand</h2>${lineChart(months.map((m) => new Date(String(m.month) + "T12:00:00").toLocaleDateString("nl-NL", { month: "short", year: "2-digit" })), [{ name: "Omzet incl. btw", color: "var(--s1)", values: months.map((m) => num(m.total_sales)), area: true }, { name: "Gem. orderwaarde", color: "var(--s4)", right: true, values: months.map((m) => num(m.average_order_value)) }], { fmt: eur, right: true, rfmt: eur, h: 200, label: "Omzet per maand" })}</section>`;
+  }
+  return h;
+}
+
+/* ---------- Ads ---------- */
+function sortList(list, tab, def) {
+  const s = S.sort[tab] || def; const dir = s.dir === "asc" ? 1 : -1;
+  return [...list].sort((a, b) => { const x = a[s.key], y = b[s.key]; if (typeof x === "string") return dir * String(x).localeCompare(String(y)); return dir * ((Number.isFinite(x) ? x : -Infinity) - (Number.isFinite(y) ? y : -Infinity)); });
+}
+const th = (tab, key, label, r = true) => `<th class="${r ? "r" : ""}" data-sort="${tab}:${key}">${esc(label)}${(S.sort[tab] || {}).key === key ? ((S.sort[tab].dir === "asc") ? " ↑" : " ↓") : ""}</th>`;
+function viewAds() {
+  const am = adModel(); if (!am) return metaWait();
+  const E = am.E, f = S.adFilter;
+  let list = am.list.filter((a) => (!f.q || `${a.ad} ${a.adset} ${a.campaign} ${a.angle}`.toLowerCase().includes(f.q.toLowerCase())) && (!f.verdict || a.verdict[0] === f.verdict) && (!f.market || a.market === f.market) && (!f.type || a.type === f.type));
+  list = sortList(list, "ads", { key: "spend", dir: "desc" });
+  const counts = {}; for (const a of am.list) counts[a.verdict[0]] = (counts[a.verdict[0]] || 0) + 1;
+  const vSpend = (v) => sum(am.list.filter((a) => a.verdict[0] === v), (a) => a.spend);
+  const opt = (arr, cur) => arr.map((x) => `<option ${x === cur ? "selected" : ""}>${esc(x)}</option>`).join("");
+  const markets = [...new Set(am.list.map((a) => a.market))], types = [...new Set(am.list.map((a) => a.type))];
+  let h = `<section class="grid kpis">
+    ${kpi("Spend", eur(am.tot.spend), delta(am.tot.spend, am.prevTot.spend))}
+    ${kpi("ROAS (pixel)", times(am.tot.roas), delta(am.tot.roas, am.prevTot.roas), am.tot.roas >= E.be ? "" : "neg")}
+    ${kpi("CPA", eur(am.tot.cpa), `break-even CPA ${eur(E.beCpa)}`, am.tot.cpa <= E.beCpa ? "" : "neg")}
+    ${kpi("CTR", pct(am.tot.ctr, 2), delta(am.tot.ctr, am.prevTot.ctr))}
+    ${kpi("CPM", eur2(am.tot.cpm), delta(am.tot.cpm, am.prevTot.cpm, true))}
+    ${kpi("Frequentie", Number.isFinite(am.tot.freq) ? am.tot.freq.toFixed(2) : "–", "gewogen gemiddelde per dag")}
+  </section>
+  <section class="card"><h2>Oordeel per ad</h2><p class="lead">Break-even ROAS ${times(E.be)}, doel ${times(E.target)}, break-even CPA ${eur(E.beCpa)}. Een ad wordt pas beoordeeld na ${eur(E.beCpa * S.settings.minSpendFactor)} spend. Klik op een kolom om te sorteren.</p>
+  <div class="grid kpis" style="margin-bottom:12px">${[["Schalen", "good"], ["Verversen", "warn"], ["Houden", "info"], ["Kijken", "warn"], ["Stoppen", "neg"], ["Te vroeg", "mute"]].map(([v, c]) => `<button type="button" class="card kpi" data-verdict="${v}" style="text-align:left;cursor:pointer;${f.verdict === v ? "outline:2px solid var(--info)" : ""}"><div class="l">${pill(v, c)}</div><div class="v">${counts[v] || 0}</div><div class="s">${eur(vSpend(v))} spend</div></button>`).join("")}</div>
+  <div class="toolbar"><input class="input" id="adq" type="search" placeholder="Zoek ad, campagne of angle" value="${esc(f.q)}" style="flex:1 1 220px"><select class="input" id="admarket"><option value="">Alle markten</option>${opt(markets, f.market)}</select><select class="input" id="adtype"><option value="">Alle campagnetypes</option>${opt(types, f.type)}</select>${f.verdict ? `<button class="btn ghost small" type="button" data-verdict="">Toon alle oordelen</button>` : ""}<button class="btn ghost small" type="button" data-ask="Analyseer mijn Meta-ads: welke ads, angles en copy werken het best en waarom? Vergelijk de winnaars met de verliezers (hook, CTR, klik naar aankoop) en zeg per ad wat ik nu moet doen.">Laat Claude de ads analyseren</button></div>
+  <div class="scroll"><table><thead><tr>${th("ads", "ad", "Ad", false)}<th>Oordeel</th>${th("ads", "spend", "Spend")}${th("ads", "roas", "ROAS")}${th("ads", "cpa", "CPA")}${th("ads", "pur", "Aank.")}${th("ads", "ctr", "CTR")}${th("ads", "cpm", "CPM")}${am.tot.hasFunnel ? th("ads", "atcRate", "ATC/klik") : ""}${am.tot.hasVideo ? th("ads", "hook", "Hook") + th("ads", "hold", "Hold") : ""}${th("ads", "freq", "Freq.")}${th("ads", "profit", "Winst*")}</tr></thead><tbody>
+  ${list.map((a) => `<tr><td class="name"><b>${esc(a.ad)}</b><small>${esc(a.campaign)}${a.adset ? " · " + esc(a.adset) : ""}</small><small>${esc(a.market)} · ${esc(a.type)} · ${esc(a.format)} · <span title="${a.angleAuto ? "automatisch herkend" : "door jou gekozen"}">${esc(a.angle)}${a.angleAuto ? " (auto)" : ""}</span></small>${a.flags.map((x) => `<span class="badge ${x[1]}">${esc(x[0])}</span>`).join("")}</td><td>${pill(a.verdict[0], a.verdict[1])}<small class="note" style="display:block;max-width:200px;margin-top:3px">${esc(a.verdict[2])}</small></td><td class="r">${eur(a.spend)}</td><td class="r ${a.roas >= E.be ? "" : "neg"}">${times(a.roas)}</td><td class="r">${a.pur ? eur(a.cpa) : "–"}</td><td class="r">${int(a.pur)}</td><td class="r">${pct(a.ctr, 2)}${a.prev && Number.isFinite(a.prev.ctr) ? `<small class="note" style="display:block">was ${pct(a.prev.ctr, 2)}</small>` : ""}</td><td class="r">${eur2(a.cpm)}</td>${am.tot.hasFunnel ? `<td class="r">${pct(a.atcRate, 1)}</td>` : ""}${am.tot.hasVideo ? `<td class="r">${pct(a.hook, 0)}</td><td class="r">${pct(a.hold, 0)}</td>` : ""}<td class="r ${a.freq > 3.5 ? "warn" : ""}">${Number.isFinite(a.freq) ? a.freq.toFixed(2) : "–"}</td><td class="r ${a.profit >= 0 ? "good" : "neg"}">${eur(a.profit)}</td></tr>`).join("") || `<tr><td colspan="12" class="empty">Geen ads in dit filter.</td></tr>`}
+  </tbody></table></div><p class="note" style="margin-top:8px">*Winst = pixelomzet × wat er per euro overblijft na btw, retouren, inkoop, fees en verzending (${pct(E.contrib, 0)}) min spend. Hook = 3-seconden views / vertoningen, hold = ThruPlays / 3-seconden views.${S.meta.notes.length ? " " + esc(S.meta.notes.join(" ")) : ""}</p></section>`;
+  const camps = groupAds(am.list, (a) => a.campaign, E), mk = groupAds(am.list, (a) => a.market, E), ty = groupAds(am.list, (a) => a.type, E);
+  const gt = (rows, title, lead) => `<section class="card"><h2>${esc(title)}</h2>${lead ? `<p class="lead">${esc(lead)}</p>` : ""}<div class="scroll"><table><thead><tr><th>Naam</th><th class="r">Spend</th><th class="r">ROAS</th><th class="r">CPA</th><th class="r">Aank.</th><th class="r">CTR</th><th class="r">CPM</th><th class="r">Winst*</th></tr></thead><tbody>${rows.map((g) => `<tr><td>${esc(g.key)} <span class="muted">(${g.n})</span></td><td class="r">${eur(g.spend)}</td><td class="r ${g.roas >= E.be ? "" : "neg"}">${times(g.roas)}</td><td class="r">${g.pur ? eur(g.cpa) : "–"}</td><td class="r">${int(g.pur)}</td><td class="r">${pct(g.ctr, 2)}</td><td class="r">${eur2(g.cpm)}</td><td class="r ${g.profit >= 0 ? "good" : "neg"}">${eur(g.profit)}</td></tr>`).join("")}</tbody></table></div></section>`;
+  h += `<div class="grid two">${gt(mk, "Per markt", "Uit de campagnenaam: UK, DE, USA, CH, Worldwide.")}${gt(ty, "Per campagnetype", "Testen, schalen, lookalike en retargeting.")}</div>` + gt(camps, "Per campagne");
+  return h;
+}
+
+/* ---------- Angles & copy ---------- */
+function viewAngles() {
+  const am = adModel(); if (!am) return metaWait();
+  const E = am.E, angles = groupAds(am.list, (a) => a.angle, E), formats = groupAds(am.list, (a) => a.format, E);
+  const copies = groupAds(am.list.filter((a) => a.body), (a) => a.body.trim(), E).filter((g) => g.spend > 0);
+  const heads = groupAds(am.list.filter((a) => a.title), (a) => a.title.trim(), E);
+  const best = [...angles].filter((g) => g.spend >= E.beCpa).sort((a, b) => b.roas - a.roas)[0];
+  let h = `<section class="card"><div class="row between"><div><h2>Welke angle werkt</h2><p class="lead">Een angle is het verhaal waarmee je verkoopt: cashmere, quiet luxury, comfort, cadeau, aanbieding. Ads worden automatisch ingedeeld op naam en tekst; met de knop laat je Claude alle ads nauwkeuriger indelen, en bij elke ad kun je zelf een angle kiezen.</p></div><button class="btn small" type="button" id="angleAI" ${S.sample && !S.angleBusy ? "" : "disabled"}>${S.angleBusy ? "Claude deelt in…" : "Laat Claude angles indelen"}</button></div>
+  ${best ? `<p class="sub" style="margin:0 0 12px">Beste angle met genoeg data: <b>${esc(best.key)}</b> met ${times(best.roas)} ROAS op ${eur(best.spend)} spend.</p>` : ""}
+  ${hbars(angles.map((g) => ({ t: g.key, v: g.roas, label: `${times(g.roas)} · ${eur(g.spend)}`, c: g.roas >= E.target ? "var(--good)" : g.roas >= E.be ? "var(--s1)" : "var(--neg)" })), { fmt: times })}
+  <p class="note" style="margin-top:8px">Groen boven doel (${times(E.target)}), blauw boven break-even (${times(E.be)}), rood eronder.</p>
+  <div class="scroll" style="margin-top:12px"><table><thead><tr><th>Angle</th><th class="r">Ads</th><th class="r">Spend</th><th class="r">ROAS</th><th class="r">CPA</th><th class="r">CTR</th>${am.tot.hasVideo ? '<th class="r">Hook</th>' : ""}${am.tot.hasFunnel ? '<th class="r">ATC/klik</th>' : ""}<th class="r">Winst*</th><th></th></tr></thead><tbody>${angles.map((g) => `<tr><td><b>${esc(g.key)}</b></td><td class="r">${g.n}</td><td class="r">${eur(g.spend)}</td><td class="r ${g.roas >= E.be ? "" : "neg"}">${times(g.roas)}</td><td class="r">${g.pur ? eur(g.cpa) : "–"}</td><td class="r">${pct(g.ctr, 2)}</td>${am.tot.hasVideo ? `<td class="r">${pct(g.hook, 0)}</td>` : ""}${am.tot.hasFunnel ? `<td class="r">${pct(g.atcRate, 1)}</td>` : ""}<td class="r ${g.profit >= 0 ? "good" : "neg"}">${eur(g.profit)}</td><td><button class="btn ghost small" type="button" data-ask="${esc(`Schrijf 5 nieuwe Meta-ads voor ModernoMilano in de angle "${g.key}". Gebruik wat in mijn data het best werkt in deze angle (beste ads: ${g.ads.slice().sort((a, b) => b.roas - a.roas).slice(0, 3).map((a) => a.ad).join(", ")}). Per ad: hook voor de eerste 3 seconden, primaire tekst, headline en een beschrijving van het beeld of de video. In het Engels en Duits.`)}">Nieuwe ads</button></td></tr>`).join("")}</tbody></table></div></section>`;
+  h += `<div class="grid two"><section class="card"><h2>Video of beeld</h2>${formats.length && formats[0].key !== "Onbekend" ? hbars(formats.map((g) => ({ t: g.key, v: g.roas, label: `${times(g.roas)} · ${eur(g.spend)}` })), { fmt: times }) : `<p class="muted">Windsor levert geen videovelden voor dit account, dus video en beeld zijn niet te scheiden.</p>`}</section>
+  <section class="card"><h2>Hoe angles in te delen</h2><p class="lead" style="margin:0">Geef ads een naam met de angle erin, bijvoorbeeld <span class="num">UK | Cashmere | UGC v2</span>. Dan deelt het dashboard ze vanzelf goed in en zie je per angle wat werkt. Je kunt hieronder per ad ook een angle typen.</p></section></div>`;
+  h += `<section class="card"><h2>Welke ad copy werkt</h2><p class="lead">Ads met dezelfde primaire tekst samen genomen. ${copies.length ? "" : "Windsor gaf geen ad-teksten terug voor dit account; dan staan hieronder de ad-namen."}</p>
+  ${copies.length ? `<div class="scroll"><table><thead><tr><th>Primaire tekst</th><th class="r">Ads</th><th class="r">Spend</th><th class="r">ROAS</th><th class="r">CTR</th><th class="r">CPA</th></tr></thead><tbody>${copies.slice(0, 25).map((g) => `<tr><td class="name"><div class="copytext">${esc(g.key)}</div></td><td class="r">${g.n}</td><td class="r">${eur(g.spend)}</td><td class="r ${g.roas >= E.be ? "" : "neg"}">${times(g.roas)}</td><td class="r">${pct(g.ctr, 2)}</td><td class="r">${g.pur ? eur(g.cpa) : "–"}</td></tr>`).join("")}</tbody></table></div>` : ""}
+  ${heads.length ? `<h3 style="font-size:14px;margin:16px 0 8px">Headlines</h3>${hbars(heads.slice(0, 12).map((g) => ({ t: g.key, v: g.roas, label: `${times(g.roas)} · ${eur(g.spend)}`, c: g.roas >= E.be ? "var(--s1)" : "var(--neg)" })), { fmt: times })}` : ""}</section>`;
+  h += `<section class="card"><h2>Angle per ad</h2><p class="lead">Typ een angle om de automatische indeling te overschrijven. Wordt bewaard voor iedereen die dit dashboard opent.</p><div class="scroll"><table><thead><tr><th>Ad</th><th>Angle</th><th class="r">Spend</th><th class="r">ROAS</th></tr></thead><tbody>${am.list.slice(0, 80).map((a, i) => `<tr><td class="name"><b>${esc(a.ad)}</b><small>${esc(a.campaign)}</small></td><td><input class="input angleinput" list="angleList" id="ang-${i}" data-anglekey="${esc(a.key)}" value="${esc(a.angleAuto ? "" : a.angle)}" placeholder="${esc(a.angle)}"></td><td class="r">${eur(a.spend)}</td><td class="r ${a.roas >= E.be ? "" : "neg"}">${times(a.roas)}</td></tr>`).join("")}</tbody></table></div><datalist id="angleList">${[...new Set([...ANGLE_RULES.map((r) => r[1]), ...Object.values(S.angles)])].map((x) => `<option value="${esc(x)}">`).join("")}</datalist></section>`;
+  return h;
+}
+
+/* ---------- Producten ---------- */
+function viewProducts() {
+  const sh = shopModel(); if (!sh) return shopWait();
+  const q = S.shop.q, st = S.settings;
+  const stockBy = new Map((q.stock || []).map((p) => [p.title, p]));
+  const land = new Map(); for (const l of q.landing || []) { const m = /\/products\/([^/?#]+)/.exec(l.landing_page_path || ""); if (!m) continue; const h = m[1].replace(/-\d+$/, ""); const x = land.get(h) || { s: 0, cart: 0, done: 0 }; x.s += num(l.sessions); x.cart += num(l.sessions_with_cart_additions); x.done += num(l.sessions_that_completed_checkout); land.set(h, x); }
+  const rows = (q.products || []).filter((p) => p.product_title).map((p) => {
+    const s = stockBy.get(p.product_title), handle = s ? s.handle : "", L = land.get(handle) || land.get(handle.replace(/-\d+$/, ""));
+    const units = num(p.quantity_ordered), ret = -num(p.quantity_returned), cogsPct = st.cogsByProduct[p.product_title] != null ? st.cogsByProduct[p.product_title] : st.cogsPct;
+    const net = num(p.net_sales);
+    const neg = s ? (s.variants?.nodes || []).filter((v) => num(v.inventoryQuantity) < 0).map((v) => v.title) : [];
+    return { title: p.product_title, net, orders: num(p.orders), units, ret, retRate: div(ret, units), revRate: div(-num(p.sales_reversals), num(p.gross_sales)), price: s ? num(s.priceRangeV2?.minVariantPrice?.amount) : NaN, compare: s ? num(s.compareAtPriceRange?.maxVariantCompareAtPrice?.amount) : NaN, stock: s ? s.totalInventory : null, neg, cogsPct, margin: net * (1 - cogsPct / 100), lpS: L ? L.s : 0, lpAtc: L ? div(L.cart, L.s) : NaN, lpCvr: L ? div(L.done, L.s) : NaN };
+  });
+  const list = sortList(rows, "products", { key: "net", dir: "desc" });
+  const totNet = sum(rows, (r) => r.net);
+  const top3 = sum(rows.slice().sort((a, b) => b.net - a.net).slice(0, 3), (r) => r.net);
+  let h = `<section class="grid kpis">${kpi("Netto omzet producten", eur(totNet), `${S.range} dagen`)}${kpi("Top 3 aandeel", pct(div(top3, totNet), 0), "afhankelijkheid van een paar bestsellers")}${kpi("Producten met verkoop", int(rows.filter((r) => r.net > 0).length), "")}${kpi("Bestsellers onder nul", int(sh.negBest.length), "verkoop op nabestelling", sh.negBest.length ? "warn" : "")}</section>
+  <section class="card"><h2>Bestsellers</h2>${hbars(rows.slice().sort((a, b) => b.net - a.net).slice(0, 12).map((r) => ({ t: r.title.replace(/^MILANO /, ""), v: r.net })))}</section>
+  <section class="card"><h2>Alle producten</h2><p class="lead">Retour % = teruggestuurde stuks / verkochte stuks. Productpagina = sessies die op die pagina binnenkwamen (vooral ads). Marge = netto omzet min inkoop (${st.cogsPct}% standaard, per product aan te passen bij Instellingen).</p><div class="scroll"><table><thead><tr>${th("products", "title", "Product", false)}${th("products", "net", "Netto")}${th("products", "units", "Stuks")}${th("products", "retRate", "Retour %")}${th("products", "price", "Prijs")}${th("products", "margin", "Marge")}${th("products", "lpS", "Pagina-sessies")}${th("products", "lpAtc", "In wagen")}${th("products", "lpCvr", "Conversie")}${th("products", "stock", "Voorraad")}</tr></thead><tbody>
+  ${list.map((r) => `<tr><td class="name"><b>${esc(r.title)}</b>${r.neg.length ? `<span class="badge warn">onder nul: ${esc(r.neg.slice(0, 4).join(", "))}${r.neg.length > 4 ? "…" : ""}</span>` : ""}${r.retRate > 0.06 && r.units >= 10 ? `<span class="badge neg">veel retour</span>` : ""}${r.lpS > 300 && r.lpAtc < 0.04 ? `<span class="badge neg">pagina converteert slecht</span>` : ""}</td><td class="r">${eur(r.net)}</td><td class="r">${int(r.units)}</td><td class="r ${r.retRate > 0.06 ? "neg" : ""}">${r.units ? pct(r.retRate, 1) : "–"}</td><td class="r">${eur(r.price)}${r.compare > r.price ? `<small class="note" style="display:block"><s>${eur(r.compare)}</s></small>` : ""}</td><td class="r">${eur(r.margin)}</td><td class="r">${r.lpS ? int(r.lpS) : "–"}</td><td class="r">${pct(r.lpAtc, 1)}</td><td class="r">${pct(r.lpCvr, 2)}</td><td class="r ${r.stock < 0 ? "warn" : ""}">${r.stock == null ? "–" : int(r.stock)}</td></tr>`).join("")}
+  </tbody></table></div></section>`;
+  const sizes = (q.sizes || []).filter((s) => s.product_variant_title && !s.product_variant_title.includes("/"));
+  if (sizes.length) h += `<section class="card"><h2>Retour per maat (90 dagen)</h2><p class="lead">Als één maat veel vaker terugkomt, klopt je maattabel niet. Zet een maatadvies op de pagina.</p>${hbars(sizes.map((s) => ({ t: s.product_variant_title, v: div(-num(s.quantity_returned), num(s.quantity_ordered)), label: `${pct(div(-num(s.quantity_returned), num(s.quantity_ordered)), 1)} van ${int(num(s.quantity_ordered))}`, c: "var(--s2)" })), { fmt: (v) => pct(v, 1) })}</section>`;
+  return h;
+}
+
+/* ---------- Funnel ---------- */
+function viewFunnel() {
+  const sh = shopModel(); if (!sh) return shopWait();
+  const q = S.shop.q, F = sh.F, FP = sh.FP;
+  const step = (l, v, base, cmp) => `<div class="fstep"><span>${esc(l)}</span><span class="track"><i style="width:${clamp(div(v, base) * 100, 0.5, 100)}%"></i></span><span class="v">${int(v)} <span class="muted">${cmp}</span></span></div>`;
+  let h = `<section class="card"><h2>Van bezoek tot aankoop</h2><p class="lead">Laatste ${S.range} dagen. Tussen haakjes de stap-conversie, met daarachter de vorige periode.</p><div class="funnel">
+    ${step("Sessies", F.s, F.s, "")}
+    ${step("In winkelwagen", F.cart, F.s, `(${pct(F.atc, 1)} · was ${pct(FP.atc, 1)})`)}
+    ${step("Naar checkout", F.co, F.s, `(${pct(F.toCo, 0)} · was ${pct(FP.toCo, 0)})`)}
+    ${step("Afgerekend", F.done, F.s, `(${pct(F.coDone, 0)} · was ${pct(FP.coDone, 0)})`)}
+  </div><p class="note" style="margin-top:10px">Richtwaarden mode-webshop op mobiel: 5 tot 8% in winkelwagen, 50 tot 60% van wagen naar checkout, 45 tot 55% van checkout naar aankoop.</p></section>`;
+  const w = q.weeks || [];
+  h += `<section class="card"><h2>Per week</h2>${lineChart(w.map((x) => String(x.week).slice(5).split("-").reverse().join("-")), [{ name: "Sessies", color: "var(--s1)", values: w.map((x) => num(x.sessions)), area: true }, { name: "Conversie", color: "var(--s3)", right: true, values: w.map((x) => num(x.conversion_rate)) }], { right: true, rfmt: (v) => pct(v, 2), label: "Sessies en conversie per week" })}</section>`;
+  const tbl = (rows, key, label) => `<div class="scroll"><table><thead><tr><th>${esc(label)}</th><th class="r">Sessies</th><th class="r">In wagen</th><th class="r">Checkout → koop</th><th class="r">Conversie</th></tr></thead><tbody>${rows.map((r) => { const s = num(r.sessions); return `<tr><td>${esc(r[key] || "(onbekend)")}</td><td class="r">${int(s)}</td><td class="r">${pct(div(num(r.sessions_with_cart_additions), s), 1)}</td><td class="r">${r.sessions_that_reached_checkout != null ? pct(div(num(r.sessions_that_completed_checkout), num(r.sessions_that_reached_checkout)), 0) : "–"}</td><td class="r">${pct(num(r.conversion_rate), 2)}</td></tr>`; }).join("")}</tbody></table></div>`;
+  h += `<div class="grid two"><section class="card"><h2>Per apparaat</h2>${tbl(q.device || [], "session_device_type", "Apparaat")}</section><section class="card"><h2>Waar orders vandaan komen</h2>${hbars((q.referrer || []).map((r) => ({ t: [r.order_referrer_source, r.order_referrer_name].filter(Boolean).join(" · ") || "direct / onbekend", v: num(r.net_sales), label: `${eur(num(r.net_sales))} · ${int(num(r.orders))}` })))}<p class="note" style="margin-top:8px">Veel Meta-verkeer komt binnen als "direct" of "instagram" zonder bron: Shopify ziet de app-browser niet altijd.</p></section></div>`;
+  const lp = (q.landing || []).map((l) => ({ ...l, s: num(l.sessions), atc: div(num(l.sessions_with_cart_additions), num(l.sessions)), cvr: num(l.conversion_rate) }));
+  h += `<section class="card"><h2>Landingspagina's</h2><p class="lead">Waar bezoekers binnenkomen en hoe goed die pagina verkoopt. Rood: veel verkeer, weinig in de wagen. Daar loont een betere pagina of een andere ad-bestemming het meest.</p><div class="scroll"><table><thead><tr><th>Pagina</th><th class="r">Sessies</th><th class="r">In wagen</th><th class="r">Conversie</th></tr></thead><tbody>${lp.map((l) => `<tr><td style="overflow-wrap:anywhere">${esc(l.landing_page_path)}${/parcelpanel|track/i.test(l.landing_page_path) ? ' <span class="badge warn">klanten zoeken hun pakket</span>' : ""}</td><td class="r">${int(l.s)}</td><td class="r ${l.s > 300 && l.atc < 0.04 && !/parcelpanel|track/i.test(l.landing_page_path) ? "neg" : ""}">${pct(l.atc, 1)}</td><td class="r">${pct(l.cvr, 2)}</td></tr>`).join("")}</tbody></table></div></section>`;
+  return h;
+}
+
+/* ---------- Klanten & markten ---------- */
+function viewMarkets() {
+  const sh = shopModel(); if (!sh) return shopWait();
+  const q = S.shop.q, am = adModel(), E = econ();
+  const sess = new Map((q.countrySess || []).map((c) => [c.session_country, c]));
+  const mk = am ? groupAds(am.list, (a) => a.market, E) : [];
+  const cmap = { "United Kingdom": "UK/IE", Ireland: "UK/IE", Germany: "DE/AT", Austria: "DE/AT", "United States": "USA", Switzerland: "CH" };
+  const cs = (q.countrySales || []).map((c) => { const s = sess.get(c.billing_country) || {}; return { ...c, net: num(c.net_sales), orders: num(c.orders), aov: num(c.average_order_value), ret: div(-num(c.sales_reversals), num(c.gross_sales)), sess: num(s.sessions), cvr: num(s.conversion_rate), atc: div(num(s.sessions_with_cart_additions), num(s.sessions)) }; });
+  let h = `<section class="card"><h2>Per land</h2><p class="lead">Omzet op factuuradres, conversie uit de sessies van dat land. Lage conversie bij veel sessies wijst op vertaling, prijs in eigen valuta, betaalmethodes of levertijd.</p><div class="scroll"><table><thead><tr><th>Land</th><th class="r">Netto</th><th class="r">Orders</th><th class="r">Gem. order</th><th class="r">Sessies</th><th class="r">In wagen</th><th class="r">Conversie</th><th class="r">Retour</th>${am ? '<th class="r">Meta ROAS markt</th>' : ""}</tr></thead><tbody>${cs.map((c) => { const m = mk.find((x) => x.key === cmap[c.billing_country]); return `<tr><td>${esc(c.billing_country)}</td><td class="r">${eur(c.net)}</td><td class="r">${int(c.orders)}</td><td class="r">${eur(c.aov)}</td><td class="r">${c.sess ? int(c.sess) : "–"}</td><td class="r">${c.sess ? pct(c.atc, 1) : "–"}</td><td class="r ${c.sess > 1000 && c.cvr < 0.01 ? "neg" : ""}">${c.sess ? pct(c.cvr, 2) : "–"}</td><td class="r ${c.ret > 0.05 ? "neg" : ""}">${pct(c.ret, 1)}</td>${am ? `<td class="r">${m ? times(m.roas) : "–"}</td>` : ""}</tr>`; }).join("")}</tbody></table></div></section>`;
+  const cm = q.customers || [];
+  h += `<div class="grid two"><section class="card"><h2>Nieuwe en terugkerende klanten</h2>${lineChart(cm.map((m) => new Date(String(m.month) + "T12:00:00").toLocaleDateString("nl-NL", { month: "short" })), [{ name: "Nieuw", color: "var(--s1)", values: cm.map((m) => num(m.new_customers)), area: true }, { name: "Terugkerend", color: "var(--s3)", values: cm.map((m) => num(m.returning_customers)) }], { h: 200, label: "Klanten per maand" })}</section>
+  <section class="card"><h2>Kortingscodes</h2><p class="lead">Orders met een code in deze periode.</p>${(() => { const codes = (q.codes || []).filter((c) => c.discount_code); return codes.length ? `<div class="scroll"><table><thead><tr><th>Code</th><th class="r">Orders</th><th class="r">Korting</th><th class="r">Netto</th></tr></thead><tbody>${codes.map((c) => `<tr><td>${esc(c.discount_code)}</td><td class="r">${int(num(c.orders))}</td><td class="r">${eur(-num(c.discounts))}</td><td class="r">${eur(num(c.net_sales))}</td></tr>`).join("")}</tbody></table></div>` : `<p class="muted">Geen codes gebruikt.</p>`; })()}</section></div>`;
+  const REASON = { MERCHANDISE_OR_SERVICE_NOT_AS_DESCRIBED: "Niet zoals beschreven", MERCHANDISE_OR_SERVICE_NOT_RECEIVED: "Niet ontvangen", UNAUTHORISED: "Niet geautoriseerd", DUPLICATE_TRANSACTION: "Dubbel betaald", CREDIT_NOT_PROCESSED: "Terugbetaling niet verwerkt" };
+  const ds = S.pp.disputes || [], open = ds.filter((d) => d.status !== "RESOLVED");
+  h += `<section class="card"><h2>Disputes en chargebacks (PayPal)</h2>${S.pp.status === "ok" ? (ds.length ? `<p class="lead">${open.length} open voor ${eur2(sum(open, (d) => d.amount))}. ${ds.filter((d) => d.outcome === "LOST").length} verloren, ${ds.filter((d) => d.outcome === "WON").length} gewonnen. "Niet zoals beschreven" betekent dat product en belofte niet matchen: check je productfoto's, materiaalclaims en ad-beloftes.</p><div class="scroll"><table><thead><tr><th>Datum</th><th>Reden</th><th>Fase</th><th>Status</th><th class="r">Bedrag</th></tr></thead><tbody>${ds.map((d) => `<tr><td>${esc(d.created)}</td><td>${esc(REASON[d.reason] || d.reason)}</td><td>${esc(d.stage === "CHARGEBACK" ? "Claim" : d.stage === "INQUIRY" ? "Vraag" : d.stage)}</td><td>${d.status === "RESOLVED" ? pill(d.outcome === "WON" ? "Gewonnen" : d.outcome === "LOST" ? "Verloren" : "Afgesloten", d.outcome === "WON" ? "good" : d.outcome === "LOST" ? "neg" : "mute") : pill(d.status === "UNDER_REVIEW" ? "PayPal beoordeelt" : d.status === "WAITING_FOR_BUYER_RESPONSE" ? "Wacht op koper" : d.status === "WAITING_FOR_SELLER_RESPONSE" ? "Jij moet reageren" : d.status, d.status === "WAITING_FOR_SELLER_RESPONSE" ? "neg" : "warn")}</td><td class="r">${eur2(d.amount)}</td></tr>`).join("")}</tbody></table></div>` : `<p class="good">Geen disputes bij PayPal.</p>`) : S.pp.status === "fout" ? `<p class="warn">${esc(S.pp.err)}</p>` : `<p class="muted">Laden…</p>`}</section>`;
+  return h;
+}
+
+/* ---------- Actielijst ---------- */
+function viewTodo() {
+  const open = S.actions.filter((a) => !a.done), done = S.actions.filter((a) => a.done);
+  const item = (a) => `<div class="todo ${a.done ? "done" : ""}"><input type="checkbox" id="todo-${esc(a.id)}" data-todo="${esc(a.id)}" ${a.done ? "checked" : ""} aria-label="Afgevinkt"><label for="todo-${esc(a.id)}"><b>${esc(a.title)}</b>${a.why ? `<p>${esc(a.why)}</p>` : ""}<p class="note">${esc(a.area || "")}${a.impact ? " · ~" + eur(a.impact) + " per maand" : ""}${a.createdAt ? " · toegevoegd " + new Date(a.createdAt).toLocaleDateString("nl-NL") : ""}</p></label><button class="btn ghost small" type="button" data-deltodo="${esc(a.id)}">Verwijder</button></div>`;
+  return `<section class="card"><h2>Actielijst</h2><p class="lead">Wat je gaat aanpassen. Vink af als het klaar is; de lijst wordt bewaard voor iedereen die dit dashboard opent.</p>
+  <form id="todoForm" class="row" style="margin-bottom:10px"><input class="input" id="todoTitle" placeholder="Nieuwe actie, bijvoorbeeld: maatadvies op de Reverso-sets" style="flex:1 1 260px" required><button class="btn" type="submit">Toevoegen</button></form>
+  ${!S.db ? `<p class="warn">Opslaan werkt alleen als je deze pagina in claude.ai opent.</p>` : ""}
+  ${open.length ? open.map(item).join("") : `<p class="empty">Nog niets open. Zet acties op de lijst vanuit Brand check, of vraag Claude bij Advies.</p>`}
+  ${done.length ? `<details style="margin-top:10px"><summary>${done.length} afgerond</summary>${done.map(item).join("")}</details>` : ""}</section>`;
+}
+
+/* ---------- Advies ---------- */
+const PROMPTS = [
+  "Wat is de grootste lek in mijn winst op dit moment, en hoe dicht ik die?",
+  "Welke angle en welke ad copy werken het best? Schrijf 3 nieuwe ads in de winnende angle.",
+  "Welke ads moet ik vandaag uitzetten en welke opschalen, en met hoeveel budget?",
+  "Waarom converteert Duitsland slechter dan de UK en wat pas ik aan?",
+  "Welke producten moet ik meer pushen in ads, en welke juist niet?",
+  "Hoe verlaag ik mijn retouren? Kijk naar producten en maten.",
+];
+function mdLite(t) {
+  const lines = esc(t).split("\n"); let h = "", list = null;
+  const inline = (s) => s.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/(^|[^*])\*(?!\s)(.+?)\*/g, "$1<i>$2</i>");
+  for (const l of lines) {
+    const m = /^\s*(?:[-*•]|\d+[.)])\s+(.*)$/.exec(l);
+    if (m) { const tag = /^\s*\d/.test(l) ? "ol" : "ul"; if (list !== tag) { if (list) h += `</${list}>`; h += `<${tag}>`; list = tag; } h += `<li>${inline(m[1])}</li>`; continue; }
+    if (list) { h += `</${list}>`; list = null; }
+    const hd = /^#{1,4}\s+(.*)$/.exec(l);
+    if (hd) h += `<h4>${inline(hd[1])}</h4>`; else if (l.trim()) h += `<p>${inline(l)}</p>`;
+  }
+  if (list) h += `</${list}>`;
+  return h;
+}
+function viewAdvice() {
+  if (!S.sample) return `<section class="card"><h2>Advies van Claude</h2><p class="muted">Advies werkt als je deze pagina in claude.ai opent en Claude toestemming geeft. Elke vraag gebruikt het Claude-tegoed van wie de pagina opent.</p></section>`;
+  return `<section class="card chat"><div><h2>Advies van Claude</h2><p class="lead">Claude krijgt een samenvatting van alle cijfers op deze pagina (Shopify, Meta per ad, angles, producten, funnel, markten) en rekent daarmee. Kan acties direct op je actielijst zetten.</p></div>
+  <div class="chatlog" id="chatlog">${S.chat.length ? S.chat.map((m) => `<div class="msg ${m.role}">${m.role === "user" ? esc(m.content) : mdLite(m.content || "…")}</div>`).join("") : `<div class="chips">${PROMPTS.map((p) => `<button class="btn ghost chip" type="button" data-ask="${esc(p)}">${esc(p)}</button>`).join("")}</div>`}</div>
+  <form class="chatform" id="chatForm"><textarea class="input" id="chatInput" placeholder="Vraag iets over je cijfers, ads of winkel" rows="2"></textarea><button class="btn" type="submit" ${S.chatBusy ? "disabled" : ""}>${S.chatBusy ? "Bezig…" : "Vraag"}</button>${S.chat.length ? `<button class="btn ghost" type="button" id="chatClear">Nieuw gesprek</button>` : ""}</form></section>`;
+}
+function snapshot() {
+  const sh = shopModel(), am = adModel(), E = econ(), r = (n, d = 2) => (Number.isFinite(n) ? Math.round(n * 10 ** d) / 10 ** d : null);
+  const ad = (a) => ({ ad: a.ad, campaign: a.campaign, adset: a.adset, market: a.market, type: a.type, angle: a.angle, format: a.format, spend: r(a.spend, 0), roas: r(a.roas), cpa: r(a.cpa, 0), purchases: a.pur, ctr: r(a.ctr, 4), cpm: r(a.cpm), freq: r(a.freq), hook: r(a.hook, 3), hold: r(a.hold, 3), atc_per_click: r(a.atcRate, 3), ctr_prev: a.prev ? r(a.prev.ctr, 4) : null, roas_prev: a.prev ? r(a.prev.roas) : null, profit: r(a.profit, 0), verdict: a.verdict[0], flags: a.flags.map((f) => f[0]), copy: a.body ? a.body.slice(0, 280) : undefined, headline: a.title || undefined });
+  const grp = (g) => ({ name: g.key, ads: g.n, spend: r(g.spend, 0), roas: r(g.roas), cpa: r(g.cpa, 0), ctr: r(g.ctr, 4), profit: r(g.profit, 0) });
+  const q = S.shop.q;
+  return {
+    periode_dagen: S.range, vandaag: today(), winkel: "ModernoMilano (modernomilano.com), herenmode: cashmere loungesets, gebreide sets, vests, jassen. Verkoopt via Meta-ads in UK, DE, USA en wereldwijd. Valuta EUR.",
+    economie: { break_even_roas: r(E.be), doel_roas: r(E.target), break_even_cpa: r(E.beCpa, 0), over_per_euro_omzet: r(E.contrib, 3), aannames: S.settings },
+    shopify: sh ? { omzet: r(sh.T.total, 0), omzet_vorige: r(sh.P.total, 0), orders: sh.T.orders, orders_vorige: sh.P.orders, aov: r(sh.T.aov, 0), retour_pct: r(sh.T.returnRate, 4), funnel: sh.F, funnel_vorige: sh.FP, terugkerend_pct: r(sh.returning, 4), tracking_sessies: sh.tracking, bestsellers_onder_nul: sh.negBest.map((p) => p.title) } : "niet geladen",
+    meta: am ? { totaal: { spend: r(am.tot.spend, 0), roas: r(am.tot.roas), cpa: r(am.tot.cpa, 0), ctr: r(am.tot.ctr, 4), cpm: r(am.tot.cpm), freq: r(am.tot.freq) }, vorige_periode: { spend: r(am.prevTot.spend, 0), roas: r(am.prevTot.roas), ctr: r(am.prevTot.ctr, 4) }, mer: sh ? r(sh.T.total / am.tot.spend) : null, ads: am.list.slice(0, 60).map(ad), angles: groupAds(am.list, (a) => a.angle, E).map(grp), markten: groupAds(am.list, (a) => a.market, E).map(grp), campagnetypes: groupAds(am.list, (a) => a.type, E).map(grp) } : "niet geladen",
+    producten: (q.products || []).slice(0, 30).map((p) => ({ product: p.product_title, netto: r(num(p.net_sales), 0), stuks: num(p.quantity_ordered), retour_stuks: -num(p.quantity_returned) })),
+    maten: (q.sizes || []).slice(0, 12).map((s) => ({ maat: s.product_variant_title, stuks: num(s.quantity_ordered), retour: -num(s.quantity_returned) })),
+    landen: (q.countrySales || []).slice(0, 12).map((c) => ({ land: c.billing_country, netto: r(num(c.net_sales), 0), orders: num(c.orders), aov: r(num(c.average_order_value), 0) })),
+    landen_sessies: (q.countrySess || []).slice(0, 12).map((c) => ({ land: c.session_country, sessies: num(c.sessions), conversie: r(num(c.conversion_rate), 4) })),
+    apparaten: (q.device || []).map((d) => ({ apparaat: d.session_device_type, sessies: num(d.sessions), conversie: r(num(d.conversion_rate), 4) })),
+    landingspaginas: (q.landing || []).slice(0, 20).map((l) => ({ pagina: l.landing_page_path, sessies: num(l.sessions), in_wagen: num(l.sessions_with_cart_additions), conversie: r(num(l.conversion_rate), 4) })),
+    paypal_disputes: (S.pp.disputes || []).map((d) => ({ datum: d.created, reden: d.reason, status: d.status, uitkomst: d.outcome, bedrag: d.amount })),
+    open_acties: S.actions.filter((a) => !a.done).map((a) => a.title),
+  };
+}
+async function ask(text) {
+  if (!S.sample || S.chatBusy || !text.trim()) return;
+  S.tab = "advice"; S.chat.push({ role: "user", content: text.trim() }); S.chat.push({ role: "assistant", content: "" }); S.chatBusy = true; render();
+  const sys = `Je bent de e-commerce- en Meta-ads-adviseur van ModernoMilano. Antwoord in het Nederlands, direct en praktisch, als een ervaren media buyer en CRO-specialist. Gebruik alleen de cijfers hieronder; verzin geen cijfers. Noem bij elk advies het getal waar het op rust en wat de eigenaar precies moet aanpassen (in Meta Ads Manager, in Shopify, op de productpagina). Als je ad copy of hooks schrijft: kort, concreet, passend bij een premium herenmerk. Als iets niet uit de data te halen is, zeg dat en zeg welke data nodig is. Gebruik de tool voeg_actie_toe alleen als de gebruiker vraagt om iets op de actielijst te zetten of om een plan te maken.\n\nDATA (JSON):\n${JSON.stringify(snapshot())}`;
+  const msgs = S.chat.slice(0, -1).map((m) => ({ role: m.role, content: m.content })).filter((m) => m.content);
+  msgs[0] = { role: "user", content: sys + "\n\nVRAAG:\n" + msgs[0].content };
+  const out = S.chat[S.chat.length - 1];
+  const tools = S.db ? [{ name: "voeg_actie_toe", description: "Zet een actie op de gedeelde actielijst van het dashboard.", inputSchema: { type: "object", properties: { title: { type: "string" }, why: { type: "string" }, area: { type: "string" }, impact: { type: "number", description: "geschatte euro per maand" } }, required: ["title"] }, execute: async (i) => { await addAction(i); return { ok: true }; } }] : undefined;
+  try {
+    const res = await S.sample(msgs, { cache: false, modelTier: "complex", tools, onText: ({ text }) => { out.content = text; const log = $("chatlog"); if (log && S.tab === "advice") { log.lastElementChild.innerHTML = mdLite(text); log.scrollTop = log.scrollHeight; } } });
+    out.content = res.text || out.content;
+  } catch (e) {
+    out.content = (e && e.text) || (e && e.code === "not_granted" ? "Claude heeft geen toestemming op deze pagina. Sta het toe via het menu Rechten van deze pagina." : e && e.code === "rate_limited" ? "Even te veel vragen achter elkaar. Probeer het over een minuut opnieuw." : "Er ging iets mis: " + ((e && e.message) || "onbekende fout"));
+  }
+  S.chatBusy = false; render();
+}
+async function classifyAngles() {
+  const am = adModel(); if (!am || !S.sample) return;
+  S.angleBusy = true; render();
+  const items = am.list.slice(0, 120).map((a) => ({ key: a.key, naam: a.ad, campagne: a.campaign, adset: a.adset, tekst: a.body.slice(0, 300), headline: a.title }));
+  try {
+    const res = await S.sample.json(`Deel deze Meta-ads van ModernoMilano (premium herenmode, cashmere sets) in naar verkoop-angle. Gebruik bij voorkeur deze labels: ${ANGLE_RULES.map((r) => r[1]).join(", ")}, of een kort eigen label van maximaal 3 woorden als geen past. Kijk naar naam, adset, tekst en headline. Antwoord alleen met JSON: een object met per key de angle.\n\n${JSON.stringify(items)}`, { modelTier: "default" });
+    if (res && typeof res === "object") {
+      const clean = {}; for (const [k, v] of Object.entries(res)) if (typeof v === "string" && v.length < 40 && items.some((i) => i.key === k)) clean[k] = v;
+      S.angles = { ...S.angles, ...clean };
+      if (S.db) await S.db.doc("labels/angles").set({ map: S.angles, updatedAt: Date.now() }).catch(() => toast("Opslaan van angles mislukt."));
+      toast(`${Object.keys(clean).length} ads ingedeeld.`);
+    }
+  } catch (e) { toast(e && e.code === "not_granted" ? "Claude heeft geen toestemming op deze pagina." : "Indelen mislukt: " + ((e && e.message) || "onbekende fout")); }
+  S.angleBusy = false; render();
+}
+
+/* ---------- Instellingen ---------- */
+function viewSettings() {
+  const st = S.settings, E = econ(), prods = (S.shop.q.products || []).slice(0, 30).map((p) => p.product_title).filter(Boolean);
+  return `<section class="card"><h2>Kosten en doelen</h2><p class="lead">Hiermee rekent het dashboard break-even en winst uit. Btw-aandeel (${pct(E.taxShare, 1)}), retour-aandeel (${pct(E.returnShare, 1)}) en orderwaarde (${eur(E.aov)}) komen live uit Shopify. Shopify heeft geen inkoopprijzen, dus vul je inkoop hier in.</p>
+  <form id="setForm" class="formgrid">
+    <label for="cogsPct">Inkoop als % van netto omzet<input class="input num" id="cogsPct" type="number" min="0" max="95" step="1" value="${st.cogsPct}"></label>
+    <label for="shipPerOrder">Verzendkosten per order (€)<input class="input num" id="shipPerOrder" type="number" min="0" step="0.5" value="${st.shipPerOrder}"></label>
+    <label for="feePct">Betaalkosten (% van omzet)<input class="input num" id="feePct" type="number" min="0" max="15" step="0.1" value="${st.feePct}"></label>
+    <label for="targetProfitPct">Gewenste winst (% van omzet)<input class="input num" id="targetProfitPct" type="number" min="0" max="60" step="1" value="${st.targetProfitPct}"></label>
+    <label for="minSpendFactor">Oordeel pas na × break-even CPA spend<input class="input num" id="minSpendFactor" type="number" min="0.5" max="5" step="0.5" value="${st.minSpendFactor}"></label>
+    <div style="display:flex;align-items:flex-end"><button class="btn" type="submit">Opslaan</button></div>
+  </form>
+  <p class="sub">Uitkomst: van elke euro omzet blijft ${pct(E.contrib, 0)} over voor ads en winst. Break-even ROAS ${times(E.be)}, doel-ROAS ${times(E.target)}, break-even CPA ${eur(E.beCpa)}.</p></section>
+  <section class="card"><h2>Inkoop per product</h2><p class="lead">Optioneel. Leeg laten = het percentage hierboven.</p><form id="cogsForm" class="formgrid">${prods.map((p, i) => `<label for="cp-${i}">${esc(p)}<input class="input num" id="cp-${i}" data-prod="${esc(p)}" type="number" min="0" max="95" step="1" placeholder="${st.cogsPct}" value="${st.cogsByProduct[p] != null ? st.cogsByProduct[p] : ""}"></label>`).join("") || `<p class="muted">Producten laden…</p>`}<div style="display:flex;align-items:flex-end"><button class="btn" type="submit">Opslaan</button></div></form></section>
+  <section class="card"><h2>Bronnen</h2><p class="lead" style="margin:0">Shopify: omzet, orders, retouren, sessies en funnel (ShopifyQL), voorraad (Admin API). Meta: per ad via Windsor.ai (${esc(S.meta.fields.join(", ") || "nog niet geladen")}). PayPal: open disputes. Alles wordt opgehaald met de koppelingen van wie de pagina opent; er staan geen sleutels in deze pagina.</p></section>`;
+}
+
+/* ============================================================
+   Opslag (db)
+   ============================================================ */
+async function saveSettings(patch) {
+  S.settings = { ...S.settings, ...patch }; render();
+  if (!S.db) { toast("Opslaan werkt alleen in claude.ai; de instelling geldt nu tijdelijk."); return; }
+  try { await S.db.doc("instellingen/main").set(S.settings); toast("Opgeslagen."); } catch (e) { toast("Opslaan mislukt: " + ((e && e.message) || e.code)); }
+}
+async function addAction(a) {
+  if (!S.db) { toast("De actielijst werkt alleen als je deze pagina in claude.ai opent."); return; }
+  try { await S.db.collection("acties").add({ title: String(a.title).slice(0, 200), why: String(a.why || "").slice(0, 1000), area: String(a.area || "").slice(0, 40), impact: Number.isFinite(a.impact) ? Math.round(a.impact) : null, done: false, createdAt: Date.now() }); toast("Op de actielijst gezet."); }
+  catch (e) { toast("Toevoegen mislukt: " + ((e && e.message) || e.code)); }
+}
+async function initDb() {
+  const db = await window.claude?.use?.("db").catch(() => null);
+  if (!db) return; S.db = db;
+  db.doc("instellingen/main").onSnapshot((s) => { if (s.exists) { S.settings = { ...DEFAULTS, ...s.data() }; render(); } }, () => {});
+  db.doc("labels/angles").onSnapshot((s) => { if (s.exists) { S.angles = (s.data() || {}).map || {}; render(); } }, () => {});
+  db.collection("acties").onSnapshot((snap) => { S.actions = snap.docs.map((d) => ({ id: d.id, ...d.data() })).sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0)); render(); }, () => {});
+}
+
+/* ============================================================
+   Gebeurtenissen
+   ============================================================ */
+document.addEventListener("click", (ev) => {
+  const t = ev.target.closest("button, th[data-sort]"); if (!t) return;
+  if (t.dataset.tab) { S.tab = t.dataset.tab; try { localStorage.setItem("bc.tab", S.tab); } catch {} render(); window.scrollTo({ top: 0 }); return; }
+  if (t.dataset.range) { S.range = Number(t.dataset.range); try { localStorage.setItem("bc.range", S.range); } catch {} loadShop(false); loadMeta(false); render(); return; }
+  if (t.id === "refresh") { loadAll(true); return; }
+  if (t.dataset.sort) { const [tab, key] = t.dataset.sort.split(":"); const cur = S.sort[tab]; S.sort[tab] = { key, dir: cur && cur.key === key && cur.dir === "desc" ? "asc" : "desc" }; render(); return; }
+  if (t.dataset.verdict != null) { S.adFilter.verdict = S.adFilter.verdict === t.dataset.verdict ? "" : t.dataset.verdict; render(); return; }
+  if (t.dataset.ask) { ask(t.dataset.ask); return; }
+  if (t.dataset.addaction != null) { const s = suggestions()[Number(t.dataset.addaction)]; if (s) addAction(s); return; }
+  if (t.dataset.deltodo) { S.db && S.db.doc("acties/" + t.dataset.deltodo).delete().catch(() => toast("Verwijderen mislukt.")); return; }
+  if (t.id === "angleAI") { classifyAngles(); return; }
+  if (t.id === "chatClear") { S.chat = []; render(); return; }
+});
+document.addEventListener("change", (ev) => {
+  const t = ev.target;
+  if (t.dataset.todo) { S.db && S.db.doc("acties/" + t.dataset.todo).update({ done: t.checked, doneAt: t.checked ? Date.now() : null }).catch(() => toast("Opslaan mislukt.")); return; }
+  if (t.id === "admarket") { S.adFilter.market = t.value; render(); return; }
+  if (t.id === "adtype") { S.adFilter.type = t.value; render(); return; }
+  if (t.dataset.anglekey) {
+    const v = t.value.trim(); const next = { ...S.angles }; if (v) next[t.dataset.anglekey] = v; else delete next[t.dataset.anglekey];
+    S.angles = next; render();
+    if (S.db) S.db.doc("labels/angles").set({ map: next, updatedAt: Date.now() }).catch(() => toast("Opslaan mislukt.")); else toast("Bewaren werkt alleen in claude.ai.");
+  }
+});
+let qT;
+document.addEventListener("input", (ev) => { if (ev.target.id === "adq") { clearTimeout(qT); const v = ev.target.value; qT = setTimeout(() => { S.adFilter.q = v; render(); const el = $("adq"); if (el) { el.focus(); el.setSelectionRange(v.length, v.length); } }, 250); } });
+document.addEventListener("submit", (ev) => {
+  ev.preventDefault(); const f = ev.target;
+  if (f.id === "chatForm") { const v = $("chatInput").value; $("chatInput").value = ""; ask(v); }
+  if (f.id === "todoForm") { const v = $("todoTitle").value.trim(); if (v) addAction({ title: v, area: "Eigen" }); }
+  if (f.id === "setForm") { const p = {}; for (const k of ["cogsPct", "shipPerOrder", "feePct", "targetProfitPct", "minSpendFactor"]) { const n = Number($(k).value); if (Number.isFinite(n)) p[k] = n; } saveSettings(p); }
+  if (f.id === "cogsForm") { const m = {}; f.querySelectorAll("input[data-prod]").forEach((i) => { if (i.value !== "" && Number.isFinite(Number(i.value))) m[i.dataset.prod] = Number(i.value); }); saveSettings({ cogsByProduct: { ...S.settings.cogsByProduct, ...m } }); }
+});
+document.addEventListener("keydown", (ev) => { if (ev.target.id === "chatInput" && ev.key === "Enter" && !ev.shiftKey) { ev.preventDefault(); $("chatForm").requestSubmit(); } });
+
+/* ============================================================
+   Start
+   ============================================================ */
+render();
+(async () => {
+  const use = (n) => (window.claude && window.claude.use ? window.claude.use(n).catch(() => null) : Promise.resolve(null));
+  initDb();
+  use("sample").then((s) => { S.sample = s; if (S.tab === "advice" || S.tab === "angles") render(); });
+  S.mcp = await use("mcp");
+  if (!S.mcp) { S.shop.status = S.meta.status = S.pp.status = "fout"; S.shop.err = S.meta.err = S.pp.err = "Koppelingen werken alleen als je deze pagina in claude.ai opent."; render(); return; }
+  loadAll(false);
+})();
+</script>
