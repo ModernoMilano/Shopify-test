@@ -26,6 +26,10 @@ const GROUPS = [
     ],
   },
   {
+    label: "Marketing",
+    links: [{ href: "/ads", label: "Ads swipen" }],
+  },
+  {
     label: "Beheer",
     links: [
       { href: "/invoer", label: "Handmatige invoer" },
