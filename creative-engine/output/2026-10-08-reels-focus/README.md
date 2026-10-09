@@ -198,6 +198,10 @@ Wat eerst misging, gevonden door de controle:
 
 Beide stappen zijn eruit. Nu blijft 96% (Total Bordeaux A, mediaan) tot 100% (Il lago) van de scherpte van het origineel over, zonder schokken en zonder dubbele frames.
 
+Twee punten uit de laatste controle:
+- **Scheuren bij Il lago.** Op randen waar iets voor iets anders schuift, zoals vingertoppen voor de chromen rand of de zwarte jas tegen glinsterend water, klopt de optische flow niet. Bij een verschuiving van een halve frame scheurde het beeld daar even. Nu schuift het script alleen waar de flow heen en terug klopt: minder dan 1 px fout betekent volledig schuiven, meer dan 2 px betekent niet schuiven, met een zachte overgang daartussen.
+- **Bijna stille shots met twinkelende lichten** (het slotshot van Sera): `smooth.py` mat daar de lichten in het raam en niet de man, en gaf hem een stop-en-start-ritme. Zo'n clip blijft ruw, met `"smooth_skip": ["B"]` in de montage.
+
 Lengte, aantal frames en 24 fps blijven gelijk. De montages hoeven dus niet te veranderen.
 
 **Resultaat:**
@@ -224,7 +228,7 @@ Wens van de eigenaar (8 oktober, 23:00): "het cashmere two tone pak in de stoel,
 - A: de mouwstrepen, manchet en hand, 2,0 s;
 - B: in de fauteuil, 4,2 s, met het logo de laatste 2 s (36% breed, iets boven het midden).
 
-Het capuchonmacro is 18% donkerder gezet (`"gain": 0.82`). De eindcontrole mat er een gemiddelde helderheid van 101, tegen 59 tot 72 in de andere shots, waardoor het licht bij de eerste snede zichtbaar wegviel. Dit trekt alleen de belichting gelijk; er is geen kleurlook of LUT toegevoegd.
+Het capuchonmacro is 26% donkerder gezet (`"gain": 0.74`; 0.82 was nog 1,29 keer zo licht). De eindcontrole mat er een gemiddelde helderheid van 101, tegen 59 tot 72 in de andere shots, waardoor het licht bij de eerste snede zichtbaar wegviel. Dit trekt alleen de belichting gelijk; er is geen kleurlook of LUT toegevoegd.
 
 | Wat | Job of media | Controle |
 |---|---|---|
