@@ -59,3 +59,27 @@ Ingesteld in de dashboards:
 1. **Disputes.** 4 tot 7% van de omzet. Van de orders in juni t/m augustus kreeg 7,5% een dispute, en meer dan de helft ging verloren. Elk procent minder verlaagt de break-even ROAS met ongeveer 0,05.
 2. **Wisselkoerskosten bij Shopify.** € 1.654 (1,2% van de omzet). Prijzen in GBP en USD in Shopify Markets laten afrekenen en uitbetalen op een GBP/USD-rekening scheelt het grootste deel.
 3. **Inkoop.** Elke 1% inkoop is ongeveer 0,04 op de break-even ROAS.
+
+## Herberekening vooruit: Klarna uit, Chargeflow aan (10 oktober)
+
+Van de disputes waarvan de betaalmethode zichtbaar is, was 76% geen kaartbetaling (Klarna). Klarna staat nu uit en Chargeflow voorkomt chargebacks. De dispute-kosten zijn daarom opnieuw geschat uit alleen de overgebleven betaalmethodes:
+
+- **Kaartbetalingen (Visa, Mastercard, Amex), juni t/m augustus:** € 884 verloren en € 825 open, op € 101.555 omzet. Met de helft van de open disputes als verlies is dat ongeveer 1,3 tot 1,7%.
+- **PayPal, augustus t/m oktober:** € 150 verloren en € 1.110 open, op € 26.878 PayPal-omzet. Dat is ongeveer 0,4% van de totale omzet.
+- **Dispute-fees:** ongeveer 0,1%.
+- **Samen:** ongeveer 2% van de omzet, in plaats van 4%.
+
+Inkoop opnieuw gekoppeld per week (de betaling van week X tegen de omzet van week X−1): **40,9%** van de omzet.
+
+| Disputes | Break-even Meta-ROAS | Per ad (variabel) | Break-even MER | Break-even CPA | Winst per maand bij nu |
+|---|---|---|---|---|---|
+| 1% | 2,25 | 2,00 | 2,46 | € 85 | € 3.609 |
+| **2% (aangehouden)** | **2,31** | **2,04** | **2,52** | **€ 83** | **€ 2.492** |
+| 3% | 2,36 | 2,09 | 2,59 | € 81 | € 1.374 |
+
+Overige posten als % van de omzet: btw 7,8%, betaalkosten 3,95%, niet geïnde bedragen 0,7%, vaste kosten (incl. auto) 5,1%.
+
+Ingesteld in de dashboards:
+
+- **Brand check:** 2,31.
+- **Financieel dashboard:** break-even MER 2,52, COGS zonder afschrift 41%.
