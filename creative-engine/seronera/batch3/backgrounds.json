@@ -1,0 +1,13 @@
+{
+  "resultBase": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/",
+  "method": "nano_banana_pro 1:1 2k (product between 34-74% of the height, top 32% empty) -> outpaint_image 9:16 2048x3641. Prompts come from the creative bank (scenes), adapted to square framing.",
+  "productPhotoMediaIds": {"womensBeltRed": "a3635031-6035-4e70-ae9c-533e5a1b6024", "womensBeltPink": "9bd59b74-1b11-4705-bd09-ee10aa80e7c2", "mensBeltGreen": "ff7b3aa6-1e09-47b6-b231-0da35a912e90", "hornbackCognac": "c4404be4-9d45-406c-aa47-6d019ba5a0fe", "keyRingCognac": "b7a4e8d3-6964-44f0-be23-66a66064d6ac"},
+  "used": [
+    {"bg": 71, "square": "hf_20261009_115534_e1313d31-e435-4c97-8524-cb0316069458.png", "file": "hf_20261009_115719_3f48472f-1f88-4dcf-b22d-e3fb8dbc5cda.png", "scene": "women's belt red, dark forest-green studio, walnut"},
+    {"bg": 72, "square": "hf_20261009_115533_bad87d1b-2a0f-46bb-aac8-9ae7421cf0e0.png", "file": "hf_20261009_115721_a752ef6c-68a8-4ed4-a6e6-e330d99094fc.png", "scene": "women's belt pink, linen on Carrara marble"},
+    {"bg": 73, "square": "hf_20261009_115533_a777f6c8-bee9-447f-ba06-94bbcd5297bf.png", "file": "hf_20261009_115723_a5175bd6-42ba-49a0-b78d-422b4ebbbc97.png", "scene": "men's belt green, off-white linen"},
+    {"bg": 74, "square": "hf_20261009_115534_bb9967d5-336e-426d-915d-9e2d32608262.png", "file": "hf_20261009_115725_9cbc1694-208f-4a94-9036-1047cc8e4ca6.png", "scene": "hornback cognac, river stone at golden hour"},
+    {"bg": 75, "square": "hf_20261009_115533_953bd175-e9f0-4df2-ac98-afae33d7f837.png", "file": "hf_20261009_115727_da5a958c-ed40-4ffe-9bfc-18453a5c7a66.png", "scene": "key ring cognac, lodge walnut with linen"}
+  ],
+  "download": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/715c6075-413f-4b79-a279-27f9f972d04d.zip"
+}
