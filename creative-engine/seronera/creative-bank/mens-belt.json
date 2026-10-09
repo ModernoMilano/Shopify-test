@@ -1,0 +1,120 @@
+{
+ "product_key": "mens-belt",
+ "angles": [
+  {
+   "name": "One of one",
+   "hook": "No two straps share the same scales.",
+   "primary_short": "No two straps share the same scales. Our Nile crocodile belly belt is cut from one continuous piece, so yours is the only one like it. €149 with free shipping, duties & taxes included.",
+   "primary_long": "No two straps share the same scales. Each Seronera belt is cut from a single continuous piece of Nile crocodile belly leather from our own farm on the Sabie River, South Africa. The flatter belly scales fall in an arrangement that belongs to your strap alone. Genuine, CITES certified, in 35 mm or 40 mm. Shipped from the EU, duties & taxes included. Choose your colour, €149.",
+   "headline": "No two alike. Crocodile belt €149",
+   "description": "Duties & taxes included",
+   "cta": "Shop now"
+  },
+  {
+   "name": "Farm origin",
+   "hook": "Our farm has stood on the Sabie River since 1997.",
+   "primary_short": "Our farm has stood on the Sabie River since 1997. Every belt starts there: Nile crocodile belly leather, CITES certified. €149, duties & taxes included.",
+   "primary_long": "Our farm has stood on the banks of the Sabie River in Hazyview, Mpumalanga, since 1997. That is where every Seronera belt begins: Nile crocodile belly leather, cut from one continuous piece and CITES certified. Seronera also gives back to South African communities through education initiatives and orphanages. Shipped from the EU, duties & taxes included. €149.",
+   "headline": "From our farm on the Sabie River",
+   "description": "CITES certified · €149",
+   "cta": "Learn more"
+  },
+  {
+   "name": "Denim to tailoring",
+   "hook": "From everyday denim to tailored trousers, one belt does both.",
+   "primary_short": "From everyday denim to tailored trousers, one belt does both. The flatter crocodile belly scales keep it refined, never loud. €149, free shipping, duties & taxes included.",
+   "primary_long": "From everyday denim to tailored trousers, one belt does both. The flatter scale pattern of crocodile belly leather gives this belt a refined look that works with relaxed and more formal dressing alike. Keep the rest simple and let the leather provide the detail. 35 mm or 40 mm, in black, cognac, tobacco, green, blue, grey and more. Free shipping, duties & taxes included. €149.",
+   "headline": "From denim to tailoring · €149",
+   "description": "35 mm or 40 mm widths",
+   "cta": "Shop now"
+  },
+  {
+   "name": "The gift",
+   "hook": "A gift that exists only once.",
+   "primary_short": "A gift that exists only once. Each Seronera crocodile belt carries its own scale pattern, so his will be unlike any other. €149, free shipping, duties & taxes included.",
+   "primary_long": "A gift that exists only once. Each Seronera belt is cut from a single continuous piece of Nile crocodile belly leather, so the scale arrangement on his strap appears nowhere else. Refined with tailoring, easy with denim, in 35 mm or 40 mm widths and lengths in 5 cm steps. Genuine and CITES certified. Free shipping from the EU, duties & taxes already included. €149.",
+   "headline": "A one-of-one gift · €149",
+   "description": "Free shipping from the EU",
+   "cta": "Order now"
+  },
+  {
+   "name": "Belly leather and fit",
+   "hook": "Belly leather, in your width and length.",
+   "primary_short": "Belly leather, in your width and length. Nile crocodile belly scales lie flatter, for a refined look. Choose 35 or 40 mm, then a length in 5 cm steps. €149, duties & taxes included.",
+   "primary_long": "Belly leather, in your width and length. Nile crocodile belly scales lie flatter, so the strap reads as refined rather than loud. Genuine, CITES certified and from our own farm in South Africa. Choose 35 mm or 40 mm, then a length in 5 cm steps up to 130 cm. Free shipping from the EU, duties & taxes included. €149.",
+   "headline": "Crocodile belly leather · €149",
+   "description": "Lengths in 5 cm steps",
+   "cta": "Shop now"
+  }
+ ],
+ "on_image": [
+  {
+   "headline": "No two alike.",
+   "subline": "CROCODILE BELT · €149"
+  },
+  {
+   "headline": "From our own farm.",
+   "subline": "CITES CERTIFIED · €149"
+  },
+  {
+   "headline": "Denim to tailoring.",
+   "subline": "BELLY LEATHER BELT · €149"
+  },
+  {
+   "headline": "Let the leather speak.",
+   "subline": "DUTIES & TAXES INCLUDED · €149"
+  },
+  {
+   "headline": "A gift like no other.",
+   "subline": "FREE SHIPPING · €149"
+  },
+  {
+   "headline": "Cut from one piece.",
+   "subline": "NILE CROCODILE BELT · €149"
+  }
+ ],
+ "scenes": [
+  {
+   "name": "Cognac on travertine",
+   "colour": "Cognac",
+   "theme": "light",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 0,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a men's belt in cognac Nile crocodile belly leather, a warm golden-brown (exact shade as in the reference), with flat rectangular belly scales running along the whole strap and its metal buckle exactly as in the reference - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The belt lies loosely coiled on a honed cream travertine slab, buckle resting on top of the coil, seen from a gentle three-quarter angle above. Composition: product horizontally centred, its whole outline between 32% and 75% of the image height and between 20% and 80% of the image width; the top 30% of the square is only empty background, a smooth softly lit warm off-white travertine wall with no objects; everything below 77% is only empty travertine surface. Soft diffused morning light from the left, a gentle natural shadow beneath the coil, calm and minimal quiet-luxury mood in cream and taupe tones. The whole belt is visible and small-to-medium in frame, no close-up of the buckle. No people, no hands, no animals, no props. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Black in dark studio",
+   "colour": "Black",
+   "theme": "dark",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 3,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a men's belt in black Nile crocodile belly leather (exact finish as in the reference), with flat rectangular belly scales running along the whole strap and its metal buckle exactly as in the reference - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The belt lies loosely coiled on a dark oiled walnut surface in a dark studio, buckle resting on top of the coil, seen from a low three-quarter angle. Composition: product horizontally centred, its whole outline between 32% and 75% of the image height and between 20% and 80% of the image width; the top 30% of the square is only empty background, a deep charcoal-black studio backdrop with a soft falloff and no objects; everything below 77% is only empty walnut surface. Low-key lighting with a single soft rim light from behind right that gently picks out the scale texture along the strap, rich shadows, quiet-luxury mood. The whole belt is visible and small-to-medium in frame, no close-up of the buckle. No people, no hands, no animals, no props. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Tobacco on river stone at golden hour",
+   "colour": "Tobacco",
+   "theme": "dark",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 1,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a men's belt in tobacco Nile crocodile belly leather, a deep warm mid-brown (exact shade as in the reference), with flat rectangular belly scales running along the whole strap and its metal buckle exactly as in the reference - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The belt lies loosely coiled on a broad, flat, smooth grey river stone on a South African riverbank at golden hour, buckle resting on top of the coil, seen from a gentle three-quarter angle above. Composition: product horizontally centred, its whole outline between 32% and 75% of the image height and between 20% and 80% of the image width; the top 30% of the square is only empty background, softly out-of-focus dark riverine bush in deep shadow with no distinct objects; everything below 77% is only empty river stone surface. Low warm golden-hour sunlight rakes across the stone from the right, long soft shadows, amber highlights on the leather, calm and grounded mood. The whole belt is visible and small-to-medium in frame, no close-up of the buckle. No people, no hands, no animals, no props. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Green on linen, vertical",
+   "colour": "Green",
+   "theme": "light",
+   "method": "9:16",
+   "pairs_with_on_image": 4,
+   "prompt": "Luxury product photograph, one single continuous photograph, vertical 9:16 frame. Use the reference photo as the exact product: a men's belt in green Nile crocodile belly leather (exact green shade as in the reference), with flat rectangular belly scales running along the whole strap and its metal buckle exactly as in the reference - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The belt lies loosely coiled on natural off-white linen with soft, gentle folds, buckle resting on top of the coil, seen from a gentle three-quarter angle above. Composition: product small and horizontally centred, its whole outline within 42% to 62% of the image height; the top 40% of the frame is only empty background, a smooth pale warm-grey wall with no objects; everything below 65% is only empty linen surface. Soft diffused window light from the left, delicate natural shadow beneath the coil, airy, calm quiet-luxury mood in off-white and soft taupe tones. The whole belt is visible, no close-up of the buckle. No people, no hands, no animals, no props. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  }
+ ],
+ "audience": "Men aged 30-60 in EU markets (NL, BE, DE, FR, IT, AT, ES) with interests in luxury goods, menswear, tailoring, quiet luxury, fine leather goods, luxury watches and travel or safari in South Africa. Run a second ad set for women and men aged 28-55 interested in luxury gifts for men and premium menswear, timed around birthdays, Father's Day and the festive season.",
+ "issues_fixed": [
+  "Angle 'Denim to tailoring' primary_long: the colour list 'black, cognac, tobacco, green, blue and grey' read as the full range, but the belt also comes in Grendec and Brown Variance (8 colours in total). Changed it to 'black, cognac, tobacco, green, blue, grey and more' so it no longer suggests only six colours.",
+  "Angle 'Denim to tailoring' primary_short: the first 125 characters said only 'flatter belly scales' and never named the material. Added 'crocodile' ('The flatter crocodile belly scales keep it refined, never loud.'), so the click reason now ends exactly at character 125 (171 characters in total).",
+  "Angle 'Belly leather and fit': its hook and opening line ('Cut from one continuous piece of belly leather.') repeated the core message of 'One of one', so the two angles were not distinct. Changed the hook and the openings of primary_short and primary_long to 'Belly leather, in your width and length.' to lead on belly leather plus the choice of width and length. The new primary_short is 181 characters, with the click reason in the first 101. The new primary_long is 316 characters and still ends on €149. Headline and description are unchanged.",
+  "Length check (all within limits). primary_short: 184 / 152 / 171 / 168 / 181. primary_long: 376 / 362 / 379 / 367 / 316. Headlines: 33 / 32 / 30 / 24 / 30 (max 40). Descriptions: 23 / 22 / 21 / 25 / 21 (max 30). on_image headlines: 13 / 18 / 19 / 22 / 21 / 19 (max 22), all in sentence case and ending with a full stop. on_image sublines: 21 / 22 / 25 / 30 / 20 / 26 (max 32), all containing €149.",
+  "Fact flag, no copy change needed: the product fields give lengths of 65-130 cm, but the product description says 70-130 cm. The copy deliberately states only '5 cm steps' and 'up to 130 cm', never a minimum length. Confirm the true minimum before any ad mentions it.",
+  "Scene prompts checked, no changes needed. All four start with the required phrase. Frame wording matches the method (three 'square frame' for 1:1+outpaint, one 'vertical 9:16 frame'). The required reference-photo sentence, composition percentages and closing phrase are all present. No buckle close-ups, people, hands or animals. Colours (Cognac, Black, Tobacco, Green) all have reference photos, settings are varied (travertine, walnut in a dark studio, river stone at golden hour, linen) and the themes match the empty top areas.",
+  "Tone and claims checked: British spelling (colour, centred), no exclamation marks, no emojis, no forbidden claims (handmade, lifetime, best, exotic, endangered, unstated discounts or urgency), and the newsletter discount is not used. Free shipping applies because €149 is over the €100 threshold."
+ ]
+}

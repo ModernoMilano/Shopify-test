@@ -1,0 +1,126 @@
+{
+ "product_key": "womens-belt",
+ "angles": [
+  {
+   "name": "Uniqueness / one of one",
+   "hook": "The pattern at her waist exists nowhere else.",
+   "primary_short": "The pattern at her waist exists nowhere else. Our slim belt is cut from one continuous piece of Nile crocodile belly leather. CITES certified, duties & taxes included. €100.",
+   "primary_long": "Every crocodile carries its own markings, so every strap does too. This slim belt is cut from a single continuous piece of Nile crocodile belly leather from our farm on the Sabie River in South Africa, which means the pattern at your waist exists nowhere else. Choose 25 or 30 mm, in shades from Black to Himalayan. CITES certified, shipped from the EU with duties & taxes included. Yours for €100.",
+   "headline": "One strap. One pattern. €100",
+   "description": "No two alike",
+   "cta": "Shop now"
+  },
+  {
+   "name": "Origin / Sabie River farm",
+   "hook": "Raised on our own farm in Hazyview, South Africa.",
+   "primary_short": "Raised on our own farm in Hazyview, South Africa. Our women's belt is cut from Nile crocodile belly leather from Hazyview, South Africa. €100, duties & taxes included.",
+   "primary_long": "Our farm was founded in 1997 on the banks of the Sabie River in Hazyview, Mpumalanga. Today the Nile crocodile belly leather from that farm becomes this slim belt, cut from one continuous piece so the natural pattern runs unbroken from tip to buckle. Every piece is CITES certified, and Seronera gives back to South African communities through education initiatives and orphanages. Shipped from the EU, duties & taxes included. Discover it for €100.",
+   "headline": "From our farm in South Africa · €100",
+   "description": "Farm est. 1997, Hazyview",
+   "cta": "Learn more"
+  },
+  {
+   "name": "Styling / define the waist",
+   "hook": "The quiet way to define a waist.",
+   "primary_short": "The quiet way to define a waist. A slim crocodile leather belt for your favourite dress, an oversized shirt or high-waisted trousers. €100, duties & taxes included.",
+   "primary_long": "A simple dress, a crisp oversized shirt, high-waisted trousers. Each one changes the moment you add a slim line of crocodile leather at the waist. Wear it with tonal layers for an understated look, or choose a contrasting colour such as Red, Purple or Light Green to make the waist a focal point. Available in 25 or 30 mm and lengths from 95 to 125 cm. Duties & taxes included. Find your colour for €100.",
+   "headline": "Define the waist · €100",
+   "description": "25 or 30 mm, 95-125 cm",
+   "cta": "Shop now"
+  },
+  {
+   "name": "Gift",
+   "hook": "A gift with a pattern no one else owns.",
+   "primary_short": "A gift with a pattern no one else owns. Our slim Nile crocodile leather belt, cut from one continuous piece, for €100. Shipped from the EU, duties & taxes included.",
+   "primary_long": "Some gifts are chosen for their story. This slim belt is cut from one continuous piece of Nile crocodile belly leather from our farm in Hazyview, South Africa, so the pattern she wears belongs to her alone. Choose her colour, from Black and Brown to Pink, Purple or Green, and a width of 25 or 30 mm. CITES certified, shipped from the EU with duties & taxes included, and part of a brand that gives back to South African communities. A considered gift for €100.",
+   "headline": "A gift no one else owns · €100",
+   "description": "Duties & taxes included",
+   "cta": "Shop now"
+  },
+  {
+   "name": "Leather & fit",
+   "hook": "Crocodile belly leather, made for the waist.",
+   "primary_short": "Crocodile belly leather, made for the waist. Genuine Nile crocodile, CITES certified, in 25 or 30 mm and lengths from 95 to 125 cm. €100, duties & taxes included.",
+   "primary_long": "Each strap is cut from a single, continuous piece of Nile crocodile belly leather, so the scales flow uninterrupted along the whole belt. Pick 25 mm for a fine line or 30 mm for a little more presence, in lengths from 95 to 125 cm and colours from Black and Grey to Himalayan. Genuine, CITES certified and shipped from the EU with duties & taxes included. Find your fit for €100.",
+   "headline": "Belly leather, made for her · €100",
+   "description": "Genuine, CITES certified",
+   "cta": "Shop now"
+  }
+ ],
+ "on_image": [
+  {
+   "headline": "Her pattern alone.",
+   "subline": "Crocodile leather belt · €100"
+  },
+  {
+   "headline": "Define the waist.",
+   "subline": "Women's crocodile belt · €100"
+  },
+  {
+   "headline": "Raised in Hazyview.",
+   "subline": "Our own farm, est. 1997 · €100"
+  },
+  {
+   "headline": "Polished, not loud.",
+   "subline": "Duties & taxes included · €100"
+  },
+  {
+   "headline": "A gift of her own.",
+   "subline": "CITES certified · €100"
+  },
+  {
+   "headline": "One strap, unbroken.",
+   "subline": "Crocodile belly leather · €100"
+  }
+ ],
+ "scenes": [
+  {
+   "name": "Travertine morning",
+   "colour": "Black",
+   "theme": "light",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 0,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a slim women's belt in black Nile crocodile belly leather, one continuous strap with a natural pattern of rectangular belly scales, with its buckle exactly as in the reference - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. Setting: the belt loosely coiled in a soft round coil, buckle resting small on top of the coil with no legible engraving, placed on a honed warm-ivory travertine plinth against a plain limewashed cream wall, soft diffused morning daylight from the left, gentle natural shadow. Composition: product horizontally centred, its whole outline between 32% and 75% of the image height and between 20% and 80% of the image width; the top 30% of the square is only empty cream wall; everything below 77% is only empty travertine surface. Whole product visible, nothing cropped, no props, no people, no hands, no animals. Calm, minimal, quiet-luxury mood. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Forest-green studio",
+   "colour": "Red",
+   "theme": "dark",
+   "method": "9:16",
+   "pairs_with_on_image": 1,
+   "prompt": "Luxury product photograph, one single continuous photograph, vertical 9:16 frame. Use the reference photo as the exact product: a slim women's belt in red Nile crocodile belly leather, one continuous strap with a natural pattern of rectangular belly scales, with its buckle exactly as in the reference - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. Setting: a dark studio, the belt loosely coiled in a soft open round coil resting on a dark oiled walnut tabletop, buckle small on top of the coil with no legible engraving, seamless deep forest-green backdrop fading towards near black, one soft warm key light from the upper left grazing the scales, gentle natural shadow. Composition: product small and horizontally centred, its whole outline within 42% to 62% of the image height; the top 40% of the frame is only empty dark green background and everything below 65% is only empty dark walnut surface fading into shadow. Whole product visible, nothing cropped, no props, no people, no hands, no animals. Calm, quiet-luxury mood. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Sabie riverbank, golden hour",
+   "colour": "Himalayan",
+   "theme": "dark",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 2,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a slim women's belt in Himalayan-colour Nile crocodile belly leather (pale creamy scales with soft smoky shading towards the edges, exactly as in the reference), one continuous strap with a natural pattern of rectangular belly scales, with its buckle exactly as in the reference - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. Setting: the belt loosely coiled in a soft round coil on a broad, smooth, flat grey river stone at the edge of a calm river at golden hour, buckle small on top of the coil with no legible engraving, warm low sunlight grazing the scales from the side; background softly out of focus with deep shaded riverbank greenery and faint glints of water. Composition: product horizontally centred, its whole outline between 32% and 75% of the image height and between 20% and 80% of the image width; the top 30% of the square is only softly blurred dark green foliage with no detail; everything below 77% is only empty smooth river stone. Whole product visible, nothing cropped, no props, no people, no hands, no animals. Calm, warm, quiet-luxury mood. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Linen and marble",
+   "colour": "Pink",
+   "theme": "light",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 4,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a slim women's belt in pink Nile crocodile belly leather, one continuous strap with a natural pattern of rectangular belly scales, with its buckle exactly as in the reference - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. Setting: the belt loosely coiled in a soft round coil on a gentle fold of natural oatmeal linen resting on a white Carrara marble tabletop, buckle small on top of the coil with no legible engraving, plain warm off-white wall behind, soft diffused window light from the right, delicate natural shadow. Composition: product horizontally centred, its whole outline between 32% and 75% of the image height and between 20% and 80% of the image width; the top 30% of the square is only empty off-white wall; everything below 77% is only empty marble and linen surface. Whole product visible, nothing cropped, no gift boxes, no props, no people, no hands, no animals. Soft, calm, quiet-luxury mood. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  }
+ ],
+ "audience": "Women aged 28-60 in EU markets (NL, BE, DE, FR, IT, AT) with interests in luxury fashion, designer accessories, leather goods and minimalist or quiet-luxury style (e.g. Hermès, Loro Piana, Max Mara), narrowed with Engaged Shoppers and supported by lookalikes of site purchasers. Add a separate gifting ad set for men and women aged 30-65 interested in luxury goods, jewellery and fine leather, timed around birthdays, anniversaries and the festive season.",
+ "issues_fixed": [
+  "Gift angle, primary_short: removed 'free shipping over €100'. The belt costs exactly €100, so it is not clearly 'over €100', and putting the two side by side suggests the belt ships free. Replaced it with the verified 'Shipped from the EU'.",
+  "Leather & fit angle, primary_long: removed 'Free shipping over €100.' from just before 'Find your fit for €100', for the same reason: it suggests free shipping on a €100 item.",
+  "Leather & fit angle, primary_long: changed 'We cut each strap' to 'Each strap is cut'. The site only says the strap is 'cut from a continuous piece', not that Seronera cuts it in-house.",
+  "Origin angle, description: changed 'Est. 1997, Hazyview' to 'Farm est. 1997, Hazyview' (24 chars). 1997 is when the farm was founded. Nothing verified says the Seronera brand dates from then, so 'Est. 1997' alone could mislead.",
+  "Origin angle, hook and primary_short opening: changed 'From the banks of the Sabie River since 1997.' to 'From our Sabie River farm, founded in 1997.' (43 chars). 1997 now clearly refers to the farm's founding, which matches the earlier 'Farm est.' correction.",
+  "Origin angle, primary_short: the new hook already says 'our ... farm', so 'from our own farm in Hazyview' became 'from Hazyview' to avoid saying it twice. Now 161 chars, and the click reason sits in the first 125.",
+  "Leather & fit angle, primary_long: removed 'and no two are alike'. It repeated the Uniqueness angle's message, and the angle now stays on leather and fit. Now 379 chars.",
+  "on_image[1] subline: changed 'Women's croc belt · €100' to 'Women's crocodile belt · €100' (29 chars). 'Croc' is slang and does not fit a quiet-luxury tone.",
+  "on_image[5] subline: changed 'Croc belly leather · €100' to 'Crocodile belly leather · €100' (30 chars), for the same tone reason.",
+  "on_image[2] subline: changed 'From our own farm · €100' to 'Our own farm, est. 1997 · €100' (30 chars). This avoids repeating 'From' after the headline 'From the Sabie River.', and the date is clearly the farm's founding.",
+  "Scene 'Sabie riverbank, golden hour' prompt: changed 'toward the edges' to 'towards the edges' for British spelling, consistent with the other prompts.",
+  "Checked all lengths after the edits. on_image headlines are 13/17/21/16/18/17 chars (max 22), all sentence case and ending with a full stop. Sublines are 29/29/30/30/22/30 chars (max 32) and all include €100. Headlines are 28/36/23/30/35 chars (max 40). Descriptions are 12/24/22/23/24 chars (max 30). primary_short is 165/161/164/164/161 chars (max 220), each with the click reason in the first 125. primary_long is 398/449/404/461/379 chars (max 500), each ending with a soft call to action and the price. No emojis, no exclamation marks, no forbidden words.",
+  "Checked all scene prompts. Each opens and closes with the required phrases exactly, and the frame wording matches the method (three square frames for 1:1+outpaint, one vertical 9:16 frame). All composition percentages are present. The buckle is always shown small with no legible engraving, and there are no people, hands or animals. The four settings differ (travertine, walnut dark studio, river stone at golden hour, linen on marble). Each colour (Black, Red, Himalayan, Pink) has a reference photo."
+ ]
+}

@@ -1,0 +1,233 @@
+{
+ "duplicates": [
+  {
+   "product_key": "hornback-belt",
+   "field": "on_image.headline",
+   "original": "No two are alike.",
+   "replacement": "Every ridge its own."
+  },
+  {
+   "product_key": "womens-belt",
+   "field": "on_image.headline",
+   "original": "No two alike.",
+   "replacement": "Her pattern alone."
+  },
+  {
+   "product_key": "iphone-case",
+   "field": "on_image.headline",
+   "original": "No two alike.",
+   "replacement": "The one you see."
+  },
+  {
+   "product_key": "ipad-cover",
+   "field": "on_image.headline",
+   "original": "No two alike.",
+   "replacement": "Uninterrupted scales."
+  },
+  {
+   "product_key": "luggage-tag",
+   "field": "on_image.headline",
+   "original": "No two alike.",
+   "replacement": "Scales of its own."
+  },
+  {
+   "product_key": "key-ring",
+   "field": "on_image.headline",
+   "original": "No two alike.",
+   "replacement": "Your first crocodile."
+  },
+  {
+   "product_key": "womens-belt",
+   "field": "on_image.headline",
+   "original": "From the Sabie River.",
+   "replacement": "Raised in Hazyview."
+  },
+  {
+   "product_key": "iphone-case",
+   "field": "on_image.headline",
+   "original": "From the Sabie River.",
+   "replacement": "Farm to pocket."
+  },
+  {
+   "product_key": "ipad-cover",
+   "field": "on_image.headline",
+   "original": "From the Sabie River.",
+   "replacement": "River to desk."
+  },
+  {
+   "product_key": "luggage-tag",
+   "field": "on_image.headline",
+   "original": "From the Sabie River.",
+   "replacement": "Born in South Africa."
+  },
+  {
+   "product_key": "key-ring",
+   "field": "on_image.headline",
+   "original": "From the Sabie River.",
+   "replacement": "Since 1997."
+  },
+  {
+   "product_key": "iphone-case",
+   "field": "on_image.headline",
+   "original": "A gift like no other.",
+   "replacement": "Gift the daily carry."
+  },
+  {
+   "product_key": "womens-belt",
+   "field": "on_image.headline",
+   "original": "Cut in one piece.",
+   "replacement": "One strap, unbroken."
+  },
+  {
+   "product_key": "womens-belt",
+   "field": "on_image.headline",
+   "original": "Quietly defined.",
+   "replacement": "Polished, not loud."
+  },
+  {
+   "product_key": "iphone-case",
+   "field": "on_image.headline",
+   "original": "Quiet, but noticed.",
+   "replacement": "Smooth in the hand."
+  },
+  {
+   "product_key": "luggage-tag",
+   "field": "on_image.headline",
+   "original": "Quietly yours.",
+   "replacement": "Built for the road."
+  },
+  {
+   "product_key": "key-ring",
+   "field": "on_image.headline",
+   "original": "Quietly distinctive.",
+   "replacement": "Belt hides, key size."
+  },
+  {
+   "product_key": "ipad-cover",
+   "field": "on_image.headline",
+   "original": "Yours alone.",
+   "replacement": "Work, dressed well."
+  },
+  {
+   "product_key": "hornback-belt",
+   "field": "on_image.headline",
+   "original": "Wear it with denim.",
+   "replacement": "Off-duty, elevated."
+  },
+  {
+   "product_key": "hornback-belt",
+   "field": "hook",
+   "original": "A gift that exists only once.",
+   "replacement": "For the one with every belt but this."
+  },
+  {
+   "product_key": "key-ring",
+   "field": "hook",
+   "original": "From our own farm on the Sabie River, since 1997.",
+   "replacement": "The same river-farm leather as our belts, on your keys."
+  },
+  {
+   "product_key": "womens-belt",
+   "field": "hook",
+   "original": "No two straps share the same pattern.",
+   "replacement": "The pattern at her waist exists nowhere else."
+  },
+  {
+   "product_key": "ipad-cover",
+   "field": "hook",
+   "original": "No two covers share the same scales.",
+   "replacement": "The only iPad in the meeting dressed like this."
+  },
+  {
+   "product_key": "luggage-tag",
+   "field": "hook",
+   "original": "No two of these tags share the same scales.",
+   "replacement": "The only tag on the carousel with these scales."
+  },
+  {
+   "product_key": "key-ring",
+   "field": "hook",
+   "original": "No two loops share the same scale pattern.",
+   "replacement": "Nobody else's keys carry these scales."
+  },
+  {
+   "product_key": "key-ring",
+   "field": "hook",
+   "original": "Your keys go everywhere you do.",
+   "replacement": "You reach for your keys a dozen times a day."
+  },
+  {
+   "product_key": "iphone-case",
+   "field": "hook",
+   "original": "A gift with a pattern no one else will have.",
+   "replacement": "A one-of-one gift that never leaves their hand."
+  },
+  {
+   "product_key": "iphone-case",
+   "field": "hook",
+   "original": "From the banks of the Sabie River, since 1997.",
+   "replacement": "From a river farm in South Africa to your pocket."
+  },
+  {
+   "product_key": "womens-belt",
+   "field": "hook",
+   "original": "From our Sabie River farm, founded in 1997.",
+   "replacement": "Raised on our own farm in Hazyview, South Africa."
+  },
+  {
+   "product_key": "womens-belt",
+   "field": "hook",
+   "original": "Belly leather, cut in one continuous piece.",
+   "replacement": "Crocodile belly leather, made for the waist."
+  },
+  {
+   "product_key": "hornback-belt",
+   "field": "hook",
+   "original": "Denim. A simple shirt. This belt.",
+   "replacement": "A plain white shirt needs one bold detail."
+  },
+  {
+   "product_key": "hornback-belt",
+   "field": "headline",
+   "original": "From our farm on the Sabie River",
+   "replacement": "Farm-raised hornback · €199"
+  },
+  {
+   "product_key": "iphone-case",
+   "field": "headline",
+   "original": "From our farm on the Sabie River",
+   "replacement": "Farm to pocket, from €99"
+  },
+  {
+   "product_key": "ipad-cover",
+   "field": "headline",
+   "original": "From our Sabie River farm · €250",
+   "replacement": "River farm to desk · €250"
+  },
+  {
+   "product_key": "hornback-belt",
+   "field": "headline",
+   "original": "A gift that exists only once",
+   "replacement": "A gift with real ridges · €199"
+  },
+  {
+   "product_key": "iphone-case",
+   "field": "headline",
+   "original": "A one-of-one gift, from €99",
+   "replacement": "A gift they'll hold daily, from €99"
+  },
+  {
+   "product_key": "ipad-cover",
+   "field": "headline",
+   "original": "No two alike. iPad cover, €250",
+   "replacement": "Uninterrupted scales · €250"
+  },
+  {
+   "product_key": "womens-belt",
+   "field": "headline",
+   "original": "Crocodile belly leather belt · €100",
+   "replacement": "Belly leather, made for her · €100"
+  }
+ ],
+ "test_plan": "DUPLICATE RULE: keep \"No two alike.\" and the \"From our farm on the Sabie River\" headline only on mens-belt, \"From the Sabie River.\" only on hornback-belt, \"A gift like no other.\" only on mens-belt and \"Quietly individual.\" only on ipad-cover. Use the replacements above everywhere else. Every replacement fits the limits (on-image headline 22 characters or fewer, ending in a full stop; headline 40 or fewer). Also pick one casing for sublines (mens-belt, ipad-cover and key-ring are in capitals, the other lines in sentence case) so the bank looks like one brand.\n\nLAUNCH FIRST (3 lines, one ad set each):\n1) mens-belt (€149). This is the hero line. Its scale close-up is the strongest image in the bank, the price is mid-luxury and it is a natural gift for him going into Q4.\n2) iphone-case (from €99). It reaches the widest audience as a daily-use item. Belly and hornback textures make clear before/after visuals, and \"the case you see is the case you get\" is a hook only Seronera can claim. Before launch, check which iPhone models the case fits, because a new generation comes out every September.\n3) luggage-tag (€35). This is the entry price and an easy gift or stocking filler. It brings in cheap first purchases that teach the Meta pixel faster, and those buyers can later be retargeted with belts.\nHold back for now: hornback-belt (€199) and ipad-cover (€250) cost more and suit warm/retargeting audiences once the pixel has data. womens-belt (€100) comes 4th, timed for a gift-for-her push in November. key-ring (€25) works better as a cross-sell or bundle than as a standalone ad.\n\nSTRUCTURE: use ABO, one ad set per line, broad targeting with Advantage+ placements and the purchase objective, at about €25–40/day per ad set. Put 4 creatives in each ad set: 2 on the lead angle (1 static on-image + 1 short close-up video/Reel) and 2 challengers (one static each). Run for 7 days and make no edits for the first 3–4 days. Then cut creatives with low CTR or no add-to-cart after about 1.5× the target CPA in spend. Use the winners for the next angle round. Put \"Free shipping\" or \"Duties & taxes included\" in each first-round subline to reduce purchase friction.\n\nLEAD ANGLE PER LINE:\n- mens-belt: uniqueness (\"No two alike.\" over a scale close-up). Challengers: gift (\"A gift like no other.\") and versatility (\"Denim to tailoring.\").\n- iphone-case: what you see is what you get (\"The one you see.\" / \"Entirely your own.\"). Challengers: texture (\"Texture you can feel.\" hornback €150) and gift (\"Gift the daily carry.\").\n- luggage-tag: gift (\"A gift that travels.\"). Challengers: utility (\"Yours, easier to spot.\") and uniqueness (\"Scales of its own.\")."
+}

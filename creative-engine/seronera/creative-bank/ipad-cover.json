@@ -1,0 +1,120 @@
+{
+ "product_key": "ipad-cover",
+ "angles": [
+  {
+   "name": "One of one",
+   "hook": "Your iPad, dressed for the meeting.",
+   "primary_short": "Your iPad, dressed for the meeting. Each Seronera iPad cover in Nile crocodile leather has its own arrangement of scales, so the one you choose is yours alone. €250 · free shipping · duties & taxes included.",
+   "primary_long": "Most covers are made to be identical. Ours cannot be. The front of every Seronera iPad cover is cut from a single piece of Nile crocodile belly skin, so its natural pattern runs uninterrupted across the cover. No two arrangements of scales are the same, so the one you open each morning is yours alone. Genuine, CITES certified leather from our own farm on the Sabie River. For iPad Pro and iPad Air, 11\" and 13\". €250, free shipping, duties & taxes included.",
+   "headline": "Uninterrupted scales · €250",
+   "description": "Free shipping · duties incl.",
+   "cta": "Shop now"
+  },
+  {
+   "name": "Sabie River origin",
+   "hook": "From the banks of the Sabie River to your desk.",
+   "primary_short": "From the banks of the Sabie River to your desk. The leather on our iPad cover comes from our own farm in Hazyview, South Africa, founded in 1997. €250, free shipping, duties & taxes included.",
+   "primary_long": "Our farm was founded in 1997 on the banks of the Sabie River in Hazyview, Mpumalanga. Today, leather from that farm becomes the front of this iPad cover: a single piece of Nile crocodile belly skin, its natural pattern running uninterrupted across the cover. Genuine and CITES certified, from a brand that gives back to South African communities through education initiatives and orphanages. €250, shipped free from the EU, duties & taxes included.",
+   "headline": "River farm to desk · €250",
+   "description": "Farm founded in 1997",
+   "cta": "Learn more"
+  },
+  {
+   "name": "Desk and days away",
+   "hook": "Made for the desk and the days away from it.",
+   "primary_short": "Made for the desk and the days away from it. A Nile crocodile leather iPad cover that gives a familiar everyday essential an individual finish. For iPad Pro and Air, 11\" and 13\". €250, free shipping.",
+   "primary_long": "Morning notes at the desk. A flight to somewhere warm. A long table after dinner, plans sketched out. Your iPad goes everywhere, so its cover should say something quietly. Ours is Nile crocodile leather, the front cut from a single piece of belly skin so the pattern runs uninterrupted. Black, Cognac, Tobacco, Red, Mink and Grendec, for iPad Pro and iPad Air in 11\" and 13\". €250, free shipping, duties & taxes included.",
+   "headline": "Desk to departure lounge · €250",
+   "description": "iPad Pro & Air, 11\" and 13\"",
+   "cta": "Shop now"
+  },
+  {
+   "name": "The everyday gift",
+   "hook": "A gift they will use every working day.",
+   "primary_short": "A gift they will use every working day. The Seronera iPad cover in genuine Nile crocodile leather, each one with its own scale pattern. €250, free shipping, duties & taxes included.",
+   "primary_long": "Some gifts are put away. This one goes to work. A Seronera iPad cover brings Nile crocodile leather to the meetings, notes and travel of an ordinary week, and no one else will have the same one: the front is cut from a single piece of belly skin, and each cover has its own arrangement of scales. Genuine, CITES certified, from our farm on the Sabie River in South Africa. Choose the colour and iPad size; it ships free from the EU, duties & taxes included. €250.",
+   "headline": "A gift for every working day · €250",
+   "description": "Ships from EU, duties incl.",
+   "cta": "Order now"
+  },
+  {
+   "name": "Single belly skin",
+   "hook": "One piece of belly skin. One uninterrupted pattern.",
+   "primary_short": "One piece of belly skin. One uninterrupted pattern. That is the front of the Seronera iPad cover in Nile crocodile leather, genuine and CITES certified. €250, free shipping, duties & taxes included.",
+   "primary_long": "Look closely at the front of a Seronera iPad cover. It is cut from a single piece of Nile crocodile belly skin, so the natural pattern runs uninterrupted across the cover. No two covers are alike. The leather is genuine and CITES certified, from our own farm on the Sabie River in Hazyview, South Africa. For iPad Pro and iPad Air, 11\" and 13\", in six colours. €250, with free shipping and duties & taxes included.",
+   "headline": "One piece of belly skin · €250",
+   "description": "Genuine, CITES certified",
+   "cta": "Shop now"
+  }
+ ],
+ "on_image": [
+  {
+   "headline": "Uninterrupted scales.",
+   "subline": "CROCODILE IPAD COVER · €250"
+  },
+  {
+   "headline": "River to desk.",
+   "subline": "CITES CERTIFIED · €250"
+  },
+  {
+   "headline": "Work, dressed well.",
+   "subline": "ONE PIECE OF BELLY SKIN · €250"
+  },
+  {
+   "headline": "Made for the desk.",
+   "subline": "IPAD PRO & AIR COVER · €250"
+  },
+  {
+   "headline": "Quietly individual.",
+   "subline": "DUTIES & TAXES INCLUDED · €250"
+  },
+  {
+   "headline": "A gift for every day.",
+   "subline": "FREE SHIPPING · €250"
+  }
+ ],
+ "scenes": [
+  {
+   "name": "Walnut study at dusk",
+   "colour": "Cognac",
+   "theme": "dark",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 3,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a Seronera iPad cover in Cognac crocodile leather, a warm cognac brown, its front cut from a single piece of Nile crocodile belly skin with the natural rectangular scale pattern running uninterrupted across it - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The closed cover lies flat on a dark oiled walnut desk, seen from a gentle elevated three-quarter angle, the whole product visible and uncropped. Setting: a quiet private study at dusk, warm low side light from the left raking softly across the scales, a soft natural shadow beneath the cover. Composition: product horizontally centred, its whole outline between 32% and 75% of the image height and between 20% and 80% of the image width; the top 30% of the square is only empty background, a deep shadowed dark green-grey wall with no objects; everything below 77% of the image height is only empty walnut surface. Nothing else on the desk, no props. No people, no hands, no animals. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Travertine morning light",
+   "colour": "Tobacco",
+   "theme": "light",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 0,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a Seronera iPad cover in Tobacco crocodile leather, a deep warm tobacco brown, its front cut from a single piece of Nile crocodile belly skin with the natural scale pattern running uninterrupted across it - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The closed cover lies flat on a block of honed ivory travertine, seen from a 45-degree elevated angle, the whole product visible and uncropped. Setting: a calm gallery-like interior, soft diffused morning daylight from the right, a gentle soft shadow falling across the stone. Composition: product horizontally centred, its whole outline between 32% and 75% of the image height and between 20% and 80% of the image width; the top 30% of the square is only empty background, a smooth warm off-white plaster wall with no objects; everything below 77% of the image height is only empty travertine surface. No props. No people, no hands, no animals. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "River stone golden hour",
+   "colour": "Black",
+   "theme": "light",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 1,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a Seronera iPad cover in Black crocodile leather, a deep solid black, its front cut from a single piece of Nile crocodile belly skin with the natural scale pattern running uninterrupted across it - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The closed cover leans gently at a slight angle against a large smooth, flat grey river stone resting on a pale sandbank, the whole product visible and uncropped. Setting: the bank of a South African river at golden hour, low warm sunlight from behind-left giving a soft rim of light along the edges and scales, the river and bush far behind and softly out of focus. Composition: product horizontally centred, its whole outline between 32% and 75% of the image height and between 20% and 80% of the image width; the top 30% of the square is only empty background, a soft pale golden hazy sky with no objects; everything below 77% of the image height is only empty pale sand. No other props. No people, no hands, no animals or birds. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Forest green dark studio",
+   "colour": "Red",
+   "theme": "dark",
+   "method": "9:16",
+   "pairs_with_on_image": 5,
+   "prompt": "Luxury product photograph, one single continuous photograph, vertical 9:16 frame. Use the reference photo as the exact product: a Seronera iPad cover in Red crocodile leather, a rich deep red, its front cut from a single piece of Nile crocodile belly skin with the natural scale pattern running uninterrupted across it - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The closed cover lies flat on a deep forest green linen surface, seen from a gentle elevated three-quarter angle, the whole product visible, uncropped and small in frame. Setting: a dark studio with a single soft warm spotlight from above-left, the backdrop deep forest green fading to near black. Composition: product small and horizontally centred, its whole outline within 42% to 62% of the image height; the top 40% of the frame is only empty background, deep dark forest green fading to black with no objects; everything below 65% of the image height is only empty dark linen surface. No props. No people, no hands, no animals. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  }
+ ],
+ "audience": "Women and men aged 30-65 in core EU markets (NL, BE, DE, FR, IT, AT) with interests in Apple iPad Pro, luxury leather goods, quiet-luxury fashion, business and first-class travel, interior design and fine stationery, layered with Engaged Shoppers. Retarget site visitors and Instagram/Facebook engagers, test a 1-3% lookalike of purchasers, and add a Q4 gift-buyer segment (interest in luxury gifts, corporate gifting) for the gift angle.",
+ "issues_fixed": [
+  "Angle 'Sabie River origin' primary_long: 'In 1997 we founded our farm' says the brand founded the farm, which the sources do not state. The site only says the farm was founded in 1997. Rewritten as 'Our farm was founded in 1997 on the banks of the Sabie River in Hazyview, Mpumalanga.'",
+  "Angle 'Sabie River origin' description: 'CITES certified · since 1997' reads as a claim that the brand has existed since 1997. Only the farm's founding year is verified. Changed to 'Farm founded in 1997' (20 chars). CITES certification is still stated in the primary text.",
+  "Angle 'The everyday gift' primary_long: 'cut from a single piece of belly skin, so each cover has its own arrangement of scales' links two facts by cause and effect, which the sources do not support. The single piece only explains the uninterrupted pattern. Changed 'so' to 'and'.",
+  "All other fields passed and are unchanged: the €250 price (above the €100 free-shipping threshold, so 'free shipping' is true), the six colours and four iPad models, character limits, on-image lengths and format, reference-photo colours in the scenes (Cognac, Tobacco, Black, Red), prompt opening and closing wording, composition percentages and theme labels. No forbidden words, urgency, discounts or competitor comparisons were found.",
+  "Angle 'One of one' primary_short: its second sentence repeated the single-belly-skin message that is the core of angle 'Single belly skin', so the two angles overlapped. Rewritten to focus on each cover's own arrangement of scales: 'Each Seronera iPad cover in Nile crocodile leather has its own arrangement of scales, so the one you choose is yours alone.' Now 208 chars (limit 220), and the click reason ends by char 122, inside the first 125.",
+  "Angle 'Single belly skin' primary_short: 'single piece of Nile crocodile belly skin' repeated the hook almost word for word. Changed to 'That is the front of the Seronera iPad cover in Nile crocodile leather, genuine and CITES certified.' Now 198 chars, with product, material and CITES all inside the first 125.",
+  "Rechecked every field and all are within limits. Primary_short: 208, 191, 199, 181, 198 (limit 220). Primary_long: 459, 448, 421, 463, 413 (limit 500), and each ends with the price. Headline: 30, 32, 31, 35, 30 (limit 40). Description: 28, 20, 27, 27, 24 (limit 30). On-image headlines: 13, 21, 12, 18, 19, 22 (limit 22), all sentence case and ending with a full stop. Sublines: 27, 22, 30, 27, 30, 20 (limit 32), all ending in '· €250'. British spelling (colour, centred, grey). No exclamation marks or emojis. Each scene prompt opens and closes with the exact required wording, and its frame wording matches its method (three square 1:1+outpaint, one vertical 9:16). Composition percentages are present. No buckle close-up, people, hands or animals. Settings are different in all four scenes (walnut study, travertine, river stone and sand, dark studio on linen). Themes match the top-area tone."
+ ]
+}

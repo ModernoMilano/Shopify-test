@@ -1,0 +1,123 @@
+{
+ "product_key": "iphone-case",
+ "angles": [
+  {
+   "name": "One of one",
+   "hook": "The case in the photo is the case you receive.",
+   "primary_short": "The case in the photo is the case you receive. Each Seronera iPhone 17 case is photographed individually, with a scale pattern no other piece shares. Choose yours from €99.",
+   "primary_long": "Every Seronera iPhone 17 case is cut from a single piece of Nile crocodile leather, and no two scale patterns are alike. That is why we photograph each case individually. Browse the patterns, choose the one that catches your eye, and the case you see is exactly the case you receive. Genuine, CITES certified, shipped from the EU with duties and taxes included. Classic belly €99, hornback €150.",
+   "headline": "One-of-one iPhone 17 case, from €99",
+   "description": "Photographed individually",
+   "cta": "Shop now"
+  },
+  {
+   "name": "Origin: our farm on the Sabie River",
+   "hook": "From a river farm in South Africa to your pocket.",
+   "primary_short": "From a river farm in South Africa to your pocket. Our iPhone 17 cases use Nile crocodile leather from our own farm in Hazyview, South Africa. Belly €99, hornback €150. Free shipping over €100.",
+   "primary_long": "Our farm was founded in 1997 on the banks of the Sabie River in Hazyview, Mpumalanga. Every Seronera iPhone 17 case is cut from a single piece of leather from that farm and photographed individually, so you know exactly which case you will receive. Seronera also gives back to South African communities through education initiatives and orphanages. Genuine, CITES certified, shipped from the EU with duties and taxes included. Explore the collection, from €99.",
+   "headline": "Farm to pocket, from €99",
+   "description": "Since 1997 · from €99",
+   "cta": "Learn more"
+  },
+  {
+   "name": "Everyday styling",
+   "hook": "Your phone goes everywhere you do. Dress it in Nile crocodile.",
+   "primary_short": "Your phone goes everywhere you do. Dress it in Nile crocodile. From €99 for iPhone 17, 17 Air, 17 Pro and 17 Pro Max, in Black, Tobacco, Purple, Grey and more.",
+   "primary_long": "It is the first thing you reach for in the morning and the last at night, on the desk, on the dinner table, in your hand. Give it a more personal feel. Each Seronera case is cut from a single piece of Nile crocodile leather: classic belly for a smoother, understated look, or hornback for its distinctive raised texture. Black or Tobacco for every day, Purple or Hornback Red when you would like it noticed. Choose your pattern, from €99.",
+   "headline": "Dress the phone you carry everywhere",
+   "description": "Duties & taxes included",
+   "cta": "Shop now"
+  },
+  {
+   "name": "Gift",
+   "hook": "A one-of-one gift that never leaves their hand.",
+   "primary_short": "A one-of-one gift that never leaves their hand. A Seronera crocodile leather iPhone 17 case, photographed individually so you choose the exact piece. Hornback €150, shipped free with duties and taxes included.",
+   "primary_long": "Finding a gift for someone with considered taste is rarely easy. This one is personal by nature: every Seronera iPhone 17 case is cut from a single piece of Nile crocodile leather, with a scale pattern no other case shares. Each one is photographed individually, so you choose the exact piece they will receive. Genuine and CITES certified, shipped from the EU with duties and taxes included, free over €100. Belly €99, hornback €150.",
+   "headline": "A gift they'll hold daily, from €99",
+   "description": "Free shipping over €100",
+   "cta": "Order now"
+  },
+  {
+   "name": "Belly or hornback",
+   "hook": "Smooth or sculpted. Choose your leather.",
+   "primary_short": "Smooth or sculpted. Choose your leather. The iPhone 17 case in classic belly at €99 for a smoother look, or hornback at €150 for its raised texture. Both cut from a single piece of Nile crocodile leather.",
+   "primary_long": "Two ways to carry Nile crocodile. Classic belly leather gives a smoother, understated look. Hornback has a distinctive raised texture you can feel. Either way, your Seronera iPhone 17 case is cut from a single piece of genuine, CITES certified leather from our farm in Hazyview, South Africa, and photographed individually. Shipped from the EU with duties and taxes included. Belly €99, hornback €150.",
+   "headline": "Belly €99 or hornback €150",
+   "description": "Genuine, CITES certified",
+   "cta": "Shop now"
+  }
+ ],
+ "on_image": [
+  {
+   "headline": "Entirely your own.",
+   "subline": "One of one · from €99"
+  },
+  {
+   "headline": "The one you see.",
+   "subline": "Crocodile leather · from €99"
+  },
+  {
+   "headline": "Farm to pocket.",
+   "subline": "iPhone 17 case · from €99"
+  },
+  {
+   "headline": "Smooth in the hand.",
+   "subline": "Belly leather case · €99"
+  },
+  {
+   "headline": "Gift the daily carry.",
+   "subline": "Hornback iPhone case · €150"
+  },
+  {
+   "headline": "Texture you can feel.",
+   "subline": "Raised hornback · €150"
+  }
+ ],
+ "scenes": [
+  {
+   "name": "Hornback Black on Nero marble, dark studio",
+   "colour": "Hornback Black",
+   "theme": "dark",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 5,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a crocodile leather iPhone 17 case in black hornback Nile crocodile leather, deep black with raised, ridged hornback scales, camera opening, edges and proportions exactly as in the reference - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The case stands upright on its bottom edge with a slight backward lean, the leather back facing the camera, on a polished black Nero Marquina marble surface with fine white veining, in a dark studio. Composition: the case is horizontally centred and shown whole, small-to-medium in frame, its entire outline between 32% and 75% of the image height and between 20% and 80% of the width; the top 30% of the square is only empty, deep charcoal-to-black studio background; everything below 77% of the height is only empty marble surface. Lighting: one soft, low raking key light from the left that brings out the raised scale texture, a gentle rim light along the edges, a soft reflection in the marble, deep calm shadows. Not cropped, no close-up, no people, no hands, no animals, no props. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Tobacco on savanna stone at golden hour",
+   "colour": "Tobacco",
+   "theme": "light",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 2,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a crocodile leather iPhone 17 case in Tobacco, a warm mid-brown classic belly Nile crocodile leather with a smoother surface and natural belly scale pattern, camera opening, edges and proportions exactly as in the reference - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The case stands upright on its bottom edge, turned slightly towards the camera, the leather back facing the camera, on a broad flat-topped weathered savanna stone in the open South African bushveld at golden hour, photographed from a low camera angle. Composition: the case is horizontally centred and shown whole, small-to-medium in frame, its entire outline between 32% and 75% of the image height and between 20% and 80% of the width; the top 30% of the square is only empty, soft out-of-focus pale golden sky haze; everything below 77% of the height is only empty stone surface. Background beyond the stone is a gentle, out-of-focus blur of pale dry grass and sky with no sharp detail. Lighting: warm, low golden-hour sunlight from behind-left, a long soft shadow across the stone, a gentle warm glow on the leather. Not cropped, no close-up, no people, no hands, no animals, no props. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Purple on ivory travertine, soft daylight",
+   "colour": "Purple",
+   "theme": "light",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 3,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a crocodile leather iPhone 17 case in Purple, a rich purple classic belly Nile crocodile leather with a smoother surface and natural belly scale pattern, camera opening, edges and proportions exactly as in the reference - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The case lies flat at a slight diagonal on a honed warm-ivory travertine slab, the leather back facing up, photographed from a gentle three-quarter angle about 35 degrees above the surface; the slab meets a plain warm off-white plaster wall behind. Composition: the case is horizontally centred and shown whole, small-to-medium in frame, its entire outline between 32% and 75% of the image height and between 20% and 80% of the width; the top 30% of the square is only empty, smooth off-white plaster wall; everything below 77% of the height is only empty travertine surface. Lighting: soft, diffused daylight from a window on the left, a delicate soft shadow to the right, calm and airy, natural colour. Not cropped, no close-up, no people, no hands, no animals, no props. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Hornback Brown on walnut, safari lodge at dusk",
+   "colour": "Hornback Brown",
+   "theme": "dark",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 4,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a crocodile leather iPhone 17 case in brown hornback Nile crocodile leather, warm brown with raised, ridged hornback scales, camera opening, edges and proportions exactly as in the reference - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The case stands upright on its bottom edge with a slight backward lean, the leather back facing the camera, on a rich oiled walnut table inside a safari lodge at dusk. Composition: the case is horizontally centred and shown whole, small-to-medium in frame, its entire outline between 32% and 75% of the image height and between 20% and 80% of the width; the top 30% of the square is only empty, softly out-of-focus lodge interior in deep warm brown and near-black shadow with no recognisable objects; everything below 77% of the height is only empty walnut surface. Lighting: warm, low lamplight from the right that catches the raised scales, a subtle reflection in the polished wood, intimate evening mood. Not cropped, no close-up, no people, no hands, no animals, no props. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  }
+ ],
+ "audience": "Men and women aged 28-60 in EU markets with interests in luxury goods, designer leather goods, luxury fashion brands and Apple iPhone, layered with Engaged Shoppers and iOS device users; for the origin angle add African safari and luxury travel interests. Run the gift angle broader (30-65) with 'friends with upcoming birthdays' and anniversary life events, especially in Q4.",
+ "issues_fixed": [
+  "Angle 'Origin' primary_short: 'Belly €99, hornback €150 ships free.' could be read as both prices shipping free, but free shipping only applies over €100 and a €99 belly case does not qualify. Rewritten as 'Belly €99, hornback €150. Free shipping over €100.' (189 chars).",
+  "Angle 'One of one' primary_long: 'Classic belly from €99' changed to 'Classic belly €99'. Belly is a fixed €99 per the price split, and 'from €99' is reserved for the collection as a whole.",
+  "Angle 'Gift' primary_long: 'Belly from €99' changed to 'Belly €99' for the same reason.",
+  "Angle 'Belly or hornback' primary_long: 'There are two ways to carry Nile crocodile.' is an absolute claim about the world that the catalogue does not support (other crocodile leather cuts exist). Rewritten as 'Two ways to carry Nile crocodile.', which presents the two leathers on offer.",
+  "Angle 'Belly or hornback' primary_long: 'you notice the moment you pick it up' is a tactile claim not in the catalogue. Shortened to 'you can feel', which follows directly from the stated raised texture.",
+  "Angle 'Everyday styling' hook: 'Dress it accordingly.' was a generic line that said nothing about the product. Changed to 'Your phone goes everywhere you do. Dress it in Nile crocodile.' primary_short reworded so 'Nile crocodile' is not repeated: '...Dress it in Nile crocodile. From €99 for iPhone 17, 17 Air, 17 Pro and 17 Pro Max, in Black, Tobacco, Purple, Grey and more.' (159 chars).",
+  "Angle 'Belly or hornback' primary_short: the product was never named, so the first 125 characters did not carry the click reason on their own. Added 'The iPhone 17 case in' before 'classic belly'. The first 125 characters now end at 'hornback at €150' (204 chars total).",
+  "Angle 'Belly or hornback' primary_long: the old ending 'Belly €99. Hornback €150, with free shipping, duties and taxes included.' did not end on the price or a soft CTA. It also attached duties and taxes to hornback only. Replaced with 'Shipped from the EU with duties and taxes included. Belly €99, hornback €150.' (401 chars).",
+  "Length check, all within limits. primary_short: 172 / 189 / 159 / 206 / 204. primary_long: 395 / 460 / 438 / 434 / 401. headline: 35 / 32 / 36 / 27 / 26. description: 25 / 21 / 23 / 23 / 24. on_image headlines: 18 / 13 / 21 / 19 / 21 / 21, all sentence case and ending in a full stop. on_image sublines: 21 / 28 / 25 / 24 / 27 / 22, all with a price. No exclamation marks or emojis. Spelling is British (colour, recognisable).",
+  "Scene prompts checked with no change needed. All 4 start with 'Luxury product photograph, one single continuous photograph, square frame' to match method 1:1+outpaint. All carry the exact reference-photo clause and the 32-75% / 20-80% / top 30% / below 77% composition. All end with the required closing line. None has a buckle close-up, people, hands or animals. Each uses a different setting (Nero marble dark studio, savanna stone at golden hour, travertine, walnut safari lodge). All colours have reference photos. Themes match the top area: dark / light / light / dark. pairs_with_on_image matches subline price and leather type when read as 0-based indices (hornback scenes pair with €150 sublines, belly scenes with €99 sublines). Read as 1-based, scene 4 (Hornback Brown) would pair with the €99 belly subline, so the renderer must use 0-based indexing."
+ ]
+}

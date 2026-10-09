@@ -54,3 +54,29 @@ Product too big in the AI image? Generate at 1:1 with the product in the lower-m
 
 6 ads (3x iPad cover €250, 3x luggage tag €35). Cost about 42 credits (including discarded attempts).
 Download: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/3dd4ddb5-951f-4abf-a2cb-961b51140805.zip
+
+## Whole collection: catalogue, logo and creative bank (2026-10-09)
+
+- **`catalog.json`**: the 7 product lines from seronera.shop (master products and collections): price, colours, sizes, models, description, a reference photo per colour, and the claims the site makes (CITES certified, free shipping over €100, shipped from EU with duties & taxes included, farm since 1997 on the Sabie River, gives back to South African communities). Watch the iPhone price: the main page says €150 for hornback, the older per-colour pages say €149.
+- **`assets/logo_black.png`, `assets/logo_white.png`**: the logo as transparent PNG, 920x172 (twice as sharp as the site version).
+- **`creative-bank/<line>.json`**: per line, 5 angles (hook, primary text short and long, headline, description, CTA), 6 on-image headline/subline pairs and 4 ready scene prompts (method `1:1+outpaint` or `9:16`, theme dark/light).
+  - Written by one agent per line, then fact-checked against the catalogue and checked on format by two separate reviewers.
+  - Character limits recounted independently: primary short ≤220, long ≤500, headline ≤40, description ≤30, on-image headline ≤22 with a full stop, subline ≤32 with the price.
+  - 38 phrasings that two lines shared have been made unique, so no on-image headline appears twice.
+- **`creative-bank/_cross-check.json`**: those replacements plus a launch plan: first the men's belt, iPhone case and luggage tag, one ad set per line, 4 creatives each, broad targeting, evaluate after 7 days.
+
+### Making a new ad from the bank
+1. Pick a `scene` from `creative-bank/<line>.json` and the matching `on_image[pairs_with_on_image]`.
+2. Import the reference photo for that colour (`catalog.json` → `heroImages`) with `media_import_url` (append `?format=png`).
+3. Generate with `nano_banana_pro` (2k, `image_references`), then for `1:1+outpaint` run `outpaint_image` 9:16 2048x3641. Check with guides that the product starts below y ~720 of 1920.
+4. Render the text with the batch 2/3 renderer (SAFE x 65-1015, y 440-1230) and let the contrast check decide whether a scrim is needed.
+5. Take the primary text, headline and description from the angle that fits the on-image headline.
+
+Notes from practice:
+- AI video looks fake fast and garbles the SERONERA engraving on the buckle. For Reels, use real footage and put only text and an end card on it.
+- Ask for the product small in frame, otherwise the AI makes it too big.
+- Subline casing doesn't matter: the renderer always sets the subline in capitals.
+
+## Batch 3 (2026-10-09)
+5 ads: women's belt red and pink (€100), men's belt green (€149), hornback cognac (€199), key ring cognac (€25). One 9:16 file per ad, all checks pass, 20 credits. Settings in `batch3/`.
+Download: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/715c6075-413f-4b79-a279-27f9f972d04d.zip

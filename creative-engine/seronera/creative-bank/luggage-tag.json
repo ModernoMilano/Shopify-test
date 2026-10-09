@@ -1,0 +1,125 @@
+{
+ "product_key": "luggage-tag",
+ "angles": [
+  {
+   "name": "One of one",
+   "hook": "The only tag on the carousel with these scales.",
+   "primary_short": "The only tag on the carousel with these scales. Nile crocodile leather, €35, in Black, Tobacco or Orange. A small detail that makes your luggage feel like yours.",
+   "primary_long": "The only tag on the carousel with these scales.\n\nEvery Seronera luggage tag is made with Nile crocodile leather from our own farm on the banks of the Sabie River in Hazyview, South Africa. The natural scale pattern is different on each piece, so the one you receive is yours alone.\n\nBlack for quiet, Tobacco for warmth, Orange to make your case easier to spot. CITES certified, shipped from the EU with duties & taxes included.\n\n€35. Choose your colour.",
+   "headline": "One of one. Crocodile tag, €35",
+   "description": "Its own natural scale pattern",
+   "cta": "Shop now"
+  },
+  {
+   "name": "Sabie River origin",
+   "hook": "From our own farm on the Sabie River, since 1997.",
+   "primary_short": "From our own farm on the Sabie River, since 1997. A €35 luggage tag in genuine Nile crocodile leather, CITES certified. Shipped from the EU, duties & taxes included.",
+   "primary_long": "From our own farm on the Sabie River, since 1997.\n\nHazyview, Mpumalanga, on the banks of the river, is where the leather for this luggage tag begins. Genuine Nile crocodile, CITES certified, with a natural scale pattern no other tag shares.\n\nSeronera also gives back to South African communities through education initiatives and orphanages.\n\nBlack, Tobacco or Orange, shipped from the EU with duties & taxes included. €35.",
+   "headline": "Sabie River leather, since 1997",
+   "description": "CITES certified · €35",
+   "cta": "Learn more"
+  },
+  {
+   "name": "Easy to spot",
+   "hook": "Make your suitcase easier to spot.",
+   "primary_short": "Make your suitcase easier to spot. A luggage tag in bright Orange Nile crocodile leather, with its own natural scale pattern. €35, in Black and Tobacco too.",
+   "primary_long": "Make your suitcase easier to spot.\n\nIn a busy baggage hall, a Seronera tag in Orange Nile crocodile leather is the brighter shade that makes yours easier to spot, without raising its voice.\n\nPrefer something quieter? Black and Tobacco complement a favourite weekender or suitcase, and every tag carries its own natural scale pattern.\n\nPair it with your next Seronera piece: free shipping over €100, duties & taxes included. €35.",
+   "headline": "Make your case easier to spot · €35",
+   "description": "Black, Tobacco or Orange",
+   "cta": "Shop now"
+  },
+  {
+   "name": "The travelling gift",
+   "hook": "For the one who is always packing a bag.",
+   "primary_short": "For the one who is always packing a bag: a €35 Nile crocodile leather luggage tag with its own natural scale pattern. Black, Tobacco or Orange.",
+   "primary_long": "For the one who is always packing a bag.\n\nSome gifts are opened once and put away. This one travels with them: a luggage tag in genuine Nile crocodile leather from our own farm in South Africa, with a natural scale pattern no other tag shares.\n\nBlack for the understated, Tobacco for warmth, Orange to make their case easier to spot.\n\nShipped from the EU, duties & taxes included. €35. Choose their colour.",
+   "headline": "A €35 gift that travels with them",
+   "description": "Nile crocodile luggage tag",
+   "cta": "Order now"
+  },
+  {
+   "name": "Genuine leather, €35",
+   "hook": "Genuine Nile crocodile leather, for €35.",
+   "primary_short": "Genuine Nile crocodile leather, for €35. A CITES certified luggage tag that adds colour and texture to a favourite weekender or suitcase. Shipped from the EU.",
+   "primary_long": "Genuine Nile crocodile leather, for €35.\n\nUp close, crocodile leather has a depth all of its own: the natural scale pattern is different on every piece. This luggage tag brings that texture to the bag you already love, with a strap to fasten it in place.\n\nMade with leather from our own farm in Hazyview, South Africa, and CITES certified. Shipped from the EU, duties & taxes included.\n\nChoose Black, Tobacco or Orange.",
+   "headline": "Genuine crocodile leather · €35",
+   "description": "Duties & taxes included",
+   "cta": "Shop now"
+  }
+ ],
+ "on_image": [
+  {
+   "headline": "Scales of its own.",
+   "subline": "Crocodile luggage tag · €35"
+  },
+  {
+   "headline": "Yours, easier to spot.",
+   "subline": "Nile crocodile leather · €35"
+  },
+  {
+   "headline": "Born in South Africa.",
+   "subline": "Nile crocodile tag · €35"
+  },
+  {
+   "headline": "A gift that travels.",
+   "subline": "Luggage tag · €35"
+  },
+  {
+   "headline": "Ready for the road.",
+   "subline": "Genuine crocodile · €35"
+  },
+  {
+   "headline": "The finishing detail.",
+   "subline": "CITES certified · €35"
+  }
+ ],
+ "scenes": [
+  {
+   "name": "Travertine daylight",
+   "colour": "Orange",
+   "theme": "light",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 1,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a Nile crocodile leather luggage tag in bright orange with its strap, showing its natural crocodile scale pattern - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The tag rests flat on a pale honed travertine slab, shown whole and medium-sized in frame, seen from a gentle three-quarter elevated angle, strap relaxed in a soft natural curve. Background: a seamless warm off-white plaster wall, softly lit and slightly out of focus. Composition: product horizontally centred, its whole outline between 32% and 75% of the image height and between 20% and 80% of the image width; the top 30% of the square is only empty, smooth off-white background; everything below 77% is only empty travertine surface. Soft diffused morning daylight from the left, a gentle natural contact shadow, calm and airy mood. No props, no people, no hands, no animals, no close-up details. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Sabie river stone",
+   "colour": "Tobacco",
+   "theme": "dark",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 2,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a Nile crocodile leather luggage tag in warm tobacco brown with its strap, showing its natural crocodile scale pattern - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The tag lies flat on a large, smooth, dry grey river stone on a South African riverbank at golden hour, shown whole and medium-sized in frame, seen from a low three-quarter angle. Background: deep shaded riverbank foliage and dark water, heavily out of focus, in dark forest-green and green-grey tones. Composition: product horizontally centred, its whole outline between 32% and 75% of the image height and between 20% and 80% of the image width; the top 30% of the square is only empty, dark out-of-focus background; everything below 77% is only empty river-stone surface. Warm low golden-hour sunlight grazing across the scales from the side, deep soft shadows, quiet and grounded mood. No props, no people, no hands, no animals, no close-up details. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Dark studio marble",
+   "colour": "Black",
+   "theme": "dark",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 4,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a Nile crocodile leather luggage tag in deep black with its strap, showing its natural crocodile scale pattern - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The tag rests flat on a polished dark green-black marble surface with subtle grey veining in a dark studio, shown whole and medium-sized in frame, seen from a three-quarter elevated angle, strap relaxed in a soft curve. Background: a seamless near-black studio backdrop with a faint warm gradient. Composition: product horizontally centred, its whole outline between 32% and 75% of the image height and between 20% and 80% of the image width; the top 30% of the square is only empty, near-black background; everything below 77% is only empty marble surface. One soft key light from above left and a thin warm rim light tracing the edge of the tag so the black scale texture reads clearly, restrained and quiet mood. No props, no people, no hands, no animals, no close-up details. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Safari-lodge walnut",
+   "colour": "Tobacco",
+   "theme": "light",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 0,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a Nile crocodile leather luggage tag in warm tobacco brown with its strap, showing its natural crocodile scale pattern - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The tag rests flat on an oiled walnut safari-lodge tabletop with a fine visible grain, shown whole and medium-sized in frame, seen from a three-quarter elevated angle, strap relaxed in a soft natural curve. Background: a pale linen-coloured limewashed wall, softly lit and out of focus. Composition: product horizontally centred, its whole outline between 32% and 75% of the image height and between 20% and 80% of the image width; the top 30% of the square is only empty, pale linen-coloured background; everything below 77% is only empty walnut surface. Soft warm morning light from an unseen window on the right, a gentle natural shadow, calm early-departure mood. No props, no people, no hands, no animals, no close-up details. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  }
+ ],
+ "audience": "Women and men aged 30-60 in EU markets (NL, BE, DE, FR, IT, AT) with interests in luxury travel, boutique hotels, business travel, premium luggage and fine leather goods, plus engaged shoppers and people with an upcoming birthday or anniversary among friends for the gift angle. Retarget site visitors and cart abandoners with this €35 tag as an add-on to reach free shipping over €100.",
+ "issues_fixed": [
+  "Angle 'One of one' primary_long: 'Orange to spot your case at a glance' overstated the catalogue claim (a brighter shade that makes it easier to spot); changed to 'Orange to make your case easier to spot'.",
+  "Angle 'Easy to spot' hook: 'Spot your suitcase at a glance.' overstated the catalogue claim; changed to 'Make your suitcase easier to spot.'",
+  "Angle 'Easy to spot' primary_short: replaced 'makes your case easier to find on the carousel' with the literal 'easier to spot' wording and supported facts (bright Orange Nile crocodile leather, its own natural scale pattern); price and other colours kept.",
+  "Angle 'Easy to spot' primary_long: removed the unsupported generalisation 'The baggage hall is a sea of dark cases' and the invented outcome claim 'makes yours the one you see first'; now says the Orange tag 'is the brighter shade that makes yours easier to spot'.",
+  "Angle 'Easy to spot' headline: 'Spot your suitcase first · €35' promised an unsupported 'first'; changed to 'Make your case easier to spot · €35' (36 chars).",
+  "Angle 'The travelling gift' primary_long: 'Orange for the one who likes to spot their case first' implied an unsupported 'first'; changed to 'Orange to make their case easier to spot'.",
+  "on_image[1] headline: 'Yours, at a glance.' overstated 'easier to spot'; changed to 'Yours, easier to spot.' (22 chars). Subline changed from 'Easier to spot · €35' to 'Nile crocodile leather · €35' (28 chars) so it does not repeat the headline.",
+  "Angle 'Sabie River origin' primary_long: 'In Hazyview, Mpumalanga, on the banks of the river, is where the leather...' was ungrammatical (a prepositional phrase used as the subject); removed the leading 'In' so it reads 'Hazyview, Mpumalanga, on the banks of the river, is where the leather for this luggage tag begins.' (primary_long now 423 chars).",
+  "Count correction: angle 'Easy to spot' headline 'Make your case easier to spot · €35' is 35 characters, not 36 as logged earlier; still within the 40 limit, so the text is unchanged.",
+  "Final length audit, all within limits. primary_short: 157 / 165 / 156 / 143 / 158 (each first 125 chars carries the hook plus the product and leather; price inside 125 for all but 'Easy to spot', where the Orange crocodile-leather click reason ends exactly at char 125). primary_long: 449 / 423 / 428 / 406 / 419, each ends with the price or a soft CTA. headline: 30 / 31 / 35 / 33 / 31 (max 40). description: 29 / 21 / 24 / 26 / 23 (max 30). on_image headlines: 13 / 22 / 21 / 20 / 14 / 21 (max 22), all sentence case and ending with a full stop. sublines: 27 / 28 / 24 / 17 / 23 / 21 (max 32), all containing €35.",
+  "Tone and claims check passed with no changes needed: no exclamation marks, no emojis, British spelling (colour, favourite, travelling), and none of the forbidden terms (handmade, lifetime, waterproof, best, cheapest, exotic, endangered, urgency, competitor names). The 10% newsletter discount is not used. The five angles stay distinct (uniqueness, Sabie River origin, practical visibility, gift, accessible entry price and texture).",
+  "Scene prompts check passed with no changes needed: all four begin with the exact required opening plus 'square frame' to match method 1:1+outpaint, include the exact reference-photo clause, give the composition percentages (32%-75% height, 20%-80% width, top 30% empty, below 77% empty surface) and end with the exact required closing. None has a buckle or engraving close-up, people, hands or animals. Settings vary (travertine, river stone, dark marble, walnut), colours use only reference-photo colours (Orange, Tobacco, Black, Tobacco), and the light or dark themes match each empty top area."
+ ]
+}

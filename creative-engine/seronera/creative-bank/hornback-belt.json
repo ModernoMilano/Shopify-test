@@ -1,0 +1,118 @@
+{
+ "product_key": "hornback-belt",
+ "angles": [
+  {
+   "name": "One of one",
+   "hook": "No two hornback belts are alike.",
+   "primary_short": "No two hornback belts are alike. Each strap is cut along the back of the Nile crocodile, with a natural ridge of its own. €199, duties & taxes included. Free shipping over €100.",
+   "primary_long": "No two hornback belts are alike. Each strap is cut along the back of the Nile crocodile skin, so it carries a natural ridge with its own contours and a scale pattern no other belt shares. The leather comes from our own farm in Hazyview, South Africa. Genuine, CITES certified, in Black, Brown or Cognac, 35 or 40 mm wide. Free shipping over €100, duties & taxes included. Find the one that is yours, €199.",
+   "headline": "Hornback Crocodile Belt · €199",
+   "description": "No two are alike",
+   "cta": "Shop now"
+  },
+  {
+   "name": "Origin: the farm",
+   "hook": "One farm. One river. Since 1997.",
+   "primary_short": "One farm. One river. Since 1997. The leather of our hornback belt comes from our own farm on the Sabie River in Hazyview, South Africa. €199, duties & taxes included.",
+   "primary_long": "One farm. One river. Since 1997. On the banks of the Sabie River in Hazyview, Mpumalanga, our farm is where the Seronera story begins. The hornback belt is cut along the back of the Nile crocodile skin, so each strap carries a natural ridge with its own contours. Genuine and CITES certified, from a house that gives back to South African communities through education initiatives and orphanages. Shipped from the EU, duties & taxes included. Discover the belt, €199.",
+   "headline": "Farm-raised hornback · €199",
+   "description": "Duties & taxes included",
+   "cta": "Learn more"
+  },
+  {
+   "name": "Styling: denim days",
+   "hook": "A plain white shirt needs one bold detail.",
+   "primary_short": "A plain white shirt needs one bold detail. Raised hornback scales bring a bolder character to everyday dressing, with room for the leather to stand out. €199. Free shipping over €100, duties & taxes included.",
+   "primary_long": "A plain white shirt needs one bold detail. With its raised scales and pronounced texture, the hornback belt brings a bolder character to everyday dressing. Keep the rest quiet and let the shape of the leather stand out. Black for contrast, Cognac for warmth, Brown for something in between. Available in 35 mm and 40 mm widths, lengths 95-130 cm. Genuine, CITES certified, from our farm in Hazyview, South Africa. Free shipping over €100, duties & taxes included. €199.",
+   "headline": "Bolder character, every day · €199",
+   "description": "Free shipping over €100",
+   "cta": "Shop now"
+  },
+  {
+   "name": "The gift",
+   "hook": "For the one with every belt but this.",
+   "primary_short": "For the one with every belt but this. Every hornback belt carries its own natural scale pattern, so the one you give is the only one like it. €199, duties & taxes included. Free shipping over €100.",
+   "primary_long": "For the one with every belt but this. Every Seronera hornback belt is cut along the back of the Nile crocodile skin, and no two scale patterns are alike, so the one you give is theirs alone. Choose Black, Brown or Cognac, 35 or 40 mm, in lengths from 95 to 130 cm. Genuine and CITES certified, from our own farm in Hazyview, South Africa. Seronera gives back to South African communities through education initiatives and orphanages. Shipped from the EU, duties & taxes included. €199.",
+   "headline": "A gift with real ridges · €199",
+   "description": "€199, duties & taxes incl.",
+   "cta": "Order now"
+  },
+  {
+   "name": "The leather",
+   "hook": "Raised scales. A natural ridge.",
+   "primary_short": "Raised scales. A natural ridge. The hornback belt is cut along the back of the Nile crocodile skin: genuine, CITES certified, in 35 or 40 mm. €199, duties & taxes included. Free shipping over €100.",
+   "primary_long": "Raised scales. A natural ridge. Hornback leather is cut along the back of the Nile crocodile skin, giving the strap its pronounced texture. Each strap carries a ridge with its own contours. Genuine and CITES certified, from our own farm in Hazyview, South Africa, founded in 1997. Choose 35 mm or 40 mm, Black, Brown or Cognac, in lengths from 95 to 130 cm. Free shipping over €100, duties & taxes included. €199.",
+   "headline": "Genuine hornback, CITES certified",
+   "description": "35 or 40 mm · €199",
+   "cta": "Shop now"
+  }
+ ],
+ "on_image": [
+  {
+   "headline": "Every ridge its own.",
+   "subline": "Hornback belt · €199"
+  },
+  {
+   "headline": "From the Sabie River.",
+   "subline": "Hazyview, South Africa · €199"
+  },
+  {
+   "headline": "A natural ridge.",
+   "subline": "Hornback crocodile · €199"
+  },
+  {
+   "headline": "Off-duty, elevated.",
+   "subline": "Black, brown, cognac · €199"
+  },
+  {
+   "headline": "Only one like it.",
+   "subline": "Duties & taxes incl. · €199"
+  },
+  {
+   "headline": "Bolder, by nature.",
+   "subline": "CITES certified · €199"
+  }
+ ],
+ "scenes": [
+  {
+   "name": "Black on Nero marble, dark studio",
+   "colour": "Black",
+   "theme": "dark",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 0,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a Seronera hornback crocodile leather belt in black, with raised hornback scales and a natural ridge running along the strap, finished with its original buckle exactly as in the reference - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The belt lies in a loose, open coil with the strap tip tucked inside, the buckle small in frame and turned slightly away so no engraving is legible, resting on a polished black Nero Marquina marble surface with fine white veining in a dark studio. Composition: product horizontally centred, its whole outline between 32% and 75% of the image height and between 20% and 80% of the image width; the top 30% of the square is only empty background, deep charcoal fading to near-black; everything below 77% of the image height is only empty marble surface. Low raking side light from the left skims across the raised scales and the ridge, a soft reflection on the marble, deep calm shadows, quiet and confident mood. The whole belt is visible, no cropping, no close-up. No people, no hands, no animals, no props. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Cognac on river stone, golden hour",
+   "colour": "Cognac",
+   "theme": "light",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 1,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a Seronera hornback crocodile leather belt in cognac, a warm golden-tan brown, with raised hornback scales and a natural ridge running along the strap, finished with its original buckle exactly as in the reference - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The belt lies in a loose, open coil on a broad, flat, smooth grey river stone on a quiet riverbank at golden hour, the buckle small in frame and seen at an angle so no engraving is legible. Composition: product horizontally centred, its whole outline between 32% and 75% of the image height and between 20% and 80% of the image width; the top 30% of the square is only empty background, a soft out-of-focus pale golden haze of evening light with no objects in it; everything below 77% of the image height is only empty stone surface. Warm low sun from behind and to the right, gentle rim light along the raised scales, a soft long shadow, serene and warm mood. The whole belt is visible, no cropping, no close-up. No people, no hands, no animals, no props. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Brown on linen and travertine",
+   "colour": "Brown",
+   "theme": "light",
+   "method": "1:1+outpaint",
+   "pairs_with_on_image": 4,
+   "prompt": "Luxury product photograph, one single continuous photograph, square frame. Use the reference photo as the exact product: a Seronera hornback crocodile leather belt in brown, the exact brown shade of the reference, with raised hornback scales and a natural ridge running along the strap, finished with its original buckle exactly as in the reference - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The belt lies in a relaxed loose coil on a softly creased off-white linen cloth draped over a pale cream travertine plinth, the buckle small in frame and turned slightly away so no engraving is legible. Composition: product horizontally centred, its whole outline between 32% and 75% of the image height and between 20% and 80% of the image width; the top 30% of the square is only empty background, a smooth warm off-white plaster wall; everything below 77% of the image height is only empty linen and travertine surface. Bright, soft diffused daylight from a large window on the left, gentle shadows that reveal the texture of the scales, calm and airy mood. The whole belt is visible, no cropping, no close-up. No people, no hands, no animals, no props. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  },
+  {
+   "name": "Cognac on safari-lodge walnut, dusk",
+   "colour": "Cognac",
+   "theme": "dark",
+   "method": "9:16",
+   "pairs_with_on_image": 5,
+   "prompt": "Luxury product photograph, one single continuous photograph, vertical 9:16 frame. Use the reference photo as the exact product: a Seronera hornback crocodile leather belt in cognac, a warm golden-tan brown, with raised hornback scales and a natural ridge running along the strap, finished with its original buckle exactly as in the reference - keep shape, colour, scale pattern, stitching and hardware identical, do not redesign it. The belt lies in a gentle loose coil on a dark oiled walnut table in a safari lodge interior at dusk, the buckle small in frame and seen at an angle so no engraving is legible. Composition: product small and horizontally centred, its whole outline within 42% to 62% of the image height; the top 40% of the frame is only empty background, a softly out-of-focus dark lodge wall in deep forest-green shadow; everything below 65% of the image height is only empty dark walnut surface. Warm, low side light like a lantern glow from the right catches the raised scales and the ridge, rich wood grain, deep shadows, quiet and confident mood. The whole belt is visible, no cropping, no close-up. No people, no hands, no animals, no props. No text, letters, logos, Apple logo or watermarks anywhere. Photorealistic, medium-format camera. resolution: 2k"
+  }
+ ],
+ "audience": "Men and women aged 30-60 in the EU (Netherlands, Belgium, Germany, France, Italy, Austria) with interests in luxury menswear, leather goods, tailoring and quiet-luxury style, safari travel and South Africa, narrowed to engaged shoppers. Run a separate gifting ad set (partners and family, 28-55) around birthdays and the festive season using the gift angle.",
+ "issues_fixed": [
+  "Angle 'The leather' primary_short: the product was never named ('Hornback is cut...'), so the first 125 characters did not carry the click reason on their own. Changed to 'The hornback belt is cut along the back of the Nile crocodile skin...' (197 chars total; first 125 chars now name the belt and its leather, genuine and CITES certified).",
+  "on_image[3] headline 'Made for denim.' implied the belt was designed specifically for denim, which is not stated. Replaced with 'Wear it with denim.' (19 chars, sentence case, full stop), which comes word for word from the product description ('Wear it with denim and a simple shirt').",
+  "Angle 'The leather' primary_long repeated the 'One of one' angle's core message ('so no two belts are alike'), which blurred the two angles. Replaced 'Every strap keeps its own contours, so no two belts are alike.' with 'Each strap carries a ridge with its own contours.' (taken from the product description). The angle now stays on the leather itself. Length is now 413 chars (was 426).",
+  "on_image[1] repeated 'From' in both lines ('From the Sabie River.' / 'From our own farm · €199'), which reads clumsily on one creative. Changed the subline to 'Hazyview, South Africa · €199' (29 chars, includes the price, verified location), which is more specific and pairs with the river stone scene.",
+  "Final check passed with no other changes. Every length is within its limit (primary_short 166-199/220 with the click reason in the first 125 chars; primary_long 405-476/500; headlines 28-34/40; descriptions 16-26/30; on-image headlines 16-21/22, all sentence case and ending in a full stop; sublines 20-29/32, all with €199). The copy has no emojis or exclamation marks, uses British spelling and contains no forbidden claims. All scene prompts start and end with the exact required phrases. Their frame wording matches the method, and the 1:1 (32-75% / 20-80% / top 30% / below 77%) and 9:16 (42-62% / top 40% / below 65%) composition percentages are present. No scene has a buckle close-up or people. Each one is in a different setting (Nero marble, river stone, linen and travertine, safari-lodge walnut), and every colour has a reference photo."
+ ]
+}
