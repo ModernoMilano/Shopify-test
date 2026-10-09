@@ -127,7 +127,7 @@ input[type=range]{width:100%;accent-color:var(--text)}
   <header class="top">
     <div class="brandrow">
       <div class="brand">Moderno<i>Milano</i><small>Cijfers</small></div>
-      <div class="row"><span id="freshness" class="muted" style="font-size:12px"></span><button class="btn ghost" id="refresh" type="button">Vernieuwen</button><button class="btn" id="excel" type="button" hidden>Excel</button></div>
+      <div class="row"><span id="freshness" class="muted" style="font-size:12px"></span><a class="btn ghost" href="https://claude.ai/artifact/P3eRjdNbmRmRjizBVvdDDo" target="_blank" rel="noopener" style="text-decoration:none">Brand check</a><button class="btn ghost" id="refresh" type="button">Vernieuwen</button><button class="btn" id="excel" type="button" hidden>Excel</button></div>
     </div>
     <nav class="tabs" id="tabs" aria-label="Onderdelen"></nav>
     <div class="period" id="period"></div>
@@ -459,9 +459,9 @@ const DEFAULT_SETTINGS = {
   reserveVat: false, breakEven: 2.0, buffer: 200000, payoutRatio: 0.86, payoutDelay: 3,
   softwareWeek: 30000, salesDay: 290000, metaDay: 160000, paypalDay: 30000, privateWeek: 150000,
   supplier: 300000, supplierDay: 2, forecastDays: 7, metaShareLimit: 0.4, feesLimit: 0.03,
-  shopReservePct: 0.095, shopReserveDays: 35,
+  shopReservePct: 0.095, shopReserveDays: 35, cogsPctFallback: 0.3,
 };
-const TABS = [["overzicht", "Overzicht"], ["geld", "Waar mijn geld staat"], ["bridge", "Winst naar bank"], ["prognose", "Prognose"], ["meta", "Meta ads"], ["bank", "Bank"], ["vraag", "Vraag het"], ["invoer", "Invoer en instellingen"]];
+const TABS = [["overzicht", "Overzicht"], ["geld", "Waar mijn geld staat"], ["bridge", "Winst naar bank"], ["winst", "Winstprognose"], ["prognose", "Kasprognose"], ["meta", "Meta ads"], ["bank", "Bank"], ["vraag", "Vraag het"], ["invoer", "Invoer en instellingen"]];
 const S = {
   tab: store.get("mm.tab") || "overzicht",
   periodSel: store.get("mm.period") || { preset: "mtd" },
@@ -475,6 +475,7 @@ const S = {
   disputes: { status: "idle", list: [] },
   perms: null, permState: {}, sample: null, sampleState: "laden",
   chat: { msgs: store.get("mm.chat") || [], busy: false, pending: "", status: "", error: null, ctl: null, off: false }, lastImport: null, bankFilter: { cat: "", q: "" }, fc: null,
+  pf: { horizon: "month", basis: 14, metaPct: 0, elast: 0.7, paidShare: 0.8, trend: false, ...(store.get("mm.pf") || {}) },
 };
 if (!TABS.some((t) => t[0] === S.tab)) S.tab = "overzicht";
 const P = () => resolvePeriod(S.periodSel);
@@ -500,7 +501,7 @@ const uid = () => Math.random().toString(36).slice(2, 10);
 /* ============================================================
    Koppelingen (Shopify en Meta via je Claude-connectors)
    ============================================================ */
-const SHOPIFY = "Shopify", WINDSOR = "Windsor_ai", PAYPAL = "PayPal";
+const SHOPIFY = "Shopify", WINDSOR = "Windsor.ai", PAYPAL = "PayPal";
 const SERVER_LABEL = { [SHOPIFY]: "Shopify", [WINDSOR]: "Windsor.ai", [PAYPAL]: "PayPal" };
 function mcpMessage(e, server) {
   const n = SERVER_LABEL[server] || server;
@@ -1110,6 +1111,7 @@ function viewOverview() {
     ${kpi("Na btw-afdracht", euro(r.profitAfterVat, true), `als ${euro(r.taxes, true)} btw afgedragen moet worden`)}
     ${kpi("Na voorraadcorrectie", euro(r.profitAfterInventory, true), r.inventory ? "voorraadtoename is bezit" : "voorraadwaarde nog niet ingevuld")}
     ${kpi("Geld totaal", euro(m.total, true), `<button class="btn ghost" style="padding:2px 8px" type="button" data-tab="geld">waar staat het</button>`)}
+    ${(() => { try { const b = pfBase(14); if (!b) return ""; const mo = pfMonth(b, { ...S.pf, metaPct: 0, trend: false }); return kpi("Verwachte winst deze maand", euro(mo.profit, true), `omzet ${euro(mo.rev, true)} <button class="btn ghost" style="padding:2px 8px" type="button" data-tab="winst">prognose</button>`, mo.profit < 0 ? "neg" : ""); } catch { return ""; } })()}
   </section>
   <section class="grid two">
     <div class="card"><h2>Omzet en Meta per dag</h2><div class="chart" data-chart="ov1"></div></div>
@@ -1351,6 +1353,7 @@ function viewInput() {
       <div class="formgrid">
         <label>Shopify reserve (%)<input class="input" id="s_shopReservePct" value="${String(Math.round(s.shopReservePct * 1000) / 10).replace(".", ",")}"></label>
         <label>Reserve vast (dagen)<input class="input" id="s_shopReserveDays" type="number" min="0" value="${s.shopReserveDays}"></label>
+        <label>COGS zonder bankafschrift (%)<input class="input" id="s_cogsPctFallback" value="${String(Math.round(s.cogsPctFallback * 1000) / 10).replace(".", ",")}"></label>
       </div>
       <p class="muted" style="font-size:12px;margin:0">Vertraging uitbetaling en reserve bepalen hoe het dashboard berekent wat Shopify nog vasthoudt. Bij Waar mijn geld staat zie je of de berekening klopt met je bank.</p>
       <div><button class="btn" type="submit">Instellingen opslaan</button></div>
@@ -1570,6 +1573,140 @@ function viewAsk() {
   </section>`;
 }
 
+
+/* ============================================================
+   Winstprognose: omzet, kosten en winst vooruit, met scenario's voor het Meta-budget.
+   Basis: omzet, Meta, fees en btw uit de laatste basisdagen; COGS, chargebacks en vaste kosten uit de laatste
+   30 dagen bank (zonder bank: de aanname voor COGS en de software per week). Meer Meta geeft minder dan
+   evenredig meer omzet: omzet = vast deel + betaald deel × (budgetfactor ^ elasticiteit).
+   ============================================================ */
+const monthStart = (k) => k.slice(0, 8) + "01";
+function pfBase(basisDays) {
+  const today = dayKey(new Date()), bTo = addDays(today, -1), bFrom = addDays(bTo, -(basisDays - 1)), s = S.settings;
+  const live = finance({ from: bFrom, to: bTo }).res;
+  const n = eachDay(bFrom, bTo).filter((k) => S.sales.byDay[k]).length;
+  if (!n || !live.revenue) return null;
+  const cov = coverage(), cTo = cov.last && cov.last < bTo ? cov.last : bTo, cFrom = addDays(cTo, -29);
+  const cost = cov.last ? finance({ from: cFrom, to: cTo }).res : null;
+  const okCost = cost && cost.revenue > 0;
+  const sumRev = (a, b) => eachDay(a, b).reduce((t, k) => t + ((S.sales.byDay[k] || {}).total || 0), 0);
+  const r1 = sumRev(addDays(bTo, -13), bTo), r0 = sumRev(addDays(bTo, -27), addDays(bTo, -14));
+  const growthWeek = r0 > 0 ? Math.max(-0.1, Math.min(0.1, Math.sqrt(r1 / r0) - 1)) : 0;
+  const teamD = teamMonthly({ from: today, to: addDays(today, 29) }) / 30;
+  return {
+    bFrom, bTo, n, revD: live.revenue / n, metaD: live.meta / n, ordersD: live.orders / n,
+    cogsR: okCost ? cost.cogs / cost.revenue : s.cogsPctFallback, cogsSrc: okCost ? "bank, laatste 30 dagen" : "aanname (geen bankafschrift)",
+    cbR: okCost ? cost.chargebacks / cost.revenue : live.chargebacks / live.revenue,
+    feeR: live.fees > 0 ? live.fees / live.revenue : 0.03, feeSrc: live.fees > 0 ? "Shopify en PayPal" : "aanname 3%",
+    taxR: live.taxes / live.revenue,
+    otherD: okCost ? cost.other / 30 : s.softwareWeek / 7, otherSrc: okCost ? "bank, laatste 30 dagen" : "software per week",
+    teamD: okCost && cost.team ? Math.max(cost.team / 30, teamD) : teamD, growthWeek,
+  };
+}
+function pfDay(b, o, i) {
+  const ratio = Math.max(0, 1 + o.metaPct / 100), g = o.trend ? Math.pow(1 + b.growthWeek, i / 7) : 1;
+  const rev = b.revD * ((1 - o.paidShare) + o.paidShare * Math.pow(ratio, o.elast)) * g;
+  const meta = b.metaD * ratio;
+  const cogs = rev * b.cogsR, fees = rev * b.feeR, cb = rev * b.cbR, vat = S.settings.reserveVat ? rev * b.taxR : 0;
+  const profit = rev - cogs - meta - fees - cb - b.otherD - b.teamD - vat;
+  return { rev, meta, cogs, fees, cb, other: b.otherD, team: b.teamD, vat, profit };
+}
+function pfRun(b, o, start, days) {
+  const rows = [], tot = { rev: 0, meta: 0, cogs: 0, fees: 0, cb: 0, other: 0, team: 0, vat: 0, profit: 0 };
+  for (let i = 0; i < days; i++) { const d = { date: addDays(start, i), ...pfDay(b, o, i) }; rows.push(d); for (const k of Object.keys(tot)) tot[k] += d[k]; }
+  tot.margin = div(tot.profit, tot.rev); tot.mer = div(tot.rev, tot.meta);
+  return { rows, tot };
+}
+/* Het Meta-budget per dag waarbij de winst het hoogst is, binnen dit model. */
+function pfOptimal(b, o) {
+  const c = 1 - b.cogsR - b.feeR - b.cbR - (S.settings.reserveVat ? b.taxR : 0);
+  if (!(b.metaD > 0) || c <= 0 || o.elast >= 1) return null;
+  const ratio = Math.pow((b.revD * o.paidShare * c * o.elast) / b.metaD, 1 / (1 - o.elast));
+  const marginalRoas = (b.revD * o.paidShare * o.elast) / b.metaD;
+  return { ratio, metaD: b.metaD * ratio, marginalRoas, beMarginal: 1 / c };
+}
+function pfMonth(b, o) {
+  const today = dayKey(new Date()), ms = monthStart(today), me = monthEnd(today.slice(0, 7));
+  const act = today > ms ? finance({ from: ms, to: addDays(today, -1) }).res : { revenue: 0, meta: 0, profit: 0, orders: 0 };
+  const rest = pfRun(b, o, today, daysBetween(today, me) + 1);
+  return { ms, me, act, rest: rest.tot, rev: act.revenue + rest.tot.rev, meta: act.meta + rest.tot.meta, profit: act.profit + rest.tot.profit };
+}
+function viewProfitForecast() {
+  const o = S.pf;
+  const sl = (k, l, min, max, step, fmt) => `<div class="slider"><label for="pf_${k}"><span class="top"><span class="dim">${l}</span><b class="num" id="pfv_${k}">${fmt(o[k])}</b></span></label><input type="range" id="pf_${k}" data-pf="${k}" min="${min}" max="${max}" step="${step}" value="${o[k]}"></div>`;
+  return `
+  <section><h1 class="serif" style="font-size:28px">Winstprognose</h1><p class="sub">Wat je de komende tijd verdient als de verkoop op het huidige niveau doorloopt, en wat er gebeurt als je je Meta-budget verandert. Voor het banksaldo per dag: zie Kasprognose.</p></section>
+  <section class="card stack" style="gap:12px">
+    <div class="row" style="gap:14px">
+      <div style="min-width:0;max-width:100%"><div class="dim" style="font-size:12px;margin-bottom:4px">Vooruit kijken</div><div class="seg" role="group" aria-label="Horizon">${[["month", "Rest van de maand"], [30, "30 dagen"], [60, "60 dagen"], [90, "90 dagen"]].map(([v, l]) => `<button type="button" data-pfh="${v}" aria-pressed="${String(o.horizon) === String(v)}">${l}</button>`).join("")}</div></div>
+      <div style="min-width:0;max-width:100%"><div class="dim" style="font-size:12px;margin-bottom:4px">Gebaseerd op de laatste</div><div class="seg" role="group" aria-label="Basis">${[7, 14, 30].map((v) => `<button type="button" data-pfb="${v}" aria-pressed="${o.basis === v}">${v} dagen</button>`).join("")}</div></div>
+      <label class="row" style="gap:6px;margin-top:16px"><input type="checkbox" id="pf_trend" data-pfcheck="trend" ${o.trend ? "checked" : ""}> Groeitrend doortrekken</label>
+    </div>
+    <div class="formgrid" style="grid-template-columns:repeat(auto-fill,minmax(230px,1fr))">
+      ${sl("metaPct", "Meta-budget t.o.v. nu", -60, 150, 5, (v) => (v > 0 ? "+" : "") + v + "%")}
+      ${sl("elast", "Schaalbaarheid (elasticiteit)", 0.3, 1, 0.05, (v) => v.toFixed(2).replace(".", ","))}
+      ${sl("paidShare", "Deel van de omzet uit Meta", 0.4, 1, 0.05, (v) => Math.round(v * 100) + "%")}
+    </div>
+    <p class="muted" style="font-size:12px;margin:0">Elasticiteit 0,7 betekent: 10% meer budget geeft ongeveer 7% meer Meta-omzet. Hoe hoger je schaalt, hoe duurder elke extra klant wordt. Het deel van de omzet uit Meta bepaalt hoeveel omzet ook zonder ads doorloopt (terugkerende klanten, direct, Google).</p>
+  </section>
+  <div id="pfResults" class="stack"></div>`;
+}
+function renderPfResults() {
+  const el = document.getElementById("pfResults"); if (!el) return;
+  const o = S.pf, b = pfBase(o.basis);
+  if (!b) { el.innerHTML = `<div class="card empty">${S.sales.status === "laden" ? "Omzet laden…" : "Nog geen omzetdata in de basisperiode."}</div>`; return; }
+  const today = dayKey(new Date());
+  const days = o.horizon === "month" ? daysBetween(today, monthEnd(today.slice(0, 7))) + 1 : Number(o.horizon);
+  const run = pfRun(b, o, today, days), t = run.tot, base = pfRun(b, { ...o, metaPct: 0 }, today, days).tot;
+  const mo = pfMonth(b, o), opt = pfOptimal(b, o);
+  const scen = [-30, 0, 20, 50, 100].map((p) => ({ p, ...pfRun(b, { ...o, metaPct: p }, today, days).tot }));
+  const hist = eachDay(addDays(today, -45), addDays(today, -1));
+  const dates = [...hist, ...run.rows.map((r) => r.date)];
+  charts.pf1 = { dates, series: [
+    { label: "Omzet (werkelijk)", color: "var(--text)", values: dates.map((k) => (k < today && S.sales.byDay[k] ? S.sales.byDay[k].total : null)) },
+    { label: "Omzet (prognose)", color: "var(--c-profit)", dashed: true, values: dates.map((k, i) => (k >= today ? run.rows[i - hist.length].rev : null)) },
+    { label: "Meta (prognose)", color: "var(--c-meta)", dashed: true, values: dates.map((k, i) => (k >= today ? run.rows[i - hist.length].meta : null)) },
+  ] };
+  const cum = (p) => { let c = 0; return pfRun(b, { ...o, metaPct: p }, today, days).rows.map((r) => (c += r.profit)); };
+  charts.pf2 = { dates: run.rows.map((r) => r.date), zero: true, series: [
+    { label: "Meta −30%", color: "var(--s4)", values: cum(-30) }, { label: "Budget zoals nu", color: "var(--text)", values: cum(0) },
+    { label: "Meta +50%", color: "var(--c-meta)", values: cum(50) }, ...(o.metaPct !== 0 && o.metaPct !== -30 && o.metaPct !== 50 ? [{ label: `Jouw keuze (${o.metaPct > 0 ? "+" : ""}${o.metaPct}%)`, color: "var(--s1)", dashed: true, values: cum(o.metaPct) }] : []),
+  ] };
+  const dlt = (a, b2) => (b2 ? `<span class="${a - b2 >= 0 ? "good" : "neg"}">${a - b2 >= 0 ? "+" : ""}${euro(a - b2, true)}</span> t.o.v. budget zoals nu` : "");
+  const line = (l, v, cls) => `<tr><td>${l}</td><td class="r ${cls || ""}">${euro(v, true)}</td><td class="r muted">${pct(div(v, t.rev))}</td></tr>`;
+  el.innerHTML = `
+  <section class="grid kpis">
+    ${kpi(o.horizon === "month" ? "Winst rest van de maand" : `Winst komende ${days} dagen`, euro(t.profit, true), o.metaPct ? dlt(t.profit, base.profit) : `marge ${pct(t.margin)}`, t.profit < 0 ? "neg" : "good")}
+    ${kpi("Omzet", euro(t.rev, true), `${euro(t.rev / days, true)} per dag`)}
+    ${kpi("Meta", euro(t.meta, true), `${euro(t.meta / days, true)} per dag, MER ${times(t.mer)}`)}
+    ${kpi(`Verwachte winst ${new Date(today + "T12:00:00Z").toLocaleDateString("nl-NL", { month: "long" })}`, euro(mo.profit, true), `al ${euro(mo.act.profit, true)} gerealiseerd t/m gisteren`, mo.profit < 0 ? "neg" : "")}
+    ${kpi("Verwachte omzet deze maand", euro(mo.rev, true), `al ${euro(mo.act.revenue, true)} binnen`)}
+    ${opt ? kpi("Beste Meta-budget per dag", euro(opt.metaD, true), `nu ${euro(b.metaD, true)}. Marginale ROAS nu ${times(opt.marginalRoas)}, break-even ${times(opt.beMarginal)}`, opt.ratio < 0.9 ? "warn" : opt.ratio > 1.1 ? "good" : "") : ""}
+  </section>
+  ${opt ? `<div class="alert ${opt.ratio < 0.85 ? "l2" : ""}"><span class="${opt.ratio < 0.85 ? "warn" : "good"}">${opt.ratio < 0.85 ? "▲" : "●"}</span><div><b>${opt.ratio < 0.85 ? "De laatste euro's Meta verdienen zichzelf niet terug" : opt.ratio > 1.15 ? "Er is ruimte om op te schalen" : "Je budget zit dicht bij het optimum"}</b><span class="dim">Gemiddeld levert Meta ${times(b.revD * o.paidShare / b.metaD)} op, maar met elasticiteit ${String(o.elast).replace(".", ",")} levert de laatste euro ongeveer ${times(opt.marginalRoas)} op. Break-even voor die laatste euro is ${times(opt.beMarginal)}. ${opt.ratio < 0.85 ? "Schaal pas verder op als je creatives of conversie beter worden; snoei eerst de ads onder break-even (zie Brand check)." : opt.ratio > 1.15 ? `Verhoog in stappen van 20% en kijk na 3 dagen of de MER boven ${times(S.settings.breakEven)} blijft.` : "Verschuif budget binnen het account naar de beste campagnes in plaats van het totaal te verhogen."} Dit is een model: zet de elasticiteit lager als je MER bij opschalen eerder hard zakte.</span></div></div>` : ""}
+  <section class="card"><h2>Omzet en Meta, werkelijk en prognose</h2><div class="chart" data-chart="pf1"></div></section>
+  <section class="card"><h2>Opgebouwde winst per scenario</h2><div class="chart" data-chart="pf2"></div></section>
+  <section class="grid two">
+    <div class="card"><h2>Scenario's voor je Meta-budget</h2><div class="scroll"><table><thead><tr><th>Meta</th><th class="r">Per dag</th><th class="r">Omzet</th><th class="r">MER</th><th class="r">Winst</th><th class="r">Marge</th></tr></thead><tbody>
+      ${scen.map((x) => `<tr ${x.p === 0 ? 'style="font-weight:600"' : ""}><td>${x.p === 0 ? "Zoals nu" : (x.p > 0 ? "+" : "") + x.p + "%"}</td><td class="r">${euro(x.meta / days, true)}</td><td class="r">${euro(x.rev, true)}</td><td class="r ${x.mer < S.settings.breakEven ? "neg" : ""}">${times(x.mer)}</td><td class="r ${x.profit < 0 ? "neg" : x.profit >= Math.max(...scen.map((y) => y.profit)) ? "good" : ""}">${euro(x.profit, true)}</td><td class="r">${pct(x.margin)}</td></tr>`).join("")}
+    </tbody></table></div><p class="muted" style="font-size:12px;margin:8px 0 0">Over ${days} dagen. Groen = hoogste winst.</p></div>
+    <div class="card"><h2>Opbouw ${o.horizon === "month" ? "rest van de maand" : days + " dagen"}</h2><table><tbody>
+      <tr><td><b>Omzet</b></td><td class="r"><b>${euro(t.rev, true)}</b></td><td></td></tr>
+      ${line("COGS en verzending", -t.cogs)}${line("Meta ads", -t.meta)}${line("Fees", -t.fees)}${line("Chargebacks", -t.cb)}${line("Software en overig", -t.other)}${line("Team", -t.team)}${S.settings.reserveVat ? line("Btw gereserveerd", -t.vat) : ""}
+    </tbody><tfoot><tr><td>Winst</td><td class="r ${t.profit < 0 ? "neg" : "good"}">${euro(t.profit, true)}</td><td class="r">${pct(t.margin)}</td></tr></tfoot></table></div>
+  </section>
+  <section class="card"><h2>Aannames</h2><div class="scroll"><table><tbody>
+    <tr><td class="dim">Basis omzet, Meta en fees</td><td>${dayL(b.bFrom)} t/m ${dayL(b.bTo)} (${b.n} dagen met omzetdata)</td></tr>
+    <tr><td class="dim">Omzet per dag</td><td>${euro(b.revD, true)}, ${(Math.round(b.ordersD * 10) / 10).toString().replace(".", ",")} orders</td></tr>
+    <tr><td class="dim">Meta per dag</td><td>${euro(b.metaD, true)} ${badge(S.meta.status === "ok" ? "Meta" : "bank")}</td></tr>
+    <tr><td class="dim">COGS en verzending</td><td>${pct(b.cogsR)} van de omzet, ${esc(b.cogsSrc)}</td></tr>
+    <tr><td class="dim">Fees en chargebacks</td><td>${pct(b.feeR)} (${esc(b.feeSrc)}) en ${pct(b.cbR)} van de omzet</td></tr>
+    <tr><td class="dim">Software en overig, team</td><td>${euro(b.otherD, true)} en ${euro(b.teamD, true)} per dag (${esc(b.otherSrc)})</td></tr>
+    <tr><td class="dim">Groeitrend</td><td>${pct(b.growthWeek)} per week (laatste 14 dagen tegen de 14 ervoor, begrensd op 10%) ${o.trend ? "" : '<span class="muted">staat uit</span>'}</td></tr>
+  </tbody></table></div><p class="muted" style="font-size:12px;margin:8px 0 0">Een prognose is een schatting. Seizoen (Black Friday, feestdagen), nieuwe creatives en voorraad maken grote verschillen. Zonder bankafschrift rekent COGS met ${pct(S.settings.cogsPctFallback)}; aan te passen bij Invoer en instellingen.</p></section>`;
+  drawCharts();
+}
+
 /* ---------- grafieken (SVG, breedte volgt de container) ---------- */
 const fmtAxis = (v, f) => (f === "x" ? v.toFixed(1).replace(".", ",") + "x" : eur0.format(v / 100));
 function niceStep(range) { const raw = range / 4 || 1, mag = 10 ** Math.floor(Math.log10(raw)), n = raw / mag; return (n <= 1 ? 1 : n <= 2 ? 2 : n <= 5 ? 5 : 10) * mag; }
@@ -1638,11 +1775,12 @@ function render() {
   if (!editing(document.getElementById("period"))) renderPeriod();
   renderStrip();
   const v = document.getElementById("view");
-  const views = { overzicht: viewOverview, geld: viewMoney, bridge: viewBridge, prognose: viewForecast, meta: viewMeta, bank: viewBank, vraag: viewAsk, invoer: viewInput };
+  const views = { overzicht: viewOverview, geld: viewMoney, bridge: viewBridge, winst: viewProfitForecast, prognose: viewForecast, meta: viewMeta, bank: viewBank, vraag: viewAsk, invoer: viewInput };
   // formulieren niet overschrijven terwijl iemand typt; na het verlaten van het veld alsnog bijwerken
   if (editing(v)) { renderPending = true; return; }
   try { v.innerHTML = views[S.tab](); } catch (e) { v.innerHTML = `<div class="card neg">Deze pagina kon niet worden opgebouwd: ${esc(e.message)}</div>`; }
   if (S.tab === "prognose") renderForecastResults();
+  if (S.tab === "winst") renderPfResults();
   drawCharts();
 }
 document.addEventListener("focusout", () => { if (renderPending) { renderPending = false; setTimeout(render, 50); } });
@@ -1719,6 +1857,7 @@ document.addEventListener("click", (e) => {
   if (t.dataset.preset) { S.periodSel = { preset: t.dataset.preset }; store.set("mm.period", S.periodSel); render(); loadRemote(false); return; }
   if (t.dataset.bankcat) { S.bankFilter = { cat: t.dataset.bankcat, q: "" }; render(); return; }
   if (t.dataset.fcdays) { S.fc.days = Number(t.dataset.fcdays); render(); return; }
+  if (t.dataset.pfh || t.dataset.pfb) { if (t.dataset.pfh) S.pf.horizon = t.dataset.pfh === "month" ? "month" : Number(t.dataset.pfh); else S.pf.basis = Number(t.dataset.pfb); store.set("mm.pf", S.pf); render(); return; }
   if (t.id === "refresh") { loadRemote(true); return; }
   const act = t.dataset.act; if (!act) return;
   if (act === "grant") { grantAccess(t.dataset.server); return; }
@@ -1756,6 +1895,7 @@ document.addEventListener("change", (e) => {
   if (t.dataset.txpd) { const tx = allTxs().find((x) => x.k === t.dataset.txpd); if (tx) updateTx(tx.k, { pd: t.value && t.value !== tx.d ? t.value : null }); return; }
   if (t.dataset.fcsel) { S.fc[t.dataset.fcsel] = t.dataset.fcsel === "supplierDay" ? Number(t.value) : t.value; renderForecastResults(); return; }
   if (t.dataset.fceur) { S.fc[t.dataset.fceur] = parseEuroInput(t.value) || 0; renderForecastResults(); return; }
+  if (t.dataset.pfcheck) { S.pf[t.dataset.pfcheck] = t.checked; store.set("mm.pf", S.pf); renderPfResults(); return; }
 });
 document.addEventListener("change", (e) => {
   const t = e.target;
@@ -1791,6 +1931,11 @@ document.addEventListener("input", (e) => {
     const lab = document.getElementById("fcv_" + k); if (lab) lab.textContent = k === "ratio" ? Math.round(S.fc[k] * 100) + "%" : euro(S.fc[k], true);
     renderForecastResults();
   }
+  if (t.dataset.pf) {
+    const k = t.dataset.pf; S.pf[k] = Number(t.value); store.set("mm.pf", S.pf);
+    const lab = document.getElementById("pfv_" + k); if (lab) lab.textContent = k === "metaPct" ? (S.pf[k] > 0 ? "+" : "") + S.pf[k] + "%" : k === "paidShare" ? Math.round(S.pf[k] * 100) + "%" : S.pf[k].toFixed(2).replace(".", ",");
+    renderPfResults();
+  }
 });
 document.addEventListener("submit", (e) => {
   const f = e.target; e.preventDefault();
@@ -1818,7 +1963,7 @@ document.addEventListener("submit", (e) => {
   if (kind === "settings") {
     const num = (id, d) => { const n = Number(String(val(id)).replace(",", ".")); return isFinite(n) && val(id) !== "" ? n : d; };
     const s = S.settings;
-    writeDoc("config/settings", (cur) => ({ ...DEFAULT_SETTINGS, ...(cur || {}), reserveVat: document.getElementById("s_reserveVat").checked, breakEven: num("s_breakEven", s.breakEven), buffer: parseEuroInput(val("s_buffer")) ?? s.buffer, softwareWeek: parseEuroInput(val("s_softwareWeek")) ?? s.softwareWeek, payoutRatio: num("s_payoutRatio", s.payoutRatio * 100) / 100, payoutDelay: num("s_payoutDelay", s.payoutDelay), forecastDays: num("s_forecastDays", s.forecastDays), shopReservePct: num("s_shopReservePct", s.shopReservePct * 100) / 100, shopReserveDays: num("s_shopReserveDays", s.shopReserveDays) })).then(() => { S.fc = null; toast("Instellingen opgeslagen"); });
+    writeDoc("config/settings", (cur) => ({ ...DEFAULT_SETTINGS, ...(cur || {}), reserveVat: document.getElementById("s_reserveVat").checked, breakEven: num("s_breakEven", s.breakEven), buffer: parseEuroInput(val("s_buffer")) ?? s.buffer, softwareWeek: parseEuroInput(val("s_softwareWeek")) ?? s.softwareWeek, payoutRatio: num("s_payoutRatio", s.payoutRatio * 100) / 100, payoutDelay: num("s_payoutDelay", s.payoutDelay), forecastDays: num("s_forecastDays", s.forecastDays), shopReservePct: num("s_shopReservePct", s.shopReservePct * 100) / 100, shopReserveDays: num("s_shopReserveDays", s.shopReserveDays), cogsPctFallback: num("s_cogsPctFallback", s.cogsPctFallback * 100) / 100 })).then(() => { S.fc = null; toast("Instellingen opgeslagen"); });
   }
 });
 

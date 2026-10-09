@@ -11,6 +11,12 @@
 De rekenregels zijn dezelfde als in `src/finance` en `src/bank` (daar staan de tests).
 Wijzigen: pas `dashboard.html` aan en publiceer opnieuw naar dezelfde URL.
 
+## Winstprognose
+
+Tabblad naast Kasprognose: winst voor de rest van de maand of 30, 60 of 90 dagen, verwachte maandwinst, scenario's voor het Meta-budget (-30% tot +100%) en het Meta-budget per dag met de hoogste winst. Model: omzet = vast deel + Meta-deel × (budgetfactor ^ elasticiteit), standaard elasticiteit 0,7 en 80% van de omzet uit Meta, beide instelbaar. COGS uit de bank, zonder afschrift de instelling COGS zonder bankafschrift (30%).
+
+Beide dashboards linken naar elkaar (knoppen Brand check en Financieel).
+
 ## Vraag het
 
 Tabblad met een chat (capability `sample`). Claude rekent niet uit het hoofd maar roept de rekenfuncties van de pagina aan:
