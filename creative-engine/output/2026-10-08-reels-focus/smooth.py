@@ -114,16 +114,21 @@ def temporal(frames, err_scale=8.0):
             wj = 0.25 * np.exp(-(err / err_scale) ** 2)
             acc += warped * wj[..., None]
             wsum += wj
-        out.append(np.clip(acc / wsum[..., None], 0, 255).astype(np.uint8))
+        out.append(np.clip(np.rint(acc / wsum[..., None]), 0, 255).astype(np.uint8))
     out.append(frames[-1])
     return out
 
 
-def deflicker(frames, s=4.0):
+def deflicker(frames, s=4.0, min_gain=0.002):
+    """Helderheid per frame gladmaken (de sprong op de naden). Afronden, niet afkappen, en kleine verschillen laten
+    staan: anders wisselen pixels per frame een grijswaarde en dat leest als ruis."""
     lum = np.array([cv2.cvtColor(f, cv2.COLOR_BGR2GRAY).mean() for f in frames])
     target = gauss1d(lum, s)
-    return [np.clip(f.astype(np.float32) * (target[k] / max(lum[k], 1e-3)), 0, 255).astype(np.uint8)
-            for k, f in enumerate(frames)], lum, target
+    out = []
+    for k, f in enumerate(frames):
+        g = target[k] / max(lum[k], 1e-3)
+        out.append(f if abs(g - 1) < min_gain else np.clip(np.rint(f.astype(np.float32) * g), 0, 255).astype(np.uint8))
+    return out, lum, target
 
 
 def write(frames, path, fps=24):
