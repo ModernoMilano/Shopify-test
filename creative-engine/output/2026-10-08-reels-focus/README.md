@@ -175,3 +175,69 @@ De controle van versie 2 noemde twee kleine punten, geen van beide een afkeur:
   - Pioggia en Giardino in drie shots kosten elk ongeveer 156 credits (detail direct in 720p).
   - Sera kost ongeveer 120.
   - Samen is dat ongeveer 432, dus er is ongeveer 60 credits tekort, zonder reserve. Advies aan de eigenaar: ongeveer 100 credits bijkopen, anders stoppen vóór Sera.
+
+## Haperen in de video's opgelost (9 oktober)
+
+De eigenaar zag in de eerste twee video's (Total Bordeaux en Il lago) een "hele laggy slow motion lag".
+
+**Gemeten oorzaak (Seedance 2.5 zelf, al in de concepten van 480p):**
+- Elke 24 frames, dus elke seconde, verandert het beeld bijna twee keer zo veel als normaal. De helderheid springt dan ook even. Seedance maakt de clip in stukken van een seconde, en dit zijn de naden.
+- Om de 4 frames pulseert het beeld licht.
+- Soms zitten er bijna-dubbele frames in. Bij detail C van Il lago waren dat er twee per seconde.
+
+De container is gewoon 24 fps zonder omzetting. Mijn montage veroorzaakte het dus niet. Seedance heeft geen instelling voor framesnelheid. Higgsfield kan wel opschalen naar 60 fps, maar dat haalt de naden en de dubbele frames niet weg.
+
+**Oplossing, zonder credits: `smooth.py`, standaard aan in `montage.py`.** Het script doet vier dingen:
+1. De beweging per stap meten met optische flow (DIS).
+2. Die beweging gelijkmatig over de tijd verdelen, en elk frame op zijn nieuwe tijdstip opnieuw maken uit de twee frames eromheen.
+3. Elk frame middelen met zijn twee buren, die eerst met optische flow zijn uitgelijnd. Dat haalt het pulseren weg in stille stukken.
+4. De helderheid gladmaken, met afronden in plaats van afkappen.
+
+Lengte, aantal frames en 24 fps blijven gelijk. De montages hoeven dus niet te veranderen.
+
+**Resultaat:**
+- Shot A van Total Bordeaux: alle 5 schokken weg.
+- Shot A van Il lago: alle 9 schokken weg.
+- Detail C van Il lago: van 19 schokken en 9 dubbele frames naar 1 schok en geen dubbele frames.
+- Een tussenbeeld op 100% bekeken: geen vervorming.
+
+**Les:** maak elke Seedance-clip eerst glad voor de montage. Meet daarna op licht vervaagde beelden. Zonder die vervaging meet je vooral pixelruis van één grijswaarde en geen zichtbare schokken.
+
+## Serie "Una giornata": video 4, Sera (DARK MOCHA)
+
+Wens van de eigenaar (8 oktober, 23:00): "het cashmere two tone pak in de stoel, echt focussen op macro detail shots, maak hem helemaal af".
+
+**Idee: "de crème lijn".** De crème band en strepen leiden het oog van de hals via de knie naar de mouw. Pas dan zie je hem, in de fauteuil bij het raam. Daar verschijnt het logo, in het donkere raam waar hij naar kijkt.
+
+**Montage (`sera-edit.json`, ongeveer 10 s):**
+- C: de capuchonband aan de hals, 2,0 s;
+- D: de strepen over de knie, 1,8 s;
+- A: de mouwstrepen, manchet en hand, 2,0 s;
+- B: in de fauteuil, 4,2 s, met het logo de laatste 2 s (36% breed, iets boven het midden).
+
+| Wat | Job of media | Controle |
+|---|---|---|
+| C startbeeld, ronde 1 (`da4a661d`) | | afgekeurd: crème bies langs de hele rits, tandjes wisselen van vorm, band eindigt in een vlek |
+| C startbeeld, ronde 2, variant 2 (`29e90014`), bijsnede | media `c186e81c-5dcb-4739-8802-3b93e1d83db7` | beide goed |
+| D startbeeld, variant 1 | `5e091ce6-1aff-4b47-a8bf-0f9ae0e354b1` | beide goed (variant 2 afgekeurd: been over de armleuning) |
+| A startbeeld (mouwdetail, 8 okt) | `98e8323c-ebb0-4e04-82cc-1d0391ab05e7` | beide goed |
+| B startbeeld, bijsnede van `7782c3c1` | media `2bde7ce2-4273-4c4f-bbc0-b7c4f42a41a9` | beide goed |
+| Concepten C, D, A, B | `e6411249`, `bac96939`, `872422e9`, `0510d7ff` | C, D en A goed; B zie hieronder |
+| 1080p C, D, A, B | `71e5a8b9`, `b6dc1d62`, `592caa19`, `fb0f21ca` | in de eindcontrole |
+
+**Toelichting bij B:** de echtheidscontrole keurde het concept af op herkenbaarheid. Volgens de controleur was zijn haar te goudblond en zijn gezicht smaller. Dat oordeel ging over 480p, met een gezicht van ongeveer 100 pixels breed. In 1080p is het duidelijk dezelfde man als in het startbeeld dat de eigenaar goedkeurde. Het goudbruine komt van de lamp. Daarom heb ik B afgemaakt en wordt herkenbaarheid in de eindcontrole nog een keer apart beoordeeld.
+
+**Voorcontrole.** Drie reviewers keken de prompts na vóór de concepten:
+- geen beweging van de vingers;
+- de camera "a few centimetres" en "stays steady", niet "rakes across";
+- bij B "eyes open and gaze level";
+- de strepen van de broek benoemd volgens de productfoto.
+
+Alle concepten slaagden in één keer.
+
+**Kosten:** 275 credits:
+- 20 voor 5 startbeelden in 4K (een zesde mislukte en werd teruggestort);
+- 51 voor 4 concepten;
+- 204 voor 1080p.
+
+De uitsneden kostten niets.
