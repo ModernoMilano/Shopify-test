@@ -82,13 +82,14 @@ Wens van de eigenaar.
 - **Snede** naar wijder.
 - **Shot B (5 s, logo):** hij zit in de leren fauteuil bij het hoge raam, in de witte PURO SUPIMA MERCER TEE onder de half dichtgeritste jas, en kijkt naar buiten. Hij leunt met een rustige ademhaling achterover.
 - **Startbeelden:** B eerst. A (het detail) is een bewerking van het gekozen B-beeld.
+- **Gemaakt (9 oktober), op wens van de eigenaar met de nadruk op macro's:** "de crème lijn" in vier shots. Eerst de capuchonband (C), dan de strepen over de knie (D), dan de mouw met hand (A), en dan hij in de fauteuil (B), met het logo in het raam. Samen ongeveer 10 s. Details in `README.md`.
 
 ## Feedback van de eigenaar voor de volgende video's
 
 "Het eerste shot is te lang, er moet een cut komen van een andere angle, dichter op de kleding en de details, en het moet echt echt lijken." Dat geldt ook voor Pioggia, Giardino en Sera:
 - **Pioggia en Giardino:** A kort (ongeveer 2,3 s), dan een detail van de kraag met de binnenkleur, dan B (het omgekeerde gilet) met het logo. Het detail direct in 720p (28 credits) in plaats van concept plus 1080p.
 - **Sera** begint al met een detail, dus die blijft bij twee shots, elk 4 s.
-- **Budget:** 371,55 credits over. Het plan kost ongeveer 432, dus zonder ongeveer 100 credits bij te kopen stop ik vóór Sera.
+- **Budget (9 oktober, na Sera):** 96,55 credits over. Pioggia en Giardino kosten elk ongeveer 156 credits in drie shots. Voor de twee samen is dus ongeveer 220 credits bijkopen nodig.
 
 ## Regels die blijven gelden
 
