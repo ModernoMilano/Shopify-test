@@ -22,6 +22,6 @@ de laatste 30 dagen bank), `geld_nu` en `kasprognose`. Elke vraag gebruikt het C
 `ad-studio.html` is gepubliceerd als Claude-artifact: https://claude.ai/artifact/4weQnG85cMzNc6j46NkiDe
 
 Sleep ad-foto's in de pagina. Ze krijgen een nummer in de volgorde waarin ze worden toegevoegd en Claude (capability `sample`
-met afbeeldingen) bekijkt elke foto en schrijft er ad copy bij: angle, hook, primaire tekst, kop, beschrijving en knop.
-Foto's met hun Higgsfield-bestandsnaam krijgen de vooraf geschreven copy uit `src/app/ads/ads.json`.
+met afbeeldingen) bekijkt elke foto en schrijft er conversiegerichte ad copy bij, gericht op de collectie (Cashmere, Reverso,
+Bundle & Save) in plaats van het exacte product: angle, hook, primary text, headline, description en knop.
 Foto's staan in de assets van het artifact, de copy in de `db`-collectie `ads`.
