@@ -1,0 +1,75 @@
+{
+  "scrapedAt": "2026-10-09",
+  "source": "https://seronera.shop/products/<handle>.json (master products) + collections",
+  "siteClaims": [
+    "Genuine crocodile leather, CITES certified",
+    "Free shipping over €100",
+    "Shipped from EU, duties & taxes included",
+    "Gives back to South African communities (education initiatives and orphanages)",
+    "Farm founded in 1997 on the banks of the Sabie River in Hazyview, Mpumalanga, South Africa",
+    "Each piece has its own natural scale pattern (no two alike)"
+  ],
+  "lines": [
+    {
+      "key": "mens-belt", "handle": "seronera-belt", "title": "Crocodile Leather Belt", "price": "€149",
+      "url": "https://seronera.shop/products/seronera-belt",
+      "leather": "Nile crocodile belly leather, flatter scale pattern, cut from one continuous piece",
+      "colours": ["Black", "Cognac", "Tobacco", "Green", "Blue", "Grey", "Grendec", "Brown Variance"],
+      "widths": ["35 mm", "40 mm"], "lengths": "65-130 cm (5 cm steps)",
+      "description": "Bring depth to everyday denim or finish a pair of tailored trousers with the natural texture of crocodile belly leather. Its flatter scale pattern gives this belt a refined look that works with both relaxed and more formal dressing. Cut from a continuous piece of Nile crocodile leather from our farm in South Africa, each strap has its own arrangement of scales. Keep the rest of your outfit simple and let the leather provide the detail. Available in 35 mm and 40 mm widths, with lengths from 70 cm to 130 cm in 5 cm increments.",
+      "heroImages": {"Black": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-126620.webp", "Cognac": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-126676.webp", "Tobacco": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-126652.webp", "Green": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127107.webp", "Grey": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-126958.webp", "Blue": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-126728.webp", "Brown Variance": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-126940.webp"}
+    },
+    {
+      "key": "hornback-belt", "handle": "seronera-backstrap-belt", "title": "Hornback Crocodile Leather Belt", "price": "€199",
+      "url": "https://seronera.shop/products/seronera-backstrap-belt",
+      "leather": "Hornback: cut along the back of the Nile crocodile skin, raised scales with a natural ridge",
+      "colours": ["Black", "Brown", "Cognac"], "widths": ["35 mm", "40 mm"], "lengths": "95-130 cm",
+      "description": "With its raised scales and pronounced texture, the hornback belt brings a bolder character to everyday dressing. Wear it with denim and a simple shirt, where the shape of the leather has room to stand out. Cut along the back of the Nile crocodile skin, each strap carries a natural ridge with its own contours. The leather comes from our farm in Hazyview, South Africa, connecting this distinctive piece to the place where the Seronera story begins. Available in 35 mm and 40 mm widths.",
+      "heroImages": {"Black": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127433.webp", "Cognac": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127489.webp", "Brown": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127462.webp"}
+    },
+    {
+      "key": "womens-belt", "handle": "seronera-female-belt", "title": "Women's Crocodile Leather Belt", "price": "€100",
+      "url": "https://seronera.shop/products/seronera-female-belt",
+      "leather": "Slim Nile crocodile belly leather belt, one continuous piece",
+      "colours": ["Black", "Himalayan", "Red", "Pink", "Purple", "Green", "Light Green", "Brown", "Grey"],
+      "widths": ["25 mm", "30 mm"], "lengths": "95-125 cm",
+      "description": "Define the waist of a favourite dress or add shape to an oversized shirt. This slim crocodile leather belt brings texture and definition to simple silhouettes, and works just as well threaded through high-waisted trousers. Cut from a continuous piece of Nile crocodile belly leather from our farm in South Africa, each strap follows its own natural pattern. Wear it with tonal layers for an understated look, or choose a contrasting colour to make the waist a focal point.",
+      "heroImages": {"Black": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127263.webp", "Himalayan": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127257.webp", "Red": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127286.webp", "Pink": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127289.webp", "Purple": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127294.webp", "Green": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127284.webp", "Brown": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127272.webp", "Grey": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127277.webp"}
+    },
+    {
+      "key": "iphone-case", "handle": "iphone-17-case", "title": "Crocodile Leather iPhone 17 Case", "price": "€99 (belly leather) / €150 (hornback)",
+      "url": "https://seronera.shop/products/iphone-17-case",
+      "priceNote": "Master product page shows hornback at €150; the older per-SKU pages show €149. Use the price of the page the ad links to.",
+      "leather": "Single piece of Nile crocodile leather: classic belly (smoother) or hornback (raised texture)",
+      "colours": ["Black", "Tobacco", "Mink", "Dark Mink", "Purple", "Grendec", "Grey", "Hornback Black", "Hornback Brown", "Hornback Red"],
+      "models": ["iPhone 17", "iPhone 17 Air", "iPhone 17 Pro", "iPhone 17 Pro Max"],
+      "description": "Give the thing you carry everywhere a more personal feel. Cut from a single piece of Nile crocodile leather, this Seronera case brings natural texture to your iPhone, with a scale pattern unique to each piece. Choose classic belly leather for a smoother look, or hornback for its distinctive raised texture. The leather comes from our farm in Hazyview, South Africa, and each case is photographed individually. Choose the pattern that catches your eye; the case you see is the one you receive.",
+      "heroImages": {"Hornback Black": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127654.webp", "Hornback Brown": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127646.webp", "Hornback Red": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127639.webp", "Black": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127512.webp", "Tobacco": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127186.webp", "Purple": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127184.webp", "Grey": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/PRD-127166.webp"}
+    },
+    {
+      "key": "ipad-cover", "handle": "seronera-ipad-cover", "title": "Crocodile Leather iPad Cover", "price": "€250",
+      "url": "https://seronera.shop/products/seronera-ipad-cover",
+      "leather": "Front cut from a single piece of crocodile belly skin, pattern runs uninterrupted",
+      "colours": ["Black", "Cognac", "Tobacco", "Red", "Mink", "Grendec"],
+      "models": ["iPad Pro 13\"", "iPad Air 13\"", "iPad Pro 11\"", "iPad Air 11\""],
+      "description": "Made for the desk and the days away from it, this iPad cover brings the distinctive texture of Nile crocodile leather to your working day. The front is cut from a single piece of belly skin, allowing its natural pattern to run uninterrupted across the cover. The leather comes from our farm on the Sabie River in South Africa. Each cover has its own arrangement of scales, giving a familiar everyday essential an individual finish.",
+      "heroImages": {"Cognac": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/SPC-IPAD13PRO-COGNAC.webp", "Black": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/SPC-IPAD13PRO-BLACK.webp", "Red": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/SPC-IPAD13PRO-RED.webp", "Tobacco": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/SPC-IPAD13PRO-TOBACCO.webp"}
+    },
+    {
+      "key": "luggage-tag", "handle": "seronera-luggage-tag", "title": "Crocodile Leather Luggage Tag", "price": "€35",
+      "url": "https://seronera.shop/products/seronera-luggage-tag",
+      "leather": "Nile crocodile leather tag with strap",
+      "colours": ["Black", "Tobacco", "Orange"],
+      "description": "A small detail that makes your luggage feel like yours. This Nile crocodile leather tag adds colour and texture to a favourite weekender or suitcase, whether you're heading away for a few days or travelling further afield. Made with leather from our farm in South Africa, each tag carries its own natural scale pattern. Choose a colour to complement your bag, or a brighter shade that makes it easier to spot.",
+      "heroImages": {"Tobacco": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/SLT-LUGGAGETAG-TOBACCO.webp", "Orange": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/SLT-LUGGAGETAG-ORANGE.webp", "Black": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/SLT-LUGGAGETAG-BLACK.webp"}
+    },
+    {
+      "key": "key-ring", "handle": "seronera-key-ring", "title": "Crocodile Leather Key Ring", "price": "€25",
+      "url": "https://seronera.shop/products/seronera-key-ring",
+      "leather": "Loop of Nile crocodile leather with a metal ring, same hides as the belts and cases",
+      "colours": ["Black", "Brown", "Cognac"],
+      "description": "A simple everyday accessory, made distinctive by its leather. This key ring pairs a loop of Nile crocodile leather with a metal ring, bringing natural texture to the keys you carry each day. Cut from the same South African hides used for our belts and cases, every loop has its own scale pattern. An easy introduction to the collection, and a thoughtful gift for someone who appreciates the smaller details.",
+      "heroImages": {"Cognac": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/SKR-KEYRING-COGNAC.webp", "Brown": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/SKR-KEYRING-BROWN.webp", "Black": "https://cdn.shopify.com/s/files/1/1016/5469/2170/files/SKR-KEYRING-BLACK.webp"}
+    }
+  ]
+}
