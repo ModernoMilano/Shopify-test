@@ -19,4 +19,6 @@ export type Ad = {
   description: string;
   cta: string;
   placement: "Feed" | "Stories/Reels";
+  /** Tekst die op het beeld zelf staat en gecontroleerd moet worden (korting, prijs, claim). */
+  warning?: string;
 };

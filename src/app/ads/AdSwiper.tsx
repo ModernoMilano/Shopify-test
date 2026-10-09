@@ -302,7 +302,7 @@ function SwipeCard({
             </div>
           </div>
           <div className="px-3 pb-2.5 text-[13px] whitespace-pre-line">{ad.primaryText}</div>
-          <div className="relative bg-surface-2" style={{ aspectRatio: ratio, maxHeight: "70vh" }}>
+          <div className="relative mx-auto w-full bg-surface-2" style={{ aspectRatio: ratio, maxHeight: "70vh" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={ad.image} alt={ad.scene} draggable={false} className="absolute inset-0 size-full object-cover" />
             <div
@@ -343,6 +343,12 @@ function SwipeCard({
       </div>
 
       <div className="flex min-w-0 flex-col gap-4">
+        {ad.warning && (
+          <div className="rounded-xl border border-warn/50 bg-surface p-3 text-sm" role="note">
+            <span className="font-medium text-warn">Controleer het beeld. </span>
+            {ad.warning}
+          </div>
+        )}
         <div className="card flex flex-col gap-3 p-4 md:p-5">
           <div className="flex flex-wrap gap-1.5">
             <Chip strong>{ad.collection === "Other" ? "Overig" : ad.collection}</Chip>
@@ -460,6 +466,11 @@ function Chosen({ ads, onReopen, onExport, onCopied }: { ads: Ad[]; onReopen: (i
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={a.thumb || a.image} alt={a.scene} loading="lazy" className="absolute inset-0 size-full object-cover" />
               <span className="absolute top-2 left-2 rounded-full bg-surface px-2 py-0.5 text-[11px]">{angleLabel(a.angle)}</span>
+              {a.warning && (
+                <span className="absolute top-2 right-2 rounded-full border border-warn bg-surface px-2 py-0.5 text-[11px] text-warn" title={a.warning}>
+                  Tekst op beeld
+                </span>
+              )}
             </div>
             <div className="flex flex-1 flex-col gap-2 p-3">
               <div className="text-[11px] tracking-wider text-ink-3 uppercase">
