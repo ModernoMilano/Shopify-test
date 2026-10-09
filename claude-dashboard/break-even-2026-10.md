@@ -83,3 +83,22 @@ Ingesteld in de dashboards:
 
 - **Brand check:** 2,31.
 - **Financieel dashboard:** break-even MER 2,52, COGS zonder afschrift 41%.
+
+## Definitief: niet btw-plichtig (10 oktober)
+
+ModernoMilano is **niet btw-plichtig**: er is een leveranciersovereenkomst. Btw is daarom geen kostenpost en gaat naar de winst. Ga hier in toekomstige berekeningen van uit.
+
+Variabele kosten: inkoop 40,9%, betaalkosten 3,95%, disputes 2,0% (Klarna uit, Chargeflow aan), niet geïnde bedragen 0,7%. Samen 47,5%.
+Vaste kosten: team, software, auto, Google Ads en boekhouder, € 7.268 per 39 dagen. Dat is 5,1% van de omzet.
+
+| | Waarde |
+|---|---|
+| **Break-even Meta-ROAS (account)** | **1,93** |
+| Break-even per ad (alleen variabele kosten) | 1,74 |
+| **Break-even MER** (Shopify-omzet / Meta) | **2,11** |
+| Winst 1 t/m 10 oktober (omzet € 39.654, Meta € 13.624) | € 5.323 (13,4%), ongeveer € 3.700 per week |
+
+Ingesteld in de dashboards:
+
+- **Brand check:** 1,93.
+- **Financieel dashboard:** break-even MER 2,11, btw reserveren uit.
