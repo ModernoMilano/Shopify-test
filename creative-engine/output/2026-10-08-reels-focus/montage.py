@@ -19,7 +19,7 @@ edit.json:
 Harde snedes, 24 fps (zoals de clips), 1080x1920. Geen korrel en geen LUT (SKILL.md, "Echt, niet AI"): de beelden blijven zoals het
 model ze maakt. Tekst: gele schreefletter met zachte schaduw (Canva-bord 4-01), buiten de onderste 22% (de Instagram-knoppen).
 """
-import json, os, subprocess, sys
+import json, os, shutil, subprocess, sys
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 W, H, FPS = 1080, 1920, 24  # Seedance 2.5 levert 24 fps; omzetten naar 30 geeft haperingen
@@ -180,6 +180,9 @@ def main(cfg_path, out):
             fr.convert("RGB").save(f"frames/{n:05d}.jpg", quality=95)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-framerate", str(FPS), "-i", "frames/%05d.jpg", "-c:v", "libx264",
                     "-crf", "16", "-preset", "slow", "-pix_fmt", "yuv420p", "-movflags", "+faststart", out], check=True)
+    for i in range(len(cfg["cuts"])):  # tijdelijke frames opruimen, anders loopt de schijf van de sandbox vol
+        shutil.rmtree(f"tmp{i}", ignore_errors=True)
+    shutil.rmtree("frames", ignore_errors=True)
     print(out, n, "frames", round(n / FPS, 2), "s")
 
 

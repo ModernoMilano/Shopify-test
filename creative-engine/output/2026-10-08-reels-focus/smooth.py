@@ -17,7 +17,7 @@ middelen met de buren is eruit: dat kostte de helft van het fijne detail (rits, 
 dat niemand ziet. Tot slot de helderheid per frame gladmaken. Aantal frames, lengte en 24 fps blijven gelijk, dus de montage
 hoeft niet te veranderen. Geen korrel en geen LUT.
 """
-import os, subprocess, sys, tempfile
+import os, shutil, subprocess, sys, tempfile
 import cv2
 import numpy as np
 
@@ -113,6 +113,7 @@ def write(frames, path, fps=24):
         cv2.imwrite(f"{tmp}/{k:05d}.png", f, [cv2.IMWRITE_PNG_COMPRESSION, 1])
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-framerate", str(fps), "-i", f"{tmp}/%05d.png", "-c:v", "libx264", "-crf", "12",
                     "-preset", "medium", "-pix_fmt", "yuv420p", path], check=True)
+    shutil.rmtree(tmp, ignore_errors=True)  # anders loopt de schijf van de sandbox vol (9 okt)
 
 
 def report(m, label):
