@@ -9,8 +9,11 @@ edit.json:
              {"src": "A", "from": 0.2, "dur": 2.2},                     # clip: stuk vanaf 'from'
              ...],
    "text":  [{"cut": 0, "lines": [["One gilet.", 96]], "y": 0.6}, ...],  # y = midden van het tekstblok (0-1)
-   "logo":  {"src": "LOGO", "width": 0.4, "seconds": 2.0, "y": 0.5, "fade": 0.5, "dim": 0.18}}
+   "logo":  {"src": "LOGO", "width": 0.4, "seconds": 2.0, "y": 0.5, "fade": 0.5, "dim": 0.18},
             # logo (PNG met alfa) de laatste 'seconds' in het midden; komt in 'fade' s op, beeld 'dim' donkerder
+   "smooth": true}
+            # eerst elke Seedance-clip gladmaken met smooth.py (de schok elke seconde en dubbele frames, eigenaar 9 okt);
+            # standaard aan, zet op false om de ruwe clip te gebruiken
 
 Harde snedes, 24 fps (zoals de clips), 1080x1920. Geen korrel en geen LUT (SKILL.md, "Echt, niet AI"): de beelden blijven zoals het
 model ze maakt. Tekst: gele schreefletter met zachte schaduw (Canva-bord 4-01), buiten de onderste 22% (de Instagram-knoppen).
@@ -134,6 +137,14 @@ def main(cfg_path, out):
     os.makedirs("src", exist_ok=True)
     os.makedirs("frames", exist_ok=True)
     local = {k: get(u, f"src/{k}{os.path.splitext(u.split('?')[0])[1]}") for k, u in cfg["src"].items()}
+    if cfg.get("smooth", True):
+        import smooth  # naast dit script; zie de uitleg daar
+        for k, pth in list(local.items()):
+            if pth.endswith(".mp4"):
+                dst = pth[:-4] + "_s.mp4"
+                if not os.path.exists(dst):
+                    smooth.process(pth, dst)
+                local[k] = dst
     texts = {t["cut"]: t for t in cfg.get("text", [])}
     lspec = cfg.get("logo")
     total = sum(round(c["dur"] * FPS) for c in cfg["cuts"])

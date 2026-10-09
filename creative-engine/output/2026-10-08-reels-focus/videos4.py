@@ -61,8 +61,8 @@ MOCHA = dict(refs=["02e95ddd-e359-4a62-a941-71fac89ed20a", "20b8df67-28ef-4573-b
                   "- A full-zip hooded knit jacket with a dark silver zip; the opening of the hood is edged with a cream band "
                   "that runs down to the top of the zip; the hood has no drawstrings and no cords; two thin cream stripes run "
                   "down the outer side of each sleeve from the shoulder to the cuff; ribbed cuffs and a ribbed hem.\n"
-                  "- Matching knit trousers with a drawstring waist and a wide and a thin cream stripe down the outer side of "
-                  "each leg.\n"
+                  "- Matching knit trousers with a drawstring waist and one wide cream stripe with two thin cream stripes beside "
+                  "it down the outer side of each leg.\n"
                   "- Under the jacket, the PURO SUPIMA MERCER TEE - WHITE: a plain white crew-neck T-shirt in smooth "
                   "mercerised Supima cotton, as in reference image #1.")
 
@@ -253,19 +253,23 @@ def mocha_a(job_b):
 # Sera met de nadruk op macro's (wens eigenaar 8 okt, 23:00): "de crème lijn" loopt door de video, van de band om de
 # capuchon via de strepen op de mouw (mocha_a) naar de strepen langs het been; daarna pas hij in de fauteuil (mocha_b).
 def mocha_c(job_b):
+    # Ronde 1 (9 okt, variant 1 afgekeurd): een crème bies langs de hele rits, tandjes die van vorm wisselen en een band die
+    # in een vlek eindigt bij de rits. Daarom nu: de band loopt onder uit beeld, de rits blijft buiten beeld.
     parts = [
         "An extreme close detail from the same scene as reference image #1, at the same moment: the same armchair, the same "
-        "warm lamp light, the same clothes. The camera is very close beside him on the lamp side and frames only the base of "
-        "his neck and the top of his chest, as in reference image #1: the hood of the dark mocha knit jacket lying flat around "
-        "the back of his neck; the plain cream band that edges the opening of the hood, curving around the side of his neck "
-        "and running down to the top of the dark silver zip; the open front edges of the jacket with the small dark silver zip "
-        "teeth; and the plain white crew-neck T-shirt beneath. The top edge of the frame cuts just below his jaw: his face is "
-        "not in the picture, only the side of his neck.",
-        "The warm floor lamp on his left rakes across the knit and shows every stitch and the soft halo of the cashmere "
-        "fibres; the cream band catches the light; behind, the cool blue dusk of the window and a few blurred warm city "
-        "lights, far out of focus. Muted warm colour, soft contrast, no HDR.",
+        "warm lamp light, the same clothes. The camera is very close beside him on the lamp side and frames only the side of "
+        "his neck and the hood of the dark mocha knit jacket lying around it, down to his collarbone, as in reference image "
+        "#1: the plain cream band that edges the opening of the hood curves around the side of his neck and runs down out of "
+        "the bottom of the frame; beside it the round collar of the plain white crew-neck T-shirt; around it the soft knit of "
+        "the hood. The zip of the jacket is below the frame. The top edge of the frame is on the side of his neck; his chin "
+        "and jaw are above the frame, so his face is not in the picture.",
+        "The warm floor lamp on his left rakes across the fine, smooth cashmere knit, the same mocha brown and the same fine "
+        "gauge as the jacket in reference image #1; the cream band catches the light; behind, the cool blue dusk of the "
+        "window and a few blurred warm city lights, far out of focus. Muted warm colour, soft contrast, no HDR.",
         "The pieces are these ModernoMilano pieces, reproduced exactly as in the reference images:\n" + MOCHA["text"],
-        "The cream band is one plain, flat knitted band. No hands are in the picture.", REAL,
+        "The cream band is one plain, flat knitted band of even width, knitted cleanly onto the edge of the hood. It edges "
+        "only the opening of the hood and ends at the top of the zip; the front edges of the jacket along the zip are plain "
+        "dark mocha knit, the same as the body. No hands are in the picture.", REAL,
         "Full-frame digital camera, 100mm macro lens at f/2.8."]
     return req(parts, [job_b] + MOCHA["refs"][1:])
 
@@ -314,7 +318,9 @@ START_IMG = {
     "antracite_a": "6f98f485-59f7-4e29-a5a0-baf6c7789207",
     "blu_a": "b3851105-101c-41c6-9e16-ad4e5ad5abf2",
     "mocha_a": "98e8323c-ebb0-4e04-82cc-1d0391ab05e7",  # detail 2 (detail 1 afgekeurd: broek zonder streep)
-    "mocha_b": None,  # bijsnede van job 7782c3c1
+    "mocha_b": "2bde7ce2-4273-4c4f-bbc0-b7c4f42a41a9",  # bijsnede van job 7782c3c1 (x 880, y 40, 2192x3896): logo in het raam
+    "mocha_c": None,  # ronde 2 van het capuchondetail
+    "mocha_d": "5e091ce6-1aff-4b47-a8bf-0f9ae0e354b1",  # variant 1 (variant 2 afgekeurd: been over de armleuning)
 }
 LOCKED = ("The shot opens exactly on the start frame, with the same framing, background, head angle and closed lips. ")
 SHOT = {
@@ -402,40 +408,46 @@ SHOT = {
     # 4. Sera. A: macro van mouw en hand, zonder gezicht. B: vaste camera in de fauteuil, logo de laatste 2 s.
     "mocha_a": dict(dur=4, face=False, take="one continuous take with a macro lens.",
         motion=("A close detail shot of his hand resting on his thigh, the knit sleeve and ribbed cuff beside the cognac "
-                "leather armrest. The camera pushes in very slowly towards his hand and the cuff, then settles, while the warm "
-                "lamp light rakes across the knit. His fingers relax and move slightly once, then rest. The frame stays on "
-                "his hand, the sleeve and the knit for the whole shot."),
+                "leather armrest. The camera moves very slowly a few centimetres closer to the ribbed cuff and the cream stripes "
+                "on the sleeve just above it, and settles by the third second. The warm lamp light stays steady on the knit, "
+                "and every stitch stays sharp and steady as the camera moves. His hand rests still and relaxed on his thigh "
+                "exactly as in the start frame; only his slow breathing moves the sleeve very softly. The frame stays on his "
+                "hand, the sleeve and the knit for the whole shot."),
         clothes=("the dark mocha brown knit sleeve keeps its cream stripes exactly as in the start frame, straight and "
                  "continuous down to the ribbed cuff"),
+        bare="His hand stays bare, and the ribbed cuff stays at his wrist exactly as in the start frame. ",
         still="The city lights stay soft and blurred behind the glass."),
     "mocha_c": dict(dur=4, face=False, take="one continuous take with a macro lens.",
         motion=("An extreme close detail of the plain cream band that edges the hood of his knit jacket, at the side of his "
-                "neck. The camera glides very slowly down along the cream band towards the top of the zip and settles by the "
-                "third second, while the warm lamp light rakes across the knit and the soft cashmere fibres catch the light. "
-                "He breathes slowly and calmly, so the knit rises and falls very softly. The frame stays on the cream band, "
-                "the knit and the white T-shirt for the whole shot."),
-        clothes=("the dark mocha brown hooded knit jacket stays open exactly as in the start frame, with the plain cream "
-                 "band edging its hood and the white T-shirt beneath unchanged"),
-        bare="The top of the frame stays just below his jaw. ",
+                "neck. The camera glides very slowly down a few centimetres along the cream band and settles by the third "
+                "second. The warm lamp light stays steady on the knit, and every stitch stays sharp and steady as the camera "
+                "moves. He breathes slowly and calmly, so the knit rises and falls very softly. The frame stays on the cream band, the knit and the collar "
+                "of the white T-shirt for the whole shot."),
+        clothes=("the dark mocha brown hooded knit jacket stays exactly as in the start frame, with the plain cream band "
+                 "edging only the opening of its hood and the white T-shirt beneath unchanged"),
+        bare="The top edge of the frame stays on the side of his neck for the whole shot. ",
         still="The city lights stay soft and blurred far behind."),
     "mocha_d": dict(dur=4, face=False, take="one continuous take with a macro lens.",
         motion=("A close detail of his leg as he sits in the cognac leather armchair: the dark mocha knit trousers with the "
-                "wide and the thin cream stripe running down the outer side of the leg. The camera glides slowly along the two "
-                "cream stripes towards his knee and settles by the third second, while the warm lamp light slides softly along "
-                "the knit. His leg stays relaxed and still. The frame stays on the knit, the cream stripes and the leather "
-                "for the whole shot."),
-        clothes=("the matching dark mocha knit trousers keep the wide and the thin cream stripe exactly as in the start "
-                 "frame, straight and continuous"),
-        bare="Only the knit, the stripes and the leather are in the frame. ",
+                "cream stripes running down the outer side of the leg. The camera moves very slowly a few centimetres closer to "
+                "the middle of the frame, where the cream stripes curve down over the side of his knee, and settles by the "
+                "third second. Only the camera moves; his leg rests completely still on the leather. The warm lamp light "
+                "stays steady on the knit, and every stitch stays sharp and steady as the camera moves. The frame stays on "
+                "the knit, the cream stripes and the leather for the whole shot."),
+        clothes=("the matching dark mocha knit trousers keep their cream stripes exactly as in the start frame, with the "
+                 "same widths and spacing, straight and continuous"),
+        bare=("At the top of the frame his jacket and his relaxed hand stay soft, still and out of focus, and his hand stays "
+              "bare. "),
         still="The room stays quiet and dim around the lamp light."),
     "mocha_b": dict(dur=5, face=True, take="one continuous take from the fixed camera.",
         # Les uit Il lago (concept 1 van como_b): ogen open en stil vanaf seconde 3 benoemen, anders gaan de ogen dicht.
         motion=(LOCKED + "The camera is locked off on a tripod and stays perfectly still for the whole shot. He sits back "
                 "in the cognac leather armchair, his right hand resting on his thigh, his face in profile turned to the right "
-                "of the frame, looking out of the window, his eyes open and steady on the city lights. With one slow, calm "
-                "breath he lifts his chin very slightly, his face still turned to the right; from the third second he holds "
-                "this pose completely still, his eyes still open, only breathing softly until the end. The small city "
-                "lights twinkle softly far behind the glass."),
+                "of the frame, looking out of the window at the far city, his eyes open and his gaze level. With one slow, "
+                "calm breath he lifts his chin very slightly, his eyes open and his gaze level, his face still turned to the "
+                "right; from the third second he holds "
+                "this pose completely still, his eyes still open, only breathing softly until the end. The small warm city "
+                "lights glow softly far behind the glass."),
         clothes=("the dark mocha brown hooded knit jacket stays open and unzipped over the white T-shirt exactly as in the "
                  "start frame, its hood lying flat behind his neck with the opening edged only by the plain cream band, its "
                  "cream stripes running down the sleeves, with the matching dark mocha trousers and their cream side stripes"),
