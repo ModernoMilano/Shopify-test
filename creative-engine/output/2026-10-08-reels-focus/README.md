@@ -256,3 +256,13 @@ Alle concepten slaagden in één keer.
 - 204 voor 1080p.
 
 De uitsneden kostten niets.
+
+### Opgeleverd (9 oktober)
+
+| Video | Link |
+|---|---|
+| Sera | https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/7a96cec2-5b84-41cb-bf5f-91bec7b82867.zip |
+| Il lago v3 | https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/3a750a5c-28b4-4f48-b655-39b091a97b6a.zip |
+| Total Bordeaux v2 | https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/e2e96305-e393-4c40-810d-754738f9fcc7.zip |
+
+Elke zip bevat de video en `Cover.jpg`. Het saldo na Sera is 96,55 credits.
