@@ -179,7 +179,7 @@ const SHOP = "Shopify", WIN = "Windsor.ai", PP = "PayPal";
 const LABEL = { [SHOP]: "Shopify", [WIN]: "Meta (Windsor.ai)", [PP]: "PayPal" };
 const TABS = [["check", "Brand check"], ["ads", "Ads overzicht"], ["adlist", "Per ad"], ["angles", "Creatives & copy"], ["audience", "Doelgroep"], ["products", "Producten"], ["funnel", "Funnel & site"], ["markets", "Klanten & markten"], ["todo", "Actielijst"], ["advice", "Advies"], ["settings", "Instellingen"]];
 const RANGES = [7, 14, 30, 60];
-const DEFAULTS = { cogsPct: 30, shipPerOrder: 8, feePct: 3, targetProfitPct: 15, minSpendFactor: 1, cogsByProduct: {} };
+const DEFAULTS = { cogsPct: 30, shipPerOrder: 8, feePct: 3, targetProfitPct: 15, minSpendFactor: 1, beOverride: 0, cogsByProduct: {} };
 
 const S = {
   tab: "check", range: 30,
@@ -388,7 +388,8 @@ function econ() {
   const aov = Number.isFinite(t.aov) ? t.aov : 170;
   // per euro omzet incl. btw (zo rapporteert Meta ook): wat blijft er over voor ads en winst?
   const exVat = 1 - taxShare;
-  const contrib = exVat * (1 - returnShare) * (1 - st.cogsPct / 100) - st.feePct / 100 - st.shipPerOrder / aov;
+  // Met een vastgestelde break-even (uit de volledige berekening met bank, fees en disputes) rekent alles daarmee.
+  const contrib = st.beOverride > 1 ? 1 / st.beOverride : exVat * (1 - returnShare) * (1 - st.cogsPct / 100) - st.feePct / 100 - st.shipPerOrder / aov;
   const be = contrib > 0 ? 1 / contrib : Infinity;
   const tgtContrib = contrib - st.targetProfitPct / 100;
   const target = tgtContrib > 0 ? 1 / tgtContrib : Infinity;
@@ -1015,8 +1016,10 @@ function viewSettings() {
     <label for="feePct">Betaalkosten (% van omzet)<input class="input num" id="feePct" type="number" min="0" max="15" step="0.1" value="${st.feePct}"></label>
     <label for="targetProfitPct">Gewenste winst (% van omzet)<input class="input num" id="targetProfitPct" type="number" min="0" max="60" step="1" value="${st.targetProfitPct}"></label>
     <label for="minSpendFactor">Oordeel pas na × break-even CPA spend<input class="input num" id="minSpendFactor" type="number" min="0.5" max="5" step="0.5" value="${st.minSpendFactor}"></label>
+    <label for="beOverride">Vaste break-even Meta-ROAS (0 = berekenen)<input class="input num" id="beOverride" type="number" min="0" max="10" step="0.01" value="${st.beOverride || 0}"></label>
     <div style="display:flex;align-items:flex-end"><button class="btn" type="submit">Opslaan</button></div>
   </form>
+  ${st.beOverride > 1 ? `<p class="sub"><b>Vaste break-even actief: ${times(st.beOverride)} Meta-ROAS.</b> Berekend uit bank, Shopify, PayPal en Meta (alle kosten, btw, fees, refunds en disputes). Zet op 0 om weer met de velden hierboven te rekenen.</p>` : ""}
   <p class="sub">Uitkomst: van elke euro omzet blijft ${pct(E.contrib, 0)} over voor ads en winst. Break-even ROAS ${times(E.be)}, doel-ROAS ${times(E.target)}, break-even CPA ${eur(E.beCpa)}.</p></section>
   <section class="card"><h2>Inkoop per product</h2><p class="lead">Optioneel. Leeg laten = het percentage hierboven.</p><form id="cogsForm" class="formgrid">${prods.map((p, i) => `<label for="cp-${i}">${esc(p)}<input class="input num" id="cp-${i}" data-prod="${esc(p)}" type="number" min="0" max="95" step="1" placeholder="${st.cogsPct}" value="${st.cogsByProduct[p] != null ? st.cogsByProduct[p] : ""}"></label>`).join("") || `<p class="muted">Producten laden…</p>`}<div style="display:flex;align-items:flex-end"><button class="btn" type="submit">Opslaan</button></div></form></section>
   <section class="card"><h2>Bronnen</h2><p class="lead" style="margin:0">Shopify: omzet, orders, retouren, sessies en funnel (ShopifyQL), voorraad (Admin API). Meta via Windsor.ai: per ad, per campagne en set (met budget en status), teksten en headlines, dagcijfers (90 dagen), leeftijd en geslacht, landen en plaatsingen. PayPal: open disputes. Alles wordt opgehaald met de koppelingen van wie de pagina opent; er staan geen sleutels in deze pagina.</p></section>`;
@@ -1078,7 +1081,7 @@ document.addEventListener("submit", (ev) => {
   ev.preventDefault(); const f = ev.target;
   if (f.id === "chatForm") { const v = $("chatInput").value; $("chatInput").value = ""; ask(v); }
   if (f.id === "todoForm") { const v = $("todoTitle").value.trim(); if (v) addAction({ title: v, area: "Eigen" }); }
-  if (f.id === "setForm") { const p = {}; for (const k of ["cogsPct", "shipPerOrder", "feePct", "targetProfitPct", "minSpendFactor"]) { const n = Number($(k).value); if (Number.isFinite(n)) p[k] = n; } saveSettings(p); }
+  if (f.id === "setForm") { const p = {}; for (const k of ["cogsPct", "shipPerOrder", "feePct", "targetProfitPct", "minSpendFactor", "beOverride"]) { const n = Number($(k).value); if (Number.isFinite(n)) p[k] = n; } saveSettings(p); }
   if (f.id === "cogsForm") { const m = {}; f.querySelectorAll("input[data-prod]").forEach((i) => { if (i.value !== "" && Number.isFinite(Number(i.value))) m[i.dataset.prod] = Number(i.value); }); saveSettings({ cogsByProduct: { ...S.settings.cogsByProduct, ...m } }); }
 });
 document.addEventListener("keydown", (ev) => { if (ev.target.id === "chatInput" && ev.key === "Enter" && !ev.shiftKey) { ev.preventDefault(); $("chatForm").requestSubmit(); } });

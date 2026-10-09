@@ -62,6 +62,18 @@ describe("CSV", () => {
     expect(reconcile(s).ok).toBe(true);
     expect(matchRule(s.transactions[0], DEFAULT_RULES)?.category).toBe("loan");
   });
+
+  it("Revolut-export in het Nederlands (Datum voltooid, Bedrag, Kosten)", () => {
+    const csv = [
+      "Type,Product,Startdatum,Datum voltooid,Beschrijving,Bedrag,Kosten,Valuta,Status,Saldo",
+      "Overschrijving,Pro,2026-09-09 10:34:36,2026-09-09 10:34:38,To EAST BAITE LIMITED,-3085.53,0.00,EUR,VOLTOOID,16795.25",
+      'Overschrijving,Pro,2026-09-10 00:12:04,2026-09-10 01:47:55,"To Jinjiang Yuguang Trading Co., Ltd.",-1.10,0.72,EUR,VOLTOOID,16793.43',
+    ].join("\n");
+    const s = parseRevolutCsv(csv);
+    expect(s.transactions).toHaveLength(2);
+    expect(s.transactions[1]).toMatchObject({ date: "2026-09-10", amountCents: -182, feeCents: 72, balanceCents: 1679343 });
+    expect(reconcile(s).ok).toBe(true);
+  });
 });
 
 // Echte data (staat niet in git). Draait alleen als het afschrift lokaal aanwezig is.

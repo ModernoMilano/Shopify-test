@@ -418,7 +418,7 @@ function parseRevolutCsv(text) {
   if (!h) return { opening: null, closing: null, from: null, to: null, txs: [] };
   const hh = h.map((x) => x.trim().toLowerCase());
   const pick = (...n) => hh.findIndex((x) => n.includes(x));
-  const iD = pick("date completed (utc)", "completed date", "date completed", "datum", "date"), iS = pick("date started (utc)", "started date");
+  const iD = pick("date completed (utc)", "completed date", "date completed", "datum voltooid", "datum", "date"), iS = pick("date started (utc)", "started date", "startdatum");
   const iDesc = pick("description", "beschrijving", "omschrijving"), iRef = pick("reference", "referentie"), iPay = pick("payer", "counterparty", "tegenpartij");
   const iA = pick("amount", "bedrag"), iF = pick("fee", "kosten"), iB = pick("balance", "saldo"), iSt = pick("state", "status"), iT = pick("type");
   if ((iD < 0 && iS < 0) || iA < 0) throw new Error("Onbekend CSV-formaat: kolommen voor datum en bedrag ontbreken.");

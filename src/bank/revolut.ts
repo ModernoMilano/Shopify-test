@@ -200,8 +200,8 @@ function csvAmount(s: string | undefined): number | null {
 export function parseRevolutCsv(text: string): ParsedStatement {
   const [header, ...rows] = parseCsv(text.replace(/^﻿/, "").trim());
   if (!header) return { openingBalanceCents: null, closingBalanceCents: null, transactions: [] };
-  const iDate = pick(header, ["date completed (utc)", "completed date", "date completed", "datum", "date"]);
-  const iStarted = pick(header, ["date started (utc)", "started date"]);
+  const iDate = pick(header, ["date completed (utc)", "completed date", "date completed", "datum voltooid", "datum", "date"]);
+  const iStarted = pick(header, ["date started (utc)", "started date", "startdatum"]);
   const iDesc = pick(header, ["description", "beschrijving", "omschrijving"]);
   const iRef = pick(header, ["reference", "referentie"]);
   const iPayer = pick(header, ["payer", "counterparty", "tegenpartij"]);
