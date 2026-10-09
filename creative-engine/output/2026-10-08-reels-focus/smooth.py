@@ -11,8 +11,10 @@ Samen met de trage beweging leest dat als "laggy slow motion" (eigenaar, 9 okt).
 
 Wat dit script doet: per stap de beweging meten met optische flow (DIS), die beweging gelijkmatig over de tijd verdelen
 (Gauss-gladmaken van de snelheid, het begin en eind blijven gelijk) en elk nieuw frame op zijn tijdstip maken uit de twee
-frames eromheen, met optische flow. Daarna de helderheid per frame gladmaken. Aantal frames, lengte en 24 fps blijven gelijk,
-dus de montage hoeft niet te veranderen. Geen korrel en geen LUT.
+frames eromheen, met optische flow. Daarna elk frame middelen met zijn twee buren, die eerst met optische flow op dat frame
+worden gelegd (waar de uitlijning niet klopt telt de buur minder): dat haalt het pulseren om de 4 frames en het "koken" van
+breisel weg in stille stukken, zonder beweging uit te smeren. Tot slot de helderheid per frame gladmaken. Aantal frames,
+lengte en 24 fps blijven gelijk, dus de montage hoeft niet te veranderen. Geen korrel en geen LUT.
 """
 import os, subprocess, sys, tempfile
 import cv2
@@ -92,6 +94,31 @@ def retime(frames, m):
     return out, tau
 
 
+def temporal(frames, err_scale=8.0):
+    """Gewogen gemiddelde 1/4, 1/2, 1/4 van de vorige, deze en de volgende frame, de buren uitgelijnd met optische flow."""
+    n = len(frames)
+    if n < 3:
+        return frames
+    h, w = frames[0].shape[:2]
+    gx, gy = np.meshgrid(np.arange(w, dtype=np.float32), np.arange(h, dtype=np.float32))
+    out = [frames[0]]
+    for k in range(1, n - 1):
+        c = frames[k].astype(np.float32)
+        acc, wsum = c * 0.5, np.full((h, w), 0.5, np.float32)
+        for j in (k - 1, k + 1):
+            f = flow(frames[k], frames[j])
+            f = cv2.resize(f, (w, h), interpolation=cv2.INTER_LINEAR) * (w / f.shape[1])
+            warped = cv2.remap(frames[j], gx + f[..., 0], gy + f[..., 1], cv2.INTER_LINEAR,
+                               borderMode=cv2.BORDER_REPLICATE).astype(np.float32)
+            err = np.abs(warped - c).mean(-1)
+            wj = 0.25 * np.exp(-(err / err_scale) ** 2)
+            acc += warped * wj[..., None]
+            wsum += wj
+        out.append(np.clip(acc / wsum[..., None], 0, 255).astype(np.uint8))
+    out.append(frames[-1])
+    return out
+
+
 def deflicker(frames, s=4.0):
     lum = np.array([cv2.cvtColor(f, cv2.COLOR_BGR2GRAY).mean() for f in frames])
     target = gauss1d(lum, s)
@@ -118,6 +145,7 @@ def process(src, dst, show=False):
     fr = read(src)
     m = steps(fr)
     out, tau = retime(fr, m)
+    out = temporal(out)
     out, lum, target = deflicker(out)
     write(out, dst)
     if show:

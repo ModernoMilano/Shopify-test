@@ -319,7 +319,7 @@ START_IMG = {
     "blu_a": "b3851105-101c-41c6-9e16-ad4e5ad5abf2",
     "mocha_a": "98e8323c-ebb0-4e04-82cc-1d0391ab05e7",  # detail 2 (detail 1 afgekeurd: broek zonder streep)
     "mocha_b": "2bde7ce2-4273-4c4f-bbc0-b7c4f42a41a9",  # bijsnede van job 7782c3c1 (x 880, y 40, 2192x3896): logo in het raam
-    "mocha_c": None,  # ronde 2 van het capuchondetail
+    "mocha_c": "c186e81c-5dcb-4739-8802-3b93e1d83db7",  # ronde 2, variant 2 (job 29e90014), bijsnede x 246, y 1651, 2150x3823
     "mocha_d": "5e091ce6-1aff-4b47-a8bf-0f9ae0e354b1",  # variant 1 (variant 2 afgekeurd: been over de armleuning)
 }
 LOCKED = ("The shot opens exactly on the start frame, with the same framing, background, head angle and closed lips. ")
