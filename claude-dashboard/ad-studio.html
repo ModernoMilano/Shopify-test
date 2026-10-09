@@ -109,8 +109,8 @@ select { font: 14px var(--body); color: var(--ink); background: var(--surface); 
     <label class="count" for="lang">Taal</label>
     <select id="lang">
       <option value="English">English</option>
-      <option value="German">Deutsch</option>
       <option value="Dutch">Nederlands</option>
+      <option value="German">Deutsch</option>
     </select>
     <button class="btn ghost" id="copyAll" type="button">Kopieer alle copy</button>
     <button class="btn ghost" id="csv" type="button" hidden>Download CSV</button>
@@ -261,7 +261,7 @@ async function writeInner(key, { fresh = false } = {}) {
   const used = usedSoFar(key);
   const prompt = `${BRIEF}
 
-Write the ad in ${state.lang}. Keep the "scene_nl" field in Dutch.
+Write the ad in ${state.lang}${state.lang === "Dutch" ? " (natural Dutch for the Netherlands and Belgium, use \"je\", keep product names as they are)" : ""}. Keep the "scene_nl" field in Dutch.
 This is ad number ${rec.n}. File name: ${rec.name || "unknown"}.
 Angles already used in this set (spread the test, prefer angles used least): ${JSON.stringify(used.angles)}
 Hooks already used (yours must be clearly different): ${JSON.stringify(used.hooks)}
@@ -414,9 +414,9 @@ window.addEventListener("drop", (e) => { e.preventDefault(); depth = 0; document
 
 $("#lang").addEventListener("change", (e) => {
   state.lang = e.target.value;
-  try { localStorage.setItem("mm-studio-lang", state.lang); } catch {}
+  try { localStorage.setItem("mm-studio-lang-v3", state.lang); } catch {}
 });
-try { const l = localStorage.getItem("mm-studio-lang"); if (l) { state.lang = l; $("#lang").value = l; } } catch {}
+try { const l = localStorage.getItem("mm-studio-lang-v3"); if (l) { state.lang = l; $("#lang").value = l; } } catch {}
 
 render();
 
