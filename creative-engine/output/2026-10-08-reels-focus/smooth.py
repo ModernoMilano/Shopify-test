@@ -11,7 +11,7 @@ Samen met de trage beweging leest dat als "laggy slow motion" (eigenaar, 9 okt).
 
 Wat dit script doet: per stap de beweging meten met optische flow (DIS), die beweging gelijkmatig over de tijd verdelen
 (Gauss-gladmaken van de snelheid, het begin en eind blijven gelijk) en elk nieuw frame op zijn tijdstip maken door het
-dichtstbijzijnde echte frame met optische flow op volle grootte op zijn plek te schuiven (bicubisch). Twee frames mengen
+dichtstbijzijnde echte frame met optische flow op volle grootte op zijn plek te schuiven (Lanczos). Twee frames mengen
 gebeurt niet: dat maakte de tussenbeelden zachter dan de echte en gaf een "ademende" scherpte (controle 9 okt). Ook het
 middelen met de buren is eruit: dat kostte de helft van het fijne detail (rits, haar) voor een pulseren van 0,36 grijswaarde
 dat niemand ziet. Tot slot de helderheid per frame gladmaken. Aantal frames, lengte en 24 fps blijven gelijk, dus de montage
@@ -62,7 +62,7 @@ def interp(a, b, f, t):
         src, k = a, np.float32(-t)
     else:
         src, k = b, np.float32(1 - t)
-    return cv2.remap(src, gx + k * f[..., 0], gy + k * f[..., 1], cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
+    return cv2.remap(src, gx + k * f[..., 0], gy + k * f[..., 1], cv2.INTER_LANCZOS4, borderMode=cv2.BORDER_REPLICATE)
 
 
 def steps(frames):

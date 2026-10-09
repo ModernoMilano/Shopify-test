@@ -187,11 +187,16 @@ De eigenaar zag in de eerste twee video's (Total Bordeaux en Il lago) een "hele 
 
 De container is gewoon 24 fps zonder omzetting. Mijn montage veroorzaakte het dus niet. Seedance heeft geen instelling voor framesnelheid. Higgsfield kan wel opschalen naar 60 fps, maar dat haalt de naden en de dubbele frames niet weg.
 
-**Oplossing, zonder credits: `smooth.py`, standaard aan in `montage.py`.** Het script doet vier dingen:
+**Oplossing, zonder credits: `smooth.py`, standaard aan in `montage.py`.** Het script doet drie dingen:
 1. De beweging per stap meten met optische flow (DIS).
-2. Die beweging gelijkmatig over de tijd verdelen, en elk frame op zijn nieuwe tijdstip opnieuw maken uit de twee frames eromheen.
-3. Elk frame middelen met zijn twee buren, die eerst met optische flow zijn uitgelijnd. Dat haalt het pulseren weg in stille stukken.
-4. De helderheid gladmaken, met afronden in plaats van afkappen.
+2. Die beweging gelijkmatig over de tijd verdelen. Elk frame op zijn nieuwe tijdstip komt uit het dichtstbijzijnde echte frame, dat met optische flow op volle grootte op zijn plek wordt geschoven (Lanczos; bicubisch hield 90%, Lanczos 96% van de scherpte in shot A van Total Bordeaux).
+3. De helderheid gladmaken, met afronden in plaats van afkappen.
+
+Wat eerst misging, gevonden door de controle:
+- De tussenbeelden mengden twee frames. Daardoor waren ze zachter dan de echte frames, en de scherpte "ademde" eens per seconde.
+- Elk frame werd gemiddeld met zijn buren. Dat kostte in shot A van Total Bordeaux de helft van het fijne detail: de rits werd een vage lijn en het haar oogde wasachtig.
+
+Beide stappen zijn eruit. Nu blijft 96% (Total Bordeaux A, mediaan) tot 100% (Il lago) van de scherpte van het origineel over, zonder schokken en zonder dubbele frames.
 
 Lengte, aantal frames en 24 fps blijven gelijk. De montages hoeven dus niet te veranderen.
 
@@ -201,7 +206,11 @@ Lengte, aantal frames en 24 fps blijven gelijk. De montages hoeven dus niet te v
 - Detail C van Il lago: van 19 schokken en 9 dubbele frames naar 1 schok en geen dubbele frames.
 - Een tussenbeeld op 100% bekeken: geen vervorming.
 
-**Les:** maak elke Seedance-clip eerst glad voor de montage. Meet daarna op licht vervaagde beelden. Zonder die vervaging meet je vooral pixelruis van één grijswaarde en geen zichtbare schokken.
+**Lessen:**
+- Maak elke Seedance-clip eerst glad voor de montage.
+- Meet schokken op licht vervaagde beelden. Zonder die vervaging meet je vooral pixelruis van één grijswaarde.
+- Meet ook de scherpte per frame tegen het origineel (variantie van de Laplaciaan). Gladmaken mag geen detail kosten.
+- Ruim tijdelijke frames op: de schijf van de sandbox liep een keer vol.
 
 ## Serie "Una giornata": video 4, Sera (DARK MOCHA)
 
@@ -214,6 +223,8 @@ Wens van de eigenaar (8 oktober, 23:00): "het cashmere two tone pak in de stoel,
 - D: de strepen over de knie, 1,8 s;
 - A: de mouwstrepen, manchet en hand, 2,0 s;
 - B: in de fauteuil, 4,2 s, met het logo de laatste 2 s (36% breed, iets boven het midden).
+
+Het capuchonmacro is 18% donkerder gezet (`"gain": 0.82`). De eindcontrole mat er een gemiddelde helderheid van 101, tegen 59 tot 72 in de andere shots, waardoor het licht bij de eerste snede zichtbaar wegviel. Dit trekt alleen de belichting gelijk; er is geen kleurlook of LUT toegevoegd.
 
 | Wat | Job of media | Controle |
 |---|---|---|
