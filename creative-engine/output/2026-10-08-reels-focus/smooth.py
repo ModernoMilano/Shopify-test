@@ -53,16 +53,28 @@ def flow(a, b, scale=0.5):
     return f
 
 
-def interp(a, b, f, t):
-    """Frame op tijd t (0..1) tussen a en b: het dichtstbijzijnde frame, met flow f (a->b, volle grootte) op zijn plek
-    geschoven. Eén frame verschuiven houdt het detail; twee mengen maakt het zacht."""
+def reliable(f, g, gx, gy):
+    """Gewicht 0..1 per pixel: klopt de flow heen (f) en terug (g)? Op randen waar iets voor iets anders schuift (vingers
+    voor een chromen rand, een donkere jas tegen glinsterend water) klopt hij niet; daar niet schuiven, anders scheurt het
+    beeld (controle Il lago, 9 okt)."""
+    gb = cv2.remap(g, gx + f[..., 0], gy + f[..., 1], cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+    err = np.sqrt(((f + gb) ** 2).sum(-1))
+    wgt = np.clip(2.0 - err, 0.0, 1.0)  # fout < 1 px: volledig schuiven, > 2 px: niet schuiven
+    return cv2.GaussianBlur(wgt, (0, 0), 4.0)[..., None]
+
+
+def interp(a, b, fg, t):
+    """Frame op tijd t (0..1) tussen a en b: het dichtstbijzijnde frame op zijn plek geschoven met de flow naar het andere
+    frame (volle grootte), alleen waar die flow heen en terug klopt. Eén frame verschuiven houdt het detail; twee mengen
+    maakt het zacht."""
+    f, g = fg  # a->b en b->a
     h, w = a.shape[:2]
     gx, gy = np.meshgrid(np.arange(w, dtype=np.float32), np.arange(h, dtype=np.float32))
     if t <= 0.5:
-        src, k = a, np.float32(-t)
+        src, k, v = a, np.float32(t), f * reliable(f, g, gx, gy)
     else:
-        src, k = b, np.float32(1 - t)
-    return cv2.remap(src, gx + k * f[..., 0], gy + k * f[..., 1], cv2.INTER_LANCZOS4, borderMode=cv2.BORDER_REPLICATE)
+        src, k, v = b, np.float32(1 - t), g * reliable(g, f, gx, gy)
+    return cv2.remap(src, gx - k * v[..., 0], gy - k * v[..., 1], cv2.INTER_LANCZOS4, borderMode=cv2.BORDER_REPLICATE)
 
 
 def steps(frames):
@@ -90,7 +102,7 @@ def retime(frames, m):
         else:
             if i not in cache:
                 cache.clear()
-                cache[i] = flow(frames[i], frames[i + 1], scale=1.0)
+                cache[i] = (flow(frames[i], frames[i + 1], scale=1.0), flow(frames[i + 1], frames[i], scale=1.0))
             out.append(interp(frames[i], frames[i + 1], cache[i], t))
     return out, tau
 

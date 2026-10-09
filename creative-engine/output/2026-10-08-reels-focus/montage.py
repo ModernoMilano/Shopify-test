@@ -12,9 +12,10 @@ edit.json:
    "text":  [{"cut": 0, "lines": [["One gilet.", 96]], "y": 0.6}, ...],  # y = midden van het tekstblok (0-1)
    "logo":  {"src": "LOGO", "width": 0.4, "seconds": 2.0, "y": 0.5, "fade": 0.5, "dim": 0.18},
             # logo (PNG met alfa) de laatste 'seconds' in het midden; komt in 'fade' s op, beeld 'dim' donkerder
-   "smooth": true}
+   "smooth": true, "smooth_skip": ["B"]}
             # eerst elke Seedance-clip gladmaken met smooth.py (de schok elke seconde en dubbele frames, eigenaar 9 okt);
-            # standaard aan, zet op false om de ruwe clip te gebruiken
+            # standaard aan, zet op false om de ruwe clips te gebruiken; smooth_skip: clips die ruw blijven (een bijna stille
+            # shot met twinkelende lichten: daar meet smooth.py de lichten en niet de man, controle Sera 9 okt)
 
 Harde snedes, 24 fps (zoals de clips), 1080x1920. Geen korrel en geen LUT (SKILL.md, "Echt, niet AI"): de beelden blijven zoals het
 model ze maakt. Tekst: gele schreefletter met zachte schaduw (Canva-bord 4-01), buiten de onderste 22% (de Instagram-knoppen).
@@ -141,7 +142,7 @@ def main(cfg_path, out):
     if cfg.get("smooth", True):
         import smooth  # naast dit script; zie de uitleg daar
         for k, pth in list(local.items()):
-            if pth.endswith(".mp4"):
+            if pth.endswith(".mp4") and k not in cfg.get("smooth_skip", []):
                 dst = pth[:-4] + "_s.mp4"
                 if not os.path.exists(dst):
                     smooth.process(pth, dst)
