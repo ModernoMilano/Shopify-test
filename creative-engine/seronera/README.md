@@ -80,3 +80,9 @@ Notes from practice:
 ## Batch 3 (2026-10-09)
 5 ads: women's belt red and pink (€100), men's belt green (€149), hornback cognac (€199), key ring cognac (€25). One 9:16 file per ad, all checks pass, 20 credits. Settings in `batch3/`.
 Download: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/715c6075-413f-4b79-a279-27f9f972d04d.zip
+
+## Batch 4 (2026-10-09): "1 of 1" iPhone case + engraving fix for belts
+- 3 iPhone ads around the hook "no two cases are the same": **1 of 1.** (hornback red, €150), **Edition of one.** (hornback brown, €150), **No second one exists.** (purple, belly leather, €99). Copy in `batch4/copy.json`.
+- #18 and #19 (batch 3) now have the SERONERA engraving on the buckle, as on the real belts. Women's belts (gold buckle) have no engraving, so #16/#17 are correct.
+- Download (21, 22, 23 + corrected 18, 19): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/a2fa1adb-37e2-408d-b36a-89a47f30adf9.zip
+- Lessons: see `batch4/backgrounds.json` → `lessons`.

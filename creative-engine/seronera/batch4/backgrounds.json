@@ -1,0 +1,21 @@
+{
+  "resultBase": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/",
+  "productPhotoMediaIds": {"hornbackRed": "a07fe5b7-91f4-48bc-987e-103dc7562ca7", "hornbackBrown": "2628e376-57f9-443d-9007-003ff03fb374", "purple": "ca07a9b3-2b80-4f4d-890d-b0de105e0418"},
+  "used": {
+    "p21": "hf_20261009_122429_80a6b98f-c937-4992-bd87-80132eb13b9e.png",
+    "p22": "hf_20261009_122019_c89b2f51-4140-43fb-a0f4-a9a167ad71b5.png",
+    "p23": "hf_20261009_121659_43147a3d-7d9c-41c7-846f-c5c4679e887f.png"
+  },
+  "beltEngravingFix": {
+    "why": "Men's belt and hornback belt have SERONERA engraved on the bottom bar of the silver buckle (women's belts with gold buckle have no engraving). Batch 3 #18/#19 were missing it.",
+    "how": "nano_banana_pro 9:16 edit with image_references [finished background, real product photo]: 'keep the first image identical, only show the SERONERA engraving on the lower bar of the buckle as in the second image'.",
+    "e18": "hf_20261009_121612_65ef16df-01af-484c-b79c-eef8c0508bb0.png",
+    "e19": "hf_20261009_121612_3815d752-f80e-458c-8ae0-70f0741ddd28.png"
+  },
+  "lessons": [
+    "outpaint_image from 1:1 to a larger 1:1 changes nothing (no zoom-out). To shrink: first outpaint to 3:2 or 16:9, then to 9:16.",
+    "Measure the product top in the image (colour mask) instead of estimating it; the overlap check is only as good as productTop.",
+    "For belts with a silver buckle: ask for the engraving explicitly in the prompt, or add it afterwards with the edit above."
+  ],
+  "download": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/a2fa1adb-37e2-408d-b36a-89a47f30adf9.zip"
+}

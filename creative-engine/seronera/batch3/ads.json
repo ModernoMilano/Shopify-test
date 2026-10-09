@@ -1,7 +1,59 @@
 [
- {"id": 16, "product": "womens-belt", "colour": "Red", "bg": 71, "theme": "dark", "productTop": 780, "headline": "Define the waist.", "sub": "Women's crocodile belt · €100"},
- {"id": 17, "product": "womens-belt", "colour": "Pink", "bg": 72, "theme": "light", "productTop": 780, "headline": "A gift of her own.", "sub": "Crocodile leather belt · €100", "subColor": "#252525"},
- {"id": 18, "product": "mens-belt", "colour": "Green", "bg": 73, "theme": "light", "productTop": 780, "headline": "Denim to tailoring.", "sub": "Crocodile belt · €149", "subColor": "#252525", "scrim": "rgba(239,236,236,0.62)"},
- {"id": 19, "product": "hornback-belt", "colour": "Cognac", "bg": 74, "theme": "light", "productTop": 770, "headline": "Bolder, by nature.", "sub": "Hornback belt · €199", "subColor": "#252525"},
- {"id": 20, "product": "key-ring", "colour": "Cognac", "bg": 75, "theme": "light", "productTop": 800, "headline": "A thoughtful gift.", "sub": "Crocodile key ring · €25", "subColor": "#252525"}
+ {
+  "id": 16,
+  "product": "womens-belt",
+  "colour": "Red",
+  "bg": 71,
+  "theme": "dark",
+  "productTop": 780,
+  "headline": "Define the waist.",
+  "sub": "Women's crocodile belt · €100"
+ },
+ {
+  "id": 17,
+  "product": "womens-belt",
+  "colour": "Pink",
+  "bg": 72,
+  "theme": "light",
+  "productTop": 780,
+  "headline": "A gift of her own.",
+  "sub": "Crocodile leather belt · €100",
+  "subColor": "#252525"
+ },
+ {
+  "id": 18,
+  "product": "mens-belt",
+  "colour": "Green",
+  "bg": "e18",
+  "theme": "light",
+  "productTop": 780,
+  "headline": "Denim to tailoring.",
+  "sub": "Crocodile belt · €149",
+  "subColor": "#252525",
+  "scrim": "rgba(239,236,236,0.62)",
+  "note": "background replaced by the engraving fix (see batch4/backgrounds.json); new file is in the batch 4 download"
+ },
+ {
+  "id": 19,
+  "product": "hornback-belt",
+  "colour": "Cognac",
+  "bg": "e19",
+  "theme": "light",
+  "productTop": 770,
+  "headline": "Bolder, by nature.",
+  "sub": "Hornback belt · €199",
+  "subColor": "#252525",
+  "note": "background replaced by the engraving fix (see batch4/backgrounds.json); new file is in the batch 4 download"
+ },
+ {
+  "id": 20,
+  "product": "key-ring",
+  "colour": "Cognac",
+  "bg": 75,
+  "theme": "light",
+  "productTop": 800,
+  "headline": "A thoughtful gift.",
+  "sub": "Crocodile key ring · €25",
+  "subColor": "#252525"
+ }
 ]

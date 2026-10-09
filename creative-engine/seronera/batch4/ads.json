@@ -1,0 +1,6 @@
+[
+ {"id": 21, "product": "iphone-case", "colour": "Hornback Red", "bg": "p21", "theme": "dark", "productTop": 761, "headline": "1 of 1.", "sub": "No two cases alike · €150", "subColor": "#EFECEC",
+  "bgNote": "square -> outpaint 16:9 -> outpaint 9:16, then locally: empty studio wall above y 600 stretched 80px so the phone sits lower (phone itself untouched)"},
+ {"id": 22, "product": "iphone-case", "colour": "Hornback Brown", "bg": "p22", "theme": "dark", "productTop": 735, "headline": "Edition of one.", "sub": "Hornback iPhone case · €150", "bgNote": "square -> outpaint 3:2 -> outpaint 9:16"},
+ {"id": 23, "product": "iphone-case", "colour": "Purple", "bg": "p23", "theme": "light", "productTop": 820, "headline": "No second one exists.", "sub": "Photographed individually · €99", "subColor": "#252525", "bgNote": "square -> outpaint 9:16"}
+]
