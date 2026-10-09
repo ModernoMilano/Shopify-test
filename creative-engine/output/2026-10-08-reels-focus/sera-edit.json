@@ -3,7 +3,7 @@
          "A": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261009_105013_592caa19-0508-49c7-b6b6-a1ae4f292cbd.mp4",
          "B": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261009_105140_fb0f21ca-43b8-42f5-9d72-cfea44d7cc85.mp4",
          "LOGO": "https://raw.githubusercontent.com/ModernoMilano/Shopify-test/claude/jolly-cray-abusr6/creative-engine/brand/assets/logo-moderno-milano.png"},
- "cuts": [{"src": "C", "from": 0.4, "dur": 2.0},
+ "cuts": [{"src": "C", "from": 0.4, "dur": 2.0, "gain": 0.82},
           {"src": "D", "from": 1.0, "dur": 1.8},
           {"src": "A", "from": 1.0, "dur": 2.0},
           {"src": "B", "from": 0.8, "dur": 4.2}],

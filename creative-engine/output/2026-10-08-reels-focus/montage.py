@@ -7,6 +7,7 @@ edit.json:
    "cuts":  [{"src": "MAC", "dur": 1.3, "zoom": [1.0, 1.06]},           # still: langzaam inzoomen
              {"src": "B", "dur": 1.0, "crop": [0.3, 0.25, 0.75, 0.6]},  # detail uit een still (fracties)
              {"src": "A", "from": 0.2, "dur": 2.2},                     # clip: stuk vanaf 'from'
+             {"src": "C", "from": 0.4, "dur": 2.0, "gain": 0.82},       # belichting gelijktrekken met de andere shots
              ...],
    "text":  [{"cut": 0, "lines": [["One gilet.", 96]], "y": 0.6}, ...],  # y = midden van het tekstblok (0-1)
    "logo":  {"src": "LOGO", "width": 0.4, "seconds": 2.0, "y": 0.5, "fade": 0.5, "dim": 0.18},
@@ -155,6 +156,9 @@ def main(cfg_path, out):
         p = local[c["src"]]
         frames = (clip_frames(p, c.get("from", 0), c["dur"], f"tmp{i}", c.get("crop"), c.get("zoom")) if p.endswith(".mp4")
                   else still_frames(p, c["dur"], c.get("zoom", [1.0, 1.05]), c.get("crop")))
+        if c.get("gain"):  # alleen de belichting van één shot gelijktrekken (Sera, 9 okt); geen kleurlook, geen LUT
+            g = float(c["gain"])
+            frames = (Image.eval(fr, lambda v, g=g: min(255, round(v * g))) for fr in frames)
         t = texts.get(i)
         layer = text_layer(t["lines"], t.get("y", 0.6), cfg["fonts"]) if t else None
         for k, fr in enumerate(frames):
