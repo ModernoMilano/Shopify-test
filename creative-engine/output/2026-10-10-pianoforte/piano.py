@@ -328,8 +328,11 @@ VIDEO_PROMPT = (
     "the right to keep him in the picture, so that the piano leaves the picture on the left and more and more of him, the "
     "tall windows and the room come into view, and the garden greenery just outside the glass opens up into the wide view "
     "over the bay far below. His head comes into view from behind; his face stays turned away from the camera the whole "
-    "time, and at the glass his head stays turned towards the sea. The grand piano and the curtained window bay of the "
-    "start frame pass out of the picture on the left during the turn; they do not fade or change into the glass walls. "
+    "time, and at the glass his head stays turned towards the sea in the same lost profile, never further towards the "
+    "camera. The grand piano and the curtained window bay of the start frame pass out of the picture on the left early "
+    "in the turn; they do not fade or change into the glass walls or the furniture. Only after the piano has left the "
+    "picture do the soft corner of the linen sofa and the travertine table come into the left foreground. He stops just "
+    "beside the pale ceramic vase with the olive tree, his right hand hanging close to it without touching the leaves. "
     "Over the last two seconds the camera slows smoothly and comes to rest behind him, exactly on the end frame, while "
     "he stands relaxed at the glass with his arms at his sides. The terrace, the beach and the bay stay empty: no people "
     "and no boats appear. He is the same man in the same "
@@ -341,7 +344,11 @@ VIDEO_PROMPT = (
     "wrists stay bare. Soft daylight from the windows, natural motion blur.")
 
 
-def video(end_job, draft=True, resolution="480p", duration=8, draft_job=None):
+# Gekozen eindbeeld (controle 10 okt): 94, de bewerking van 93 met infinity pool, meubels en balkenplafond.
+END_JOB = "4d7fdf1b-1093-4b13-aea5-e685537506af"
+
+
+def video(end_job=END_JOB, draft=True, resolution="480p", duration=8, draft_job=None):
     medias = [{"role": "start_image", "value": START_JOB}, {"role": "end_image", "value": end_job}]
     p = {"model": "seedance_2_5", "mode": "omni_reference", "resolution": resolution, "draft": draft,
          "bitrate_mode": "high", "duration": duration, "aspect_ratio": "9:16", "generate_audio": False,

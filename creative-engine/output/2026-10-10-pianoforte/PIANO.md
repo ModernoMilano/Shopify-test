@@ -64,7 +64,22 @@ Ronde 4, voor meer grandeur (2k, 2 credits per beeld):
 | 95 | 6fccd2ab-bf2a-4cd7-82f2-53e7ab0b8596 | nieuw: woonkamer van dubbele hoogte (ongeveer 6 m), 35mm, hij staat ongeveer 6 m van de camera |
 | 96 | a3934a1b-162b-42db-8533-bc931bf3f3a0 | bewerking van startbeeld 87, alleen de toetsen: niet duidelijk beter (nog steeds een gelijkmatige rij), dus 87 blijft |
 
-Controle van 94 en 95: zie hieronder.
+Controle van 94 en 95, met drie controleurs per variant en een eindoordeel; 93 diende als vergelijking:
+- **94 gekozen**, goedgekeurd met aantekeningen. De figuur en de outfit zijn gelijk aan 93 (ongeveer 65% van de beeldhoogte, goed leesbaar op een telefoon). De nieuwe infinity pool, de meubels en het balkenplafond laten het lezen als een luxe villa aan zee. Aantekeningen:
+  - Het plafond heeft nog een gewone hoogte.
+  - Zijn hoofd staat in een verloren profiel: de neuspunt is net te zien.
+  - De antraciet is donker met een lichte paarse zweem, gelijk aan het startbeeld.
+  - Er zit een stipje op het verre strand, niet zichtbaar op een telefoon.
+  - Zijn rechterhand hangt vlak bij de olijftak.
+- **95 afgekeurd.** Een doorzichtige spookfiguur zonder hoofd in het rechterraam, met een lichte bodywarmer. Verder daken in het uitzicht, een haarvorm die niet bij hem past (pottenkapsel) en een camera op 2,5 à 3 m hoogte. Wel de meest villa-achtige ruimte.
+
+De video-opdracht is daarop aangepast:
+- De vleugel verlaat het beeld links voordat de bank in beeld komt.
+- Zijn hand raakt de olijftak niet.
+- Zijn hoofd blijft in hetzelfde verloren profiel.
+- Er verschijnen geen mensen of boten.
+
+Overzicht (startbeeld 87 links, eindbeeld 94 rechts): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/d714c0d3-f0c6-4c49-a6d6-c1551c3fa621.jpg
 
 Video-opdracht: zie `VIDEO_PROMPT` in `piano.py`.
 - Hij draait naar zijn rechterhand en loopt in vier stappen naar het raam; hij staat er rond seconde 6.
@@ -89,7 +104,7 @@ Volgens de transactielijst stond er vóór vandaag 48,55, niet de 96,55 uit het 
 
 ## Video (wacht op goedkeuring van de beelden en een top-up)
 
-Opzet: Seedance 2.5 met 87 als start_image en het gekozen villa-eindbeeld als end_image, op normaal tempo, zonder slow motion. Dan gladmaken met `smooth.py` (dat vertraagt niets) en het logo aan het eind.
+Opzet: Seedance 2.5 met 87 als start_image en 94 als end_image, op normaal tempo, zonder slow motion. Dan gladmaken met `smooth.py` (dat vertraagt niets) en het logo aan het eind.
 
 Prijzen opgevraagd met get_cost (10 okt); met of zonder gezichtsreferenties is de prijs gelijk:
 
@@ -99,4 +114,4 @@ Prijzen opgevraagd met get_cost (10 okt); met of zonder gezichtsreferenties is d
 | 8 s: direct 720p, zonder concept | 56 |
 | 6 s: concept (480p) en dan 1080p | ongeveer 18 + 72 = 90 (3 en 12 per seconde) |
 
-Opdracht bouwen: `python3 -I piano.py video <job eindbeeld> draft 8`, en daarna `python3 -I piano.py video <job eindbeeld> <concept job>` voor 1080p.
+Opdracht bouwen: `python3 -I piano.py video 4d7fdf1b-1093-4b13-aea5-e685537506af draft 8`, en daarna `python3 -I piano.py video 4d7fdf1b-1093-4b13-aea5-e685537506af <concept job>` voor 1080p.
