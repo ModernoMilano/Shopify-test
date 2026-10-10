@@ -15,7 +15,8 @@ Gebruik:
   python3 -I piano.py shoes <job eind>    -> 2 varianten van het eindbeeld met alleen andere schoenen (2k)
   python3 -I piano.py end2 <job start>    -> 2 varianten van het eindbeeld, ronde 2, met het startbeeld als kamer (2k)
   python3 -I piano.py end3 <job start>    -> 2 varianten van het eindbeeld, ronde 3: villa aan zee, van achteren (2k)
-  python3 -I piano.py video [draft|720p|<concept job>] [seconden]  -> Seedance 2.5 van startbeeld 87 naar eindbeeld 90
+  python3 -I piano.py video <job eind> [draft|720p|<concept job>] [seconden]  -> Seedance 2.5 van startbeeld 87 naar het
+                                                                    eindbeeld
 """
 import json, os, sys
 
@@ -94,43 +95,99 @@ def end_frame2(job_start):
 # - de villa wordt groot, met uitzicht over zee, strand en natuur in Italië;
 # - het beeld eindigt achter hem, terwijl hij vanaf het raam naar het uitzicht kijkt.
 # Gekozen kust: Sardinië. Een stille baai met licht zand, turquoise water en macchia en pijnbomen op de rotsen.
-# De achterkant-foto van de set is boven de enkels afgesneden (ce8e5038), want ook daar draagt het model penny loafers.
-SET_BACK_NOSHOES = "ce8e5038-0802-44f9-bd0d-66473adf7828"
-VIEW = ("a wide view over a quiet bay on the coast of Sardinia below: a curved beach of pale sand, clear turquoise water "
-        "turning deep blue further out, green Mediterranean scrub and umbrella pines on the rocky headlands, and the open sea "
-        "to the horizon under a soft, slightly hazy sky; no buildings, no boats close by and no people on the beach")
-ID_BACK = ("He is the same man as in the reference images, seen from behind: warm chestnut-brown hair (not espresso, not "
-           "near-black), full and swept back with soft natural volume, the sides combed back over the tops of his ears and "
-           "tapered neatly at the nape; the same build, shoulders and posture.")
+# Vooraf door 4 critici nagelopen (workflow, 10 okt). De belangrijkste aanpassingen:
+# - Referentie #2 is de achterkant van de set zonder hoofd (78276004): het productmodel heeft kort, bijna zwart haar.
+#   Ook zonder schoenen, want daar draagt het penny loafers.
+# - Referentie #4 is de loafer van achteren (c899ef9b): van achteren zie je alleen de hielen.
+# - Het kader moet bereikbaar zijn vanuit het startbeeld. De ramen staan rechts en lopen de diepte in; hij draait naar
+#   zijn rechterhand en loopt naar het raam in de hoek. De vleugel zit niet in het eindbeeld, dus er kunnen geen foute
+#   toetsen in komen.
+# - Direct achter het glas staan een terras en bomen, net als in het startbeeld, met de baai daarachter. Anders moet de
+#   video een tuin in zee laten overvloeien.
+# - 50mm op f/8, zodat het uitzicht leesbaar blijft. Geen hand in zijn zak: dat beweegt slecht in video.
+SET_BACK = "78276004-55b2-4e58-8bab-0bd295330338"
+LOAFER_REAR = "c899ef9b-3a34-4e8d-83cf-1d83804a6f07"
 
 
 def end_frame3(job_start):
     return req([
-        ("Late morning, a few seconds later in the same room as reference image #1: the large living room of a grand villa "
-         "high above the sea on the coast of Sardinia, with high ceilings, a pale travertine floor, warm stone walls, ivory "
-         "linen curtains, the same black lacquered grand piano and a wall of tall floor-to-ceiling windows with thin bronze "
-         f"frames. Through the tall windows, {VIEW}. Nobody else is in the room. " + EL + " stands at the tall window, seen "
-         "from behind with his back to the camera, looking out over the bay; his weight on one leg, his right hand in his "
-         "trouser pocket and his left arm relaxed at his side, his head level and facing the view, so his face is not "
-         "visible. The camera stands a few metres behind him in the room at chest height, a little off-centre; at the left "
-         "edge of the frame the curved black lacquered tail of the grand piano is soft and out of focus, and no piano keys "
-         "are visible. Framed vertically from just above his head to his feet on the travertine floor: the whole man and his "
-         "loafers are in the picture, with the bright bay filling the window around him."),
-        ("Soft late-morning daylight from the tall windows. The view outside is bright and slightly hazy but keeps its colour "
-         "and detail. The room and his back are softly lit by daylight bouncing off the pale travertine floor, a stop darker "
-         "than the view, with a soft shadow on the floor behind his feet. Muted natural colour, soft contrast, no HDR, not a "
-         "silhouette."),
-        ID_BACK,
-        "He wears only these ModernoMilano pieces, reproduced exactly as in the product reference images:\n" + SET["text"]
-        + "\n" + LOAFER,
-        ("How they are worn, seen from behind: the gilet with the dark ANTHRACITE side out, its plain back panel and "
-         "elasticated hem, the stand collar standing up at the back of his neck; the short sleeves of the light pietra "
-         "T-shirt coming out of the deep armholes, and its hem hanging loose below the gilet hem; the anthracite trousers, "
-         "slim and tapered, ending just above the ankle bone; the grey suede loafers on bare feet, with bare skin visible at "
-         "both ankles."),
-        sleeveless("dark anthracite grey", "light pietra stone", 2), LOAFER_PLAIN, PIANO,
-        f"{HANDS} He is the only person in the picture.", REAL_SMOOTH,
-        "Full-frame digital camera, 35mm lens at f/2.8."], [job_start, SET_BACK_NOSHOES, LOAFER_SIDE, LOAFER_PAIR])
+        ("Late morning, a few seconds later in the same room as reference image #1, seen from a little further back, "
+         "slightly higher and turned a little to the right: the large living room of a grand Italian villa high on a green "
+         "hillside above the sea on the north-east coast of Sardinia, Italy, with a pale polished travertine floor, warm "
+         "plaster walls and ivory linen curtains drawn back to the sides of the windows. The wall of tall floor-to-ceiling "
+         "glass panels in the same slim bronze frames as in reference image #1, which is behind him on the right of "
+         "reference image #1, is still on the right side of the picture, running into the depth of the room; at the far "
+         "end of the room it turns the corner into a second wall of the same tall glass panels facing the camera, with "
+         "large clear panes and a low threshold at the floor. Just outside the glass lie a pale stone terrace, the "
+         "terracotta-tiled roof edge of the villa's lower terrace and the tops of the garden's umbrella pines and olive "
+         "trees, the same greenery as glimpsed through the windows in reference image #1; beyond and far below them, a "
+         "wide view over a quiet bay a few hundred metres away: a crescent of pale sand, small with the distance, clear "
+         "water that is soft turquoise near the shore and deep blue further out, smooth pink-grey granite rocks, green "
+         "Mediterranean scrub of juniper and myrtle and Italian umbrella pines on the two headlands that frame the bay, and "
+         "the open sea running out to the horizon under a clear soft-blue sky with a light haze only along the horizon. "
+         "The beach is empty and untouched, the sea is empty, and the green hillsides are wild, with no other buildings. "
+         "Nobody else is in the room."),
+        (EL + " stands close to the far windows, a little right of centre, about four to five metres from the camera, seen "
+         "straight from behind with his back to the camera, looking out over the bay; his weight on one leg, both arms "
+         "hanging relaxed at his sides. His head is straight and level, turned fully towards the window like his "
+         "shoulders: from the camera only the back of his head, his hair, the back of his neck and the backs of his ears "
+         "are seen, with no part of his cheek, nose or eye in view. He stands in front of one wide clear pane, so his body "
+         "does not cover the view: the curved pale beach, the turquoise water and a pine-covered headland are plainly "
+         "visible in the glass beside him, and the sea horizon is one straight, level line at the same height on both "
+         "sides of him, crossing behind his upper back; the thin bronze frames are to his left and right, not behind his "
+         "head or spine. The glass is clean and clear, with no reflection of him or of the room in it."),
+        ("The camera is at chest height and held perfectly level, so the vertical window frames stay vertical and "
+         "parallel. Framed vertically, he fills a little over half the height of the frame, standing in its lower part "
+         "with his loafers near the bottom edge and a stretch of polished floor between him and the camera; the tall glass "
+         "panels rise far above his head and run on past the top of the frame, so the height of the room and the size of "
+         "the windows are obvious."),
+        ("Soft late-morning daylight; the sun is high and behind the house, out of view, so the bay is lit from the front "
+         "with clear, gentle colour, there is no glare or sparkle on the water, and no sunbeams or bright sun patches fall "
+         "into the room. The only light in the room is this daylight coming through the glass, soft and even as in "
+         "reference image #1. The view is the brightest part of the picture but keeps its colour and detail; the room and "
+         "his back are in soft open daylight about one and a half stops darker, clearly readable. The polished travertine "
+         "in front of him carries a soft, blurred reflection of the bright window, and under his loafers there is only a "
+         "faint, diffuse contact shadow. Against the bright window the gilet and trousers still read clearly as dark "
+         "anthracite grey, not black, with their matte peached texture visible, and the T-shirt sleeves and hem read as "
+         "light pietra stone. Muted natural colour, soft contrast, no HDR, not a silhouette."),
+        ("He is the man introduced above, seen from behind. Reference image #2 shows only the clothing; the man wearing it "
+         "there is a different person, so his head, hair, neck and skin are not copied. From behind, his hair is warm "
+         "chestnut brown with lighter golden-brown strands where the daylight catches it (not espresso, not near-black), "
+         "full and swept back with soft natural volume, longer on top, the sides combed back over the tops of his ears and "
+         "tapered neatly at the nape; the same build, shoulders and posture."),
+        ("He wears only these ModernoMilano pieces, reproduced exactly as in the product reference images:\n" + SET["text"]
+         + "\n- MILANO SUEDE LOAFER - GRIGIO, exactly as in reference images #3 (from the side) and #4 (from behind): "
+         "mid-grey suede slip-on loafers with a flat off-white rubber sole, worn on bare feet without socks, a mirrored "
+         "left and right pair."),
+        ("How they are worn, seen from behind: the gilet with the dark ANTHRACITE side out. The zip and the two welt "
+         "pockets are on the front and are not visible from behind; the back panel is one plain piece of anthracite "
+         "fabric with no zip, pocket, label or logo, exactly as in reference image #2, ending in the elasticated hem, and "
+         "the back of the stand collar stands up plain anthracite at the back of his neck. The short sleeves of the light "
+         "pietra T-shirt come out of the deep armholes, and the T-shirt hem hangs loose a few centimetres below the gilet "
+         "hem, untucked all the way round, covering the waistband. The anthracite trousers are slim and tapered, with a "
+         "plain, clean seat with no back pockets and no labels, exactly as in reference image #2, ending just above the "
+         "ankle bone; there is no belt."),
+        ("The gilet is a SLEEVELESS bodywarmer, cut like the gilet in reference image #2. Seen from behind, it shows only "
+         "its dark anthracite outside: the back panel, the outside of the stand collar, the armhole edges and the "
+         "elasticated hem are all anthracite, and no light pietra stone shows anywhere on the gilet in this picture. The "
+         "armholes are cut deep and sit clearly inward of his shoulder points, so on both sides the T-shirt's shoulder "
+         "seam and the top of its short sleeve are plainly visible outside the gilet. The gilet is a matte, peached, "
+         "slightly thicker fabric whose armhole edges lie flat on the T-shirt; the T-shirt is a thinner jersey with a "
+         "subtle sheen, so the two layers are easy to tell apart. The T-shirt sleeve ends in its own hemmed edge on the "
+         "upper arm."),
+        ("Seen from behind, his feet point away from the camera towards the window. The loafers are exactly as in "
+         "reference image #4: plain rounded grey suede heels with a single fine centre-back seam, no heel tab, no pull "
+         "loop, no logo and no contrast patch; the low suede topline sits just below his bare heels, with bare skin at the "
+         "backs of both ankles and no socks; the flat off-white rubber sole is slightly thicker at the heel. Their fronts, "
+         "hidden from the camera, have a smooth plain vamp with only a stitched moc-toe seam: no strap, no saddle and no "
+         "penny slot."),
+        f"{HANDS} He is the only person in the picture.",
+        ("An unretouched photograph. The visible skin of his neck, forearms and hands has fine real texture, matte, with "
+         "no glow and no airbrushing. The clothes are real fabric with soft natural creases at the waist and where the "
+         "gilet folds. Real optics: full-frame digital camera, natural depth of field, slight lens softness at the far "
+         "edges: he is sharp, and the bay beyond the glass is a little softer with distance and haze but clearly readable. "
+         "No borders, no frame, no text, no logos."),
+        "Full-frame digital camera, 50mm lens at f/8."], [job_start, SET_BACK, LOAFER_SIDE, LOAFER_REAR])
 
 
 def start_frame(job_end):
@@ -176,36 +233,42 @@ def shoes_fix(job_end):
         "No film borders, no frame, no text, no logos."], [job_end, LOAFER_SIDE, LOAFER_PAIR])
 
 
-# Video: één doorlopende take van startbeeld 87 naar eindbeeld 90. Niet slow motion (wens eigenaar): het tempo wordt
-# in de prompt uitgeschreven, want Seedance maakt uit zichzelf trage beweging.
-START_JOB, END_JOB = "928c365c-4920-4184-a043-8e9a9e801112", "3cb9512a-2879-4588-8944-e52ed9384978"
-VIDEO_MOTION = (
-    "One continuous take in real time, at a normal, natural pace; not slow motion. It opens exactly on the start frame: a "
-    "close detail of his left hand resting on the white keys of the black lacquered grand piano, his bare forearm and the "
-    "short sleeve of the light pietra T-shirt coming out of the deep armhole of the anthracite gilet. In the first second "
-    "he presses one key softly, lifts his hand from the keys and turns away from the piano towards the tall window on the "
-    "right. He walks to the window with a few relaxed steps at a normal walking pace while the camera pulls back smoothly "
-    "and steadily at hip height, so that more and more of him and the room comes into view: his arm and the gilet, then "
-    "the trousers, then the grey suede loafers on bare feet, until the whole man stands in profile at the window. There he "
-    "stops, slides his right hand into his trouser pocket and looks out at the garden, exactly as in the end frame; for "
-    "the last second he stands still, breathing softly.")
-VIDEO_CLOTHES = (
-    "the sleeveless gilet stays dark anthracite outside, light pietra stone only inside the collar and along the open front "
-    "edges, hanging open over the light pietra T-shirt, which hangs loose and untucked at the same length throughout, with "
-    "the slim anthracite trousers and the plain grey suede loafers on bare feet")
+# Video: één doorlopende take van startbeeld 87 naar het eindbeeld (ronde 3: villa aan zee, van achteren).
+# - Niet slow motion (wens eigenaar): tempo en tijdstippen staan uitgeschreven, want Seedance maakt uit zichzelf trage
+#   beweging.
+# - Camerapad (critici, 10 okt): hij draait naar zijn rechterhand, met zijn rug naar de camera. De camera trekt terug,
+#   stijgt van heuphoogte naar borsthoogte en draait een kwartslag naar rechts, met een zachte start en een zacht einde.
+# - Geen gezichtsreferenties: zijn gezicht komt nooit in beeld en gezichtsreferenties trekken het hoofd naar de camera.
+# - Geen hand in de zak.
+START_JOB = "928c365c-4920-4184-a043-8e9a9e801112"
+VIDEO_PROMPT = (
+    "One continuous shot in real time, at a normal, natural pace, not slow motion, with a single smooth camera move that "
+    "starts gently and ends gently. It opens exactly on the start frame: a vertical shot from his shoulders to his shins, "
+    "his head above the top of the frame, as he stands at the end of the keyboard of the black lacquered grand piano "
+    "facing it, his left side to the camera and his left hand on the white keys, with the tall bronze-framed windows "
+    "behind him on the right. For the first second the camera is almost still while his index finger presses one key "
+    "softly. Then he lifts his hand from the keys, turns to his right, away from the camera, until his back is to the "
+    "camera, and walks with four relaxed steps at a normal walking pace away from the camera and slightly to the right, to "
+    "the tall windows at the far end of the room, where he stops close to the glass and looks out over the bay, exactly as "
+    "in the end frame, by about the sixth second. As he turns, the camera starts one steady, continuous move at an even "
+    "speed: it pulls back on a smooth dolly, rising gently from hip height to chest height and turning slowly a little to "
+    "the right to keep him in the picture, so that the piano leaves the picture on the left and more and more of him, the "
+    "tall windows and the room come into view, and the garden greenery just outside the glass opens up into the wide view "
+    "over the bay far below. His head comes into view from behind; his face stays turned away from the camera the whole "
+    "time. Over the last two seconds the camera slows smoothly and comes to rest about four metres behind him, exactly on "
+    "the end frame, while he stands relaxed at the glass with his arms at his sides. He is the same man in the same "
+    "clothes from the first frame to the last: the sleeveless gilet stays dark anthracite outside, and its armhole edges "
+    "stay dark anthracite with no light pietra showing at the armholes, also when his arms swing as he walks; it hangs "
+    "open over the light pietra T-shirt, which stays loose and untucked at the same length, with the slim anthracite "
+    "trousers and the mid-grey suede slip-on loafers with a plain vamp and an off-white sole on bare feet; his hands and "
+    "wrists stay bare. Soft daylight from the windows, natural motion blur.")
 
 
-def video(draft=True, resolution="480p", duration=8, draft_job=None):
-    faces = [r["upscale_job_id"] for r in HF["face_refs"] if any(r["file"].endswith(f"/{x}.jpg") for x in HF["video_face_refs"])]
-    prompt = (f"{VIDEO_MOTION} He is the man in the start and end frames and in the reference images; use the reference "
-              f"images only for his face and hair. He keeps the same face, hair and clothes throughout: {VIDEO_CLOTHES}. "
-              "His face stays clear, his hands and wrists bare. The room stays quiet; the garden beyond the window barely "
-              "moves. Real-time motion with natural motion blur, one continuous take on a smooth dolly.")
-    medias = ([{"role": "start_image", "value": START_JOB}, {"role": "end_image", "value": END_JOB}]
-              + [{"role": "image_references", "value": f} for f in faces])
+def video(end_job, draft=True, resolution="480p", duration=8, draft_job=None):
+    medias = [{"role": "start_image", "value": START_JOB}, {"role": "end_image", "value": end_job}]
     p = {"model": "seedance_2_5", "mode": "omni_reference", "resolution": resolution, "draft": draft,
-         "bitrate_mode": "high", "duration": duration, "aspect_ratio": "9:16", "generate_audio": False, "prompt": prompt,
-         "medias": medias, "declined_preset_id": PRESET_DECLINE}
+         "bitrate_mode": "high", "duration": duration, "aspect_ratio": "9:16", "generate_audio": False,
+         "prompt": VIDEO_PROMPT, "medias": medias, "declined_preset_id": PRESET_DECLINE}
     if draft_job:
         p.update(resolution="1080p", draft=False, draft_job_id=draft_job)
     return p
@@ -223,14 +286,14 @@ if __name__ == "__main__":
     elif cmd == "end2":
         out = [{"index": 90 + v, "params": {**end_frame2(args[0]), "resolution": "2k"}} for v in range(2)]
     elif cmd == "video":
-        # video [draft|720p|<draft job>] [seconden]
-        mode, dur = (args + ["draft"])[0], int((args + ["draft", "8"])[1])
+        # video <job eindbeeld> [draft|720p|<concept job>] [seconden]
+        end_job, mode, dur = args[0], (args[1:] + ["draft"])[0], int((args[1:] + ["draft", "8"])[1])
         if mode == "draft":
-            params = video(duration=dur)
+            params = video(end_job, duration=dur)
         elif mode == "720p":
-            params = video(draft=False, resolution="720p", duration=dur)
+            params = video(end_job, draft=False, resolution="720p", duration=dur)
         else:
-            params = video(duration=dur, draft_job=mode)
+            params = video(end_job, duration=dur, draft_job=mode)
         out = [{"index": 0, "params": params}]
     elif cmd == "shoes":
         # 2k: genoeg voor een video-eindbeeld (1080p) en 2 credits in plaats van 4 (10 okt)

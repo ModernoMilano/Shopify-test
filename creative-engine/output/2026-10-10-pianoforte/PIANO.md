@@ -29,6 +29,36 @@ Ronde 2 van het eindbeeld gebruikt het goedgekeurde startbeeld 87 als referentie
 
 2k is genoeg voor een video-eindbeeld (de video wordt 1080p) en kost 2 credits in plaats van 4.
 
+## Eindbeeld ronde 3: villa aan zee, van achteren (wens eigenaar, 10 okt)
+
+Wat de eigenaar vroeg:
+- Het startbeeld is goed.
+- Het eindbeeld moet "echt een dikke villa" worden, met een heel mooi uitzicht over zee, strand en natuur, ergens in Italië.
+- Het beeld eindigt achter hem, terwijl hij vanaf het raam naar het uitzicht kijkt.
+- De camerabewegingen moeten heel soepel en realistisch zijn.
+
+Gekozen plek: de noordoostkust van Sardinië. Een stille baai met licht zand, turquoise water, granietrotsen, macchia en parasoldennen. Het is de Italiaanse kust die dat zandstrand met turquoise water het betrouwbaarst oplevert.
+
+Vooraf hebben vier critici de prompt nagelopen, elk op één punt: product, echtheid, wens en camera. Wat daaruit is veranderd:
+- Referentie #2 is de achterkant van de set zonder hoofd en zonder schoenen (78276004), want daar draagt het productmodel kort, bijna zwart haar en penny loafers.
+- Referentie #4 is de loafer van achteren (c899ef9b).
+- De ramen staan rechts en lopen de diepte in, met een glazen hoek achterin; hij staat 4 à 5 m van de camera. Zo is het eindbeeld met één camerabeweging bereikbaar vanuit het startbeeld.
+- Direct achter het glas liggen een terras, een pannendak en bomen, net als in het startbeeld; de baai ligt daar ver onder.
+- De vleugel zit niet in het eindbeeld, dus er kunnen ook geen foute toetsen in komen.
+- 50 mm op f/8, zodat het uitzicht leesbaar is. Beide armen hangen langs zijn lichaam: geen hand in de zak.
+
+| Index | Job | Oordeel |
+|---|---|---|
+| 92 | 3e974e36-a7a0-4f6c-8ee6-a0313039b1df | eigen blik: in het rechterraam een spiegeling die op een tweede persoon lijkt |
+| 93 | 417707cb-0aa8-4aa5-8ccc-8ba5d3cfdee2 | eigen blik: schoon; zijn hoofd is iets naar rechts gedraaid, wang en oor net zichtbaar |
+
+Daarna volgt een controle met drie controleurs per variant (kleding, echtheid, video en wens) en een eindoordeel.
+
+Video-opdracht: zie `VIDEO_PROMPT` in `piano.py`.
+- Hij draait naar zijn rechterhand en loopt in vier stappen naar het raam; hij staat er rond seconde 6.
+- De camera trekt terug, stijgt van heup- naar borsthoogte en draait een kwartslag naar rechts. Ze begint en eindigt zacht en staat de laatste twee seconden stil achter hem.
+- Er gaan geen gezichtsreferenties mee. De prijs blijft gelijk: concept 24 credits, 1080p 96 credits.
+
 ## Lessen
 
 - **Set aan het model met andere schoenen:** snijd de foto boven de enkels af voordat hij referentie wordt. Anders neemt het model die schoenen over, ook met een loafer-referentie erbij.
@@ -41,15 +71,15 @@ Ronde 2 van het eindbeeld gebruikt het goedgekeurde startbeeld 87 als referentie
 
 ## Kosten en saldo
 
-Vandaag 38 credits: 8 beelden op 4k à 4 credits en 3 op 2k à 2 credits. Saldo na afloop: 10,55.
+Vandaag 42 credits: 8 beelden op 4k à 4 credits en 5 op 2k à 2 credits. Saldo nu: 6,55.
 
 Volgens de transactielijst stond er vóór vandaag 48,55, niet de 96,55 uit het vorige verslag; dat verschil staat niet in de transacties.
 
 ## Video (wacht op goedkeuring van de beelden en een top-up)
 
-Opzet: Seedance 2.5 met 87 als start_image en 90 als end_image, op normaal tempo, zonder slow motion. Dan gladmaken met `smooth.py` (dat vertraagt niets) en het logo aan het eind.
+Opzet: Seedance 2.5 met 87 als start_image en het gekozen villa-eindbeeld als end_image, op normaal tempo, zonder slow motion. Dan gladmaken met `smooth.py` (dat vertraagt niets) en het logo aan het eind.
 
-Prijzen opgevraagd met get_cost (10 okt), met beide beelden en de 2 gezichtsreferenties:
+Prijzen opgevraagd met get_cost (10 okt); met of zonder gezichtsreferenties is de prijs gelijk:
 
 | Optie | Credits |
 |---|---|
@@ -57,4 +87,4 @@ Prijzen opgevraagd met get_cost (10 okt), met beide beelden en de 2 gezichtsrefe
 | 8 s: direct 720p, zonder concept | 56 |
 | 6 s: concept (480p) en dan 1080p | ongeveer 18 + 72 = 90 (3 en 12 per seconde) |
 
-Opdracht bouwen: `python3 -I piano.py video draft 8`, en daarna `python3 -I piano.py video <concept job>` voor 1080p.
+Opdracht bouwen: `python3 -I piano.py video <job eindbeeld> draft 8`, en daarna `python3 -I piano.py video <job eindbeeld> <concept job>` voor 1080p.
