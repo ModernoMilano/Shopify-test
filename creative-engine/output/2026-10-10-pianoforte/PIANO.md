@@ -49,8 +49,12 @@ Volgens de transactielijst stond er vóór vandaag 48,55, niet de 96,55 uit het 
 
 Opzet: Seedance 2.5 met 87 als start_image en 90 als end_image, op normaal tempo, zonder slow motion. Dan gladmaken met `smooth.py` (dat vertraagt niets) en het logo aan het eind.
 
+Prijzen opgevraagd met get_cost (10 okt), met beide beelden en de 2 gezichtsreferenties:
+
 | Optie | Credits |
 |---|---|
-| 8 s: concept (480p) en dan 1080p | ongeveer 24 + 96 = 120 |
-| 6 s: concept (480p) en dan 1080p | ongeveer 18 + 72 = 90 |
-| 8 s: direct 720p, zonder concept | ongeveer 56 |
+| 8 s: concept (480p) en dan 1080p | 24 + 96 = 120 |
+| 8 s: direct 720p, zonder concept | 56 |
+| 6 s: concept (480p) en dan 1080p | ongeveer 18 + 72 = 90 (3 en 12 per seconde) |
+
+Opdracht bouwen: `python3 -I piano.py video draft 8`, en daarna `python3 -I piano.py video <concept job>` voor 1080p.

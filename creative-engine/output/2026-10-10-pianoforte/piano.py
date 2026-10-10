@@ -14,12 +14,13 @@ Gebruik:
                                                          eindbeeld (standaard index 82)
   python3 -I piano.py shoes <job eind>    -> 2 varianten van het eindbeeld met alleen andere schoenen (2k)
   python3 -I piano.py end2 <job start>    -> 2 varianten van het eindbeeld, ronde 2, met het startbeeld als kamer (2k)
+  python3 -I piano.py video [draft|720p|<concept job>] [seconden]  -> Seedance 2.5 van startbeeld 87 naar eindbeeld 90
 """
 import json, os, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "2026-10-08-reels-focus"))
-from videos4 import EL, HANDS, ID_LINE, P, REAL_SMOOTH, person, req, reverso, sleeveless  # noqa: E402
+from videos4 import EL, HANDS, HF, ID_LINE, P, PRESET_DECLINE, REAL_SMOOTH, person, req, reverso, sleeveless  # noqa: E402
 
 # Productfoto's (higgsfield-media.json): de set aan het model, voorkant (4da40a85) en detail van kraag en rits (d0bad191);
 # de loafer van opzij (08_45_00) en het paar schuin (08_45_36). Geen flat-lay: daar zijn de armsgaten in de binnenkleur.
@@ -131,6 +132,41 @@ def shoes_fix(job_end):
         "No film borders, no frame, no text, no logos."], [job_end, LOAFER_SIDE, LOAFER_PAIR])
 
 
+# Video: één doorlopende take van startbeeld 87 naar eindbeeld 90. Niet slow motion (wens eigenaar): het tempo wordt
+# in de prompt uitgeschreven, want Seedance maakt uit zichzelf trage beweging.
+START_JOB, END_JOB = "928c365c-4920-4184-a043-8e9a9e801112", "3cb9512a-2879-4588-8944-e52ed9384978"
+VIDEO_MOTION = (
+    "One continuous take in real time, at a normal, natural pace; not slow motion. It opens exactly on the start frame: a "
+    "close detail of his left hand resting on the white keys of the black lacquered grand piano, his bare forearm and the "
+    "short sleeve of the light pietra T-shirt coming out of the deep armhole of the anthracite gilet. In the first second "
+    "he presses one key softly, lifts his hand from the keys and turns away from the piano towards the tall window on the "
+    "right. He walks to the window with a few relaxed steps at a normal walking pace while the camera pulls back smoothly "
+    "and steadily at hip height, so that more and more of him and the room comes into view: his arm and the gilet, then "
+    "the trousers, then the grey suede loafers on bare feet, until the whole man stands in profile at the window. There he "
+    "stops, slides his right hand into his trouser pocket and looks out at the garden, exactly as in the end frame; for "
+    "the last second he stands still, breathing softly.")
+VIDEO_CLOTHES = (
+    "the sleeveless gilet stays dark anthracite outside, light pietra stone only inside the collar and along the open front "
+    "edges, hanging open over the light pietra T-shirt, which hangs loose and untucked at the same length throughout, with "
+    "the slim anthracite trousers and the plain grey suede loafers on bare feet")
+
+
+def video(draft=True, resolution="480p", duration=8, draft_job=None):
+    faces = [r["upscale_job_id"] for r in HF["face_refs"] if any(r["file"].endswith(f"/{x}.jpg") for x in HF["video_face_refs"])]
+    prompt = (f"{VIDEO_MOTION} He is the man in the start and end frames and in the reference images; use the reference "
+              f"images only for his face and hair. He keeps the same face, hair and clothes throughout: {VIDEO_CLOTHES}. "
+              "His face stays clear, his hands and wrists bare. The room stays quiet; the garden beyond the window barely "
+              "moves. Real-time motion with natural motion blur, one continuous take on a smooth dolly.")
+    medias = ([{"role": "start_image", "value": START_JOB}, {"role": "end_image", "value": END_JOB}]
+              + [{"role": "image_references", "value": f} for f in faces])
+    p = {"model": "seedance_2_5", "mode": "omni_reference", "resolution": resolution, "draft": draft,
+         "bitrate_mode": "high", "duration": duration, "aspect_ratio": "9:16", "generate_audio": False, "prompt": prompt,
+         "medias": medias, "declined_preset_id": PRESET_DECLINE}
+    if draft_job:
+        p.update(resolution="1080p", draft=False, draft_job_id=draft_job)
+    return p
+
+
 if __name__ == "__main__":
     cmd, args = sys.argv[1], sys.argv[2:]
     if cmd == "end":
@@ -140,6 +176,16 @@ if __name__ == "__main__":
         out = [{"index": base + v, "params": start_frame(args[0])} for v in range(2)]
     elif cmd == "end2":
         out = [{"index": 90 + v, "params": {**end_frame2(args[0]), "resolution": "2k"}} for v in range(2)]
+    elif cmd == "video":
+        # video [draft|720p|<draft job>] [seconden]
+        mode, dur = (args + ["draft"])[0], int((args + ["draft", "8"])[1])
+        if mode == "draft":
+            params = video(duration=dur)
+        elif mode == "720p":
+            params = video(draft=False, resolution="720p", duration=dur)
+        else:
+            params = video(duration=dur, draft_job=mode)
+        out = [{"index": 0, "params": params}]
     elif cmd == "shoes":
         # 2k: genoeg voor een video-eindbeeld (1080p) en 2 credits in plaats van 4 (10 okt)
         out = [{"index": 88 + v, "params": {**shoes_fix(args[0]), "resolution": "2k"}} for v in range(2)]
