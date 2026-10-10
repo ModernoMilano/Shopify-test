@@ -102,3 +102,17 @@ Ingesteld in de dashboards:
 
 - **Brand check:** 1,93.
 - **Financieel dashboard:** break-even MER 2,11, btw reserveren uit.
+
+## Veiligheidsmarge: break-even 2,0 (10 oktober)
+
+De berekende break-even is 1,93. Voor de veiligheid stuurt ModernoMilano op **2,0 Meta-ROAS**. De marge van 0,07 vangt schommelingen in inkoop, disputes en wisselkoerskosten op.
+
+| | Berekend | Aangehouden |
+|---|---|---|
+| Break-even Meta-ROAS (account) | 1,93 | **2,0** |
+| Break-even MER (2,0 / 0,914) | 2,11 | **2,2** (2,19 afgerond) |
+
+Ingesteld in de dashboards:
+
+- **Brand check:** 2,0.
+- **Financieel dashboard:** break-even MER 2,2.
