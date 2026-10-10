@@ -1,6 +1,6 @@
 """Haalt het haperen uit Seedance-clips (draait in de Higgsfield-sandbox, zonder credits).
 
-Gebruik: python3 smooth.py <in.mp4> <uit.mp4> [--report]
+Gebruik: python3 smooth.py <in.mp4> <uit.mp4> [--report] [--raw-from=N|auto]
 
 Wat Seedance 2.5 doet (gemeten 9 okt op alle clips van Total Bordeaux en Il lago, ook in de concepten):
 - de clip wordt in stukken van 24 frames gemaakt; op elke naad verschuift het beeld bijna twee keer zo veel als normaal en
@@ -135,10 +135,29 @@ def report(m, label):
     print(f"{label}: median step {np.median(m):.3f} px, jumps {hi}, near-dups {lo}")
 
 
-def process(src, dst, show=False):
+def raw_from_auto(tau, tail=0.25, tol=0.05):
+    """Eerste frame in het laatste kwart waarvandaan de echte frames worden gebruikt: daar waar de nieuwe tijdlijn weer op
+    een echt frame valt (|tau - k| < tol). Aan het eind van een shot die tot stilstand komt, loopt de gladde tijdlijn
+    soms tot een frame achter en haalt die in de laatste frames in. Dan haperen juist de laatste stappen (Il pianoforte,
+    10 okt: stappen 1,6 / 0,3 / 1,5 / 0,2 px rond frame 182)."""
+    n = len(tau)
+    d = np.abs(tau - np.arange(n))
+    ok = [k for k in range(int(n * (1 - tail)), n) if d[k] < tol and d[k:].max() > 0.3]
+    return ok[-1] if ok else None  # de laatste: zo lang mogelijk glad, en pas daarna de echte frames
+
+
+def process(src, dst, show=False, raw_from=None):
+    """raw_from: vanaf dit frame de echte frames gebruiken ("auto": zie raw_from_auto). Voor shots die tot stilstand
+    komen."""
     fr = read(src)
     m = steps(fr)
     out, tau = retime(fr, m)
+    if raw_from == "auto":
+        raw_from = raw_from_auto(tau)
+    if raw_from is not None:
+        out = out[:raw_from] + fr[raw_from:]
+        if show:
+            print(f"echte frames vanaf {raw_from} (tau - k = {tau[raw_from] - raw_from:+.3f})")
     out, lum, target = deflicker(out)
     write(out, dst)
     if show:
@@ -148,4 +167,5 @@ def process(src, dst, show=False):
 
 
 if __name__ == "__main__":
-    process(sys.argv[1], sys.argv[2], "--report" in sys.argv)
+    rf = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--raw-from=")), None)
+    process(sys.argv[1], sys.argv[2], "--report" in sys.argv, rf if rf in (None, "auto") else int(rf))

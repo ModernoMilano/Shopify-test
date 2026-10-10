@@ -16,6 +16,9 @@ edit.json:
             # eerst elke Seedance-clip gladmaken met smooth.py (de schok elke seconde en dubbele frames, eigenaar 9 okt);
             # standaard aan, zet op false om de ruwe clips te gebruiken; smooth_skip: clips die ruw blijven (een bijna stille
             # shot met twinkelende lichten: daar meet smooth.py de lichten en niet de man, controle Sera 9 okt)
+   "smooth_raw_from": {"A": "auto"}
+            # per clip vanaf welk frame de echte frames blijven (een getal of "auto"; zie raw_from_auto in smooth.py):
+            # voor een shot die tot stilstand komt (Il pianoforte, 10 okt)
 
 Harde snedes, 24 fps (zoals de clips), 1080x1920. Geen korrel en geen LUT (SKILL.md, "Echt, niet AI"): de beelden blijven zoals het
 model ze maakt. Tekst: gele schreefletter met zachte schaduw (Canva-bord 4-01), buiten de onderste 22% (de Instagram-knoppen).
@@ -145,7 +148,7 @@ def main(cfg_path, out):
             if pth.endswith(".mp4") and k not in cfg.get("smooth_skip", []):
                 dst = pth[:-4] + "_s.mp4"
                 if not os.path.exists(dst):
-                    smooth.process(pth, dst)
+                    smooth.process(pth, dst, raw_from=cfg.get("smooth_raw_from", {}).get(k))
                 local[k] = dst
     texts = {t["cut"]: t for t in cfg.get("text", [])}
     lspec = cfg.get("logo")
