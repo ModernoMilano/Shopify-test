@@ -28,6 +28,7 @@ from videos4 import EL, HANDS, HF, ID_LINE, P, PRESET_DECLINE, REAL_SMOOTH, pers
 # de loafer van opzij (08_45_00) en het paar schuin (08_45_36). Geen flat-lay: daar zijn de armsgaten in de binnenkleur.
 SET_FRONT, SET_DETAIL = "296c2189-329b-4529-bcef-6552fc227b42", "e9385bb6-6e75-4591-918a-3211ecbb15f8"
 LOAFER_SIDE, LOAFER_PAIR = "9de16713-eb94-436b-9edc-61e3796a7f77", "5b91dba6-b39f-42ab-9902-aae2893534d7"
+START_JOB = "928c365c-4920-4184-a043-8e9a9e801112"  # goedgekeurd startbeeld 87 (ronde 3 van het startbeeld)
 
 SET = reverso("ANTRACITE & PIETRA", "dark anthracite grey", "light pietra stone", "light pietra stone", "dark anthracite grey",
               [SET_FRONT, SET_DETAIL])
@@ -190,6 +191,79 @@ def end_frame3(job_start):
         "Full-frame digital camera, 50mm lens at f/8."], [job_start, SET_BACK, LOAFER_SIDE, LOAFER_REAR])
 
 
+# Eindbeeld ronde 3, controle (6 controleurs en een eindoordeel, 10 okt):
+# - 92 is afgekeurd: een spookfiguur in het rechterraam leest als een tweede persoon.
+# - 93 is goedgekeurd met aantekeningen. De ruimte leest niet als "echt een dikke villa": een gewoon plafond van ongeveer
+#   2,5 m en een lege kamer.
+# Daarom twee pogingen voor meer grandeur:
+# - 93 bewerken: alleen het interieur en het terras worden luxer (infinity pool, meubels, balkenplafond);
+# - een nieuwe variant met een kamer van dubbele hoogte, op 35 mm, met hem verder weg.
+END_93 = "417707cb-0aa8-4aa5-8ccc-8ba5d3cfdee2"
+GRAND_TERRACE = ("On the pale stone terrace just outside the glass lies a long infinity pool of still, clear water whose far edge "
+                 "seems to run straight into the sea, with two low linen sun loungers beside it; beyond it the umbrella pines "
+                 "and the bay.")
+GRAND_ROOM = ("Inside, the room is furnished sparingly like the living room of a very large luxury villa: the soft corner of a "
+              "long, low ivory linen sofa and a low travertine table at the left edge of the frame, a large pale handmade "
+              "ceramic vase with an olive branch, and a ceiling of dark wooden beams on white plaster. None of it has any "
+              "logo, label or lettering.")
+
+
+def end_grand_edit(job_end=END_93):
+    return req([
+        ("The same photograph as reference image #1, unchanged in every way: the same man in the same pose, seen from "
+         "behind, with the same hair, the same clothes and the same loafers; the same camera position and framing, the same "
+         "glass corner with its slim bronze frames, the same light and the same view over the bay. Change only the room "
+         "and the terrace, so that it is clearly a very large, luxurious villa."),
+        GRAND_TERRACE, GRAND_ROOM,
+        ("He is the only person in the picture; the pool, the terrace and the beach are empty. The glass is clean and clear, "
+         "with no reflection of him or of anyone in it."),
+        "No borders, no frame, no text, no logos."], [job_end])
+
+
+def end_frame4(job_start):
+    """Ronde 3 met meer grandeur: een kamer van dubbele hoogte, 35mm en hem verder weg. Verder de nagelopen prompt van
+    end_frame3."""
+    p = end_frame3(job_start)
+    t = p["prompt"]
+    swaps = [
+        ("the large living room of a grand Italian villa", "the vast double-height living room of a grand Italian villa"),
+        ("with a pale polished travertine floor, warm plaster walls and ivory linen curtains drawn back to the sides of the "
+         "windows.",
+         "about six metres high, with a pale polished travertine floor, warm plaster walls and ivory linen curtains drawn "
+         "back to the sides of the windows. " + GRAND_ROOM),
+        ("Just outside the glass lie a pale stone terrace,", GRAND_TERRACE.replace("beyond it the umbrella pines and the bay.",
+         "beside the terrace lie") ),
+        ("stands close to the far windows, a little right of centre, about four to five metres from the camera,",
+         "stands close to the far windows, a little right of centre, about six metres from the camera,"),
+        ("Framed vertically, he fills a little over half the height of the frame, standing in its lower part with his "
+         "loafers near the bottom edge and a stretch of polished floor between him and the camera; the tall glass panels "
+         "rise far above his head and run on past the top of the frame, so the height of the room and the size of the "
+         "windows are obvious.",
+         "Framed vertically, he fills a little under half the height of the frame, standing in its lower half on the "
+         "polished floor; the double-height glass walls rise far above him, more than three times his height, to the "
+         "beamed ceiling at the top of the frame, so the size of the room and of the windows is obvious."),
+        ("Full-frame digital camera, 50mm lens at f/8.", "Full-frame digital camera, 35mm lens at f/8."),
+    ]
+    for a, b in swaps:
+        assert a in t, a[:50]
+        t = t.replace(a, b)
+    p["prompt"] = t
+    return p
+
+
+# Startbeeld 87, alleen de toetsen (controle echtheid, 10 okt): de zwarte toetsen staan in een gelijkmatige rij, zonder
+# groepjes van 2 en 3, en dat is op telefoongrootte te zien. De eigenaar heeft 87 goedgekeurd, dus alleen deze correctie.
+def keys_fix(job_start=START_JOB):
+    return req([
+        ("The same photograph as reference image #1, unchanged in every way: the same man, the same arm and hand with the "
+         "same fingers in the same position, the same clothes, the same grand piano, the same window, the same light, the "
+         "same angle, framing and blur. Correct only the piano keyboard so that it is a real piano keyboard: the black keys "
+         "are in alternating groups of two and three, with a clearly wider gap between the groups where two white keys meet "
+         "with no black key between them, exactly as on every real piano. The white keys, the red felt strip and the black "
+         "lacquer stay as they are."),
+        "No borders, no frame, no text, no logos."], [job_start])
+
+
 def start_frame(job_end):
     parts = [
         "A close detail from the same room as reference image #1, a few seconds earlier: the same man, the same black "
@@ -240,7 +314,6 @@ def shoes_fix(job_end):
 #   stijgt van heuphoogte naar borsthoogte en draait een kwartslag naar rechts, met een zachte start en een zacht einde.
 # - Geen gezichtsreferenties: zijn gezicht komt nooit in beeld en gezichtsreferenties trekken het hoofd naar de camera.
 # - Geen hand in de zak.
-START_JOB = "928c365c-4920-4184-a043-8e9a9e801112"
 VIDEO_PROMPT = (
     "One continuous shot in real time, at a normal, natural pace, not slow motion, with a single smooth camera move that "
     "starts gently and ends gently. It opens exactly on the start frame: a vertical shot from his shoulders to his shins, "
@@ -255,9 +328,13 @@ VIDEO_PROMPT = (
     "the right to keep him in the picture, so that the piano leaves the picture on the left and more and more of him, the "
     "tall windows and the room come into view, and the garden greenery just outside the glass opens up into the wide view "
     "over the bay far below. His head comes into view from behind; his face stays turned away from the camera the whole "
-    "time. Over the last two seconds the camera slows smoothly and comes to rest about four metres behind him, exactly on "
-    "the end frame, while he stands relaxed at the glass with his arms at his sides. He is the same man in the same "
-    "clothes from the first frame to the last: the sleeveless gilet stays dark anthracite outside, and its armhole edges "
+    "time, and at the glass his head stays turned towards the sea. The grand piano and the curtained window bay of the "
+    "start frame pass out of the picture on the left during the turn; they do not fade or change into the glass walls. "
+    "Over the last two seconds the camera slows smoothly and comes to rest behind him, exactly on the end frame, while "
+    "he stands relaxed at the glass with his arms at his sides. The terrace, the beach and the bay stay empty: no people "
+    "and no boats appear. He is the same man in the same "
+    "clothes from the first frame to the last, in the same colours: the sleeveless gilet stays dark anthracite outside, "
+    "and its armhole edges "
     "stay dark anthracite with no light pietra showing at the armholes, also when his arms swing as he walks; it hangs "
     "open over the light pietra T-shirt, which stays loose and untucked at the same length, with the slim anthracite "
     "trousers and the mid-grey suede slip-on loafers with a plain vamp and an off-white sole on bare feet; his hands and "
@@ -281,6 +358,11 @@ if __name__ == "__main__":
     elif cmd == "start":
         base = int(args[1]) if len(args) > 1 else 82
         out = [{"index": base + v, "params": start_frame(args[0])} for v in range(2)]
+    elif cmd == "grand":
+        # 3 beelden op 2k: 93 bewerkt, een nieuwe variant met dubbele hoogte, en de toetsen van 87
+        out = [{"index": 94, "params": {**end_grand_edit(), "resolution": "2k"}},
+               {"index": 95, "params": {**end_frame4(START_JOB), "resolution": "2k"}},
+               {"index": 96, "params": {**keys_fix(), "resolution": "2k"}}]
     elif cmd == "end3":
         out = [{"index": 92 + v, "params": {**end_frame3(args[0]), "resolution": "2k"}} for v in range(2)]
     elif cmd == "end2":

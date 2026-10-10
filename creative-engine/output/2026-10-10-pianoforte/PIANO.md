@@ -52,7 +52,19 @@ Vooraf hebben vier critici de prompt nagelopen, elk op één punt: product, echt
 | 92 | 3e974e36-a7a0-4f6c-8ee6-a0313039b1df | eigen blik: in het rechterraam een spiegeling die op een tweede persoon lijkt |
 | 93 | 417707cb-0aa8-4aa5-8ccc-8ba5d3cfdee2 | eigen blik: schoon; zijn hoofd is iets naar rechts gedraaid, wang en oor net zichtbaar |
 
-Daarna volgt een controle met drie controleurs per variant (kleding, echtheid, video en wens) en een eindoordeel.
+Controle met drie controleurs per variant (kleding, echtheid, video en wens) en een eindoordeel:
+- 92 is afgekeurd: de spookfiguur in het rechterraam leest als een tweede persoon, en de video zou die laten meelopen.
+- 93 is goedgekeurd met aantekeningen. Het uitzicht en de kleding kloppen. Maar de ruimte leest niet als "echt een dikke villa": een gewoon plafond van ongeveer 2,5 m en een lege glazen hoek.
+
+Ronde 4, voor meer grandeur (2k, 2 credits per beeld):
+
+| Index | Job | Wat |
+|---|---|---|
+| 94 | 4d7fdf1b-1093-4b13-aea5-e685537506af | bewerking van 93: infinity pool met ligbedden, linnen bank, travertijnen tafel, vaas met olijftak, balkenplafond |
+| 95 | 6fccd2ab-bf2a-4cd7-82f2-53e7ab0b8596 | nieuw: woonkamer van dubbele hoogte (ongeveer 6 m), 35mm, hij staat ongeveer 6 m van de camera |
+| 96 | a3934a1b-162b-42db-8533-bc931bf3f3a0 | bewerking van startbeeld 87, alleen de toetsen: niet duidelijk beter (nog steeds een gelijkmatige rij), dus 87 blijft |
+
+Controle van 94 en 95: zie hieronder.
 
 Video-opdracht: zie `VIDEO_PROMPT` in `piano.py`.
 - Hij draait naar zijn rechterhand en loopt in vier stappen naar het raam; hij staat er rond seconde 6.
@@ -71,7 +83,7 @@ Video-opdracht: zie `VIDEO_PROMPT` in `piano.py`.
 
 ## Kosten en saldo
 
-Vandaag 42 credits: 8 beelden op 4k à 4 credits en 5 op 2k à 2 credits. Saldo nu: 6,55.
+Vandaag 48 credits: 8 beelden op 4k à 4 credits en 8 op 2k à 2 credits. Saldo nu: 0,55.
 
 Volgens de transactielijst stond er vóór vandaag 48,55, niet de 96,55 uit het vorige verslag; dat verschil staat niet in de transacties.
 
