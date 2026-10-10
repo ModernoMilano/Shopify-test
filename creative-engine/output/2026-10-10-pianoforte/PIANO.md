@@ -175,3 +175,62 @@ Concept 5 gaat naar 1080p (job 8da5d025-e473-42bb-83b7-ad6945e7caef). Controle v
 **Oplevering:** 1080x1920, 24 fps, 8,0 s, h264. Zip: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/a382bb28-10ed-4417-9fef-88e2ec004aec.zip
 
 **Credits voor de video:** 6 concepten à 24, 2 bewerkingen van het startbeeld à 2 en 1080p voor 96; samen 244.
+
+## Versie 2 (10 okt): geen doorloop door het raam, 10 s, hoofd naar rechts
+
+**Reactie eigenaar op versie 1:** "hij loopt door een raam heen en dan komt hij opeens in een nieuwe ruimte", rond 4 s. Hij wil de video ook iets langer, en aan het eind moet hij rustig naar rechts kijken, zodat je zijn gezicht een beetje van opzij ziet.
+
+**Oorzaak:**
+- Startbeeld 97 heeft één schuine glazen wand rechts, ongeveer 1,2 m achter hem, met een witte gestucte muur achter de vleugel en een vlak wit plafond.
+- Eindbeeld 94 is een glazen hoek met bank en vaas die in 97 niet bestaat.
+- Seedance verzint daarom de ruimte ertussen, en daarbij liep hij over een nieuwe raamrail.
+
+Een eerste opzet (`end_frame5`) zette die glazen hoek achterin dezelfde kamer. Drie critici wezen dat af: die kamer bestaat evenmin in 97. Die opzet is niet gegenereerd.
+
+**Oplossing, `end_frame6`:** precies de kamer van 97, 2 m verder terug op dezelfde lijn.
+- Hij draait zich naar het raam dat achter hem staat, loopt twee of drie stappen en blijft ongeveer 60 cm voor het glas binnen staan.
+- Lichaam 30 graden en hoofd 40 graden verder naar rechts: zijn gezicht staat in een zacht verloren profiel, de nek draait niet meer dan 45 graden.
+- 35mm. Het oude eindbeeld gaat niet als referentie mee.
+
+| Eindbeeld | Job | Oordeel |
+|---|---|---|
+| 110 | 0c10d23f-66a1-428c-8a6a-9879e9cd8ca0 | afgekeurd: in de lak van de vleugel staat een paar benen, als een tweede persoon |
+| **111** | **8a767538-45e6-4c18-ac83-3bbbfb238b40** | **gekozen**: binnen voor het glas, verloren profiel. Alleen een hand spiegelt in de klep. |
+| 112 | 932cb5d6-c854-4189-abb0-374f339459a8 | afgekeurd: een figuur in de lak van de vleugel |
+
+**Video v2:** `VIDEO2_PROMPT` en `video2()`.
+- 10 s, één rechte camerabeweging terug met een lichte stijging en geen pan.
+- Hij blijft binnen; het hoofd draait rond 6 tot 8 s.
+- Gezichtsreferenties gaan weer mee, omdat zijn gezicht nu in beeld komt.
+
+| Concept | Job | Slechtste kwartseconde (morph-maat) | Oordeel |
+|---|---|---|---|
+| 21 | 1d42489d-f226-4501-ad2e-7e9df03c6891 | 0,015 | goed, maar de camera beweegt in de tweede helft nauwelijks |
+| **22** | **f2b8b0de-0bda-4a45-a33b-b17538daad14** | **0,020** | **gekozen**: duidelijke camerabeweging terug, hij blijft binnen, hoofd naar rechts |
+
+Ter vergelijking: versie 1 haalde 0,09.
+
+**1080p:** job 7817443f-e388-4363-9953-28b2b6a158f1.
+
+**Gladmaken:** `--raw-from=auto` geeft echte frames vanaf frame 188.
+
+| Maat | Ruw | Na gladmaken |
+|---|---|---|
+| Naden (verhouding tot de buren) | tot 2x | 1,1 à 1,2x |
+| Ruwheid (95e percentiel) | 1,17 | 0,69 |
+
+- Scherpte: mediaan 98%, minimaal 92,5%.
+- In de laatste seconde heeft de ruwe clip een klein ritme van 4 frames, met stappen onder 0,4 px. De camera staat dan stil en op een telefoon is dat niet te zien.
+
+**Montage:** `piano-v2-edit.json`. Logo klein in het midden (28% breed), zonder effect. In deze compositie valt het op zijn rug.
+
+**Zip:** https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/394df7a6-0689-4343-939b-a79faa055642.zip
+
+**Credits v2:**
+
+| Onderdeel | Credits |
+|---|---|
+| 3 eindbeelden à 2 | 6 |
+| 2 concepten à 30 | 60 |
+| 1080p | 120 |
+| **Samen** | **186** |
