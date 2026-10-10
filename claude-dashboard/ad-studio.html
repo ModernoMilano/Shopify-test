@@ -86,6 +86,22 @@ select { font: 14px var(--body); color: var(--ink); background: var(--surface); 
 .empty { text-align: center; color: var(--ink-2); padding: 24px 0; }
 .toast { position: fixed; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--accent); color: var(--accent-ink); padding: 8px 14px; border-radius: 10px; font-size: 14px; z-index: 10; }
 .confirm { display: inline-flex; gap: 8px; align-items: center; font-size: 13px; color: var(--ink-2); }
+.direction { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.direction .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px; }
+.direction h2 { font-family: var(--display); font-weight: 500; font-size: 1.2rem; margin: 0; }
+.direction p { margin: 0; color: var(--ink-2); font-size: 14px; max-width: 70ch; }
+textarea { font: 14px/1.5 var(--body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; resize: vertical; min-height: 4.5em; }
+textarea:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+.ideas { display: flex; flex-wrap: wrap; gap: 6px; }
+.idea { border: 1px solid var(--line); background: transparent; color: var(--ink-2); border-radius: 999px; padding: 4px 10px; font: 13px var(--body); cursor: pointer; }
+.idea:hover { border-color: var(--ink-3); color: var(--ink); }
+.idea:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.saved { font-size: 12px; color: var(--ink-3); }
+.own { border-top: 1px solid var(--line); padding-top: 10px; }
+.own summary { cursor: pointer; font-size: 13px; color: var(--ink-2); }
+.own .row { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; align-items: flex-start; }
+.own textarea { min-height: 3.5em; font-size: 13px; }
+.chip.mine { border-color: var(--ink-3); color: var(--ink); }
 </style>
 
 <div class="wrap">
@@ -101,6 +117,21 @@ select { font: 14px var(--body); color: var(--ink); background: var(--surface); 
     <span class="btn" aria-hidden="true">Choose photos</span>
     <input id="file" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden>
   </label>
+
+  <section class="direction" aria-labelledby="dirTitle">
+    <div class="head">
+      <h2 id="dirTitle">Your direction</h2>
+      <span class="saved" id="dirSaved"></span>
+    </div>
+    <p>Tell Claude what kind of copy you want. It is used for every new ad you drop in. Leave it empty to let Claude choose the angle.</p>
+    <textarea id="direction" rows="3" aria-labelledby="dirTitle" placeholder="For example: cold days are coming, push the Cashmere Collection as the warm upgrade. Shorter lines, a bit more playful, end with Bundle &amp; Save."></textarea>
+    <div class="ideas" id="ideas" aria-label="Ideas to add"></div>
+    <div class="bar">
+      <button class="link" id="dirClear" type="button">Clear direction</button>
+      <span class="grow"></span>
+      <button class="btn ghost small" id="dirAll" type="button">Rewrite all ads with this direction</button>
+    </div>
+  </section>
 
   <div class="bar">
     <span class="count" id="count">No ads yet</span>
@@ -162,9 +193,10 @@ const CTA = { SHOP_NOW: "Shop now", LEARN_MORE: "Learn more", ORDER_NOW: "Order 
 
 const $ = (s) => document.querySelector(s);
 const grid = $("#grid"), notes = $("#notes");
-const state = { ads: new Map(), local: new Map(), lang: "English" }; // key -> record; local: key -> {url, blob}
+const state = { ads: new Map(), local: new Map(), lang: "English", direction: "" }; // key -> record; local: key -> {url, blob}
 let db = null, assets = null, sample = null, downloads = null, persistent = false, imagesOk = false;
 let queue = [], running = 0;
+const openOwn = new Set(), ownDrafts = new Map();
 const active = new Set();
 const MAX_PARALLEL = 2;
 
@@ -250,7 +282,7 @@ async function write(key, opts = {}) {
   active.add(key);
   try { await writeInner(key, opts); } finally { active.delete(key); }
 }
-async function writeInner(key, { fresh = false } = {}) {
+async function writeInner(key, { fresh = false, direction = null } = {}) {
   const rec = state.ads.get(key); if (!rec) return;
   if (!sample || !imagesOk) { await save(key, { status: "error", error: "Writing copy does not work here: Claude cannot look at photos in this view." }); return; }
   const local = state.local.get(key);
@@ -261,7 +293,14 @@ async function writeInner(key, { fresh = false } = {}) {
   if (!image) { await save(key, { status: "error", error: "This photo is no longer available. Drop it into the page again." }); return; }
   await save(key, { status: "writing", error: null });
   const used = usedSoFar(key);
-  const prompt = `${BRIEF}
+  const dir = String(direction ?? state.direction ?? "").trim().slice(0, 2000);
+  const dirBlock = dir ? `
+
+DIRECTION FROM THE BRAND OWNER for this ad. Follow it closely: it decides the angle, tone, focus and length. It never overrides the fact rules above (no invented discounts, numbers, Klarna or "100% cashmere"). The direction, between the lines of dashes:
+----------
+${dir}
+----------` : "";
+  const prompt = `${BRIEF}${dirBlock}
 
 Write the ad in ${state.lang}${state.lang === "Dutch" ? " (natural Dutch for the Netherlands and Belgium, use \"je\", keep product names as they are)" : ""}. Write the "scene" field in English.
 This is ad number ${rec.n}. File name: ${rec.name || "unknown"}.
@@ -271,7 +310,7 @@ Hooks already used (yours must be clearly different): ${JSON.stringify(used.hook
 Reply with only one JSON object with exactly these keys:
 {"collection":"Cashmere"|"Reverso"|"Bundle & Save"|"Other","product":"the collection or set the photo shows, e.g. Reverso Collection","price":"","scene":"one short English sentence: what is in the photo","angle":"","hook_type":"","hook":"","primary_text":"starts with the hook line; 3-5 short lines separated by \\n following the conversion structure; ends with a call to action naming the collection","headline":"max 40 characters, about the collection or the offer, not a single product","description":"max 30 characters","cta":"SHOP_NOW"|"LEARN_MORE"|"ORDER_NOW"|"GET_OFFER"}`;
   try {
-    const out = await sample.json(prompt, { images: [image], cache: fresh ? false : undefined });
+    const out = await sample.json(prompt, { images: [image], cache: fresh || dir ? false : undefined });
     if (!out || typeof out.primary_text !== "string" || typeof out.hook !== "string") throw { code: "invalid_json" };
     const copy = {
       collection: String(out.collection || "Other"), product: String(out.product || ""), price: String(out.price || ""),
@@ -279,7 +318,7 @@ Reply with only one JSON object with exactly these keys:
       hook: String(out.hook), primary_text: String(out.primary_text), headline: String(out.headline || ""),
       description: String(out.description || ""), cta: String(out.cta || "SHOP_NOW"),
     };
-    await save(key, { status: "done", copy, source: "Claude", lang: state.lang, error: null });
+    await save(key, { status: "done", copy, source: "Claude", lang: state.lang, direction: dir, error: null });
   } catch (e) {
     const msg = {
       not_granted: "Claude is not allowed on this page yet. Reload and choose Allow to have copy written.",
@@ -340,12 +379,32 @@ function card(key, rec) {
     chips.append(el("span", "chip strong", c.collection));
     if (c.angle) chips.append(el("span", "chip", "Angle: " + c.angle));
     if (c.hook_type) chips.append(el("span", "chip", "Hook: " + c.hook_type));
+    if (rec.direction) { const m = el("span", "chip mine", "Your direction"); m.title = rec.direction; chips.append(m); }
     if (c.product) chips.append(el("span", "chip", c.product + (c.price ? " · " + c.price.replace("EUR ", "€ ") : "")));
     body.append(chips);
     body.append(el("p", "hook", c.hook));
     if (c.scene) body.append(el("div", "scene", "In the photo: " + c.scene));
     body.append(field("Primary text", c.primary_text), field("Headline", c.headline), field("Description", c.description));
     const ctaRow = el("div", "field"); const h = el("div", "head"); h.append(el("span", "label", "Button"), el("span", null, CTA[c.cta] || c.cta)); ctaRow.append(h); body.append(ctaRow);
+  }
+  {
+    const own = el("details", "own");
+    if (openOwn.has(key)) own.open = true;
+    own.addEventListener("toggle", () => { own.open ? openOwn.add(key) : openOwn.delete(key); });
+    own.append(el("summary", null, "Give this ad your own direction"));
+    const row = el("div", "row");
+    const ta = el("textarea"); ta.id = "own-" + key; ta.rows = 2;
+    ta.placeholder = "For example: make it about a weekend in Como and sell the full set.";
+    ta.value = ownDrafts.get(key) ?? rec.direction ?? "";
+    ta.setAttribute("aria-label", "Your direction for ad " + rec.n);
+    ta.addEventListener("input", () => ownDrafts.set(key, ta.value));
+    const go = el("button", "btn small", "Rewrite this ad"); go.type = "button"; go.disabled = busy;
+    go.onclick = () => {
+      const d = ta.value.trim();
+      if (!d) { ta.focus(); toast("Type a direction first"); return; }
+      write(key, { fresh: true, direction: d }); render();
+    };
+    row.append(ta, go); own.append(row); body.append(own);
   }
   const act = el("div", "actions");
   if (c) { const b = el("button", "btn small", "Copy all"); b.type = "button"; b.onclick = () => copyText(adText(rec), "Ad #" + rec.n); act.append(b); }
@@ -384,9 +443,12 @@ function render() {
   const done = list.filter(([, r]) => r.copy).length;
   $("#count").textContent = list.length ? `${list.length} ${list.length === 1 ? "ad" : "ads"} · ${done} with copy` : "No ads yet";
   if (!list.length) { grid.replaceChildren(el("p", "empty", "Your ads appear here, numbered in the order you add them.")); return; }
-  const focused = document.activeElement?.closest?.(".ad")?.id;
+  const ae = document.activeElement;
+  const typing = ae && ae.tagName === "TEXTAREA" && ae.id && grid.contains(ae) ? { id: ae.id, s: ae.selectionStart, e: ae.selectionEnd } : null;
+  const focused = !typing && ae?.closest?.(".ad")?.id;
   grid.replaceChildren(...list.map(([k, r]) => card(k, r)));
-  if (focused) document.getElementById(focused)?.querySelector("button")?.focus({ preventScroll: true });
+  if (typing) { const t2 = document.getElementById(typing.id); if (t2) { t2.focus({ preventScroll: true }); t2.setSelectionRange(typing.s, typing.e); } }
+  else if (focused) document.getElementById(focused)?.querySelector("button")?.focus({ preventScroll: true });
 }
 
 /* ---------- alles exporteren ---------- */
@@ -420,6 +482,58 @@ $("#lang").addEventListener("change", (e) => {
 });
 try { const l = localStorage.getItem("mm-studio-lang-v3"); if (l) { state.lang = l; $("#lang").value = l; } } catch {}
 
+/* ---------- your direction ---------- */
+const IDEAS = [
+  "Cold days are coming: Cashmere as the warm upgrade",
+  "Gift for him: written for the partner who buys",
+  "Push Bundle & Save: the full outfit in one order",
+  "Reverso: two looks in one, made for travel",
+  "Shorter and punchier, max 3 lines",
+  "More playful, a little humour",
+  "Speak to men who hate shopping",
+  "A weekend away in Como",
+];
+const dirBox = $("#direction");
+function setDirection(v, { persist = true } = {}) {
+  state.direction = v;
+  if (dirBox.value !== v) dirBox.value = v;
+  if (!persist) return;
+  try { localStorage.setItem("mm-studio-direction", v); } catch {}
+  clearTimeout(setDirection.t);
+  setDirection.t = setTimeout(async () => {
+    if (persistent) { try { await db.doc("settings/main").set({ direction: v }); } catch {} }
+    $("#dirSaved").textContent = v.trim() ? "Saved, used for new ads" : "";
+  }, 600);
+}
+for (const idea of IDEAS) {
+  const b = el("button", "idea", "+ " + idea); b.type = "button";
+  b.onclick = () => {
+    const cur = dirBox.value.trim();
+    setDirection(cur ? cur + (/[.!?]$/.test(cur) ? " " : ". ") + idea + "." : idea + ".");
+    dirBox.focus();
+  };
+  $("#ideas").append(b);
+}
+dirBox.addEventListener("input", () => setDirection(dirBox.value));
+$("#dirClear").onclick = () => { setDirection(""); dirBox.focus(); };
+$("#dirAll").onclick = () => {
+  const list = [...state.ads.entries()].sort((a, b) => a[1].n - b[1].n);
+  const btn = $("#dirAll");
+  if (!list.length) { toast("Drop some photos in first"); return; }
+  if (btn.dataset.confirm !== "1") {
+    btn.dataset.confirm = "1";
+    btn.textContent = `Rewrite all ${list.length} ads? Click again`;
+    clearTimeout(btn.t);
+    btn.t = setTimeout(() => { btn.dataset.confirm = ""; btn.textContent = "Rewrite all ads with this direction"; }, 4000);
+    return;
+  }
+  clearTimeout(btn.t);
+  btn.dataset.confirm = ""; btn.textContent = "Rewrite all ads with this direction";
+  for (const [k] of list) enqueue(k);
+  render();
+};
+try { const d = localStorage.getItem("mm-studio-direction"); if (d) setDirection(d, { persist: false }); } catch {}
+
 render();
 
 /* ---------- mogelijkheden van deze weergave ---------- */
@@ -431,6 +545,10 @@ render();
   if (downloads) $("#csv").hidden = false;
   if (db && assets) {
     persistent = true;
+    db.doc("settings/main").get().then((s) => {
+      const d = s.exists ? s.data()?.direction : null;
+      if (typeof d === "string" && !dirBox.value.trim()) setDirection(d, { persist: false });
+    }).catch(() => {});
     db.collection("ads").orderBy("n").onSnapshot((snap) => {
       for (const ch of snap.docChanges()) {
         const key = ch.doc.id;
