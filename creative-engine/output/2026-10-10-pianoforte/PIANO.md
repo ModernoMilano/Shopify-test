@@ -115,3 +115,40 @@ Prijzen opgevraagd met get_cost (10 okt); met of zonder gezichtsreferenties is d
 | 6 s: concept (480p) en dan 1080p | ongeveer 18 + 72 = 90 (3 en 12 per seconde) |
 
 Opdracht bouwen: `python3 -I piano.py video 4d7fdf1b-1093-4b13-aea5-e685537506af draft 8`, en daarna `python3 -I piano.py video 4d7fdf1b-1093-4b13-aea5-e685537506af <concept job>` voor 1080p.
+
+## Video-concepten (10 okt, na de top-up naar 500 credits)
+
+| Concept | Job | Start → eind | Oordeel |
+|---|---|---|---|
+| 1 | fe9672e5-7891-4938-b1f7-e282e7451f05 | 87 → 94 | afgekeurd: harde snede op 3,58 s (sprong 7x het gemiddelde) |
+| 2 | ca9b7729-9d90-48ac-aa6c-4ed8facb51e1 | 87 → 94 | afgekeurd: overvloeier rond 2,75-2,96 s (dubbele belichting) |
+| 3 | 42636f31-25d4-4085-aa35-1eb39b53275a | 97 → 94 | afgekeurd: zachte overvloei van gordijn en kozijnen rond 3,25-3,75 s |
+| 4 | 90cc5326-625e-477e-83b1-fc8612301f85 | 97 → 94 | reserve: doorlopend, wel een doorzichtige raamstrook en een vaas die invloeit rond 3,0-3,3 s |
+| **5** | **2bc1ce85-7f49-4bc3-84f2-a8f85f7eb8bf** | **97 → 94** | **gekozen**: doorlopend en natuurlijk; gordijn en kozijn schuiven als vaste objecten uit beeld, hoofd blijft van de camera af |
+| 6 | 0aa45e20-f9b3-4710-9c0b-e90bff1e076c | 97 → 94 | afgekeurd: tafel komt doorzichtig over zijn benen op rond 4,3 s, profiel van zijn gezicht in beeld |
+
+Oorzaak van 1 en 2: het startbeeld 87 (kamer met gazon) en het eindbeeld 94 (villa met zwembad en zee) zijn twee verschillende ruimtes. Seedance kan die niet als één kamer verbinden en lost dat op met een snede of een overvloeier.
+
+Oplossing: startbeeld 97, een bewerking van 87 (2k). Hand, arm, kleding, vleugel en kader zijn gelijk. Door het raam zie je nu het terras, het zwembad, de pijnbomen en de zee, met witte muren zoals in 94. De ook gemaakte bewerking 98 was te ver uitgezoomd.
+
+In de opdracht staat bovendien expliciet:
+- geen snede, geen overvloeier, dezelfde kamer;
+- hij loopt langs de raamwand naar de glazen hoek;
+- objecten schuiven vanaf de rand in beeld en vloeien niet in.
+
+Meting (sandbox, `cuts.py` en `morph.py`):
+- Frameverschil: een snede geeft een sprong van meer dan 5x de mediaan. Een overvloeier geeft een reeks frames van ongeveer 2,4x.
+- Het aandeel pixels waar de optische flow heen en terug niet klopt, per kwartseconde. Slechtste waarde per concept:
+
+| Concept | Slechtste kwartseconde |
+|---|---|
+| 1 | 0,24 |
+| 2 | 0,21 |
+| 3 | 0,12 |
+| 4 | 0,08 |
+| 5 | 0,09 |
+| 6 | 0,07 |
+
+De maat ziet niet alles: bij 6 is de doorzichtige tafel alleen met het oog te zien.
+
+Concept 5 gaat naar 1080p (job 8da5d025-e473-42bb-83b7-ad6945e7caef). Controle van 4 en 5: zie hieronder.

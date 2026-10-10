@@ -251,6 +251,24 @@ def end_frame4(job_start):
     return p
 
 
+# Concepten 1 en 2 (10 okt) zijn afgekeurd. Rond 3 à 3,5 s springt het beeld (concept 1: snede) of vloeit het over
+# (concept 2: dubbele belichting), van de kamer met gazon in 87 naar de villa van 94. Seedance kan twee verschillende
+# ruimtes niet als één kamer verbinden. Daarom krijgt het startbeeld dezelfde villa: alleen de achtergrond door de
+# ramen en de afwerking van de kamer worden die van 94. Hand, arm, kleding, vleugel en kader blijven gelijk.
+def start_villa_edit(job_start=START_JOB, job_end="4d7fdf1b-1093-4b13-aea5-e685537506af"):
+    return req([
+        ("The same photograph as reference image #1, unchanged in every way: the same man, the same arm and hand with the "
+         "same fingers in the same position on the keys, the same clothes, the same black grand piano, the same camera "
+         "angle, framing and depth of field. Change only what is seen through the tall windows on the right and the finish "
+         "of the room, so that it is the same villa room as in reference image #2: outside the glass, soft and out of "
+         "focus, the pale stone terrace with the long infinity pool, the umbrella pines and the turquoise bay with the "
+         "open sea beyond; the window frames are the same slim bronze frames as in reference image #2, the walls are warm "
+         "white plaster and the floor is pale travertine, as in reference image #2."),
+        ("The soft daylight still comes from the tall windows on the right, as in reference image #1. Nobody else is in "
+         "the picture and the terrace is empty. His hands and wrists are bare."),
+        "No borders, no frame, no text, no logos."], [job_start, job_end])
+
+
 # Startbeeld 87, alleen de toetsen (controle echtheid, 10 okt): de zwarte toetsen staan in een gelijkmatige rij, zonder
 # groepjes van 2 en 3, en dat is op telefoongrootte te zien. De eigenaar heeft 87 goedgekeurd, dus alleen deze correctie.
 def keys_fix(job_start=START_JOB):
@@ -315,23 +333,28 @@ def shoes_fix(job_end):
 # - Geen gezichtsreferenties: zijn gezicht komt nooit in beeld en gezichtsreferenties trekken het hoofd naar de camera.
 # - Geen hand in de zak.
 VIDEO_PROMPT = (
-    "One continuous shot in real time, at a normal, natural pace, not slow motion, with a single smooth camera move that "
-    "starts gently and ends gently. It opens exactly on the start frame: a vertical shot from his shoulders to his shins, "
+    "One single unbroken shot in real time, at a normal, natural pace, not slow motion, with a single smooth camera move "
+    "that starts gently and ends gently: no cut, no dissolve, no fade and no change of scene; it is the same villa room "
+    "from the first frame to the last, with the same terrace, infinity pool and sea outside the same bronze-framed "
+    "windows. It opens exactly on the start frame: a vertical shot from his shoulders to his shins, "
     "his head above the top of the frame, as he stands at the end of the keyboard of the black lacquered grand piano "
     "facing it, his left side to the camera and his left hand on the white keys, with the tall bronze-framed windows "
     "behind him on the right. For the first second the camera is almost still while his index finger presses one key "
     "softly. Then he lifts his hand from the keys, turns to his right, away from the camera, until his back is to the "
-    "camera, and walks with four relaxed steps at a normal walking pace away from the camera and slightly to the right, to "
-    "the tall windows at the far end of the room, where he stops close to the glass and looks out over the bay, exactly as "
+    "camera, and walks with four relaxed steps at a normal walking pace away from the camera, along the window wall on "
+    "the right, to the glass corner at the far end of the same room, where he stops close to the glass and looks out over the bay, exactly as "
     "in the end frame, by about the sixth second. As he turns, the camera starts one steady, continuous move at an even "
     "speed: it pulls back on a smooth dolly, rising gently from hip height to chest height and turning slowly a little to "
     "the right to keep him in the picture, so that the piano leaves the picture on the left and more and more of him, the "
-    "tall windows and the room come into view, and the garden greenery just outside the glass opens up into the wide view "
-    "over the bay far below. His head comes into view from behind; his face stays turned away from the camera the whole "
+    "tall windows and the room come into view, and the soft view of the terrace, the pool and the sea outside the glass "
+    "becomes sharper and wider. His head comes into view from behind; his face stays turned away from the camera the whole "
     "time, and at the glass his head stays turned towards the sea in the same lost profile, never further towards the "
     "camera. The grand piano and the curtained window bay of the start frame pass out of the picture on the left early "
     "in the turn; they do not fade or change into the glass walls or the furniture. Only after the piano has left the "
-    "picture do the soft corner of the linen sofa and the travertine table come into the left foreground. He stops just "
+    "picture do the soft corner of the linen sofa and the travertine table come into the left foreground. The glass "
+    "corner, the pale vase with the olive tree, the sofa and the table are standing in the room all along: they slide "
+    "into view from the edges of the picture as the camera moves, solid and opaque, and never fade in, appear out of "
+    "nothing or show through the glass. The window panes stay clear glass with no transparent overlay. He stops just "
     "beside the pale ceramic vase with the olive tree, his right hand hanging close to it without touching the leaves. "
     "Over the last two seconds the camera slows smoothly and comes to rest behind him, exactly on the end frame, while "
     "he stands relaxed at the glass with his arms at his sides. The terrace, the beach and the bay stay empty: no people "
@@ -348,8 +371,12 @@ VIDEO_PROMPT = (
 END_JOB = "4d7fdf1b-1093-4b13-aea5-e685537506af"
 
 
-def video(end_job=END_JOB, draft=True, resolution="480p", duration=8, draft_job=None):
-    medias = [{"role": "start_image", "value": START_JOB}, {"role": "end_image", "value": end_job}]
+# Startbeeld voor de video: 97, de bewerking van 87 met de villa (zwembad, pijnbomen, zee) achter het raam.
+VIDEO_START = "ce72c67f-805a-411f-bf9a-4b71b2bdb17e"
+
+
+def video(end_job=END_JOB, draft=True, resolution="480p", duration=8, draft_job=None, start_job=VIDEO_START):
+    medias = [{"role": "start_image", "value": start_job}, {"role": "end_image", "value": end_job}]
     p = {"model": "seedance_2_5", "mode": "omni_reference", "resolution": resolution, "draft": draft,
          "bitrate_mode": "high", "duration": duration, "aspect_ratio": "9:16", "generate_audio": False,
          "prompt": VIDEO_PROMPT, "medias": medias, "declined_preset_id": PRESET_DECLINE}
@@ -365,6 +392,8 @@ if __name__ == "__main__":
     elif cmd == "start":
         base = int(args[1]) if len(args) > 1 else 82
         out = [{"index": base + v, "params": start_frame(args[0])} for v in range(2)]
+    elif cmd == "startvilla":
+        out = [{"index": 97 + v, "params": {**start_villa_edit(), "resolution": "2k"}} for v in range(2)]
     elif cmd == "grand":
         # 3 beelden op 2k: 93 bewerkt, een nieuwe variant met dubbele hoogte, en de toetsen van 87
         out = [{"index": 94, "params": {**end_grand_edit(), "resolution": "2k"}},
