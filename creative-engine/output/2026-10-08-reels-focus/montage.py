@@ -10,8 +10,9 @@ edit.json:
              {"src": "C", "from": 0.4, "dur": 2.0, "gain": 0.82},       # belichting gelijktrekken met de andere shots
              ...],
    "text":  [{"cut": 0, "lines": [["One gilet.", 96]], "y": 0.6}, ...],  # y = midden van het tekstblok (0-1)
-   "logo":  {"src": "LOGO", "width": 0.4, "seconds": 2.0, "y": 0.5, "fade": 0.5, "dim": 0.18},
-            # logo (PNG met alfa) de laatste 'seconds' in het midden; komt in 'fade' s op, beeld 'dim' donkerder
+   "logo":  {"src": "LOGO", "width": 0.28, "seconds": 2.0, "y": 0.5, "fade": 0.5},
+            # logo (PNG met alfa) de laatste 'seconds' in het midden; komt in 'fade' s op. Standaard zonder effect eromheen
+            # (eigenaar, 10 okt). Optioneel: "dim": 0.18 maakt het beeld donkerder en "shadow": true geeft een schaduw.
    "smooth": true, "smooth_skip": ["B"]}
             # eerst elke Seedance-clip gladmaken met smooth.py (de schok elke seconde en dubbele frames, eigenaar 9 okt);
             # standaard aan, zet op false om de ruwe clips te gebruiken; smooth_skip: clips die ruw blijven (een bijna stille
@@ -115,16 +116,19 @@ def text_layer(lines, yc, fonts):
 
 
 def logo_layer(path, spec):
-    """Het logo op breedte spec['width'] (fractie van 1080) met een zachte schaduw, op een doorzichtige laag van 1080x1920."""
+    """Het logo op breedte spec['width'] (fractie van 1080), op een doorzichtige laag van 1080x1920. Standaard zonder
+    schaduw: de eigenaar vond het effect om het logo heen niet mooi (10 okt). "shadow": true zet de oude zachte schaduw
+    terug."""
     lg = Image.open(path).convert("RGBA")
     lg = lg.crop(lg.getbbox())
     lw = round(W * spec.get("width", 0.4))
     lg = lg.resize((lw, round(lg.size[1] * lw / lg.size[0])), Image.LANCZOS)
     x, y = (W - lg.size[0]) // 2, round(spec.get("y", 0.5) * H - lg.size[1] / 2)
     lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    sh.paste((0, 0, 0, 255), (x + 2, y + 3), lg.getchannel("A").point(lambda v: int(v * 0.45)))
-    lay = Image.alpha_composite(lay, sh.filter(ImageFilter.GaussianBlur(5)))
+    if spec.get("shadow"):
+        sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        sh.paste((0, 0, 0, 255), (x + 2, y + 3), lg.getchannel("A").point(lambda v: int(v * 0.45)))
+        lay = Image.alpha_composite(lay, sh.filter(ImageFilter.GaussianBlur(5)))
     lay.alpha_composite(lg, (x, y))
     return lay
 

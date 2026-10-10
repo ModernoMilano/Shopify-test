@@ -12,11 +12,10 @@
  ],
  "logo": {
   "src": "LOGO",
-  "width": 0.36,
+  "width": 0.28,
   "seconds": 2.0,
-  "y": 0.17,
-  "fade": 0.5,
-  "dim": 0.18
+  "y": 0.5,
+  "fade": 0.5
  },
  "smooth": true,
  "smooth_raw_from": {
