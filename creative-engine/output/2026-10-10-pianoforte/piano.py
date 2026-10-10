@@ -329,6 +329,87 @@ def end_frame5(job_start=START_VILLA, job_far="4d7fdf1b-1093-4b13-aea5-e68553750
         "Full-frame digital camera, 50mm lens at f/8."], [job_start, job_far, SET_BACK, LOAFER_REAR])
 
 
+# end_frame5 is niet gegenereerd. Drie critici vonden dat ook die kamer niet bestaat in startbeeld 97 (10 okt). Daar
+# staan één schuine glazen wand rechts, ongeveer 1,2 m achter hem, een witte gestucte muur achter de vleugel en een vlak
+# wit plafond, zonder gordijnen en zonder glazen hoek. Een glazen hoek met bank moet Seedance dus verzinnen, en dan
+# loopt hij door het glas.
+# end_frame6 is daarom precies die kamer, 2 m verder terug op dezelfde lijn. Hij draait zich naar het raam dat al
+# achter hem staat en blijft binnen, ongeveer 60 cm ervoor. Lichaam 30 graden en hoofd 40 graden verder naar rechts:
+# zijn gezicht in een zacht verloren profiel, zonder dat de nek meer dan 45 graden draait. 35mm, zoals het startbeeld
+# ongeveer heeft. Het oude eindbeeld gaat niet als referentie mee: het trekt de glazen hoek terug.
+def end_frame6(job_start=START_VILLA):
+    return req([
+        ("The same villa living room as in reference image #1, a few seconds later and seen wider: the camera of "
+         "reference image #1 has moved straight back about two metres along its own line and risen a little, to chest "
+         "height, held level and still pointing in exactly the same direction as in reference image #1, so every wall "
+         "and line keeps the angle it has there. The picture shows only the room that reference image #1 already shows, "
+         "seen from further back. In the left part of the frame stands the same black lacquered grand piano, exactly as "
+         "placed in reference image #1: seen from the end of its keyboard, the keyboard running away from the camera "
+         "towards the glass, its curved black body cut off by the left edge of the frame and filling no more than the "
+         "left third of the frame, so his whole figure down to both loafers stands clear of it. Behind the piano, at the "
+         "far end of the room, is the same plain white plaster wall as in reference image #1, under the same flat white "
+         "plaster ceiling. On the right is the same single wall of bare, clear floor-to-ceiling glass panels in slim "
+         "bronze frames as in reference image #1, at the same angle as there: nearest to the camera at the right edge of "
+         "the frame, it recedes diagonally towards the left and meets the white plaster wall in a plain vertical corner "
+         "deep in the room. Beyond the glass, as in reference image #1: the pale stone terrace, the edge of the infinity "
+         "pool, the umbrella pines and the turquoise sea to the horizon. A pale polished travertine floor. This one glass "
+         "wall is the only glass in the room; it is all one room, and nobody else is in it. The glass is clean and clear "
+         "and the bright view shows straight through it, with no reflection of him or of the room in it."),
+        (EL + " stands inside the room on the travertine floor, a couple of steps from where he stood in reference "
+         "image #1: just past the end of the piano keyboard, with the piano to his left, about sixty centimetres in front "
+         "of the glass wall, on the room side of its bronze floor track, with a clear strip of travertine floor between "
+         "his loafers and the foot of the glass, about three and a half metres from the camera. He is seen from behind, "
+         "his back mostly to the camera: his shoulders and hips are turned about thirty degrees to his right, towards the "
+         "glass, his weight on one leg, his arms relaxed at his sides. He has calmly turned his head about forty degrees "
+         "further to his right to look out through the glass towards the pines and the sea; the turn comes easily from "
+         "his neck and upper back together, his chin level, his neck relaxed, his head upright. From the camera his face "
+         "is seen from behind and to the side, in a soft lost profile: his right ear, the side of his hair, the curve of "
+         "his right cheekbone and his jawline down to his chin, the outer corner of his right eye with its lashes, the "
+         "end of his brow and the tip of his nose beyond his cheek. He fills a little over half the height of the frame, "
+         "standing right of centre."),
+        ("Soft late-morning daylight; the sun is high and behind the house, out of view, so there is no glare on the "
+         "water and no sunbeams in the room. The only light is the daylight coming through that one glass wall, soft and "
+         "even as in reference image #1, falling gently on the right side of his face. The view is the brightest part of "
+         "the picture but keeps its colour and detail; the room and his back are about one and a half stops darker, "
+         "clearly readable, and the gilet and trousers read as dark anthracite grey, not black. Muted natural colour, "
+         "soft contrast, no HDR, not a silhouette."),
+        ("His face is the face of the man introduced above: the same young man in his mid-twenties, seen from behind and "
+         "to the side. His hair is the clearest sign of him: warm chestnut-brown (not espresso, not near-black) with "
+         "lighter warm strands where the daylight catches it, full and swept back with soft natural volume, the sides "
+         "combed back over the tops of his ears and the back tapered naturally with scissors to just above his collar; "
+         "no fringe falling forward, no fade, no shaved sides, no pompadour. A strong, straight brow; a clean, defined "
+         "jaw with only a faint stubble shadow along it (never dense stubble or a beard); dark warm brown eyes (never "
+         "blue or grey). His face is exactly as sharp, as softly lit and as finely textured as his ear and neck at that "
+         "distance, not brighter, smoother or sharper than the rest of him."),
+        ("He wears only these ModernoMilano pieces, reproduced exactly as in the product reference images:\n"
+         + SET["text"] + "\n- MILANO SUEDE LOAFER - GRIGIO, exactly as in reference images #3 (from behind) and #4 "
+         "(from the side): mid-grey suede slip-on loafers with a smooth vamp and only a stitched moc-toe seam, no strap, "
+         "no saddle and no penny slot, a flat off-white rubber sole, worn on bare feet without socks, a mirrored left and "
+         "right pair."),
+        ("Seen from behind: the gilet with the dark ANTHRACITE side out. The zip and the two welt pockets are on the "
+         "front and are not visible from behind; the back panel is one plain piece of anthracite fabric with no zip, "
+         "pocket, label or logo, exactly as in reference image #2, ending in the elasticated hem, and the stand collar is "
+         "plain anthracite at the back and the right side of his neck, beside his turned jaw. No light pietra stone shows "
+         "anywhere on the gilet from behind, and the armhole edges are dark anthracite. The short sleeves of the light "
+         "pietra T-shirt come out of the deep armholes, and its hem hangs loose a few centimetres below the gilet hem, "
+         "untucked all the way round. The slim anthracite trousers have a plain seat with no back pockets and no belt, "
+         "ending just above the ankle bone; bare skin shows at the backs of both ankles. From behind, the loafers show "
+         "plain rounded grey suede heels with a single fine centre-back seam, no heel tab, no pull loop and no logo, the "
+         "low topline just below his bare heels."),
+        ("The gilet is a SLEEVELESS bodywarmer, cut like the gilet in reference image #2: its armholes are cut deep and "
+         "sit clearly inward of his shoulder points, so on both sides the T-shirt's shoulder seam and the top of its "
+         "short sleeve are plainly visible outside the gilet, and the dark anthracite armhole edges lie flat on the "
+         "T-shirt."),
+        ("Reference image #2 shows only the clothing; the man wearing it there is a different person, so his head and "
+         "hair are not copied."),
+        PIANO, f"{HANDS} He is the only person in the picture.",
+        ("An unretouched photograph. Fine real skin texture, matte, with no glow and no airbrushing. The clothes are "
+         "real fabric with soft natural creases. Real optics: full-frame digital camera, natural depth of field: he, the "
+         "piano and the room are sharp; the view beyond the glass is a little softer with distance and haze. No "
+         "borders, no frame, no text, no logos."),
+        "Full-frame digital camera, 35mm lens at f/8."], [job_start, SET_BACK, LOAFER_REAR, LOAFER_SIDE])
+
+
 # Startbeeld 87, alleen de toetsen (controle echtheid, 10 okt): de zwarte toetsen staan in een gelijkmatige rij, zonder
 # groepjes van 2 en 3, en dat is op telefoongrootte te zien. De eigenaar heeft 87 goedgekeurd, dus alleen deze correctie.
 def keys_fix(job_start=START_JOB):
@@ -451,30 +532,31 @@ def video(end_job=END_JOB, draft=True, resolution="480p", duration=8, draft_job=
 # mee.
 VIDEO2_PROMPT = (
     "One single unbroken shot in real time, at a normal, natural pace, not slow motion: one slow, steady dolly move "
-    "straight back that starts gently and ends gently, with no cut, no dissolve, no fade and no change of scene; it is "
-    "one and the same room from the first frame to the last. It opens exactly on the start frame: a close shot of his "
-    "left arm and hand on the white keys at the end of the keyboard of the black lacquered grand piano, with the tall "
-    "bronze-framed windows and linen curtains behind him on the right. In the first second his index finger presses one "
-    "key softly. Then he lifts his hand from the keys, turns to his right with his back to the camera and walks calmly, "
-    "at a normal walking pace, straight away from the camera across the travertine floor into the depth of the room, "
-    "keeping about a metre away from the glass wall on his right, which stays on his right the whole time; he never "
-    "touches or passes through any glass, and he stays inside the room. As he walks, the camera dollies straight back "
-    "along the same line and rises gently from hip height to chest height, so the piano slides into the left foreground "
-    "and more and more of the same room comes into view: the window wall on the right, the beamed ceiling, and at the "
-    "far end the glass corner with the linen sofa, the vase with the olive tree, the infinity pool and the sea, which "
-    "were there all along and stay solid. After about five steps he stops on the floor in front of the far glass, by "
-    "about the sixth second, and stands still with his back to the camera, his arms relaxed at his sides. Then, over "
-    "about two seconds, he calmly turns his head about forty-five degrees to his right to look out towards the pines "
-    "and the sea, so his face is seen a little from the side in soft profile, his mouth closed and his expression calm; "
-    "his body stays facing the far glass. For the last second the camera comes to rest exactly on the end frame and he "
-    "holds the pose, breathing softly. He is the man in the start and end frames and in the reference images; use the "
-    "reference images only for his face and hair. He keeps the same face, hair and clothes throughout, in the same "
-    "colours: the sleeveless gilet stays dark anthracite outside, its armhole edges stay dark anthracite with no light "
-    "pietra showing at the armholes, also when his arms swing as he walks; it hangs open over the light pietra T-shirt, "
-    "which stays loose and untucked at the same length, with the slim anthracite trousers and the mid-grey suede "
-    "slip-on loafers with a plain vamp and an off-white sole on bare feet; his hands and wrists stay bare. The terrace, "
-    "the pool, the beach and the bay stay empty: no people and no boats appear, and the glass stays clear with no "
-    "reflections of people. Soft daylight from the windows, natural motion blur.")
+    "straight back with a gentle rise and no pan, which starts gently and ends gently, with no cut, no dissolve, no fade "
+    "and no change of scene. It is one and the same room from the first frame to the last: the black grand piano, the "
+    "plain white plaster wall behind it, the flat white ceiling and the single wall of bare bronze-framed glass on the "
+    "right stay exactly where they are and keep their shape; nothing new appears in the room. It opens exactly on the "
+    "start frame: a close shot of his left arm and hand on the white keys at the end of the keyboard, the glass wall "
+    "behind him on the right. In the first second his index finger presses one key softly. Then he lifts his hand from "
+    "the keys and turns calmly to his right, away from the camera, towards the glass wall that is behind him, and takes "
+    "two or three unhurried steps to it at a normal walking pace; he stops on the travertine floor about sixty "
+    "centimetres in front of the glass, on the room side of its bronze floor track, with a clear strip of floor between "
+    "his loafers and the glass. He never touches or passes through the glass and stays inside the room. All the while "
+    "the camera dollies straight back about two metres along its own line and rises from hip height to chest height, so "
+    "the piano stays in view on the left and more and more of the same room and of him comes into view, until his whole "
+    "figure is in the picture. By about the sixth second he stands still, his back mostly to the camera and his "
+    "shoulders turned a little towards the glass, his arms relaxed at his sides. Then, over about two seconds, he calmly "
+    "turns his head to his right to look out through the glass at the pines and the sea, so his face is seen softly "
+    "from behind and to the side: his ear, his cheekbone, his jaw and the tip of his nose; his body stays still and his "
+    "neck relaxed. For the last second the camera comes to rest exactly on the end frame and he holds the pose, "
+    "breathing softly. He is the man in the start and end frames and in the reference images; use the reference images "
+    "only for his face and hair. He keeps the same face, hair and clothes throughout, in the same colours: the "
+    "sleeveless gilet stays dark anthracite outside, its armhole edges stay dark anthracite with no light pietra showing "
+    "at the armholes, also when his arms move; it hangs open over the light pietra T-shirt, which stays loose and "
+    "untucked at the same length, with the slim anthracite trousers and the mid-grey suede slip-on loafers with a plain "
+    "vamp and an off-white sole on bare feet; his hands and wrists stay bare. The terrace, the pool and the sea stay "
+    "empty: no people and no boats appear, and the glass stays clear with no reflection of him or of anyone. Soft "
+    "daylight from the glass wall, natural motion blur.")
 
 
 def video2(end_job, draft=True, duration=10, draft_job=None, start_job=START_VILLA):
@@ -499,6 +581,8 @@ if __name__ == "__main__":
     elif cmd == "video2":
         # video2 <job eindbeeld> [<concept job> voor 1080p]
         out = [{"index": 0, "params": video2(args[0], draft_job=args[1] if len(args) > 1 else None)}]
+    elif cmd == "end6":
+        out = [{"index": 110 + v, "params": {**end_frame6(), "resolution": "2k"}} for v in range(int(args[0]) if args else 3)]
     elif cmd == "end5":
         out = [{"index": 100 + v, "params": {**end_frame5(), "resolution": "2k"}} for v in range(int(args[0]) if args else 2)]
     elif cmd == "startvilla":
