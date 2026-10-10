@@ -152,3 +152,26 @@ Meting (sandbox, `cuts.py` en `morph.py`):
 De maat ziet niet alles: bij 6 is de doorzichtige tafel alleen met het oog te zien.
 
 Concept 5 gaat naar 1080p (job 8da5d025-e473-42bb-83b7-ad6945e7caef). Controle van 4 en 5: zie hieronder.
+
+## Afwerking (10 okt)
+
+**Gladmaken met `smooth.py`, één ronde:**
+- Voor: een sprong op elke naad van 24 frames.
+- Na:
+
+| Maat | Ruw | Na één ronde |
+|---|---|---|
+| Ruwheid van de stappen (95e percentiel) | 1,96 | 1,04 |
+| Grootste schok | 5,3 | 3,2 |
+
+- Op 2,0 s en 5,0 s blijft een stap van ongeveer 1,5x de buren staan. Daar tekent Seedance de inhoud opnieuw en is de flow niet betrouwbaar; frame voor frame is geen sprong te zien.
+- Scherpte ten opzichte van het origineel: mediaan 99%, minimaal 90%.
+- Een tweede ronde is geprobeerd. Die brengt de naden nauwelijks omlaag (7,7 naar 7,0 en 5,1 naar 5,1) en laat de scherpte zakken (5e percentiel 92%), dus is die niet gebruikt.
+
+**Eind van de shot:** de camera komt tot stilstand en daar liep de gladde tijdlijn tot een frame achter. Dat gaf haperende laatste stappen. Nieuw in `smooth.py`: `raw_from` (`--raw-from=auto`). Vanaf het laatste punt waar de tijdlijnen samenvallen (hier frame 172) worden de echte frames gebruikt. In de montage gaat dat via `"smooth_raw_from": {"A": "auto"}`.
+
+**Logo (wens eigenaar):** klein in het midden, zonder effect eromheen. Breedte 28%, y = 0,5, de laatste 2 s, komt in 0,5 s op. Geen schaduw en geen verdonkering: dat is nu de standaard in `montage.py`, en `"shadow": true` en `"dim"` zijn alleen nog optioneel.
+
+**Oplevering:** 1080x1920, 24 fps, 8,0 s, h264. Zip: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/a382bb28-10ed-4417-9fef-88e2ec004aec.zip
+
+**Credits voor de video:** 6 concepten à 24, 2 bewerkingen van het startbeeld à 2 en 1080p voor 96; samen 244.
