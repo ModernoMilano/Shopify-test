@@ -269,6 +269,66 @@ def start_villa_edit(job_start=START_JOB, job_end="4d7fdf1b-1093-4b13-aea5-e6855
         "No borders, no frame, no text, no logos."], [job_start, job_end])
 
 
+# Versie 2 van de video (eigenaar, 10 okt).
+# Fout in versie 1: hij loopt door de glazen wand en staat dan opeens in een andere ruimte (screenshot rond 4 s). Oorzaak:
+# het eindbeeld 94 (een glazen hoek) komt in het startbeeld nergens voor, dus Seedance moet de ruimte daartussen
+# verzinnen. Wens erbij: de video iets langer, en aan het eind kijkt hij rustig naar rechts, zodat je zijn gezicht een
+# beetje van opzij ziet.
+# Oplossing: een eindbeeld van dezelfde kamer als startbeeld 97, van verder weg op dezelfde lijn. Links op de
+# voorgrond de vleugel, rechts de raamwand met gordijnen die de diepte in loopt, achterin de glazen hoek van 94. Hij
+# staat binnen voor het achterste raam en draait zijn hoofd ongeveer 45 graden naar rechts (modelregel: hooguit 45).
+START_VILLA = "ce72c67f-805a-411f-bf9a-4b71b2bdb17e"
+
+
+def end_frame5(job_start=START_VILLA, job_far="4d7fdf1b-1093-4b13-aea5-e685537506af"):
+    return req([
+        ("A wider view of the same villa living room as in reference images #1 and #2, a few seconds later, taken from "
+         "where the camera of reference image #1 has pulled back: about three metres further back along the same line "
+         "and a little higher, at chest height, held level, looking straight into the depth of the room. In the left "
+         "foreground stands the same black lacquered grand piano as in reference image #1, seen from the end of its "
+         "keyboard, soft and slightly out of focus and cut off by the left and bottom edges of the frame. On the right, "
+         "the same wall of tall floor-to-ceiling glass panels in slim bronze frames, with the same ivory linen curtains "
+         "as in reference image #1, runs straight into the depth of the room, with the pale stone terrace, the infinity "
+         "pool and the umbrella pines outside it. At the far end of the room, about five metres from the camera, is the "
+         "glass corner of reference image #2: a second wall of the same tall glass panels facing the camera, with the "
+         "long low linen sofa, the travertine table and the pale vase with the olive tree in front of it, and beyond the "
+         "glass the infinity pool, the umbrella pines and the bay with its crescent of pale sand, its granite rocks, the "
+         "turquoise water and the open sea to the horizon. A ceiling of dark wooden beams on white plaster, a pale "
+         "polished travertine floor. It is all one room; nobody else is in it."),
+        (EL + " stands inside the room on the travertine floor, at the far end, about half a metre in front of the far "
+         "glass wall and well away from the glass wall on the right, seen from behind with his back to the camera; his "
+         "weight on one leg, his arms relaxed at his sides. His body faces the far glass, and he has calmly turned his "
+         "head about forty-five degrees to his right to look out along the glass towards the pines and the sea, so his "
+         "face is seen a little from the side: the line of his right cheek, his nose, his eye and his jaw in soft "
+         "profile, his mouth closed and his expression calm. He fills about half the height of the frame, standing "
+         "slightly right of centre, his loafers on the floor in the lower part of the frame."),
+        ("Soft late-morning daylight; the sun is high and behind the house, out of view, so there is no glare on the "
+         "water and no sunbeams in the room. The only light is the daylight coming through the glass walls, soft and "
+         "even as in reference image #1. The view is the brightest part of the picture but keeps its colour and detail; "
+         "the room and his back are about one and a half stops darker, clearly readable, and the gilet and trousers read "
+         "as dark anthracite grey, not black. Muted natural colour, soft contrast, no HDR, not a silhouette."),
+        "His face is the face of the man introduced above. " + ID_LINE,
+        ("He wears only these ModernoMilano pieces, exactly as in reference image #2 and the product reference images:\n"
+         + SET["text"] + "\n- MILANO SUEDE LOAFER - GRIGIO, as in reference image #4 (from behind): mid-grey suede "
+         "slip-on loafers with a smooth plain vamp, no strap and no penny slot, a flat off-white rubber sole, on bare "
+         "feet without socks, a mirrored left and right pair."),
+        ("Seen from behind: the gilet with the dark ANTHRACITE side out, its plain back panel with no zip, pocket, label "
+         "or logo, exactly as in reference image #3, ending in the elasticated hem, and the stand collar plain "
+         "anthracite at the back of his neck; no light pietra stone shows anywhere on the gilet from behind, and the "
+         "armhole edges are dark anthracite. The short sleeves of the light pietra T-shirt come out of the deep "
+         "armholes, and its hem hangs loose a few centimetres below the gilet hem, untucked all the way round. The slim "
+         "anthracite trousers have a plain seat with no back pockets and no belt, ending just above the ankle bone; bare "
+         "skin shows at the backs of both ankles above the loafers."),
+        ("Reference image #3 shows only the clothing; the man wearing it there is a different person, so his head and "
+         "hair are not copied."),
+        PIANO, f"{HANDS} He is the only person in the picture.",
+        ("An unretouched photograph. Fine real skin texture, matte, with no glow and no airbrushing. The clothes are "
+         "real fabric with soft natural creases. Real optics: full-frame digital camera, natural depth of field: he and "
+         "the far end of the room are sharp, the view beyond the glass is a little softer with distance and haze, the "
+         "piano in the foreground is soft. No borders, no frame, no text, no logos."),
+        "Full-frame digital camera, 50mm lens at f/8."], [job_start, job_far, SET_BACK, LOAFER_REAR])
+
+
 # Startbeeld 87, alleen de toetsen (controle echtheid, 10 okt): de zwarte toetsen staan in een gelijkmatige rij, zonder
 # groepjes van 2 en 3, en dat is op telefoongrootte te zien. De eigenaar heeft 87 goedgekeurd, dus alleen deze correctie.
 def keys_fix(job_start=START_JOB):
@@ -385,6 +445,50 @@ def video(end_job=END_JOB, draft=True, resolution="480p", duration=8, draft_job=
     return p
 
 
+# Video versie 2 (10 s): startbeeld 97 en het eindbeeld van end_frame5, één kamer. Een rechte camerabeweging terug
+# langs dezelfde lijn. Hij loopt recht de diepte in, met de glazen wand steeds rechts op afstand, en draait aan het
+# eind zijn hoofd ongeveer 45 graden naar rechts. Zijn gezicht komt nu in beeld, dus de gezichtsreferenties gaan weer
+# mee.
+VIDEO2_PROMPT = (
+    "One single unbroken shot in real time, at a normal, natural pace, not slow motion: one slow, steady dolly move "
+    "straight back that starts gently and ends gently, with no cut, no dissolve, no fade and no change of scene; it is "
+    "one and the same room from the first frame to the last. It opens exactly on the start frame: a close shot of his "
+    "left arm and hand on the white keys at the end of the keyboard of the black lacquered grand piano, with the tall "
+    "bronze-framed windows and linen curtains behind him on the right. In the first second his index finger presses one "
+    "key softly. Then he lifts his hand from the keys, turns to his right with his back to the camera and walks calmly, "
+    "at a normal walking pace, straight away from the camera across the travertine floor into the depth of the room, "
+    "keeping about a metre away from the glass wall on his right, which stays on his right the whole time; he never "
+    "touches or passes through any glass, and he stays inside the room. As he walks, the camera dollies straight back "
+    "along the same line and rises gently from hip height to chest height, so the piano slides into the left foreground "
+    "and more and more of the same room comes into view: the window wall on the right, the beamed ceiling, and at the "
+    "far end the glass corner with the linen sofa, the vase with the olive tree, the infinity pool and the sea, which "
+    "were there all along and stay solid. After about five steps he stops on the floor in front of the far glass, by "
+    "about the sixth second, and stands still with his back to the camera, his arms relaxed at his sides. Then, over "
+    "about two seconds, he calmly turns his head about forty-five degrees to his right to look out towards the pines "
+    "and the sea, so his face is seen a little from the side in soft profile, his mouth closed and his expression calm; "
+    "his body stays facing the far glass. For the last second the camera comes to rest exactly on the end frame and he "
+    "holds the pose, breathing softly. He is the man in the start and end frames and in the reference images; use the "
+    "reference images only for his face and hair. He keeps the same face, hair and clothes throughout, in the same "
+    "colours: the sleeveless gilet stays dark anthracite outside, its armhole edges stay dark anthracite with no light "
+    "pietra showing at the armholes, also when his arms swing as he walks; it hangs open over the light pietra T-shirt, "
+    "which stays loose and untucked at the same length, with the slim anthracite trousers and the mid-grey suede "
+    "slip-on loafers with a plain vamp and an off-white sole on bare feet; his hands and wrists stay bare. The terrace, "
+    "the pool, the beach and the bay stay empty: no people and no boats appear, and the glass stays clear with no "
+    "reflections of people. Soft daylight from the windows, natural motion blur.")
+
+
+def video2(end_job, draft=True, duration=10, draft_job=None, start_job=START_VILLA):
+    faces = [r["upscale_job_id"] for r in HF["face_refs"] if any(r["file"].endswith(f"/{x}.jpg") for x in HF["video_face_refs"])]
+    medias = ([{"role": "start_image", "value": start_job}, {"role": "end_image", "value": end_job}]
+              + [{"role": "image_references", "value": f} for f in faces])
+    p = {"model": "seedance_2_5", "mode": "omni_reference", "resolution": "480p", "draft": draft, "bitrate_mode": "high",
+         "duration": duration, "aspect_ratio": "9:16", "generate_audio": False, "prompt": VIDEO2_PROMPT,
+         "medias": medias, "declined_preset_id": PRESET_DECLINE}
+    if draft_job:
+        p.update(resolution="1080p", draft=False, draft_job_id=draft_job)
+    return p
+
+
 if __name__ == "__main__":
     cmd, args = sys.argv[1], sys.argv[2:]
     if cmd == "end":
@@ -392,6 +496,11 @@ if __name__ == "__main__":
     elif cmd == "start":
         base = int(args[1]) if len(args) > 1 else 82
         out = [{"index": base + v, "params": start_frame(args[0])} for v in range(2)]
+    elif cmd == "video2":
+        # video2 <job eindbeeld> [<concept job> voor 1080p]
+        out = [{"index": 0, "params": video2(args[0], draft_job=args[1] if len(args) > 1 else None)}]
+    elif cmd == "end5":
+        out = [{"index": 100 + v, "params": {**end_frame5(), "resolution": "2k"}} for v in range(int(args[0]) if args else 2)]
     elif cmd == "startvilla":
         out = [{"index": 97 + v, "params": {**start_villa_edit(), "resolution": "2k"}} for v in range(2)]
     elif cmd == "grand":
