@@ -101,6 +101,7 @@ textarea:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
 .own summary { cursor: pointer; font-size: 13px; color: var(--ink-2); }
 .own .row { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; align-items: flex-start; }
 .own textarea { min-height: 3.5em; font-size: 13px; }
+.vnote { padding: 6px 12px 0; }
 .chip.mine { border-color: var(--ink-3); color: var(--ink); }
 </style>
 
@@ -108,14 +109,14 @@ textarea:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
   <header>
     <div class="eyebrow">ModernoMilano</div>
     <h1>Ad <i>Studio</i></h1>
-    <p class="sub">Drop your ad photos in here. Every photo gets a number in the order you add it, with its own ad copy about exactly that photo underneath, with an angle and hook to test.</p>
+    <p class="sub">Drop your ad photos and videos in here. Every ad gets a number in the order you add it, with its own ad copy about exactly that creative underneath, with an angle and hook to test.</p>
   </header>
 
   <label class="drop" id="drop" for="file">
-    <span class="big">Drop photos here</span>
-    <p>Or click to choose them. You can add several at once: they are sorted by file name and numbered in that order.</p>
-    <span class="btn" aria-hidden="true">Choose photos</span>
-    <input id="file" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden>
+    <span class="big">Drop photos or videos here</span>
+    <p>Or click to choose them. You can add several at once: they are sorted by file name and numbered in that order. Videos: MP4, MOV or WebM.</p>
+    <span class="btn" aria-hidden="true">Choose files</span>
+    <input id="file" type="file" accept="image/jpeg,image/png,image/webp,video/mp4,video/webm,video/quicktime" multiple hidden>
   </label>
 
   <section class="direction" aria-labelledby="dirTitle">
@@ -154,7 +155,7 @@ textarea:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
 <script>
 
 const BRIEF = `You write Meta (Facebook/Instagram) ad copy for ModernoMilano, a premium menswear brand "inspired by Milan".
-You get ONE finished ad image. Look at it carefully: the garment, its colours, the setting, the light, any detail.
+You get ONE finished ad creative (a photo, or still frames from a video). Look at it carefully: the garment, its colours, the setting, the light, any detail.
 
 Write one ad whose only job is to get the click and the sale.
 Sell the COLLECTION, not the exact product. Decide which collection the photo belongs to (Cashmere Collection, Reverso Collection, or Bundle & Save; if unclear, pick the closest of these three) and make the copy about that collection: what wearing it gives you, why it is worth it, why now. The photo is the proof: use one concrete thing you can see (the colour, the setting, the knit, the reversible side) as a short supporting detail, not as a product description. Do not list product specs, do not name a single colourway or SKU in the primary text, and do not quote a single product price.
@@ -194,7 +195,7 @@ const CTA = { SHOP_NOW: "Shop now", LEARN_MORE: "Learn more", ORDER_NOW: "Order 
 const $ = (s) => document.querySelector(s);
 const grid = $("#grid"), notes = $("#notes");
 const state = { ads: new Map(), local: new Map(), lang: "English", direction: "" }; // key -> record; local: key -> {url, blob}
-let db = null, assets = null, sample = null, downloads = null, persistent = false, imagesOk = false;
+let db = null, assets = null, sample = null, downloads = null, persistent = false, imagesOk = false, maxImages = 1;
 let queue = [], running = 0;
 const openOwn = new Set(), ownDrafts = new Map();
 const active = new Set();
@@ -232,18 +233,70 @@ function stripLocal(rec) { const { _local, ...rest } = rec; return rest; }
 
 /* ---------- toevoegen ---------- */
 async function addFiles(fileList) {
-  const files = [...fileList].filter((f) => /^image\/(jpeg|png|webp)$/.test(f.type));
-  if (!files.length) { toast("Only JPG, PNG or WebP"); return; }
+  const files = [...fileList].filter((f) => isImage(f) || isVideo(f));
+  if (!files.length) { toast("Only JPG, PNG, WebP, MP4, MOV or WebM"); return; }
   files.sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: "base" }));
   let n = nextNumber();
   for (const file of files) {
     const key = keyOf(n);
     const localUrl = URL.createObjectURL(file);
-    state.local.set(key, { url: localUrl, file });
-    await save(key, { n, name: file.name, status: "writing", createdAt: new Date().toISOString() });
+    const kind = isVideo(file) ? "video" : "image";
+    const local = { url: localUrl, file, kind };
+    if (kind === "video") local.frames = extractFrames(localUrl, 4).catch(() => []);
+    state.local.set(key, local);
+    await save(key, { n, name: file.name, kind, status: "writing", createdAt: new Date().toISOString() });
     n++;
     enqueue(key);
-    uploadPhoto(key, file);
+    if (kind === "video") uploadVideo(key, file, local.frames); else uploadPhoto(key, file);
+  }
+}
+
+function isImage(f) { return /^image\/(jpeg|png|webp)$/.test(f.type); }
+function isVideo(f) { return /^video\/(mp4|webm|quicktime)$/.test(f.type) || /\.(mp4|mov|m4v|webm)$/i.test(f.name); }
+
+/* Pull a few still frames from a video (start to end) so Claude can look at it. */
+async function extractFrames(url, count) {
+  const v = document.createElement("video");
+  v.muted = true; v.playsInline = true; v.preload = "auto"; v.src = url;
+  await new Promise((ok, bad) => { v.onloadeddata = ok; v.onerror = () => bad(new Error("video")); setTimeout(() => bad(new Error("timeout")), 20000); });
+  const dur = Number.isFinite(v.duration) && v.duration > 0 ? v.duration : 0;
+  const times = dur ? Array.from({ length: count }, (_, i) => Math.min(dur - 0.05, dur * (0.08 + (0.84 * i) / Math.max(1, count - 1)))) : [0];
+  const scale = Math.min(1, 1280 / Math.max(v.videoWidth || 1280, v.videoHeight || 720));
+  const c = document.createElement("canvas");
+  c.width = Math.round((v.videoWidth || 1280) * scale); c.height = Math.round((v.videoHeight || 720) * scale);
+  const ctx = c.getContext("2d");
+  const out = [];
+  for (const time of times) {
+    await new Promise((ok) => { const done = () => { v.removeEventListener("seeked", done); ok(); }; v.addEventListener("seeked", done); v.currentTime = Math.max(0, time); setTimeout(done, 4000); });
+    ctx.drawImage(v, 0, 0, c.width, c.height);
+    const b = await new Promise((r) => c.toBlob(r, "image/jpeg", 0.85));
+    if (b) out.push(b);
+  }
+  v.removeAttribute("src"); v.load();
+  return out;
+}
+
+async function uploadVideo(key, file, framesPromise) {
+  if (!assets) return;
+  const n = state.ads.get(key)?.n ?? "";
+  try {
+    const frames = await framesPromise;
+    const ids = [];
+    for (const f of frames) ids.push((await assets.upload(f, { type: "image/jpeg" })).id);
+    if (ids.length) await save(key, { frames: ids, poster: ids[0] });
+  } catch (e) {
+    note("The frames of video " + n + " could not be saved (" + (e.code || "error") + ").", true);
+  }
+  if (file.size > 20 * 1024 * 1024) {
+    await save(key, { videoNote: "Video is larger than 20 MB, so only its frames are saved." });
+    return;
+  }
+  try {
+    const type = /webm$/i.test(file.type) || /\.webm$/i.test(file.name) ? "video/webm" : "video/mp4";
+    const res = await assets.upload(file, { type });
+    await save(key, { video: res.id, videoNote: null });
+  } catch (e) {
+    await save(key, { videoNote: "The video itself could not be saved (" + (e.code || "error") + "), its frames are." });
   }
 }
 
@@ -286,11 +339,25 @@ async function writeInner(key, { fresh = false, direction = null } = {}) {
   const rec = state.ads.get(key); if (!rec) return;
   if (!sample || !imagesOk) { await save(key, { status: "error", error: "Writing copy does not work here: Claude cannot look at photos in this view." }); return; }
   const local = state.local.get(key);
-  let image = local?.file || null;
-  if (!image && rec.asset) {
-    try { image = await (await fetch("/_blob/" + rec.asset)).blob(); } catch { image = null; }
+  const isVid = rec.kind === "video";
+  let images = [];
+  if (isVid) {
+    images = local?.frames ? await local.frames : [];
+    if (!images.length && rec.frames?.length) {
+      for (const id of rec.frames) { try { images.push(await (await fetch("/_blob/" + id)).blob()); } catch {} }
+    }
+    images = images.slice(0, maxImages);
+  } else {
+    let image = local?.file || null;
+    if (!image && rec.asset) {
+      try { image = await (await fetch("/_blob/" + rec.asset)).blob(); } catch { image = null; }
+    }
+    if (image) images = [image];
   }
-  if (!image) { await save(key, { status: "error", error: "This photo is no longer available. Drop it into the page again." }); return; }
+  if (!images.length) { await save(key, { status: "error", error: isVid ? "No frames could be taken from this video. Try an MP4." : "This photo is no longer available. Drop it into the page again." }); return; }
+  const mediaLine = isVid
+    ? `This ad is a VIDEO. You get ${images.length} still frames from it, in order from start to end. Write the copy for the video as a whole: what happens, the garment, the setting, the mood. It will mostly run in Reels and Stories, so the hook must work in the first second.`
+    : "This ad is a single photo.";
   await save(key, { status: "writing", error: null });
   const used = usedSoFar(key);
   const dir = String(direction ?? state.direction ?? "").trim().slice(0, 2000);
@@ -303,6 +370,7 @@ ${dir}
   const prompt = `${BRIEF}${dirBlock}
 
 Write the ad in ${state.lang}${state.lang === "Dutch" ? " (natural Dutch for the Netherlands and Belgium, use \"je\", keep product names as they are)" : ""}. Write the "scene" field in English.
+${mediaLine}
 This is ad number ${rec.n}. File name: ${rec.name || "unknown"}.
 Angles already used in this set (spread the test, prefer angles used least): ${JSON.stringify(used.angles)}
 Hooks already used (yours must be clearly different): ${JSON.stringify(used.hooks)}
@@ -310,7 +378,7 @@ Hooks already used (yours must be clearly different): ${JSON.stringify(used.hook
 Reply with only one JSON object with exactly these keys:
 {"collection":"Cashmere"|"Reverso"|"Bundle & Save"|"Other","product":"the collection or set the photo shows, e.g. Reverso Collection","price":"","scene":"one short English sentence: what is in the photo","angle":"","hook_type":"","hook":"","primary_text":"starts with the hook line; 3-5 short lines separated by \\n following the conversion structure; ends with a call to action naming the collection","headline":"max 40 characters, about the collection or the offer, not a single product","description":"max 30 characters","cta":"SHOP_NOW"|"LEARN_MORE"|"ORDER_NOW"|"GET_OFFER"}`;
   try {
-    const out = await sample.json(prompt, { images: [image], cache: fresh || dir ? false : undefined });
+    const out = await sample.json(prompt, { images, cache: fresh || dir ? false : undefined });
     if (!out || typeof out.primary_text !== "string" || typeof out.hook !== "string") throw { code: "invalid_json" };
     const copy = {
       collection: String(out.collection || "Other"), product: String(out.product || ""), price: String(out.price || ""),
@@ -339,6 +407,7 @@ function note(text, warn) {
   notes.append(d); setTimeout(() => d.remove(), 12000);
 }
 function photoUrl(key, rec) { return state.local.get(key)?.url || (rec.asset ? "/_blob/" + rec.asset : ""); }
+function videoUrl(key, rec) { return state.local.get(key)?.url || (rec.video ? "/_blob/" + rec.video : ""); }
 function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
 
 function field(label, value, copyLabel) {
@@ -360,14 +429,27 @@ function card(key, rec) {
   const a = el("article", "ad"); a.id = "ad-" + key;
   const top = el("div", "top");
   top.append(el("span", "num", "#" + rec.n), el("span", "name", rec.name || ""));
+  if (rec.kind === "video") top.append(el("span", "chip", "Video"));
   a.append(top);
-  const src = photoUrl(key, rec);
-  if (src) { const img = el("img", "photo"); img.src = src; img.alt = rec.copy?.scene || "Ad photo " + rec.n; img.loading = "lazy"; a.append(img); }
-  else a.append(el("div", "note", "This photo was not saved. Drop it into the page again to see it."));
+  if (rec.kind === "video") {
+    const vsrc = videoUrl(key, rec);
+    if (vsrc) {
+      const v = el("video", "photo"); v.src = vsrc; v.controls = true; v.muted = true; v.playsInline = true; v.preload = "metadata";
+      if (rec.poster) v.poster = "/_blob/" + rec.poster;
+      v.setAttribute("aria-label", "Ad video " + rec.n); a.append(v);
+    } else if (rec.poster) {
+      const img = el("img", "photo"); img.src = "/_blob/" + rec.poster; img.alt = "First frame of ad video " + rec.n; img.loading = "lazy"; a.append(img);
+    } else a.append(el("div", "note", "This video was not saved. Drop it into the page again to see it."));
+    if (rec.videoNote) a.append(el("div", "scene vnote", rec.videoNote));
+  } else {
+    const src = photoUrl(key, rec);
+    if (src) { const img = el("img", "photo"); img.src = src; img.alt = rec.copy?.scene || "Ad photo " + rec.n; img.loading = "lazy"; a.append(img); }
+    else a.append(el("div", "note", "This photo was not saved. Drop it into the page again to see it."));
+  }
   const body = el("div", "body");
   const busy = active.has(key) || queue.includes(key);
   if (busy) {
-    const w = el("div", "writing"); w.append(el("span", "dot"), el("span", null, queue.includes(key) ? "Waiting for its turn…" : "Claude is looking at the photo and writing the copy…"));
+    const w = el("div", "writing"); w.append(el("span", "dot"), el("span", null, queue.includes(key) ? "Waiting for its turn…" : rec.kind === "video" ? "Claude is looking at the video frames and writing the copy…" : "Claude is looking at the photo and writing the copy…"));
     body.append(w);
   } else if (rec.status === "writing" && !rec.copy) {
     body.append(el("div", "err", "Writing was interrupted. Click Write again."));
@@ -383,7 +465,7 @@ function card(key, rec) {
     if (c.product) chips.append(el("span", "chip", c.product + (c.price ? " · " + c.price.replace("EUR ", "€ ") : "")));
     body.append(chips);
     body.append(el("p", "hook", c.hook));
-    if (c.scene) body.append(el("div", "scene", "In the photo: " + c.scene));
+    if (c.scene) body.append(el("div", "scene", (rec.kind === "video" ? "In the video: " : "In the photo: ") + c.scene));
     body.append(field("Primary text", c.primary_text), field("Headline", c.headline), field("Description", c.description));
     const ctaRow = el("div", "field"); const h = el("div", "head"); h.append(el("span", "label", "Button"), el("span", null, CTA[c.cta] || c.cta)); ctaRow.append(h); body.append(ctaRow);
   }
@@ -433,7 +515,10 @@ async function removeAd(key) {
   state.ads.delete(key); queue = queue.filter((k) => k !== key);
   render();
   if (persistent) {
-    try { await db.collection("ads").doc(key).delete(); if (rec?.asset && assets) await assets.delete(rec.asset); }
+    try {
+      await db.collection("ads").doc(key).delete();
+      if (assets) for (const id of [rec?.asset, rec?.video, ...(rec?.frames || [])].filter(Boolean)) await assets.delete(id);
+    }
     catch (e) { note("Deleting did not fully work (" + (e.code || "error") + ").", true); }
   }
 }
@@ -461,8 +546,8 @@ function csvCell(v) { return '"' + String(v ?? "").replace(/"/g, '""') + '"'; }
 $("#csv").onclick = async () => {
   const list = [...state.ads.values()].filter((r) => r.copy).sort((a, b) => a.n - b.n);
   if (!list.length) { toast("No copy to download yet"); return; }
-  const head = ["number", "file", "collection", "product", "price", "angle", "hook_type", "hook", "primary_text", "headline", "description", "cta"];
-  const rows = list.map((r) => [r.n, r.name, r.copy.collection, r.copy.product, r.copy.price, r.copy.angle, r.copy.hook_type, r.copy.hook, r.copy.primary_text, r.copy.headline, r.copy.description, r.copy.cta].map(csvCell).join(","));
+  const head = ["number", "file", "type", "collection", "product", "price", "angle", "hook_type", "hook", "primary_text", "headline", "description", "cta"];
+  const rows = list.map((r) => [r.n, r.name, r.kind === "video" ? "video" : "photo", r.copy.collection, r.copy.product, r.copy.price, r.copy.angle, r.copy.hook_type, r.copy.hook, r.copy.primary_text, r.copy.headline, r.copy.description, r.copy.cta].map(csvCell).join(","));
   try { await downloads.save({ filename: "modernomilano-ad-copy.csv", data: "﻿" + [head.join(","), ...rows].join("\n") }); }
   catch (e) { if (e?.code !== "declined") toast("Download failed"); }
 };
@@ -540,7 +625,7 @@ render();
 (async () => {
   if (!window.claude?.use) { note("Open this page in Claude to have copy written and your ads saved.", true); return; }
   [sample, db, assets, downloads] = await Promise.all(["sample", "db", "assets", "downloads"].map((n) => window.claude.use(n).catch(() => null)));
-  if (sample) { try { imagesOk = !!(await sample.limits())?.images; } catch { imagesOk = false; } }
+  if (sample) { try { const lim = (await sample.limits())?.images; imagesOk = !!lim; maxImages = Math.max(1, lim?.maxCount || 1); } catch { imagesOk = false; } }
   if (!sample || !imagesOk) note("Claude cannot look at photos in this view, so no copy can be written here.", true);
   if (downloads) $("#csv").hidden = false;
   if (db && assets) {
