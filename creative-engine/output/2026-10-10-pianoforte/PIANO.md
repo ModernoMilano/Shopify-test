@@ -234,3 +234,19 @@ Ter vergelijking: versie 1 haalde 0,09.
 | 2 concepten à 30 | 60 |
 | 1080p | 120 |
 | **Samen** | **186** |
+
+**Controle versie 2 (10 okt):**
+- **Eindbeeld 111 apart:** afgekeurd door drie controleurs en een eindoordeel.
+  - De hoofddraai is bijna een volledig profiel (ongeveer 70 graden).
+  - De zwarte lak van de vleugel spiegelt een donkere figuur met een hand.
+  - Zijn voetpositie lag ten opzichte van de vleugelpoot mogelijk te dicht bij de camera.
+- **Video concept 22:** goedgekeurd met aantekeningen door twee controleurs per concept en een eindoordeel; 21 was de vergelijking.
+  - Hij komt nooit op of over de raamrail en staat aan het eind 50-60 cm binnen het glas (voeten gevolgd met een homografie van de vloer).
+  - Het is één kamer, zonder snede, overvloeier of morph. Het gordijn in de hoek komt van achter zijn lichaam in beeld, zonder op te duiken.
+  - De kleding klopt in elk frame: geen pietra bij de armsgaten, het T-shirt los, blote enkels.
+  - De video haalt de pose van 111 niet helemaal. Hij eindigt in een verloren profiel van ongeveer 45 graden, en de spiegeling in de vleugel is alleen zijn eigen hand, klein en zonder tweede persoon.
+  - Aantekeningen: het haar is iets koperkleuriger dan in de referenties; de bodywarmer is in tegenlicht bijna zwart; het begin staat 1,3 s bijna stil; aan het eind staat hij ongeveer 3 s stil terwijl de camera nog uitloopt.
+- **Concept 21:** heeft een sprong in de achtergrond achter de vleugel (3,83 s) en een pauze van 0,9 s midden in een stap.
+- **Les voor een volgend eindbeeld:**
+  - Vraag om een kleinere hoofddraai, dan haalt het model hooguit het gevraagde.
+  - Vraag om een vleugel die alleen de tuin spiegelt.
