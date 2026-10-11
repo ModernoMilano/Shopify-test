@@ -159,6 +159,14 @@ Er kwam wel één nieuwe fout uit mijn eigen verbetering: de kaart "For years, I
 - Wel staken twee losse druppels (34,98 en 35,12 s) 26 à 35 dB uit: op een telefoon een tik. Er zit nu een begrenzer op: de druppels staan nog maar 8,6 dB boven de mediaan, met een piek van -24,6 dBFS (was -6).
 - De regen liep naar stilte uit vóór de loop. Hij loopt nu door tot het laatste frame en trekt in het laatste brede shot weg, waar de ruiten droog zijn.
 
+**Ronde 5 (twee controleurs): beide goedgekeurd, zonder bevindingen.**
+- De druppels staan nu op -24,7 tot -28,6 dBFS, en geen enkel 10 ms-frame staat meer dan 10,1 dB boven de mediaan.
+- De pauzes thuis worden herkend als "Rain on surface" 0,49, "Rain" 0,29 en "Raindrop" 0,23.
+- De overgang tussen de twee regenlagen loopt zonder sprong. De regen loopt door tot het laatste frame.
+- -14,0 LUFS, true peak -2,0 dBTP, lineair. Geen klikjes en geen digitale stilte.
+- Alle 11 zinnen worden woord voor woord herkend.
+- Het beeld is bit-identiek aan de goedgekeurde versie.
+
 Bewust niet veranderd:
 - **De voorbijgangers met paraplu ver weg in het regenshot.** Regel 7 staat 2 à 3 verre, wazige voorbijgangers toe, en retoucheren mag niet. Een paraplu juist onder "My father never owned an umbrella" werkt bovendien.
 - **Het bordeaux gilet over een bordeaux tee.** Dat is de TOTAL BORDEAUX-set zoals hij verkocht wordt. Het omkeren maakt duidelijk dat het een bodywarmer is.
@@ -173,6 +181,32 @@ Bewust niet veranderd:
 | Regenshot: 1080p (4 s) | 48 |
 | Voice-over: 11 zinnen + 6 tweede versies (2 zinnen opnieuw na een limiet) | 4,37 |
 | **Totaal** | **67,93** van 70,55 (2,62 over) |
+
+## Oplevering (11 oktober 2026)
+
+Eén zip (99 MB): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/bc3c8894-1b68-40da-93d5-3c2e23c4695f.zip
+
+- `01 Let the Day Do the Dressing (met ondertitels).mp4`: 48,2 s, 1080×1920, 24 fps, H.264 ongeveer 8 Mbps, AAC 48 kHz, -14 LUFS.
+- `02 Let the Day Do the Dressing (zonder ondertitels).mp4`: hetzelfde, zonder ondertitels.
+- `Cover.jpg`: 1080×1920, Il lago B op 2,6 s. Gezicht en kleding vallen binnen de uitsnede van 3:4 in het raster.
+
+Bijschrift (norm, hoofdstuk 7):
+
+```text
+Let the day do the dressing.
+One day in Italy, from the rain in Milan to blue hour at home.
+Wearing: Milano Reverso Set Total Antracite, Milano Reverso Set Antracite & Pietra, Milano Suede Loafer in Grigio, Milano Reverso Set Total Bordeaux, Milano Nobile Set, Milano Knitted Two-Tone Cashmere Set in Dark Mocha, Puro Supima Mercer Tee in White.
+
+#ModernoMilano #ModernoMilanoFW26 #menswear #quietluxury
+```
+
+Bij het posten (brief):
+- **Muziek:** een rustig instrumentaal nummer uit de Instagram-bibliotheek (piano of strijkers, zonder zang). Het origineel geluid hoog, de muziek laag.
+- **Ondertitels:** bij versie 01 de automatische ondertitels van Instagram uit.
+- **Cover:** `Cover.jpg`.
+- **Uploaden:** "Upload at highest quality" aan.
+- **AI-label:** het AI-label van Instagram aanzetten (brief, regel 10).
+- **Publiceren:** alleen na toestemming van de eigenaar.
 
 ## Bestanden
 
