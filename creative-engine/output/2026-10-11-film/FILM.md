@@ -103,7 +103,7 @@ Higgsfield heeft geen muziek- of geluidsmodel voor gewoon gebruik. Elke laag is 
 | Lucht binnen in de villa, en de zee eerst heel ver, dan bij het glas | 3,8-14,2 s | Ocean 0,26, Waves 0,25 |
 | Lucht op de binnenplaats, met een paar verre vogels in de pauzes van de stem | 13,6-22,4 s | Chirp 0,71, Bird 0,53 |
 | Water tegen de boot | 21,9-34,6 s | Waves 0,20 |
-| Zachte regen op het raam, thuis (de dag begint en eindigt met regen; de film loopt zo ook in geluid rond) | 34,2-48,2 s | Rain on surface 0,21, Raindrop 0,15, Rain 0,14 (in de eindmix) |
+| Zachte regen op het raam, thuis (de dag begint en eindigt met regen; de film loopt zo ook in geluid rond). Met een begrenzer: geen druppel meer dan 12 dB boven de laag. In het laatste brede shot (droge ruiten) trekt de bui weg (5 dB zachter), tot het laatste frame | 34,2-48,2 s | Rain on surface 0,28, Raindrop 0,16, Rain 0,13 (in de eindmix) |
 | Eén lage klap zonder toonhoogte onder het logo, 45-180 Hz | 45,2 s | |
 
 - **Afgekeurd:**
@@ -153,6 +153,11 @@ Er kwam wel één nieuwe fout uit mijn eigen verbetering: de kaart "For years, I
   - Twee wissels komen 1 à 3 frames te vroeg; dat is op een telefoon niet te zien.
 - **Geluid:** alles in orde, op één punt na: de stilte thuis stond 32 dB onder de stem en was op een telefoon niet te horen. Een luidere kamertoon van ruis was wel hoorbaar, maar beide controleurs hoorden hem als ruis ("Static", "Pink noise"). Zelfgemaakt verkeer las als golven. Daarom staat er nu zachte regen op het raam: de dag begint en eindigt met regen. Die zit 19 dB onder de stem in het telefoonbereik en wordt als regen herkend. De eerste vogel is 3 dB zachter.
 - **Eindmix:** -14,0 LUFS, true peak -2,0 dBFS, lineair.
+
+**Ronde 4 (twee controleurs):**
+- De raamregen wordt als regen herkend, zonder ruislabels, en zit 18 à 20 dB onder de stem.
+- Wel staken twee losse druppels (34,98 en 35,12 s) 26 à 35 dB uit: op een telefoon een tik. Er zit nu een begrenzer op: de druppels staan nog maar 8,6 dB boven de mediaan, met een piek van -24,6 dBFS (was -6).
+- De regen liep naar stilte uit vóór de loop. Hij loopt nu door tot het laatste frame en trekt in het laatste brede shot weg, waar de ruiten droog zijn.
 
 Bewust niet veranderd:
 - **De voorbijgangers met paraplu ver weg in het regenshot.** Regel 7 staat 2 à 3 verre, wazige voorbijgangers toe, en retoucheren mag niet. Een paraplu juist onder "My father never owned an umbrella" werkt bovendien.
