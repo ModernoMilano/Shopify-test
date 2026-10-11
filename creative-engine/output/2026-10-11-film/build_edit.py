@@ -51,10 +51,10 @@ BEDS = [{"gen": "rain", "from": 0.0, "to": 4.1, "db": -31, "fade": [0.05, 0.8], 
         {"gen": "surf", "from": 3.9, "to": 8.9, "db": -42, "fade": [0.8, 0.5]},                # de zee, nog ver
         {"gen": "surf", "from": 8.6, "to": 14.2, "db": -38, "fade": [1.5, 0.5]},               # bij het glas
         {"gen": "air", "from": 13.7, "to": 22.4, "db": -42, "fade": [0.4, 0.5]},               # binnenplaats
-        {"gen": "birds", "from": 13.5, "to": 14.6, "db": -42, "fade": [0.2, 0.3], "lp": 6000, "verb": 0.5},
+        {"gen": "birds", "from": 13.5, "to": 14.6, "db": -45, "fade": [0.2, 0.3], "lp": 6000, "verb": 0.5},
         {"gen": "birds", "from": 17.0, "to": 19.2, "db": -45, "fade": [0.2, 0.3], "lp": 6000, "verb": 0.5},
         {"gen": "lake", "from": 21.9, "to": 34.6, "db": -38, "fade": [0.3, 0.8]},
-        {"gen": "room", "from": 34.2, "to": 48.2, "db": -48, "fade": [0.5, 1.0]}]
+        {"gen": "room", "from": 34.2, "to": 48.2, "db": -43, "fade": [0.5, 1.0]}]
 HITS = [{"gen": "thump", "at": 45.2, "len": 2.5, "db": -28}]
 
 

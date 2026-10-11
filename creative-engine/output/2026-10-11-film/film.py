@@ -184,9 +184,9 @@ def gen_air(n):
 
 
 def gen_room(n):
-    """Stilte van een kamer. Het middengebied (300-3000 Hz) is 0,25 in plaats van 0,05: anders zat 95% onder 260 Hz en
-    speelde het op een telefoon als dode stilte (hercontrole 11 okt)."""
-    return shaped_noise(n, band(30, 260, -3)) * 0.6 + shaped_noise(n, band(300, 3000, -6)) * 0.25
+    """Stilte van een kamer bij een open raam: vooral 250-4000 Hz, zodat een telefoon hem afspeelt. De eerste versies zaten
+    voor 80-95% onder 260 Hz en speelden op een telefoon als dode stilte (controles 11 okt)."""
+    return shaped_noise(n, band(30, 240, -3)) * 0.4 + shaped_noise(n, band(250, 4000, -5)) * 0.6
 
 
 def gen_city_night(n):
