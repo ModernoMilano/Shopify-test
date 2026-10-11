@@ -213,3 +213,18 @@ Bij het posten (brief):
 - `film.py`: de montage: beeld via `montage.py`, ondertitels, geluidslagen, mix en loudness.
 - `build_edit.py`: schrijft `film-edit.json` met de kaarten getimed op de woorden in de opname, en `film-edit-clean.json` zonder ondertitels.
 - Oplevering: zie hieronder.
+
+## Twee andere stemmen: Grady en Holden (11 oktober 2026, op verzoek van de eigenaar)
+
+De eigenaar koos daarna twee stemmen voor "de volgende generatie": Grady (`e2a2d2e6-9ed2-59cd-82af-feaa27f8a678`) en Holden (`3c9d6053-6334-592c-8997-4e325286af3f`). Er stond nog 2,62 credit.
+
+- **Prijs:**
+  - ElevenLabs v4 kost 1,61 per stem voor het hele script, dus daar paste maar één stem in.
+  - ElevenLabs v4 Turbo kost 1,05 per stem. Daarmee zijn beide stemmen opgenomen, elk in één doorlopende opname van het hele script, met dezelfde geschreven pauzes ("My father... never owned an umbrella.").
+  - Samen 2,10; er blijft 0,52 over.
+- **Knippen:** `split_read.py` knipt de opname in de 11 zinnen, op het stilste punt tussen de zinnen (whisper-woordtijden plus een rms-spoor van 5 ms). Elke zin is daarna woord voor woord nagekeken. Jobs: Grady `d2ef08cc`, Holden `12cbf48b`.
+- **Lengte per zin** (Grady / Holden, in s): 3,07/2,78, 1,82/1,97, 2,34/1,95, 0,94/0,86, 2,15/1,82, 2,73/2,55, 2,95/3,19, 2,94/2,62, 3,32/2,70, 0,92/0,76, 1,40/1,10. Elke zin past op zijn plek; de tijden, het beeld en de geluidslagen blijven gelijk.
+- **Toonhoogte in deze opname:** Grady 83-115 Hz.
+- **Luidheid:** bij dezelfde rms klinkt Grady 1,8 dB zachter dan Gideon en Holden 0,3 dB (`VOICE_DB` in `build_edit.py`), zodat de stem even luid tegen de lagen staat als in de goedgekeurde mix. Beide mixen: -14,0 LUFS, true peak -2,0 dBFS.
+- **Ondertitels:** getimed op de woorden van elke stem.
+- **Versie zonder ondertitels:** het goedgekeurde beeld met alleen het nieuwe geluid eronder.
