@@ -103,7 +103,7 @@ Higgsfield heeft geen muziek- of geluidsmodel voor gewoon gebruik. Elke laag is 
 | Lucht binnen in de villa, en de zee eerst heel ver, dan bij het glas | 3,8-14,2 s | Ocean 0,26, Waves 0,25 |
 | Lucht op de binnenplaats, met een paar verre vogels in de pauzes van de stem | 13,6-22,4 s | Chirp 0,71, Bird 0,53 |
 | Water tegen de boot | 21,9-34,6 s | Waves 0,20 |
-| Bijna stilte thuis | 34,2-48,2 s | (heel zacht) |
+| Zachte regen op het raam, thuis (de dag begint en eindigt met regen; de film loopt zo ook in geluid rond) | 34,2-48,2 s | Rain on surface 0,21, Raindrop 0,15, Rain 0,14 (in de eindmix) |
 | Eén lage klap zonder toonhoogte onder het logo, 45-180 Hz | 45,2 s | |
 
 - **Afgekeurd:**
@@ -151,7 +151,7 @@ Er kwam wel één nieuwe fout uit mijn eigen verbetering: de kaart "For years, I
   - Het contrast is minstens 4,6:1, op de komma van "Turns out," na.
   - Alle snedes zijn schoon.
   - Twee wissels komen 1 à 3 frames te vroeg; dat is op een telefoon niet te zien.
-- **Geluid:** alles in orde, op één punt na: de stilte thuis stond 32 dB onder de stem en was op een telefoon niet te horen. De kamertoon zit nu vooral tussen 250 en 4000 Hz en staat 20 dB onder de stem in het telefoonbereik, net als de andere lagen (15 à 25 dB). De eerste vogel is 3 dB zachter.
+- **Geluid:** alles in orde, op één punt na: de stilte thuis stond 32 dB onder de stem en was op een telefoon niet te horen. Een luidere kamertoon van ruis was wel hoorbaar, maar beide controleurs hoorden hem als ruis ("Static", "Pink noise"). Zelfgemaakt verkeer las als golven. Daarom staat er nu zachte regen op het raam: de dag begint en eindigt met regen. Die zit 19 dB onder de stem in het telefoonbereik en wordt als regen herkend. De eerste vogel is 3 dB zachter.
 - **Eindmix:** -14,0 LUFS, true peak -2,0 dBFS, lineair.
 
 Bewust niet veranderd:
