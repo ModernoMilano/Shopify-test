@@ -40,6 +40,12 @@ RNG = np.random.default_rng(11)
 
 # ---------- geluid ----------
 
+def smooth(x, k):
+    """Gladmaken met een venster via FFT (np.convolve met een venster van 0,35 s over een minuut audio duurde minuten)."""
+    from scipy.signal import fftconvolve
+    return fftconvolve(x, k / k.sum(), mode="same")
+
+
 def shaped_noise(n, shape, ch=2):
     """Ruis met een spectrum: shape(f) geeft de amplitude per frequentie (Hz). Twee kanalen met eigen ruis (breed stereo)."""
     f = np.fft.rfftfreq(n, 1 / SR)
@@ -65,7 +71,7 @@ def slow_env(n, rate, depth, smooth_s):
     pts = RNG.random(k)
     env = np.interp(np.linspace(0, k - 1, n), np.arange(k), pts)
     w = int(smooth_s * SR) | 1
-    env = np.convolve(env, np.hanning(w) / np.hanning(w).sum(), mode="same")
+    env = smooth(env, np.hanning(w))
     env = (env - env.min()) / (np.ptp(env) + 1e-9)
     return (1 - depth + depth * env)[:, None]
 
@@ -258,10 +264,10 @@ def mix(spec, total_s):
     # de lagen zakken onder de stem (zijketen: omhullende van de stem)
     env = np.abs(vo).max(1)
     w = int(0.12 * SR)
-    env = np.convolve(env, np.ones(w) / w, mode="same")
+    env = smooth(env, np.ones(w))
     act = np.clip(env / (env.max() * 0.08 + 1e-9), 0, 1)
     w2 = int(0.35 * SR)
-    act = np.convolve(act, np.hanning(w2) / np.hanning(w2).sum(), mode="same")
+    act = smooth(act, np.hanning(w2))
     beds *= db(-spec.get("duck", 4.0) * act)[:, None]
     out = vo + beds
     return out, vo, beds
