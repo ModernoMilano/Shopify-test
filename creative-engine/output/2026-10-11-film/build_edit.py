@@ -47,14 +47,14 @@ LINES = [("b/L1", 0.8, ["My father", "never owned an umbrella."]),
          ("a/L11", 45.5, [])]             # de naam: geen kaart, het logo staat er al
 # Een doorlopende bodem, zodat het nergens digitaal stil wordt; elke laag begint even voor zijn beeld (J-cut).
 BEDS = [{"gen": "rain", "from": 0.0, "to": 4.1, "db": -31, "fade": [0.05, 0.8], "duck": 7},  # zachter onder zin 1
-        {"gen": "air", "from": 3.8, "to": 9.0, "db": -50, "fade": [0.4, 1.0]},                 # binnen in de villa
-        {"gen": "surf", "from": 3.9, "to": 8.9, "db": -46, "fade": [0.8, 0.5]},                # de zee, nog ver
+        {"gen": "air", "from": 3.8, "to": 9.0, "db": -44, "fade": [0.4, 1.0]},                 # binnen in de villa
+        {"gen": "surf", "from": 3.9, "to": 8.9, "db": -42, "fade": [0.8, 0.5]},                # de zee, nog ver
         {"gen": "surf", "from": 8.6, "to": 14.2, "db": -38, "fade": [1.5, 0.5]},               # bij het glas
-        {"gen": "air", "from": 13.7, "to": 22.4, "db": -48, "fade": [0.4, 0.5]},               # binnenplaats
-        {"gen": "birds", "from": 13.6, "to": 14.6, "db": -48, "fade": [0.2, 0.3], "lp": 6000, "verb": 0.5},
-        {"gen": "birds", "from": 17.0, "to": 19.2, "db": -48, "fade": [0.2, 0.3], "lp": 6000, "verb": 0.5},
+        {"gen": "air", "from": 13.7, "to": 22.4, "db": -42, "fade": [0.4, 0.5]},               # binnenplaats
+        {"gen": "birds", "from": 13.6, "to": 14.6, "db": -42, "fade": [0.2, 0.3], "lp": 6000, "verb": 0.5},
+        {"gen": "birds", "from": 17.0, "to": 19.2, "db": -45, "fade": [0.2, 0.3], "lp": 6000, "verb": 0.5},
         {"gen": "lake", "from": 21.9, "to": 34.6, "db": -38, "fade": [0.3, 0.8]},
-        {"gen": "room", "from": 34.2, "to": 48.2, "db": -52, "fade": [0.5, 1.0]}]
+        {"gen": "room", "from": 34.2, "to": 48.2, "db": -48, "fade": [0.5, 1.0]}]
 HITS = [{"gen": "thump", "at": 45.2, "len": 2.5, "db": -28}]
 
 
@@ -136,7 +136,11 @@ def cards(path, at, texts, model):
     for c in range(len(texts) - 1):
         i += len(texts[c].split())
         tb = words[i].start
-        near = [g for g in gaps if abs((g[0] + g[1]) / 2 - tb) < 0.9]
+        # alleen een stilte NA het begin van het laatste woord van deze kaart, en voor het woord na het eerste van de
+        # volgende kaart (hercontrole 11 okt: bij L7 greep de wissel de pauze na "For years," en liep de kaart voor)
+        lo = words[i - 1].start
+        hi = words[i + 1].start if i + 1 < len(words) else tb + 0.9
+        near = [g for g in gaps if lo < (g[0] + g[1]) / 2 < hi]
         if near:
             g = min(near, key=lambda g: abs((g[0] + g[1]) / 2 - tb))
             end, nxt = min(g[0] + 0.15, g[1] - 0.07), g[1] - 0.03
@@ -156,6 +160,18 @@ def main(vo_dir, out_dir):
         shift = declick(f, src, dst)
         vo.append({"file": dst, "at": round(at + shift, 3), "rms": -20})
         subs += [{"t": [round(a, 2), round(b, 2)], "text": t} for a, b, t in cards(dst, at + shift, texts, model)]
+    # geen kaart die net over een snede doorloopt of net ervoor begint (hercontrole 11 okt: 3 frames over het detail van
+    # de hand, en 2 frames voor de snede naar de knie)
+    cuts, t = [], 0.0
+    for c in CUTS:
+        t += c["dur"]
+        cuts.append(round(t, 3))
+    for sb in subs:
+        for c in cuts:
+            if c < sb["t"][1] < c + 0.35 and sb["t"][1] - 0.35 > sb["t"][0]:
+                sb["t"][1] = round(c - 0.04, 2)
+            if c - 0.15 < sb["t"][0] < c:
+                sb["t"][0] = round(c + 0.005, 3)
     for a, b in zip(subs, subs[1:]):  # nooit twee kaarten tegelijk
         a["t"][1] = min(a["t"][1], round(b["t"][0] - 0.04, 2))
     base = {"src": SRC, "cuts": CUTS,

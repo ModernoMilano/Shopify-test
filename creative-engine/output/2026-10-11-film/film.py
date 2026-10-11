@@ -154,7 +154,8 @@ def gen_birds(n):
     out = np.zeros((n, 2))
     s = RNG.uniform(0.2, 1.0)
     while s < n / SR - 0.6:
-        kind, base, pan = RNG.integers(0, 3), RNG.uniform(2800, 5200), RNG.uniform(0.2, 0.8)
+        # alleen de twee soorten FM-tjilp; de triller van 35 Hz las als "Squeak" (hercontrole 11 okt)
+        kind, base, pan = RNG.integers(0, 2), RNG.uniform(2800, 5200), RNG.uniform(0.2, 0.8)
         for _ in range(RNG.integers(2, 6)):
             L = int(SR * RNG.uniform(0.04, 0.11))
             tt = np.arange(L) / SR
@@ -183,7 +184,9 @@ def gen_air(n):
 
 
 def gen_room(n):
-    return shaped_noise(n, band(30, 260, -3)) * 0.6 + shaped_noise(n, band(300, 3000, -6)) * 0.05
+    """Stilte van een kamer. Het middengebied (300-3000 Hz) is 0,25 in plaats van 0,05: anders zat 95% onder 260 Hz en
+    speelde het op een telefoon als dode stilte (hercontrole 11 okt)."""
+    return shaped_noise(n, band(30, 260, -3)) * 0.6 + shaped_noise(n, band(300, 3000, -6)) * 0.25
 
 
 def gen_city_night(n):
