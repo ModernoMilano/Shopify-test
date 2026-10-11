@@ -33,14 +33,14 @@ Zes onderzoekers keken elk vanuit één invalshoek: menswear-films, geurfilms, v
 Wat er bewust níet is overgenomen:
 - **Een woordmerk vooraan (3-5 s).** De eigenaar wil het logo alleen aan het eind, klein en zonder effect.
 - **"Light grain".** Er komt geen korrel en geen LUT (SKILL.md).
-- **Een film van 38 s.** De eigenaar wil hem zo lang mogelijk: het is 49,3 s geworden, met al het goedgekeurde 1080p-materiaal dat in het verhaal past.
+- **Een film van 38 s.** De eigenaar wil hem zo lang mogelijk: het is 48,2 s geworden, met al het goedgekeurde 1080p-materiaal dat in het verhaal past.
 
 ## Het verhaal
 
 Eén dag, van een grijze regenochtend in Milaan tot het blauwe uur thuis.
 - **De verteller** herinnert zich zijn vader: die had nooit een paraplu, en had één regel over kleding, "Let the day do the dressing."
 - **Het misverstand:** als jongen dacht hij dat zijn vader de regen bedoelde. Jarenlang was hij "dressed for the evening by breakfast", altijd te vroeg.
-- **De wending (30,9 s, 63% van de film):** de regel was toestemming. "To stop being early for my own life. On time."
+- **De wending (29,8 s, 62% van de film):** de regel was toestemming. "To stop being early for my own life. On time."
 - **Het eind:** "Moderno Milano." eenmaal gezegd, onder het logo.
 
 Het script komt uit een panel (workflow, 7 agents). Drie schrijvers schreven elk een eigen versie: de regel van de vader, een innerlijke monoloog met een refrein, en "twee kanten" (het omkeerbare gilet). Drie beoordelaars gaven punten: copy chief, merkstrateeg en editor. Alle drie kozen "de regel van de vader" (48, 47 en 49 van de 60). Een finisher voerde hun verbeteringen per zin door.
@@ -54,23 +54,23 @@ Het script komt uit een panel (workflow, 7 agents). Drie schrijvers schreven elk
 | 12,3 | Profiel aan het glas | I was eight. |
 | 14,6 | Binnenplaats, bordeaux | I thought he meant the rain. |
 | 19,2 | Binnenplaats, het gilet omgekeerd | Some afternoons want the other side of me. |
-| 24,0 | Comomeer, de boot | For years, I was dressed for the evening by breakfast. |
-| 30,9 | Comomeer, zijn gezicht | Turns out, his rule was permission. |
-| 38,2 | Thuis, macro's | To stop being early for my own life. |
-| 44,4 | Thuis, de fauteuil | On time. |
-| 46,6 | Logo | Moderno Milano. |
+| 22,9 | Comomeer, de boot | For years, I was dressed for the evening by breakfast. |
+| 29,8 | Comomeer, zijn gezicht | Turns out, his rule was permission. |
+| 35,4 | Thuis, macro's | To stop being early for my own life. |
+| 43,3 | Thuis, de fauteuil | On time. |
+| 45,5 | Logo | Moderno Milano. |
 
 62 woorden. Er wordt ongeveer 27 s gesproken; de rest is stilte en geluid, met ruimte voor muziek.
 
-## Beeld (49,3 s, 11 shots, harde snedes)
+## Beeld (48,2 s, 11 shots, harde snedes)
 
 | # | Tijd | Clip | Product |
 |---|---|---|---|
 | 1 | 0,0-3,9 | **Nieuw:** regen onder de arcade, Seedance 2.5 vanaf het goedgekeurde startbeeld van "Pioggia" (`6f98f485`). Concept `98a3d77b`, 1080p `70d1dfc8` | MILANO REVERSO SET TOTAL ANTRACITE |
 | 2 | 3,9-13,9 | Il pianoforte v2 (de hele take van 10 s) | MILANO REVERSO SET ANTRACITE & PIETRA, MILANO SUEDE LOAFER - GRIGIO |
-| 3-4 | 13,9-23,3 | Total Bordeaux A en B (het gilet omgekeerd) | MILANO REVERSO SET TOTAL BORDEAUX |
-| 5-7 | 23,3-35,5 | Il lago A, het detail C en B | MILANO NOBILE SET |
-| 8-11 | 35,5-49,3 | Sera C, D, A en B; het logo de laatste 3 s, in het raam (y 0,44) | MILANO KNITTED TWO-TONE CASHMERE SET - DARK MOCHA, PURO SUPIMA MERCER TEE - WHITE |
+| 3-4 | 13,9-22,2 | Total Bordeaux A en B (het gilet omgekeerd; B ingekort tot 3,7 s) | MILANO REVERSO SET TOTAL BORDEAUX |
+| 5-7 | 22,2-34,4 | Il lago A, het detail C en B | MILANO NOBILE SET |
+| 8-11 | 34,4-48,2 | Sera C, D, A en B; het logo de laatste 3 s, in het raam (y 0,44) | MILANO KNITTED TWO-TONE CASHMERE SET - DARK MOCHA, PURO SUPIMA MERCER TEE - WHITE |
 
 - Elke clip is eerst gladgemaakt met `smooth.py`: de schok die Seedance elke seconde geeft. Bij Il pianoforte en de regen bleven de echte frames aan het eind staan (`--raw-from=auto`). Sera B bleef ruw, zoals op 9 oktober.
 - **Controle van het nieuwe regenconcept** (twee controleurs): goedgekeurd met notities.
@@ -99,22 +99,44 @@ Higgsfield heeft geen muziek- of geluidsmodel voor gewoon gebruik. Elke laag is 
 
 | Laag | Waar | Herkenning |
 |---|---|---|
-| Regen: duizenden losse druppels met belletjes | 0-4,4 s | Rain on surface 0,42, Rain 0,19, Raindrop 0,18 |
-| Verre branding, donker, achter glas | 8,6-14,2 s | Ocean 0,26, Waves 0,25 |
-| Een paar verre vogels | 13,6-23,6 s | Chirp 0,71, Bird 0,53 |
-| Water tegen de boot | 23,0-35,7 s | Waves 0,20 |
-| Bijna stilte thuis | 35,3-49,3 s | (heel zacht) |
-| Eén lage klap zonder toonhoogte onder het logo | 46,3 s | |
+| Regen: duizenden losse druppels met belletjes | 0-4,1 s | Rain on surface 0,42, Rain 0,19, Raindrop 0,18 |
+| Lucht binnen in de villa, en de zee eerst heel ver, dan bij het glas | 3,8-14,2 s | Ocean 0,26, Waves 0,25 |
+| Lucht op de binnenplaats, met een paar verre vogels in de pauzes van de stem | 13,6-22,4 s | Chirp 0,71, Bird 0,53 |
+| Water tegen de boot | 21,9-34,6 s | Waves 0,20 |
+| Bijna stilte thuis | 34,2-48,2 s | (heel zacht) |
+| Eén lage klap zonder toonhoogte onder het logo, 45-180 Hz | 45,2 s | |
 
 - **Afgekeurd:**
   - de eerste regen, gewone gefilterde ruis: "Static";
   - een pianonoot: "Electronic tuner" en "Guitar";
   - een lage sinus-zwelling: een toon die met de muziek botst.
 - **Mix:**
-  - De lagen zakken 4 dB als de stem spreekt.
-  - Elke laag begint 0,3 s vóór zijn beeld (J-cut).
-  - Eindmix -14,0 LUFS, true peak -1,4 dBFS, LRA 7,2 LU.
+  - De lagen zakken 4 dB als de stem spreekt, de regen 7 dB.
+  - Elke laag begint 0,3 s vóór zijn beeld (J-cut), en er is een doorlopende bodem: nergens digitale stilte.
+  - Eindmix -14,0 LUFS (lineair genormaliseerd, eerst de zeldzame pieken begrensd), true peak -2,0 dBFS, LRA 6,6 LU.
   - Een whisper-transcriptie van de eindmix geeft elke zin woordelijk terug.
+
+## Eindcontrole (workflow: beeld, geluid, verhaal en merk, en een rechter)
+
+**Ronde 1: niet opleveren.** Vier punten moesten eerst opgelost worden; alle vier zijn opgelost zonder credits.
+
+1. **Ondertitels onleesbaar op licht beeld:** contrast 1,5-1,8:1 op het crème gilet, de witte villa en het glinsterende meer. Opgelost met SemiBold 52 en vier donkere lagen onder de letters (`SHADOWS` in `film.py`); de rechter mat daarmee minstens ongeveer 4,5:1 op alle kaarten.
+2. **Digitale stilte:** 4 s in vijf stukken. Er kwam lucht binnen in de villa en op de binnenplaats bij, en de zee hoor je al zacht vanaf de snede. `film.py` meldt nu elke stilte.
+3. **Een mondklik** na "about clothes." (-22,6 dBFS). Die is geknipt, en elke zin heeft fades van 10 ms.
+4. **Het crème shot stond aan het eind ruim 2 s bijna stil**, net na het sterkste moment. Het is 1,1 s korter gemaakt, en alles erna schoof op.
+
+Ook meegenomen:
+- de kaarten wisselen op de echte pauzes in de stem ("My father … never owned an umbrella.");
+- "To stop being early" komt 2,7 s na "permission." (was 4,4 s), zodat de zin over de snede naar huis doorloopt;
+- vogels, meer en regen zachter;
+- de klap onder het logo hoorbaar op een telefoon;
+- de loudness lineair (ffmpeg viel stil terug op dynamisch, en de lagen pompten in de pauzes);
+- geen dubbele frames meer voor de snedes.
+
+Bewust niet veranderd:
+- **De voorbijgangers met paraplu ver weg in het regenshot.** Regel 7 staat 2 à 3 verre, wazige voorbijgangers toe, en retoucheren mag niet. Een paraplu juist onder "My father never owned an umbrella" werkt bovendien.
+- **Het bordeaux gilet over een bordeaux tee.** Dat is de TOTAL BORDEAUX-set zoals hij verkocht wordt. Het omkeren maakt duidelijk dat het een bodywarmer is.
+- **De roze zweem op de binnenplaats en het warme haar in het laatste shot.** Alleen een kleurcorrectie of een nieuwe clip helpt, en de regels staan alleen een belichtingsfactor toe. Voor een witbalans per kanaal is toestemming van de eigenaar nodig.
 
 ## Credits
 
