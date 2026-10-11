@@ -199,7 +199,15 @@ def gen_boom(n):
     return np.stack([x + click] * 2, 1)
 
 
-GEN = {"rain": gen_rain, "surf": gen_surf, "lake": gen_lake, "birds": gen_birds, "air": gen_air, "room": gen_room,
+def gen_thump(n):
+    """Eén zachte, lage, niet-tonale klap onder het logo (brief: geen toonhoogte die met de muziek botst): ruis door een
+    laagdoorlaat met een snelle val."""
+    t = np.arange(n) / SR
+    x = shaped_noise(n, band(25, 160, -6), 1)[:, 0] * np.exp(-t / 0.35) * (1 - np.exp(-t / 0.004))
+    return np.stack([x, x], 1)
+
+
+GEN = {"thump": gen_thump, "rain": gen_rain, "surf": gen_surf, "lake": gen_lake, "birds": gen_birds, "air": gen_air, "room": gen_room,
        "city_night": gen_city_night, "sub": gen_sub, "boom": gen_boom}
 
 
@@ -229,7 +237,11 @@ def mix(spec, total_s):
     n = int(round(total_s * SR))
     vo = np.zeros((n, 2))
     for v in spec.get("vo", []):
-        x = read_wav(v["file"]) * db(v.get("db", 0))
+        x = read_wav(v["file"])
+        if "rms" in v:  # elke zin op dezelfde luidheid (gemeten waar hij spreekt), dan pas de correctie in dB
+            loud = x[np.abs(x).max(1) > 0.02]
+            x = x / (np.sqrt(np.mean(loud ** 2)) + 1e-9) * db(v["rms"])
+        x = x * db(v.get("db", 0))
         a = int(round(v["at"] * SR))
         x = x[: max(0, n - a)]
         vo[a:a + len(x)] += x
