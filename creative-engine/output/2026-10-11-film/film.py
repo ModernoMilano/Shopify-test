@@ -300,6 +300,20 @@ def frames_of(c, local, i):
     return fr
 
 
+def padded(gen, n):
+    """Precies n frames: ffmpeg geeft met -ss/-t soms een frame minder (lagoC vanaf 0,6 s: 76 in plaats van 77), en een gat
+    in de reeks breekt het coderen af. Het laatste frame wordt dan herhaald."""
+    last, i = None, 0
+    for x in gen:
+        if i >= n:
+            break
+        last, i = x, i + 1
+        yield x
+    while last is not None and i < n:
+        i += 1
+        yield last
+
+
 def video(cfg, out_dir):
     local = {k: (u if os.path.exists(u) else get(u, f"src/{k}{os.path.splitext(u.split('?')[0])[1]}"))
              for k, u in cfg["src"].items()}
@@ -321,7 +335,7 @@ def video(cfg, out_dir):
     n = 0
     for i, c in enumerate(cuts):
         xf = round(c.get("xfade", 0) * FPS)
-        for k, fr in enumerate(frames_of(c, local, i)):
+        for k, fr in enumerate(padded(frames_of(c, local, i), round(c["dur"] * FPS))):
             g = starts[i] + k
             fr = fr.convert("RGB")
             if k < xf and (g in buf):
@@ -362,8 +376,11 @@ def main(cfg_path, out, audio_only=False):
     full, vo, beds = mix(a, secs)
     write_wav("mix_raw.wav", full / max(1.0, np.abs(full).max()))
     write_wav("vo_only.wav", vo / max(1.0, np.abs(vo).max()))
-    m = loudnorm("mix_raw.wav", "mix.wav", a.get("lufs", -14.0), a.get("tp", -1.5))
-    print("mix gemeten:", m["input_i"], "LUFS ->", a.get("lufs", -14.0))
+    if np.abs(full).max() < 1e-6:  # beeldmontage zonder geluid: niets te meten
+        shutil.copy("mix_raw.wav", "mix.wav")
+    else:
+        m = loudnorm("mix_raw.wav", "mix.wav", a.get("lufs", -14.0), a.get("tp", -1.5))
+        print("mix gemeten:", m["input_i"], "LUFS ->", a.get("lufs", -14.0))
     if audio_only:
         return
     video(cfg, "frames")
