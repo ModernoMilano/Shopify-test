@@ -156,6 +156,11 @@ def cards(path, at, texts, model):
     return out
 
 
+# Per stem een vaste correctie, zodat de stem even luid tegen de lagen staat als in de goedgekeurde mix met Gideon
+# (vo_only -19,5 LUFS bij elke zin op -20 dBFS rms): Grady klinkt bij dezelfde rms 1,8 dB zachter, Holden 0,3 dB.
+VOICE_DB = {"grady": 1.8, "holden": 0.3}
+
+
 def main(vo_dir, out_dir, voice=None):
     """voice: een map onder vo_dir met L1_p.wav ... L11_p.wav uit split_read.py (een andere stem, één doorlopende
     opname). Zonder voice: de gekozen opnames van Gideon (a/b). De tijden en kaartteksten blijven gelijk; de kaarten worden
@@ -167,7 +172,7 @@ def main(vo_dir, out_dir, voice=None):
             f = f"{voice}/L{n + 1}"
         src, dst = f"{vo_dir}/{f}_p.wav", f"{vo_dir}/{f}_f.wav"
         shift = declick(f, src, dst)
-        vo.append({"file": dst, "at": round(at + shift, 3), "rms": -20})
+        vo.append({"file": dst, "at": round(at + shift, 3), "rms": -20, "db": VOICE_DB.get(voice, 0.0)})
         subs += [{"t": [round(a, 2), round(b, 2)], "text": t} for a, b, t in cards(dst, at + shift, texts, model)]
     # geen kaart die net over een snede doorloopt of net ervoor begint (hercontrole 11 okt: 3 frames over het detail van
     # de hand, en 2 frames voor de snede naar de knie)
