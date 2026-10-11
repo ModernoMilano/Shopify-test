@@ -1,6 +1,6 @@
 """Schrijft film-edit.json (met ondertitels) en film-edit-clean.json (zonder) voor film.py (draait in de sandbox).
 
-Gebruik: python3 build_edit.py <vo-map> <uit-map>
+Gebruik: python3 build_edit.py <vo-map> <uit-map> [stem]   (stem: een map uit split_read.py, bv. grady of holden)
 
 - Elke gekozen VO-opname krijgt een fade van 10 ms aan beide kanten, en de bekende klik in L2 gaat eraf (eindcontrole
   11 okt: een mondklik van -22,6 dBFS na "about clothes." viel recht in digitale stilte). Mogelijke andere klikjes worden
@@ -156,10 +156,15 @@ def cards(path, at, texts, model):
     return out
 
 
-def main(vo_dir, out_dir):
+def main(vo_dir, out_dir, voice=None):
+    """voice: een map onder vo_dir met L1_p.wav ... L11_p.wav uit split_read.py (een andere stem, één doorlopende
+    opname). Zonder voice: de gekozen opnames van Gideon (a/b). De tijden en kaartteksten blijven gelijk; de kaarten worden
+    op de woorden van die stem getimed."""
     model = WhisperModel("small", device="cpu", compute_type="int8")
     vo, subs = [], []
-    for f, at, texts in LINES:
+    for n, (f, at, texts) in enumerate(LINES):
+        if voice:
+            f = f"{voice}/L{n + 1}"
         src, dst = f"{vo_dir}/{f}_p.wav", f"{vo_dir}/{f}_f.wav"
         shift = declick(f, src, dst)
         vo.append({"file": dst, "at": round(at + shift, 3), "rms": -20})
@@ -181,13 +186,14 @@ def main(vo_dir, out_dir):
     base = {"src": SRC, "cuts": CUTS,
             "logo": {"src": "LOGO", "width": 0.28, "seconds": 3.0, "y": 0.44, "fade": 0.6},
             "audio": {"vo": vo, "beds": BEDS, "hits": HITS, "duck": 4.0, "lufs": -14.0, "tp": -1.5}}
-    json.dump(base, open(f"{out_dir}/film-edit-clean.json", "w"), indent=1)
+    tag = f"-{voice}" if voice else ""
+    json.dump(base, open(f"{out_dir}/film-edit{tag}-clean.json", "w"), indent=1)
     base["subs"] = {"font": "/home/user/film/f/cormorant.ttf", "weight": "SemiBold", "size": 52, "y": 0.605,
                     "lines": subs}
-    json.dump(base, open(f"{out_dir}/film-edit.json", "w"), indent=1)
+    json.dump(base, open(f"{out_dir}/film-edit{tag}.json", "w"), indent=1)
     for s in subs:
         print(s)
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
