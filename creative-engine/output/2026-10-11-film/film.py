@@ -69,32 +69,103 @@ def slow_env(n, rate, depth, smooth_s):
     return (1 - depth + depth * env)[:, None]
 
 
+def _fftconv(x, k):
+    n = len(x) + len(k) - 1
+    N = 1 << (n - 1).bit_length()
+    return np.fft.irfft(np.fft.rfft(x, N) * np.fft.rfft(k, N), N)[:len(x)]
+
+
+def _burst(fc, ms):
+    """Kort tikje ruis rond fc Hz dat in ms milliseconden uitsterft (een druppel)."""
+    L = int(SR * ms / 1000 * 6)
+    t = np.arange(L) / SR
+    F = np.fft.rfft(RNG.standard_normal(L) * np.exp(-t / (ms / 1000)))
+    F *= np.exp(-0.5 * (np.log2(np.maximum(np.fft.rfftfreq(L, 1 / SR), 1) / fc) / 0.7) ** 2)
+    k = np.fft.irfft(F, L)
+    return k / (np.abs(k).max() + 1e-9)
+
+
+def _bubble(f0, ms):
+    """Korte stijgende toon: het belletje van een druppel in een plas (Minnaert)."""
+    L = int(SR * ms / 1000 * 5)
+    t = np.arange(L) / SR
+    return np.sin(2 * np.pi * np.cumsum(f0 * (1 + 2.5 * t / (ms / 1000 * 5))) / SR) * np.exp(-t / (ms / 1000))
+
+
+def _events(n, rate, sigma=0.8):
+    k = RNG.poisson(rate * n / SR)
+    x = np.zeros(n)
+    np.add.at(x, RNG.integers(0, n, k), RNG.lognormal(0, sigma, k) * RNG.choice([-1, 1], k))
+    return x
+
+
 def gen_rain(n):
-    body = shaped_noise(n, band(400, 9000, -1.5)) * 0.55
-    low = shaped_noise(n, band(60, 500, -3)) * 0.35  # het ruisen op de natte straat
-    drops = np.zeros((n, 2))
-    k = int(n / SR * 60)
-    pos = RNG.integers(0, n - 400, k)
-    for p in pos:  # losse druppels: korte, heldere tikjes, links of rechts
-        L = int(RNG.integers(60, 300))
-        burst = RNG.standard_normal(L) * np.exp(-np.arange(L) / (L / 5))
-        pan = RNG.random()
-        amp = RNG.uniform(0.2, 1.0)
-        drops[p:p + L, 0] += burst * amp * (1 - pan)
-        drops[p:p + L, 1] += burst * amp * pan
-    drops = np.diff(drops, axis=0, prepend=0)  # hoogdoorlaat: tikjes, geen ploffen
-    drops /= np.sqrt(np.mean(drops ** 2)) + 1e-12
-    return body + low + drops * 0.12
+    """Duizenden losse druppels van verschillende grootte plus belletjes, met zacht ruisen erachter. Met de
+    AudioSet-herkenner (AST) getoetst: 'Rain on surface' 0,42, 'Rain' 0,19, 'Raindrop' 0,18 (11 okt). Gewone gefilterde
+    ruis las als 'Static'."""
+    out = []
+    for _ in range(2):
+        x = np.zeros(n)
+        for fc, ms, rate, a in [(6500, 0.6, 2200, 0.5), (4200, 0.9, 1500, 0.6), (2600, 1.4, 700, 0.7),
+                                (1500, 2.5, 120, 0.9), (800, 4.0, 25, 1.0)]:
+            x += _fftconv(_events(n, rate), _burst(fc, ms)) * a / np.sqrt(rate)
+        for f0, ms, rate in [(1800, 6, 60), (2600, 4, 90), (3500, 3, 120)]:
+            x += _fftconv(_events(n, rate, 1.0), _bubble(f0, ms)) * 0.35 / np.sqrt(rate)
+        x /= np.std(x) + 1e-12
+        out.append(x + shaped_noise(n, band(300, 6000, -4), 1)[:, 0] * 0.25)
+    return np.stack(out, 1)
+
+
+def _swells(n, period=(5.0, 8.0), att=(0.6, 1.2), dec=(1.5, 3.0), floor=0.2):
+    t = np.arange(n) / SR
+    e = np.zeros(n)
+    s = RNG.uniform(0, 2)
+    while s < n / SR:
+        a, A, D = RNG.uniform(0.6, 1), RNG.uniform(*att), RNG.uniform(*dec)
+        tt = t - s
+        e += a * np.where(tt < 0, 0, np.where(tt < A, np.sin(np.pi / 2 * tt / A) ** 2, np.exp(-(tt - A) / D)))
+        s += RNG.uniform(*period)
+    return floor + e
 
 
 def gen_surf(n):
-    env = slow_env(n, 0.14, 0.75, 2.5)
-    rumble = shaped_noise(n, band(40, 700, -4)) * env
-    wash = shaped_noise(n, band(800, 6000, -2)) * np.roll(env, int(0.6 * SR), 0) ** 2 * 0.35
-    return rumble + wash
+    """Verre branding, donker (achter glas): golven met een aanloop en een lange uitloop, een bruisende staart en een lage
+    rommel. AST: 'Ocean' 0,26, 'Waves, surf' 0,25 (11 okt)."""
+    out = []
+    for _ in range(2):
+        e = _swells(n)
+        roar = shaped_noise(n, band(100, 3000, -4), 1)[:, 0] * e
+        fizz = _fftconv(_events(n, 6000, 0.9), _burst(3500, 0.8)) / np.sqrt(6000)
+        fizz = fizz / (np.std(fizz) + 1e-12) * np.roll(e, int(0.5 * SR)) ** 1.5 * 0.3
+        rum = shaped_noise(n, band(25, 200, -6), 1)[:, 0] * e * 0.6
+        out.append(roar + fizz + rum)
+    return np.stack(out, 1)
+
+
+def gen_birds(n):
+    """Een paar verre vogels: groepjes korte FM-tjilpen. AST: 'Chirp, tweet' 0,71, 'Bird' 0,53 (11 okt)."""
+    out = np.zeros((n, 2))
+    s = RNG.uniform(0.2, 1.0)
+    while s < n / SR - 0.6:
+        kind, base, pan = RNG.integers(0, 3), RNG.uniform(2800, 5200), RNG.uniform(0.2, 0.8)
+        for _ in range(RNG.integers(2, 6)):
+            L = int(SR * RNG.uniform(0.04, 0.11))
+            tt = np.arange(L) / SR
+            d = L / SR
+            f = (base * (1 + 0.35 * np.sin(2 * np.pi * tt / d)) if kind == 0 else
+                 base * (1.3 - 0.6 * tt / d) if kind == 1 else base + 600 * np.sin(2 * np.pi * 35 * tt))
+            x = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.sin(np.pi * tt / d) ** 2 * RNG.uniform(0.4, 1)
+            i = int(s * SR)
+            if i + L < n:
+                out[i:i + L, 0] += x * (1 - pan)
+                out[i:i + L, 1] += x * pan
+            s += d + RNG.uniform(0.03, 0.12)
+        s += RNG.uniform(0.8, 2.5)
+    return out
 
 
 def gen_lake(n):
+    """Water tegen de boot en een beetje wind. AST: 'Waves, surf' 0,20, 'Ocean' 0,10 (11 okt)."""
     lap = shaped_noise(n, band(150, 1100, -2)) * slow_env(n, 1.1, 0.8, 0.35)
     wind = shaped_noise(n, band(80, 1500, -4)) * slow_env(n, 0.2, 0.6, 2.0) * 0.5
     return lap * 0.8 + wind
@@ -128,7 +199,7 @@ def gen_boom(n):
     return np.stack([x + click] * 2, 1)
 
 
-GEN = {"rain": gen_rain, "surf": gen_surf, "lake": gen_lake, "air": gen_air, "room": gen_room,
+GEN = {"rain": gen_rain, "surf": gen_surf, "lake": gen_lake, "birds": gen_birds, "air": gen_air, "room": gen_room,
        "city_night": gen_city_night, "sub": gen_sub, "boom": gen_boom}
 
 
@@ -207,6 +278,8 @@ def loudnorm(src, dst, lufs, tp):
 
 def subs_layer(text, spec):
     f = ImageFont.truetype(spec["font"], spec.get("size", 46))
+    if spec.get("weight"):  # variabel lettertype (Cormorant Garamond): "Regular", "Medium", "SemiBold"
+        f.set_variation_by_name(spec["weight"])
     lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(lay)
     tw = d.textlength(text, font=f)
