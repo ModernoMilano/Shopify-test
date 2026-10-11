@@ -133,6 +133,17 @@ Ook meegenomen:
 - de loudness lineair (ffmpeg viel stil terug op dynamisch, en de lagen pompten in de pauzes);
 - geen dubbele frames meer voor de snedes.
 
+**Ronde 2 (hercontrole: beeld en ondertitels, geluid, en een rechter):** alle vier de punten zijn opgelost, gemeten op de echte renders:
+- de slechtste letter heeft nu een contrast van 4,6:1;
+- er is nergens meer digitale stilte;
+- de klik is weg;
+- het crème shot heeft nog maar een korte rustige tel van 0,4 s.
+
+Er kwam wel één nieuwe fout uit mijn eigen verbetering: de kaart "For years, I was dressed" wisselde op de pauze na "For years,", waardoor de tekst voorliep op de stem. Opgelost door een kaart alleen te laten wisselen op een stilte die ná het begin van zijn laatste woord ligt. Verder:
+- kaarten lopen niet meer net over een snede door en beginnen er niet net voor;
+- de geluidsbodem in de villa, op de binnenplaats en thuis staat hoger, zodat je hem ook op een telefoon hoort;
+- de vogels zijn alleen nog FM-tjilpjes (AST: Bird 0,27 en Chirp 0,23; de triller las als "Squeak").
+
 Bewust niet veranderd:
 - **De voorbijgangers met paraplu ver weg in het regenshot.** Regel 7 staat 2 à 3 verre, wazige voorbijgangers toe, en retoucheren mag niet. Een paraplu juist onder "My father never owned an umbrella" werkt bovendien.
 - **Het bordeaux gilet over een bordeaux tee.** Dat is de TOTAL BORDEAUX-set zoals hij verkocht wordt. Het omkeren maakt duidelijk dat het een bodywarmer is.
