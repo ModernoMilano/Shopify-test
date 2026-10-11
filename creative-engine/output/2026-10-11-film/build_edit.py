@@ -31,7 +31,7 @@ LINES = [("b/L1", 0.8, ["My father never", "owned an umbrella."]),
          ("a/L4", 12.3, ["I was eight."]),
          ("b/L5", 14.6, ["I thought he meant", "the rain."]),
          ("a/L6", 19.2, ["Some afternoons want", "the other side of me."]),
-         ("a/L7", 24.0, ["For years, I was dressed", "for the evening", "by breakfast."]),
+         ("a/L7", 24.0, ["For years, I was dressed", "for the evening by breakfast."]),  # 0,6 s-kaart samengevoegd
          ("b/L8", 30.9, ["Turns out,", "his rule was permission."]),
          ("b/L9", 38.2, ["To stop being early", "for my own life."]),
          ("a/L10", 44.4, ["On time."]),
