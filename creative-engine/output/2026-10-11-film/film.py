@@ -174,7 +174,7 @@ def gen_birds(n):
 def gen_lake(n):
     """Water tegen de boot en een beetje wind. AST: 'Waves, surf' 0,20, 'Ocean' 0,10 (11 okt)."""
     lap = shaped_noise(n, band(150, 1100, -2)) * slow_env(n, 1.1, 0.8, 0.35)
-    wind = shaped_noise(n, band(80, 1500, -4)) * slow_env(n, 0.2, 0.6, 2.0) * 0.5
+    wind = shaped_noise(n, band(80, 1500, -4)) * slow_env(n, 0.2, 0.6, 2.0) * 0.25  # half: las als open zee (11 okt)
     return lap * 0.8 + wind
 
 
@@ -207,10 +207,11 @@ def gen_boom(n):
 
 
 def gen_thump(n):
-    """Eén zachte, lage, niet-tonale klap onder het logo (brief: geen toonhoogte die met de muziek botst): ruis door een
-    laagdoorlaat met een snelle val."""
+    """Eén zachte, lage, niet-tonale klap onder het logo (brief: geen toonhoogte die met de muziek botst): ruis van 45-180 Hz
+    met een snelle val. Eerst 25-160 Hz: dat was vooral infrasoon, op een telefoon onhoorbaar en op oordopjes een dreun."""
     t = np.arange(n) / SR
-    x = shaped_noise(n, band(25, 160, -6), 1)[:, 0] * np.exp(-t / 0.35) * (1 - np.exp(-t / 0.004))
+    hp = lambda f: band(45, 180, -4)(f) / np.sqrt(1 + (40 / f) ** 8)
+    x = shaped_noise(n, hp, 1)[:, 0] * np.exp(-t / 0.35) * (1 - np.exp(-t / 0.004))
     return np.stack([x, x], 1)
 
 
@@ -252,24 +253,38 @@ def mix(spec, total_s):
         a = int(round(v["at"] * SR))
         x = x[: max(0, n - a)]
         vo[a:a + len(x)] += x
+    # de lagen zakken onder de stem (zijketen: omhullende van de stem); per laag kan "duck" anders zijn
+    env = np.abs(vo).max(1)
+    env = smooth(env, np.ones(int(0.12 * SR)))
+    act = np.clip(env / (env.max() * 0.08 + 1e-9), 0, 1)
+    act = smooth(act, np.hanning(int(0.35 * SR)))
     beds = np.zeros((n, 2))
     for b in spec.get("beds", []) + spec.get("hits", []):
         a = int(round((b.get("from", b.get("at"))) * SR))
         e = int(round(b["to"] * SR)) if "to" in b else a + int(b.get("len", 3.5) * SR)
         e = min(e, n)
         x = GEN[b["gen"]](e - a)
+        if b.get("lp"):  # verder weg: de hoogte eraf
+            f = np.fft.rfftfreq(len(x), 1 / SR)
+            x = np.fft.irfft(np.fft.rfft(x, axis=0) / np.sqrt(1 + (f / b["lp"]) ** 4)[:, None], len(x), axis=0)
+        if b.get("verb"):  # korte galm van steen (binnenplaats)
+            L = int(b["verb"] * SR)
+            ir = RNG.standard_normal((L, 2)) * np.exp(-np.arange(L) / (L / 5))[:, None]
+            from scipy.signal import fftconvolve
+            wet = np.stack([fftconvolve(x[:, k], ir[:, k])[:len(x)] for k in range(2)], 1)
+            x = x + wet / (np.sqrt(np.mean(wet ** 2)) + 1e-12) * np.sqrt(np.mean(x ** 2)) * 0.5
         x = x / (np.sqrt(np.mean(x ** 2)) + 1e-12) * db(b.get("db", -30))  # rms in dBFS
         fi, fo = b.get("fade", [0.4, 0.4])
-        beds[a:e] += fade(x, fi, fo)
-    # de lagen zakken onder de stem (zijketen: omhullende van de stem)
-    env = np.abs(vo).max(1)
-    w = int(0.12 * SR)
-    env = smooth(env, np.ones(w))
-    act = np.clip(env / (env.max() * 0.08 + 1e-9), 0, 1)
-    w2 = int(0.35 * SR)
-    act = smooth(act, np.hanning(w2))
-    beds *= db(-spec.get("duck", 4.0) * act)[:, None]
+        x = fade(x, fi, fo) * db(-b.get("duck", spec.get("duck", 4.0)) * act[a:e])[:, None]
+        beds[a:e] += x
     out = vo + beds
+    # nergens digitale stilte (eindcontrole 11 okt: 4 s nul in de eerste mix)
+    z = np.r_[0, (np.abs(out).max(1) < 1e-6).astype(int), 0]
+    d = np.diff(z)
+    runs = [(round(a / SR, 2), round(b / SR, 2)) for a, b in zip(np.flatnonzero(d == 1), np.flatnonzero(d == -1))
+            if b - a > 0.05 * SR]
+    if runs:
+        print("LET OP, digitale stilte:", runs)
     return out, vo, beds
 
 
@@ -282,40 +297,65 @@ def write_wav(path, x):
         f.writeframes((x * 32767).astype("<i2").tobytes())
 
 
+def _measure(src, extra=""):
+    af = (extra + "," if extra else "") + "loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json"
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-i", src, "-af", af, "-f", "null", "-"], capture_output=True, text=True).stderr
+    return json.loads(r[r.rindex("{"):r.rindex("}") + 1])
+
+
 def loudnorm(src, dst, lufs, tp):
-    """Twee keer meten (EBU R128): eerst meten, dan lineair op het doel brengen met een true-peak-limiet."""
-    r = subprocess.run(["ffmpeg", "-hide_banner", "-i", src, "-af", f"loudnorm=I={lufs}:TP={tp}:LRA=11:print_format=json",
-                        "-f", "null", "-"], capture_output=True, text=True).stderr
-    m = json.loads(r[r.rindex("{"):r.rindex("}") + 1])
-    af = (f"loudnorm=I={lufs}:TP={tp}:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
-          f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-af", af, "-ar", str(SR), dst], check=True)
+    """EBU R128 in twee keer, lineair. Als de pieken plus de benodigde versterking boven de true-peak-grens komen, valt
+    ffmpeg stil terug op dynamisch (eindcontrole 11 okt: de lagen pompten 3-5 dB op in de pauzes). Daarom eerst de
+    zeldzame pieken begrenzen (4x oversampling), dan lineair versterken, en controleren dat het lineair bleef."""
+    m = _measure(src)
+    gain = lufs - float(m["input_i"])
+    lim = ""
+    if float(m["input_tp"]) + gain > tp - 0.2:
+        lim = (f"aresample=192000,alimiter=limit={10 ** ((tp - 0.6 - gain) / 20):.4f}:attack=2:release=60:level=disabled,"
+               f"aresample={SR}")
+        m = _measure(src, lim)
+    af = (lim + "," if lim else "") + (
+        f"loudnorm=I={lufs}:TP={tp}:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
+        f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true:"
+        "print_format=json")
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-y", "-i", src, "-af", af, "-ar", str(SR), dst], capture_output=True, text=True).stderr
+    m2 = json.loads(r[r.rindex("{"):r.rindex("}") + 1])
+    if m2.get("normalization_type") != "linear":
+        raise SystemExit(f"loudnorm niet lineair: {m2.get('normalization_type')}")
     return m
 
 
 # ---------- beeld ----------
 
+# Vier donkere lagen onder de letters, van strak naar breed (eindcontrole 11 okt): met één zachte schaduw kwamen de kaarten
+# op het crème gilet, de witte villa en het glinsterende meer op 1,5-1,8:1 uit; zo is elke kaart minstens ongeveer 4,5:1.
+SHADOWS = [[255, 1.5, 0], [255, 3, 0], [255, 6, 1], [220, 12, 2]]  # [alfa, vervaging in px, omlaag in px]
+
+
 def subs_layer(text, spec):
-    """Eén ondertitelkaart: schreefletter, gebroken wit, met een zachte vage schaduw zodat hij ook op de witte villa
-    leesbaar blijft (brief: geen balk, geen vette woorden, geen karaoke)."""
+    """Eén ondertitelkaart: schreefletter, gebroken wit, met een donkere waas die met de letters meeloopt. Geen balk, geen
+    vette woorden, geen karaoke (brief, hoofdstuk 6)."""
     from PIL import ImageFilter
-    f = ImageFont.truetype(spec["font"], spec.get("size", 46))
+    f = ImageFont.truetype(spec["font"], spec.get("size", 52))
     if spec.get("weight"):  # variabel lettertype (Cormorant Garamond): "Regular", "Medium", "SemiBold"
         f.set_variation_by_name(spec["weight"])
-    lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    d, ds = ImageDraw.Draw(lay), ImageDraw.Draw(sh)
-    tw = d.textlength(text, font=f)
+    d0 = ImageDraw.Draw(Image.new("RGBA", (8, 8)))
+    tw = d0.textlength(text, font=f)
     x, y = (W - tw) / 2, spec.get("y", 0.605) * H
-    ds.text((x, y + 2), text, font=f, fill=(0, 0, 0, spec.get("shadow", 150)))
-    sh = sh.filter(ImageFilter.GaussianBlur(3.5))
-    d.text((x, y), text, font=f, fill=(246, 240, 230, 240))
-    return Image.alpha_composite(sh, lay)
+    out = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    for alpha, blur, dy in spec.get("shadows", SHADOWS):
+        sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        ImageDraw.Draw(sh).text((x, y + dy), text, font=f, fill=(0, 0, 0, int(alpha)))
+        out = Image.alpha_composite(out, sh.filter(ImageFilter.GaussianBlur(blur)))
+    ImageDraw.Draw(out).text((x, y), text, font=f, fill=(246, 240, 230, 240))
+    return out
 
 
 def frames_of(c, local, i):
     p = local[c["src"]]
-    fr = (clip_frames(p, c.get("from", 0), c["dur"], f"tmp{i}", c.get("crop"), c.get("zoom")) if p.endswith(".mp4")
+    # een frame extra vragen: met -ss/-t gaf ffmpeg er soms een te weinig, en dan herhaalde padded() het laatste (twee
+    # dubbele frames voor een snede, eindcontrole 11 okt); padded() kapt het extra frame weer af
+    fr = (clip_frames(p, c.get("from", 0), c["dur"] + 1.0 / FPS, f"tmp{i}", c.get("crop"), c.get("zoom")) if p.endswith(".mp4")
           else still_frames(p, c["dur"], c.get("zoom", [1.0, 1.05]), c.get("crop")))
     if c.get("gain"):  # alleen de belichting van één shot gelijktrekken; geen kleurlook, geen LUT
         g = float(c["gain"])
