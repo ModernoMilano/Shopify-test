@@ -106,7 +106,7 @@ def _events(n, rate, sigma=0.8):
     return x
 
 
-def gen_rain(n):
+def gen_rain(n, density=1.0):
     """Duizenden losse druppels van verschillende grootte plus belletjes, met zacht ruisen erachter. Met de
     AudioSet-herkenner (AST) getoetst: 'Rain on surface' 0,42, 'Rain' 0,19, 'Raindrop' 0,18 (11 okt). Gewone gefilterde
     ruis las als 'Static'."""
@@ -115,12 +115,24 @@ def gen_rain(n):
         x = np.zeros(n)
         for fc, ms, rate, a in [(6500, 0.6, 2200, 0.5), (4200, 0.9, 1500, 0.6), (2600, 1.4, 700, 0.7),
                                 (1500, 2.5, 120, 0.9), (800, 4.0, 25, 1.0)]:
-            x += _fftconv(_events(n, rate), _burst(fc, ms)) * a / np.sqrt(rate)
+            x += _fftconv(_events(n, rate * density), _burst(fc, ms)) * a / np.sqrt(rate * density)
         for f0, ms, rate in [(1800, 6, 60), (2600, 4, 90), (3500, 3, 120)]:
-            x += _fftconv(_events(n, rate, 1.0), _bubble(f0, ms)) * 0.35 / np.sqrt(rate)
+            x += _fftconv(_events(n, rate * density, 1.0), _bubble(f0, ms)) * 0.35 / np.sqrt(rate * density)
         x /= np.std(x) + 1e-12
         out.append(x + shaped_noise(n, band(300, 6000, -4), 1)[:, 0] * 0.25)
     return np.stack(out, 1)
+
+
+def gen_rain_window(n):
+    """Zachte regen op het raam, 's avonds thuis: een derde van de druppels, door glas (laagdoorlaat 3 kHz), met een heel
+    lage kamertoon. De dag begint en eindigt met regen, en de film loopt zo ook in geluid terug naar het begin. Een
+    kamertoon van alleen ruis las bij de herkenner als 'Static' en 'Pink noise', zelfgemaakt verkeer als golven; dit leest
+    als 'Rain on surface' 0,31, 'Raindrop' 0,17, 'Rain' 0,16 (11 okt)."""
+    x = gen_rain(n, 0.35)
+    f = np.fft.rfftfreq(n, 1 / SR)
+    x = np.fft.irfft(np.fft.rfft(x, axis=0) / np.sqrt(1 + (f / 3000) ** 4)[:, None], n, axis=0)
+    x /= np.sqrt(np.mean(x ** 2)) + 1e-12
+    return x + shaped_noise(n, band(30, 240, -3)) * 0.15
 
 
 def _swells(n, period=(5.0, 8.0), att=(0.6, 1.2), dec=(1.5, 3.0), floor=0.2):
@@ -218,7 +230,7 @@ def gen_thump(n):
     return np.stack([x, x], 1)
 
 
-GEN = {"thump": gen_thump, "rain": gen_rain, "surf": gen_surf, "lake": gen_lake, "birds": gen_birds, "air": gen_air, "room": gen_room,
+GEN = {"thump": gen_thump, "rain": gen_rain, "rain_window": gen_rain_window, "surf": gen_surf, "lake": gen_lake, "birds": gen_birds, "air": gen_air, "room": gen_room,
        "city_night": gen_city_night, "sub": gen_sub, "boom": gen_boom}
 
 

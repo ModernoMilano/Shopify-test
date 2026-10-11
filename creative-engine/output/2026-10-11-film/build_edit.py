@@ -54,7 +54,8 @@ BEDS = [{"gen": "rain", "from": 0.0, "to": 4.1, "db": -31, "fade": [0.05, 0.8], 
         {"gen": "birds", "from": 13.5, "to": 14.6, "db": -45, "fade": [0.2, 0.3], "lp": 6000, "verb": 0.5},
         {"gen": "birds", "from": 17.0, "to": 19.2, "db": -45, "fade": [0.2, 0.3], "lp": 6000, "verb": 0.5},
         {"gen": "lake", "from": 21.9, "to": 34.6, "db": -38, "fade": [0.3, 0.8]},
-        {"gen": "room", "from": 34.2, "to": 48.2, "db": -43, "fade": [0.5, 1.0]}]
+        # thuis: zachte regen op het raam (een kamertoon van ruis las als 'Static'); duck 2 dB, anders ademt hij na elke zin
+        {"gen": "rain_window", "from": 34.2, "to": 48.2, "db": -46, "fade": [0.5, 1.0], "duck": 2}]
 HITS = [{"gen": "thump", "at": 45.2, "len": 2.5, "db": -28}]
 
 
