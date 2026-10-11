@@ -113,7 +113,7 @@ Higgsfield heeft geen muziek- of geluidsmodel voor gewoon gebruik. Elke laag is 
 - **Mix:**
   - De lagen zakken 4 dB als de stem spreekt, de regen 7 dB.
   - Elke laag begint 0,3 s vóór zijn beeld (J-cut), en er is een doorlopende bodem: nergens digitale stilte.
-  - Eindmix -14,0 LUFS (lineair genormaliseerd, eerst de zeldzame pieken begrensd), true peak -2,0 dBFS, LRA 6,6 LU.
+  - Eindmix -14,0 LUFS (lineair genormaliseerd, eerst de zeldzame pieken begrensd), true peak -2,0 dBFS.
   - Een whisper-transcriptie van de eindmix geeft elke zin woordelijk terug.
 
 ## Eindcontrole (workflow: beeld, geluid, verhaal en merk, en een rechter)
@@ -143,6 +143,16 @@ Er kwam wel één nieuwe fout uit mijn eigen verbetering: de kaart "For years, I
 - kaarten lopen niet meer net over een snede door en beginnen er niet net voor;
 - de geluidsbodem in de villa, op de binnenplaats en thuis staat hoger, zodat je hem ook op een telefoon hoort;
 - de vogels zijn alleen nog FM-tjilpjes (AST: Bird 0,27 en Chirp 0,23; de triller las als "Squeak").
+
+**Ronde 3 (laatste controle, twee controleurs):**
+- **Beeld en ondertitels: goedgekeurd met notities.**
+  - Elke kaart staat in beeld terwijl zijn woorden klinken.
+  - Er loopt geen kaart meer over een snede, en de kaarten overlappen niet.
+  - Het contrast is minstens 4,6:1, op de komma van "Turns out," na.
+  - Alle snedes zijn schoon.
+  - Twee wissels komen 1 à 3 frames te vroeg; dat is op een telefoon niet te zien.
+- **Geluid:** alles in orde, op één punt na: de stilte thuis stond 32 dB onder de stem en was op een telefoon niet te horen. De kamertoon zit nu vooral tussen 250 en 4000 Hz en staat 20 dB onder de stem in het telefoonbereik, net als de andere lagen (15 à 25 dB). De eerste vogel is 3 dB zachter.
+- **Eindmix:** -14,0 LUFS, true peak -2,0 dBFS, lineair.
 
 Bewust niet veranderd:
 - **De voorbijgangers met paraplu ver weg in het regenshot.** Regel 7 staat 2 à 3 verre, wazige voorbijgangers toe, en retoucheren mag niet. Een paraplu juist onder "My father never owned an umbrella" werkt bovendien.
