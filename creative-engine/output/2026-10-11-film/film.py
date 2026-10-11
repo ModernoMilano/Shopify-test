@@ -132,7 +132,21 @@ def gen_rain_window(n):
     f = np.fft.rfftfreq(n, 1 / SR)
     x = np.fft.irfft(np.fft.rfft(x, axis=0) / np.sqrt(1 + (f / 3000) ** 4)[:, None], n, axis=0)
     x /= np.sqrt(np.mean(x ** 2)) + 1e-12
+    x = cap(x, 12.0)
     return x + shaped_noise(n, band(30, 240, -3)) * 0.15
+
+
+def cap(x, over_db):
+    """Begrenzer: geen druppel meer dan over_db boven de rms van de laag. Bij een dunne regen staken een paar grote druppels
+    35 dB uit en klonken op een telefoon als een tik (controle 11 okt, 34,98 en 35,12 s). Omhullende met 2 ms vooruitkijken,
+    versterking glad over 4 ms; na het trekken, zodat de toevalsgenerator niets anders doet."""
+    from scipy.ndimage import maximum_filter1d
+    thr = np.sqrt(np.mean(x ** 2)) * db(over_db)
+    env = maximum_filter1d(np.abs(x).max(1), size=int(0.004 * SR) | 1)
+    g = np.minimum(1.0, thr / (env + 1e-12))
+    g = smooth(g, np.hanning(int(0.004 * SR) | 1))
+    g = np.minimum(g, 1.0)
+    return x * g[:, None]
 
 
 def _swells(n, period=(5.0, 8.0), att=(0.6, 1.2), dec=(1.5, 3.0), floor=0.2):
