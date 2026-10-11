@@ -12,9 +12,10 @@ film-edit.json:
    "logo": {"src": "LOGO", "width": 0.28, "seconds": 3.0, "y": 0.5, "fade": 0.6, "black": 1.0},
             # het logo klein in het midden, zonder effect (eigenaar, 10 okt). "black": het beeld gaat in zoveel seconden
             # naar zwart onder het logo, zodat de film eindigt op het logo op zwart.
-   "subs": {"font": "f/cg400.ttf", "size": 46, "y": 0.70,
+   "subs": {"font": "f/cormorant.ttf", "weight": "Medium", "size": 46, "y": 0.605,
             "lines": [{"t": [1.2, 3.4], "text": "My father had one rule about clothes."}, ...]},
-            # optioneel; tussen 14% van boven en 25% van onder (de knoppen en het bijschrift van Instagram)
+            # optioneel; y = bovenkant van de tekst als fractie; houd alles tussen y 270 en 1250 px (de knoppen en het
+            # bijschrift van Instagram, brief hoofdstuk 6)
    "audio": {"vo": [{"file": "vo/01.wav", "at": 0.8, "db": 0}, ...],
              "beds": [{"gen": "rain", "from": 0, "to": 4.3, "db": -30, "fade": [0.3, 0.4]}, ...],
              "hits": [{"gen": "boom", "at": 58.0, "db": -16}],
@@ -289,17 +290,21 @@ def loudnorm(src, dst, lufs, tp):
 # ---------- beeld ----------
 
 def subs_layer(text, spec):
+    """Eén ondertitelkaart: schreefletter, gebroken wit, met een zachte vage schaduw zodat hij ook op de witte villa
+    leesbaar blijft (brief: geen balk, geen vette woorden, geen karaoke)."""
+    from PIL import ImageFilter
     f = ImageFont.truetype(spec["font"], spec.get("size", 46))
     if spec.get("weight"):  # variabel lettertype (Cormorant Garamond): "Regular", "Medium", "SemiBold"
         f.set_variation_by_name(spec["weight"])
     lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    d = ImageDraw.Draw(lay)
+    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d, ds = ImageDraw.Draw(lay), ImageDraw.Draw(sh)
     tw = d.textlength(text, font=f)
-    x, y = (W - tw) / 2, spec.get("y", 0.70) * H
-    for dx, dy in ((0, 2), (1, 2), (-1, 2)):  # een heel dunne schaduw, net genoeg voor leesbaarheid op licht beeld
-        d.text((x + dx, y + dy), text, font=f, fill=(0, 0, 0, 110))
-    d.text((x, y), text, font=f, fill=(246, 240, 230, 255))
-    return lay
+    x, y = (W - tw) / 2, spec.get("y", 0.605) * H
+    ds.text((x, y + 2), text, font=f, fill=(0, 0, 0, spec.get("shadow", 150)))
+    sh = sh.filter(ImageFilter.GaussianBlur(3.5))
+    d.text((x, y), text, font=f, fill=(246, 240, 230, 240))
+    return Image.alpha_composite(sh, lay)
 
 
 def frames_of(c, local, i):
