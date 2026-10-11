@@ -152,8 +152,8 @@ def gen_surf(n):
 def gen_birds(n):
     """Een paar verre vogels: groepjes korte FM-tjilpen. AST: 'Chirp, tweet' 0,71, 'Bird' 0,53 (11 okt)."""
     out = np.zeros((n, 2))
-    s = RNG.uniform(0.2, 1.0)
-    while s < n / SR - 0.6:
+    s = RNG.uniform(0.1, min(1.0, 0.3 * n / SR))  # ook in een korte laag (1 s) komt er zo zeker een groepje
+    while s < n / SR - 0.5:
         # alleen de twee soorten FM-tjilp; de triller van 35 Hz las als "Squeak" (hercontrole 11 okt)
         kind, base, pan = RNG.integers(0, 2), RNG.uniform(2800, 5200), RNG.uniform(0.2, 0.8)
         for _ in range(RNG.integers(2, 6)):
