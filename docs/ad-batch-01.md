@@ -83,3 +83,25 @@ Gestart 2026-10-12 in Higgsfield Ads Studio (merk ModernoMilano, 10 creatives, 9
 | 10 | Knitted Vest zwart | 33d9a37f-b12e-45a1-8b1f-e2c79ecd17fb |
 
 Controle voor livegang: elk beeld naast de productfoto leggen (kleur, snit, stof), de kop en body vergelijken met de bewezen copy hierboven, en de 1:1-uitsnede uit het midden checken.
+
+## Beelden met het echte logo (route 2)
+
+De Ads Studio-batch gebruikte een door Higgsfield geraden logo. Daarom zijn de tien beelden opnieuw gemaakt met het beeldmodel,
+met per ad de eigen productfoto's en het echte ModernoMilano-woordmerk (wit op donkere beelden, zwart op lichte) als referentie.
+Formaat 9:16 (1520 × 2688), product en tekst in het centrale vierkant. 2,75 credits per beeld, 27,5 credits totaal.
+
+| # | Product | Beeld |
+|---|---|---|
+| 1 | Reverso Set Total Nero | https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_182817_bea38dd2-8b36-41a3-a209-b94a2cb639e4.png |
+| 2 | Reverso Set Blu & Crema | https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_182726_8da8abf3-efd0-4bb1-b27b-7c30276d2d70.png |
+| 3 | Reverso Set Pietra & Antracite | https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_182818_597cd533-266e-437e-8fde-5da3c2a2d721.png |
+| 4 | Reverso Set Crema & Nero | https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_182725_9b564b49-430a-471a-a700-0f34219943b6.png |
+| 5 | Reverso Set Cammello & Marrone | https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_182727_238488ed-8e31-4ef9-a2cf-103624b48080.png |
+| 6 | Reverso Set Bordeaux & Crema | https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_182725_2f7b3aeb-a3fa-43f4-94fc-dafd7afde53c.png |
+| 7 | Cashmere Lounge Set beige | https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_182726_7a9bb423-caaa-4f8f-8ee4-ad85c5c4c893.png |
+| 8 | Cashmere Lounge Set zwart | https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_182726_e050fe96-9af3-4306-8b1a-c4be79744d3e.png |
+| 9 | Two-Tone Cashmere Set dark mocha | https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_182725_8e751ad5-666a-4439-9ac2-cabdfcd0a7d2.png |
+| 10 | Knitted Vest zwart | https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_182727_37f87345-30cc-4425-a9ec-81228f1a3c66.png |
+
+Logo-bestanden in Higgsfield: wit 397414b0-b941-44c8-91eb-718518a68fe6, zwart c1b24382-c999-4801-aa34-d9f021cbbb3f.
+Productfoto's en logo zijn referenties; controleer elk beeld tegen de productfoto (kleur, snit, ritsen, details) voordat het live gaat.
