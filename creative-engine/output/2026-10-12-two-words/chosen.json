@@ -1,9 +1,42 @@
 {
+ "H01": {
+  "file": "img/orig/H01b_v1.png",
+  "title": "H01 GALLERIA, FEET LANDING",
+  "vo": "You will look twice.",
+  "label": "H01b (ronde 1) (voorlopig)",
+  "provisional": true
+ },
+ "H02": {
+  "file": "img/orig/H02a_v1.png",
+  "title": "H02 THE CHEST, NOTHING WRITTEN",
+  "vo": "Nothing on him says a word.",
+  "label": "H02a (ronde 1) (voorlopig)",
+  "provisional": true
+ },
+ "H03": {
+  "file": "img/H03a.png",
+  "title": "H03 THE COLLAR, FROM BEHIND",
+  "vo": "And still, you look.",
+  "label": "H03a"
+ },
+ "H04": {
+  "file": "img/H04b.png",
+  "title": "H04 OVER HIS SHOULDER",
+  "vo": "He never asked you to.",
+  "label": "H04b"
+ },
+ "H05": {
+  "file": "img/orig/H05a_v1.png",
+  "title": "H05 THE FIRST LOOK",
+  "vo": "So where does that come from.",
+  "label": "H05a (ronde 1) (voorlopig)",
+  "provisional": true
+ },
  "V01": {
-  "file": "img/V01b.png",
+  "file": "img/V01a.png",
   "title": "V01 GALLERIA, FROM BEHIND",
   "vo": "From the elegance of Milan...",
-  "label": "V01b"
+  "label": "V01a (ronde 2)"
  },
  "V02": {
   "file": "img/V02b.png",
@@ -42,10 +75,10 @@
   "label": "V07b (ronde 4)"
  },
  "V08": {
-  "file": "img/V08a.png",
+  "file": "img/V08b.png",
   "title": "V08 TWO SIDES",
   "vo": "One piece. ... Two sides.",
-  "label": "V08a"
+  "label": "V08b (ronde 2)"
  },
  "V09": {
   "file": "img/V09b.png",
@@ -54,10 +87,10 @@
   "label": "V09b"
  },
  "V10": {
-  "file": "img/V10b.png",
+  "file": "img/V10b_crop.png",
   "title": "V10 THE COLLAR CLOSES",
   "vo": "Inside. ... Against the neck.",
-  "label": "V10b (ronde 3)"
+  "label": "V10 uitsnede uit b (zonder manchet)"
  },
  "V11": {
   "file": "img/V11a.png",
@@ -67,10 +100,10 @@
   "provisional": true
  },
  "V12": {
-  "file": "img/V12b.png",
+  "file": "img/V12a.png",
   "title": "V12 THE SHOULDER",
   "vo": "Straight at the shoulder.",
-  "label": "V12b (ronde 2)"
+  "label": "V12a (ronde 3)"
  },
  "S01": {
   "file": "img/S01b.png",

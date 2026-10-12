@@ -1,11 +1,169 @@
 {
+ "H01": {
+  "title": "H01 GALLERIA, FEET LANDING",
+  "vo": "You will look twice.",
+  "variants": [
+   {
+    "file": "img/orig/H01a_v1.png",
+    "label": "H01a (ronde 1)",
+    "ok": false,
+    "score": 6.5,
+    "note": "Shoes do not match the product: both loafers (near/right shoe lower-left-centre, far/left shoe right) have a thick white rubber cupsole and a round sneaker-styl · score 6.5",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/H01b_v1.png",
+    "label": "H01b (ronde 1)",
+    "ok": false,
+    "score": 6.75,
+    "note": "VOORLOPIG (niet goedgekeurd): Shoes do not match the product: both loafers (near/right shoe lower-left-centre on the marble band, far/left shoe right) have a thick white rubber cupsole with  · score 6.8",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2,
+    "chosen": true,
+    "provisional": true
+   }
+  ]
+ },
+ "H02": {
+  "title": "H02 THE CHEST, NOTHING WRITTEN",
+  "vo": "Nothing on him says a word.",
+  "variants": [
+   {
+    "file": "img/orig/H02a_v1.png",
+    "label": "H02a (ronde 1)",
+    "ok": false,
+    "score": 6.5,
+    "note": "VOORLOPIG (niet goedgekeurd): Fabric mismatch: the whole chest (clear in the bottom-right corner crop and around the hand) shows a coarse canvas/oxford grid weave, while the product is a smo · score 6.5",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2,
+    "chosen": true,
+    "provisional": true
+   },
+   {
+    "file": "img/orig/H02b_v1.png",
+    "label": "H02b (ronde 1)",
+    "ok": false,
+    "score": 5.5,
+    "note": "Zip hardware mismatch: slider at mid-chest (x 0.50, y 0.40) is dark gunmetal/black with a dark rubber pull tab and dark coil-like teeth; below the slider the zi · score 5.5",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2
+   }
+  ]
+ },
+ "H03": {
+  "title": "H03 THE COLLAR, FROM BEHIND",
+  "vo": "And still, you look.",
+  "variants": [
+   {
+    "file": "img/H03a.png",
+    "label": "H03a",
+    "ok": true,
+    "score": 8.0,
+    "note": "goedgekeurd door beide controleurs · score 8.0",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2,
+    "chosen": true
+   },
+   {
+    "file": "img/H03b.png",
+    "label": "H03b",
+    "ok": false,
+    "score": 4.0,
+    "note": "Hair is black and wet-look/slicked (whole head, top and nape): violates the fixed model, who has chestnut brown, dry, full hair combed back. · score 4.0",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2
+   }
+  ]
+ },
+ "H04": {
+  "title": "H04 OVER HIS SHOULDER",
+  "vo": "He never asked you to.",
+  "variants": [
+   {
+    "file": "img/orig/H04a_v1.png",
+    "label": "H04a (ronde 1)",
+    "note": "op zicht afgewezen: zijn gezicht staat in profiel in beeld, het moet afgewend blijven tot H05",
+    "ok": false,
+    "score": 0,
+    "round": -1,
+    "variant": "?",
+    "lenses": 0
+   },
+   {
+    "file": "img/orig/H04b_v1.png",
+    "label": "H04b (ronde 1)",
+    "note": "op zicht afgewezen: zijn gezicht staat in profiel in beeld, het moet afgewend blijven tot H05",
+    "ok": false,
+    "score": 0,
+    "round": -1,
+    "variant": "?",
+    "lenses": 0
+   },
+   {
+    "file": "img/H04a.png",
+    "label": "H04a",
+    "ok": false,
+    "score": 6.75,
+    "note": "Armhole binding (left shoulder, centre of frame, around x 0.38-0.70 / y 0.78-0.90) shows a continuous thin pale pearl-grey piping line along the entire edge: th · score 6.8",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/H04b.png",
+    "label": "H04b",
+    "ok": true,
+    "score": 8.0,
+    "note": "goedgekeurd door beide controleurs · score 8.0",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2,
+    "chosen": true
+   }
+  ]
+ },
+ "H05": {
+  "title": "H05 THE FIRST LOOK",
+  "vo": "So where does that come from.",
+  "variants": [
+   {
+    "file": "img/orig/H05a_v1.png",
+    "label": "H05a (ronde 1)",
+    "ok": false,
+    "score": 7.25,
+    "note": "VOORLOPIG (niet goedgekeurd): Zip open: the slider sits at mid-chest (x~0.34, y~0.83) with the two zip halves diverging above it, and the standing collar is flared open at the neck with the  · score 7.2",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2,
+    "chosen": true,
+    "provisional": true
+   },
+   {
+    "file": "img/orig/H05b_v1.png",
+    "label": "H05b (ronde 1)",
+    "ok": false,
+    "score": 3.5,
+    "note": "Different face from the fixed model: receding hairline with deep temple recession (x~0.45-0.60, y~0.18-0.30), short thin hair with lighter strands, narrower jaw · score 3.5",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2
+   }
+  ]
+ },
  "V01": {
   "title": "V01 GALLERIA, FROM BEHIND",
   "vo": "From the elegance of Milan...",
   "variants": [
    {
-    "file": "img/V01a.png",
-    "label": "V01a",
+    "file": "img/orig/V01a_v1.png",
+    "label": "V01a (ronde 1)",
     "ok": false,
     "score": 6.0,
     "note": "Broek: lichtgrijze geweven pantalon met geperste vouw en twee geknoopte achterzakken (uitsnede V01a_hands/V01a_torso, onderste helft) — geweven kostuumstof, gee · score 6.0",
@@ -14,15 +172,35 @@
     "lenses": 2
    },
    {
-    "file": "img/V01b.png",
-    "label": "V01b",
-    "ok": true,
+    "file": "img/orig/V01b_v1.png",
+    "label": "V01b (ronde 1)",
+    "ok": false,
     "score": 8.0,
-    "note": "goedgekeurd door beide controleurs · score 8.0",
+    "note": "door de eigenaar afgekeurd: kraag verkeerd om (binnenkleur buiten)",
     "round": 0,
     "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/V01a.png",
+    "label": "V01a (ronde 2)",
+    "ok": true,
+    "score": 7.25,
+    "note": "goedgekeurd door beide controleurs · score 7.2",
+    "round": 1,
+    "variant": "a",
     "lenses": 2,
     "chosen": true
+   },
+   {
+    "file": "img/V01b.png",
+    "label": "V01b (ronde 2)",
+    "ok": false,
+    "score": 4.0,
+    "note": "Collar violation: the entire outer face of the standing collar is pearl grey/stone seen from behind, repeating the owner's correction (collar must be anthracite · score 4.0",
+    "round": 1,
+    "variant": "b",
+    "lenses": 2
    }
   ]
  },
@@ -313,25 +491,45 @@
   "vo": "One piece. ... Two sides.",
   "variants": [
    {
-    "file": "img/V08a.png",
-    "label": "V08a",
-    "ok": true,
+    "file": "img/orig/V08a_v1.png",
+    "label": "V08a (ronde 1)",
+    "ok": false,
     "score": 8.0,
-    "note": "goedgekeurd door beide controleurs · score 8.0",
+    "note": "door de eigenaar afgekeurd: bordeaux binnenin de kraag",
     "round": 0,
     "variant": "a",
-    "lenses": 2,
-    "chosen": true
+    "lenses": 2
    },
    {
-    "file": "img/V08b.png",
-    "label": "V08b",
+    "file": "img/orig/V08b_v1.png",
+    "label": "V08b (ronde 1)",
     "ok": false,
     "score": 3.5,
     "note": "Rechter armsgat (x≈0,85-0,95, y≈0,33-0,52): doorlopende crème band van ca. 1 cm langs de hele armsgatrand; ook langs het linker armsgat (x≈0,10-0,20, y≈0,40-0,4 · score 3.5",
     "round": 0,
     "variant": "b",
     "lenses": 2
+   },
+   {
+    "file": "img/V08a.png",
+    "label": "V08a (ronde 2)",
+    "ok": false,
+    "score": 5.5,
+    "note": "Constructiefout rits: één doorlopende diagonale ritslijn loopt van de linkerkraag naar de schuiver rechtsonder; boven het kruispunt ligt bordeaux (linkerpand) l · score 5.5",
+    "round": 1,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/V08b.png",
+    "label": "V08b (ronde 2)",
+    "ok": true,
+    "score": 7.5,
+    "note": "goedgekeurd door beide controleurs · score 7.5",
+    "round": 1,
+    "variant": "b",
+    "lenses": 2,
+    "chosen": true
    }
   ]
  },
@@ -407,7 +605,7 @@
     "lenses": 2
    },
    {
-    "file": "img/V10a.png",
+    "file": "img/orig/V10a_v3.png",
     "label": "V10a (ronde 3)",
     "ok": false,
     "score": 5.0,
@@ -417,15 +615,55 @@
     "lenses": 2
    },
    {
-    "file": "img/V10b.png",
+    "file": "img/orig/V10b_v3.png",
     "label": "V10b (ronde 3)",
-    "ok": true,
+    "ok": false,
     "score": 8.5,
-    "note": "goedgekeurd door beide controleurs · score 8.5",
+    "note": "door de eigenaar afgekeurd: polokraag, niet de capuchonjas",
     "round": 2,
     "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/V10a.png",
+    "label": "V10a (ronde 4)",
+    "ok": false,
+    "score": 6.25,
+    "note": "Manchet in beeld zonder crème dubbelstreep: aan de rechter beeldrand (x≈0.86-1.0, y≈0.38-0.50) is het einde van de mouw duidelijk zichtbaar als een effen bruine · score 6.2",
+    "round": 3,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/V10b.png",
+    "label": "V10b (ronde 4)",
+    "ok": false,
+    "score": 6.5,
+    "note": "Manchet in beeld zonder crème dubbelstreep: in de rechterbovenhoek van het handgebied (x≈0.9-1.0, y≈0.34-0.43) eindigt de mouw als een effen donkerbruine geribd · score 6.5",
+    "round": 3,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/V10b_crop.png",
+    "label": "V10 uitsnede uit b (zonder manchet)",
+    "ok": true,
+    "score": 8.0,
+    "note": "goedgekeurd door beide controleurs · score 8.0",
+    "round": 4,
+    "variant": "a",
     "lenses": 2,
     "chosen": true
+   },
+   {
+    "file": "img/V10b.png",
+    "label": "V10b (ronde 4, vol)",
+    "ok": false,
+    "score": 4.5,
+    "note": "Right edge (x~0.92-1.0, y~0.33-0.48): plain ribbed mocha sleeve cuff on the raised arm without the cream double stripe that the product cuff has (mocha1.jpg) -  · score 4.5",
+    "round": 4,
+    "variant": "b",
+    "lenses": 2
    }
   ]
  },
@@ -522,7 +760,7 @@
     "lenses": 2
    },
    {
-    "file": "img/V12a.png",
+    "file": "img/orig/V12a_v2.png",
     "label": "V12a (ronde 2)",
     "ok": false,
     "score": 4.0,
@@ -532,15 +770,35 @@
     "lenses": 2
    },
    {
-    "file": "img/V12b.png",
+    "file": "img/orig/V12b_v2.png",
     "label": "V12b (ronde 2)",
+    "ok": false,
+    "score": 8.0,
+    "note": "door de eigenaar afgekeurd: gevilte wol met raglannaad, niet zijn gilet",
+    "round": 1,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/V12a.png",
+    "label": "V12a (ronde 3)",
     "ok": true,
     "score": 8.0,
     "note": "goedgekeurd door beide controleurs · score 8.0",
-    "round": 1,
-    "variant": "b",
+    "round": 2,
+    "variant": "a",
     "lenses": 2,
     "chosen": true
+   },
+   {
+    "file": "img/V12b.png",
+    "label": "V12b (ronde 3)",
+    "ok": true,
+    "score": 7.5,
+    "note": "goedgekeurd door beide controleurs · score 7.5",
+    "round": 2,
+    "variant": "b",
+    "lenses": 2
    }
   ]
  },

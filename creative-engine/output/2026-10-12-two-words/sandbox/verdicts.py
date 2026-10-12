@@ -8,19 +8,26 @@ ROUNDS = {
   "V02": [{"a": "img/orig/V02a_v1.png", "b": "img/orig/V02b_v1.png"}, {"a": "img/orig/V02a_v2.png", "b": "img/orig/V02b_v2.png"}, {"a": "img/orig/V02a_v3.png", "b": "img/orig/V02b_v3.png"}, {"a": "img/V02a.png", "b": "img/V02b.png"}],
   "V07": [{"a": "img/orig/V07a_v1.png", "b": "img/orig/V07b_v1.png"}, {"a": "img/orig/V07a_v2.png", "b": "img/orig/V07b_v2.png"}, {"a": "img/orig/V07a_v3.png", "b": "img/orig/V07b_v3.png"}, {"a": "img/V07a.png", "b": "img/V07b.png"}],
   "V12": [{"a": "img/orig/V12a_v1.png", "b": "img/orig/V12b_v1.png"}, {"a": "img/orig/V12a_v2.png", "b": "img/orig/V12b_v2.png"}, {"a": "img/V12a.png", "b": "img/V12b.png"}],
-  "V10": [{"a": "img/orig/V10a_v1.png", "b": "img/orig/V10b_v1.png"}, {"a": "img/orig/V10a_v2.png", "b": "img/orig/V10b_v2.png"}, {"a": "img/orig/V10a_v3.png", "b": "img/orig/V10b_v3.png"}, {"a": "img/V10a.png", "b": "img/V10b.png"}],
+  "V10": [{"a": "img/orig/V10a_v1.png", "b": "img/orig/V10b_v1.png"}, {"a": "img/orig/V10a_v2.png", "b": "img/orig/V10b_v2.png"}, {"a": "img/orig/V10a_v3.png", "b": "img/orig/V10b_v3.png"}, {"a": "img/V10a.png", "b": "img/V10b.png"}, {"a": "img/V10b_crop.png", "b": "img/V10b.png"}],
   "V01": [{"a": "img/orig/V01a_v1.png", "b": "img/orig/V01b_v1.png"}, {"a": "img/V01a.png", "b": "img/V01b.png"}],
   "V08": [{"a": "img/orig/V08a_v1.png", "b": "img/orig/V08b_v1.png"}, {"a": "img/V08a.png", "b": "img/V08b.png"}],
   "V11": [{"a": "img/orig/V11a_v1.png", "b": "img/orig/V11b_v1.png"}, {"a": "img/orig/V11a_v2.png", "b": "img/orig/V11b_v2.png"}, {"a": "img/V11a.png", "b": "img/V11b.png"}],
   "S02": [{"a": "img/S02a.png", "b": "img/S02b.png"}],
   "S05": [{"a": "img/orig/S05a_v1.png", "b": "img/orig/S05b_v1.png"}, {"a": "img/orig/S05a_v2.png", "b": "img/orig/S05b_v2.png"}, {"a": "img/S05a.png", "b": "img/S05b.png"}],
+  "H01": [{"a": "img/orig/H01a_v1.png", "b": "img/orig/H01b_v1.png"}, {"a": "img/H01a.png", "b": "img/H01b.png"}],  # ronde 1: penny-strap, het product heeft geen bandje
+  "H04": [{"a": "img/H04a.png", "b": "img/H04b.png"}],
+  "H02": [{"a": "img/orig/H02a_v1.png", "b": "img/orig/H02b_v1.png"}, {"a": "img/H02a.png", "b": "img/H02b.png"}],
+  "H05": [{"a": "img/orig/H05a_v1.png", "b": "img/orig/H05b_v1.png"}, {"a": "img/H05a.png", "b": "img/H05b.png"}],  # ronde 1 (profiel zichtbaar) staat in UNCHECKED; de keuring begint bij ronde 2
 }
+V10_CROP = {"a": "img/V10b_crop.png", "b": "img/V10b.png"}  # ronde 5 van V10: a = uitsnede zonder de manchet, b = het volle beeld
 # welke journal hoort bij welke ronde van een sid (volgorde van de journals op de commandoregel = chronologisch)
 # we nemen aan: voor sids met meerdere rondes komen de journals in chronologische volgorde binnen; elke nieuwe journal met die sid = volgende ronde
 OWNER_REJECT = {("V01", 0, "b"): "door de eigenaar afgekeurd: kraag verkeerd om (binnenkleur buiten)", ("V08", 0, "a"): "door de eigenaar afgekeurd: bordeaux binnenin de kraag",
                 ("V10", 2, "b"): "door de eigenaar afgekeurd: polokraag, niet de capuchonjas", ("V12", 1, "b"): "door de eigenaar afgekeurd: gevilte wol met raglannaad, niet zijn gilet"}
 UNCHECKED = {"S02": [{"file": "img/orig/S02a_v1.png", "label": "S02a (ronde 1)", "note": "op zicht afgewezen: een afgewerkt kledingstuk met een snede erin, geen losse stof"},
-                     {"file": "img/orig/S02b_v1.png", "label": "S02b (ronde 1)", "note": "op zicht afgewezen: gedrukte merknaam op de kraag, rits en tee in beeld"}]}
+                     {"file": "img/orig/S02b_v1.png", "label": "S02b (ronde 1)", "note": "op zicht afgewezen: gedrukte merknaam op de kraag, rits en tee in beeld"}],
+             "H04": [{"file": "img/orig/H04a_v1.png", "label": "H04a (ronde 1)", "note": "op zicht afgewezen: zijn gezicht staat in profiel in beeld, het moet afgewend blijven tot H05"},
+                     {"file": "img/orig/H04b_v1.png", "label": "H04b (ronde 1)", "note": "op zicht afgewezen: zijn gezicht staat in profiel in beeld, het moet afgewend blijven tot H05"}]}
 SKIP = {("wf_fdec4132-fa9", "V07")}  # de afgebroken eerste ronde had V07 al half gekeurd; ronde 2 keurde dezelfde beelden volledig
 titles = {s["id"].split()[0]: s["id"] for s in plan["new_shots"]}
 vo = {}
@@ -62,6 +69,7 @@ for sid in titles:
                     ok = ok and x["pass"]; scores.append(x["score"]); probs += [p for p in x["problems"]] if not x["pass"] else []
             label = f"{sid}{v}" + (f" (ronde {rnd+1})" if len(files) > 1 else "")
             if sid == "S05" and rnd == 2: label = "S05 uitsnede uit b (ronde 2)" if v == "a" else "S05b (ronde 2, vol)"
+            if sid == "V10" and rnd == 4: label = "V10 uitsnede uit b (zonder manchet)" if v == "a" else "V10b (ronde 4, vol)"
             note = ("goedgekeurd door beide controleurs" if ok else (probs[0][:160] if probs else "afgekeurd")) + (f" · score {sum(scores)/len(scores):.1f}" if scores else "")
             if (sid, rnd, v) in OWNER_REJECT: ok = False; note = OWNER_REJECT[(sid, rnd, v)]
             variants.append({"file": fmap[v], "label": label, "ok": ok and bool(scores), "score": sum(scores)/len(scores) if scores else 0, "note": note, "round": rnd, "variant": v, "lenses": len(lenses)})
