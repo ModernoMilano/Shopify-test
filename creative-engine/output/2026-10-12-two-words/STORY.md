@@ -115,7 +115,7 @@
 
 ## Claims
 
-De stem zegt nergens wie iets maakt of waar. Hij zegt nooit "our", "made", "handmade", "artisans", "Italy" en noemt geen jaartal. "The atelier" komt één keer voor, als de woorden van de eigenaar. Het enige werkwoord over het maken is het lijdende en ware "a name is sewn in". De winkeldata zegt niets over herkomst of productie.
+De stem zegt nergens wie iets maakt of waar. Hij zegt nooit "our", "made", "handmade", "artisans", "Italy" en noemt geen jaartal. "The atelier" komt één keer voor, als de woorden van de eigenaar. De zin over het label is nu "The name comes last." (eigenaar, 12 okt; was "Last, a name is sewn in."). De winkeldata zegt niets over herkomst of productie.
 
 ## Bijschrift (voorstel)
 
