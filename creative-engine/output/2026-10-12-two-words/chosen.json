@@ -1,0 +1,105 @@
+{
+ "V01": {
+  "file": "img/V01b.png",
+  "title": "V01 GALLERIA, FROM BEHIND",
+  "vo": "From the elegance of Milan...",
+  "label": "V01b"
+ },
+ "V02": {
+  "file": "img/V02b.png",
+  "title": "V02 THE STACK, FLUSH",
+  "vo": "of the atelier.",
+  "label": "V02b (ronde 4)"
+ },
+ "V03": {
+  "file": "img/V03b.png",
+  "title": "V03 THE RULE LIFTS",
+  "vo": "A line in chalk.",
+  "label": "V03b"
+ },
+ "V04": {
+  "file": "img/V04b.png",
+  "title": "V04 THE CUT LIFTS",
+  "vo": "Cut once.",
+  "label": "V04b"
+ },
+ "V05": {
+  "file": "img/V05b.png",
+  "title": "V05 THE MEASURE",
+  "vo": "Milano is the measure.",
+  "label": "V05b"
+ },
+ "V06": {
+  "file": "img/V06a.png",
+  "title": "V06 THE LAST STITCH",
+  "vo": "...until it holds.",
+  "label": "V06a"
+ },
+ "V07": {
+  "file": "img/V07b.png",
+  "title": "V07 THE PRESS",
+  "vo": "Pressed flat...",
+  "label": "V07b (ronde 4)"
+ },
+ "V08": {
+  "file": "img/V08a.png",
+  "title": "V08 TWO SIDES",
+  "vo": "One piece. ... Two sides.",
+  "label": "V08a"
+ },
+ "V09": {
+  "file": "img/V09b.png",
+  "title": "V09 THE NAME",
+  "vo": "Not an address.",
+  "label": "V09b"
+ },
+ "V10": {
+  "file": "img/V10b.png",
+  "title": "V10 THE COLLAR CLOSES",
+  "vo": "Inside. ... Against the neck.",
+  "label": "V10b (ronde 3)"
+ },
+ "V11": {
+  "file": "img/V11a.png",
+  "title": "V11 THE SEAM",
+  "vo": "...until the seam forgets it was two.",
+  "label": "V11a (ronde 3) (voorlopig)",
+  "provisional": true
+ },
+ "V12": {
+  "file": "img/V12b.png",
+  "title": "V12 THE SHOULDER",
+  "vo": "Straight at the shoulder.",
+  "label": "V12b (ronde 2)"
+ },
+ "S01": {
+  "file": "img/S01b.png",
+  "title": "S01 RULE ON THE CHALK LINE",
+  "vo": "A line in chalk.",
+  "label": "S01b"
+ },
+ "S02": {
+  "file": "img/S02a.png",
+  "title": "S02 SHEARS AT REST",
+  "vo": "Cut once.",
+  "label": "S02a"
+ },
+ "S03": {
+  "file": "img/S03b.png",
+  "title": "S03 THREAD ON THE SPOOL",
+  "vo": "Thread...",
+  "label": "S03b"
+ },
+ "S04": {
+  "file": "img/S04b.png",
+  "title": "S04 THE LABEL, FLAT",
+  "vo": "Two words.",
+  "label": "S04b"
+ },
+ "S05": {
+  "file": "img/S05a.png",
+  "title": "S05 THE GALLERIA FLOOR, FROM ABOVE",
+  "vo": "...to the precision",
+  "label": "S05 uitsnede uit b (ronde 2)"
+ }
+}

@@ -1,0 +1,742 @@
+{
+ "V01": {
+  "title": "V01 GALLERIA, FROM BEHIND",
+  "vo": "From the elegance of Milan...",
+  "variants": [
+   {
+    "file": "img/V01a.png",
+    "label": "V01a",
+    "ok": false,
+    "score": 6.0,
+    "note": "Broek: lichtgrijze geweven pantalon met geperste vouw en twee geknoopte achterzakken (uitsnede V01a_hands/V01a_torso, onderste helft) — geweven kostuumstof, gee · score 6.0",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/V01b.png",
+    "label": "V01b",
+    "ok": true,
+    "score": 8.0,
+    "note": "goedgekeurd door beide controleurs · score 8.0",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2,
+    "chosen": true
+   }
+  ]
+ },
+ "V02": {
+  "title": "V02 THE STACK, FLUSH",
+  "vo": "of the atelier.",
+  "variants": [
+   {
+    "file": "img/orig/V02a_v1.png",
+    "label": "V02a (ronde 1)",
+    "ok": false,
+    "score": 5.5,
+    "note": "Misvormde hand: er zijn maar twee vingers (middelvinger boven met nagel, wijsvinger eronder, drukkend in het breisel) plus de duim aan de voorzijde; ring- en pi · score 5.5",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V02b_v1.png",
+    "label": "V02b (ronde 1)",
+    "ok": false,
+    "score": 5.5,
+    "note": "Het is de LINKERhand: handpalm omlaag, vingers naar links, duim steekt aan de verre kant (van de camera af) uit boven de wijsvinger (crop V02b_thumb2x, rechtsbo · score 5.5",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V02a_v2.png",
+    "label": "V02a (ronde 2)",
+    "ok": false,
+    "score": 4.5,
+    "note": "Duim ontbreekt: de hand ligt plat met de vingers naar links, maar aan de camerakant (onderrand van de hand, x≈0.40-0.72, y≈0.47-0.53) is geen duim te zien; de h · score 4.5",
+    "round": 1,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V02b_v2.png",
+    "label": "V02b (ronde 2)",
+    "ok": false,
+    "score": 5.0,
+    "note": "Vingertelling klopt niet: naast de duim zijn maar drie vingers te zien, twee normale bovenaan en één onderste vinger die ca. 1,5x zo breed is met één nagel (sam · score 5.0",
+    "round": 1,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V02a_v3.png",
+    "label": "V02a (ronde 3)",
+    "ok": false,
+    "score": 6.0,
+    "note": "Houten liniaal aan de verre rand loopt rechts uit beeld: de lichte houten strook (y ≈ 22-30 % van de hoogte, met de schaar erop) wordt door de rechterkaderrand  · score 6.0",
+    "round": 2,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V02b_v3.png",
+    "label": "V02b (ronde 3)",
+    "ok": false,
+    "score": 5.0,
+    "note": "Schaar is OPEN (bladen uit elkaar, beide ogen gespreid), scherp in focus en ligt in de nabije rechterhoek (x ≈ 82-99 %, y ≈ 66-74 %) in plaats van gesloten en z · score 5.0",
+    "round": 2,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/V02a.png",
+    "label": "V02a (ronde 4)",
+    "ok": true,
+    "score": 7.25,
+    "note": "goedgekeurd door beide controleurs · score 7.2",
+    "round": 3,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/V02b.png",
+    "label": "V02b (ronde 4)",
+    "ok": true,
+    "score": 8.25,
+    "note": "goedgekeurd door beide controleurs · score 8.2",
+    "round": 3,
+    "variant": "b",
+    "lenses": 2,
+    "chosen": true
+   }
+  ]
+ },
+ "V03": {
+  "title": "V03 THE RULE LIFTS",
+  "vo": "A line in chalk.",
+  "variants": [
+   {
+    "file": "img/V03a.png",
+    "label": "V03a",
+    "ok": false,
+    "score": 5.5,
+    "note": "Liniaal ligt NIET langs de krijtlijn: over de hele lengte loopt de witte lijn ca. 1 cm links van de liniaalrand, met een strook donkere (beschaduwde) stof ertus · score 5.5",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/V03b.png",
+    "label": "V03b",
+    "ok": true,
+    "score": 8.0,
+    "note": "goedgekeurd door beide controleurs · score 8.0",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2,
+    "chosen": true
+   }
+  ]
+ },
+ "V04": {
+  "title": "V04 THE CUT LIFTS",
+  "vo": "Cut once.",
+  "variants": [
+   {
+    "file": "img/V04a.png",
+    "label": "V04a",
+    "ok": false,
+    "score": 6.0,
+    "note": "Schaar staat open, bladen ver uit elkaar (midden-rechts, x 0.42-1.0, y 0.58-0.72); de prompt eist gesloten schaar, bladen tegen elkaar, rustend aan het einde va · score 6.0",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/V04b.png",
+    "label": "V04b",
+    "ok": true,
+    "score": 6.5,
+    "note": "goedgekeurd door beide controleurs · score 6.5",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2,
+    "chosen": true
+   }
+  ]
+ },
+ "V05": {
+  "title": "V05 THE MEASURE",
+  "vo": "Milano is the measure.",
+  "variants": [
+   {
+    "file": "img/V05a.png",
+    "label": "V05a",
+    "ok": false,
+    "score": 5.0,
+    "note": "Meetlint over het crème kledingstuk (rechts, x≈0,70–1,0, y≈0,38–0,50): grijsblauwe vlekken/schaduwspoken op het lint zelf, kleurlek van het antraciet; het lint  · score 5.0",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/V05b.png",
+    "label": "V05b",
+    "ok": true,
+    "score": 8.0,
+    "note": "goedgekeurd door beide controleurs · score 8.0",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2,
+    "chosen": true
+   }
+  ]
+ },
+ "V06": {
+  "title": "V06 THE LAST STITCH",
+  "vo": "...until it holds.",
+  "variants": [
+   {
+    "file": "img/V06a.png",
+    "label": "V06a",
+    "ok": true,
+    "score": 7.5,
+    "note": "goedgekeurd door beide controleurs · score 7.5",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2,
+    "chosen": true
+   },
+   {
+    "file": "img/V06b.png",
+    "label": "V06b",
+    "ok": false,
+    "score": 4.0,
+    "note": "Gereliëfd 'J'-vormig merkteken/embleem op de witte machinekap, rechtsboven op de kap (ca. x 0.70-0.80, y 0.03-0.09) — logo/letter op de machine (crop b_mark). · score 4.0",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2
+   }
+  ]
+ },
+ "V07": {
+  "title": "V07 THE PRESS",
+  "vo": "Pressed flat...",
+  "variants": [
+   {
+    "file": "img/orig/V07a_v1.png",
+    "label": "V07a (ronde 1)",
+    "ok": false,
+    "score": 6.5,
+    "note": "Stoom is een losse, paddenstoelvormige wolk met twee symmetrische krullen die linksboven tegen het raam zweeft (x 10-45 %, y 15-30 %), ruim los van het strijkij · score 6.5",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V07b_v1.png",
+    "label": "V07b (ronde 1)",
+    "ok": false,
+    "score": 6.0,
+    "note": "A black power cord with its strain-relief is clearly visible and close to sharp at the heel of the iron, emerging from behind the wrist/cuff and looping to the  · score 6.0",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V07a_v2.png",
+    "label": "V07a (ronde 2)",
+    "ok": false,
+    "score": 5.0,
+    "note": "Stoom: geen één vage diffuse sliert maar een hoge, rookachtige pluim met meerdere scherp getekende krullende slierten die van de zool links van het ijzer tot aa · score 5.0",
+    "round": 1,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V07b_v2.png",
+    "label": "V07b (ronde 2)",
+    "ok": false,
+    "score": 6.5,
+    "note": "Rechtsboven in beeld (x 0.74-0.94, y 0-0.12) hangt aan een wazige houten wandplank een donkere verticale strook/riem (crops b_TRobj, b_TRobj2): een onbenoembaar · score 6.5",
+    "round": 1,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V07a_v3.png",
+    "label": "V07a (ronde 3)",
+    "ok": false,
+    "score": 6.25,
+    "note": "Greep structureel ongeloofwaardig: de voorste poot is een dikke, bolvormige ronde kolom (knop onder duim en wijsvinger), de achterste poot een dunne platte stri · score 6.2",
+    "round": 2,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V07b_v3.png",
+    "label": "V07b (ronde 3)",
+    "ok": false,
+    "score": 7.25,
+    "note": "Op de zijkant van het ijzer (ca. x 42-58 %, y 60-63 %), precies waar een fabrieksstempel zit, loopt een horizontale band van ca. twintig korte verticale krasjes · score 7.2",
+    "round": 2,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/V07a.png",
+    "label": "V07a (ronde 4)",
+    "ok": false,
+    "score": 4.5,
+    "note": "De 'opengestreken naad' is weergegeven als een V-vormige spleet in het gebreide paneel: van onder de linnen rand tot aan de onderrand van het beeld lopen de twe · score 4.5",
+    "round": 3,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/V07b.png",
+    "label": "V07b (ronde 4)",
+    "ok": true,
+    "score": 8.0,
+    "note": "goedgekeurd door beide controleurs · score 8.0",
+    "round": 3,
+    "variant": "b",
+    "lenses": 2,
+    "chosen": true
+   }
+  ]
+ },
+ "V08": {
+  "title": "V08 TWO SIDES",
+  "vo": "One piece. ... Two sides.",
+  "variants": [
+   {
+    "file": "img/V08a.png",
+    "label": "V08a",
+    "ok": true,
+    "score": 8.0,
+    "note": "goedgekeurd door beide controleurs · score 8.0",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2,
+    "chosen": true
+   },
+   {
+    "file": "img/V08b.png",
+    "label": "V08b",
+    "ok": false,
+    "score": 3.5,
+    "note": "Rechter armsgat (x≈0,85-0,95, y≈0,33-0,52): doorlopende crème band van ca. 1 cm langs de hele armsgatrand; ook langs het linker armsgat (x≈0,10-0,20, y≈0,40-0,4 · score 3.5",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2
+   }
+  ]
+ },
+ "V09": {
+  "title": "V09 THE NAME",
+  "vo": "Not an address.",
+  "variants": [
+   {
+    "file": "img/V09a.png",
+    "label": "V09a",
+    "ok": true,
+    "score": 7.25,
+    "note": "goedgekeurd door beide controleurs · score 7.2",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/V09b.png",
+    "label": "V09b",
+    "ok": true,
+    "score": 8.25,
+    "note": "goedgekeurd door beide controleurs · score 8.2",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2,
+    "chosen": true
+   }
+  ]
+ },
+ "V10": {
+  "title": "V10 THE COLLAR CLOSES",
+  "vo": "Inside. ... Against the neck.",
+  "variants": [
+   {
+    "file": "img/orig/V10a_v1.png",
+    "label": "V10a (ronde 1)",
+    "ok": false,
+    "score": 6.5,
+    "note": "Cuff at the right frame edge (x 0.82-1.0, y 0.40-0.56): two parallel cream bands run around the forearm instead of the single cream cuff stripe the prompt and t · score 6.5",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V10b_v1.png",
+    "label": "V10b (ronde 1)",
+    "ok": false,
+    "score": 7.0,
+    "note": "Hand: slechts vier vingers zichtbaar (drie vingers + duim). Op de nek liggen drie vingers naast elkaar met nagels bij ca. x=0,50/y=0,47, x=0,47/y=0,57 en x=0,50 · score 7.0",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V10a_v2.png",
+    "label": "V10a (ronde 2)",
+    "ok": false,
+    "score": 5.0,
+    "note": "Cuff (left edge of frame, around x 0-0.15 / y 0.40-0.52): the sleeve ends in TWO cream bands - a cream edge band, a mocha stripe, then a second cream stripe - i · score 5.0",
+    "round": 1,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V10b_v2.png",
+    "label": "V10b (ronde 2)",
+    "ok": false,
+    "score": 6.25,
+    "note": "Cuff (top right, around x 0.85-1.0 / y 0.33-0.45): the sleeve ends in TWO cream bands - cream edge band, mocha stripe, second cream stripe - instead of exactly  · score 6.2",
+    "round": 1,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/V10a.png",
+    "label": "V10a (ronde 3)",
+    "ok": false,
+    "score": 5.0,
+    "note": "Arm komt van de LINKER beeldrand en het is de linkerhand (handrug naar camera, duim onder, vingers naar rechts); prompt eist rechterhand van de rechter beeldran · score 5.0",
+    "round": 2,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/V10b.png",
+    "label": "V10b (ronde 3)",
+    "ok": true,
+    "score": 8.5,
+    "note": "goedgekeurd door beide controleurs · score 8.5",
+    "round": 2,
+    "variant": "b",
+    "lenses": 2,
+    "chosen": true
+   }
+  ]
+ },
+ "V11": {
+  "title": "V11 THE SEAM",
+  "vo": "...until the seam forgets it was two.",
+  "variants": [
+   {
+    "file": "img/orig/V11a_v1.png",
+    "label": "V11a (ronde 1)",
+    "ok": false,
+    "score": 7.5,
+    "note": "Linkerrand, over de volle hoogte (x 0-10%): de antracieten stof is daar zo hard overbelicht dat hij zand-/beige van kleur wordt en als een ander materiaal (of e · score 7.5",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V11b_v1.png",
+    "label": "V11b (ronde 1)",
+    "ok": false,
+    "score": 4.5,
+    "note": "Stof klopt niet met de prompt en de merkregel 'alleen wol/kasjmier': het doek in het hele midden en aan de linkerrand (crops b_cloth, b_seam, b_leftedge) is een · score 4.5",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V11a_v2.png",
+    "label": "V11a (ronde 2)",
+    "ok": false,
+    "score": 2.5,
+    "note": "Stof is niet van rand tot rand antraciet: het linkerpaneel is een uitgebleekt zandkleurig beige/taupe (gemiddelde helderheid ~200 aan de linkerrand, ~175 over h · score 2.5",
+    "round": 1,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V11b_v2.png",
+    "label": "V11b (ronde 2)",
+    "ok": false,
+    "score": 5.25,
+    "note": "Stof niet van rand tot rand gelijkmatig antraciet: het linkerpaneel en de linkerbovenhoek zijn warm beige/taupe uitgebleekt (helderheid 150-190 over het linkerk · score 5.2",
+    "round": 1,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/V11a.png",
+    "label": "V11a (ronde 3)",
+    "ok": false,
+    "score": 5.5,
+    "note": "VOORLOPIG (niet goedgekeurd): Naad is geen vlakke haarfijne stiklijn maar een smalle verhoogde richel (een opstaand koord van 2-3 steken, ca. 50-60 px breed op 3072) die over de volle hoogte · score 5.5",
+    "round": 2,
+    "variant": "a",
+    "lenses": 2,
+    "chosen": true,
+    "provisional": true
+   },
+   {
+    "file": "img/V11b.png",
+    "label": "V11b (ronde 3)",
+    "ok": false,
+    "score": 4.0,
+    "note": "Naad is een brede vlakke band van dichte overlock/linkingsteken (ca. 90 px breed, ca. 3% van de beeldbreedte) met een donkere lijn aan weerszijden: geen haarfij · score 4.0",
+    "round": 2,
+    "variant": "b",
+    "lenses": 2
+   }
+  ]
+ },
+ "V12": {
+  "title": "V12 THE SHOULDER",
+  "vo": "Straight at the shoulder.",
+  "variants": [
+   {
+    "file": "img/orig/V12a_v1.png",
+    "label": "V12a (ronde 1)",
+    "ok": false,
+    "score": 7.0,
+    "note": "Gilet colour and cloth do not match the product: it reads as a mid slate-grey with a blue cast (sampled RGB about 106/106/117 on the lit shoulder, 70/69/75 in s · score 7.0",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V12b_v1.png",
+    "label": "V12b (ronde 1)",
+    "ok": false,
+    "score": 7.75,
+    "note": "Langs het hele rechterarmsgat loopt een duidelijk lichtere middengrijze band (van de schoudertop tot onder de arm, ca. x 0.68-0.80, y 0.57-0.75); hij leest als  · score 7.8",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/V12a.png",
+    "label": "V12a (ronde 2)",
+    "ok": false,
+    "score": 4.0,
+    "note": "Armsgat (het zichtbare, viewer-links, rond de steenkleurige tee-mouw): een duidelijk lichtere middengrijze band/bies of binnenkant loopt langs de hele armsgatra · score 4.0",
+    "round": 1,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/V12b.png",
+    "label": "V12b (ronde 2)",
+    "ok": true,
+    "score": 8.0,
+    "note": "goedgekeurd door beide controleurs · score 8.0",
+    "round": 1,
+    "variant": "b",
+    "lenses": 2,
+    "chosen": true
+   }
+  ]
+ },
+ "S01": {
+  "title": "S01 RULE ON THE CHALK LINE",
+  "vo": "A line in chalk.",
+  "variants": [
+   {
+    "file": "img/S01a.png",
+    "label": "S01a",
+    "ok": false,
+    "score": 4.0,
+    "note": "Tweede krijtlijn: linksonder, bij het ondereinde van de liniaal (ca. x 0-0.12, y 0.70-0.78), eindigt de hoofdlijn in een helder knooppunt waaruit twee vage lijn · score 4.0",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/S01b.png",
+    "label": "S01b",
+    "ok": true,
+    "score": 7.0,
+    "note": "goedgekeurd door beide controleurs · score 7.0",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2,
+    "chosen": true
+   }
+  ]
+ },
+ "S02": {
+  "title": "S02 SHEARS AT REST",
+  "vo": "Cut once.",
+  "variants": [
+   {
+    "file": "img/orig/S02a_v1.png",
+    "label": "S02a (ronde 1)",
+    "note": "op zicht afgewezen: een afgewerkt kledingstuk met een snede erin, geen losse stof",
+    "ok": false,
+    "score": 0,
+    "round": -1,
+    "variant": "?",
+    "lenses": 0
+   },
+   {
+    "file": "img/orig/S02b_v1.png",
+    "label": "S02b (ronde 1)",
+    "note": "op zicht afgewezen: gedrukte merknaam op de kraag, rits en tee in beeld",
+    "ok": false,
+    "score": 0,
+    "round": -1,
+    "variant": "?",
+    "lenses": 0
+   },
+   {
+    "file": "img/S02a.png",
+    "label": "S02a",
+    "ok": true,
+    "score": 8.0,
+    "note": "goedgekeurd door beide controleurs · score 8.0",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2,
+    "chosen": true
+   },
+   {
+    "file": "img/S02b.png",
+    "label": "S02b",
+    "ok": false,
+    "score": 5.0,
+    "note": "Snede loopt van de rechterbovenrand van de stof diagonaal door tot ver voorbij de bladpunt en eindigt midden in de stof linksonder (met krijtstof op het eindpun · score 5.0",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2
+   }
+  ]
+ },
+ "S03": {
+  "title": "S03 THREAD ON THE SPOOL",
+  "vo": "Thread...",
+  "variants": [
+   {
+    "file": "img/S03a.png",
+    "label": "S03a",
+    "ok": false,
+    "score": 5.0,
+    "note": "Faint blurred brand decal on the sewing-machine arm in the background (roughly x 0.45-0.70, y 0.27-0.31 of the frame): a row of lighter gold-ish blobs in the sh · score 5.0",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/S03b.png",
+    "label": "S03b",
+    "ok": true,
+    "score": 8.25,
+    "note": "goedgekeurd door beide controleurs · score 8.2",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2,
+    "chosen": true
+   }
+  ]
+ },
+ "S04": {
+  "title": "S04 THE LABEL, FLAT",
+  "vo": "Two words.",
+  "variants": [
+   {
+    "file": "img/S04a.png",
+    "label": "S04a",
+    "ok": false,
+    "score": 6.5,
+    "note": "Het label ligt schuin, circa 35-40 graden gedraaid over de nek (van linksonder naar rechtsboven), terwijl de prompt 'upright, centred' vraagt en het plan explic · score 6.5",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/S04b.png",
+    "label": "S04b",
+    "ok": true,
+    "score": 8.5,
+    "note": "goedgekeurd door beide controleurs · score 8.5",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2,
+    "chosen": true
+   }
+  ]
+ },
+ "S05": {
+  "title": "S05 THE GALLERIA FLOOR, FROM ABOVE",
+  "vo": "...to the precision",
+  "variants": [
+   {
+    "file": "img/orig/S05a_v1.png",
+    "label": "S05a (ronde 1)",
+    "ok": false,
+    "score": 6.75,
+    "note": "Scherpte: de bovenste ~15% (alle vier lamp-reflecties linksboven/rechtsboven) en de onderste ~15% (hoeken linksonder/rechtsonder, de dichtstbijzijnde vloer) zij · score 6.8",
+    "round": 0,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/S05b_v1.png",
+    "label": "S05b (ronde 1)",
+    "ok": false,
+    "score": 7.5,
+    "note": "Scherpte: dezelfde tilt-shift-strook; de onderste hoeken (dichtstbijzijnde vloer, x 0-0,3 en 0,7-1,0, y 0,89-1,0) en de bovenste ~12% zijn duidelijk onscherp, a · score 7.5",
+    "round": 0,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/S05a_v2.png",
+    "label": "S05a (ronde 2)",
+    "ok": false,
+    "score": 3.25,
+    "note": "Rozet (bovenste 8-20% van het beeld): minstens zes kleine donkere inlegstukken in schild-/blad-/cartouchevorm met rafelige rand (links en rechts van de centrale · score 3.2",
+    "round": 1,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/S05b_v2.png",
+    "label": "S05b (ronde 2)",
+    "ok": false,
+    "score": 7.25,
+    "note": "Links en rechts van het rozetcentrum (ongeveer x 12-26% en 72-85%, y 6-11%): bloemblad-/vlamvormige lobben met golvende, gesmolten, asymmetrische randen en een  · score 7.2",
+    "round": 1,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/S05a.png",
+    "label": "S05 uitsnede uit b (ronde 2)",
+    "ok": true,
+    "score": 8.0,
+    "note": "goedgekeurd door beide controleurs · score 8.0",
+    "round": 2,
+    "variant": "a",
+    "lenses": 2,
+    "chosen": true
+   },
+   {
+    "file": "img/S05b.png",
+    "label": "S05b (ronde 2, vol)",
+    "ok": false,
+    "score": 4.5,
+    "note": "Bovenste ~14% (rozet in het midden boven, x 0.28-0.72, y 0-0.15): de kruis-/stervormige terracotta lobben met crème omlijning zijn vervormd en 'gesmolten' (onre · score 4.5",
+    "round": 2,
+    "variant": "b",
+    "lenses": 2
+   }
+  ]
+ }
+}
