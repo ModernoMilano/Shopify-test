@@ -1,17 +1,15 @@
 {
  "H01": {
-  "file": "img/orig/H01b_v1.png",
+  "file": "img/H01b.png",
   "title": "H01 GALLERIA, FEET LANDING",
   "vo": "You will look twice.",
-  "label": "H01b (ronde 1) (voorlopig)",
-  "provisional": true
+  "label": "H01b (ronde 2)"
  },
  "H02": {
-  "file": "img/orig/H02a_v1.png",
+  "file": "img/H02b.png",
   "title": "H02 THE CHEST, NOTHING WRITTEN",
   "vo": "Nothing on him says a word.",
-  "label": "H02a (ronde 1) (voorlopig)",
-  "provisional": true
+  "label": "H02b (ronde 2)"
  },
  "H03": {
   "file": "img/H03a.png",
@@ -26,11 +24,10 @@
   "label": "H04b"
  },
  "H05": {
-  "file": "img/orig/H05a_v1.png",
+  "file": "img/H05b.png",
   "title": "H05 THE FIRST LOOK",
   "vo": "So where does that come from.",
-  "label": "H05a (ronde 1) (voorlopig)",
-  "provisional": true
+  "label": "H05b (ronde 2)"
  },
  "V01": {
   "file": "img/V01a.png",

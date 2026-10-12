@@ -28,6 +28,7 @@ UNCHECKED = {"S02": [{"file": "img/orig/S02a_v1.png", "label": "S02a (ronde 1)",
                      {"file": "img/orig/S02b_v1.png", "label": "S02b (ronde 1)", "note": "op zicht afgewezen: gedrukte merknaam op de kraag, rits en tee in beeld"}],
              "H04": [{"file": "img/orig/H04a_v1.png", "label": "H04a (ronde 1)", "note": "op zicht afgewezen: zijn gezicht staat in profiel in beeld, het moet afgewend blijven tot H05"},
                      {"file": "img/orig/H04b_v1.png", "label": "H04b (ronde 1)", "note": "op zicht afgewezen: zijn gezicht staat in profiel in beeld, het moet afgewend blijven tot H05"}]}
+PREFER = {"H02": ("b", "beide goedgekeurd; b heeft de rits dicht tot boven, zoals het shot vraagt")}
 SKIP = {("wf_fdec4132-fa9", "V07")}  # de afgebroken eerste ronde had V07 al half gekeurd; ronde 2 keurde dezelfde beelden volledig
 titles = {s["id"].split()[0]: s["id"] for s in plan["new_shots"]}
 vo = {}
@@ -76,6 +77,9 @@ for sid in titles:
     good = [x for x in variants if x["ok"] and x["lenses"] >= 2]
     if good:
         best = max(good, key=lambda x: (x["round"], x["score"]))  # laatste ronde eerst, dan score
+        if sid in PREFER:  # redactionele voorkeur tussen twee goedgekeurde varianten
+            pref = [x for x in good if x["variant"] == PREFER[sid][0] and x["round"] == best["round"]]
+            if pref: best = pref[0]; best["why"] = PREFER[sid][1]
         best["chosen"] = True; chosen[sid] = {"file": best["file"], "title": titles[sid], "vo": vo.get(sid, ""), "label": best["label"]}
     else:
         cands = [x for x in variants if x["lenses"] >= 1 and x["round"] >= 0]
