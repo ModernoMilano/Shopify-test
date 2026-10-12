@@ -45,13 +45,15 @@ def thumb(path):
 
 
 def main(rows_path, out):
-    rows = json.load(open(rows_path))
+    data = json.load(open(rows_path))
+    rows = data["rows"] if isinstance(data, dict) else data
+    title = data.get("title", "Two Words") if isinstance(data, dict) else "Two Words"
+    sub = data.get("sub", "Storyboard · ModernoMilano · alle beelden op volgorde, met de tekst die in beeld komt") if isinstance(data, dict) else "Storyboard · ModernoMilano"
     head = 210
     img = Image.new("RGB", (W, head + ROW * len(rows) + 60), BG)
     d = ImageDraw.Draw(img)
-    d.text((48, 52), "Two Words", font=font(SERIF, 72, "SemiBold"), fill=INK)
-    d.text((50, 140), "Storyboard · ModernoMilano · alle beelden op volgorde, met de tekst die in beeld komt",
-           font=font(SANS, 22), fill=MUTED)
+    d.text((48, 52), title, font=font(SERIF, 72, "SemiBold"), fill=INK)
+    d.text((50, 140), sub, font=font(SANS, 22), fill=MUTED)
     f_vo, f_nl, f_t, f_tag = font(SERIF, 42, "SemiBold"), font(SANS, 23), font(SANS, 22), font(SANS, 19)
     for i, r in enumerate(rows):
         y = head + i * ROW
@@ -62,8 +64,8 @@ def main(rows_path, out):
         else:
             d.rectangle((x0, y0, x0 + TW, y0 + TH), fill=CARD)
             d.text((x0 + 18, y0 + 18), "NIEUW", font=font(SANS, 22), fill=GOLD)
-            d.text((x0 + 18, y0 + 50), "beeld volgt", font=font(SANS, 18), fill=MUTED)
-            d.text((x0 + 18, y0 + 74), "na de credits", font=font(SANS, 18), fill=MUTED)
+            d.text((x0 + 18, y0 + 50), "beeld wordt", font=font(SANS, 18), fill=MUTED)
+            d.text((x0 + 18, y0 + 74), "nu gemaakt", font=font(SANS, 18), fill=MUTED)
         tx = x0 + TW + 34
         tw = W - 48 - tx
         d.text((tx, y0 + 2), f"{r['t']} s", font=f_t, fill=MUTED)
