@@ -9,7 +9,12 @@ print("## Links\n")
 print(f"- Zip met alles (storyboard, overzicht van alle varianten, de 17 gekozen beelden op volle grootte, alle varianten op halve grootte): {links['zip']}")
 print(f"- Storyboard (lange JPEG, scrollen): {links['storyboard']}")
 print(f"- Alle varianten met oordeel (lange JPEG): {links['alle']}")
-print(f"- De nieuwe beelden groot naast elkaar: {links['nieuw']}\n")
+print(f"- De nieuwe beelden groot naast elkaar: {links['nieuw']}")
+print(f"- Oude-camerafilters, zes opties op drie beelden: {links['filters']}")
+print(f"- Dezelfde filters in beweging (42 s, per filter 3 s regen en 3 s avond): {links['filters_video']}\n")
+print("## De filter (jouw keuze)\n")
+print("Kodachrome 64 (warm, rijk rood, diepe zwarten, fijne korrel) · Portra 400 (zacht, warme huid, opgelichte zwarten) · Cinestill 800T (nachtfilm: koele schaduwen, warme lichten met gloed) · 16 mm Ektachrome (zichtbare korrel, iets zachter) · Verbleekte print (jaren-70 afdruk, gedempt) · Tri-X 400 (zwart-wit). "
+      "Mijn advies: Portra 400 voor de hele film (past bij de merknorm: gedempt, warm, zachte contrasten), met Cinestill als tweede keus omdat de avondscènes thuis (V09, V10, Sera) er mooi van gloeien. De filter gaat over elk shot heen, ook de bestaande clips, na de belichting per shot; de korrel beweegt per frame.\n")
 print("## De film in 32 beelden\n")
 print("| tijd | beeld | tekst in beeld |\n|---|---|---|")
 for t in plan["timeline"]:
