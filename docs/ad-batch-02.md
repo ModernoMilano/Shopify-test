@@ -62,7 +62,9 @@ Bestanden zijn 2160 × 2160 (1:1) en 2160 × 3840 (9:16), JPG.
 - 1:1: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/c03f1e8b-2032-4912-ab39-b685bb54f631.jpg
 - 9:16: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/4c777943-919f-4ab5-9ce1-09874ed2bfb2.jpg
 
-### Ad 4: Catalogus, Reverso Total Nero
+### Ad 4: Catalogus, Reverso Total Nero (vervangen)
+
+> **Niet gebruiken.** De gilet is in dit beeld te kort: hij stopt op de taille als een bomberjack, terwijl de echte Total Nero over de heup valt. Ook mist de crème rand bij de armsgaten. Vervangen door ad B11 in `docs/ad-batch-03.md`.
 
 - **Blauwdruk:** The Milano Nobile Set (5,65x, hoogste ROAS in het account).
 - **Beeld:** model rechts in Total Nero, links een kolom met gilet, tee, broek en loafers op ivoor.
