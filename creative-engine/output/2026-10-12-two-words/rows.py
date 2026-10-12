@@ -30,7 +30,7 @@ def main(plan_path, frames, out, images_path=None):
             tag = f"BESTAAND · {NAMES[key]}"
         else:
             sid = t["shot"].replace("NEW ", "").split(" 0.0")[0].split(" (")[0].strip()
-            sid = " ".join(sid.split()[:2]) if sid[:1] in "VSH" else sid
+            sid = sid.split(",")[0].strip() if sid[:1] in "VSH" else sid  # "V01 GALLERIA", "H02 THE CHEST"
             match = next((k for k in images if k.startswith(sid.split(",")[0].split()[0])), None)
             img = images.get(match) if match else None
             kind = "stil" if sid.startswith("S") or "living still" in t["shot"] else "video"
