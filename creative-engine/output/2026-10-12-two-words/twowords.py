@@ -59,8 +59,13 @@ SHOT_REFS = {
     "V09": REFS["label"] + [REFS["mocha"][1]], "S04": REFS["label"] + [REFS["mocha"][1]],
     "V10": [REFS["mocha"][1]], "V12": REFS["antracite_pietra"],
     "S01": [REFS["antracite_pietra"][1]], "S02": [REFS["antracite_pietra"][1]], "S03": [], "S05": [],
+    # opening v3 (12 okt, avond): H01 voeten (loafer eerst, set alleen voor de broekkleur), H02/H03 macro met een
+    # productfoto, H04/H05 hij onder de koepel met set en detail
+    "H01": [REFS["loafer_grigio"][0], REFS["antracite_pietra"][0]], "H02": [REFS["antracite_pietra"][1]],
+    "H03": [REFS["antracite_pietra"][1]], "H04": REFS["antracite_pietra"], "H05": REFS["antracite_pietra"],
 }
-PERSON = {"V01", "V10", "V12"}  # zijn hoofd, nek of rug in beeld: placeholder + keep_en
+PERSON = {"V01", "V10", "V12", "H03", "H04", "H05"}  # zijn hoofd, nek of rug in beeld: placeholder + keep_en
+NO_HANDS = {"H01"}  # alleen voeten in beeld: geen handzin, geen "nobody"
 
 
 def sid(s):
@@ -82,8 +87,11 @@ def image_request(s):
         prompt = prompt.replace("The model", EL, 1).replace("the model", EL, 1) if "he model" in prompt else f"{EL}: {prompt}"
         prompt += " " + P["keep_en"]
     else:
-        prompt = prompt.replace("The model's", "His").replace("the model's", "his").replace("The model", "He").replace("the model", "he")
-        if not any(k in prompt for k in ("No hands", "no hands", "nobody in frame", "Nobody in frame")):
+        prompt = (prompt.replace("The model's", "His").replace("the model's", "his").replace("of the model", "of him")
+                  .replace("The model", "He").replace("the model", "he"))
+        if sid(s) in NO_HANDS:
+            prompt += " Only his feet and lower legs are in the picture: no hands, no face, no second person."
+        elif not any(k in prompt for k in ("No hands", "no hands", "nobody in frame", "Nobody in frame")):
             prompt += (" The hand in the picture is a man's hand with light warm skin and a faint natural texture. Only his "
                        "hand is in the picture: no face, no second person.")
         else:
@@ -95,7 +103,10 @@ def image_request(s):
                     .replace(" (matching HOME B)", "").replace(" (used under 'Not an address.')", "")
                     .replace("The same setup as V09 one hand's width wider: the", "The").replace("The same setup as V09 one hand's width wider: The", "The")
                     .replace(" Framed at the same scale and angle as the sleeve on the armrest in HOME A for the match cut.", ""))
-    parts = [prompt, HANDS if "Nobody is in the picture" not in prompt else "", NO_TEXT, P["realism_en"]]
+    realism = P["realism_en"]
+    if sid(s).startswith("H"):  # opening v3: het gilet is glad geweven, geen breisel (les uit V12 v2, "vilt")
+        realism = realism.replace("visible knit stitch", "visible weave")
+    parts = [prompt, HANDS if "Nobody is in the picture" not in prompt and sid(s) not in NO_HANDS else "", NO_TEXT, realism]
     parts = [x for x in parts if x]
     medias = [{"value": v, "role": "image_references"} for v in refs_for(s)]
     return {"model": "nano_banana_pro", "resolution": "4k", "aspect_ratio": "9:16", "prompt": "\n\n".join(parts), "medias": medias}

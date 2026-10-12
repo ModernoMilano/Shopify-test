@@ -1,7 +1,75 @@
 {
- "title": "You Won't See a Name",
+ "title": "You Will Look Twice",
  "idea": "Locked plan, built on the judges' winner (plan A, \"Nothing on the Outside\") with the three judges' fixes applied and the best mechanics of B and C grafted in. The spine stays: the film opens on Luca in Milan and tells the viewer where the name is not (collar, sleeve, nothing to read, only how it sits), bridges with the owner's kept pair (elegance of Milan / precision of the atelier), then runs the atelier as a rhythm of still-then-reveal: a living still of the tool at rest (rule on the chalk line, shears at rest, thread on the spool) answered by a video in which the finished action is only revealed (the rule lifts off the line, the cut piece lifts, the needle stops, the iron lifts, the steam thins off the flat seam), with Luca cut in between where the words need him (his shoulder, his breath, his hand at rest). The Reverso beat is one shot plus the two courtyards (\"One piece. Two sides. / The same man.\"). The turn at 45.3 s (69%) is a hard cut to silence on the label itself: the living still of the real label under \"Two words.\", the push-in under \"Not an address.\", so the most important line is literally its picture. The triad is re-seated on literal pictures (the man at the windscreen, the tape, the man with Milan behind him), the ending closes the hook (thumb on the label, the collar closes over it at his neck) and the last line is plain and begins with \"You\" like line one: \"You wear it. Nobody reads it.\" Then \"Moderno Milano.\" over the small centred wordmark at blue hour, which dissolves back into the grey morning of frame one. 65.2 s, 104 words, 32 pictures (17 new start images: 12 video shots and 5 living stills; 15 pieces of existing footage, none longer than 3.0 s, no two consecutive from one clip). Credits: 12 x 68 + 5 x 8 = 856, reserve 144 (two full video redos, the label first). The hook line is rewritten from \"You won't find a name on the outside\" to \"You won't see a name on him\": the store data holds no product descriptions and the product photos could not be checked from this environment, so the product fact cannot be verified; \"on him\" is true of the footage itself (no logo is visible on him in any approved clip) and needs no gate. If the owner confirms on the product photos that no piece carries an external mark, \"You won't find a name on the outside.\" may be swapped back at the voice test with no other change.",
  "new_shots": [
+  {
+   "id": "H01 GALLERIA, FEET LANDING",
+   "kind": "video",
+   "seconds": 4,
+   "start_image_prompt_en": "9:16, 4K, vertical. Milan's Galleria Vittorio Emanuele II at first light, the long arm of the arcade. Camera: full-frame digital camera, 35 mm lens at f/4, set 20 cm above the marble mosaic floor and tilted very slightly down, framed low and off-centre so the floor runs away into the arcade on the left of the frame. One light source: cool early daylight falling from the glass roof high above, with a warm bounce off the pale stone; the far arcade a stop darker and out of focus. Subject: only the model's feet and lower legs, nothing above the knee. The right foot stands on one of the straight bands of the floor in a grey suede loafer, exactly the shoe in the reference images, worn on a bare foot with no sock, the ankle bare; the left foot is arriving beside it, the toe already on the stone and the heel still a few centimetres up, so the two loafers read as a mirrored left and right pair. Above them the hems of anthracite tailored trousers, exactly the garment in the reference images, a plain hem breaking once on the shoe. A real soft shadow under the right shoe. The floor shows only straight geometric bands in cream, grey and terracotta, no emblems, no figures. Far down the arcade, two distant passers-by, small and out of focus, faces unreadable, too far to move; the shop fronts far away with shutters down and plain dark glass, no lettering. An unretouched photograph: real suede with its nap, real stone with faint wear, slight lens softness at the edges, muted warm colour, soft contrast. Must not appear: socks, shoe hardware, readable text, logos, signs, any person near him, a watch, a bag, a border or vignette.",
+   "motion_prompt_en": "One action only: the left heel comes down beside the right shoe, the weight settles onto both feet, the trouser hem swings once and goes still; both loafers end flat on the stone as a mirrored left and right pair. The camera is locked. The distant figures stay far and blurred; nothing else in the frame moves. Real-time motion, one continuous take.",
+   "sound": "Cold open, no music of ours: one step landing in the long stone echo of the arcade, a far pigeon.",
+   "risk_and_mitigation": "Feet shots invent socks, shoe hardware or a third shoe; the prompt names bare ankles and a mirrored pair, and the loafer photo is the first reference. The floor must show straight bands only (no rosette): checked at 100%.",
+   "references": [
+    "loafer Grigio (side view)",
+    "Reverso gilet Antracite & Pietra (set photo)"
+   ],
+   "person_in_frame": false
+  },
+  {
+   "id": "H02 THE CHEST, NOTHING WRITTEN",
+   "kind": "video",
+   "seconds": 4,
+   "start_image_prompt_en": "9:16, 4K, vertical, macro. Milan's Galleria Vittorio Emanuele II at first light. Camera: full-frame digital camera, 100 mm macro lens at f/4, straight on to the chest at chest height; the frame runs from the top edge of the standing collar down to the midriff, so no chin, no neck and no face are in the picture. One light source: cool daylight from the glass roof above, coming slightly from the right and raking across the cloth; the arcade behind a stop darker and dissolved into soft shapes. Subject: the chest of the model in the anthracite reversible gilet, exactly the garment in the reference images: smooth matte woven cloth, the zip closed to the top, the standing collar anthracite on the outside with the pearl-grey inside showing only as a thin line along the inner fold; the armholes and the outside of the collar plain anthracite. At the throat, the rounded neck of a pale stone tee, exactly the garment in the reference images. The front of the gilet is plain: no badge, no stitched name, no tag, no second colour anywhere on the front. His right hand rests flat on the left side of the chest, fingers relaxed, the wrist and forearm bare; a man's hand with light warm skin and fine natural texture, the only hand in the picture. An unretouched photograph: real woven cloth with a soft crease where the zip meets the collar, matte skin, slight lens softness at the edges, muted warm colour, soft contrast. Must not appear: a face, a chin, a second hand, a watch, a ring, readable text, logos, a border or vignette.",
+   "motion_prompt_en": "One action only: his right hand brushes once down the front of the gilet, from just below the collar to the midriff, and drops out of the bottom of the frame; the cloth settles flat and stays plain, with nothing written on it. The camera is locked and the frame stays on the chest; no face enters. Nothing else moves. Real-time motion, one continuous take.",
+   "sound": "Cloth brushing under a hand, the arcade's stone reverb, a distant tram bell.",
+   "risk_and_mitigation": "A chest macro can grow lettering, a zip engraving or a second colour on the front; the prompt keeps the front plain and the collar inside colour only at the inner fold. Checked for fabric (smooth matte woven, not knit) and for a face creeping in at the top edge.",
+   "references": [
+    "Reverso gilet Antracite & Pietra (detail photo)"
+   ],
+   "person_in_frame": false
+  },
+  {
+   "id": "H03 THE COLLAR, FROM BEHIND",
+   "kind": "video",
+   "seconds": 4,
+   "start_image_prompt_en": "9:16, 4K, vertical, macro from behind. Milan's Galleria Vittorio Emanuele II at first light. Camera: full-frame digital camera, 85 mm lens at f/2.8, directly behind the model at the height of his collar, framed off-centre: the nape of his neck and the standing collar of the anthracite reversible gilet fill the lower two thirds of the frame, his hair combed back above the nape in the upper third, the crown of his head cut by the top edge; no face. One light source: cool daylight from the glass roof above and behind the camera, laying a soft rim on the hairline and on the top edge of the collar; the arcade beyond a stop darker and dissolved into soft shapes. The gilet exactly the garment in the reference images: smooth matte woven cloth, the collar standing and closed around the neck, anthracite on the outside, the pearl-grey inside visible only as a thin line along the top fold; nothing inside the collar shows, no label, no tag. The rounded neck of a pale stone tee just above the collar edge, exactly the garment in the reference images. His right hand has just come up to the collar, two fingers resting on the fold, the wrist bare; a man's hand with light warm skin and fine natural texture, the only hand in the picture. An unretouched photograph: real weave, real hair, a soft crease at the back of the collar, slight lens softness at the edges, muted warm colour, soft contrast. Must not appear: his face, a label, readable text, logos, a watch, a ring, a second person, a border or vignette.",
+   "motion_prompt_en": "One action only: his hand straightens the collar once, a small pull of the fold between two fingers, then drops out of the bottom of the frame; the gilet settles on the shoulders; the collar stays closed and nothing inside it shows. The camera is locked; his head does not turn; nothing else moves. He is the man in the start frame and in the reference images; keep his hair and neck exactly as they are. Real-time motion, one continuous take.",
+   "sound": "The collar fold between two fingers, one far footstep.",
+   "risk_and_mitigation": "From behind, the collar inside must not show a label and the hair must be his (element plus keep_en); the hand must have five fingers and a bare wrist. If the head turns in video, the clip is rejected.",
+   "references": [
+    "Reverso gilet Antracite & Pietra (detail photo)"
+   ],
+   "person_in_frame": true
+  },
+  {
+   "id": "H04 OVER HIS SHOULDER",
+   "kind": "still",
+   "seconds": 0,
+   "start_image_prompt_en": "9:16, 4K, vertical. Milan's Galleria Vittorio Emanuele II under the glass-and-iron dome at first light. Camera: full-frame digital camera, 85 mm lens at f/2.8, at shoulder height behind the model and to his left, looking over his left shoulder: the back of his head with the hair combed back, his left ear, the edge of his jaw and the straight shoulder line of the gilet running from the standing collar out to the right edge of the frame. His face is turned away from the camera, lifted toward the glass roof, and does not show. The frame runs from the middle of the chest to just above the crown, off-centre, with him on the right third. One light source: cool daylight through the dome above, with a warm bounce from the marble floor lifting the shadow side of his neck; the iron ribs of the dome and one arch of the arcade a stop darker and out of focus beyond him. Clothing exactly the garments in the reference images: the anthracite reversible gilet in smooth matte woven cloth, zip closed to the top, the standing collar anthracite on the outside with the pearl-grey inside showing only as a thin line at the fold, the armholes and the outside of the collar plain anthracite; the rounded neck of a pale stone tee at the neck. Far down the arcade, two or three distant passers-by, small and out of focus, faces unreadable; shop fronts far away with shutters down and plain dark glass, no lettering. An unretouched photograph: real cloth with a soft crease at the shoulder, real hair, real stone, slight lens softness at the edges, muted warm colour, soft contrast. Must not appear: any person near him, readable text, logos, signs, a watch, a ring, a bag, a border or vignette.",
+   "motion_prompt_en": "Living still: a slow 4 percent push-in toward the back of his head over the full length of the piece, nothing else moves. If this piece is generated with Seedance instead: one action only, his chin lifts a few degrees toward the glass roof with one slow breath, his face stays turned away from the camera and never comes round, the gilet settles on the shoulder; the camera is locked; the distant figures stay far and blurred. He is the man in the start frame and in the reference images; keep his hair, neck and clothes exactly as they are. Real-time motion, one continuous take.",
+   "sound": "Pigeon wings high in the dome, the room tone of the Galleria.",
+   "risk_and_mitigation": "Over the shoulder his face must stay turned away; if the model turns him toward the camera the frame is rejected. Collar colours as the Reverso rule; a watch or ring on no wrist because no hand is in frame.",
+   "references": [
+    "Reverso gilet Antracite & Pietra (set photo)",
+    "Reverso gilet Antracite & Pietra (detail photo)"
+   ],
+   "person_in_frame": true
+  },
+  {
+   "id": "H05 THE FIRST LOOK",
+   "kind": "video",
+   "seconds": 4,
+   "start_image_prompt_en": "9:16, 4K, vertical. Milan's Galleria Vittorio Emanuele II under the glass-and-iron dome at first light. Camera: full-frame digital camera, 85 mm lens at f/2.8, at eye height, a close three-quarter view of the model from his left: the frame runs from just below the shoulders to above the hairline, him off-centre on the right third, a stone pillar soft at the left edge. His head is turned three-quarter to the camera, his eyes on a point just beside the lens and a little above it, not into the lens; mouth closed; a calm, settled expression caught between moments. One light source: cool daylight through the glass dome above, with a warm bounce from the marble floor under his jaw; the octagon and the ribs of the dome beyond him a stop darker and out of focus. Clothing exactly the garments in the reference images: the anthracite reversible gilet in smooth matte woven cloth, zip closed to the top, the standing collar anthracite on the outside with the pearl-grey inside showing only as a thin line at the fold, the armholes and the outside of the collar plain anthracite; the rounded neck of a pale stone tee at the throat; hair combed back. Far down the arcade, two distant passers-by, small and out of focus, faces unreadable, too far to move; shop fronts far away with shutters down and plain dark glass, no lettering. An unretouched photograph: natural matte skin with fine real texture and a faint stubble shadow, no beauty glow, real cloth with visible weave, slight lens softness at the edges, muted warm colour, soft contrast. Must not appear: any person near him, readable text, logos, signs, a watch, a ring, a bag, a border or vignette.",
+   "motion_prompt_en": "One action only: he breathes once, the gilet rises and settles with the breath, and his eyes blink once slowly; his eyes stay on the point just beside the lens, his mouth stays closed, his head stays still, nothing passes in front of his face. The camera holds, with at most a two percent push-in. The distant figures stay far and blurred; nothing else moves. He is the man in the start frame and in the reference images; use the reference images only for his face and hair and keep the same face, hair and clothes throughout. Real-time motion, one continuous take.",
+   "sound": "One breath; the room tone of the Galleria carries straight into V01.",
+   "risk_and_mitigation": "The first face in the film: identity checked against ref-1 and ref-4, eyes beside the lens, mouth closed; the collar outside anthracite, inside only a thin line. Same light and pillar family as V01 so the cut at 11.2 s reads as a handover.",
+   "references": [
+    "Reverso gilet Antracite & Pietra (set photo)",
+    "Reverso gilet Antracite & Pietra (detail photo)"
+   ],
+   "person_in_frame": true
+  },
   {
    "id": "V01 GALLERIA, FROM BEHIND",
    "kind": "video",
@@ -175,70 +243,71 @@
  ],
  "timeline": [
   {
-   "t_start": 0,
-   "t_end": 3,
-   "shot": "EXISTING RAIN 0.0-3.0: grey rainy Milan morning under the arcade, the camera glides left past the foreground pillar inside the first ten frames, he looks ahead calmly in the plain anthracite gilet, hands in pockets; from 1.8 s he lifts his chin",
-   "existing_clip": "RAIN",
+   "t_start": 0.0,
+   "t_end": 1.9,
+   "shot": "NEW H01 GALLERIA, FEET LANDING 0.0-1.9: only his feet: the right grey suede loafer on the marble band, the left heel coming down, bare ankles, anthracite hems",
+   "existing_clip": "",
    "clip_in": 0,
-   "vo": "You won't see a name on him. (0.5-3.5; 'on him' lands on the cut to his neck)",
+   "vo": "You will look twice. (0.2-1.7)",
    "subtitle_cards": [
-    "You won't see a name"
+    "You will look twice."
    ],
-   "sound": "Cold open, no music of ours: rain on stone, a distant tram bell, his footsteps under the arcade; the room-tone bed of the last frame crosses into the rain under the loop seam.",
-   "nl": "Luca onder de arcade in de regen, de camera glijdt langs de pilaar, hij kijkt rustig vooruit; het eerste woord 'You' valt op een beeld dat al beweegt."
+   "sound": "Cold open, no music of ours: one step landing in the long stone echo of the arcade, a far pigeon.",
+   "nl": "Alleen zijn voeten: de rechter grijze suède loafer op de marmeren band, de linker hiel komt neer; blote enkels. Het beeld dat je bij herenkleding niet verwacht."
   },
   {
-   "t_start": 3,
-   "t_end": 5.5,
-   "shot": "EXISTING HOME C 0.0-2.5: macro of the cream band on the hood edge of the dark mocha knit at his neck, lamp light",
-   "existing_clip": "SC",
+   "t_start": 1.9,
+   "t_end": 4.5,
+   "shot": "NEW H02 THE CHEST, NOTHING WRITTEN 0.0-2.6: macro of the chest in the anthracite gilet, zip closed, the front plain; his right hand brushes once down the front and drops out of frame",
+   "existing_clip": "",
    "clip_in": 0,
-   "vo": "Not at the collar. (3.9-5.6)",
+   "vo": "Nothing on him says a word. (2.1-4.3)",
    "subtitle_cards": [
-    "on him.",
-    "Not at the collar."
+    "Nothing on him",
+    "says a word."
    ],
-   "sound": "Room tone, lamp warmth, knit brushing skin.",
-   "nl": "Macro van de crème band op de capuchonrand in zijn nek, lamplicht: de kraag, zonder naam."
+   "sound": "Cloth brushing under a hand, the arcade's stone reverb, a distant tram bell.",
+   "nl": "Galleria, macro van voren op de borst, 100 mm f/4 op borsthoogte, van de bovenrand van de staande kraag tot het middenrif; de bovenrand van het beeld ligt op de kraag, dus geen kin, geen hals, geen gezicht. Het gladde ma"
   },
   {
-   "t_start": 5.5,
-   "t_end": 7.5,
-   "shot": "EXISTING LAKE C 0.0-2.0: his hand and black knit sleeve on the chrome windscreen, sun sliding on the chrome",
-   "existing_clip": "LC",
+   "t_start": 4.5,
+   "t_end": 6.4,
+   "shot": "NEW H03 THE COLLAR, FROM BEHIND 0.0-1.9: macro from behind: the nape and the standing collar, his hand straightens the collar once and drops out of frame; no face",
+   "existing_clip": "",
    "clip_in": 0,
-   "vo": "Not on the sleeve. (6.0-7.7)",
+   "vo": "And still, you look. (4.7-6.2)",
    "subtitle_cards": [
-    "Not on the sleeve."
+    "And still, you look."
    ],
-   "sound": "Water against the hull, the engine idling low, one soft tick of sun on chrome.",
-   "nl": "Zijn hand en de zwarte gebreide mouw op het chroom van de boot: de mouw, zonder naam."
+   "sound": "The collar fold between two fingers, one far footstep.",
+   "nl": "Galleria, macro van achteren, 85 mm f/2.8 op kraaghoogte, uit het midden: de nek en de staande kraag van het antraciet gilet vullen de onderste twee derde, het haar naar achteren gekamd boven de nek, de kruin afgesneden "
   },
   {
-   "t_start": 7.5,
-   "t_end": 9.2,
-   "shot": "EXISTING HOME D 0.0-1.7: macro of the cream stripes on the dark mocha knit trousers over his knee on the leather chair, nothing printed",
-   "existing_clip": "SD",
+   "t_start": 6.4,
+   "t_end": 8.6,
+   "shot": "NEW H04 OVER HIS SHOULDER (living still, 4 percent push-in): over his left shoulder from behind, his face turned up to the glass and away from the camera, the shoulder line of the gilet to the right edge",
+   "existing_clip": "",
    "clip_in": 0,
-   "vo": "Nothing to read. (8.1-9.4)",
+   "vo": "He never asked you to. (6.6-8.4)",
    "subtitle_cards": [
-    "Nothing to read."
+    "He never asked you to."
    ],
-   "sound": "Warm room tone, leather settling.",
-   "nl": "Macro van de crème strepen op de mokka gebreide broek over zijn knie: niets te lezen."
+   "sound": "Pigeon wings high in the dome, the room tone of the Galleria.",
+   "nl": "Galleria onder de koepel, eerste licht"
   },
   {
-   "t_start": 9.2,
+   "t_start": 8.6,
    "t_end": 11.2,
-   "shot": "EXISTING COURTYARD A 0.0-2.0: the cloister, he leans a shoulder on the column in the bordeaux gilet, calm; the gilet sits on his shoulders",
-   "existing_clip": "TBA",
+   "shot": "NEW H05 THE FIRST LOOK 0.0-2.6: the first time we see his eyes: close three-quarter from his left under the dome, eyes just beside the lens, one breath, one slow blink; the reverse angle of V01",
+   "existing_clip": "",
    "clip_in": 0,
-   "vo": "Only how it sits. (9.7-11.5)",
+   "vo": "So where does that come from. (8.8-11.1; the question ends before V01 answers at 11.8)",
    "subtitle_cards": [
-    "Only how it sits."
+    "So where does",
+    "that come from."
    ],
-   "sound": "Cloister birds, leaves of the lemon trees, a far bell.",
-   "nl": "Kloostertuin: hij leunt met zijn schouder tegen de zuil in het bordeaux gilet; alleen hoe het valt."
+   "sound": "One breath; the room tone of the Galleria carries straight into V01.",
+   "nl": "Galleria onder de koepel, eerste licht: de omgekeerde hoek van V01, de camera staat nu vóór hem"
   },
   {
    "t_start": 11.2,
@@ -588,11 +657,11 @@
   }
  ],
  "vo_lines": [
-  "You won't see a name on him.",
-  "Not at the collar.",
-  "Not on the sleeve.",
-  "Nothing to read.",
-  "Only how it sits.",
+  "You will look twice.",
+  "Nothing on him says a word.",
+  "And still, you look.",
+  "He never asked you to.",
+  "So where does that come from.",
   "From the elegance of Milan...",
   "...to the precision of the atelier.",
   "A line in chalk.",
@@ -615,8 +684,21 @@
   "You wear it. ... Nobody reads it.",
   "Moderno Milano."
  ],
- "word_count": 104,
+ "word_count": 107,
  "caption_headline": "Worn, until it forgets it was new.",
  "caption_sentence": "Two words, sewn inside, against the neck. Moderno is the man. Milano is the measure.",
- "rationale": "WINNER AND WEIGHTING. All three judges chose plan A; the editor (picture/word match, cuts, feasibility) scored it 59, the copy chief 57, the brand judge 56, and all three named the same three faults: the turn line over a boat instead of the label, 'Worn together' over a look at the sky, and a last line that is 'if you know, you know' in a tuxedo. B had the better hook mechanics and the cause-and-effect pairing but a claims break ('So the sleeve ends where it should'), two figures in frame 1, two label videos and a needle sewing the label; C had the best loop, sound and label split but a made-to-measure claim. Grafted from B: the stack pushed flush as the atelier's first completion, the tape printed side down, the seam-to-sleeve match cut, subtitle never over the label, hard cut to silence before the name. Grafted from C: the label used twice from one generation (push only, then the thumb), the atelier sounds landing on the cuts as percussion, the dissolve loop in picture and sound. Nothing from 'A measure, taken first', 'Cut. To his measure' or the 'So...' lines was taken. OWNER RULES CHECKED. (1) Line 1 begins with 'You' at 0.5 s over RAIN's moving pillar wipe; the last line also begins with 'You'. (2) Luca is spread in 15 pieces of 1.5-3.0 s from 11 clips (RAIN 0-3, HOME C 0-2.5, LAKE C 0-2, HOME D 0-1.7 and 2-3.5, COURTYARD A 0-2, PIANO 6-7.6, LAKE B 3-4.8, HOME A 0-2.8, COURTYARD B 0-1.9 and 2-5, LAKE A 0-2, HOME B 0-1.7 and 2-5); no piece over 3.0 s, no two consecutive pieces from one clip, each placed under the line it shows; his face at 0, 9, 27, 43, 49, 53, 59 and 62 s, his back at 11, 20 and 22 s, his hands in every atelier shot in between, so he is never absent for more than a few seconds. (3) Every line is its picture: collar over the hood band, sleeve over the sleeve, nothing to read over plain stripes, shoulder over his shoulder then his shoulders at the glass, breath over the breath, two sides over both colours in one frame, two words over the real label, the man over the man, the measure over the tape, worn together over him with Milan behind him, the name over the thumb on the label, against the neck over the collar closing at his neck. (4) Nine atelier precision images (stack, rule, rule lift, shears, cut lift, spool, stitch, press, seam, tape) plus the label twice and the collar; every video starts from a finished state and the motion only reveals or completes it, and every piece ends on a completed state. (5) All kept lines are in and the structure is new: the pair bridges hook to work, 'Two words. Not an address.' is the turn, the triad follows on literal pictures, 'The name comes last.' opens the ending, the seam line is answered by 'Worn, until it forgets it was new.'. (6) Moving frame 1 plus 'You', 2-s cuts in the first 9 s, still-then-reveal rhythm, hard cut to silence at the turn (45.3 s of 65.2, 69 percent), quotable lines, a loop in picture (blue hour to grey morning, same grade) and sound. CLAIMS. No 'our', 'we', 'made', 'handmade', 'to measure', 'since', 'every piece'; 'the atelier' once in the owner's own line with the definite article; the atelier lines are captions of what is on screen or statements about how a piece is worn. The hook is rewritten to 'You won't see a name on him' because the product fact behind 'no name on the outside' could not be verified (wardrobe.json carries no descriptions; the product CDN is unreachable from this environment); the new line is true of the footage itself. 'Nobody reads it' describes a label inside a collar, not a product claim. No superlatives, no dolce vita, no call to action, no exclamation marks, no celebrity, no borrowed tagline. Only the model appears; hands are his, bare wrists; the only text is the real label (built from necklabel.jpg, upright, spelled from the logo, never with a subtitle over it) and the wordmark; the Galleria carries no readable signs and nobody else. START IMAGES AND CREDITS. 17 new start images as the owner asked: 12 video shots at 4 s (816 credits) and 5 living stills (40 credits), 856 in all, 144 in reserve, which is two full video redos in the order label, Galleria, collar, then stills at 8 each. Generation order: V09 label first so its fallback (the S04 still with a 2 percent push) is known before anything else is spent, then V01, then the macros, the stills last. PICTURE COUNT AND PACE. 32 distinct pictures in 65.2 s. The owner's figure of 35-40 is not reachable with 104 words at an unhurried 2.3 words per second and the minimum piece lengths he set (video 2.5-4 s, stills 1.5-2.5 s, existing 1.5-3 s); 32 is what the words allow without the cuts outrunning the narrator, and every video piece here is already at the short end (1.8-2.9 s of its 4 s). Do the 2-credit voice test before any image is generated: if the read runs longer than 2.3 words per second, trim toward 98 words in this order: drop 'Room to breathe.' (LAKE B then plays wordless as the breath after the needle stops), 'The same man.' to 'Same man.', 'Only how it sits.' to 'Only how it sits.' kept, 'Thread... until it holds.' to 'Thread. It holds.'; if it runs shorter, let the pauses breathe rather than adding pictures. The small overruns in the timeline (0.1-0.5 s where a line's last word lands on the next cut) are deliberate on lines 1, 7, 8, 12, 15 and tolerable elsewhere. SOUND. Own design, no music of ours; Instagram music on top: rain and tram for Milan, dome echo, then the atelier as percussion on the cuts (rule tick, chalk scrape, shear bite pre-laid four frames before the cut lift, two machine ticks that stop with the picture, steam hiss into the iron's tock, the hiss thinning under the seam, a tape zip, satin under a thumb, knit on knit), water and wind for the lake, room tone at home; a hard cut to near silence before 'Two words.'; the room-tone bed crosses the loop seam into the rain. LOOP. HOME B's last six frames dissolve into RAIN frame 0, both graded to the same cool temperature and lift; the wordmark is out ten frames before the end; confirm RAIN's pillar wipe is inside the first ten frames, otherwise set the in-point where the glide is already moving. RESERVE PIECES not in the cut: COURTYARD A 2.5-5.0, LAKE B 0-3.0, RAIN 1.8-4.0, PIANO 0-6 and 8-10, HOME C 2-4, LAKE C 2-4, LAKE A 2-4. Subtitles: burned in, one card at a time, lower third, in on the first phoneme, cut with the picture, 'You' capitalised at 0.5 s, no card under the final 'Moderno Milano.'. Narrator: deep American male, warm, close, about 2.3 words per second with the written pauses honoured, 'Moderno Milano.' once, lower and slower than everything before it."
+ "rationale": "WINNER AND WEIGHTING. All three judges chose plan A; the editor (picture/word match, cuts, feasibility) scored it 59, the copy chief 57, the brand judge 56, and all three named the same three faults: the turn line over a boat instead of the label, 'Worn together' over a look at the sky, and a last line that is 'if you know, you know' in a tuxedo. B had the better hook mechanics and the cause-and-effect pairing but a claims break ('So the sleeve ends where it should'), two figures in frame 1, two label videos and a needle sewing the label; C had the best loop, sound and label split but a made-to-measure claim. Grafted from B: the stack pushed flush as the atelier's first completion, the tape printed side down, the seam-to-sleeve match cut, subtitle never over the label, hard cut to silence before the name. Grafted from C: the label used twice from one generation (push only, then the thumb), the atelier sounds landing on the cuts as percussion, the dissolve loop in picture and sound. Nothing from 'A measure, taken first', 'Cut. To his measure' or the 'So...' lines was taken. OWNER RULES CHECKED. (1) Line 1 begins with 'You' at 0.5 s over RAIN's moving pillar wipe; the last line also begins with 'You'. (2) Luca is spread in 15 pieces of 1.5-3.0 s from 11 clips (RAIN 0-3, HOME C 0-2.5, LAKE C 0-2, HOME D 0-1.7 and 2-3.5, COURTYARD A 0-2, PIANO 6-7.6, LAKE B 3-4.8, HOME A 0-2.8, COURTYARD B 0-1.9 and 2-5, LAKE A 0-2, HOME B 0-1.7 and 2-5); no piece over 3.0 s, no two consecutive pieces from one clip, each placed under the line it shows; his face at 0, 9, 27, 43, 49, 53, 59 and 62 s, his back at 11, 20 and 22 s, his hands in every atelier shot in between, so he is never absent for more than a few seconds. (3) Every line is its picture: collar over the hood band, sleeve over the sleeve, nothing to read over plain stripes, shoulder over his shoulder then his shoulders at the glass, breath over the breath, two sides over both colours in one frame, two words over the real label, the man over the man, the measure over the tape, worn together over him with Milan behind him, the name over the thumb on the label, against the neck over the collar closing at his neck. (4) Nine atelier precision images (stack, rule, rule lift, shears, cut lift, spool, stitch, press, seam, tape) plus the label twice and the collar; every video starts from a finished state and the motion only reveals or completes it, and every piece ends on a completed state. (5) All kept lines are in and the structure is new: the pair bridges hook to work, 'Two words. Not an address.' is the turn, the triad follows on literal pictures, 'The name comes last.' opens the ending, the seam line is answered by 'Worn, until it forgets it was new.'. (6) Moving frame 1 plus 'You', 2-s cuts in the first 9 s, still-then-reveal rhythm, hard cut to silence at the turn (45.3 s of 65.2, 69 percent), quotable lines, a loop in picture (blue hour to grey morning, same grade) and sound. CLAIMS. No 'our', 'we', 'made', 'handmade', 'to measure', 'since', 'every piece'; 'the atelier' once in the owner's own line with the definite article; the atelier lines are captions of what is on screen or statements about how a piece is worn. The hook is rewritten to 'You won't see a name on him' because the product fact behind 'no name on the outside' could not be verified (wardrobe.json carries no descriptions; the product CDN is unreachable from this environment); the new line is true of the footage itself. 'Nobody reads it' describes a label inside a collar, not a product claim. No superlatives, no dolce vita, no call to action, no exclamation marks, no celebrity, no borrowed tagline. Only the model appears; hands are his, bare wrists; the only text is the real label (built from necklabel.jpg, upright, spelled from the logo, never with a subtitle over it) and the wordmark; the Galleria carries no readable signs and nobody else. START IMAGES AND CREDITS. 17 new start images as the owner asked: 12 video shots at 4 s (816 credits) and 5 living stills (40 credits), 856 in all, 144 in reserve, which is two full video redos in the order label, Galleria, collar, then stills at 8 each. Generation order: V09 label first so its fallback (the S04 still with a 2 percent push) is known before anything else is spent, then V01, then the macros, the stills last. PICTURE COUNT AND PACE. 32 distinct pictures in 65.2 s. The owner's figure of 35-40 is not reachable with 104 words at an unhurried 2.3 words per second and the minimum piece lengths he set (video 2.5-4 s, stills 1.5-2.5 s, existing 1.5-3 s); 32 is what the words allow without the cuts outrunning the narrator, and every video piece here is already at the short end (1.8-2.9 s of its 4 s). Do the 2-credit voice test before any image is generated: if the read runs longer than 2.3 words per second, trim toward 98 words in this order: drop 'Room to breathe.' (LAKE B then plays wordless as the breath after the needle stops), 'The same man.' to 'Same man.', 'Only how it sits.' to 'Only how it sits.' kept, 'Thread... until it holds.' to 'Thread. It holds.'; if it runs shorter, let the pauses breathe rather than adding pictures. The small overruns in the timeline (0.1-0.5 s where a line's last word lands on the next cut) are deliberate on lines 1, 7, 8, 12, 15 and tolerable elsewhere. SOUND. Own design, no music of ours; Instagram music on top: rain and tram for Milan, dome echo, then the atelier as percussion on the cuts (rule tick, chalk scrape, shear bite pre-laid four frames before the cut lift, two machine ticks that stop with the picture, steam hiss into the iron's tock, the hiss thinning under the seam, a tape zip, satin under a thumb, knit on knit), water and wind for the lake, room tone at home; a hard cut to near silence before 'Two words.'; the room-tone bed crosses the loop seam into the rain. LOOP. HOME B's last six frames dissolve into RAIN frame 0, both graded to the same cool temperature and lift; the wordmark is out ten frames before the end; confirm RAIN's pillar wipe is inside the first ten frames, otherwise set the in-point where the glide is already moving. RESERVE PIECES not in the cut: COURTYARD A 2.5-5.0, LAKE B 0-3.0, RAIN 1.8-4.0, PIANO 0-6 and 8-10, HOME C 2-4, LAKE C 2-4, LAKE A 2-4. Subtitles: burned in, one card at a time, lower third, in on the first phoneme, cut with the picture, 'You' capitalised at 0.5 s, no card under the final 'Moderno Milano.'. Narrator: deep American male, warm, close, about 2.3 words per second with the written pauses honoured, 'Moderno Milano.' once, lower and slower than everything before it.",
+ "opening_v3": {
+  "date": "2026-10-12",
+  "why": "In de eerste seconde staat een uitdaging ('You will look twice') boven blote enkels in grijs suède die net op het marmer van de Galleria landen, een beeld dat je bij herenkleding niet verwacht, en de kijker die de uitdaging toetst krijgt zijn ogen pas bij de laatste vraag te zien, waarop de vaste tekst op 11,2 s meteen het antwoord geeft.",
+  "idea": "Definitieve opening op basis van de winnaar. 'You will look twice' valt in de eerste seconde over een beeld dat je bij herenkleding niet verwacht: blote enkels in grijs suède die net op het marmer van de Galleria landen, en frame 1 beweegt al (overgenomen van de tweede opening). Daarna draait de camera in vijf cuts om de man heen (voeten, borst, nek, over zijn schouder, gezicht) en gaat de stem over de kijker in plaats van over het product: hij zegt niets, jij kijkt toch, hij heeft er niet om gevraagd. Twee sterke elementen van 'You stopped' zijn ingebouwd: zijn gezicht wordt bewust uitgesteld tot de laatste regel, zodat de eerste blik in zijn ogen samenvalt met de vraag, en dat laatste beeld is exact de omgekeerde hoek van V01 (dezelfde plek onder de koepel, hetzelfde licht, zuil zacht links), zodat de snede op 11,2 s een overdracht is en 'From the elegance of Milan...' het antwoord op de vraag. Het zuivere profiel uit de winnaar is vervangen door een beeld over zijn schouder van achteren, met zijn gezicht afgewend naar het glas, omdat zijn gezicht alleen driekwart met de blik net langs de lens mag. Vier beelden zijn Seedance-clips van 4 s met één handeling; H04 is een levende still met push-in. Ondertitels in het onderste derde, nooit over de kraag of het gezicht.",
+  "replaced_vo": [
+   "You won't see a name on him.",
+   "Not at the collar.",
+   "Not on the sleeve.",
+   "Nothing to read.",
+   "Only how it sits."
+  ],
+  "owner": "De eigenaar vond de eerste hook niks; de eerste 12 seconden (tekst en beeld) zijn vervangen door de winnaar van het openingspanel, gesynthetiseerd uit de vier ontwerpen in opening-panel.json."
+ }
 }

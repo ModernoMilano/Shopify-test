@@ -30,10 +30,10 @@ def main(plan_path, frames, out, images_path=None):
             tag = f"BESTAAND · {NAMES[key]}"
         else:
             sid = t["shot"].replace("NEW ", "").split(" 0.0")[0].split(" (")[0].strip()
-            sid = " ".join(sid.split()[:2]) if sid[:1] in "VS" else sid
+            sid = " ".join(sid.split()[:2]) if sid[:1] in "VSH" else sid
             match = next((k for k in images if k.startswith(sid.split(",")[0].split()[0])), None)
             img = images.get(match) if match else None
-            kind = "stil" if sid.startswith("S") else "video"
+            kind = "stil" if sid.startswith("S") or "living still" in t["shot"] else "video"
             tag = f"NIEUW · {sid.split(',')[0]} · {kind}"
         rows.append({"t": f"{t['t_start']:.1f}-{t['t_end']:.1f}".replace(".", ","), "tag": tag, "vo": vo or "(geen stem)",
                      "nl": t.get("nl", ""), "img": img})
