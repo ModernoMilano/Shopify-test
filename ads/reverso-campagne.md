@@ -15,7 +15,7 @@ Claude beheert deze campagne. Dit bestand is de bron van waarheid voor de regels
 ## Regels (afgesproken met eigenaar op 2026-10-13)
 
 1. **Meetmethode.** ROAS = door Meta gerapporteerde aankoopwaarde gedeeld door spend, campagneniveau, alleen volle kalenderdagen (Amsterdam). Vandaag telt nooit mee.
-2. **Wachttijd.** Na elke budgetwijziging minimaal 48 uur niets aanpassen. De lancering telt als wijziging.
+2. **Moment en wachttijd.** Check en aanpassingen elke dag om 23:45 (Amsterdam), zodat een nieuw budget de hele volgende dag geldt. Na elke budgetwijziging minimaal 48 uur niets aanpassen, dus pas weer op de 23:45-check twee dagen later. De lancering telt als wijziging; eerste mogelijke aanpassing: 2026-10-15 23:45.
 3. **Afschalen gaat voor.** ROAS de laatste 2 volle dagen elk onder 2,0: dagbudget x0,5. Daarna worden regel 4 en 5 niet meer bekeken.
 4. **Hard opschalen, alleen met toestemming.** ROAS over de volle dagen sinds de laatste wijziging boven 3,0: voorstel dagbudget x2. Nooit zelf uitvoeren. Eerst in de chat toestemming vragen en tot het antwoord niets aan het budget veranderen.
 5. **Rustig opschalen.** ROAS over de volle dagen sinds de laatste wijziging van 2,1 tot en met 3,0: dagbudget x1,2.
