@@ -105,7 +105,7 @@ def image_request(s):
                     .replace(" Framed at the same scale and angle as the sleeve on the armrest in HOME A for the match cut.", ""))
     realism = P["realism_en"]
     if sid(s).startswith("H"):  # opening v3: het gilet is glad geweven, geen breisel (les uit V12 v2, "vilt")
-        realism = realism.replace("visible knit stitch", "visible weave")
+        realism = realism.replace("visible knit stitch", "a fine, barely visible surface texture")  # "visible weave" gaf in H02 v1 een grove canvasstructuur
     parts = [prompt, HANDS if "Nobody is in the picture" not in prompt and sid(s) not in NO_HANDS else "", NO_TEXT, realism]
     parts = [x for x in parts if x]
     medias = [{"value": v, "role": "image_references"} for v in refs_for(s)]
