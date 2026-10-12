@@ -13,20 +13,39 @@ van de productpagina's (foto's van de site als referentie).
 4. **Eén variabele per ad**: ander product, andere kleur, of kop met of zonder korting. Niet alles tegelijk veranderen.
 5. **Formaat 3:4** (dichtst bij de 4:5-feedpost waar de winnaars in draaiden), logo klein in de hoek, geen tekst over het gezicht.
 
+## Productkeuze: bestsellers en de Reverso-collectie
+
+Netto-omzet per product, laatste 90 dagen uit Shopify (12 oktober 2026):
+
+| Product | Netto-omzet | Stuks |
+|---|---:|---:|
+| Milano Cashmere Lounge Set beige | € 21.460 | 156 |
+| Milano Reverso Sabbia Set | € 13.029 | 96 |
+| Milano Cashmere Lounge Set zwart | € 12.347 | 90 |
+| Milano Knitted Two-Tone Cashmere Set dark mocha | € 10.253 | 46 |
+| Milano Reverso Voyage Set | € 8.424 | 64 |
+| Milano Cashmere Lounge Set grijs | € 6.293 | 46 |
+| Milano Oliva Set | € 5.727 | 44 |
+| Milano Reverso Nero Set | € 5.172 | 40 |
+| Milano Knitted Vest zwart | € 4.646 | 89 |
+
+De Reverso-collectie (17 producten, nieuwste sets van 7 oktober 2026 à € 200) krijgt vijf van de tien ads; de andere vijf gaan naar de bestsellers.
+De jacket uit de grootste winnende ad zit niet in de top 25 van de verkopen, dus die laten we in deze batch liggen.
+
 ## De tien ads
 
 | # | Gebouwd op (winnaar, ROAS) | Product | Beeld | Kop | Body | Markt om te testen |
 |---|---|---|---|---|---|---|
-| 1 | MM_Bestseller_Jacket_Studio_01 (2,59x, € 18k) | Signature Reversible Jacket navy | Studio, model, egale achtergrond, product groot in beeld, geen tekst in beeld | Timeless Style. Modern Essence. | This is what timeless actually looks like. Italian-inspired craftsmanship, cut for the way you live now. Discover the pieces built to outlast every trend. | Worldwide |
-| 2 | Jacket studio + Bundle Up (2,45x) | Signature Reversible Jacket black | Studio, jacket open over tee met bijpassende broek: complete look | Bundle Up, Save More | Built for wherever the day takes you. Pair it with the rest of the edit and save when you bundle. | Worldwide, UK/IE |
-| 3 | MM_Cashmere_Tracksuit_Travel_01 (2,38x, € 7k) | Cashmere Lounge Set beige | Reizen/lounge-setting, zittend, zachte stof zichtbaar | Cashmere Tracksuits Now On Sale | Luxuriously soft. Effortlessly refined. Designed to move with you. Our bestselling cashmere tracksuit is now on sale, comfort and elevated style for wherever life takes you. | UK/IE, DE/AT |
-| 4 | 15-8 BATCH 2 (2,67x) | Cashmere Lounge Set navy | Herfst buiten, koude ochtend, close-up van de knit | Cashmere Collection, 50% Off | The cold is coming. Our cashmere collection is 50% off, pure cashmere, refined for autumn, made to last well beyond one season. | Worldwide |
-| 5 | Photo-Closeup-Polo-Beach (2,24x, € 15k) | Portofino Polo stone beige | Close-up op het strand, kraag en stof scherp, gezicht half | Timeless Style. Modern Essence. | (zelfde body als ad 1) | UK/IE, DE/AT |
-| 6 | UGC_BundleSave_Beige_Static_v1 (2,77x, € 8k) | Knitted Vest beige + Mercer Tee wit + Signature Trousers beige | UGC-stijl, telefoonfoto, spiegel of straat, hele outfit | We did the matching for you | Tired of guessing what goes with what? Every ModernoMilano set is already put together for you. | Worldwide, USA |
-| 7 | Lounge-set Video Ad 2 (3,19x) | Exclusive Milano Lounge Set beige | Thuis, ontspannen, set compleet zichtbaar | Up To 50% OFF – Limited Stock | A style worth coming back to. Discover the Milano Lounge Set — refined, comfortable, and designed for effortless everyday wear. ✅Premium tracked worldwide delivery. ✅30-day money-back guarantee. ✅Wear now, pay later with Klarna. | Worldwide |
-| 8 | BUNDLE AD 8 (2,66x) | Exclusive Milano Lounge Set black | Flatlay of model, zwart op lichte achtergrond | Stop Buying Pieces. Start Buying Looks. | Stop buying pieces, start buying looks. Our black set takes the guesswork out of getting dressed, effortless and ready in one go. | UK/IE |
-| 9 | BUNDLE AD 4 (3,08x) | Imperial Milano Zip Set gray | Model, set compleet, prijsanker in de kop | More Pieces. One Price. | More pieces, one price, zero compromise on quality. Our grey zip set brings together everything you need for a complete, versatile wardrobe. | UK/IE, DE/AT |
-| 10 | UNBOXING (2,91x) | Reverso Gilet navy | Verpakking open, gilet gevouwen in de doos, logo op de doos | Luxury, Delivered Properly. | Every ModernoMilano piece arrives the way it deserves to. Folded, boxed, and ready to give or keep. This is the Reverso, in our signature packaging. | Worldwide |
+| 1 | MM_Bestseller_Jacket_Studio_01 (2,59x, € 18k) | Reverso Sabbia Set (bestseller #2) | Studio, model, egale achtergrond, set groot in beeld, gilet half omgedraaid zodat beide kanten zichtbaar zijn | Timeless Style. Modern Essence. | This is what timeless actually looks like. Italian-inspired craftsmanship, cut for the way you live now. Discover the pieces built to outlast every trend. | Worldwide |
+| 2 | BATCH 3 4 "Bundle Up" (2,45x, € 7k) | Reverso Voyage Set (bestseller #5) | Complete look op straat, gilet + tee + broek, reizend | Bundle Up, Save More | One set, two looks. The Reverso gilet flips to a second colour, so one outfit works twice. Pair it with the rest of the edit and save when you bundle. | Worldwide, UK/IE |
+| 3 | Reverso Set Video 3 (2,14x, kansrijk) + UGC question hook | Reverso Nero Set | UGC-stijl spiegelfoto, zwart op zwart, gilet open | Your New Favourite Outfit Awaits | Tired of guessing what goes with what? The Reverso Nero Set is already put together for you: reversible gilet, premium tee and tailored trousers. ✅Premium tracked worldwide delivery ✅30-day money-back guarantee ✅Pay later with Klarna | Worldwide |
+| 4 | Ad 9 Bundle & Save beige (3,37x) | Reverso Set Crema & Nero (nieuw, 7 okt) | Studio, zachte neutrale tinten, beide kanten van het gilet naast elkaar | We Did the Matching for You | Cream and black, perfectly paired. The new Reverso Set gives you a full outfit that is ready to wear, and a gilet that flips to a second look. No mixing and matching required. | UK/IE, DE/AT |
+| 5 | BUNDLE AD 4 "More Pieces. One Price" (3,08x) | Reverso Set Cammello & Marrone (nieuw, 7 okt) | Model buiten in herfstlicht, camel en bruin, prijsanker in de kop | More Pieces. One Price. | More pieces, one price, zero compromise on quality. The Reverso Set in camel and brown brings together everything you need for a complete autumn wardrobe. | DE/AT, Worldwide |
+| 6 | MM_Cashmere_Tracksuit_Travel_01 (2,38x, € 7k) | Cashmere Lounge Set beige (bestseller #1) | Reizen, zittend in lounge of trein, zachte stof zichtbaar | Cashmere Tracksuits Now On Sale | Luxuriously soft. Effortlessly refined. Designed to move with you. Our bestselling cashmere lounge set is now on sale, comfort and elevated style for wherever life takes you. | UK/IE, DE/AT |
+| 7 | Lounge-set Video Ad 2 (3,19x) | Cashmere Lounge Set zwart (bestseller #3) | Thuis, ontspannen, set compleet zichtbaar | Up To 50% OFF – Limited Stock | A style worth coming back to. Discover the Milano Cashmere Lounge Set — refined, comfortable, and designed for effortless everyday wear. ✅Premium tracked worldwide delivery. ✅30-day money-back guarantee. ✅Wear now, pay later with Klarna. | Worldwide |
+| 8 | 15-8 BATCH 2 "The cold is coming" (2,67x) | Knitted Two-Tone Cashmere Set dark mocha (bestseller #4) | Herfst buiten, koude ochtend, close-up van de twee tinten knit | Cashmere Collection, 50% Off | The cold is coming. Our two-tone cashmere set is 50% off, pure cashmere, refined for autumn, made to last well beyond one season. | Worldwide |
+| 9 | UGC_BundleSave_Beige_Static_v1 (2,77x, € 8k) | Knitted Vest zwart (bestseller #9, 89 stuks) | UGC-stijl telefoonfoto, vest over wit tee met zwarte broek, hele outfit | We did the matching for you | Tired of guessing what goes with what? Every ModernoMilano set is already put together for you. | Worldwide, USA |
+| 10 | UNBOXING "Luxury, Delivered Properly" (2,91x) | Cashmere Lounge Set beige (bestseller #1) | Verpakking open, set gevouwen in de doos, logo op de doos | Luxury, Delivered Properly. | Every ModernoMilano piece arrives the way it deserves to. Folded, boxed, and ready to give or keep. This is the Cashmere Lounge Set, in our signature packaging. | Worldwide |
 
 ## Testplan
 
@@ -36,9 +55,8 @@ van de productpagina's (foto's van de site als referentie).
 
 ## Wat we leren per ad
 
-- 1 vs 2: werkt de jacket beter alleen (hero) of als complete look?
-- 3 vs 4: cashmere met "now on sale" of met "50% off, the cold is coming"?
-- 7 vs 8 vs 9: dezelfde set-belofte in drie koppen (korting + garanties, "looks", "one price").
-- 5: is de polo-close-up herhaalbaar met een ander polo-product?
-- 6: is de UGC-stijl herhaalbaar met een andere set?
-- 10: werkt unboxing met een ander product dan de Bellagio?
+- 1 vs 2 vs 3: Reverso als studio-hero, als complete look op straat, of als UGC met vraag-hook?
+- 4 vs 5: de nieuwe Reverso-sets met "matching" of met "one price"?
+- 6 vs 7 vs 10: de bestseller cashmere set met "now on sale", met "50% off + garanties", of als unboxing?
+- 8: werkt de seizoenshook ("the cold is coming") op het two-tone cashmere product?
+- 9: is de UGC-stijl herhaalbaar met de knitted vest?
