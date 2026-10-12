@@ -11,11 +11,29 @@ Financieel dashboard voor ModernoMilano. Het laat zien hoeveel winst je echt maa
 | Winst naar bank | Waterval van winst naar groei van de bankrekening met uitleg per stap |
 | Prognose | Schuifregelaars, 7, 14 of 30 dagen, twee scenario's naast elkaar, laagste punt en waarschuwing onder buffer |
 | Meta ads | Spend, betaald, ROAS per campagne en per markt, CPC, CPM, frequency, log van budgetwijzigingen met protocolcontrole |
+| Creative engine | Alle advertenties uit het Meta-account per concept (kopieën samengevoegd): oordeel winnaar/kansrijk/verliezer, invalshoek, formaat, markt, copy-patronen, copy-bibliotheek en recepten voor nieuwe ads |
 | Bankmutaties | Import van Revolut PDF of CSV, automatische categorisering met eigen regels, hoort bij periode per mutatie, controle begin + mutaties = eind |
 | Payouts en disputes | Shopify payouts met controlekolom (afwijkingen zichtbaar), disputes met deadline, PayPal |
 | Marge per product, Kostprijzen, Orders, Leveranciers | Marge per product op basis van ingevulde inkoopprijzen |
 | Handmatige invoer | Stand van Shopify en PayPal, teamkosten, openstaande leveranciersfacturen, overige posten, leningen |
 | Instellingen en sync | Knop Ophalen met status per bron, btw reserveren, buffer, prognose-instellingen |
+
+## Creative engine
+
+De creative engine haalt elke advertentie (ad-niveau) uit het Meta-account op via Windsor.ai, met copy (titel, body, CTA), media (thumbnail, preview, Instagram-post) en cijfers per maand (spend, impressies, clicks, landing page views, add to cart, checkout, aankopen, omzet, videoretentie). Alles staat in `src/creative/`:
+
+- `classify.ts`: concept (zonder "- Copy 2"), invalshoek (bundel, cashmere sale, unboxing, UGC, lounge, reverso, ...), formaat (video, beeld, catalogus) en markt.
+- `analysis.ts`: ROAS, CPA, CTR, CPM, CVR, hook rate en hold rate per concept, invalshoek, formaat, markt en maand; oordeel per concept (winnaar: minimaal € 300 spend, 5 aankopen en ROAS boven de break-even afspraak); copy-patronen (welke tekstelementen samengaan met een hogere ROAS); recepten voor nieuwe ads.
+- `windsor-ads.ts`: ophalen per kalendermaand in drie veldgroepen (cijfers, video, creative). Langere periodes lopen bij Windsor in een time-out.
+- `report.ts`: het markdown-rapport in `docs/creative-insights.md`.
+
+```bash
+npm run ads:scrape                      # alles sinds april 2026 ophalen, rapport + scripts/data/meta-ads.json, en in de database
+npm run ads:scrape -- --from 2026-09    # alleen vanaf september
+npm run ads:scrape -- --no-db           # alleen bestand en rapport
+```
+
+De uurlijkse sync ververst de lopende en de vorige maand. De pagina gebruikt de database en valt terug op `scripts/data/meta-ads.json` als die leeg is.
 
 ## Definities
 

@@ -4,6 +4,7 @@ import { shopifyConfigured } from "@/lib/shopify";
 import { syncAll as syncShopifyCatalog } from "@/lib/sync";
 import { addDaysKey } from "./calculations";
 import { fetchWindsorMeta, marketOf } from "./meta";
+import { syncCreatives } from "@/creative/sync";
 import { syncDailySales, syncShopifyPayments, type ShopifyPosition } from "./shopify-finance";
 import { fetchPaypalBalance, fetchPaypalTransactions, paypalConfigured, summarizePaypal, type PaypalTransaction } from "./paypal";
 
@@ -113,6 +114,16 @@ export async function syncAllSources(): Promise<SourceResult[]> {
     } catch (e) {
       await markSync("windsor", false, msg(e));
       results.push({ source: "windsor", label: "Meta (Windsor.ai)", ok: false, message: msg(e) });
+    }
+    // Creative engine: advertenties met copy en media, lopende en vorige maand (ouder verandert niet meer)
+    try {
+      const r = await syncCreatives();
+      const m = `${r.ads} advertenties, ${r.months} maandregels`;
+      await markSync("windsor_ads", true, m);
+      results.push({ source: "windsor_ads", label: "Meta advertenties (creative engine)", ok: true, message: m });
+    } catch (e) {
+      await markSync("windsor_ads", false, msg(e));
+      results.push({ source: "windsor_ads", label: "Meta advertenties (creative engine)", ok: false, message: msg(e) });
     }
   } else {
     results.push({ source: "windsor", label: "Meta (Windsor.ai)", ok: false, message: "Niet gekoppeld: zet WINDSOR_API_KEY" });

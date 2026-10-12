@@ -12,7 +12,8 @@
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate deploy",
     "sync": "dotenv -- tsx scripts/sync.ts",
-    "db:seed:september": "dotenv -- tsx scripts/seed-september.ts"
+    "db:seed:september": "dotenv -- tsx scripts/seed-september.ts",
+    "ads:scrape": "dotenv -- tsx scripts/scrape-ads.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",

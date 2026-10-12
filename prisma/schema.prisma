@@ -352,3 +352,66 @@ model SourceSync {
   status   String // ok | fout
   message  String?
 }
+
+// ===========================================================================
+// Creative engine: alle advertenties uit het Meta-account met copy, media en cijfers per maand.
+
+/// Eén advertentie (ad) uit Meta, inclusief de creative zoals Windsor.ai die levert.
+/// conceptKey groepeert kopieën ("- Copy 2", "- Kopie") van dezelfde creative.
+model MetaAd {
+  id           String    @id // Meta ad id
+  name         String
+  adsetName    String?
+  campaign     String
+  market       String
+  creativeId   String?
+  status       String?
+  createdAt    DateTime?
+  objectType   String? // SHARE | VIDEO | ...
+  format       String // video | beeld | catalogus | onbekend
+  angle        String // invalshoek, zie src/creative/classify.ts
+  conceptKey   String
+  cta          String?
+  title        String?
+  body         String?
+  linkUrl      String?
+  thumbnailUrl String?
+  imageUrl     String?
+  instagramUrl String?
+  previewUrl   String?
+  syncedAt     DateTime  @default(now())
+  months       MetaAdMonth[]
+
+  @@index([conceptKey])
+  @@index([campaign])
+}
+
+/// Cijfers per advertentie per kalendermaand (Windsor levert ad-niveau alleen per maand betrouwbaar).
+model MetaAdMonth {
+  id                 String  @id @default(cuid())
+  adId               String
+  ad                 MetaAd  @relation(fields: [adId], references: [id], onDelete: Cascade)
+  month              String // YYYY-MM
+  spendCents         Int
+  impressions        Int     @default(0)
+  reach              Int     @default(0)
+  clicks             Int     @default(0)
+  linkClicks         Int     @default(0)
+  landingPageViews   Int     @default(0)
+  addToCart          Int     @default(0)
+  checkouts          Int     @default(0)
+  purchases          Int     @default(0)
+  purchaseValueCents Int     @default(0)
+  frequency          Float?
+  videoPlays         Int?
+  video2s            Int?
+  thruplays          Int?
+  videoP25           Int?
+  videoP50           Int?
+  videoP75           Int?
+  videoP100          Int?
+  avgWatchSec        Float?
+
+  @@unique([adId, month])
+  @@index([month])
+}

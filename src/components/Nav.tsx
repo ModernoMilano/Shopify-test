@@ -17,6 +17,10 @@ const GROUPS = [
     ],
   },
   {
+    label: "Ads",
+    links: [{ href: "/creatives", label: "Creative engine" }],
+  },
+  {
     label: "Producten",
     links: [
       { href: "/marges", label: "Marge per product" },
