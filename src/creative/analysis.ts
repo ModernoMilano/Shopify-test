@@ -103,7 +103,8 @@ export function ratesOf(t: Totals): Rates {
     atcRate: div(t.addToCart, t.landingPageViews),
     cvr: div(t.purchases, t.linkClicks),
     aovCents: t.purchases > 0 ? Math.round(t.purchaseValueCents / t.purchases) : null,
-    hookRate: div(t.video2s, t.videoImpressions),
+    // Windsor levert "2 seconden bekeken" niet altijd (dan 0): geen hook rate in plaats van 0%
+    hookRate: t.video2s > 0 ? div(t.video2s, t.videoImpressions) : null,
     holdRate: div(t.thruplays, t.videoPlays),
     completion: div(t.videoP100, t.videoPlays),
   };
@@ -210,7 +211,7 @@ export type CopyEntry = { title: string | null; body: string | null; concepts: s
 export function copyLibrary(ads: AdRecord[], th: Thresholds = DEFAULT_THRESHOLDS): CopyEntry[] {
   const m = new Map<string, { title: string | null; body: string | null; concepts: Set<string>; ads: AdRecord[] }>();
   for (const a of ads) {
-    if (!a.title && !a.body) continue;
+    if ((!a.title && !a.body) || /\{\{product\.name\}\}/.test(a.title ?? "")) continue;
     const k = `${(a.title ?? "").trim()}\n${(a.body ?? "").trim()}`;
     const e = m.get(k) ?? { title: a.title, body: a.body, concepts: new Set<string>(), ads: [] };
     e.concepts.add(conceptLabel(a.name));
@@ -253,7 +254,8 @@ const VARIANTS: Record<Angle, string[]> = {
   reverso: ["Reversible-moment als eerste frame tonen", "Statisch beeld met beide kanten naast elkaar"],
   catalogus: ["Catalogus met alleen bestsellers als productset", "Dezelfde catalogus in een nieuwe markt"],
   jacket: ["Zelfde studio-setting met een ander hero-product", "Versie met copy (titel + body); de winnaar draait nu zonder tekst"],
-  zomer: ["Zelfde opzet voor de wintercollectie"],
+  zomer: ["Zelfde opzet (event, 72 uur sale) voor de winter- of feestdagencollectie"],
+  product: ["Hetzelfde product als onderdeel van een bundel laten zien (bundels scoren hoger dan losse stukken)", "Close-up van stof of pasvorm als eerste beeld, met één concreet voordeel in de kop"],
   overig: ["Winnende elementen (kop, CTA, formaat) overzetten naar een nieuw product"],
 };
 

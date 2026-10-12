@@ -43,6 +43,7 @@ describe("analyse", () => {
     expect(r.atcRate).toBeCloseTo(0.1);
     expect(r.aovCents).toBe(25_000);
     expect(r.hookRate).toBeNull();
+    expect(ratesOf(totalsOf([ad({ id: "v0", name: "v0", months: [month({ impressions: 1000, videoPlays: 100, video2s: 0, thruplays: 10 })] })])).hookRate).toBeNull();
   });
 
   it("videocijfers", () => {

@@ -22,6 +22,13 @@ describe("classificatie", () => {
     expect(angleOf({ name: "Photo-Closeup-Polo-Beach", title: "Timeless Style. Modern Essence." })).toBe("tijdloos");
     expect(angleOf({ name: "MM_Bestseller_Jacket_Studio_01" })).toBe("jacket");
     expect(angleOf({ name: "SUMMER AD 4" })).toBe("zomer");
+    expect(angleOf({ name: "MM_Bestseller_Jacket_Studio_01", adsetName: "WORLDWIDE AD SET" })).toBe("jacket");
+    expect(angleOf({ name: "Ad 3 — Studio (mint t-shirt, zittend)", title: "Summer Sale Moderno Milano" })).toBe("zomer");
+    expect(angleOf({ name: "Ad 7 · Stadium, two models · Event tie-in" })).toBe("zomer");
+    expect(angleOf({ name: "MercerTee — Strand — [4-6-26]", title: "Puro Supima Mercer Tee" })).toBe("product");
+    expect(angleOf({ name: "Product — Milano Linen Pant" })).toBe("product");
+    expect(angleOf({ name: "NEW TEST 8", title: "Not Loud. Just The Standard." })).toBe("tijdloos");
+    expect(angleOf({ name: "WINNING AD WW 1", title: "We Did The Matching For You", body: "Our Bundle Sets pair the perfect knit, cashmere, or reverso pieces." })).toBe("bundel");
     expect(angleOf({ name: "AD 2" })).toBe("overig");
   });
 
@@ -40,6 +47,10 @@ describe("classificatie", () => {
     expect(marketOfCampaign("SUMMER COLLECTION GERMANY")).toBe("DE/AT");
     expect(marketOfCampaign("MM | UK  | SCALING | CBO")).toBe("UK/IE");
     expect(marketOfCampaign("Nasir | Worldwide | Retargeting Campaign - 24/09/2026")).toBe("Worldwide");
+    expect(marketOfCampaign("MM | DXB | Summer 26 | CBO")).toBe("UAE");
+    expect(marketOfCampaign("[MM] — FR · ABO")).toBe("FR");
+    expect(marketOfCampaign("[MM] AU-DEN-NO  — ABO")).toBe("AU/Nordics");
+    expect(marketOfCampaign("Summer '26 — Campaign Framework")).toBe("Overig");
   });
 
   it("copy-kenmerken", () => {

@@ -43,7 +43,7 @@ export function renderReport(ads: AdRecord[], th: Thresholds = DEFAULT_THRESHOLD
   out.push(`- Totaal ${eur(all.spendCents)} besteed, ${all.purchases} aankopen, ${eur(all.purchaseValueCents)} omzet (Meta-attributie), ROAS ${x(allR.roas)}, CPA ${eur2(allR.cpaCents)}.`);
   out.push(`- CTR ${pct(allR.ctr, 2)}, CPM ${eur2(allR.cpmCents)}, conversie per klik ${pct(allR.cvr, 2)}, gemiddelde orderwaarde ${eur2(allR.aovCents)}.`);
   out.push(`- ${winners.length} bewezen winnende concepten, samen ${eur(totalsOf(winners.flatMap((w) => w.ads)).spendCents)} spend met ROAS ${x(ratesOf(totalsOf(winners.flatMap((w) => w.ads))).roas)}.`);
-  if (videos) out.push(`- Video: hook rate ${pct(videos.rates.hookRate, 0)} (2 sec kijkers per impressie), hold rate ${pct(videos.rates.holdRate, 0)} (ThruPlay per start).`);
+  if (videos) out.push(`- Video: ${videos.rates.hookRate === null ? "hook rate niet beschikbaar (Windsor levert geen 2-secondenweergaven)" : `hook rate ${pct(videos.rates.hookRate, 0)}`}, hold rate ${pct(videos.rates.holdRate, 0)} (ThruPlay per start), ${pct(videos.rates.completion, 0)} kijkt tot het einde.`);
   out.push(``);
   out.push(`## Per maand`);
   out.push(``);

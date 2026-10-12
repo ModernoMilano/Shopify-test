@@ -21,20 +21,27 @@ export function conceptLabel(adName: string): string {
 
 export function angleOf(input: { name: string; title?: string | null; body?: string | null; adsetName?: string | null }): Angle {
   const name = input.name.toLowerCase();
-  const text = `${input.title ?? ""} ${input.body ?? ""}`.toLowerCase();
-  const all = `${name} ${text} ${(input.adsetName ?? "").toLowerCase()}`;
-  if (/\{\{product\.name\}\}/.test(text) || /catalog/.test(name)) return "catalogus";
+  const title = (input.title ?? "").toLowerCase();
+  const body = (input.body ?? "").toLowerCase();
+  const strong = `${name} ${title}`; // naam en titel wegen zwaarder dan de body
+  const all = `${strong} ${body}`;
+  const sale = /\d+%|sale|off\b|half price|soldes|rabatt|%/;
+  if (/\{\{product\.name\}\}/.test(title) || /catalog/.test(name)) return "catalogus";
   if (/unboxing|delivered properly|packaging/.test(all)) return "unboxing";
-  if (/reverso/.test(all)) return "reverso";
-  if (/lounge/.test(all)) return "lounge";
+  if (/reverso/.test(strong)) return "reverso";
+  if (/lounge/.test(strong)) return "lounge";
   if (/ugc/.test(name)) return "ugc";
-  if (/cashmere|cash\b/.test(all)) {
-    return /50%|sale|off\b|half price/.test(all) ? "cashmere_sale" : "cashmere";
-  }
-  if (/bundle|complete the look|matching for you|one price|buying looks|one outfit|the complete look|bundled|set\b/.test(all)) return "bundel";
+  if (/cashmere|\bcash\b/.test(strong)) return sale.test(all) ? "cashmere_sale" : "cashmere";
+  if (/bundle|complete the look|matching for you|one price|buying looks|one outfit|bundled|komplette.? look|looks zu/.test(all)) return "bundel";
   if (/jacket/.test(name)) return "jacket";
-  if (/summer/.test(name)) return "zomer";
-  if (/timeless|modern essence|milan made|quiet confidence|effortless\. refined/.test(all)) return "tijdloos";
+  if (/summer|sommer|soldes|été|stadium|stadion|voetbal|game day|riviera|monaco/.test(all)) return "zomer";
+  if (/cashmere/.test(body)) return sale.test(body) ? "cashmere_sale" : "cashmere";
+  if (/reverso/.test(body)) return "reverso";
+  if (/lounge/.test(body)) return "lounge";
+  const brand = /timeless|modern essence|milan made|quiet confidence|quiet luxury|effortless|the standard|intemporel/;
+  if (brand.test(strong)) return "tijdloos";
+  if (/polo|\btee\b|t-shirt|pant|linen|loafer|blazer|shirt|trousers|knit/.test(strong)) return "product";
+  if (brand.test(body)) return "tijdloos";
   return "overig";
 }
 
@@ -54,6 +61,9 @@ export function marketOfCampaign(campaign: string): string {
   if (/NEDERLAND|\bNL\b/.test(c)) return "NL";
   if (/ENGELAND/.test(c)) return "UK/IE";
   if (/DUITSLAND|GERMANY/.test(c)) return "DE/AT";
+  if (/\bDXB\b|DUBAI|\bUAE\b/.test(c)) return "UAE";
+  if (/\bFR\b|FRANCE|FRANKRIJK/.test(c)) return "FR";
+  if (/\bAU\b|\bDEN\b|\bNO\b|NORDIC/.test(c)) return "AU/Nordics";
   return marketOf(campaign);
 }
 

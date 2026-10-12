@@ -62,6 +62,7 @@ export type Angle =
   | "catalogus"
   | "jacket"
   | "zomer"
+  | "product"
   | "overig";
 
 export const ANGLE_LABEL: Record<Angle, string> = {
@@ -75,7 +76,8 @@ export const ANGLE_LABEL: Record<Angle, string> = {
   reverso: "Reverso set",
   catalogus: "Catalogus (dynamisch)",
   jacket: "Jacket studio",
-  zomer: "Zomercollectie",
+  zomer: "Zomercollectie / summer sale",
+  product: "Eén product (polo, tee, broek)",
   overig: "Overig",
 };
 
