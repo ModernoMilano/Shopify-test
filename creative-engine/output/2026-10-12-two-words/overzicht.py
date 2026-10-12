@@ -13,7 +13,7 @@ print("- **Jouw vier correcties.** V01 (kraag verkeerd om), V08 (bordeaux in de 
       "Bij V10 is de gekozen variant bijgesneden zodat de effen manchet aan de rechterrand (zonder de crème dubbele streep) buiten beeld valt; aan het beeld zelf is niets geretoucheerd.")
 print("- **Oude-camerafilter.** De zes opties staan hieronder; je keuze staat nog open.\n")
 print("## Links\n")
-print(f"- Zip met alles (storyboard, overzicht van alle varianten, de 17 gekozen beelden op volle grootte, alle varianten op halve grootte): {links['zip']}")
+print(f"- Zip met alles (storyboard, overzicht van alle varianten, de {len(chosen)} gekozen beelden op volle grootte, alle varianten op halve grootte): {links['zip']}")
 print(f"- Storyboard (lange JPEG, scrollen): {links['storyboard']}")
 print(f"- Alle varianten met oordeel (lange JPEG): {links['alle']}")
 print(f"- De nieuwe beelden groot naast elkaar: {links['nieuw']}")
@@ -47,5 +47,6 @@ print(f"\n## Credits\n\nStart: {links['credits_start']} · nu: {links['credits_n
 vs = links.get('video_shots', 16)
 print(f"**Video.** {vs} shots zijn video (V01–V12 en H01, H02, H03, H05); S01–S05 en H04 zijn levende stills zonder videokosten. "
       f"Seedance 2.5 kost per shot 12 (480p-concept) + 48 (1080p) = 60 credits: {vs} × 60 = {vs * 60}, of {vs * 48} als ik de concepten oversla. "
-      f"Met {links['credits_nu']} op de teller past dat niet; zeg of je credits bijkoopt of welke shots ik als levende still mag maken.\n")
+      f"Je hebt bijgekocht: de teller staat op {links['credits_nu']}. Voorstel: eerst alle {vs} concepten op 480p ({vs * 12} credits), jij keurt de beweging, daarna 1080p alleen van wat goed is ({vs * 48}). "
+      f"Voor die laatste stap is dan nog ongeveer {max(0, round(vs * 60 - links['credits_nu']))} extra nodig; dat kun je bijkopen als de concepten je bevallen.\n")
 print("## Wat ik je vraag\n\n1. De nieuwe opening: kloppen de tekst en de vijf beelden?\n2. De vier gecorrigeerde shots en de rest: zeg per shot wat anders moet (ander beeld, andere variant, andere tekst). Ik maak dan alleen dat opnieuw.\n3. Kies de filter (mijn advies: Portra 400).\n4. De credits voor de video (zie hierboven).\n5. Pas daarna maak ik de video's (eerst 480p-concepten, dan 1080p) en de montage.\n")

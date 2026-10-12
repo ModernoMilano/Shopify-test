@@ -1,7 +1,15 @@
-{"zip": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/9c1398ff-857e-4d6e-9a10-d85ae20c4060.zip",
- "storyboard": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/f5142d17-c1e0-43b4-81af-ab18043f72fc.jpg",
- "alle": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/544767ae-8682-4dd0-b9d5-862401ba7e1b.jpg",
- "nieuw": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/27b5e724-08d1-4a0b-89d7-d8bf675fd127.jpg",
+{
+ "zip": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/f7f2c77e-4989-4048-a885-ce6a63de8a6f.zip",
+ "storyboard": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/3dab5eda-2a88-4546-a265-3536881f57ad.jpg",
+ "alle": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/9c81649c-16eb-4d0a-9005-0797cd802a55.jpg",
+ "nieuw": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/fc0cfab6-4531-4646-a1f4-b1273ab12f7e.jpg",
  "filters": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/2af5cbde-e2d8-4300-a0f0-b9decf7c049f.jpg",
  "filters_video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/3e71a967-96ff-4187-ab80-13d690e30ec7.mp4",
- "credits_start": 1000.52, "credits_nu": 698.27, "spent_images": 252, "spent_other": 50.25}
+ "credits_start": 1000.52,
+ "credits_nu": 659.27,
+ "spent_images": 344,
+ "spent_other": 186.25,
+ "spent_other_note": "Ads Studio 18:09, GPT Image 2.5 Flare 18:27, en reeksen Nano Banana 2 en Outpaint rond 19:05 en 21:45 UTC; niet door deze sessie aangevraagd",
+ "video_shots": 16,
+ "bought": "ongeveer 200 bijgekocht (teller van 475 naar 659 na mijn laatste 16)"
+}

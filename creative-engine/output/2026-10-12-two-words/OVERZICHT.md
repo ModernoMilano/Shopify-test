@@ -1,13 +1,19 @@
-# You Won't See a Name · overzicht van alle beelden (12 oktober 2026)
+# You Will Look Twice · overzicht van alle beelden (12 oktober 2026, avond)
 
 Alles wat hieronder staat is nog **zonder video**: eerst jouw oordeel, dan pas Seedance.
 
+## Wat er is veranderd sinds het vorige overzicht
+
+- **Nieuwe opening (0–11,2 s).** Je vond de hook niks; de eerste twaalf seconden zijn in tekst én beeld vervangen. Vier ontwerpen zijn door een jury van drie gewogen; de winnaar is samengesteld tot vijf nieuwe beelden H01–H05: blote enkels in grijs suède die op het marmer van de Galleria landen ("You will look twice."), de lege borst van het gilet onder zijn hand ("Nothing on him says a word."), de kraag van achteren ("And still, you look."), over zijn schouder omhoog naar het glas ("He never asked you to.") en pas dan zijn ogen, de omgekeerde hoek van V01 ("So where does that come from."), waarna "From the elegance of Milan..." het antwoord is.
+- **Jouw vier correcties.** V01 (kraag verkeerd om), V08 (bordeaux in de kraag), V10 (polokraag) en V12 (vilt, geen gilet) zijn opnieuw gemaakt met de productfoto's als maatstaf; de nieuwe keuzes staan in de tabel. Bij V10 is de gekozen variant bijgesneden zodat de effen manchet aan de rechterrand (zonder de crème dubbele streep) buiten beeld valt; aan het beeld zelf is niets geretoucheerd.
+- **Oude-camerafilter.** De zes opties staan hieronder; je keuze staat nog open.
+
 ## Links
 
-- Zip met alles (storyboard, overzicht van alle varianten, de 17 gekozen beelden op volle grootte, alle varianten op halve grootte): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/9c1398ff-857e-4d6e-9a10-d85ae20c4060.zip
-- Storyboard (lange JPEG, scrollen): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/f5142d17-c1e0-43b4-81af-ab18043f72fc.jpg
-- Alle varianten met oordeel (lange JPEG): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/544767ae-8682-4dd0-b9d5-862401ba7e1b.jpg
-- De nieuwe beelden groot naast elkaar: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/27b5e724-08d1-4a0b-89d7-d8bf675fd127.jpg
+- Zip met alles (storyboard, overzicht van alle varianten, de 22 gekozen beelden op volle grootte, alle varianten op halve grootte): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/f7f2c77e-4989-4048-a885-ce6a63de8a6f.zip
+- Storyboard (lange JPEG, scrollen): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/3dab5eda-2a88-4546-a265-3536881f57ad.jpg
+- Alle varianten met oordeel (lange JPEG): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/9c81649c-16eb-4d0a-9005-0797cd802a55.jpg
+- De nieuwe beelden groot naast elkaar: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/fc0cfab6-4531-4646-a1f4-b1273ab12f7e.jpg
 - Oude-camerafilters, zes opties op drie beelden: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/2af5cbde-e2d8-4300-a0f0-b9decf7c049f.jpg
 - Dezelfde filters in beweging (42 s, per filter 3 s regen en 3 s avond): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/3e71a967-96ff-4187-ab80-13d690e30ec7.mp4
 
@@ -17,13 +23,15 @@ Kodachrome 64 (warm, rijk rood, diepe zwarten, fijne korrel) · Portra 400 (zach
 
 ## De film in 32 beelden
 
+De eerste vijf rijen zijn de nieuwe opening; vanaf 11,2 s is de film zoals je hem kende.
+
 | tijd | beeld | tekst in beeld |
 |---|---|---|
-| 0.0–3.0 s | bestaand: EXISTING RAIN 0.0-3.0: grey rainy Milan morning under the arcade, the camera glides left past the foreground pillar inside the first ten frames, he looks ahead calmly in the plain anthracite gilet, hands in pockets; from 1.8 s he lifts his chin | You won't see a name on him. |
-| 3.0–5.5 s | bestaand: EXISTING HOME C 0.0-2.5: macro of the cream band on the hood edge of the dark mocha knit at his neck, lamp light | Not at the collar. |
-| 5.5–7.5 s | bestaand: EXISTING LAKE C 0.0-2.0: his hand and black knit sleeve on the chrome windscreen, sun sliding on the chrome | Not on the sleeve. |
-| 7.5–9.2 s | bestaand: EXISTING HOME D 0.0-1.7: macro of the cream stripes on the dark mocha knit trousers over his knee on the leather chair, nothing printed | Nothing to read. |
-| 9.2–11.2 s | bestaand: EXISTING COURTYARD A 0.0-2.0: the cloister, he leans a shoulder on the column in the bordeaux gilet, calm; the gilet sits on his shoulders | Only how it sits. |
+| 0.0–1.9 s | **nieuw** H01 GALLERIA, FEET LANDING 0.0-1.9: only his feet: the right grey suede loafer on the marble band, the left heel coming down, bare ankles, anthracite hems | You will look twice. |
+| 1.9–4.5 s | **nieuw** H02 THE CHEST, NOTHING WRITTEN 0.0-2.6: macro of the chest in the anthracite gilet, zip closed, the front plain; his right hand brushes once down the front and drops out of frame | Nothing on him says a word. |
+| 4.5–6.4 s | **nieuw** H03 THE COLLAR, FROM BEHIND 0.0-1.9: macro from behind: the nape and the standing collar, his hand straightens the collar once and drops out of frame; no face | And still, you look. |
+| 6.4–8.6 s | **nieuw** H04 OVER HIS SHOULDER (living still, 4 percent push-in): over his left shoulder from behind, his face turned up to the glass and away from the camera, the shoulder line of the gilet to the right edge | He never asked you to. |
+| 8.6–11.2 s | **nieuw** H05 THE FIRST LOOK 0.0-2.6: the first time we see his eyes: close three-quarter from his left under the dome, eyes just beside the lens, one breath, one slow blink; the reverse angle of V01 | So where does that come from. |
 | 11.2–13.6 s | **nieuw** V01 GALLERIA, FROM BEHIND 0.0-2.4: he stands under the dome seen from behind, the camera glides forward past the pillar (variant b; variant a walks) | From the elegance of Milan... |
 | 13.6–14.9 s | **nieuw** S05 THE GALLERIA FLOOR, FROM ABOVE (living still, 5 percent push): the straight marble bands converge toward the rosette | ...to the precision |
 | 14.9–17.0 s | **nieuw** V02 THE STACK, FLUSH 0.0-2.1: his hand pushes the proud top fold flush with the stack and lifts away; ends squared | of the atelier. |
@@ -52,24 +60,29 @@ Kodachrome 64 (warm, rijk rood, diepe zwarten, fijne korrel) · Portra 400 (zach
 | 59.2–62.2 s | bestaand: EXISTING COURTYARD B 2.0-5.0: he lowers his eyes, then is still | You wear it. ... Nobody reads it. |
 | 62.2–65.2 s | bestaand: EXISTING HOME B 2.0-5.0: one slow breath in the armchair at blue hour; small centred wordmark in at 62.4, out 10 frames before the end; last 6 frames dissolve into RAIN frame 0; tail graded to RAIN's cool temperature and lift | Moderno Milano. |
 
-## De 17 nieuwe beelden: wat gekozen is en waarom
+## De 22 nieuwe beelden: wat gekozen is en waarom
 
 Twee onafhankelijke controleurs per beeld (kledingregels en echtheid), elk met uitsneden op 100 %. Eén overtreding is afgekeurd; kleine promptafwijkingen zonder merkregel staan als opmerking.
 
 | shot | gekozen | varianten gemaakt | opmerking |
 |---|---|---|---|
-| V01 GALLERIA, FROM BEHIND | V01b | 2 | goedgekeurd door beide controleurs · score 8.0 |
+| H01 GALLERIA, FEET LANDING | H01b (ronde 2) | 4 | goedgekeurd door beide controleurs · score 7.8 |
+| H02 THE CHEST, NOTHING WRITTEN | H02b (ronde 2) | 4 | goedgekeurd door beide controleurs · score 8.0 |
+| H03 THE COLLAR, FROM BEHIND | H03a | 2 | goedgekeurd door beide controleurs · score 8.0 |
+| H04 OVER HIS SHOULDER | H04b | 4 | goedgekeurd door beide controleurs · score 8.0 |
+| H05 THE FIRST LOOK | H05b (ronde 2) | 4 | goedgekeurd door beide controleurs · score 8.0 |
+| V01 GALLERIA, FROM BEHIND | V01a (ronde 2) | 4 | goedgekeurd door beide controleurs · score 7.2 |
 | V02 THE STACK, FLUSH | V02b (ronde 4) | 8 | goedgekeurd door beide controleurs · score 8.2 |
 | V03 THE RULE LIFTS | V03b | 2 | goedgekeurd door beide controleurs · score 8.0 |
 | V04 THE CUT LIFTS | V04b | 2 | goedgekeurd door beide controleurs · score 6.5 |
 | V05 THE MEASURE | V05b | 2 | goedgekeurd door beide controleurs · score 8.0 |
 | V06 THE LAST STITCH | V06a | 2 | goedgekeurd door beide controleurs · score 7.5 |
 | V07 THE PRESS | V07b (ronde 4) | 8 | goedgekeurd door beide controleurs · score 8.0 |
-| V08 TWO SIDES | V08a | 2 | goedgekeurd door beide controleurs · score 8.0 |
+| V08 TWO SIDES | V08b (ronde 2) | 4 | goedgekeurd door beide controleurs · score 7.5 |
 | V09 THE NAME | V09b | 2 | goedgekeurd door beide controleurs · score 8.2 |
-| V10 THE COLLAR CLOSES | V10b (ronde 3) | 6 | goedgekeurd door beide controleurs · score 8.5 |
+| V10 THE COLLAR CLOSES | V10 uitsnede uit b (zonder manchet) | 10 | goedgekeurd door beide controleurs · score 8.0 |
 | V11 THE SEAM | V11a (ronde 3) (voorlopig) | 6 | VOORLOPIG (niet goedgekeurd): Naad is geen vlakke haarfijne stiklijn maar een smalle verhoogde richel (een opstaand koord van 2-3 steken, ca. 50-60 px breed op 3072) die over de volle hoogte · score 5.5 |
-| V12 THE SHOULDER | V12b (ronde 2) | 4 | goedgekeurd door beide controleurs · score 8.0 |
+| V12 THE SHOULDER | V12a (ronde 3) | 6 | goedgekeurd door beide controleurs · score 8.0 |
 | S01 RULE ON THE CHALK LINE | S01b | 2 | goedgekeurd door beide controleurs · score 7.0 |
 | S02 SHEARS AT REST | S02a | 4 | goedgekeurd door beide controleurs · score 8.0 |
 | S03 THREAD ON THE SPOOL | S03b | 2 | goedgekeurd door beide controleurs · score 8.2 |
@@ -78,11 +91,15 @@ Twee onafhankelijke controleurs per beeld (kledingregels en echtheid), elk met u
 
 ## Credits
 
-Start: 1000.52 · nu: 698.27 · door mij uitgegeven aan beelden: 252 (4 per 4K-beeld). Niet van mij: 50.25 (Ads Studio en GPT Image in het Higgsfield-account, 18:09 en 18:27–18:30).
+Start: 1000.52 · nu: 659.27 · door mij uitgegeven aan beelden: 344 (4 per 4K-beeld). Niet via deze sessie: 186.25 (Ads Studio 18:09, GPT Image 2.5 Flare 18:27, en reeksen Nano Banana 2 en Outpaint rond 19:05 en 21:45 UTC; niet door deze sessie aangevraagd).
+
+**Video.** 16 shots zijn video (V01–V12 en H01, H02, H03, H05); S01–S05 en H04 zijn levende stills zonder videokosten. Seedance 2.5 kost per shot 12 (480p-concept) + 48 (1080p) = 60 credits: 16 × 60 = 960, of 768 als ik de concepten oversla. Je hebt bijgekocht: de teller staat op 659.27. Voorstel: eerst alle 16 concepten op 480p (192 credits), jij keurt de beweging, daarna 1080p alleen van wat goed is (768). Voor die laatste stap is dan nog ongeveer 301 extra nodig; dat kun je bijkopen als de concepten je bevallen.
 
 ## Wat ik je vraag
 
-1. Loop het storyboard door: klopt de volgorde, de tekst per beeld en de keuze per shot?
-2. Zeg per shot wat anders moet (ander beeld, andere variant, andere tekst). Ik maak dan alleen dat opnieuw.
-3. Pas daarna maak ik de 12 video's (eerst 480p-concepten, dan 1080p) en de montage.
+1. De nieuwe opening: kloppen de tekst en de vijf beelden?
+2. De vier gecorrigeerde shots en de rest: zeg per shot wat anders moet (ander beeld, andere variant, andere tekst). Ik maak dan alleen dat opnieuw.
+3. Kies de filter (mijn advies: Portra 400).
+4. De credits voor de video (zie hierboven).
+5. Pas daarna maak ik de video's (eerst 480p-concepten, dan 1080p) en de montage.
 
