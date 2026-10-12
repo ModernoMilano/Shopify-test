@@ -2,6 +2,7 @@
 
 Gebruik (print JSON voor de MCP-tools):
   python3 -I twowords.py images [id ...]          -> generate_image_batch: 4K-startbeelden, 2 varianten per nieuw shot
+                                                     (max 12 per batch: geef ids mee, of "images" twee keer met --half 1|2)
   python3 -I twowords.py draft <id> <start_job>    -> generate_video: Seedance 2.5, concept 480p
   python3 -I twowords.py final <id> <start_job> <draft_job>  -> generate_video: 1080p vanuit het concept
   python3 -I twowords.py list                      -> de nieuwe shots met hun referenties
@@ -99,11 +100,16 @@ def video_request(s, start, draft=True, draft_job=None):
 if __name__ == "__main__":
     cmd, args = sys.argv[1], sys.argv[2:]
     if cmd == "list":
-        out = [{"id": s["id"], "refs": refs_for(s), "model": has_model(s)} for s in PLAN["new_shots"]]
+        out = [{"id": s["id"], "kind": s.get("kind", "video"), "refs": refs_for(s), "model": has_model(s)} for s in PLAN["new_shots"]]
     elif cmd == "images":
-        ids = args or [s["id"] for s in PLAN["new_shots"]]
+        ids = [a for a in args if not a.startswith("--")] or [s["id"] for s in PLAN["new_shots"]]
+        if "--half" in args:  # een batch mag 12 aanvragen hebben: 6 shots x 2 varianten
+            h = int(args[args.index("--half") + 1])
+            ids = ids[(h - 1) * 6:h * 6]
         out = [{"index": 2 * n + v, "params": image_request(shot(i))} for n, i in enumerate(ids) for v in range(2)]
     elif cmd == "draft":
+        if shot(args[0]).get("kind") == "still":
+            raise SystemExit(f"{args[0]} is een levend stilbeeld: geen video, de zoom komt in de montage")
         out = video_request(shot(args[0]), args[1])
     elif cmd == "final":
         out = video_request(shot(args[0]), args[1], draft=False, draft_job=args[2])
