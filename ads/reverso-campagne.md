@@ -16,9 +16,10 @@ Claude beheert deze campagne. Dit bestand is de bron van waarheid voor de regels
 
 1. **Meetmethode.** ROAS = door Meta gerapporteerde aankoopwaarde gedeeld door spend, campagneniveau, alleen volle kalenderdagen (Amsterdam). Vandaag telt nooit mee.
 2. **Wachttijd.** Na elke budgetwijziging minimaal 48 uur niets aanpassen. De lancering telt als wijziging.
-3. **Opschalen.** ROAS over de volle dagen sinds de laatste wijziging boven 3,0: dagbudget x2.
-4. **Afschalen.** ROAS de laatste 2 volle dagen elk onder 2,0: dagbudget x0,5.
-5. **Daartussen:** niets doen.
+3. **Afschalen gaat voor.** ROAS de laatste 2 volle dagen elk onder 2,0: dagbudget x0,5. Daarna worden regel 4 en 5 niet meer bekeken.
+4. **Hard opschalen.** ROAS over de volle dagen sinds de laatste wijziging boven 3,0: dagbudget x2.
+5. **Rustig opschalen.** ROAS over de volle dagen sinds de laatste wijziging van 2,1 tot en met 3,0: dagbudget x1,2.
+   Tussen 2,0 en 2,1, of onder 2,0 zonder dat regel 3 geldt: niets doen.
 6. **Plafond.** Nooit een dagbudget boven EUR 500 zetten zonder nieuwe toestemming van de eigenaar in de chat. Als een regel daarboven uitkomt: niet uitvoeren, eerst vragen.
 7. **Ads pauzeren** (alleen op een dag dat de wachttijd voorbij is, samen met een eventuele budgetwijziging):
    - EUR 60 of meer spend en 0 aankopen, of
