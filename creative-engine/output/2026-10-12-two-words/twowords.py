@@ -83,9 +83,20 @@ def image_request(s):
         prompt += " " + P["keep_en"]
     else:
         prompt = prompt.replace("The model's", "His").replace("the model's", "his").replace("The model", "He").replace("the model", "he")
-        prompt += (" The hand in the picture is a man's hand with light warm skin and a faint natural texture. Only his hand "
-                   "is in the picture: no face, no second person.")
-    parts = [prompt, HANDS, NO_TEXT, P["realism_en"]]
+        if "No hands" not in prompt and "no hands" not in prompt:
+            prompt += (" The hand in the picture is a man's hand with light warm skin and a faint natural texture. Only his "
+                       "hand is in the picture: no face, no second person.")
+        else:
+            prompt += " Nobody is in the picture."
+    # verwijzingen uit het plan die het beeldmodel niets zeggen (bestandspaden, shotnamen) eruit
+    prompt = (prompt.replace("built from the real label photograph (creative-engine/brand/assets/necklabel.jpg) and the logo file",
+                             "with the ModernoMilano neck label exactly as in reference images #1 and #2")
+                    .replace("built from its product photos", "exactly as in the reference images")
+                    .replace(" (matching HOME B)", "").replace(" (used under 'Not an address.')", "")
+                    .replace("The same setup as V09 one hand's width wider: the", "The").replace("The same setup as V09 one hand's width wider: The", "The")
+                    .replace(" Framed at the same scale and angle as the sleeve on the armrest in HOME A for the match cut.", ""))
+    parts = [prompt, HANDS if "Nobody is in the picture" not in prompt else "", NO_TEXT, P["realism_en"]]
+    parts = [x for x in parts if x]
     medias = [{"value": v, "role": "image_references"} for v in refs_for(s)]
     return {"model": "nano_banana_pro", "resolution": "4k", "aspect_ratio": "9:16", "prompt": "\n\n".join(parts), "medias": medias}
 
