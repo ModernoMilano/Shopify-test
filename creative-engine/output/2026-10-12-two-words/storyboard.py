@@ -8,7 +8,7 @@ startbeelden er zijn, komt hun pad in "img" en wordt het overzicht opnieuw gemaa
 import json, sys
 from PIL import Image, ImageDraw, ImageFont
 
-W, ROW, TW, TH = 1080, 330, 168, 299
+W, ROW, TW, TH = 1080, 440, 230, 409  # grotere miniaturen (v3, 12 okt): 230 px breed zodat de nieuwe beelden op een telefoon te beoordelen zijn
 BG, INK, MUTED, GOLD, CARD = (246, 242, 235), (28, 24, 20), (110, 100, 90), (150, 112, 52), (226, 219, 207)
 SERIF = "/home/user/film/f/cormorant.ttf"
 SANS = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
@@ -76,7 +76,7 @@ def main(rows_path, out):
             d.text((tx, yy), ln, font=f_vo, fill=INK)
             yy += 48
         yy += 8
-        for ln in wrap(d, r["nl"], f_nl, tw)[:6]:
+        for ln in wrap(d, r["nl"], f_nl, tw)[:9]:
             d.text((tx, yy), ln, font=f_nl, fill=MUTED)
             yy += 31
     img.save(out, quality=88, optimize=True)
