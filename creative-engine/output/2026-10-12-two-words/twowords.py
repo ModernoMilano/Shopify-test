@@ -112,10 +112,11 @@ if __name__ == "__main__":
     if cmd == "list":
         out = [{"id": s["id"], "kind": s.get("kind", "video"), "refs": refs_for(s), "model": has_model(s)} for s in PLAN["new_shots"]]
     elif cmd == "images":
-        ids = [a for a in args if not a.startswith("--")] or [s["id"] for s in PLAN["new_shots"]]
-        if "--half" in args:  # een batch mag 12 aanvragen hebben: 6 shots x 2 varianten
-            h = int(args[args.index("--half") + 1])
-            ids = ids[(h - 1) * 6:h * 6]
+        half = int(args[args.index("--half") + 1]) if "--half" in args else None
+        rest = [a for a in args if a != "--half" and (half is None or a != str(half))]
+        ids = rest or [s["id"] for s in PLAN["new_shots"]]
+        if half:  # een batch mag 12 aanvragen hebben: 6 shots x 2 varianten
+            ids = ids[(half - 1) * 6:half * 6]
         out = [{"index": 2 * n + v, "params": image_request(shot(i))} for n, i in enumerate(ids) for v in range(2)]
     elif cmd == "draft":
         if shot(args[0]).get("kind") == "still":
