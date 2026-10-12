@@ -83,7 +83,7 @@ def image_request(s):
         prompt += " " + P["keep_en"]
     else:
         prompt = prompt.replace("The model's", "His").replace("the model's", "his").replace("The model", "He").replace("the model", "he")
-        if "No hands" not in prompt and "no hands" not in prompt:
+        if not any(k in prompt for k in ("No hands", "no hands", "nobody in frame", "Nobody in frame")):
             prompt += (" The hand in the picture is a man's hand with light warm skin and a faint natural texture. Only his "
                        "hand is in the picture: no face, no second person.")
         else:
