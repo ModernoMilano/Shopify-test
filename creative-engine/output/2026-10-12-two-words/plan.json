@@ -1,0 +1,622 @@
+{
+ "title": "You Won't See a Name",
+ "idea": "Locked plan, built on the judges' winner (plan A, \"Nothing on the Outside\") with the three judges' fixes applied and the best mechanics of B and C grafted in. The spine stays: the film opens on Luca in Milan and tells the viewer where the name is not (collar, sleeve, nothing to read, only how it sits), bridges with the owner's kept pair (elegance of Milan / precision of the atelier), then runs the atelier as a rhythm of still-then-reveal: a living still of the tool at rest (rule on the chalk line, shears at rest, thread on the spool) answered by a video in which the finished action is only revealed (the rule lifts off the line, the cut piece lifts, the needle stops, the iron lifts, the steam thins off the flat seam), with Luca cut in between where the words need him (his shoulder, his breath, his hand at rest). The Reverso beat is one shot plus the two courtyards (\"One piece. Two sides. / The same man.\"). The turn at 45.3 s (69%) is a hard cut to silence on the label itself: the living still of the real label under \"Two words.\", the push-in under \"Not an address.\", so the most important line is literally its picture. The triad is re-seated on literal pictures (the man at the windscreen, the tape, the man with Milan behind him), the ending closes the hook (thumb on the label, the collar closes over it at his neck) and the last line is plain and begins with \"You\" like line one: \"You wear it. Nobody reads it.\" Then \"Moderno Milano.\" over the small centred wordmark at blue hour, which dissolves back into the grey morning of frame one. 65.2 s, 104 words, 32 pictures (17 new start images: 12 video shots and 5 living stills; 15 pieces of existing footage, none longer than 3.0 s, no two consecutive from one clip). Credits: 12 x 68 + 5 x 8 = 856, reserve 144 (two full video redos, the label first). The hook line is rewritten from \"You won't find a name on the outside\" to \"You won't see a name on him\": the store data holds no product descriptions and the product photos could not be checked from this environment, so the product fact cannot be verified; \"on him\" is true of the footage itself (no logo is visible on him in any approved clip) and needs no gate. If the owner confirms on the product photos that no piece carries an external mark, \"You won't find a name on the outside.\" may be swapped back at the voice test with no other change.",
+ "new_shots": [
+  {
+   "id": "V01 GALLERIA, FROM BEHIND",
+   "kind": "video",
+   "seconds": 4,
+   "start_image_prompt_en": "9:16, 4K, vertical. Milan's Galleria Vittorio Emanuele II at early morning, empty. The model seen from behind at mid-distance, standing still on the centre line of the marble mosaic floor under the glass-and-iron dome: anthracite reversible gilet with the pearl-grey inside showing at the collar, a pale stone tee at the neck, grey trousers, grey suede loafers on bare ankles, hands in his pockets, weight on one leg with a real soft shadow, head lifted a little toward the glass; dark chestnut hair swept back, the nape visible. The arcade recedes beyond him; shop fronts far and out of focus with shutters down and plain dark windows, no lettering, no signs, no flags, no posters anywhere; the floor shows only straight geometric bands, no emblems or figures. One light source: cool daylight through the dome, warm bounce from the floor; the background a stop darker. Full-frame digital camera, 35 mm, f/4, eye height, framed off-centre with a stone pillar soft at the left edge. An unretouched photograph: real cloth with visible weave and soft creases at the waist, real stone. Must not appear: any other person, women, readable text, logos, a watch, a ring, a bag, film borders, a vignette.",
+   "motion_prompt_en": "Variant (b), generated first: he stays still except one slow breath that moves the gilet; the camera glides forward and slightly left at a slow walking pace for the full 4 s, the foreground pillar wiping out of frame, parallax on the arches; nothing else moves; ends with him still under the dome. Variant (a), generated only after (b) is approved: he takes four unhurried steps away from camera with his hands in his pockets while the camera follows at his pace; ends on his back under the dome.",
+   "sound": "One pair of footsteps echoing under the dome, pigeon wings high in the glass, a tram bell far away; the rain of the opening thins to nothing under the cut.",
+   "risk_and_mitigation": "Medium: invented lettering on the shop fronts or in the mosaic, a broken gait, the gilet changing colour. Prompt 'shutters down, plain windows, no lettering anywhere'; step every frame at 1080p for letters; variant (b) is the fallback for the gait; zero-cost fallback is RAIN 1.8-4.0 regraded. Second call on the redo reserve after the label.",
+   "references": "Face refs ref-1 and ref-4 (video_face_refs) plus ref-3 for the back of his head and hair; product photos MILANO REVERSO SET ANTRACITE & PIETRA (gilet, pearl-grey inside), PURO SUPIMA MERCER TEE (stone), MILANO SUEDE LOAFER - GRIGIO; a frame of RAIN at 0 s for the cool grade."
+  },
+  {
+   "id": "V02 THE STACK, FLUSH",
+   "kind": "video",
+   "seconds": 4,
+   "start_image_prompt_en": "9:16, 4K macro, slightly high angle, off-centre. A daylit atelier: one tall north window on the left is the only light, a long oak cutting table, a lime-plaster wall out of focus behind. On the table a stack of five folded cashmere knits in the brand's colours only, anthracite on top, then cream, dark mocha, bordeaux, black; every fold plain, no tickets, no paper, no labels showing. The top fold sits about two centimetres proud of the stack. The model's right hand already rests on the top fold, fingers relaxed, bare wrist, the cuff of a black cashmere knit at the wrist; no watch, no ring. Plain closed steel shears and a wooden rule soft at the far edge. Full-frame digital camera, 50 mm macro, f/4, shallow depth. Real knit with visible stitch; matte skin with fine texture. Must not appear: text, logos, a second hand that is not his, any face, a watch, a ring.",
+   "motion_prompt_en": "His hand pushes the top fold about two centimetres until its edge sits exactly flush with the stack, then lifts straight up and out of frame. The stack must end perfectly squared and completely still; nothing else in the frame moves.",
+   "sound": "Hard cut from the Galleria echo to a close, dry room: a knit hush as the fold is pushed home, one soft creak of the oak table, atelier room tone.",
+   "risk_and_mitigation": "Low to medium: fingers merging, colour drift between folds, the stack not ending flush. Hand on the cloth at frame 1 so nothing enters the frame; one push, one lift; reject any take that does not end squared, the alignment is the whole shot. Also the stand-in picture if any later macro fails.",
+   "references": "Product photos for the colours: MILANO REVERSO SET ANTRACITE & PIETRA, MILANO REVERSO SET BORDEAUX & CREMA, MILANO KNITTED TWO-TONE CASHMERE SET - DARK MOCHA, MILANO CASHMERE VELA - BLACK (also the cuff); ref-1 for his skin tone."
+  },
+  {
+   "id": "V03 THE RULE LIFTS",
+   "kind": "video",
+   "seconds": 4,
+   "start_image_prompt_en": "9:16, 4K macro, top-down. Anthracite wool-cashmere cloth laid flat on the oak cutting table in the same window light from the left. A plain bevelled wooden rule with no scale or markings lies exactly along one finished, dead-straight white tailor's chalk line; a flat triangle of white tailor's chalk rests beside the end of the line. The model's fingertips hold the near end of the rule, bare wrist, black knit cuff; no watch, no ring. The chalk reads as a crisp white edge in the raking light. Full-frame digital camera, 100 mm macro, f/5.6. Must not appear: numbers or marks on the rule, text, a second line, a second hand, any face.",
+   "motion_prompt_en": "His hand lifts the rule straight up and out of the top of frame, revealing the full chalk line beneath it; a few grains of chalk dust drift and settle. The line itself never changes; the chalk does not move. Ends on the completed line alone, still.",
+   "sound": "A dry chalk scrape of about 0.4 s laid just before the cut-in (the drawing lives in the sound), then a soft wooden tick as the rule lifts, dust, room tone.",
+   "risk_and_mitigation": "Low to medium as a reveal: the line can wobble, thicken, double or vanish when the rule lifts. Start image holds the finished line; the rule moves vertically only; reject any take where the line changes. Rule markings would be text, so the rule is plain. Zero-cost fallback: the S01 still with a slow push.",
+   "references": "Product photo MILANO REVERSO SET ANTRACITE & PIETRA for the cloth colour; MILANO CASHMERE VELA - BLACK for the cuff; ref-1 for skin tone."
+  },
+  {
+   "id": "V04 THE CUT LIFTS",
+   "kind": "video",
+   "seconds": 4,
+   "start_image_prompt_en": "9:16, 4K macro at 45 degrees, window light from the left. The cut is already made: a front panel of anthracite wool-cashmere lies on the cloth with its cut edge running clean and straight exactly along the white chalk line; heavy plain steel tailor's shears rest closed at the end of the cut, blades together, no engraving. The model's right hand already holds the near corner of the cut piece between thumb and fingers, bare wrist, black knit cuff; no watch, no ring. Dense, flat cloth, a small piece. Full-frame digital camera, 100 mm macro, f/5.6. Must not appear: text, engraving on the shears, a frayed edge, a second hand, any face.",
+   "motion_prompt_en": "His hand lifts the cut piece slowly about four centimetres so the clean edge separates from the cloth beneath and the table shows through the gap; the piece holds there. The shears never move. Ends held, still, the straight edge in full view.",
+   "sound": "One clean shear bite through cloth laid four frames before the cut-in (the cut that has just happened), then the whisper of wool lifting, room tone.",
+   "risk_and_mitigation": "Medium: the edge 'healing', fraying or curling between frames. Dense flat cloth and a small piece; lift four centimetres, three if the edge changes; shears closed and still. Fallback: the S02 still with a slow push.",
+   "references": "Product photo MILANO REVERSO SET ANTRACITE & PIETRA for the cloth; MILANO CASHMERE VELA - BLACK for the cuff; ref-1 for skin tone."
+  },
+  {
+   "id": "V05 THE MEASURE",
+   "kind": "video",
+   "seconds": 4,
+   "start_image_prompt_en": "9:16, 4K macro, top-down, window light from the left. A cream tailor's tape laid dead straight across the chest of the cut anthracite panel on the oak table, printed side down so that no digit shows anywhere, its brass tip under the model's thumb at the panel's edge; a small white chalk tick on the cloth where the tape ends. Bare wrist, black knit cuff; no watch, no ring. Full-frame digital camera, 100 mm macro, f/4, shallow depth. Must not appear: numbers, text, a second hand, any face.",
+   "motion_prompt_en": "His thumb presses the tape flat once, then the hand lifts the tape away and leaves the frame; the chalk tick remains on the cloth. Ends on the mark, still.",
+   "sound": "A fingertip press, the tape lifting with a soft zip, one tick, room tone.",
+   "risk_and_mitigation": "Low: tape printed side down removes the digit risk entirely; reject any frame that shows a digit anyway. Fingers can merge: one press, one lift.",
+   "references": "Product photo MILANO REVERSO SET ANTRACITE & PIETRA for the cloth; MILANO CASHMERE VELA - BLACK for the cuff; ref-1 for skin tone."
+  },
+  {
+   "id": "V06 THE LAST STITCH",
+   "kind": "video",
+   "seconds": 4,
+   "start_image_prompt_en": "9:16, 4K extreme macro. The presser foot and needle of a plain sewing machine at the end of a seam in anthracite wool-cashmere, the needle up, grey thread drawn taut from above, about ten centimetres of straight, even seam already behind the foot running toward camera; the model's fingertips guide the cloth from the left, bare wrist, black knit cuff; no watch, no ring. One lamp above the machine is the only light; the machine is unbranded and mostly out of frame. Full-frame digital camera, 100 mm macro, f/4. Must not appear: text or a brand on the machine, a second needle, a second hand, any face.",
+   "motion_prompt_en": "The needle makes two slow final stitches while the feed advances the cloth a few millimetres each time, then stops in the up position; the hand wheel halts; the fingertips stay. Nothing else moves. Ends on the finished seam, still.",
+   "sound": "Two soft machine ticks that slow and stop with the picture, a thread tick, room tone.",
+   "risk_and_mitigation": "Medium: needle doubling, the stitch line drifting, the thread losing continuity. Two stitches maximum, one needle, shallow focus, dark cloth with light thread. Fallback (plan C): the needle still, his fingertips withdraw and the thread settles once.",
+   "references": "Product photo MILANO REVERSO SET ANTRACITE & PIETRA for the cloth; MILANO CASHMERE VELA - BLACK for the cuff; ref-1 for skin tone."
+  },
+  {
+   "id": "V07 THE PRESS",
+   "kind": "video",
+   "seconds": 4,
+   "start_image_prompt_en": "9:16, 4K macro from a low angle. A plain matte steel tailor's iron with no text or badge resting on an open seam of the anthracite panel on a pressing board with a thin linen pressing cloth, the seam slightly raised ahead of the sole and flat behind it, a first small breath of steam; the model's hand on the handle, bare wrist, black knit cuff; no watch, no ring. Window light from the left so the steam reads. Full-frame digital camera, 50 mm, f/4. Must not appear: text on the iron, a cord in focus, a second hand, any face.",
+   "motion_prompt_en": "The iron glides about five centimetres along the seam with one soft puff of steam, the cloth goes flat in its wake, then the iron lifts clear and holds with the steam thinning. Nothing else moves. Ends with the iron up and still over a flat seam.",
+   "sound": "One long steam hiss under the words, the weight of the iron sliding on cloth, the iron's tock as it lifts; the hiss carries into the next shot.",
+   "risk_and_mitigation": "Low to medium: steam rendering as smoke, the iron warping or sprouting lettering. One small puff, a short straight glide, a plain matte iron; check every frame for text.",
+   "references": "Product photo MILANO REVERSO SET ANTRACITE & PIETRA for the cloth; MILANO CASHMERE VELA - BLACK for the cuff; ref-1 for skin tone."
+  },
+  {
+   "id": "V08 TWO SIDES",
+   "kind": "video",
+   "seconds": 4,
+   "start_image_prompt_en": "9:16, 4K, top-down, window light from the left. The bordeaux-and-cream reversible gilet laid flat on the oak cutting table, built from its product photos: the right front bordeaux side up, the left front already folded open so the cream inside shows from collar to hem, the collar turned so a band of bordeaux shows inside it; both colours in frame the whole time. The model's right hand rests on the fold, bare wrist, black knit cuff; no watch, no ring. Full-frame digital camera, 50 mm, f/4. Real cloth with soft creases. Must not appear: a label in this shot, text, a second hand, any face, any other garment.",
+   "motion_prompt_en": "His hand smooths the opened cream side once from collar to hem, the fold sharpens, then the hand lifts away. One pass, no second move; both colours stay in view. Ends with the hand lifted and the gilet still.",
+   "sound": "A whisper of wool and lining, room tone from the cloister crossing into the atelier.",
+   "risk_and_mitigation": "Medium: colours bleeding into each other, the fold changing shape. Product photos as references; the panel is already folded in the start image so the motion is only a smoothing hand (plan A's fallback adopted as the main version); check seam and collar frame by frame.",
+   "references": "Product photos MILANO REVERSO SET BORDEAUX & CREMA and MILANO REVERSO SET CREMA & BORDEAUX (both sides); MILANO CASHMERE VELA - BLACK for the cuff; ref-1 for skin tone."
+  },
+  {
+   "id": "V09 THE NAME",
+   "kind": "video",
+   "seconds": 4,
+   "start_image_prompt_en": "9:16, 4K macro built from the real label photograph (creative-engine/brand/assets/necklabel.jpg) and the logo file. At home, warm lamp light from the upper left, blue-hour window far out of focus beyond (matching HOME B). The dark mocha hooded knit jacket lies over the cognac leather armrest with its neck open toward camera; inside the back neck the ivory satin label is sewn flat with small even stitches along its edges, short ends folded under, the black script 'ModernoMilano' upright, centred, correctly spelled and sharp, slightly curving with the collar and partly shaded at one end; the cream band of the hood edge just visible beside it; no size label, no care label. The label sits in the upper two thirds of the frame; the lower third is plain knit. The model's thumb rests at the label's lower edge at frame 1, bare wrist, mocha knit cuff with the cream stripe; no watch, no ring. Full-frame digital camera, 100 mm macro, f/4. Must not appear: any other text, a second label, a misspelling, a second hand, any face.",
+   "motion_prompt_en": "0-1.8 s: a very slow push-in of about three percent, the thumb completely at rest, the letters locked (used under 'Not an address.'). 1.8-4.0 s: the thumb smooths the satin once, slowly, left to right, and stays; the sheen shifts across the script but the label does not bend and the letters do not move (used under 'The name comes last.'). Ends still.",
+   "sound": "Near silence after the hard cut: satin under a thumb, one breath of room tone, the lamp's warmth.",
+   "risk_and_mitigation": "Highest in the film (text in motion). Build from necklabel.jpg plus the logo; keep the script centre-frame and still with motion only at the edge; three seeds minimum at 480p, step every frame at 4K for spelling, orientation and letter drift; only then 1080p. Subtitle never over the label (label upper two thirds, subtitle lower third). Generate this shot first, so the fallback is known before anything else is spent. Accepted fallback for both uses: the S04 still with a two percent push, no thumb. First call on the redo reserve, two passes.",
+   "references": "creative-engine/brand/assets/necklabel.jpg and logo-moderno-milano.png (the label, exactly); product photo MILANO KNITTED TWO-TONE CASHMERE SET - DARK MOCHA (jacket, hood band, cuff stripe); frames of HOME A and HOME B for the armrest, lamp light and grade; ref-1 for skin tone."
+  },
+  {
+   "id": "V10 THE COLLAR CLOSES",
+   "kind": "video",
+   "seconds": 4,
+   "start_image_prompt_en": "9:16, 4K macro from behind. The back of the model's neck and the hood collar of the dark mocha knit jacket with its cream band, at home, warm lamp light from the left, the blue-hour window and far Milan lights out of focus beyond (matching HOME B); dark chestnut hair swept back above the nape. The collar is already folded down over the back neck so that no label and no satin is visible; his right hand rests on the collar at the nape, bare wrist, mocha knit cuff with the cream stripe; no watch, no ring. Full-frame digital camera, 85 mm, f/2.8. Must not appear: any visible label or lettering, a second person, his face, a watch, a ring.",
+   "motion_prompt_en": "His hand smooths the folded collar down once, from the nape toward the shoulder, and leaves the frame; the knit settles against his neck. One move. Ends on the closed collar at his neck, still.",
+   "sound": "Knit on knit, one breath, room tone at the window.",
+   "risk_and_mitigation": "Medium: hand placement from behind, hair and collar morphing. No satin sliver at all (beeldregels ch. 3 rejects an unreadable label), so 'Inside. Against the neck.' is carried by the preceding label shot plus his neck. If the hand breaks, crop tighter. Zero-cost fallback: HOME C 2.0-4.0.",
+   "references": "ref-3 (from behind, hair and nape) and ref-4; product photo MILANO KNITTED TWO-TONE CASHMERE SET - DARK MOCHA; frames of HOME B and HOME C for the room, lamp and grade."
+  },
+  {
+   "id": "V11 THE SEAM",
+   "kind": "video",
+   "seconds": 4,
+   "start_image_prompt_en": "9:16, 4K extreme macro, top-down. The pressed seam joining two anthracite wool-cashmere panels, open and dead flat, running straight up the frame, the seam line barely visible, a last thin veil of steam fading over its upper half; the iron's sole just out of frame at the top. The model's two thumbs rest either side of the seam at the bottom of the frame, bare wrists, black knit cuffs; no watch, no ring. Warm window light from the left. Full-frame digital camera, 100 mm macro, f/2.8. Framed at the same scale and angle as the sleeve on the armrest in HOME A for the match cut. Must not appear: a second seam, text, any face.",
+   "motion_prompt_en": "The steam thins to nothing while his thumbs slide apart about three centimetres, smoothing the seam open, then lift away; the seam itself does not move. Ends on the flat seam alone, still: the completed state.",
+   "sound": "The hiss from the press thinning to silence, thumbs on cloth, one breath, room tone under the written pause.",
+   "risk_and_mitigation": "Low: fingers merging, the seam bending, the model inventing extra seams. One pass only; reject any take where the seam line changes. The last frame must be straight and at HOME A's scale.",
+   "references": "Product photo MILANO REVERSO SET ANTRACITE & PIETRA for the cloth; MILANO CASHMERE VELA - BLACK for the cuffs; a frame of HOME A at 0 s for the match-cut framing; ref-1 for skin tone."
+  },
+  {
+   "id": "V12 THE SHOULDER",
+   "kind": "video",
+   "seconds": 4,
+   "start_image_prompt_en": "9:16, 4K, close from behind and slightly above, off-centre. The model stands in the atelier by the tall north window, seen from behind from the nape to the shoulder blade: the right shoulder of the anthracite reversible gilet, the pearl-grey inside showing at the collar, the shoulder line straight and clean, the pale stone tee at the neck, dark chestnut hair swept back above the nape; his left hand already rests on the right shoulder, fingers relaxed, bare wrist; no watch, no ring. The cutting table and lime-plaster wall soft beyond. One light source, the window from the left. Full-frame digital camera, 85 mm, f/2.8. Real cloth with visible weave. Must not appear: his face, a second person, text, a watch, a ring, a bag.",
+   "motion_prompt_en": "His hand brushes once along the shoulder line, from the collar outward, and drops out of frame; the gilet settles. One breath lifts the shoulder and lets it fall. Nothing else moves. Ends on the still, straight shoulder.",
+   "sound": "A hand on cloth, one breath, the atelier room tone, a far church bell through the window.",
+   "risk_and_mitigation": "Low to medium: hair and collar morphing, the hand's path. One short move; keep the start image beside ref-3 for the back of his head; reject any take where the collar changes colour. Zero-cost fallback: PIANO 6.0-8.0 alone under the line.",
+   "references": "ref-3 and ref-4 (back and three-quarter), product photos MILANO REVERSO SET ANTRACITE & PIETRA and PURO SUPIMA MERCER TEE; a frame of PIANO at 7 s for the gilet as already filmed."
+  },
+  {
+   "id": "S01 RULE ON THE CHALK LINE",
+   "kind": "still",
+   "seconds": 1.2,
+   "start_image_prompt_en": "9:16, 4K macro, top-down, the atelier window light from the left. Anthracite wool-cashmere cloth flat on the oak cutting table; a plain bevelled wooden rule with no markings lies exactly along one finished white tailor's chalk line, the line visible beyond both ends of the rule; a flat triangle of white tailor's chalk rests beside it, a little chalk dust on the cloth. No hands in this frame. Full-frame digital camera, 100 mm macro, f/5.6, the rule slightly off-centre. Must not appear: numbers, text, a second line, any person.",
+   "motion_prompt_en": "No video. In the edit: a slow push of four percent over 1.2 s, nothing else.",
+   "sound": "The rule set down with a soft wooden tick on the cut-in; room tone.",
+   "risk_and_mitigation": "Very low; a still. Reject any take with marks on the rule or a doubled line; 8 credits to redo.",
+   "references": "Product photo MILANO REVERSO SET ANTRACITE & PIETRA for the cloth; the V03 start image for continuity (same cloth, same rule, same line)."
+  },
+  {
+   "id": "S02 SHEARS AT REST",
+   "kind": "still",
+   "seconds": 1.2,
+   "start_image_prompt_en": "9:16, 4K macro at 45 degrees, window light from the left. Heavy plain steel tailor's shears resting closed on the anthracite cloth at the very end of a finished cut, blades together, the clean cut edge running away from the tip along the white chalk line, no engraving on the blades, a few threads of chalk dust. No hands. Full-frame digital camera, 100 mm macro, f/5.6, shears off-centre, the handles soft in the foreground. Must not appear: text, engraving, an open blade, any person.",
+   "motion_prompt_en": "No video. In the edit: a slow drift of three percent along the cut over 1.2 s.",
+   "sound": "One clean shear bite laid on the cut-in; room tone.",
+   "risk_and_mitigation": "Very low; a still. Reject engraving or a frayed edge; 8 credits to redo.",
+   "references": "Product photo MILANO REVERSO SET ANTRACITE & PIETRA for the cloth; the V04 start image for continuity (same shears, same cut)."
+  },
+  {
+   "id": "S03 THREAD ON THE SPOOL",
+   "kind": "still",
+   "seconds": 1.2,
+   "start_image_prompt_en": "9:16, 4K macro. A wooden spool of grey thread standing on the oak table beside the sewing machine's thread post, the thread running up out of frame, the turns of thread crisp and even in the lamp light from above; the dark machine body soft and unbranded in the background. No hands. Full-frame digital camera, 100 mm macro, f/2.8, the spool off-centre. Must not appear: text on the spool or the machine, any person.",
+   "motion_prompt_en": "No video. In the edit: a slow push of four percent over 1.2 s.",
+   "sound": "A thread tick, near silence.",
+   "risk_and_mitigation": "Very low; a still. Reject any lettering on the spool label; 8 credits to redo.",
+   "references": "The V06 start image for continuity (same thread colour, same machine)."
+  },
+  {
+   "id": "S04 THE LABEL, FLAT",
+   "kind": "still",
+   "seconds": 1.8,
+   "start_image_prompt_en": "9:16, 4K macro built from the real label photograph (creative-engine/brand/assets/necklabel.jpg) and the logo file. The same setup as V09 one hand's width wider: the dark mocha hooded knit jacket over the cognac armrest at home, lamp light from the upper left, its neck open toward camera; inside the back neck the ivory satin label sewn flat with small even stitches, short ends folded under, the black script 'ModernoMilano' upright, centred, correctly spelled, sharp and fully legible, curving gently with the collar; the cream hood band beside it; no size label. The label in the upper two thirds of the frame, plain knit in the lower third. No hands in this frame. Full-frame digital camera, 100 mm macro, f/4. Must not appear: any other text, a second label, a misspelling, any person.",
+   "motion_prompt_en": "No video. In the edit: a slow push of two percent over 1.8 s. Also the accepted fallback for both uses of V09 if the video shows any letter drift.",
+   "sound": "Hard cut to near silence before 'Two words.'; one thread snip; a breath of room tone.",
+   "risk_and_mitigation": "Medium even as a still: the spelling and the script. Composite from the real label photo; three variants; check at 4K that every letter matches the logo and the label is upright; 8 credits to redo. This is the turn of the film and the brand's only mark.",
+   "references": "creative-engine/brand/assets/necklabel.jpg and logo-moderno-milano.png; product photo MILANO KNITTED TWO-TONE CASHMERE SET - DARK MOCHA; frames of HOME A and HOME B for the armrest, lamp light and grade; the V09 start image for continuity."
+  },
+  {
+   "id": "S05 THE GALLERIA FLOOR, FROM ABOVE",
+   "kind": "still",
+   "seconds": 1.3,
+   "start_image_prompt_en": "9:16, 4K, lens straight down from about four metres above the marble floor of the Galleria's main arcade at early morning: straight inlaid bands of dark grey, cream and terracotta marble running up the frame to a geometric rosette, the polished stone reflecting the lamps and the dome light, a soft shadow of the ironwork across it. Only geometry: no emblems, no coats of arms, no figures, no lettering, nobody in frame. Full-frame digital camera, 35 mm, f/5.6, the bands slightly off the vertical. Must not appear: any person, text, an emblem, shop fronts.",
+   "motion_prompt_en": "No video. In the edit: a slow push of five percent over 1.3 s so the bands converge a little, as if the precision of the stone were leading into the table.",
+   "sound": "The arcade's long stone reverb and one far footstep; the room tone crosses into the atelier on the cut to V02.",
+   "risk_and_mitigation": "Low; a still. The real octagon mosaics carry emblems, so the prompt asks for bands and a rosette only; reject any crest or letter; 8 credits to redo.",
+   "references": "A frame of the V01 start image for the stone colours and grade."
+  }
+ ],
+ "timeline": [
+  {
+   "t_start": 0,
+   "t_end": 3,
+   "shot": "EXISTING RAIN 0.0-3.0: grey rainy Milan morning under the arcade, the camera glides left past the foreground pillar inside the first ten frames, he looks ahead calmly in the plain anthracite gilet, hands in pockets; from 1.8 s he lifts his chin",
+   "existing_clip": "RAIN",
+   "clip_in": 0,
+   "vo": "You won't see a name on him. (0.5-3.5; 'on him' lands on the cut to his neck)",
+   "subtitle_cards": [
+    "You won't see a name"
+   ],
+   "sound": "Cold open, no music of ours: rain on stone, a distant tram bell, his footsteps under the arcade; the room-tone bed of the last frame crosses into the rain under the loop seam.",
+   "nl": "Luca onder de arcade in de regen, de camera glijdt langs de pilaar, hij kijkt rustig vooruit; het eerste woord 'You' valt op een beeld dat al beweegt."
+  },
+  {
+   "t_start": 3,
+   "t_end": 5.5,
+   "shot": "EXISTING HOME C 0.0-2.5: macro of the cream band on the hood edge of the dark mocha knit at his neck, lamp light",
+   "existing_clip": "SC",
+   "clip_in": 0,
+   "vo": "Not at the collar. (3.9-5.6)",
+   "subtitle_cards": [
+    "on him.",
+    "Not at the collar."
+   ],
+   "sound": "Room tone, lamp warmth, knit brushing skin.",
+   "nl": "Macro van de crème band op de capuchonrand in zijn nek, lamplicht: de kraag, zonder naam."
+  },
+  {
+   "t_start": 5.5,
+   "t_end": 7.5,
+   "shot": "EXISTING LAKE C 0.0-2.0: his hand and black knit sleeve on the chrome windscreen, sun sliding on the chrome",
+   "existing_clip": "LC",
+   "clip_in": 0,
+   "vo": "Not on the sleeve. (6.0-7.7)",
+   "subtitle_cards": [
+    "Not on the sleeve."
+   ],
+   "sound": "Water against the hull, the engine idling low, one soft tick of sun on chrome.",
+   "nl": "Zijn hand en de zwarte gebreide mouw op het chroom van de boot: de mouw, zonder naam."
+  },
+  {
+   "t_start": 7.5,
+   "t_end": 9.2,
+   "shot": "EXISTING HOME D 0.0-1.7: macro of the cream stripes on the dark mocha knit trousers over his knee on the leather chair, nothing printed",
+   "existing_clip": "SD",
+   "clip_in": 0,
+   "vo": "Nothing to read. (8.1-9.4)",
+   "subtitle_cards": [
+    "Nothing to read."
+   ],
+   "sound": "Warm room tone, leather settling.",
+   "nl": "Macro van de crème strepen op de mokka gebreide broek over zijn knie: niets te lezen."
+  },
+  {
+   "t_start": 9.2,
+   "t_end": 11.2,
+   "shot": "EXISTING COURTYARD A 0.0-2.0: the cloister, he leans a shoulder on the column in the bordeaux gilet, calm; the gilet sits on his shoulders",
+   "existing_clip": "TBA",
+   "clip_in": 0,
+   "vo": "Only how it sits. (9.7-11.5)",
+   "subtitle_cards": [
+    "Only how it sits."
+   ],
+   "sound": "Cloister birds, leaves of the lemon trees, a far bell.",
+   "nl": "Kloostertuin: hij leunt met zijn schouder tegen de zuil in het bordeaux gilet; alleen hoe het valt."
+  },
+  {
+   "t_start": 11.2,
+   "t_end": 13.6,
+   "shot": "NEW V01 GALLERIA, FROM BEHIND 0.0-2.4: he stands under the dome seen from behind, the camera glides forward past the pillar (variant b; variant a walks)",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "From the elegance of Milan... (11.8-14.0)",
+   "subtitle_cards": [
+    "From the elegance of Milan"
+   ],
+   "sound": "Footsteps echoing under the dome, pigeon wings in the glass, a far tram bell.",
+   "nl": "De lege Galleria in de vroege ochtend, Luca van achteren onder de koepel, de camera glijdt naar voren."
+  },
+  {
+   "t_start": 13.6,
+   "t_end": 14.9,
+   "shot": "NEW S05 THE GALLERIA FLOOR, FROM ABOVE (living still, 5 percent push): the straight marble bands converge toward the rosette",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "...to the precision (14.3-15.1, the line continues on the next picture)",
+   "subtitle_cards": [
+    "to the precision"
+   ],
+   "sound": "The arcade's long stone reverb, one far footstep.",
+   "nl": "De marmeren vloer van de Galleria recht van boven, de banen lopen strak naar het midden: precisie in steen."
+  },
+  {
+   "t_start": 14.9,
+   "t_end": 17,
+   "shot": "NEW V02 THE STACK, FLUSH 0.0-2.1: his hand pushes the proud top fold flush with the stack and lifts away; ends squared",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "of the atelier. (15.5-17.0)",
+   "subtitle_cards": [
+    "of the atelier."
+   ],
+   "sound": "Hard cut to a close dry room: a knit hush as the fold is pushed home, a wooden creak, atelier room tone.",
+   "nl": "Het atelier: zijn hand duwt de bovenste vouw van een stapel breisels precies gelijk met de rest en laat los."
+  },
+  {
+   "t_start": 17,
+   "t_end": 18.2,
+   "shot": "NEW S01 RULE ON THE CHALK LINE (living still, 4 percent push): the wooden rule lies along the finished chalk line, the chalk beside it",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "A line in chalk. (17.3-19.0, the card holds over the lift)",
+   "subtitle_cards": [
+    "A line in chalk."
+   ],
+   "sound": "The rule set down with a wooden tick on the cut-in; a 0.4 s chalk scrape just before the next cut.",
+   "nl": "Stilstaand macro: de houten lat ligt langs een strakke witte krijtlijn op de antraciet stof, het krijt ernaast."
+  },
+  {
+   "t_start": 18.2,
+   "t_end": 20.1,
+   "shot": "NEW V03 THE RULE LIFTS 0.0-1.9: his hand lifts the rule straight up and reveals the whole line; dust settles",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "(the line 'A line in chalk.' ends at 19.0 over the lift)",
+   "subtitle_cards": [],
+   "sound": "A soft wooden tick as the rule lifts, chalk dust, room tone.",
+   "nl": "Zijn hand tilt de lat op en de hele krijtlijn komt vrij; de lijn zelf beweegt niet."
+  },
+  {
+   "t_start": 20.1,
+   "t_end": 21.9,
+   "shot": "NEW V12 THE SHOULDER 0.0-1.8: close from behind, his hand brushes once along the straight shoulder of the anthracite gilet and drops",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "Straight at the shoulder. (20.3-22.0)",
+   "subtitle_cards": [
+    "Straight at the shoulder."
+   ],
+   "sound": "A hand on cloth, one breath, a far church bell through the window.",
+   "nl": "Van achteren, dichtbij: zijn hand strijkt één keer over de rechte schouderlijn van het antraciet gilet."
+  },
+  {
+   "t_start": 21.9,
+   "t_end": 23.5,
+   "shot": "EXISTING PIANO 6.0-7.6: he arrives at the tall glass seen from behind, shoulders square, the sea and umbrella pines beyond",
+   "existing_clip": "PIANO",
+   "clip_in": 6,
+   "vo": "(card 'Straight at the shoulder.' holds to 22.0, then clean)",
+   "subtitle_cards": [],
+   "sound": "Villa room tone, the sea faint beyond the glass.",
+   "nl": "Hij komt van achteren bij het hoge raam, schouders recht, de zee erachter: dezelfde schouder, gedragen."
+  },
+  {
+   "t_start": 23.5,
+   "t_end": 24.7,
+   "shot": "NEW S02 SHEARS AT REST (living still, 3 percent drift): the closed shears at the end of the finished cut along the chalk line",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "Cut once. (23.7-24.6)",
+   "subtitle_cards": [
+    "Cut once."
+   ],
+   "sound": "One clean shear bite laid on the cut-in; room tone.",
+   "nl": "Stilstaand macro: de dichte schaar rust aan het einde van de snede, precies op de krijtlijn."
+  },
+  {
+   "t_start": 24.7,
+   "t_end": 26.6,
+   "shot": "NEW V04 THE CUT LIFTS 0.0-1.9: his hand lifts the cut piece four centimetres, the clean edge separates and holds; the shears do not move",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "(card 'Cut once.' holds to 24.6, then the lift plays clean)",
+   "subtitle_cards": [],
+   "sound": "The whisper of wool lifting, room tone.",
+   "nl": "Zijn hand tilt het uitgesneden paneel een paar centimeter op; de rechte snijrand komt los en blijft hangen."
+  },
+  {
+   "t_start": 26.6,
+   "t_end": 28.4,
+   "shot": "EXISTING LAKE B 3.0-4.8: close three-quarter profile over the lake, he settles and breathes, mountains drifting",
+   "existing_clip": "LB",
+   "clip_in": 3,
+   "vo": "Room to breathe. (26.8-28.1)",
+   "subtitle_cards": [
+    "Room to breathe."
+   ],
+   "sound": "Water, mountain wind, one breath.",
+   "nl": "Zijn gezicht dichtbij boven het meer: hij ademt één keer rustig uit."
+  },
+  {
+   "t_start": 28.4,
+   "t_end": 29.6,
+   "shot": "NEW S03 THREAD ON THE SPOOL (living still, 4 percent push): the grey thread on the wooden spool beside the machine",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "Thread... (28.6-29.0)",
+   "subtitle_cards": [
+    "Thread,"
+   ],
+   "sound": "A thread tick, near silence.",
+   "nl": "Stilstaand macro: de grijze draad op de houten klos naast de naaimachine."
+  },
+  {
+   "t_start": 29.6,
+   "t_end": 31.7,
+   "shot": "NEW V06 THE LAST STITCH 0.0-2.1: the needle makes two slow stitches and stops in the up position; his fingertips stay",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "...until it holds. (29.9-31.2)",
+   "subtitle_cards": [
+    "until it holds."
+   ],
+   "sound": "Two soft machine ticks that slow and stop with the picture, a thread tick.",
+   "nl": "De naald maakt twee langzame laatste steken en stopt; de naad ligt recht."
+  },
+  {
+   "t_start": 31.7,
+   "t_end": 33.7,
+   "shot": "NEW V07 THE PRESS 0.0-2.0: the iron glides five centimetres along the seam with one puff of steam and lifts clear",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "Pressed flat... (31.9-32.8)",
+   "subtitle_cards": [
+    "Pressed flat..."
+   ],
+   "sound": "One long steam hiss, the iron sliding, its tock as it lifts; the hiss carries over the cut.",
+   "nl": "Het strijkijzer glijdt vijf centimeter over de naad, één wolk stoom, en komt omhoog."
+  },
+  {
+   "t_start": 33.7,
+   "t_end": 36.6,
+   "shot": "NEW V11 THE SEAM 0.0-2.9: the steam thins off the flat open seam while his thumbs slide apart and lift; ends on the flat seam, framed at HOME A's scale",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "...until the seam forgets it was two. (33.9-36.9)",
+   "subtitle_cards": [
+    "...until the seam",
+    "forgets it was two."
+   ],
+   "sound": "The hiss thinning to silence, thumbs on cloth, one breath under the pause.",
+   "nl": "De stoom trekt op van de platgeperste naad, zijn duimen strijken hem open en laten los; de naad is één vlak geworden."
+  },
+  {
+   "t_start": 36.6,
+   "t_end": 39.4,
+   "shot": "EXISTING HOME A 0.0-2.8: match cut from the seam to his bare hand and striped mocha sleeve on the leather armrest, fingers relax once",
+   "existing_clip": "SA",
+   "clip_in": 0,
+   "vo": "Worn, until it forgets it was new. (37.3-40.3, 'it was new' lands on the next picture)",
+   "subtitle_cards": [
+    "Worn, until it forgets"
+   ],
+   "sound": "Leather creak, lamp-lit room tone.",
+   "nl": "Match cut van de naad naar zijn hand en de gebreide mouw op de leren armleuning; zijn vingers ontspannen één keer."
+  },
+  {
+   "t_start": 39.4,
+   "t_end": 40.9,
+   "shot": "EXISTING HOME D 2.0-3.5: the cream stripes on the mocha knit over his knee, worn soft",
+   "existing_clip": "SD",
+   "clip_in": 2,
+   "vo": "(the line ends at 40.3 over the knee)",
+   "subtitle_cards": [
+    "it was new."
+   ],
+   "sound": "Room tone, the far evening street.",
+   "nl": "De strepen op zijn knie, zacht gedragen: het stuk is vergeten dat het nieuw was."
+  },
+  {
+   "t_start": 40.9,
+   "t_end": 43.4,
+   "shot": "NEW V08 TWO SIDES 0.0-2.5: the bordeaux-and-cream gilet flat on the table, one side open to the cream inside; his hand smooths it once and lifts",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "One piece. ... Two sides. (41.1-43.1)",
+   "subtitle_cards": [
+    "One piece. Two sides."
+   ],
+   "sound": "A whisper of wool and lining; the cloister room tone crosses in.",
+   "nl": "Het bordeaux-crème gilet plat op de tafel, één kant opengeslagen naar de crème binnenkant; zijn hand strijkt er één keer over."
+  },
+  {
+   "t_start": 43.4,
+   "t_end": 45.3,
+   "shot": "EXISTING COURTYARD B 0.0-1.9: the same spot and pose, the gilet reversed cream side out, bordeaux inside the collar, calm",
+   "existing_clip": "TBB",
+   "clip_in": 0,
+   "vo": "The same man. (43.6-44.9)",
+   "subtitle_cards": [
+    "The same man."
+   ],
+   "sound": "Cloister birds, the bell further off; then a hard cut to near silence.",
+   "nl": "Dezelfde plek, dezelfde houding, het gilet nu met de crème kant buiten: dezelfde man."
+  },
+  {
+   "t_start": 45.3,
+   "t_end": 47.1,
+   "shot": "NEW S04 THE LABEL, FLAT (living still, 2 percent push): the real label sewn inside the open neck of the mocha knit, the two words legible in the upper two thirds; subtitle in the lower third, never over the label. THE TURN at 69 percent",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "Two words. (45.8-46.7, after 0.5 s of silence)",
+   "subtitle_cards": [
+    "Two words."
+   ],
+   "sound": "Hard cut to near silence; one thread snip; a breath of room tone.",
+   "nl": "Harde snede naar stilte: het echte label, ingenaaid in de nek van het mokka breisel, de twee woorden leesbaar."
+  },
+  {
+   "t_start": 47.1,
+   "t_end": 48.9,
+   "shot": "NEW V09 THE NAME 0.0-1.8 (push-in only, thumb at rest, letters locked)",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "Not an address. (47.3-48.6)",
+   "subtitle_cards": [
+    "Not an address."
+   ],
+   "sound": "Satin, near silence, the lamp's warmth.",
+   "nl": "Langzame push-in op het label, zijn duim rust eronder: twee woorden, geen adres."
+  },
+  {
+   "t_start": 48.9,
+   "t_end": 50.9,
+   "shot": "EXISTING LAKE A 0.0-2.0: he stands at the chrome windscreen in black knitwear looking ahead over golden water, the launch glides",
+   "existing_clip": "LA",
+   "clip_in": 0,
+   "vo": "Moderno is the man. (49.1-50.8)",
+   "subtitle_cards": [
+    "Moderno is the man."
+   ],
+   "sound": "The bow wave, the low engine, open air.",
+   "nl": "Hij staat aan de chromen voorruit van de boot en kijkt vooruit over goud water: de man."
+  },
+  {
+   "t_start": 50.9,
+   "t_end": 52.9,
+   "shot": "NEW V05 THE MEASURE 0.0-2.0: his thumb presses the tape flat, the hand lifts the tape away; the chalk mark stays",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "Milano is the measure. (51.2-52.9)",
+   "subtitle_cards": [
+    "Milano is the measure."
+   ],
+   "sound": "A fingertip press, the tape lifting with a soft zip, one tick, atelier room tone.",
+   "nl": "Het meetlint op het uitgesneden paneel; zijn hand tilt het weg en de krijtmarkering blijft: de maat."
+  },
+  {
+   "t_start": 52.9,
+   "t_end": 54.6,
+   "shot": "EXISTING HOME B 0.0-1.7: he sits back in the cognac armchair by the tall window at blue hour, Milan's lights far behind him, profile to the right",
+   "existing_clip": "SB",
+   "clip_in": 0,
+   "vo": "Worn together. (53.3-54.2)",
+   "subtitle_cards": [
+    "Worn together."
+   ],
+   "sound": "Blue-hour room tone, Milan far below.",
+   "nl": "Hij zit in de leren fauteuil bij het raam in het blauwe uur met de lichten van Milaan achter zich: de man en de stad in één beeld."
+  },
+  {
+   "t_start": 54.6,
+   "t_end": 56.8,
+   "shot": "NEW V09 THE NAME 1.8-4.0: the thumb smooths the sewn label once and stays",
+   "existing_clip": "",
+   "clip_in": 1.8,
+   "vo": "The name comes last. (54.8-56.5)",
+   "subtitle_cards": [
+    "The name comes last."
+   ],
+   "sound": "Satin under a thumb, one breath of room tone.",
+   "nl": "Zijn duim strijkt één keer over het ingenaaide label en blijft liggen."
+  },
+  {
+   "t_start": 56.8,
+   "t_end": 59.2,
+   "shot": "NEW V10 THE COLLAR CLOSES 0.0-2.4: from behind, his hand smooths the folded collar down over the back of his neck and leaves; no label visible",
+   "existing_clip": "",
+   "clip_in": 0,
+   "vo": "Inside. ... Against the neck. (57.0-59.0)",
+   "subtitle_cards": [
+    "Inside.",
+    "Against the neck."
+   ],
+   "sound": "Knit on knit, one breath, room tone at the window.",
+   "nl": "Van achteren: zijn hand strijkt de kraag van het mokka jasje dicht over zijn nek, het label verdwijnt erin."
+  },
+  {
+   "t_start": 59.2,
+   "t_end": 62.2,
+   "shot": "EXISTING COURTYARD B 2.0-5.0: he lowers his eyes, then is still",
+   "existing_clip": "TBB",
+   "clip_in": 2,
+   "vo": "You wear it. ... Nobody reads it. (59.4-62.3)",
+   "subtitle_cards": [
+    "You wear it.",
+    "Nobody reads it."
+   ],
+   "sound": "Cloister hush; the birds stop.",
+   "nl": "Hij slaat zijn ogen neer en wordt stil: je draagt het, niemand leest het."
+  },
+  {
+   "t_start": 62.2,
+   "t_end": 65.2,
+   "shot": "EXISTING HOME B 2.0-5.0: one slow breath in the armchair at blue hour; small centred wordmark in at 62.4, out 10 frames before the end; last 6 frames dissolve into RAIN frame 0; tail graded to RAIN's cool temperature and lift",
+   "existing_clip": "SB",
+   "clip_in": 2,
+   "vo": "Moderno Milano. (62.8-63.7, once, lower and slower; no subtitle, the wordmark is the text)",
+   "subtitle_cards": [],
+   "sound": "Room tone, Milan far below, one breath; the bed runs on into the rain of frame one so picture and sound loop together.",
+   "nl": "De fauteuil bij het raam, één ademhaling, het kleine woordmerk in het midden; het laatste beeld lost op in de regenochtend van het begin."
+  }
+ ],
+ "vo_lines": [
+  "You won't see a name on him.",
+  "Not at the collar.",
+  "Not on the sleeve.",
+  "Nothing to read.",
+  "Only how it sits.",
+  "From the elegance of Milan...",
+  "...to the precision of the atelier.",
+  "A line in chalk.",
+  "Straight at the shoulder.",
+  "Cut once.",
+  "Room to breathe.",
+  "Thread... until it holds.",
+  "Pressed flat...",
+  "...until the seam forgets it was two.",
+  "Worn... until it forgets it was new.",
+  "One piece. ... Two sides.",
+  "The same man.",
+  "Two words.",
+  "Not an address.",
+  "Moderno is the man.",
+  "Milano is the measure.",
+  "Worn together.",
+  "The name comes last.",
+  "Inside. ... Against the neck.",
+  "You wear it. ... Nobody reads it.",
+  "Moderno Milano."
+ ],
+ "word_count": 104,
+ "caption_headline": "Worn, until it forgets it was new.",
+ "caption_sentence": "Two words, sewn inside, against the neck. Moderno is the man. Milano is the measure.",
+ "rationale": "WINNER AND WEIGHTING. All three judges chose plan A; the editor (picture/word match, cuts, feasibility) scored it 59, the copy chief 57, the brand judge 56, and all three named the same three faults: the turn line over a boat instead of the label, 'Worn together' over a look at the sky, and a last line that is 'if you know, you know' in a tuxedo. B had the better hook mechanics and the cause-and-effect pairing but a claims break ('So the sleeve ends where it should'), two figures in frame 1, two label videos and a needle sewing the label; C had the best loop, sound and label split but a made-to-measure claim. Grafted from B: the stack pushed flush as the atelier's first completion, the tape printed side down, the seam-to-sleeve match cut, subtitle never over the label, hard cut to silence before the name. Grafted from C: the label used twice from one generation (push only, then the thumb), the atelier sounds landing on the cuts as percussion, the dissolve loop in picture and sound. Nothing from 'A measure, taken first', 'Cut. To his measure' or the 'So...' lines was taken. OWNER RULES CHECKED. (1) Line 1 begins with 'You' at 0.5 s over RAIN's moving pillar wipe; the last line also begins with 'You'. (2) Luca is spread in 15 pieces of 1.5-3.0 s from 11 clips (RAIN 0-3, HOME C 0-2.5, LAKE C 0-2, HOME D 0-1.7 and 2-3.5, COURTYARD A 0-2, PIANO 6-7.6, LAKE B 3-4.8, HOME A 0-2.8, COURTYARD B 0-1.9 and 2-5, LAKE A 0-2, HOME B 0-1.7 and 2-5); no piece over 3.0 s, no two consecutive pieces from one clip, each placed under the line it shows; his face at 0, 9, 27, 43, 49, 53, 59 and 62 s, his back at 11, 20 and 22 s, his hands in every atelier shot in between, so he is never absent for more than a few seconds. (3) Every line is its picture: collar over the hood band, sleeve over the sleeve, nothing to read over plain stripes, shoulder over his shoulder then his shoulders at the glass, breath over the breath, two sides over both colours in one frame, two words over the real label, the man over the man, the measure over the tape, worn together over him with Milan behind him, the name over the thumb on the label, against the neck over the collar closing at his neck. (4) Nine atelier precision images (stack, rule, rule lift, shears, cut lift, spool, stitch, press, seam, tape) plus the label twice and the collar; every video starts from a finished state and the motion only reveals or completes it, and every piece ends on a completed state. (5) All kept lines are in and the structure is new: the pair bridges hook to work, 'Two words. Not an address.' is the turn, the triad follows on literal pictures, 'The name comes last.' opens the ending, the seam line is answered by 'Worn, until it forgets it was new.'. (6) Moving frame 1 plus 'You', 2-s cuts in the first 9 s, still-then-reveal rhythm, hard cut to silence at the turn (45.3 s of 65.2, 69 percent), quotable lines, a loop in picture (blue hour to grey morning, same grade) and sound. CLAIMS. No 'our', 'we', 'made', 'handmade', 'to measure', 'since', 'every piece'; 'the atelier' once in the owner's own line with the definite article; the atelier lines are captions of what is on screen or statements about how a piece is worn. The hook is rewritten to 'You won't see a name on him' because the product fact behind 'no name on the outside' could not be verified (wardrobe.json carries no descriptions; the product CDN is unreachable from this environment); the new line is true of the footage itself. 'Nobody reads it' describes a label inside a collar, not a product claim. No superlatives, no dolce vita, no call to action, no exclamation marks, no celebrity, no borrowed tagline. Only the model appears; hands are his, bare wrists; the only text is the real label (built from necklabel.jpg, upright, spelled from the logo, never with a subtitle over it) and the wordmark; the Galleria carries no readable signs and nobody else. START IMAGES AND CREDITS. 17 new start images as the owner asked: 12 video shots at 4 s (816 credits) and 5 living stills (40 credits), 856 in all, 144 in reserve, which is two full video redos in the order label, Galleria, collar, then stills at 8 each. Generation order: V09 label first so its fallback (the S04 still with a 2 percent push) is known before anything else is spent, then V01, then the macros, the stills last. PICTURE COUNT AND PACE. 32 distinct pictures in 65.2 s. The owner's figure of 35-40 is not reachable with 104 words at an unhurried 2.3 words per second and the minimum piece lengths he set (video 2.5-4 s, stills 1.5-2.5 s, existing 1.5-3 s); 32 is what the words allow without the cuts outrunning the narrator, and every video piece here is already at the short end (1.8-2.9 s of its 4 s). Do the 2-credit voice test before any image is generated: if the read runs longer than 2.3 words per second, trim toward 98 words in this order: drop 'Room to breathe.' (LAKE B then plays wordless as the breath after the needle stops), 'The same man.' to 'Same man.', 'Only how it sits.' to 'Only how it sits.' kept, 'Thread... until it holds.' to 'Thread. It holds.'; if it runs shorter, let the pauses breathe rather than adding pictures. The small overruns in the timeline (0.1-0.5 s where a line's last word lands on the next cut) are deliberate on lines 1, 7, 8, 12, 15 and tolerable elsewhere. SOUND. Own design, no music of ours; Instagram music on top: rain and tram for Milan, dome echo, then the atelier as percussion on the cuts (rule tick, chalk scrape, shear bite pre-laid four frames before the cut lift, two machine ticks that stop with the picture, steam hiss into the iron's tock, the hiss thinning under the seam, a tape zip, satin under a thumb, knit on knit), water and wind for the lake, room tone at home; a hard cut to near silence before 'Two words.'; the room-tone bed crosses the loop seam into the rain. LOOP. HOME B's last six frames dissolve into RAIN frame 0, both graded to the same cool temperature and lift; the wordmark is out ten frames before the end; confirm RAIN's pillar wipe is inside the first ten frames, otherwise set the in-point where the glide is already moving. RESERVE PIECES not in the cut: COURTYARD A 2.5-5.0, LAKE B 0-3.0, RAIN 1.8-4.0, PIANO 0-6 and 8-10, HOME C 2-4, LAKE C 2-4, LAKE A 2-4. Subtitles: burned in, one card at a time, lower third, in on the first phoneme, cut with the picture, 'You' capitalised at 0.5 s, no card under the final 'Moderno Milano.'. Narrator: deep American male, warm, close, about 2.3 words per second with the written pauses honoured, 'Moderno Milano.' once, lower and slower than everything before it."
+}
