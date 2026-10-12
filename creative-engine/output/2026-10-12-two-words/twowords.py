@@ -61,7 +61,7 @@ SHOT_REFS = {
     "S01": [REFS["antracite_pietra"][1]], "S02": [REFS["antracite_pietra"][1]], "S03": [], "S05": [],
     # opening v3 (12 okt, avond): H01 voeten (loafer eerst, set alleen voor de broekkleur), H02/H03 macro met een
     # productfoto, H04/H05 hij onder de koepel met set en detail
-    "H01": [REFS["loafer_grigio"][0], REFS["antracite_pietra"][0]], "H02": [REFS["antracite_pietra"][1]],
+    "H01": REFS["loafer_grigio"] + [REFS["antracite_pietra"][0]], "H02": [REFS["antracite_pietra"][1]],  # H01 v2: zijkant + paar, dan de set
     "H03": [REFS["antracite_pietra"][1]], "H04": REFS["antracite_pietra"], "H05": REFS["antracite_pietra"],
 }
 PERSON = {"V01", "V10", "V12", "H03", "H04", "H05"}  # zijn hoofd, nek of rug in beeld: placeholder + keep_en
