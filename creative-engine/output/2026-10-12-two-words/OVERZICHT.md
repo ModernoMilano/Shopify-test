@@ -10,9 +10,9 @@ Alles wat hieronder staat is nog **zonder video**: eerst jouw oordeel, dan pas S
 
 ## Links
 
-- Zip met alles (storyboard, overzicht van alle varianten, de 22 gekozen beelden op volle grootte, alle varianten op halve grootte): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/f7f2c77e-4989-4048-a885-ce6a63de8a6f.zip
+- Zip met alles (storyboard, overzicht van alle varianten, de 22 gekozen beelden op volle grootte, alle varianten op halve grootte): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/da69481b-ac05-4328-995c-368cc52243fe.zip
 - Storyboard (lange JPEG, scrollen): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/3dab5eda-2a88-4546-a265-3536881f57ad.jpg
-- Alle varianten met oordeel (lange JPEG): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/9c81649c-16eb-4d0a-9005-0797cd802a55.jpg
+- Alle varianten met oordeel (lange JPEG): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/b932836e-1791-4f07-8041-623be06b8628.jpg
 - De nieuwe beelden groot naast elkaar: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/fc0cfab6-4531-4646-a1f4-b1273ab12f7e.jpg
 - Oude-camerafilters, zes opties op drie beelden: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/2af5cbde-e2d8-4300-a0f0-b9decf7c049f.jpg
 - Dezelfde filters in beweging (42 s, per filter 3 s regen en 3 s avond): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/3e71a967-96ff-4187-ab80-13d690e30ec7.mp4
