@@ -64,3 +64,22 @@ uit het midden ook werkt (boven en onder rustige achtergrond).
 - 7 vs 8: de bestseller cashmere set met "now on sale" of met "50% off + garanties"?
 - 9: werkt de seizoenshook ("the cold is coming") op het two-tone cashmere product?
 - 10: is de UGC-stijl herhaalbaar met de knitted vest?
+
+## Generatie
+
+Gestart 2026-10-12 in Higgsfield Ads Studio (merk ModernoMilano, 10 creatives, 9:16, 40 credits). Run-id's per ad:
+
+| # | Product | Run-id |
+|---|---|---|
+| 1 | Reverso Set Total Nero | 4ce22e22-09a6-4533-8b4c-5107ea9eab2f |
+| 2 | Reverso Set Blu & Crema | 10033356-32ca-4a3b-9d9f-4d112ef18932 |
+| 3 | Reverso Set Pietra & Antracite | 54293c1a-62da-49d8-b419-151bc9094b1a |
+| 4 | Reverso Set Crema & Nero | a31091b1-627b-4244-9c12-4f4f831904d9 |
+| 5 | Reverso Set Cammello & Marrone | 06638b69-6dc5-4a27-9c9d-f2e8e92eac2a |
+| 6 | Reverso Set Bordeaux & Crema | 68fde8b9-0016-4e3d-8862-1f38ae02f22d |
+| 7 | Cashmere Lounge Set beige | aa20fb0a-1a3d-4001-965a-530052023577 |
+| 8 | Cashmere Lounge Set zwart | e9b63a3e-8df0-43ec-bd3f-43d82334779b |
+| 9 | Two-Tone Cashmere Set dark mocha | 61f4f44d-3435-43b5-ae86-56db2f927e2c |
+| 10 | Knitted Vest zwart | 33d9a37f-b12e-45a1-8b1f-e2c79ecd17fb |
+
+Controle voor livegang: elk beeld naast de productfoto leggen (kleur, snit, stof), de kop en body vergelijken met de bewezen copy hierboven, en de 1:1-uitsnede uit het midden checken.
