@@ -45,43 +45,53 @@ def shot(sid):
     raise SystemExit(f"onbekend shot {sid}")
 
 
+# Referenties per shot (controle 12 okt): een macro van stof krijgt hooguit één productfoto, anders tekent het model er
+# kledingstukken in. Alleen shots waarin hij als persoon staat (hoofd, nek, rug) krijgen de element-placeholder; bij een
+# losse hand zou de placeholder een gezicht kunnen oproepen (les uit de 100-batch van 7 okt).
+BORDEAUX_CREMA = ["60115df4-d231-4f40-8e92-13f60ec8adc6", "2532e56d-a5c5-4d95-9a41-db66c744e4e4",
+                  "f04007da-5064-4880-a95f-3817eeb7622e", "3115facd-f68d-4eae-b2f3-848b097f9bfc"]  # flat, detail, front, reversed
+SHOT_REFS = {
+    "V01": REFS["antracite_pietra"] + REFS["loafer_grigio"][:1],      # hij van achteren in de Galleria
+    "V02": [REFS["mocha"][1], REFS["antracite_pietra"][1], BORDEAUX_CREMA[0]],  # de stapel: drie kleurfoto's
+    "V03": [REFS["antracite_pietra"][1]], "V04": [REFS["antracite_pietra"][1]], "V05": [REFS["antracite_pietra"][1]],
+    "V06": [REFS["antracite_pietra"][1]], "V07": [REFS["antracite_pietra"][1]], "V11": [REFS["antracite_pietra"][1]],
+    "V08": [BORDEAUX_CREMA[0], BORDEAUX_CREMA[2], BORDEAUX_CREMA[3]],   # beide kanten
+    "V09": REFS["label"] + [REFS["mocha"][1]], "S04": REFS["label"] + [REFS["mocha"][1]],
+    "V10": [REFS["mocha"][1]], "V12": REFS["antracite_pietra"],
+    "S01": [REFS["antracite_pietra"][1]], "S02": [REFS["antracite_pietra"][1]], "S03": [], "S05": [],
+}
+PERSON = {"V01", "V10", "V12"}  # zijn hoofd, nek of rug in beeld: placeholder + keep_en
+
+
+def sid(s):
+    return s["id"].split()[0]
+
+
 def refs_for(s):
-    """Welke referenties mee: uit het veld 'references' van het plan (trefwoorden), max 4."""
-    r = s.get("references", "").lower()
-    out = []
-    if "label" in r:
-        out += REFS["label"]
-    if "mocha" in r or "two-tone" in r:
-        out += REFS["mocha"]
-    if "antracite" in r or "anthracite" in r:
-        out += REFS["antracite"]
-    if "nobile" in r:
-        out += REFS["nobile"]
-    if "pietra" in r:
-        out += REFS["antracite_pietra"]
-    if "loafer" in r:
-        out += REFS["loafer_grigio"]
-    return out[:4]
+    return SHOT_REFS.get(sid(s), [])[:4]
 
 
 def has_model(s):
-    t = (s["start_image_prompt_en"] + " " + s.get("references", "")).lower()
-    return "the model" in t or "his " in t or "he " in t or "face" in t or "luca" in t
+    return sid(s) in PERSON
 
 
 def image_request(s):
     prompt = s["start_image_prompt_en"]
     if has_model(s):
         # de placeholder brengt zijn gezicht; nooit zijn gezicht opnieuw beschrijven (SKILL.md)
-        prompt = prompt.replace("the model", EL, 1) if "the model" in prompt else f"{EL}: {prompt}"
+        prompt = prompt.replace("The model", EL, 1).replace("the model", EL, 1) if "he model" in prompt else f"{EL}: {prompt}"
         prompt += " " + P["keep_en"]
+    else:
+        prompt = prompt.replace("The model's", "His").replace("the model's", "his").replace("The model", "He").replace("the model", "he")
+        prompt += (" The hand in the picture is a man's hand with light warm skin and a faint natural texture. Only his hand "
+                   "is in the picture: no face, no second person.")
     parts = [prompt, HANDS, NO_TEXT, P["realism_en"]]
     medias = [{"value": v, "role": "image_references"} for v in refs_for(s)]
     return {"model": "nano_banana_pro", "resolution": "4k", "aspect_ratio": "9:16", "prompt": "\n\n".join(parts), "medias": medias}
 
 
 def video_request(s, start, draft=True, draft_job=None):
-    face = has_model(s) and "from behind" not in s["start_image_prompt_en"].lower()
+    face = has_model(s)  # ook van achteren: de gezichtsfoto's dragen zijn haar en nek (ref-4 is driekwart)
     who = ("He is the man in the start frame and in the reference images; use the reference images only for his face and "
            "hair. He keeps the same face, hair and clothes throughout. " if face else "")
     prompt = (f"{s['motion_prompt_en']} Small, natural movement, nothing else moves. {who}{HANDS} {NO_TEXT} Real-time motion "
