@@ -1,0 +1,68 @@
+{
+ "H01": {
+  "draft": {
+   "job_id": "03c0c681-733d-4418-8b09-545ad05d110e",
+   "index": 0
+  }
+ },
+ "H02": {
+  "draft": {
+   "job_id": "b18a9264-06de-4caf-ab64-e15612725fc6",
+   "index": 1
+  }
+ },
+ "H03": {
+  "draft": {
+   "job_id": "161a110f-2d6e-4d58-830e-926de764ec1f",
+   "index": 2
+  }
+ },
+ "H05": {
+  "draft": {
+   "job_id": "a7eb0d5a-9cf8-4f53-a047-840a3b4ecea7",
+   "index": 3
+  }
+ },
+ "V01": {
+  "draft": {
+   "job_id": "6b96000e-c621-4122-b338-60a15a04d19e",
+   "index": 4
+  }
+ },
+ "V02": {
+  "draft": {
+   "job_id": "338254d0-0da0-4882-b54c-cd691f9ba549",
+   "index": 5
+  }
+ },
+ "V04": {
+  "draft": {
+   "job_id": "44741e84-b613-4526-963d-eb094cf947bd",
+   "index": 7
+  }
+ },
+ "V05": {
+  "draft": {
+   "job_id": "39e19544-e29f-4d2e-ab12-23126a09168a",
+   "index": 8
+  }
+ },
+ "V06": {
+  "draft": {
+   "job_id": "e1cca7da-8a32-4a27-b02b-4bdc95c410d7",
+   "index": 9
+  }
+ },
+ "V07": {
+  "draft": {
+   "job_id": "acb240cd-456f-4279-8660-a88325da6b4d",
+   "index": 10
+  }
+ },
+ "V08": {
+  "draft": {
+   "job_id": "3b44a40f-9cf5-467d-a213-59edc407611f",
+   "index": 11
+  }
+ }
+}
