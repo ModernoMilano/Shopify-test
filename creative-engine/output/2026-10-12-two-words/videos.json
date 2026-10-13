@@ -160,9 +160,10 @@
  },
  "V06": {
   "draft": {
-   "job_id": "PENDING",
+   "job_id": "b88a87b1-e117-43a2-95d6-8bddc2641019",
    "index": 34,
-   "round": 3
+   "round": 3,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_011603_b88a87b1-e117-43a2-95d6-8bddc2641019.mp4"
   },
   "qa_r1": {
    "pass": false,

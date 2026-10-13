@@ -237,12 +237,19 @@
   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_192919_2964a835-b94b-44df-9ff3-a7dd0c01ab13.png",
   "note": "laatste ronde; id teruggevonden via bestandsgrootte"
  },
- "V08a": {
+ "V08a_v3": {
   "job_id": "232bf518-417f-43ce-b3cd-fd9718469427",
   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_005228_232bf518-417f-43ce-b3cd-fd9718469427.png"
  },
- "V08b": {
+ "V08b_v3": {
   "job_id": "1a76ac14-ab0c-487d-a778-91d9a4f6b49f",
   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_005227_1a76ac14-ab0c-487d-a778-91d9a4f6b49f.png"
+ },
+ "V08a": {
+  "job_id": "4a96fdd4-65b8-4dde-925d-7e43c8e26be4"
+ },
+ "V08b": {
+  "job_id": "f9c20632-cbb1-4e16-85c5-6207e656afde",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_011616_f9c20632-cbb1-4e16-85c5-6207e656afde.png"
  }
 }
