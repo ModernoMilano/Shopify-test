@@ -58,15 +58,6 @@
   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_183154_8101ac0e-89e8-42e0-8869-5a3bc7064831.png",
   "note": "laatste ronde; id teruggevonden via bestandsgrootte"
  },
- "V08a": {
-  "job_id": "3024c0be-91a0-47a8-ace5-cf0b5ef17ed4",
-  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_171619_3024c0be-91a0-47a8-ace5-cf0b5ef17ed4.png"
- },
- "V08b": {
-  "job_id": "2964a835-b94b-44df-9ff3-a7dd0c01ab13",
-  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_192919_2964a835-b94b-44df-9ff3-a7dd0c01ab13.png",
-  "note": "laatste ronde; id teruggevonden via bestandsgrootte"
- },
  "V09a": {
   "job_id": "eb7f6bcd-dafb-4693-a2c8-a2d406e1491c",
   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_171619_eb7f6bcd-dafb-4693-a2c8-a2d406e1491c.png"
@@ -236,5 +227,22 @@
  "V12a_v1": {
   "job_id": "bac583c2-72d9-4238-911b-4fee9a1de461",
   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_171619_bac583c2-72d9-4238-911b-4fee9a1de461.png"
+ },
+ "V08a_v2": {
+  "job_id": "3024c0be-91a0-47a8-ace5-cf0b5ef17ed4",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_171619_3024c0be-91a0-47a8-ace5-cf0b5ef17ed4.png"
+ },
+ "V08b_v2": {
+  "job_id": "2964a835-b94b-44df-9ff3-a7dd0c01ab13",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_192919_2964a835-b94b-44df-9ff3-a7dd0c01ab13.png",
+  "note": "laatste ronde; id teruggevonden via bestandsgrootte"
+ },
+ "V08a": {
+  "job_id": "232bf518-417f-43ce-b3cd-fd9718469427",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_005228_232bf518-417f-43ce-b3cd-fd9718469427.png"
+ },
+ "V08b": {
+  "job_id": "1a76ac14-ab0c-487d-a778-91d9a4f6b49f",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_005227_1a76ac14-ab0c-487d-a778-91d9a4f6b49f.png"
  }
 }

@@ -10,7 +10,7 @@ ROUNDS = {
   "V12": [{"a": "img/orig/V12a_v1.png", "b": "img/orig/V12b_v1.png"}, {"a": "img/orig/V12a_v2.png", "b": "img/orig/V12b_v2.png"}, {"a": "img/V12a.png", "b": "img/V12b.png"}],
   "V10": [{"a": "img/orig/V10a_v1.png", "b": "img/orig/V10b_v1.png"}, {"a": "img/orig/V10a_v2.png", "b": "img/orig/V10b_v2.png"}, {"a": "img/orig/V10a_v3.png", "b": "img/orig/V10b_v3.png"}, {"a": "img/V10a.png", "b": "img/V10b.png"}, {"a": "img/V10b_crop.png", "b": "img/V10b.png"}],
   "V01": [{"a": "img/orig/V01a_v1.png", "b": "img/orig/V01b_v1.png"}, {"a": "img/V01a.png", "b": "img/V01b.png"}],
-  "V08": [{"a": "img/orig/V08a_v1.png", "b": "img/orig/V08b_v1.png"}, {"a": "img/V08a.png", "b": "img/V08b.png"}],
+  "V08": [{"a": "img/orig/V08a_v1.png", "b": "img/orig/V08b_v1.png"}, {"a": "img/orig/V08a_v2.png", "b": "img/orig/V08b_v2.png"}, {"a": "img/V08a.png", "b": "img/V08b.png"}],
   "V11": [{"a": "img/orig/V11a_v1.png", "b": "img/orig/V11b_v1.png"}, {"a": "img/orig/V11a_v2.png", "b": "img/orig/V11b_v2.png"}, {"a": "img/V11a.png", "b": "img/V11b.png"}],
   "S02": [{"a": "img/S02a.png", "b": "img/S02b.png"}],
   "S05": [{"a": "img/orig/S05a_v1.png", "b": "img/orig/S05b_v1.png"}, {"a": "img/orig/S05a_v2.png", "b": "img/orig/S05b_v2.png"}, {"a": "img/S05a.png", "b": "img/S05b.png"}],
@@ -23,7 +23,8 @@ V10_CROP = {"a": "img/V10b_crop.png", "b": "img/V10b.png"}  # ronde 5 van V10: a
 # welke journal hoort bij welke ronde van een sid (volgorde van de journals op de commandoregel = chronologisch)
 # we nemen aan: voor sids met meerdere rondes komen de journals in chronologische volgorde binnen; elke nieuwe journal met die sid = volgende ronde
 OWNER_REJECT = {("V01", 0, "b"): "door de eigenaar afgekeurd: kraag verkeerd om (binnenkleur buiten)", ("V08", 0, "a"): "door de eigenaar afgekeurd: bordeaux binnenin de kraag",
-                ("V10", 2, "b"): "door de eigenaar afgekeurd: polokraag, niet de capuchonjas", ("V12", 1, "b"): "door de eigenaar afgekeurd: gevilte wol met raglannaad, niet zijn gilet"}
+                ("V10", 2, "b"): "door de eigenaar afgekeurd: polokraag, niet de capuchonjas", ("V12", 1, "b"): "door de eigenaar afgekeurd: gevilte wol met raglannaad, niet zijn gilet",
+                ("V08", 1, "b"): "alsnog afgekeurd bij de videokeuring: crème bies langs beide armsgaten (binnenkleur bij de armsgaten)"}
 UNCHECKED = {"S02": [{"file": "img/orig/S02a_v1.png", "label": "S02a (ronde 1)", "note": "op zicht afgewezen: een afgewerkt kledingstuk met een snede erin, geen losse stof"},
                      {"file": "img/orig/S02b_v1.png", "label": "S02b (ronde 1)", "note": "op zicht afgewezen: gedrukte merknaam op de kraag, rits en tee in beeld"}],
              "H04": [{"file": "img/orig/H04a_v1.png", "label": "H04a (ronde 1)", "note": "op zicht afgewezen: zijn gezicht staat in profiel in beeld, het moet afgewend blijven tot H05"},
