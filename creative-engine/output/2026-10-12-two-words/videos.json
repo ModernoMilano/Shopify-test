@@ -2,67 +2,118 @@
  "H01": {
   "draft": {
    "job_id": "03c0c681-733d-4418-8b09-545ad05d110e",
-   "index": 0
+   "index": 0,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_03c0c681-733d-4418-8b09-545ad05d110e.mp4"
   }
  },
  "H02": {
   "draft": {
    "job_id": "b18a9264-06de-4caf-ab64-e15612725fc6",
-   "index": 1
+   "index": 1,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_b18a9264-06de-4caf-ab64-e15612725fc6.mp4"
   }
  },
  "H03": {
   "draft": {
    "job_id": "161a110f-2d6e-4d58-830e-926de764ec1f",
-   "index": 2
+   "index": 2,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000605_161a110f-2d6e-4d58-830e-926de764ec1f.mp4",
+   "rejected": "label met merknaam op de buitenkant van de kraag (door de labeluitzondering in de tekstregel)"
+  },
+  "draft_v1": {
+   "job_id": "161a110f-2d6e-4d58-830e-926de764ec1f",
+   "index": 2,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000605_161a110f-2d6e-4d58-830e-926de764ec1f.mp4",
+   "rejected": "label met merknaam op de buitenkant van de kraag (door de labeluitzondering in de tekstregel)"
   }
  },
  "H05": {
   "draft": {
    "job_id": "a7eb0d5a-9cf8-4f53-a047-840a3b4ecea7",
-   "index": 3
+   "index": 3,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000605_a7eb0d5a-9cf8-4f53-a047-840a3b4ecea7.mp4"
   }
  },
  "V01": {
   "draft": {
    "job_id": "6b96000e-c621-4122-b338-60a15a04d19e",
-   "index": 4
+   "index": 4,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_6b96000e-c621-4122-b338-60a15a04d19e.mp4"
   }
  },
  "V02": {
   "draft": {
    "job_id": "338254d0-0da0-4882-b54c-cd691f9ba549",
-   "index": 5
+   "index": 5,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000605_338254d0-0da0-4882-b54c-cd691f9ba549.mp4"
   }
  },
  "V04": {
   "draft": {
    "job_id": "44741e84-b613-4526-963d-eb094cf947bd",
-   "index": 7
+   "index": 7,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000605_44741e84-b613-4526-963d-eb094cf947bd.mp4"
   }
  },
  "V05": {
   "draft": {
    "job_id": "39e19544-e29f-4d2e-ab12-23126a09168a",
-   "index": 8
+   "index": 8,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_39e19544-e29f-4d2e-ab12-23126a09168a.mp4"
   }
  },
  "V06": {
   "draft": {
    "job_id": "e1cca7da-8a32-4a27-b02b-4bdc95c410d7",
-   "index": 9
+   "index": 9,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_e1cca7da-8a32-4a27-b02b-4bdc95c410d7.mp4"
   }
  },
  "V07": {
   "draft": {
    "job_id": "acb240cd-456f-4279-8660-a88325da6b4d",
-   "index": 10
+   "index": 10,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_acb240cd-456f-4279-8660-a88325da6b4d.mp4"
   }
  },
  "V08": {
   "draft": {
    "job_id": "3b44a40f-9cf5-467d-a213-59edc407611f",
-   "index": 11
+   "index": 11,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_3b44a40f-9cf5-467d-a213-59edc407611f.mp4"
+  }
+ },
+ "V03": {
+  "draft": {
+   "job_id": "306b6198-ca6a-409a-9993-012e88d07f49",
+   "index": 6,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000833_306b6198-ca6a-409a-9993-012e88d07f49.mp4"
+  }
+ },
+ "V09": {
+  "draft": {
+   "job_id": "ee6a4a00-455e-4b6c-9bf8-caffb464c98a",
+   "index": 12
+  }
+ },
+ "V10": {
+  "draft": {
+   "job_id": "7aa7ddd3-0bec-4bb5-8502-3f631845ba97",
+   "index": 13,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000833_7aa7ddd3-0bec-4bb5-8502-3f631845ba97.mp4"
+  }
+ },
+ "V11": {
+  "draft": {
+   "job_id": "bfe3d62f-f7b8-4db9-8c61-a9f1fc9310ae",
+   "index": 14,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000833_bfe3d62f-f7b8-4db9-8c61-a9f1fc9310ae.mp4"
+  }
+ },
+ "V12": {
+  "draft": {
+   "job_id": "f4779414-a0a9-4761-bdd2-78ce86c93928",
+   "index": 15
   }
  }
 }

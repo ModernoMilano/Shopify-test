@@ -116,7 +116,11 @@ def video_request(s, start, draft=True, draft_job=None):
     face = has_model(s)  # ook van achteren: de gezichtsfoto's dragen zijn haar en nek (ref-4 is driekwart)
     who = ("He is the man in the start frame and in the reference images; use the reference images only for his face and "
            "hair. He keeps the same face, hair and clothes throughout. " if face else "")
-    prompt = (f"{s['motion_prompt_en']} Small, natural movement, nothing else moves. {who}{HANDS} {NO_TEXT} Real-time motion "
+    # Video: de uitzondering voor het neklabel alleen bij V09 (het labelshot). Bij de andere shots tekende Seedance anders
+    # een label met de merknaam op de BUITENKANT van de kraag (H03, concept 13 okt).
+    no_text = NO_TEXT if sid(s) == "V09" else ("No text, lettering, numbers, logos, labels, tags, signs, brand names, watermarks or "
+                                              "borders anywhere in the picture; nothing is printed or sewn on the outside of any garment.")
+    prompt = (f"{s['motion_prompt_en']} Small, natural movement, nothing else moves. {who}{HANDS} {no_text} Real-time motion "
               "with natural motion blur, one continuous take.")
     medias = [{"role": "start_image", "value": start}]
     if face:
