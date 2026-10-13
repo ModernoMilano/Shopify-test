@@ -64,8 +64,8 @@
   },
   {
    "id": "H05 THE FIRST LOOK",
-   "kind": "video",
-   "seconds": 4,
+   "kind": "still",
+   "seconds": 0,
    "start_image_prompt_en": "9:16, 4K, vertical. Milan's Galleria Vittorio Emanuele II under the glass-and-iron dome at first light. Camera: full-frame digital camera, 85 mm lens at f/2.8, at eye height, a close three-quarter view of the model from his left, not a profile: both eyes visible, his head turned three-quarter to the camera; the frame runs from just below the shoulders to above the hairline, him off-centre on the right third, a stone pillar soft at the left edge. His eyes rest on a point just beside the lens and a little above it, not into the lens; mouth closed; a calm, settled expression caught between moments; he is in his mid-twenties, his hair full and combed back with volume. One light source: cool daylight through the glass dome above, with a warm bounce from the marble floor under his jaw; the octagon and the ribs of the dome beyond him a stop darker and out of focus. Clothing exactly the garments in the reference images: the anthracite reversible gilet in smooth matte cloth with no sheen, a polished silver metal zip zipped fully closed all the way to the top of the standing collar, the collar closed around the neck with both halves standing, anthracite on the outside and the pearl-grey inside showing only as a thin line at the fold, the armholes plain anthracite; the rounded neck of a pale stone tee showing only as a thin line above the closed zip. Far down the arcade, two distant passers-by, small and out of focus, faces unreadable, too far to move; shop fronts far away with shutters down and plain dark glass, no lettering. An unretouched photograph: natural matte skin with fine real texture and a faint stubble shadow, no beauty glow, real cloth, slight lens softness at the edges, muted warm colour, soft contrast. Must not appear: an open zip, a collar folded open, a black zip, any person near him, readable text, logos, signs, a watch, a ring, a bag, a border or vignette.",
    "motion_prompt_en": "He breathes once, the gilet rises and settles with the breath, and his eyes blink once, quickly and naturally; his eyes stay on the point just beside the lens, his mouth stays closed, his head stays still, nothing passes in front of his face. The camera is locked on a tripod with zero push-in and zero drift: the pillar edge on the left and the dome above stay in exactly the same place from the first frame to the last. The distant figures stay far and blurred; nothing else moves.",
    "sound": "One breath; the room tone of the Galleria carries straight into V01.",
@@ -78,7 +78,10 @@
    "start_image_prompt_v1_en": "9:16, 4K, vertical. Milan's Galleria Vittorio Emanuele II under the glass-and-iron dome at first light. Camera: full-frame digital camera, 85 mm lens at f/2.8, at eye height, a close three-quarter view of the model from his left: the frame runs from just below the shoulders to above the hairline, him off-centre on the right third, a stone pillar soft at the left edge. His head is turned three-quarter to the camera, his eyes on a point just beside the lens and a little above it, not into the lens; mouth closed; a calm, settled expression caught between moments. One light source: cool daylight through the glass dome above, with a warm bounce from the marble floor under his jaw; the octagon and the ribs of the dome beyond him a stop darker and out of focus. Clothing exactly the garments in the reference images: the anthracite reversible gilet in smooth matte woven cloth, zip closed to the top, the standing collar anthracite on the outside with the pearl-grey inside showing only as a thin line at the fold, the armholes and the outside of the collar plain anthracite; the rounded neck of a pale stone tee at the throat; hair combed back. Far down the arcade, two distant passers-by, small and out of focus, faces unreadable, too far to move; shop fronts far away with shutters down and plain dark glass, no lettering. An unretouched photograph: natural matte skin with fine real texture and a faint stubble shadow, no beauty glow, real cloth with visible weave, slight lens softness at the edges, muted warm colour, soft contrast. Must not appear: any person near him, readable text, logos, signs, a watch, a ring, a bag, a border or vignette.",
    "rounds": "ronde 1: a rits open en kraag naar buiten gevouwen (parelgrijs vlak), b een andere, oudere man in profiel; ronde 2: rits dicht tot boven, kraag dicht, driekwart met beide ogen, midden twintig",
    "motion_prompt_v1_en": "One action only: he breathes once, the gilet rises and settles with the breath, and his eyes blink once slowly; his eyes stay on the point just beside the lens, his mouth stays closed, his head stays still, nothing passes in front of his face. The camera holds, with at most a two percent push-in. The distant figures stay far and blurred; nothing else moves. He is the man in the start frame and in the reference images; use the reference images only for his face and hair and keep the same face, hair and clothes throughout. Real-time motion, one continuous take.",
-   "motion_prompt_v2_en": "One action only: he breathes once, the gilet rises and settles with the breath, and his eyes blink once slowly; his eyes stay on the point just beside the lens, his mouth stays closed, his head stays still, nothing passes in front of his face. The camera holds, with at most a two percent push-in. The distant figures stay far and blurred; nothing else moves. He is the man in the start frame and in the reference images; use the reference images only for his face and hair and keep the same face, hair and clothes throughout. Real-time motion, one continuous take."
+   "motion_prompt_v2_en": "One action only: he breathes once, the gilet rises and settles with the breath, and his eyes blink once slowly; his eyes stay on the point just beside the lens, his mouth stays closed, his head stays still, nothing passes in front of his face. The camera holds, with at most a two percent push-in. The distant figures stay far and blurred; nothing else moves. He is the man in the start frame and in the reference images; use the reference images only for his face and hair and keep the same face, hair and clothes throughout. Real-time motion, one continuous take.",
+   "kind_v1": "video",
+   "still_reason": "Seedance hield de camera en het hoofd niet stil (push-in 15 en 15 procent, hoofd draait, knipper van ruim een seconde) in twee rondes; het shot wordt een levende still met een push-in van 3 procent in de montage: het eerste gezicht van de film staat stil, zoals een portret.",
+   "motion_prompt_still_en": "Living still: a slow 3 percent push-in over the length of the piece, nothing else moves."
   },
   {
    "id": "V01 GALLERIA, FROM BEHIND",
@@ -136,48 +139,56 @@
    "kind": "video",
    "seconds": 4,
    "start_image_prompt_en": "9:16, 4K extreme macro. The presser foot and needle of a plain sewing machine at the end of a seam in anthracite wool-cashmere, the needle up, grey thread drawn taut from above, about ten centimetres of straight, even seam already behind the foot running toward camera; the model's fingertips guide the cloth from the left, bare wrist, black knit cuff; no watch, no ring. One lamp above the machine is the only light; the machine is unbranded and mostly out of frame. Full-frame digital camera, 100 mm macro, f/4. Must not appear: text or a brand on the machine, a second needle, a second hand, any face.",
-   "motion_prompt_en": "The needle makes exactly two slow, clearly separated stitches, each about one second long, the needle rising fully between them, while the cloth visibly feeds forward a few millimetres per stitch; then the needle halts in the up position and nothing moves for the last second. The fingertips stay where they are. Nothing else moves. Ends on the finished seam, still.",
+   "motion_prompt_en": "The needle stays still in the up position for the whole take. His fingertips slowly slide the anthracite cloth forward about one centimetre under the presser foot, so the dashed seam moves with the cloth; the hand moves only that little, then rests. Nothing else moves. Ends on the seam under the foot, still.",
    "sound": "Two soft machine ticks that slow and stop with the picture, a thread tick, room tone.",
    "risk_and_mitigation": "Medium: needle doubling, the stitch line drifting, the thread losing continuity. Two stitches maximum, one needle, shallow focus, dark cloth with light thread. Fallback (plan C): the needle still, his fingertips withdraw and the thread settles once.",
    "references": "Product photo MILANO REVERSO SET ANTRACITE & PIETRA for the cloth; MILANO CASHMERE VELA - BLACK for the cuff; ref-1 for skin tone.",
    "motion_prompt_v1_en": "The needle makes two slow final stitches while the feed advances the cloth a few millimetres each time, then stops in the up position; the hand wheel halts; the fingertips stay. Nothing else moves. Ends on the finished seam, still.",
-   "motion_prompt_v2_en": "The needle makes two slow final stitches while the feed advances the cloth a few millimetres each time, then stops in the up position; the hand wheel halts; the fingertips stay. Nothing else moves. Ends on the finished seam, still."
+   "motion_prompt_v2_en": "The needle makes two slow final stitches while the feed advances the cloth a few millimetres each time, then stops in the up position; the hand wheel halts; the fingertips stay. Nothing else moves. Ends on the finished seam, still.",
+   "motion_prompt_v3_en": "The needle makes exactly two slow, clearly separated stitches, each about one second long, the needle rising fully between them, while the cloth visibly feeds forward a few millimetres per stitch; then the needle halts in the up position and nothing moves for the last second. The fingertips stay where they are. Nothing else moves. Ends on the finished seam, still."
   },
   {
    "id": "V07 THE PRESS",
-   "kind": "video",
-   "seconds": 4,
+   "kind": "still",
+   "seconds": 0,
    "start_image_prompt_en": "9:16, 4K macro from a low angle. A plain matte steel tailor's iron with no text or badge resting on an open seam of the anthracite panel on a pressing board with a thin linen pressing cloth, the seam slightly raised ahead of the sole and flat behind it, a first small breath of steam; the model's hand on the handle, bare wrist, black knit cuff; no watch, no ring. Window light from the left so the steam reads. Full-frame digital camera, 50 mm, f/4. Must not appear: text on the iron, a cord in focus, a second hand, any face.",
    "motion_prompt_en": "The iron slides only about five centimetres toward the camera along the seam, staying entirely on the white pressing cloth and keeping its exact low, flat cast-iron shape and size; the cloth goes flat in its wake; then the iron rises just two or three centimetres and freezes. Nothing else moves; the pressing cloth stays plain white. Ends with the iron just above a flat seam, still.",
    "sound": "One long steam hiss under the words, the weight of the iron sliding on cloth, the iron's tock as it lifts; the hiss carries into the next shot.",
    "risk_and_mitigation": "Low to medium: steam rendering as smoke, the iron warping or sprouting lettering. One small puff, a short straight glide, a plain matte iron; check every frame for text.",
    "references": "Product photo MILANO REVERSO SET ANTRACITE & PIETRA for the cloth; MILANO CASHMERE VELA - BLACK for the cuff; ref-1 for skin tone.",
    "motion_prompt_v1_en": "The iron glides about five centimetres along the seam with one soft puff of steam, the cloth goes flat in its wake, then the iron lifts clear and holds with the steam thinning. Nothing else moves. Ends with the iron up and still over a flat seam.",
-   "motion_prompt_v2_en": "The iron glides about five centimetres along the seam, the cloth goes flat in its wake, then the iron lifts a few centimetres clear and holds. Nothing else moves. Ends with the iron up and still over a flat seam."
+   "motion_prompt_v2_en": "The iron glides about five centimetres along the seam, the cloth goes flat in its wake, then the iron lifts a few centimetres clear and holds. Nothing else moves. Ends with the iron up and still over a flat seam.",
+   "kind_v1": "video",
+   "still_reason": "Het strijkijzer veranderde in drie rondes van vorm zodra het bewoog; levende still met push-in van 3 procent.",
+   "motion_prompt_still_en": "Living still: a slow 3 percent push-in over the length of the piece, nothing else moves."
   },
   {
    "id": "V08 TWO SIDES",
    "kind": "video",
    "seconds": 4,
-   "start_image_prompt_en": "9:16, 4K, top-down, window light from the left. The bordeaux-and-cream reversible gilet laid flat on the oak cutting table, built from its product photos: the right front bordeaux side up, the left front already folded open so the cream inside shows from collar to hem, the collar turned so a band of bordeaux shows inside it; both colours in frame the whole time. The model's right hand rests on the fold, bare wrist, black knit cuff; no watch, no ring. Full-frame digital camera, 50 mm, f/4. Real cloth with soft creases. Must not appear: a label in this shot, text, a second hand, any face, any other garment. The armholes are plain: their edges are bordeaux on the bordeaux side with no cream binding, piping or lining showing anywhere along the armhole curves, and through the two armhole openings only the oak table shows. The cream appears only on the opened inner fronts and the inside of the collar.",
+   "start_image_prompt_en": "9:16, 4K, top-down macro, window light from the left. The upper part of the bordeaux-and-cream reversible gilet laid flat on the oak cutting table, exactly as in the reference images, framed tight from just above the standing collar to the middle of the chest so that both armholes and the hem are outside the frame. The left front lies bordeaux side up; the right front is folded open across the picture so its cream inside shows as a broad plain panel, with the silver zip teeth running along the open front edge where bordeaux turns to cream; the collar lies open with its cream inside visible. Both colours fill the frame, each as a plain field: no label, no tag, no stitching other than the zip, no second zip. His right hand rests on the fold line between the two colours, fingers relaxed, bare wrist, black knit cuff; no watch, no ring. Full-frame digital camera, 50 mm macro, f/4. Real cloth with soft creases, smooth matte woven surface with no sheen. Must not appear: an armhole, the hem, a label, text, a second hand, any face, any other garment, any cream edge or binding anywhere except the open front edge and the inside of the collar.",
    "motion_prompt_en": "His hand smooths the opened cream side once from collar to hem, the fold sharpens, then the hand lifts away. One pass, no second move; both colours stay in view. Ends with the hand lifted and the gilet still.",
    "sound": "A whisper of wool and lining, room tone from the cloister crossing into the atelier.",
    "risk_and_mitigation": "Medium: colours bleeding into each other, the fold changing shape. Product photos as references; the panel is already folded in the start image so the motion is only a smoothing hand (plan A's fallback adopted as the main version); check seam and collar frame by frame.",
    "references": "Product photos MILANO REVERSO SET BORDEAUX & CREMA and MILANO REVERSO SET CREMA & BORDEAUX (both sides); MILANO CASHMERE VELA - BLACK for the cuff; ref-1 for skin tone.",
    "start_image_prompt_v1_en": "9:16, 4K, top-down, window light from the left. The bordeaux-and-cream reversible gilet laid flat on the oak cutting table, built from its product photos: the right front bordeaux side up, the left front already folded open so the cream inside shows from collar to hem, the collar turned so a band of bordeaux shows inside it; both colours in frame the whole time. The model's right hand rests on the fold, bare wrist, black knit cuff; no watch, no ring. Full-frame digital camera, 50 mm, f/4. Real cloth with soft creases. Must not appear: a label in this shot, text, a second hand, any face, any other garment.",
-   "rounds": " | ronde 3 (13 okt): crème bies langs de armsgaten in V08b (videokeuring); armsgaten effen bordeaux, door de openingen alleen het hout"
+   "rounds": " | ronde 3 (13 okt): crème bies langs de armsgaten in V08b (videokeuring); armsgaten effen bordeaux, door de openingen alleen het hout | ronde 4: strak kader kraag tot borst, armsgaten buiten beeld (drie rondes crème langs de armsgaten)",
+   "start_image_prompt_v3_en": "9:16, 4K, top-down, window light from the left. The bordeaux-and-cream reversible gilet laid flat on the oak cutting table, built from its product photos: the right front bordeaux side up, the left front already folded open so the cream inside shows from collar to hem, the collar turned so a band of bordeaux shows inside it; both colours in frame the whole time. The model's right hand rests on the fold, bare wrist, black knit cuff; no watch, no ring. Full-frame digital camera, 50 mm, f/4. Real cloth with soft creases. Must not appear: a label in this shot, text, a second hand, any face, any other garment. The armholes are plain: their edges are bordeaux on the bordeaux side with no cream binding, piping or lining showing anywhere along the armhole curves, and through the two armhole openings only the oak table shows. The cream appears only on the opened inner fronts and the inside of the collar."
   },
   {
    "id": "V09 THE NAME",
-   "kind": "video",
-   "seconds": 4,
+   "kind": "still",
+   "seconds": 0,
    "start_image_prompt_en": "9:16, 4K macro built from the real label photograph (creative-engine/brand/assets/necklabel.jpg) and the logo file. At home, warm lamp light from the upper left, blue-hour window far out of focus beyond (matching HOME B). The dark mocha hooded knit jacket lies over the cognac leather armrest with its neck open toward camera; inside the back neck the ivory satin label is sewn flat with small even stitches along its edges, short ends folded under, the black script 'ModernoMilano' upright, centred, correctly spelled and sharp, slightly curving with the collar and partly shaded at one end; the cream band of the hood edge just visible beside it; no size label, no care label. The label sits in the upper two thirds of the frame; the lower third is plain knit. The model's thumb rests at the label's lower edge at frame 1, bare wrist, mocha knit cuff with the cream stripe; no watch, no ring. Full-frame digital camera, 100 mm macro, f/4. Must not appear: any other text, a second label, a misspelling, a second hand, any face.",
    "motion_prompt_en": "The camera is locked: the whole label and the thumb stay in frame exactly as in the start frame, no push-in, no drift. For the first 1.8 seconds nothing moves. Then the thumb glides once, slowly, left to right along the lower edge of the label, resting on the ivory satin just below the printed script and never touching or covering a single letter, so the full name stays completely readable in every frame; the label does not bend and the letters do not move; only the sheen shifts across the satin.",
    "sound": "Near silence after the hard cut: satin under a thumb, one breath of room tone, the lamp's warmth.",
    "risk_and_mitigation": "Highest in the film (text in motion). Build from necklabel.jpg plus the logo; keep the script centre-frame and still with motion only at the edge; three seeds minimum at 480p, step every frame at 4K for spelling, orientation and letter drift; only then 1080p. Subtitle never over the label (label upper two thirds, subtitle lower third). Generate this shot first, so the fallback is known before anything else is spent. Accepted fallback for both uses: the S04 still with a two percent push, no thumb. First call on the redo reserve, two passes.",
    "references": "creative-engine/brand/assets/necklabel.jpg and logo-moderno-milano.png (the label, exactly); product photo MILANO KNITTED TWO-TONE CASHMERE SET - DARK MOCHA (jacket, hood band, cuff stripe); frames of HOME A and HOME B for the armrest, lamp light and grade; ref-1 for skin tone.",
    "motion_prompt_v1_en": "0-1.8 s: a very slow push-in of about three percent, the thumb completely at rest, the letters locked (used under 'Not an address.'). 1.8-4.0 s: the thumb smooths the satin once, slowly, left to right, and stays; the sheen shifts across the script but the label does not bend and the letters do not move (used under 'The name comes last.'). Ends still.",
-   "motion_prompt_v2_en": "From 0 to 1.8 seconds a very slow push-in of about three percent, the thumb completely at rest, the letters locked. From 1.8 to 4 seconds the thumb smooths the satin once, slowly, left to right, and stays; the sheen shifts across the script but the label does not bend and the letters do not move."
+   "motion_prompt_v2_en": "From 0 to 1.8 seconds a very slow push-in of about three percent, the thumb completely at rest, the letters locked. From 1.8 to 4 seconds the thumb smooths the satin once, slowly, left to right, and stays; the sheen shifts across the script but the label does not bend and the letters do not move.",
+   "kind_v1": "video",
+   "still_reason": "In twee rondes bedekte de duim letters van het label; levende still met push-in van 3 procent, zodat de naam in elk frame volledig leesbaar is (beide keren dat het shot terugkomt een andere uitsnede van dezelfde push-in).",
+   "motion_prompt_still_en": "Living still: a slow 3 percent push-in over the length of the piece, nothing else moves."
   },
   {
    "id": "V10 THE COLLAR CLOSES",
@@ -318,7 +329,7 @@
   {
    "t_start": 8.6,
    "t_end": 11.2,
-   "shot": "NEW H05 THE FIRST LOOK 0.0-2.6: the first time we see his eyes: close three-quarter from his left under the dome, eyes just beside the lens, one breath, one slow blink; the reverse angle of V01",
+   "shot": "NEW H05 THE FIRST LOOK (living still, 3 percent push-in): the first time we see his eyes: close three-quarter from his left under the dome, eyes just beside the lens, one breath, one slow blink; the reverse angle of V01",
    "existing_clip": "",
    "clip_in": 0,
    "vo": "So where does that come from. (8.8-11.1; the question ends before V01 answers at 11.8)",
@@ -482,7 +493,7 @@
   {
    "t_start": 31.7,
    "t_end": 33.7,
-   "shot": "NEW V07 THE PRESS 0.0-2.0: the iron glides five centimetres along the seam with one puff of steam and lifts clear",
+   "shot": "NEW V07 THE PRESS (living still, 3 percent push-in): the iron glides five centimetres along the seam with one puff of steam and lifts clear",
    "existing_clip": "",
    "clip_in": 0,
    "vo": "Pressed flat... (31.9-32.8)",
@@ -574,7 +585,7 @@
   {
    "t_start": 47.1,
    "t_end": 48.9,
-   "shot": "NEW V09 THE NAME 0.0-1.8 (push-in only, thumb at rest, letters locked)",
+   "shot": "NEW V09 THE NAME (living still, 3 percent push-in):",
    "existing_clip": "",
    "clip_in": 0,
    "vo": "Not an address. (47.3-48.6)",
@@ -626,7 +637,7 @@
   {
    "t_start": 54.6,
    "t_end": 56.8,
-   "shot": "NEW V09 THE NAME 1.8-4.0: the thumb smooths the sewn label once and stays",
+   "shot": "NEW V09 THE NAME (living still, 3 percent push-in): the thumb smooths the sewn label once and stays",
    "existing_clip": "",
    "clip_in": 1.8,
    "vo": "The name comes last. (54.8-56.5)",

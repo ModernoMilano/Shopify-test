@@ -75,7 +75,21 @@
    "index": 3,
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000605_a7eb0d5a-9cf8-4f53-a047-840a3b4ecea7.mp4",
    "rejected": "Camera does not hold: a push-in of about 15 percent over the 4 s (scale search between frame 0.0 s and 4.0 s bottoms out; Minor: the blink is long, eyes closed from about 2.9 s to 3.7 s (closed at 3.0, 3.2, 3.4 and 3.6 s), reading as a closed"
-  }
+  },
+  "qa_r2": {
+   "pass": false,
+   "scores": [
+    4,
+    4
+   ],
+   "problems": [
+    "Push-in still present: ORB alignment of the man's region gives scale 1.147 between frame 0 and frame 96 (4.0 s) while the far background (dome, arcade) stays at scale 1.000; his head is clearly larger at 3.9 s than at 0.0 s (brow-to-chin ~142 px vs ~160 px in the 100% face crops).",
+    "Pillar edge drifts: the left pillar edge sits at x=113/480 in frame 0 and moves steadily to x=90 in frame 96 (108, 102, 96 at 1, 2, 3 s), so the frame is not locked as demanded.",
+    "Blink too long: eyelids start closing at 2.42 s (f58), stay fully closed from 2.50 s to 3.62 s (f60-f87) and only reopen at 3.67-3.75 s, i.e. ~1.2 s of closed eyes instead of a quick blink.",
+    "Minor: background figures walk across the floor (2.0-4.0 s, right of the man) rather than staying still."
+   ]
+  },
+  "decision": "levende still (push-in 3 procent in de montage) na twee of drie afgekeurde conceptrondes"
  },
  "V01": {
   "draft": {
@@ -146,10 +160,9 @@
  },
  "V06": {
   "draft": {
-   "job_id": "46d27f26-c4f3-4e08-b7e5-91d9ad75a414",
-   "index": 31,
-   "round": 2,
-   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_005157_46d27f26-c4f3-4e08-b7e5-91d9ad75a414.mp4"
+   "job_id": "PENDING",
+   "index": 34,
+   "round": 3
   },
   "qa_r1": {
    "pass": false,
@@ -169,6 +182,26 @@
    "index": 9,
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_e1cca7da-8a32-4a27-b02b-4bdc95c410d7.mp4",
    "rejected": "Action misses the prompt: instead of two slow final stitches the needle hammers up and down about 10 times at ~4 strokes; Physics: the feed never advances the cloth - the stitch line left of the foot is pixel-identical at 0 s and 3.3 s, so th"
+  },
+  "qa_r2": {
+   "pass": false,
+   "scores": [
+    4,
+    4
+   ],
+   "problems": [
+    "Not two slow stitches: the needle makes five fast strokes in two bursts - down-strokes at ~0.96 s and ~1.25 s (burst 1, 0.9-1.4 s) and at ~2.17 s, ~2.5 s and ~2.85 s (burst 2, 2.1-3.0 s), each cycle ~0.3 s, i.e. still machine-speed hammering rather than one-second stitches with a full rise between them.",
+    "Cloth does not feed: the dashed stitch line sits in the same place in frames 0, 30, 60 and 96 (2x crops of the cloth below the foot), so no visible forward feed of a few millimetres per stitch and the seam does not lengthen.",
+    "Needle, 0.75-3.0 s: six rapid jabs instead of two slow stitches - needle bar down at frames 19-20 (0.8 s), 26-27 (1.1 s), 48-49 (2.0 s), 55-56 (2.3 s), 64 (2.7 s) and 71 (3.0 s); each stroke lasts only 1-3 frames (<=0.12 s), two bursts of mechanical flicker rather than one-second stitches with the needle rising fully between them.",
+    "Cloth, 0-4 s: no feed. A kymograph of the dashed seam (band from (0,750) to (290,560)) shows the dashes in the same position at 0 s and 4.0 s, with only a 1-2 px jitter during each burst (around 1.0-1.3 s and 2.2-2.8 s) that snaps back; the stitched line does not lengthen behind the foot."
+   ]
+  },
+  "draft_v2": {
+   "job_id": "46d27f26-c4f3-4e08-b7e5-91d9ad75a414",
+   "index": 31,
+   "round": 2,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_005157_46d27f26-c4f3-4e08-b7e5-91d9ad75a414.mp4",
+   "rejected": "vijf snelle steken, geen doorvoer"
   }
  },
  "V07": {
@@ -204,7 +237,21 @@
    "round": 2,
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_001314_d16b77f0-8593-4e97-9f1f-4f87d6892ebb.mp4",
    "rejected": "Iron changes shape: at 0 s it is a low, flat sad iron with a thin rim; by 1.6-2.4 s and in the lifted end pose (3.6-4.0 ; Glide is far more than five centimetres: the iron starts mid-cloth and by 1.6-2.4 s its base sits in front of the white "
-  }
+  },
+  "qa_r2": {
+   "pass": false,
+   "scores": [
+    3,
+    3
+   ],
+   "problems": [
+    "Iron changes shape again: at 0.0 s it is the low flat wedge of start image V07b, by 2.0 s (f48) the body is already taller with a thicker rim, and from 3.0 s to 4.0 s (f72-f96) it is a high rounded dome with a heavy flange, clearly a different object.",
+    "Slides far more than five centimetres: between 2.0 s and 2.7 s (f48-f64) the body travels forward from mid-cloth to beyond the front edge of the pressing cloth (~30% of frame width) and grows markedly from perspective.",
+    "Lifts much higher than two or three centimetres: from 3.0 s onward the sole hovers more than a full body height above the cloth (sole at ~y 440 vs cloth at ~y 520-600 at 4.0 s), roughly 8-10 cm.",
+    "Iron shape/size, 1.5-4.0 s: at 0 s it is a low flat sad-iron about 310 px wide with a thin sole; by 2.3-2.7 s it has swollen into a tall rounded body with a thick rim about 420 px wide (roughly +40%), and at 3-4 s it is a bell-shaped dome - the round-2 'high round dome' is back."
+   ]
+  },
+  "decision": "levende still (push-in 3 procent in de montage) na twee of drie afgekeurde conceptrondes"
  },
  "V08": {
   "draft": {
@@ -267,7 +314,20 @@
    "index": 12,
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000833_ee6a4a00-455e-4b6c-9bf8-caffb464c98a.mp4",
    "rejected": "0.0-4.0 s: the thumb lies ON the printed script in every frame and hides 2-6 letters (0 s: 'oderno' covered, label left-; 0.0 s: first frame does not match img/V09b.png: the start image has the thumb resting on the knit BELOW the label (full "
-  }
+  },
+  "qa_r2": {
+   "pass": false,
+   "scores": [
+    5,
+    5
+   ],
+   "problems": [
+    "Thumb covers letters again: from 3.25 s (f78) to 4.0 s (f96) the thumb has risen onto the ivory satin and the thumbnail hides the lower half of the 'n' and 'o' of 'Milano' (4x crops at 3.5 s and 4.0 s), so the name is not fully readable in the last 0.75 s.",
+    "3.2-4.0 s, label lower right: the thumb glides up onto the ivory satin and covers the lower half of the final letters 'no' of 'Milano' (thumb top at y~330-341 in columns x~200-215 against a label bottom at y~436); the 4.0 s hold frame reads 'ModernoMila' plus two half-hidden letters, so the name is not fully readable in the final 0.8 s.",
+    "Minor: the thumb starts gliding at about 0.9 s (centroid x 263 at 0.83 s, 269 at 1.0 s, 298 at 2.0 s) instead of holding still until 1.8 s."
+   ]
+  },
+  "decision": "levende still (push-in 3 procent in de montage) na twee of drie afgekeurde conceptrondes"
  },
  "V10": {
   "draft": {
