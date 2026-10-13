@@ -4,6 +4,14 @@
    "job_id": "03c0c681-733d-4418-8b09-545ad05d110e",
    "index": 0,
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_03c0c681-733d-4418-8b09-545ad05d110e.mp4"
+  },
+  "qa_r1": {
+   "pass": true,
+   "scores": [
+    8,
+    9
+   ],
+   "problems": []
   }
  },
  "H02": {
@@ -11,6 +19,14 @@
    "job_id": "b18a9264-06de-4caf-ab64-e15612725fc6",
    "index": 1,
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_b18a9264-06de-4caf-ab64-e15612725fc6.mp4"
+  },
+  "qa_r1": {
+   "pass": true,
+   "scores": [
+    8,
+    9
+   ],
+   "problems": []
   }
  },
  "H03": {
@@ -25,13 +41,39 @@
    "index": 2,
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000605_161a110f-2d6e-4d58-830e-926de764ec1f.mp4",
    "rejected": "label met merknaam op de buitenkant van de kraag (door de labeluitzondering in de tekstregel)"
+  },
+  "qa_r1": {
+   "pass": true,
+   "scores": [
+    8,
+    8
+   ],
+   "problems": []
   }
  },
  "H05": {
   "draft": {
+   "job_id": "2ba49176-fda2-4dcb-a0ce-6475644fecc5",
+   "index": 30,
+   "round": 2
+  },
+  "qa_r1": {
+   "pass": false,
+   "scores": [
+    7,
+    6
+   ],
+   "problems": [
+    "Camera does not hold: a push-in of about 15 percent over the 4 s (scale search between frame 0.0 s and 4.0 s bottoms out at ~116 percent; the left pillar edge moves from x~110 px to x~75 px, the lamp on the pillar from x~125 to x~100, the zip pull from y~641 to y~713). The prompt allowed at most 2 percent.",
+    "Minor: the blink is long, eyes closed from about 2.9 s to 3.7 s (closed at 3.0, 3.2, 3.4 and 3.6 s), reading as a closed-eyes beat rather than one slow blink.",
+    "Minor: far background right (x~360-420, y~490-580 px at 0.0 s) a blurred pair of walkers becomes a single figure between 1.0 s and 2.0 s; it stays far and soft."
+   ]
+  },
+  "draft_v1": {
    "job_id": "a7eb0d5a-9cf8-4f53-a047-840a3b4ecea7",
    "index": 3,
-   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000605_a7eb0d5a-9cf8-4f53-a047-840a3b4ecea7.mp4"
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000605_a7eb0d5a-9cf8-4f53-a047-840a3b4ecea7.mp4",
+   "rejected": "Camera does not hold: a push-in of about 15 percent over the 4 s (scale search between frame 0.0 s and 4.0 s bottoms out; Minor: the blink is long, eyes closed from about 2.9 s to 3.7 s (closed at 3.0, 3.2, 3.4 and 3.6 s), reading as a closed"
   }
  },
  "V01": {
@@ -46,6 +88,14 @@
    "index": 4,
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_6b96000e-c621-4122-b338-60a15a04d19e.mp4",
    "rejected": "merknaam op de rug van het gilet (labeluitzondering in de prompt)"
+  },
+  "qa_r1": {
+   "pass": true,
+   "scores": [
+    8,
+    8
+   ],
+   "problems": []
   }
  },
  "V02": {
@@ -53,6 +103,14 @@
    "job_id": "338254d0-0da0-4882-b54c-cd691f9ba549",
    "index": 5,
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000605_338254d0-0da0-4882-b54c-cd691f9ba549.mp4"
+  },
+  "qa_r1": {
+   "pass": true,
+   "scores": [
+    6,
+    7
+   ],
+   "problems": []
   }
  },
  "V04": {
@@ -60,6 +118,14 @@
    "job_id": "44741e84-b613-4526-963d-eb094cf947bd",
    "index": 7,
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000605_44741e84-b613-4526-963d-eb094cf947bd.mp4"
+  },
+  "qa_r1": {
+   "pass": true,
+   "scores": [
+    7,
+    8
+   ],
+   "problems": []
   }
  },
  "V05": {
@@ -67,34 +133,93 @@
    "job_id": "39e19544-e29f-4d2e-ab12-23126a09168a",
    "index": 8,
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_39e19544-e29f-4d2e-ab12-23126a09168a.mp4"
+  },
+  "qa_r1": {
+   "pass": true,
+   "scores": [
+    8,
+    8
+   ],
+   "problems": []
   }
  },
  "V06": {
   "draft": {
+   "job_id": "46d27f26-c4f3-4e08-b7e5-91d9ad75a414",
+   "index": 31,
+   "round": 2
+  },
+  "qa_r1": {
+   "pass": false,
+   "scores": [
+    8,
+    5.5
+   ],
+   "problems": [
+    "Action misses the prompt: instead of two slow final stitches the needle hammers up and down about 10 times at ~4 strokes per second from 0 to 2.7 s (centre of frame, under the presser foot), then stops in the up position.",
+    "Physics: the feed never advances the cloth - the stitch line left of the foot is pixel-identical at 0 s and 3.3 s, so the needle sews in place without the seam growing.",
+    "At 24 fps the fast needle reads as a strobing, ghosted double needle in many frames (e.g. frames 3, 7, 9 of each cycle); at normal speed it looks like jitter rather than a deliberate last stitch.",
+    "Minor: the needle-up phase only occupies the last 1.3 s; the hand wheel is out of frame so its halt is never seen."
+   ]
+  },
+  "draft_v1": {
    "job_id": "e1cca7da-8a32-4a27-b02b-4bdc95c410d7",
    "index": 9,
-   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_e1cca7da-8a32-4a27-b02b-4bdc95c410d7.mp4"
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_e1cca7da-8a32-4a27-b02b-4bdc95c410d7.mp4",
+   "rejected": "Action misses the prompt: instead of two slow final stitches the needle hammers up and down about 10 times at ~4 strokes; Physics: the feed never advances the cloth - the stitch line left of the foot is pixel-identical at 0 s and 3.3 s, so th"
   }
  },
  "V07": {
   "draft": {
-   "job_id": "d16b77f0-8593-4e97-9f1f-4f87d6892ebb",
-   "index": 25,
-   "round": 2,
-   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_001314_d16b77f0-8593-4e97-9f1f-4f87d6892ebb.mp4"
+   "job_id": "f3532f02-5f0c-4966-82e9-b7b15682a649",
+   "index": 32,
+   "round": 3
   },
   "draft_v1": {
    "job_id": "acb240cd-456f-4279-8660-a88325da6b4d",
    "index": 10,
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_acb240cd-456f-4279-8660-a88325da6b4d.mp4",
    "rejected": "merklabel verschijnt op de persdoek bij het optillen van het ijzer"
+  },
+  "qa_r1": {
+   "pass": false,
+   "scores": [
+    8,
+    5.5
+   ],
+   "problems": [
+    "Iron changes shape: at 0 s it is a low, flat sad iron with a thin rim; by 1.6-2.4 s and in the lifted end pose (3.6-4.0 s, upper centre) the body has become a tall rounded dome with a thick base lip and a thicker handle loop - more than perspective explains at equal scale.",
+    "Glide is far more than five centimetres: the iron starts mid-cloth and by 1.6-2.4 s its base sits in front of the white pressing cloth on the bare dark wool over the seam (bottom centre).",
+    "Lift is high, not 'a few centimetres': the iron ends in the upper half of the frame, roughly one iron height above the cloth; it does hold still from ~3.6 s.",
+    "The seam does not go flat in the iron's wake: the raised ridge is still visible through the pressing cloth and in the foreground at 4.0 s.",
+    "Minor: the black knit cuff slides out of frame top-right as the arm rises (from ~3.1 s), leaving only bare forearm visible in the final second - plausible, but note the continuity."
+   ]
+  },
+  "draft_v2": {
+   "job_id": "d16b77f0-8593-4e97-9f1f-4f87d6892ebb",
+   "index": 25,
+   "round": 2,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_001314_d16b77f0-8593-4e97-9f1f-4f87d6892ebb.mp4",
+   "rejected": "Iron changes shape: at 0 s it is a low, flat sad iron with a thin rim; by 1.6-2.4 s and in the lifted end pose (3.6-4.0 ; Glide is far more than five centimetres: the iron starts mid-cloth and by 1.6-2.4 s its base sits in front of the white "
   }
  },
  "V08": {
   "draft": {
    "job_id": "3b44a40f-9cf5-467d-a213-59edc407611f",
    "index": 11,
-   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_3b44a40f-9cf5-467d-a213-59edc407611f.mp4"
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_3b44a40f-9cf5-467d-a213-59edc407611f.mp4",
+   "note": "startbeeld V08b afgekeurd door de videokeuring (crème bies langs de armsgaten); nieuw startbeeld in de maak"
+  },
+  "qa_r1": {
+   "pass": false,
+   "scores": [
+    6,
+    7.5
+   ],
+   "problems": [
+    "Brand rule: a cream binding of the inner side is visible along BOTH armhole edges in every frame 0-4.0 s (left armhole x≈60-100, right armhole x≈400-445, y≈220-380 of the 480x854 frame); the rule forbids the inner colour at the armholes and the product photo bc_flat shows no cream at the armholes. The piping is already present in the start image img/V08b.png, so it is inherited, not a Seedance motion error.",
+    "Minor: at 4.0 s the hand has left the frame completely instead of ending lifted above the gilet."
+   ]
   }
  },
  "V03": {
@@ -102,13 +227,42 @@
    "job_id": "306b6198-ca6a-409a-9993-012e88d07f49",
    "index": 6,
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000833_306b6198-ca6a-409a-9993-012e88d07f49.mp4"
+  },
+  "qa_r1": {
+   "pass": true,
+   "scores": [
+    7,
+    7.5
+   ],
+   "problems": []
   }
  },
  "V09": {
   "draft": {
+   "job_id": "f4514f60-861f-4b10-8ef2-87cf334a61c2",
+   "index": 33,
+   "round": 2
+  },
+  "qa_r1": {
+   "pass": false,
+   "scores": [
+    5,
+    4
+   ],
+   "problems": [
+    "0.0-4.0 s: the thumb lies ON the printed script in every frame and hides 2-6 letters (0 s: 'oderno' covered, label left-centre; 1.8 s: 'Mila' covered; 4.0 s: 'no' covered, right end). The full name ModernoMilano is never readable in a single frame, although the shot is THE NAME and the brief demands a legible label.",
+    "0.0 s: first frame does not match img/V09b.png: the start image has the thumb resting on the knit BELOW the label (full name visible), the hood's cream double stripes left and right, zip and striped cuff; the video opens about 1.7x tighter with the thumb already on the letters and the stripes, zip and cuff out of frame.",
+    "Minor: the push-in over 4 s is roughly 10-15 percent (label left edge x=40 px at 0 s to x=10 px at 4 s, right end leaves frame), not 3 percent.",
+    "Minor: the thumb already slides between 0 and 0.8 s instead of resting until 1.8 s.",
+    "Minor: the ivory hood/collar trim at bottom-left and right reads as the cream double stripe with brown line (matches mocha1); only partly in frame.",
+    "Frame 0 does not match the start image img/V09b.png: in the start image the thumb rests on the knit BELOW the label with the full name 'ModernoMilano' visible; in the video the thumb already lies ON the label at 0.0 s covering 'Moder' (x 0.20-0.40, y 0.46-0.56)."
+   ]
+  },
+  "draft_v1": {
    "job_id": "ee6a4a00-455e-4b6c-9bf8-caffb464c98a",
    "index": 12,
-   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000833_ee6a4a00-455e-4b6c-9bf8-caffb464c98a.mp4"
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000833_ee6a4a00-455e-4b6c-9bf8-caffb464c98a.mp4",
+   "rejected": "0.0-4.0 s: the thumb lies ON the printed script in every frame and hides 2-6 letters (0 s: 'oderno' covered, label left-; 0.0 s: first frame does not match img/V09b.png: the start image has the thumb resting on the knit BELOW the label (full "
   }
  },
  "V10": {
@@ -116,6 +270,14 @@
    "job_id": "7aa7ddd3-0bec-4bb5-8502-3f631845ba97",
    "index": 13,
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000833_7aa7ddd3-0bec-4bb5-8502-3f631845ba97.mp4"
+  },
+  "qa_r1": {
+   "pass": true,
+   "scores": [
+    8,
+    7
+   ],
+   "problems": []
   }
  },
  "V11": {
@@ -123,6 +285,14 @@
    "job_id": "bfe3d62f-f7b8-4db9-8c61-a9f1fc9310ae",
    "index": 14,
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000833_bfe3d62f-f7b8-4db9-8c61-a9f1fc9310ae.mp4"
+  },
+  "qa_r1": {
+   "pass": true,
+   "scores": [
+    8,
+    8.5
+   ],
+   "problems": []
   }
  },
  "V12": {
@@ -130,6 +300,14 @@
    "job_id": "f4779414-a0a9-4761-bdd2-78ce86c93928",
    "index": 15,
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000834_f4779414-a0a9-4761-bdd2-78ce86c93928.mp4"
+  },
+  "qa_r1": {
+   "pass": true,
+   "scores": [
+    7,
+    8
+   ],
+   "problems": []
   }
  }
 }
