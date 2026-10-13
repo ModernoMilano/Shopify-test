@@ -10,7 +10,7 @@ ROUNDS = {
   "V12": [{"a": "img/orig/V12a_v1.png", "b": "img/orig/V12b_v1.png"}, {"a": "img/orig/V12a_v2.png", "b": "img/orig/V12b_v2.png"}, {"a": "img/V12a.png", "b": "img/V12b.png"}],
   "V10": [{"a": "img/orig/V10a_v1.png", "b": "img/orig/V10b_v1.png"}, {"a": "img/orig/V10a_v2.png", "b": "img/orig/V10b_v2.png"}, {"a": "img/orig/V10a_v3.png", "b": "img/orig/V10b_v3.png"}, {"a": "img/V10a.png", "b": "img/V10b.png"}, {"a": "img/V10b_crop.png", "b": "img/V10b.png"}],
   "V01": [{"a": "img/orig/V01a_v1.png", "b": "img/orig/V01b_v1.png"}, {"a": "img/V01a.png", "b": "img/V01b.png"}],
-  "V08": [{"a": "img/orig/V08a_v1.png", "b": "img/orig/V08b_v1.png"}, {"a": "img/orig/V08a_v2.png", "b": "img/orig/V08b_v2.png"}, {"a": "img/V08a.png", "b": "img/V08b.png"}],
+  "V08": [{"a": "img/orig/V08a_v1.png", "b": "img/orig/V08b_v1.png"}, {"a": "img/orig/V08a_v2.png", "b": "img/orig/V08b_v2.png"}, {"a": "img/orig/V08a_v3.png", "b": "img/orig/V08b_v3.png"}, {"b": "img/V08b.png"}],  # ronde 4: variant a mislukte bij Higgsfield
   "V11": [{"a": "img/orig/V11a_v1.png", "b": "img/orig/V11b_v1.png"}, {"a": "img/orig/V11a_v2.png", "b": "img/orig/V11b_v2.png"}, {"a": "img/V11a.png", "b": "img/V11b.png"}],
   "S02": [{"a": "img/S02a.png", "b": "img/S02b.png"}],
   "S05": [{"a": "img/orig/S05a_v1.png", "b": "img/orig/S05b_v1.png"}, {"a": "img/orig/S05a_v2.png", "b": "img/orig/S05b_v2.png"}, {"a": "img/S05a.png", "b": "img/S05b.png"}],
@@ -64,6 +64,7 @@ for sid in titles:
         fmap = files[min(rnd, len(files) - 1)]
         lenses = results[(sid, rnd)]
         for v in "ab":
+            if v not in fmap: continue  # variant niet geleverd (mislukte job)
             ok = True; scores = []; probs = []
             for lens, r in lenses.items():
                 for x in r["variants"]:

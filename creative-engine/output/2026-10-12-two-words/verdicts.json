@@ -569,7 +569,7 @@
     "lenses": 2
    },
    {
-    "file": "img/V08a.png",
+    "file": "img/orig/V08a_v2.png",
     "label": "V08a (ronde 2)",
     "ok": false,
     "score": 5.5,
@@ -579,12 +579,42 @@
     "lenses": 2
    },
    {
-    "file": "img/V08b.png",
+    "file": "img/orig/V08b_v2.png",
     "label": "V08b (ronde 2)",
+    "ok": false,
+    "score": 7.5,
+    "note": "alsnog afgekeurd bij de videokeuring: crème bies langs beide armsgaten (binnenkleur bij de armsgaten)",
+    "round": 1,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V08a_v3.png",
+    "label": "V08a (ronde 3)",
+    "ok": false,
+    "score": 3.5,
+    "note": "Left armhole: a wide cream facing/bias band (approx. 2-3 cm, topstitched) runs along the entire armhole curve between the bordeaux and the wood (crops V08a_armL · score 3.5",
+    "round": 2,
+    "variant": "a",
+    "lenses": 2
+   },
+   {
+    "file": "img/orig/V08b_v3.png",
+    "label": "V08b (ronde 3)",
+    "ok": false,
+    "score": 4.5,
+    "note": "Left armhole: a thin continuous cream piping line runs along the entire armhole edge (crops V08b_armL_low, V08b_armL_x2) - the same defect that caused the round · score 4.5",
+    "round": 2,
+    "variant": "b",
+    "lenses": 2
+   },
+   {
+    "file": "img/V08b.png",
+    "label": "V08b (ronde 4)",
     "ok": true,
     "score": 7.5,
     "note": "goedgekeurd door beide controleurs · score 7.5",
-    "round": 1,
+    "round": 3,
     "variant": "b",
     "lenses": 2,
     "chosen": true
