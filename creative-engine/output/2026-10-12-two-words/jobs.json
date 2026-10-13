@@ -246,7 +246,8 @@
   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_005227_1a76ac14-ab0c-487d-a778-91d9a4f6b49f.png"
  },
  "V08a": {
-  "job_id": "4a96fdd4-65b8-4dde-925d-7e43c8e26be4"
+  "job_id": "4a96fdd4-65b8-4dde-925d-7e43c8e26be4",
+  "failed": "Higgsfield: job failed na 15 min (ronde 4)"
  },
  "V08b": {
   "job_id": "f9c20632-cbb1-4e16-85c5-6207e656afde",
