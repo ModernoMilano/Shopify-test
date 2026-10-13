@@ -15,10 +15,10 @@
  },
  "H03": {
   "draft": {
-   "job_id": "161a110f-2d6e-4d58-830e-926de764ec1f",
-   "index": 2,
-   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000605_161a110f-2d6e-4d58-830e-926de764ec1f.mp4",
-   "rejected": "label met merknaam op de buitenkant van de kraag (door de labeluitzondering in de tekstregel)"
+   "job_id": "67fc836f-6ecc-46ad-b04b-d9ad97765c53",
+   "index": 22,
+   "round": 2,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_001106_67fc836f-6ecc-46ad-b04b-d9ad97765c53.mp4"
   },
   "draft_v1": {
    "job_id": "161a110f-2d6e-4d58-830e-926de764ec1f",
@@ -36,9 +36,16 @@
  },
  "V01": {
   "draft": {
+   "job_id": "4fc8e6b9-19d0-42f8-ac7b-218a604b19fe",
+   "index": 24,
+   "round": 2,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_001253_4fc8e6b9-19d0-42f8-ac7b-218a604b19fe.mp4"
+  },
+  "draft_v1": {
    "job_id": "6b96000e-c621-4122-b338-60a15a04d19e",
    "index": 4,
-   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_6b96000e-c621-4122-b338-60a15a04d19e.mp4"
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_6b96000e-c621-4122-b338-60a15a04d19e.mp4",
+   "rejected": "merknaam op de rug van het gilet (labeluitzondering in de prompt)"
   }
  },
  "V02": {
@@ -71,9 +78,16 @@
  },
  "V07": {
   "draft": {
+   "job_id": "d16b77f0-8593-4e97-9f1f-4f87d6892ebb",
+   "index": 25,
+   "round": 2,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_001314_d16b77f0-8593-4e97-9f1f-4f87d6892ebb.mp4"
+  },
+  "draft_v1": {
    "job_id": "acb240cd-456f-4279-8660-a88325da6b4d",
    "index": 10,
-   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_acb240cd-456f-4279-8660-a88325da6b4d.mp4"
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_acb240cd-456f-4279-8660-a88325da6b4d.mp4",
+   "rejected": "merklabel verschijnt op de persdoek bij het optillen van het ijzer"
   }
  },
  "V08": {
@@ -93,7 +107,8 @@
  "V09": {
   "draft": {
    "job_id": "ee6a4a00-455e-4b6c-9bf8-caffb464c98a",
-   "index": 12
+   "index": 12,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000833_ee6a4a00-455e-4b6c-9bf8-caffb464c98a.mp4"
   }
  },
  "V10": {
@@ -113,7 +128,8 @@
  "V12": {
   "draft": {
    "job_id": "f4779414-a0a9-4761-bdd2-78ce86c93928",
-   "index": 15
+   "index": 15,
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000834_f4779414-a0a9-4761-bdd2-78ce86c93928.mp4"
   }
  }
 }
