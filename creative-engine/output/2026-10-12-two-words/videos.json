@@ -274,7 +274,8 @@
    "job_id": "b63cf1cb-e8a7-4357-b2c5-5f1b90f4fbcb",
    "index": 50,
    "round": 2,
-   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_014101_b63cf1cb-e8a7-4357-b2c5-5f1b90f4fbcb.mp4"
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_014101_b63cf1cb-e8a7-4357-b2c5-5f1b90f4fbcb.mp4",
+   "approved": true
   },
   "qa_r1": {
    "pass": false,
@@ -294,6 +295,13 @@
    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_3b44a40f-9cf5-467d-a213-59edc407611f.mp4",
    "note": "startbeeld V08b afgekeurd door de videokeuring (crème bies langs de armsgaten); nieuw startbeeld in de maak",
    "rejected": "startbeeld V08b ronde 2 afgekeurd (crème langs de armsgaten)"
+  },
+  "qa_r2": {
+   "pass": true,
+   "scores": [
+    7,
+    8
+   ]
   }
  },
  "V03": {
