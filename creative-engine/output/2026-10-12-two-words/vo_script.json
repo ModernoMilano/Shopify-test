@@ -1,0 +1,202 @@
+[
+ {
+  "n": 1,
+  "text": "You will look twice.",
+  "at": 0.2,
+  "cards": [
+   "You will look twice."
+  ]
+ },
+ {
+  "n": 2,
+  "text": "Nothing on him says a word.",
+  "at": 2.1,
+  "cards": [
+   "Nothing on him",
+   "says a word."
+  ]
+ },
+ {
+  "n": 3,
+  "text": "And still, you look.",
+  "at": 4.7,
+  "cards": [
+   "And still, you look."
+  ]
+ },
+ {
+  "n": 4,
+  "text": "He never asked you to.",
+  "at": 6.6,
+  "cards": [
+   "He never asked you to."
+  ]
+ },
+ {
+  "n": 5,
+  "text": "So where does that come from.",
+  "at": 8.8,
+  "cards": [
+   "So where does",
+   "that come from."
+  ]
+ },
+ {
+  "n": 6,
+  "text": "From the elegance of Milan... to the precision of the atelier.",
+  "at": 11.8,
+  "cards": [
+   "From the elegance of Milan",
+   "to the precision",
+   "of the atelier."
+  ]
+ },
+ {
+  "n": 7,
+  "text": "A line in chalk.",
+  "at": 17.3,
+  "cards": [
+   "A line in chalk."
+  ]
+ },
+ {
+  "n": 8,
+  "text": "Straight at the shoulder.",
+  "at": 20.3,
+  "cards": [
+   "Straight at the shoulder."
+  ]
+ },
+ {
+  "n": 9,
+  "text": "Cut once.",
+  "at": 23.7,
+  "cards": [
+   "Cut once."
+  ]
+ },
+ {
+  "n": 10,
+  "text": "Room to breathe.",
+  "at": 26.8,
+  "cards": [
+   "Room to breathe."
+  ]
+ },
+ {
+  "n": 11,
+  "text": "Thread... until it holds.",
+  "at": 28.6,
+  "cards": [
+   "Thread...",
+   "...until it holds."
+  ]
+ },
+ {
+  "n": 12,
+  "text": "Pressed flat... until the seam forgets it was two.",
+  "at": 31.9,
+  "cards": [
+   "Pressed flat...",
+   "...until the seam forgets it was two."
+  ]
+ },
+ {
+  "n": 13,
+  "text": "Worn, until it forgets it was new.",
+  "at": 37.3,
+  "cards": [
+   "Worn, until it forgets",
+   "it was new."
+  ]
+ },
+ {
+  "n": 14,
+  "text": "One piece. ... Two sides.",
+  "at": 41.1,
+  "cards": [
+   "One piece.",
+   "Two sides."
+  ]
+ },
+ {
+  "n": 15,
+  "text": "The same man.",
+  "at": 43.6,
+  "cards": [
+   "The same man."
+  ]
+ },
+ {
+  "n": 16,
+  "text": "Two words.",
+  "at": 45.8,
+  "cards": [
+   "Two words."
+  ]
+ },
+ {
+  "n": 17,
+  "text": "Not an address.",
+  "at": 47.3,
+  "cards": [
+   "Not an address."
+  ]
+ },
+ {
+  "n": 18,
+  "text": "Moderno is the man.",
+  "at": 49.1,
+  "cards": [
+   "Moderno is the man."
+  ]
+ },
+ {
+  "n": 19,
+  "text": "Milano is the measure.",
+  "at": 51.2,
+  "cards": [
+   "Milano is the measure."
+  ]
+ },
+ {
+  "n": 20,
+  "text": "Worn together.",
+  "at": 53.3,
+  "cards": [
+   "Worn together."
+  ]
+ },
+ {
+  "n": 21,
+  "text": "The name comes last.",
+  "at": 54.8,
+  "cards": [
+   "The name comes last."
+  ]
+ },
+ {
+  "n": 22,
+  "text": "Inside. ... Against the neck.",
+  "at": 57.0,
+  "cards": [
+   "Inside.",
+   "Against the neck."
+  ]
+ },
+ {
+  "n": 23,
+  "text": "You wear it. ... Nobody reads it.",
+  "at": 59.4,
+  "cards": [
+   "You wear it.",
+   "Nobody reads it."
+  ]
+ },
+ {
+  "n": 24,
+  "text": "Moderno Milano.",
+  "at": 62.8,
+  "cards": []
+ }
+]
