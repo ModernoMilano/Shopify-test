@@ -165,7 +165,7 @@ def src_path(key):
 def main(stem, look=None):
     plan = json.load(open(f"{TW}/plan.json"))
     chosen = json.load(open(f"{TW}/chosen.json"))
-    kinds = {s["id"]: s.get("kind", "video") for s in plan["new_shots"]}
+    kinds = {s["id"].split()[0]: s.get("kind", "video") for s in plan["new_shots"]}
     rows, zoom_seen = [], {}
     for r in plan["timeline"]:
         m = re.match(r"^NEW ([HVS]\d\d)", r["shot"])
