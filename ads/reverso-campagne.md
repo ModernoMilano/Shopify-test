@@ -36,3 +36,4 @@ Claude beheert deze campagne. Dit bestand is de bron van waarheid voor de regels
 | Datum (Amsterdam) | Actie | Budget voor | Budget na | Onderbouwing |
 |---|---|---|---|---|
 | 2026-10-13 01:10 | Lancering, 15 ads live | - | EUR 150 | Startinstelling |
+| 2026-10-14 03:54 | Observatie, geen actie: Windsor meldt dagbudget EUR 100. Niet door Claude gewijzigd, eigenaar gevraagd | EUR 150 | EUR 100 (gemeld) | Dag 1 (13 okt): EUR 169,13 spend, 0 aankopen, 150 klikken, frequentie 1,79 |
