@@ -6,7 +6,7 @@ Eén film, twee stemmen, en een versie zonder filter om te vergelijken. Beeld 10
 
 - **Grady, Portra 400** (mijn voorkeur, 67,2 s): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/d071667d-7b84-4a50-8791-4b3b11a32e8a.mp4
 - **Holden, Portra 400** (de tweede stem, 65,1 s): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/d9a0dc91-f88c-494a-a319-5f2135e6e27c.mp4
-- **Grady zonder filter** (ter vergelijking, 67,2 s): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/901e1edf-7c7c-4dfd-9adc-bfaa2b739d92.mp4
+- **Grady zonder filter** (ter vergelijking, 67,2 s): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/d7604547-b695-4b96-97dc-7931f53d34aa.mp4
 
 ## Wat je ziet
 

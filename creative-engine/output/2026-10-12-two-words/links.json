@@ -6,7 +6,7 @@
  "filters": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/2af5cbde-e2d8-4300-a0f0-b9decf7c049f.jpg",
  "filters_video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/3e71a967-96ff-4187-ab80-13d690e30ec7.mp4",
  "credits_start": 1000.52,
- "credits_nu": 23.37,
+ "credits_nu": 15.37,
  "spent_images": 360,
  "spent_other": 186.25,
  "spent_other_note": "Ads Studio 18:09, GPT Image 2.5 Flare 18:27, en reeksen Nano Banana 2 en Outpaint rond 19:05 en 21:45 UTC; niet door deze sessie aangevraagd",
@@ -16,8 +16,10 @@
  "spent_video_drafts": 312,
  "film_grady_portra": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/d071667d-7b84-4a50-8791-4b3b11a32e8a.mp4",
  "film_holden_portra": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/d9a0dc91-f88c-494a-a319-5f2135e6e27c.mp4",
- "film_grady_clean": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/901e1edf-7c7c-4dfd-9adc-bfaa2b739d92.mp4",
+ "film_grady_clean": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/d7604547-b695-4b96-97dc-7931f53d34aa.mp4",
  "film_note": "14 okt: montage v3 (67,2 s Grady / 65,1 s Holden), Portra 400 onder de tekst; 8 shots nog 480p-proefversies (V01, V03, V04, V05, V06, V08, V10, V11), 1080p kost 64 per shot",
  "film_grady_portra_v2": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/b77044e6-82eb-43f2-a11f-5b927997afbc.mp4",
- "film_holden_portra_v2": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/0041af47-4da5-405f-81fc-174d3395da03.mp4"
+ "film_holden_portra_v2": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/0041af47-4da5-405f-81fc-174d3395da03.mp4",
+ "film_grady_clean_v2": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/901e1edf-7c7c-4dfd-9adc-bfaa2b739d92.mp4",
+ "film_s04c": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261014_160648_2fce51ec-a688-4ca3-bc9e-d8270ad94137.png"
 }
