@@ -10,7 +10,9 @@ Gebruik: python3 build_edit_v3.py <stem> [look]      stem: grady of holden (map 
   hun bron toelaat (stills tot 2 s, clips tot hun einde), zodat elke zin op zijn eigen beeld blijft vallen. Het laatste
   shot gaat onder het logo naar zwart en mag zo nodig op zijn laatste frame blijven staan.
 - Ondertitelkaarten op de echte pauzes in de stem (zoals build_edit.py van 11 okt), met de whisper-woorden via difflib
-  aan de kaarttekst gekoppeld, zodat een verkeerd gehoord woord de wissel niet verschuift.
+  aan de kaarttekst gekoppeld, zodat een verkeerd gehoord woord de wissel niet verschuift. Een kaart die volgens de
+  kolom subtitle_cards van het plan op een later beeld hoort, begint nooit voor dat beeld: de still ervoor wordt korter
+  (tot 1,0 s) of de zin begint later.
 - Geluidslagen per scène (Galleria, atelier, villa, meer, thuis, binnenplaats, het label in stilte), als J-cut 0,3 s voor
   het beeld; één lage klap onder het logo. Geen muziek: die komt er bij het posten bij.
 """
@@ -151,6 +153,16 @@ def cards(path, at, texts, model):
     return out
 
 
+def card_row(plan_rows, l, text):
+    """De rij uit plan.json waar deze kaart volgens de kolom subtitle_cards op hoort (None als het plan er niets over zegt)."""
+    nc = norm(text)
+    for i, r in enumerate(plan_rows):
+        nr = "".join(norm(x) for x in r.get("subtitle_cards", []))
+        if nc and nr and (nc in nr or nr in nc) and r["t_start"] - 8 <= l["at"] <= r["t_end"] + 8:
+            return i
+    return None
+
+
 def src_path(key):
     name = EXIST.get(key, key)
     cands = [f"{TW}/vid/s/{name}.mp4", f"{TW}/vid/final/{name}.mp4", f"{TW}/vid/{name}.mp4", f"{TW}/vid/sm/{name}_raw.mp4"]
@@ -202,6 +214,8 @@ def main(stem, look=None):
         l["file"] = dst
         l["row"] = next(i for i, r in enumerate(rows) if r["plan"][0] <= l["at"] < r["plan"][1])
         l["lead"] = round(l["at"] - rows[l["row"]]["plan"][0], 3)
+        l["offs"] = cards(dst, 0.0, l["cards"], model)   # kaarttijden t.o.v. het begin van de zin
+        l["card_row"] = [card_row(plan["timeline"], l, ct) for _, _, ct in l["offs"]]
 
     def start_of(i):
         return round(sum(r["dur"] for r in rows[:i]), 3)
@@ -221,6 +235,24 @@ def main(stem, look=None):
                 if rest <= 0.001:
                     break
             at = max(start_of(i) + l["lead"], prev_end + GAP)
+        # een kaart die volgens het plan op een later beeld hoort: dat beeld mag niet na de kaart beginnen. Eerst de
+        # stills ertussen inkorten (tot 1,0 s), anders de zin later laten beginnen (14 okt: "until the seam" begon
+        # 0,5 s voor de snede naar de naad, "it was new." 0,2 s voor de knie)
+        for k, (cs, ce, ct) in enumerate(l["offs"]):
+            rho = l["card_row"][k]
+            if rho is None or rho <= i:
+                continue
+            early = start_of(rho) - (at + cs)
+            if early <= 0.05:
+                continue
+            for j in range(rho - 1, i - 1, -1):
+                if rows[j]["kind"] == "still" and early > 0.05:
+                    cut = min(early, max(0.0, rows[j]["dur"] - 1.0))
+                    rows[j]["dur"] = round(rows[j]["dur"] - cut, 3)
+                    rows[j]["slack"] += cut
+                    early -= cut
+            if early > 0.05:
+                at += early
         l["at_final"] = round(at, 3)
         prev_end = at + l["len"]
     total = start_of(len(rows))
@@ -245,8 +277,12 @@ def main(stem, look=None):
     voice, subs = [], []
     for l in vo:
         voice.append({"file": l["file"], "at": l["at_final"], "rms": -20, "db": VOICE_DB.get(stem, 0.0)})
-        subs += [{"t": [round(a, 2), round(b, 2)], "text": t} for a, b, t in cards(l["file"], l["at_final"], l["cards"], model)]
+        subs += [{"t": [round(l["at_final"] + a, 2), round(l["at_final"] + b, 2)], "text": t} for a, b, t in l["offs"]]
     bounds = [start_of(i) for i in range(1, len(rows))]
+    last = start_of(len(rows) - 1)
+    for sb in subs:   # geen kaart tot in het slotbeeld met het woordmerk
+        if sb["t"][0] < last < sb["t"][1]:
+            sb["t"][1] = round(last - 0.04, 2)
     for sb in subs:   # geen kaart die net over een snede doorloopt of net ervoor begint
         for c in bounds:
             if c < sb["t"][1] < c + 0.35 and sb["t"][1] - 0.35 > sb["t"][0]:
