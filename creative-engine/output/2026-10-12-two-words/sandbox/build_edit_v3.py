@@ -25,8 +25,12 @@ VO = os.path.expanduser("~/film/vo")
 SR = 48000
 GAP = 0.3           # minste stilte tussen twee zinnen
 STILL_EXTRA = 2.0   # een still mag zo veel langer staan
-EXIST = {"PIANO": "piano2", "LB": "lagoB", "SA": "seraA", "SD": "seraD", "TBB": "tbB", "LA": "lagoA", "SB": "seraB"}
-CROP = {"TBB": [0.0134, 0.0027, 0.9866, 0.976]}   # rand uit de reel van 8 okt
+EXIST = {"PIANO": "piano2", "LB": "lagoB", "SA": "seraA", "SD": "seraD", "TBB": "tbB_fix", "LA": "lagoA", "SB": "seraB"}
+# tbB_fix: de binnenplaatsclip met colorbalance=gm=0.08:gs=0.04:gh=0.02 voor de look (controle 14 okt: onder Portra liep
+# de zuil naar roze-mauve; G lag 13 onder het gemiddelde van R en B, bij alle andere clips 0 tot -3)
+CROP = {"TBB": [0.0134, 0.0027, 0.9866, 0.976],   # rand uit de reel van 8 okt
+        "H05": [0.0, 0.08, 0.76, 0.92]}           # rechterrand met de groep voorbijgangers eruit (controle 14 okt: 5-6 figuren, de regel zegt 2-3)
+CLIP_ZOOM = {("TBB", 2.0): [1.0, 1.02]}  # rij 30: de laatste 0,8 s staat hij stil; een lichte push-in houdt het beeld levend
 NO_SMOOTH = {"SB"}
 VOICE_DB = {"grady": 1.8, "holden": 0.3}
 SCENE = {"H01": "galleria", "H02": "galleria", "H03": "galleria", "H04": "galleria", "H05": "galleria", "V01": "galleria",
@@ -198,6 +202,8 @@ def main(stem, look=None):
             row["slack"] = max(0.0, clip_len(row["path"]) - row["from"] - row["dur"] - 0.05)
         if key in CROP:
             row["crop"] = CROP[key]
+        if (key, row["from"]) in CLIP_ZOOM:
+            row["zoom"] = CLIP_ZOOM[(key, row["from"])]
         rows.append(row)
     for i, row in enumerate(rows):   # niet doorlopen in een stuk van dezelfde clip dat later nog komt
         if row["kind"] == "clip":
@@ -265,7 +271,7 @@ def main(stem, look=None):
     for row in rows:
         src[row["key"]] = row["path"]
         c = {"src": row["key"], "from": row["from"], "dur": row["dur"]}
-        if row["kind"] == "still":
+        if "zoom" in row:
             c["zoom"] = row["zoom"]
         if "crop" in row:
             c["crop"] = row["crop"]

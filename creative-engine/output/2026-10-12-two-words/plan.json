@@ -612,15 +612,15 @@
   {
    "t_start": 50.9,
    "t_end": 52.9,
-   "shot": "NEW V05 THE MEASURE 0.0-2.0: his thumb presses the tape flat, the hand lifts the tape away; the chalk mark stays",
+   "shot": "NEW V05 THE MEASURE 1.3-3.3: his thumb presses the tape flat, the hand lifts the tape away; the chalk mark stays",
    "existing_clip": "",
-   "clip_in": 0,
+   "clip_in": 1.3,
    "vo": "Milano is the measure. (51.2-52.9)",
    "subtitle_cards": [
     "Milano is the measure."
    ],
    "sound": "A fingertip press, the tape lifting with a soft zip, one tick, atelier room tone.",
-   "nl": "Het meetlint op het uitgesneden paneel; zijn hand tilt het weg en de krijtmarkering blijft: de maat."
+   "nl": "Het meetlint op het uitgesneden paneel; zijn hand tilt het weg en de krijtmarkering blijft: de maat. (Vanaf 1,3 s in de clip: daar tilt de hand het lint op; de eerste seconde rust hij er alleen op, controle 14 okt.)"
   },
   {
    "t_start": 52.9,
