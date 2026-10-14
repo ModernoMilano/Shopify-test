@@ -13,6 +13,10 @@
     9
    ],
    "problems": []
+  },
+  "final": {
+   "job_id": "06ecb072-1baf-4146-a948-38f69904aacd",
+   "resolution": "1080p"
   }
  },
  "H02": {
@@ -29,6 +33,10 @@
     9
    ],
    "problems": []
+  },
+  "final": {
+   "job_id": "d7ce1d96-667c-48d5-acb9-2a1fef997be1",
+   "resolution": "1080p"
   }
  },
  "H03": {
@@ -52,6 +60,10 @@
     8
    ],
    "problems": []
+  },
+  "final": {
+   "job_id": "77899981-8ddf-4ea1-98b8-1feb395a26ba",
+   "resolution": "1080p"
   }
  },
  "H05": {
@@ -115,6 +127,10 @@
     8
    ],
    "problems": []
+  },
+  "final": {
+   "job_id": null,
+   "note": "indiening geweigerd: 'Out of credits on plus (monthly) plan' hoewel het saldo 347 was; opnieuw proberen"
   }
  },
  "V02": {
@@ -131,6 +147,10 @@
     7
    ],
    "problems": []
+  },
+  "final": {
+   "job_id": "39c4c1c1-e2f2-4b7e-b3f7-1140c45899fe",
+   "resolution": "1080p"
   }
  },
  "V04": {
@@ -408,6 +428,10 @@
     8
    ],
    "problems": []
+  },
+  "final": {
+   "job_id": "7848af78-e162-4a71-b359-dc613dcca884",
+   "resolution": "1080p"
   }
  }
 }

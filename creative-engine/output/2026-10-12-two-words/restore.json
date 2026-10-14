@@ -1,0 +1,83 @@
+{
+ "images": {
+  "H01b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_224642_e1bffc9e-e101-424b-b447-3bd2124a61bf.png",
+  "H02b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_231221_3cdec1e6-b3cc-4ddf-8aff-010c4c361bbb.png",
+  "H03a": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_223145_7c913b12-0739-426d-ae78-5bd651992dfa.png",
+  "H04b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_223609_d8e95de8-aac9-443d-bcc2-9a6a4dc23cd4.png",
+  "H05b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_231221_23039de2-d07f-47b6-9d35-99daec39ba53.png",
+  "V01a": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_193032_c10891d9-6378-4525-a440-330a008a7f54.png",
+  "V02b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_183154_5ed7e018-e45a-4b48-9650-f906c9adc4d6.png",
+  "V03b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_171302_71841fd5-9740-47cb-895f-0290fb6c6a10.png",
+  "V04b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_171302_93b0e830-67d3-4941-a85a-ac44a3eee142.png",
+  "V05b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_171302_d4ee32ce-88cf-42a6-b80e-f6ab86520e9d.png",
+  "V06a": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_171302_81d22d36-cb5c-4eb5-9c67-1a35e4463577.png",
+  "V07b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_183154_8101ac0e-89e8-42e0-8869-5a3bc7064831.png",
+  "V08b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_011616_f9c20632-cbb1-4e16-85c5-6207e656afde.png",
+  "V09b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_171620_0fe4e0b4-73f7-4544-9d23-140d55d04592.png",
+  "V10b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_171621_746e8a35-aa0c-4491-89d3-2c83af35ff41.png",
+  "V11a": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_185050_c13cd780-e5af-4c73-bca8-323eaf5bdccc.png",
+  "V12a": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_192918_ae7b5396-1404-4a1d-b1b0-fe192b67205b.png",
+  "S01b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_171659_2280efea-82d6-4a2d-88b0-f916f70802b2.png",
+  "S02a": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_171700_941da6e3-9124-48b4-bf6d-567c2c262999.png",
+  "S03b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_171659_4a730fe7-7814-4186-b095-6efa60f3ee46.png",
+  "S04b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_171659_2e6ab9c3-3a07-4eb5-ab36-e382eadd4662.png",
+  "S05a": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261012_171700_46c489a6-39c7-4f07-b569-8e8d8e922e64.png"
+ },
+ "drafts": {
+  "H01": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_03c0c681-733d-4418-8b09-545ad05d110e.mp4",
+  "H02": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_b18a9264-06de-4caf-ab64-e15612725fc6.mp4",
+  "H03": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_001106_67fc836f-6ecc-46ad-b04b-d9ad97765c53.mp4",
+  "H05": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_005157_2ba49176-fda2-4dcb-a0ce-6475644fecc5.mp4",
+  "V01": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_001253_4fc8e6b9-19d0-42f8-ac7b-218a604b19fe.mp4",
+  "V02": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000605_338254d0-0da0-4882-b54c-cd691f9ba549.mp4",
+  "V04": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000605_44741e84-b613-4526-963d-eb094cf947bd.mp4",
+  "V05": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000604_39e19544-e29f-4d2e-ab12-23126a09168a.mp4",
+  "V06": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_011603_b88a87b1-e117-43a2-95d6-8bddc2641019.mp4",
+  "V07": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_005157_f3532f02-5f0c-4966-82e9-b7b15682a649.mp4",
+  "V08": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_014101_b63cf1cb-e8a7-4357-b2c5-5f1b90f4fbcb.mp4",
+  "V03": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000833_306b6198-ca6a-409a-9993-012e88d07f49.mp4",
+  "V09": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_005157_f4514f60-861f-4b10-8ef2-87cf334a61c2.mp4",
+  "V10": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000833_7aa7ddd3-0bec-4bb5-8502-3f631845ba97.mp4",
+  "V11": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000833_bfe3d62f-f7b8-4db9-8c61-a9f1fc9310ae.mp4",
+  "V12": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261013_000834_f4779414-a0a9-4761-bdd2-78ce86c93928.mp4"
+ },
+ "existing": {
+  "piano2": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261010_200027_7817443f-e388-4363-9953-28b2b6a158f1.mp4",
+  "tbA": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261008_201048_e1dfe650-dd2a-4a7d-a644-d7409ecfb11b.mp4",
+  "tbB": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261008_204109_6caa5655-b860-4a8f-9916-d256c6094c18.mp4",
+  "lagoA": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261008_220850_99e40dbb-52b0-423d-8fd6-f1167f2f5851.mp4",
+  "lagoB": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261008_222006_104510a3-7c38-4375-adae-32a0dc4a583d.mp4",
+  "lagoC": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261008_223941_08a46084-eef9-42f1-a945-e6fb858e609f.mp4",
+  "seraA": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261009_105013_592caa19-0508-49c7-b6b6-a1ae4f292cbd.mp4",
+  "seraB": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261009_105140_fb0f21ca-43b8-42f5-9d72-cfea44d7cc85.mp4",
+  "seraC": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261009_105013_71e5a8b9-eb9c-4cac-b785-7289256fe4e7.mp4",
+  "seraD": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261009_105013_b6dc1d62-c986-44bf-8d18-f789be4f7191.mp4"
+ },
+ "scripts": [
+  "creative-engine/output/2026-10-08-reels-focus/montage.py",
+  "creative-engine/output/2026-10-08-reels-focus/smooth.py",
+  "creative-engine/output/2026-10-11-film/film.py",
+  "creative-engine/output/2026-10-11-film/build_edit.py",
+  "creative-engine/output/2026-10-11-film/vochain.sh",
+  "creative-engine/output/2026-10-11-film/voqa.py",
+  "creative-engine/output/2026-10-11-film/split_read.py",
+  "creative-engine/output/2026-10-12-two-words/plan.json",
+  "creative-engine/output/2026-10-12-two-words/rows.py",
+  "creative-engine/output/2026-10-12-two-words/storyboard.py",
+  "creative-engine/output/2026-10-12-two-words/sandbox/vframe.py",
+  "creative-engine/output/2026-10-12-two-words/sandbox/strip.py",
+  "creative-engine/output/2026-10-12-two-words/sandbox/stillmp4.py",
+  "creative-engine/output/2026-10-12-two-words/sandbox/rough.py",
+  "creative-engine/output/2026-10-12-two-words/sandbox/looks_defs.py"
+ ],
+ "refs": {
+  "ref-1": "creative-engine/brand/assets/model/ref-1.jpg",
+  "ref-4": "creative-engine/brand/assets/model/ref-4.jpg",
+  "logo": "creative-engine/brand/assets/logo-moderno-milano.png",
+  "necklabel": "creative-engine/brand/assets/necklabel.jpg"
+ },
+ "crop": {
+  "V10b": "img/V10b_crop.png: crop (0,0,int(0.90*W),int(int(0.90*W)*16/9))"
+ },
+ "font": "https://raw.githubusercontent.com/google/fonts/main/ofl/cormorant/Cormorant%5Bwght%5D.ttf"
+}
