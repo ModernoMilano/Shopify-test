@@ -13,7 +13,7 @@ Afbeeldingen: tekst vertaald naar het Duits met dezelfde lettertypes (Montserrat
 | REVERSO_DE_03_Bordeaux_ShopDenLook | 120252095277910541 | Total Bordeaux: Shop den Look | Weste, T-Shirt und Hose. €175 |
 | REVERSO_DE_04_Bordeaux_KompletteLook | 120252095279040541 | Der komplette Look. €175 | Ein Set, zwei Looks. |
 | REVERSO_DE_05_Antracite_Boot | 120252095280590541 | Die Reverso Kollektion ist da | Zwei Farben. Ein Set. €175 |
-| REVERSO_DE_06_Blu_Studio | (wacht op upload foto) | Milano Reverso Set in Navy | Weste, T-Shirt und Hose. €175 |
+| REVERSO_DE_06_Blu_Studio | 120252095302200541 | Milano Reverso Set in Navy | Weste, T-Shirt und Hose. €175 |
 
 ## Primaire teksten
 
