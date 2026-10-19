@@ -1,12 +1,27 @@
 # Ad-batch 05: Exclusive Milano Lounge Set en Imperial Milano Zip Set
 
-Gemaakt op 19-10-2026. Er zijn 10 ads, één per kleur, elk in 1:1 (2160 × 2160) en 9:16 (2160 × 3840). Werkwijze:
+Gemaakt op 19-10-2026. Er zijn 10 ads, één per kleur. Werkwijze:
 
 - Per ad is één bewezen winnaar uit het account de blauwdruk.
 - Het beeld komt uit Nano Banana 2 (4K), met de productfoto's van Shopify als referentie.
 - Het echte logo en de typografie zijn er achteraf in gezet.
 
-**Alle beelden:** [ModernoMilano_batch05_beelden.zip](https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/98b8a7ba-c455-4079-819f-a2806d870b2e.zip), met de mappen `1x1` en `9x16`. Er is ook een [overzichtsblad](https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/09c33ee5-e93e-4044-8696-772194ccbce0.jpg).
+## Formaat: één 9:16-bestand per ad dat ook als 1:1 werkt
+
+Elke ad is één beeld van 2160 × 3840. Alles wat telt staat in het middelste vierkant, van y = 840 tot y = 3000: product, model, logo, tekst en prijs. Meta kan daardoor de 1:1 uit het midden snijden zonder dat er iets wegvalt. Boven en onder het vierkant staat alleen doorlopende achtergrond, zoals lucht, muur, vloer of papier.
+
+Per ad is het vierkant zo gevuld:
+
+| Ad | Hoe het middelste vierkant is gevuld |
+|---|---|
+| M01, M03 | Nieuw gegenereerd in 9:16, met het model kleiner in beeld |
+| M02, M07 | Foto omlaag geschoven, met de effen lucht erboven doorgetrokken |
+| M06, M09 | Flatlay op effen papier: de set verkleind en het papier eromheen opnieuw opgebouwd, zonder naad |
+| M04, M05, M08, M10 | Het 1:1-beeld naar 9:16 uitgebreid en exact uitgelijnd, zodat er geen dubbel beeld ontstaat |
+
+**Alle beelden:** [ModernoMilano_batch05_9x16_v2.zip](https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/457652c4-243b-40ea-87bb-4b9cc6220767.zip), met 10 bestanden. Het [overzichtsblad](https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/01798521-aad2-48dc-a81d-e9d482270440.jpg) toont het 1:1-vierkant met stippellijnen.
+
+De eerdere zip met losse 1:1- en 9:16-bestanden vervalt.
 
 ## Producten
 
@@ -57,7 +72,7 @@ Overgedaan in deze batch:
 
 ### M01: Studio, Imperial Black
 - **Beeld:** witte studio met zonnestreep. Het model loopt naar de camera, met de jas open.
-- **Overlay:** "THE IMPERIAL ZIP SET · €80". In de 1:1 staat die rechtsboven, in de 9:16 rechtsonder op de vloer.
+- **Overlay:** "THE IMPERIAL ZIP SET · €80", rechtsboven in het vierkant.
 - **Kop:** Timeless Style. Modern Essence.
 - **Primaire tekst:** A clean collar, a smooth stretch fabric and trousers to match. The Imperial Zip Set in black, €80 instead of €120.
 
@@ -113,7 +128,11 @@ Overgedaan in deze batch:
   - 9:16-versie van M06: 1 keer
   - 9:16-versie van M09: 2 keer
   - 1:1-versie van M03 en M10: allebei 1 keer
-- **Credits:** ongeveer 85 in totaal.
+- **Credits:** ongeveer 85 voor de eerste versie en ongeveer 64 voor de omzetting naar één 9:16-bestand per ad.
+- **Omzetting:** daarvoor zijn 5 beelden opnieuw gegenereerd:
+  - M01 en M03, met het model kleiner in beeld
+  - M02 en M07, de strandportretten met lucht boven het hoofd
+  - M06, op effen papier
 
 Generatie-jobs, in volgorde M01 tot M10:
 
