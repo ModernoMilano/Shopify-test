@@ -15,7 +15,7 @@ Aangemaakt op 19 okt 2026. Op 19 okt 2026 live gezet na akkoord van de eigenaar.
 
 | Ad | ID | Link | Headline |
 |---|---|---|---|
-| ANGLE_GIFT_01_AlreadyBoxed | 120252135587600541 | /products/imperial-milano-zip-set-gray?variant=53059886776657 | The Imperial Zip Set, EUR 80 |
+| ANGLE_GIFT_01_AlreadyBoxed | 120252135587600541 | /products/imperial-milano-zip-set-black | The Imperial Zip Set, EUR 80 |
 | ANGLE_GIFT_02_ImpossibleToBuyFor | 120252135589630541 | /products/milano-cashmere-lounge-set-beige | Cashmere Lounge Set, EUR 150 |
 | ANGLE_GIFT_03_ManWhoHasEverything | 120252135597810541 | /products/exclusive-milano-lounge-set-navy | The Exclusive Lounge Set, EUR 80 |
 | ANGLE_GIFT_04_SayItInCashmere | 120252135599170541 | /products/milano-knitted-two-tone-cashmere-set-dark-mocha | The Two-Tone Cashmere Set |
