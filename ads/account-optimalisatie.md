@@ -33,7 +33,7 @@ Doel: winst, niet spend. Break-even ROAS 1,93 (Meta). Cash-doel: omzet per EUR 1
 | 2026-10-19 | UK Scaling: ad UNBOXING (120251150984840541) gepauzeerd. 14d EUR 328, ROAS 1,30; 4d EUR 125, 0 aankopen | Claude, op besluit eigenaar | actief | pauze |
 | 2026-10-19 | DEU Reverso: ad REVERSO_DE_01_OlivaCrema_Kollektion (120252095274430541) gepauzeerd. EUR 197, 0 aankopen | Claude, op besluit eigenaar | actief | pauze |
 | 2026-10-19 | Nasir WW LAL: ad Ad 9 Bundle & Save beige - Copy (120251724269190541) gepauzeerd. 14d EUR 114, 0 aankopen | Claude, op besluit eigenaar | actief | pauze |
-| 2026-10-19 | Nieuwe campagne MM \| ANGLES \| ABO (120252135580150541): 3 ad sets van EUR 50 (Gift, Easy, Quiet Luxury) met in totaal 12 ads, zie ads/angles/README.md | Claude, op besluit eigenaar | - | aangemaakt, op pauze |
+| 2026-10-19 | Nieuwe campagne MM \| ANGLES \| ABO (120252135580150541): 3 ad sets van EUR 50 (Gift, Easy, Quiet Luxury) met in totaal 12 ads, zie ads/angles/README.md | Claude, op besluit eigenaar | - | live (EUR 150 per dag) |
 
 Totaal dagbudget actieve campagnes: van ongeveer EUR 1.830 naar EUR 1.433, na opschalen EUR 1.683. Eerste evaluatie: 22 okt (na 48-72 uur).
 
