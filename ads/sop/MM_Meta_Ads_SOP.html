@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Meta Ads SOP</title>
+<style>
+@font-face{font-family:Mont;font-weight:400;src:url(fonts/m400.woff2)}
+@font-face{font-family:Mont;font-weight:500;src:url(fonts/m500.woff2)}
+@font-face{font-family:Mont;font-weight:600;src:url(fonts/m600.woff2)}
+@font-face{font-family:Mont;font-weight:700;src:url(fonts/m700.woff2)}
+@font-face{font-family:Corm;font-weight:500;src:url(fonts/c500.woff2)}
+@font-face{font-family:Corm;font-weight:600;src:url(fonts/c600.woff2)}
+@font-face{font-family:Corm;font-weight:500;font-style:italic;src:url(fonts/c500i.woff2)}
+
+@page{size:A4;margin:0}
+:root{
+  --paper:#F7F3EC; --ink:#1D1B18; --soft:#5E574D; --line:#DCD3C4; --card:#FFFDF9;
+  --gold:#9C7A45; --wine:#6E1F2A;
+  --up3:#1F5E3A; --up2:#2F7A4C; --up1:#5E9C72; --hold:#B9A27A; --dn1:#C0723F; --dn2:#A23A2E;
+}
+.page *{font-variant-numeric:lining-nums}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper)}
+body{font-variant-numeric:lining-nums;font-family:Mont,sans-serif;color:var(--ink);font-size:9.6pt;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;padding:16mm 17mm 14mm;position:relative;page-break-after:always;overflow:hidden}
+.page:last-child{page-break-after:auto}
+
+.brand{display:flex;justify-content:space-between;align-items:baseline;font-size:7.2pt;letter-spacing:.32em;text-transform:uppercase;color:var(--soft);border-bottom:1px solid var(--line);padding-bottom:3.2mm}
+.brand b{color:var(--ink);font-weight:600}
+.foot{position:absolute;left:17mm;right:17mm;bottom:9mm;display:flex;justify-content:space-between;font-size:7pt;letter-spacing:.18em;text-transform:uppercase;color:var(--soft)}
+
+h1{font-family:Corm;font-weight:500;font-size:40pt;line-height:1.02;letter-spacing:-.01em;margin-top:11mm}
+h1 i{color:var(--wine)}
+.lede{font-size:10.5pt;color:var(--soft);max-width:150mm;margin-top:4mm}
+h2{font-family:Corm;font-weight:600;font-size:20pt;line-height:1.1;margin:0 0 2.5mm}
+.kicker{font-size:7.2pt;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1.5mm}
+section{margin-top:9mm}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin-top:8mm}
+.stat{background:var(--ink);color:var(--paper);padding:4.2mm 4mm 3.6mm;border-radius:1.5mm}
+.stat .v{font-variant-numeric:lining-nums;font-family:Corm;font-weight:600;font-size:25pt;line-height:1}
+.stat .l{font-size:6.8pt;letter-spacing:.16em;text-transform:uppercase;opacity:.75;margin-top:1.8mm}
+
+.golden{margin-top:8mm;border:1px solid var(--ink);padding:5mm 6mm;display:grid;grid-template-columns:auto 1fr;gap:5mm;align-items:center;background:var(--card)}
+.golden .n{font-family:Corm;font-weight:600;font-size:46pt;line-height:.8;color:var(--wine)}
+.golden p{font-size:10pt}
+.golden strong{font-weight:700}
+
+/* ladder */
+.ladder{border-radius:1.5mm;overflow:hidden;border:1px solid var(--line)}
+.rung{display:grid;grid-template-columns:34mm 30mm 1fr;align-items:center;border-top:1px solid rgba(255,255,255,.25)}
+.rung:first-child{border-top:0}
+.rung>div{padding:4.2mm 4mm}
+.rung .r{font-weight:600;font-size:10.5pt;color:#fff}
+.rung .a{font-family:Corm;font-weight:600;font-size:20pt;line-height:1;color:#fff}
+.rung .d{color:#fff;font-size:8.6pt;opacity:.95}
+.u3{background:var(--up3)} .u2{background:var(--up2)} .u1{background:var(--up1)}
+.h0{background:var(--hold)} .d1{background:var(--dn1)} .d2{background:var(--dn2)}
+.h0 .r,.h0 .a,.h0 .d{color:var(--ink)}
+.axis{display:flex;justify-content:space-between;font-size:6.8pt;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin:1.8mm 1mm 0}
+
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm;margin-top:7mm}
+.rule{background:var(--card);border:1px solid var(--line);border-radius:1.5mm;padding:3.4mm 4mm}
+.rule b{display:block;font-weight:600;font-size:9pt;margin-bottom:.6mm}
+.rule span{color:var(--soft);font-size:8.6pt}
+
+/* creative testing */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3mm;border:1px solid var(--ink);border-radius:1.5mm;overflow:hidden}
+.step{padding:4mm 3.6mm;background:var(--card);border-left:1px solid var(--line);position:relative}
+.step:first-child{border-left:0}
+.step .k{font-family:Corm;font-weight:600;font-size:22pt;line-height:1;color:var(--gold)}
+.step b{display:block;font-weight:600;margin-top:1.4mm;font-size:9pt}
+.step span{display:block;color:var(--soft);font-size:8.2pt;margin-top:.6mm}
+
+.verdicts{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:4mm}
+.verdict{border-radius:1.5mm;padding:4mm;color:#fff}
+.verdict .t{font-size:7.2pt;letter-spacing:.26em;text-transform:uppercase;font-weight:700;opacity:.9}
+.verdict .c{font-family:Corm;font-weight:600;font-size:14.5pt;line-height:1.15;margin:1.6mm 0 2mm}
+.verdict .o{font-size:8.4pt;border-top:1px solid rgba(255,255,255,.35);padding-top:2mm}
+.v-win{background:var(--up3)} .v-lose{background:var(--dn2)} .v-wait{background:var(--hold);color:var(--ink)}
+.v-wait .o{border-top-color:rgba(0,0,0,.2)}
+
+.checklist{counter-reset:c;margin-top:3mm;display:grid;grid-template-columns:1fr 1fr;gap:0 7mm}
+.checklist li{list-style:none;counter-increment:c;position:relative;padding:0 0 2.6mm 9mm;break-inside:avoid;font-size:9pt}
+.checklist li::before{content:counter(c);position:absolute;left:0;top:-.2mm;width:6mm;height:6mm;border-radius:50%;background:var(--ink);color:var(--paper);font-size:7.6pt;font-weight:600;display:flex;align-items:center;justify-content:center}
+.checklist li b{font-weight:600}
+
+.report{background:var(--ink);color:var(--paper);border-radius:1.5mm;padding:5mm 6mm;margin-top:3mm;display:grid;grid-template-columns:1fr 1fr;gap:1.4mm 8mm;font-size:8.8pt}
+.report .h{grid-column:1/-1;font-family:Corm;font-size:15pt;font-weight:600;margin-bottom:1mm}
+.report div span{color:#C9B48C;font-weight:600}
+
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin-top:3mm}
+.role{border-top:2px solid var(--ink);padding-top:2.6mm}
+.role b{font-family:Corm;font-size:15pt;font-weight:600;display:block;margin-bottom:1mm}
+.role ul{padding-left:4mm;color:var(--soft);font-size:8.8pt}
+.role li{margin-bottom:.8mm}
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:0 8mm;font-family:Corm;font-size:14pt;font-weight:500}
+.toc div{border-bottom:1px solid var(--line);padding:2.2mm 0}
+.toc span{font-family:Mont;font-size:7.4pt;letter-spacing:.2em;color:var(--gold);font-weight:600;margin-right:4mm}
+.sign{margin-top:13mm;display:grid;grid-template-columns:1fr 1fr;gap:12mm;font-size:7.4pt;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
+.sign div{border-top:1px solid var(--ink);padding-top:2mm}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="brand"><b>Moderno Milano</b><span>Standard Operating Procedure · v1.0</span></div>
+
+  <h1>Meta Ads<br><i>playbook</i></h1>
+  <p class="lede">How we run every campaign from today on. We tested these rules on our own account. They are not suggestions. Follow them every 48 hours, with no exceptions and no gut-feeling changes.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="v">48h</div><div class="l">One cycle</div></div>
+    <div class="stat"><div class="v">1.93</div><div class="l">Break-even ROAS</div></div>
+    <div class="stat"><div class="v">2.4</div><div class="l">Target ROAS</div></div>
+    <div class="stat"><div class="v">€250</div><div class="l">Creative test / day</div></div>
+  </div>
+
+  <div class="golden">
+    <div class="n">48</div>
+    <p><strong>The 48-hour rule.</strong> Every decision is based on the <strong>last 48 hours</strong>. After any change, a campaign is left alone for <strong>48 hours</strong>. Scaling, cutting, pausing ads and launching new creatives all happen in the same cycle.</p>
+  </div>
+
+
+  <section style="margin-top:12mm">
+    <div class="kicker">01 · Roles</div>
+    <h2>Who does what</h2>
+    <div class="roles">
+      <div class="role"><b>Owner</b><ul><li>Makes sure there are always enough creatives for a new batch every 48h.</li><li>Shoots real-life videos.</li><li>Approves anything above the €2,000 cap.</li></ul></div>
+      <div class="role"><b>Media buyer</b><ul><li>Runs the ladder and the creative test every 48h, exactly as written.</li><li>Asks for new creatives in time, before the test runs dry.</li><li>Reports after every cycle.</li></ul></div>
+    </div>
+  </section>
+
+  <section style="margin-top:12mm">
+    <div class="kicker">Contents</div>
+    <div class="toc">
+      <div><span>01</span>Roles</div><div><span>02</span>The scaling ladder</div><div><span>03</span>Creative testing</div><div><span>04</span>The 48-hour checklist &amp; report</div>
+    </div>
+    <div class="sign"><div>Owner · signature &amp; date</div><div>Media buyer · signature &amp; date</div></div>
+  </section>
+
+  <div class="foot"><span>Moderno Milano · Internal</span><span>Effective 20 Oct 2026 · 1 / 3</span></div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="brand"><b>Moderno Milano</b><span>Standard Operating Procedure · v1.0</span></div>
+
+  <section style="margin-top:8mm">
+    <div class="kicker">02 · Budget</div>
+    <h2>The scaling ladder</h2>
+    <div class="ladder">
+      <div class="rung u3"><div class="r">ROAS 4.0 +</div><div class="a">+100%</div><div class="d">Double the budget straight away.</div></div>
+      <div class="rung u2"><div class="r">3.0 – 3.99</div><div class="a">+50%</div><div class="d">Strong. Scale up hard.</div></div>
+      <div class="rung u1"><div class="r">2.4 – 2.99</div><div class="a">+20%</div><div class="d">Profitable. Scale up step by step.</div></div>
+      <div class="rung h0"><div class="r">1.93 – 2.39</div><div class="a">Hold</div><div class="d">Break-even zone. Don't touch it. Check again in 48h.</div></div>
+      <div class="rung d1"><div class="r">1.0 – 1.92</div><div class="a">−20%</div><div class="d">Losing money. Cut back.</div></div>
+      <div class="rung d2"><div class="r">Below 1.0</div><div class="a">−50%</div><div class="d">Heavy loss. Halve the budget.</div></div>
+    </div>
+    <div class="axis"><span>↑ Scale up</span><span>Campaign ROAS · last 48 hours · campaign (CBO) budget</span><span>Scale down ↓</span></div>
+
+    <div class="rules">
+      <div class="rule"><b>Minimum data</b><span>Under €100 spend in 48h means no verdict. Leave it running for another 48h. €100+ spend with 0 purchases counts as ROAS 0.</span></div>
+      <div class="rule"><b>One change per 48h</b><span>Each campaign gets one budget change per cycle. After that change, the 48-hour clock starts again.</span></div>
+      <div class="rule"><b>Budget cap: €2,000 / day</b><span>Total daily spend across the account never goes above €2,000 without written approval from the owner.</span></div>
+      <div class="rule"><b>Below 1.0 twice in a row</b><span>Halve the budget again and flag it in the report. The owner decides if the campaign is switched off.</span></div>
+    </div>
+  </section>
+
+  <div class="foot"><span>Moderno Milano · Internal</span><span>Effective 20 Oct 2026 · 2 / 3</span></div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <div class="brand"><b>Moderno Milano</b><span>Standard Operating Procedure · v1.0</span></div>
+
+  <section style="margin-top:8mm">
+    <div class="kicker">03 · Creatives</div>
+    <h2>Creative testing: always have winners ready</h2>
+    <p style="color:var(--soft);max-width:160mm">The Creative Test campaign runs at <b style="color:var(--ink)">€250 per day</b>, so every ad gets enough spend for a real verdict. Every 48 hours one batch comes in and the winners move out.</p>
+
+    <div class="flow">
+      <div class="step"><div class="k">1</div><b>Judge</b><span>Score every ad in the test campaign on its numbers from the last 48 hours.</span></div>
+      <div class="step"><div class="k">2</div><b>Cut</b><span>Switch the losers off.</span></div>
+      <div class="step"><div class="k">3</div><b>Promote</b><span>Move the winners into the scaling campaigns using their Post ID, then switch them off in the test campaign.</span></div>
+      <div class="step"><div class="k">4</div><b>Launch</b><span>Add the new batch. The budget now goes to the fresh creatives.</span></div>
+    </div>
+
+    <div class="verdicts">
+      <div class="verdict v-win"><div class="t">Winner</div><div class="c">2+ purchases<br>and ROAS 2.4+</div><div class="o">Move it to scaling via Post ID, so likes and comments carry over.</div></div>
+      <div class="verdict v-lose"><div class="t">Loser</div><div class="c">€150 spent, 0 sales<br>or €300 spent at ROAS&nbsp;&lt;&nbsp;1.5</div><div class="o">Switch it off right away. Don't give it a second chance.</div></div>
+      <div class="verdict v-wait"><div class="t">Not clear yet</div><div class="c">Neither winner<br>nor loser</div><div class="o">Leave it running for one more 48h cycle.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">04 · Routine</div>
+    <h2>The 48-hour checklist</h2>
+    <ol class="checklist">
+      <li><b>Same moment, every cycle.</b> Open Ads Manager and set the date range to the last 48 hours.</li>
+      <li><b>Campaigns.</b> Put every campaign on the ladder: scale up, hold or scale down.</li>
+      <li><b>Cap check.</b> Make sure the total daily budget stays at or under €2,000.</li>
+      <li><b>Scaling ads.</b> Inside the scaling campaigns, switch off ads that hit the loser rule.</li>
+      <li><b>Creative test.</b> Judge, cut and promote, then launch the new batch.</li>
+      <li><b>Report.</b> Send the owner the update below within one hour.</li>
+    </ol>
+
+    <div class="report">
+      <div class="h">Report to the owner, after every cycle</div>
+      <div><span>Scaled up</span> · campaign, old → new budget, ROAS</div>
+      <div><span>Scaled down</span> · campaign, old → new budget, ROAS</div>
+      <div><span>Ads off</span> · name, spend, purchases</div>
+      <div><span>New winners</span> · moved to which campaign</div>
+      <div><span>New batch</span> · how many creatives went live</div>
+      <div><span>Totals</span> · daily budget, 48h spend and ROAS</div>
+      <div style="grid-column:1/-1"><span>Flags</span> · anything below 1.0 twice in a row, a cap breach, or creatives running out</div>
+    </div>
+  </section>
+
+
+  <div class="foot"><span>Moderno Milano · Internal</span><span>Effective 20 Oct 2026 · 3 / 3</span></div>
+</div>
+
+</body>
+</html>
