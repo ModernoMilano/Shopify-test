@@ -25,5 +25,8 @@ Doel: winst, niet spend. Break-even ROAS 1,93 (Meta). Cash-doel: omzet per EUR 1
 | 2026-10-19 | MM \| UK \| SCALING \| CBO (120250178281330541) budget | Claude, op besluit eigenaar | EUR 200 | EUR 100 |
 | 2026-10-19 | USA CBO (120251181130410541) budget | Claude, op besluit eigenaar | EUR 250 | EUR 120 |
 | 2026-10-19 | Nasir \| Worldwide \| Retargeting (120251757398300541) budget | Claude, op besluit eigenaar | EUR 150 | EUR 75 |
+| 2026-10-19 | WORLDWIDE 2.0 (120251716748050541) budget opgeschaald | Claude, op besluit eigenaar | EUR 200 | EUR 300 |
+| 2026-10-19 | Nasir \| Worldwide \| Reverso Set (120251979200110541) budget opgeschaald | Claude, op besluit eigenaar | EUR 100 | EUR 150 |
+| 2026-10-19 | MM \| DEU \| SCALING \| CBO (120250179400190541) budget opgeschaald (alleen ad set DEU SCALING - REVERSO actief) | Claude, op besluit eigenaar | EUR 100 | EUR 200 |
 
-Totaal dagbudget actieve campagnes: van ongeveer EUR 1.830 naar EUR 1.433. Eerste evaluatie: 22 okt (na 48-72 uur).
+Totaal dagbudget actieve campagnes: van ongeveer EUR 1.830 naar EUR 1.433, na opschalen EUR 1.683. Eerste evaluatie: 22 okt (na 48-72 uur).
