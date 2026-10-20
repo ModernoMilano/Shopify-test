@@ -241,12 +241,21 @@ function forecast(s) {
   const pendPart = s.pendingWorkdays ? s.pending / s.pendingWorkdays : 0;
   for (let i = 1; i <= s.days; i++) {
     const date = addDays(s.start, i - 1), wd = isWorkday(date);
-    if (i - s.delay >= 1) payable += s.salesDay * s.ratio;
     let shop = 0;
-    if (wd) {
-      if (!schedPaid && (!s.payoutDate || date >= s.payoutDate)) { shop += s.payout; schedPaid = true; }
-      else if (schedPaid && pendDays < s.pendingWorkdays) { shop += pendPart; pendDays++; }
-      shop += payable; payable = 0;
+    if (s.sched) {
+      // uitbetalingen die al vastliggen volgens je orders (min hold), plus nieuwe verkopen vanaf morgen na de vertraging
+      const fixed = (s.sched[date] || 0) * (1 - (s.rp || 0));
+      shop = fixed;
+      // verkopen van vandaag staan maar deels in de orders: aanvullen tot een gewone dag
+      if (addWorkdays(addDays(s.start, -1), s.delay) === date) shop += Math.max(0, s.salesDay * s.ratio - fixed);
+      for (let j = 0; j < i; j++) if (addWorkdays(addDays(s.start, j), s.delay) === date) shop += s.salesDay * s.ratio;
+    } else {
+      if (i - s.delay >= 1) payable += s.salesDay * s.ratio;
+      if (wd) {
+        if (!schedPaid && (!s.payoutDate || date >= s.payoutDate)) { shop += s.payout; schedPaid = true; }
+        else if (schedPaid && pendDays < s.pendingWorkdays) { shop += pendPart; pendDays++; }
+        shop += payable; payable = 0;
+      }
     }
     if (s.releaseAmount && s.releaseDate === date) shop += s.releaseAmount;
     const bills = (s.bills || []).filter((b) => (i === 1 ? b.date <= date : b.date === date)).reduce((a, b) => a + b.amount, 0);
@@ -477,7 +486,7 @@ const S = {
   meta: { status: "idle", rows: [], err: null, at: null },
   feesLive: { status: "idle", err: null, progress: "" },
   paypal: { status: "idle", err: null, progress: "", at: null, since: null, complete: false }, pp: {},
-  disputes: { status: "idle", list: [] },
+  disputes: { status: "idle", list: [] }, sched: { status: "idle", byDate: {} },
   perms: null, permState: {}, sample: null, sampleState: "laden",
   chat: { msgs: store.get("mm.chat") || [], busy: false, pending: "", status: "", error: null, ctl: null, off: false }, lastImport: null, bankFilter: { cat: "", q: "" }, fc: null,
   pf: { horizon: "month", basis: 14, metaPct: 0, elast: 0.7, paidShare: 0.8, trend: false, ...(store.get("mm.pf") || {}) },
@@ -631,7 +640,7 @@ async function loadFees(force) {
   const today = dayKey(new Date());
   const days = eachDay(shopWindowStart(), today);
   const need = days.filter((k) => k === today || !(feeDay(k) && feeDay(k).v === 2));
-  if (!need.length) { S.feesLive.status = "ok"; loadDisputes(); return; }
+  if (!need.length) { S.feesLive.status = "ok"; loadDisputes(); loadSchedule(); return; }
   const from = need[0], to = need[need.length - 1];
   S.feesLive.status = "laden"; S.feesLive.progress = ""; renderStrip();
   const agg = {};
@@ -683,9 +692,43 @@ async function loadFees(force) {
     S.feesLive.status = "ok"; S.feesLive.err = null;
   } catch (e) { fail(S.feesLive, e, SHOPIFY); }
   render();
-  if (S.feesLive.status === "ok") loadDisputes();
+  if (S.feesLive.status === "ok") { loadDisputes(); loadSchedule(); }
 }
 /* Disputes en chargebacks staan op de order. Het bedrag is het orderbedrag, de datum is de orderdatum. */
+/* Echte Shopify-uitbetalingen per datum: bij elke order staat "€X EUR will be added to your Oct 21, 2026 payout".
+   Bedragen zijn na fees, voor een eventuele hold. Orders van de afgelopen 7 dagen dekken alle openstaande payouts. */
+const SCHED_QUERY = `query Sched($q: String!, $after: String) { orders(first: 50, after: $after, query: $q, sortKey: CREATED_AT) { pageInfo { hasNextPage endCursor } nodes { createdAt test cancelledAt events(first: 10, sortKey: CREATED_AT) { nodes { message } } } } }`;
+const EN_MONTHS = { Jan: 1, Feb: 2, Mar: 3, Apr: 4, May: 5, Jun: 6, Jul: 7, Aug: 8, Sep: 9, Oct: 10, Nov: 11, Dec: 12 };
+function parsePayoutAdds(events, createdDay) {
+  const seen = new Set(), out = [];
+  for (const e of events || []) {
+    const m = String(e.message || "").match(/€\s?([\d,]+\.\d{2}) EUR will be added to your (?:<a[^>]*>)?(?:([A-Z][a-z]{2}) (\d{1,2}), (\d{4})|next)(?:<\/a>)? payout/);
+    if (!m) continue;
+    const date = m[2] && EN_MONTHS[m[2]] ? `${m[4]}-${String(EN_MONTHS[m[2]]).padStart(2, "0")}-${m[3].padStart(2, "0")}` : addWorkdays(createdDay, S.settings.payoutDelay);
+    const key = m[1] + "|" + date; if (seen.has(key)) continue; seen.add(key);
+    out.push({ date, a: usd(m[1]) });
+  }
+  return out;
+}
+async function loadSchedule() {
+  const today = dayKey(new Date()), from = addDays(today, -7);
+  try {
+    const byDate = {}; let after = null, pages = 0;
+    const q = `created_at:>='${startOfDayUtc(from).toISOString()}'`;
+    do {
+      const r = await call(SHOPIFY, "graphql_query", { query: SCHED_QUERY, variables: after ? { q, after } : { q } }, { cache: false });
+      const conn = (jsonOf(r, (x) => x.data && x.data.orders) || {}).data?.orders;
+      if (!conn) throw { code: "tool_error", message: "onverwacht antwoord van Shopify" };
+      for (const o of conn.nodes) {
+        if (o.test || o.cancelledAt) continue;
+        for (const x of parsePayoutAdds(o.events && o.events.nodes, dayKey(new Date(o.createdAt)))) if (x.date >= today) byDate[x.date] = (byDate[x.date] || 0) + x.a;
+      }
+      after = conn.pageInfo.hasNextPage ? conn.pageInfo.endCursor : null; pages++;
+    } while (after && pages < 30);
+    S.sched = { status: "ok", byDate, at: Date.now() };
+  } catch (e) { S.sched = { status: "fout", byDate: {} }; }
+  S.fc = null; render();
+}
 async function loadDisputes() {
   S.disputes.status = "laden";
   try {
@@ -980,11 +1023,17 @@ function moneyNow() {
     paypal: pp ? pp.avail : snap ? snap.paypal : 0, ppLocked: pp ? pp.locked : 0,
     payout: sh ? sh.payout : snap ? snap.payout : 0, pending: sh ? sh.pending : snap ? snap.pending : 0, hold: sh ? sh.hold : snap ? snap.hold : 0,
   };
+  // ingeplande payouts en pending zoals Shopify ze per order heeft vastgelegd, min hold
+  let schedDate = null;
+  if (S.sched && S.sched.status === "ok") {
+    const keep = 1 - S.settings.shopReservePct, next = Object.keys(S.sched.byDate).filter((d) => d > today).sort();
+    if (next.length) { schedDate = next[0]; pos.payout = Math.round(S.sched.byDate[next[0]] * keep); pos.pending = Math.round(next.slice(1).reduce((a, d) => a + S.sched.byDate[d], 0) * keep); }
+  }
   const now = pos.bank + pos.paypal, soon = pos.transit + pos.payout + pos.pending, locked = pos.hold + pos.ppLocked;
   return {
     snap, bankDate: E, bankSrc: lastTx ? "bank" : snap && snap.bank != null ? "handmatig" : "ontbreekt",
     ppSrc: pp ? "PayPal" : snap ? "handmatig" : "ontbreekt", shopSrc: sh ? "berekend" : snap ? "handmatig" : "ontbreekt",
-    payoutDate: sh ? sh.payoutDate : snap && snap.payoutDate ? snap.payoutDate : null,
+    payoutDate: schedDate || (sh ? sh.payoutDate : snap && snap.payoutDate ? snap.payoutDate : null), schedSrc: !!schedDate,
     pos, now, soon, locked, total: now + soon + locked, shopify: pos.payout + pos.pending + pos.hold,
   };
 }
@@ -1060,7 +1109,8 @@ function bankNowEstimate() {
 function fcSettings() {
   const s = S.settings, m = moneyNow(), bn = bankNowEstimate();
   return {
-    days: s.forecastDays, start: addDays(dayKey(new Date()), 1), bank: bn.total, bankEst: bn, bills: expectedBills(), payout: m.pos.payout, payoutDate: m.payoutDate,
+    days: s.forecastDays, start: addDays(dayKey(new Date()), 1), bank: bn.total, bankEst: bn, bills: expectedBills(),
+    sched: S.sched.status === "ok" ? Object.fromEntries(Object.entries(S.sched.byDate).filter(([d]) => d > dayKey(new Date()))) : null, schedToday: S.sched.status === "ok" ? S.sched.byDate[dayKey(new Date())] || 0 : null, rp: s.shopReservePct, payout: m.pos.payout, payoutDate: m.payoutDate,
     pending: m.pos.pending, pendingWorkdays: 3, salesDay: s.salesDay, ratio: s.payoutRatio, delay: s.payoutDelay, paypalDay: s.paypalDay, metaDay: s.metaDay,
     privateWeek: s.privateWeek, softwareWeek: s.softwareWeek, supplier: s.supplier, supplierDay: s.supplierDay, buffer: s.buffer, releaseAmount: 0, releaseDate: "", extraDay: 0,
   };
@@ -1334,6 +1384,10 @@ function viewForecast() {
   return `
   <section><h1 class="serif" style="font-size:28px">Prognose</h1><p class="sub">Banksaldo dag voor dag vanaf ${dayL(s.start)}. Shopify betaalt alleen op werkdagen uit. Schuiven is om mee te rekenen; met Opslaan worden het je standaardwaarden.</p></section>
   ${s.bankEst && s.bankEst.since ? `<div class="alert l2"><span class="warn" aria-hidden="true">▲</span><div><b>Startsaldo is een schatting: ${euro(s.bankEst.total, true)}</b><span class="dim">Je bankafschrift loopt t/m ${dayL(s.bankEst.bankDate)} (saldo ${euro(s.bankEst.known, true)}). Daarna kwam er volgens Shopify en PayPal ongeveer ${euro(s.bankEst.transit, true)} binnen, en ging er naar schatting ${euro(s.bankEst.since, true)} af (Meta uit Meta, inkoop, software en team uit je laatste 30 dagen bank, plus je correcties). Privé-opnames zitten er niet in. Sleep je afschrift t/m gisteren erin voor het echte saldo.</span></div></div>` : ""}
+  ${s.sched ? `<section class="card"><h2>Shopify-uitbetalingen volgens je orders</h2><table><thead><tr><th>Payout</th><th class="r">Volgens orders</th><th class="r">Na hold ${pct(s.rp, 0)}</th></tr></thead><tbody>
+    ${s.schedToday ? `<tr><td>${dayL(dayKey(new Date()))} <span class="muted">vandaag, zit in het startsaldo</span></td><td class="r">${euro(s.schedToday)}</td><td class="r">${euro(s.schedToday * (1 - s.rp))}</td></tr>` : ""}
+    ${Object.keys(s.sched).sort().map((d) => `<tr><td>${dayL(d)}</td><td class="r">${euro(s.sched[d])}</td><td class="r">${euro(s.sched[d] * (1 - s.rp))}</td></tr>`).join("")}
+  </tbody></table><p class="muted" style="font-size:12px;margin:8px 0 0">Uit de tijdlijn van elke order: wat Shopify op welke payout zet, na fees. Verkopen vanaf morgen rekenen met ${Math.round(s.ratio * 100)}% van de verkoop per dag. Klopt de hold niet met wat Shopify je laat zien, pas het percentage aan bij Invoer en instellingen.</p></section>` : ""}
   ${s.bills && s.bills.length ? `<section class="card"><h2>Verwachte betalingen</h2><table><tbody>${s.bills.map((b) => `<tr><td>${esc(b.label)}</td><td class="dim">${dayL(b.date)}</td><td class="r">${euro(-b.amount)}</td></tr>`).join("")}</tbody><tfoot><tr><td>Totaal</td><td></td><td class="r">${euro(-s.bills.reduce((a, b) => a + b.amount, 0))}</td></tr></tfoot></table><p class="muted" style="font-size:12px;margin:8px 0 0">Uit Correcties op Overzicht. Ze vervangen de vaste leveranciersbetaling in deze prognose. Wat al vervallen is, staat op de eerste dag.</p></section>` : ""}
   <section class="grid" style="grid-template-columns:minmax(0,1fr)">
     <div class="card stack" style="gap:12px">
@@ -1369,7 +1423,7 @@ function renderForecastResults() {
     <tr class="muted"><td>Nu</td><td colspan="5"></td><td class="r">${euro(s.bank, true)}</td></tr>
     ${a.rows.map((r) => `<tr><td style="white-space:nowrap">${dayL(r.date)}${r.wd ? "" : ' <span class="muted">weekend</span>'}</td><td class="r">${r.shop ? euro(r.shop, true) : ""}</td><td class="r">${r.paypal ? euro(r.paypal, true) : ""}</td><td class="r">${r.meta ? euro(-r.meta, true) : ""}</td><td class="r">${r.supplier ? euro(-r.supplier, true) : ""}</td><td class="r">${r.other ? euro(-r.other, true) : ""}</td><td class="r ${r.bal < 0 ? "neg" : r.bal < s.buffer ? "warn" : ""}"><b>${euro(r.bal, true)}</b></td></tr>`).join("")}
   </tbody></table></div>
-  <p class="muted" style="font-size:12px;margin:0">Eerst de ingeplande payout, dan pending verdeeld over 3 werkdagen, daarna nieuwe verkopen na ${s.delay} dagen als ${Math.round(s.ratio * 100)}% van de verkoop. Verkopen die in het weekend uitbetaalbaar worden, komen maandag binnen.</p>`;
+  <p class="muted" style="font-size:12px;margin:0">${s.sched ? `Shopify: de uitbetalingen die al vastliggen volgens je orders, min de hold; nieuwe verkopen vanaf morgen na ${s.delay} werkdagen als ${Math.round(s.ratio * 100)}% van de verkoop.` : `Eerst de ingeplande payout, dan pending verdeeld over 3 werkdagen, daarna nieuwe verkopen na ${s.delay} dagen als ${Math.round(s.ratio * 100)}% van de verkoop. Verkopen die in het weekend uitbetaalbaar worden, komen maandag binnen.`}</p>`;
   drawCharts();
 }
 
