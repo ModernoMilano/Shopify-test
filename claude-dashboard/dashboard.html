@@ -848,9 +848,10 @@ const ppOk = () => S.paypal.status === "ok";
 function ppAt(X, days) {
   if (!ppOk() || !S.paypal.complete) return null;
   days = days || ppDays();
-  let avail = 0, locked = 0;
-  for (const [k, d] of Object.entries(days)) if (k <= X) { avail += d.net; locked += d.lk; }
-  return { avail, locked, total: avail + locked };
+  // een PayPal-saldo kan niet onder nul: wat tekortkomt betaalt PayPal uit je gekoppelde bank of kaart
+  let avail = 0, locked = 0, funded = 0;
+  for (const k of Object.keys(days).sort()) { if (k > X) break; const d = days[k]; avail += d.net; locked += d.lk; if (avail < 0) { funded -= avail; avail = 0; } }
+  return { avail, locked, total: avail + locked, funded };
 }
 
 /* ---------- wat Shopify vasthoudt, berekend ---------- */
@@ -1035,12 +1036,21 @@ function moneyNow() {
     const keep = 1 - S.settings.shopReservePct, next = Object.keys(S.sched.byDate).filter((d) => d > today).sort();
     if (next.length) { schedDate = next[0]; pos.payout = Math.round(S.sched.byDate[next[0]] * keep); pos.pending = Math.round(next.slice(1).reduce((a, d) => a + S.sched.byDate[d], 0) * keep); }
   }
-  const now = pos.bank + pos.paypal, soon = pos.transit + pos.payout + pos.pending, locked = pos.hold + pos.ppLocked;
+  // banksaldo nu: afschrift plus wat Shopify en PayPal sindsdien uitbetaalden, min wat er sindsdien waarschijnlijk afging
+  let since = 0, sinceFrom = null, sinceTo = null;
+  if (E && addDays(E, 1) <= addDays(today, -1)) {
+    sinceFrom = addDays(E, 1); sinceTo = addDays(today, -1);
+    const fs = finance({ from: sinceFrom, to: sinceTo }), r = fs.res;
+    since = Math.round(r.meta - fs.pp.meta + r.cogs + r.other - fs.pp.out + r.team + (r.est || 0));
+  }
+  pos.bankNow = pos.bank + pos.transit - since;
+  const now = pos.bankNow + pos.paypal, soon = pos.payout + pos.pending, locked = pos.hold + pos.ppLocked;
   return {
     snap, bankDate: E, bankSrc: lastTx ? "bank" : snap && snap.bank != null ? "handmatig" : "ontbreekt",
     ppSrc: pp ? "PayPal" : snap ? "handmatig" : "ontbreekt", shopSrc: sh ? "berekend" : snap ? "handmatig" : "ontbreekt",
     payoutDate: schedDate || (sh ? sh.payoutDate : snap && snap.payoutDate ? snap.payoutDate : null), schedSrc: !!schedDate,
     pos, now, soon, locked, total: now + soon + locked, shopify: pos.payout + pos.pending + pos.hold,
+    since, sinceFrom, sinceTo, bankEstimated: !!(E && E < addDays(today, -1)),
   };
 }
 function bridge(f) {
@@ -1102,15 +1112,8 @@ function expectedBills() {
 /* Banksaldo nu, geschat: het laatste afschrift plus wat Shopify en PayPal sindsdien uitbetaalden, min wat sindsdien
    waarschijnlijk van de bank ging (Meta uit Meta, inkoop, software en team geschat, correcties). Privé zit er niet in. */
 function bankNowEstimate() {
-  const m = moneyNow(), E = m.bankDate, today = dayKey(new Date());
-  const out = { known: m.pos.bank, transit: m.pos.transit, since: 0, from: null, to: null, bankDate: E };
-  if (E && addDays(E, 1) <= addDays(today, -1)) {
-    out.from = addDays(E, 1); out.to = addDays(today, -1);
-    const r = finance({ from: out.from, to: out.to }).res, f = finance({ from: out.from, to: out.to });
-    out.since = Math.round(r.meta - f.pp.meta + r.cogs + r.other - f.pp.out + r.team + (r.est || 0));
-  }
-  out.total = out.known + out.transit - out.since;
-  return out;
+  const m = moneyNow();
+  return { known: m.pos.bank, transit: m.pos.transit, since: m.since, from: m.sinceFrom, to: m.sinceTo, bankDate: m.bankDate, total: m.pos.bankNow };
 }
 function fcSettings() {
   const s = S.settings, m = moneyNow(), bn = bankNowEstimate();
@@ -1126,7 +1129,7 @@ function alerts(f) {
   const fc = forecast({ ...fcSettings(), days: 7 });
   if (fc.belowZero || fc.belowBuffer) out.push({ l: 1, t: fc.belowZero ? "Bank dreigt onder nul te komen" : "Bank komt onder je buffer", b: `Laagste punt de komende 7 dagen: ${euro(fc.lowest.bal, true)} op ${dayL(fc.lowest.date)}. Buffer: ${euro(s.buffer, true)}.`, tab: "prognose" });
   const openInv = S.manual.filter((x) => x.kind === "open_invoice" && !x.paid).reduce((a, x) => a + x.amount, 0) + expectedBills().reduce((a, b) => a + b.amount, 0);
-  if (openInv > 0 && openInv > m.pos.bank + m.pos.payout) out.push({ l: 1, t: "Fulfillment eerst: Meta niet verhogen", b: `Openstaande leveranciersfacturen (${euro(openInv, true)}) zijn hoger dan bank plus ingeplande payout (${euro(m.pos.bank + m.pos.payout, true)}).`, tab: "invoer" });
+  if (openInv > 0 && openInv > m.pos.bankNow + m.pos.payout) out.push({ l: 1, t: "Fulfillment eerst: Meta niet verhogen", b: `Openstaande leveranciersfacturen (${euro(openInv, true)}) zijn hoger dan bank plus ingeplande payout (${euro(m.pos.bankNow + m.pos.payout, true)}).`, tab: "invoer" });
   const today = dayKey(new Date());
   const last3 = [addDays(today, -3), addDays(today, -2), addDays(today, -1)];
   const rev3 = last3.reduce((a, k) => a + ((S.sales.byDay[k] || {}).total || 0), 0);
@@ -1326,12 +1329,11 @@ function quickBlock(p) {
 function viewMoney() {
   const m = moneyNow(), p = m.pos, today = dayKey(new Date());
   const parts = [
-    ["bank", "Bank (Revolut)", p.bank, m.bankDate ? "Nu, saldo t/m " + dayL(m.bankDate) : "Nu beschikbaar", "var(--text)", false, m.bankSrc],
-    ["transit", "Onderweg naar bank", p.transit, "Na het laatste afschrift uitbetaald door Shopify en PayPal", "var(--s5, var(--s3))", false, m.bankDate ? "berekend" : "ontbreekt"],
+    ["bank", m.bankEstimated ? "Bank (Revolut), geschat nu" : "Bank (Revolut)", p.bankNow, m.bankEstimated ? "Nu, schatting" : m.bankDate ? "Nu, saldo t/m " + dayL(m.bankDate) : "Nu beschikbaar", "var(--text)", false, m.bankEstimated ? "schatting" : m.bankSrc],
     ["paypal", "PayPal", p.paypal, "Nu beschikbaar", "var(--s1)", false, m.ppSrc],
     ["ppLocked", "PayPal vastgehouden", p.ppLocked, "Holds, reserve en disputes", "var(--s1)", true, m.ppSrc],
-    ["payout", "Shopify payout ingepland", p.payout, m.payoutDate ? dayL(m.payoutDate) : "Eerstvolgende werkdag", "var(--s3)", false, m.shopSrc],
-    ["pending", "Shopify pending", p.pending, "Komende werkdagen", "var(--s4)", false, m.shopSrc],
+    ["payout", "Shopify payout ingepland", p.payout, m.payoutDate ? dayL(m.payoutDate) + (m.schedSrc ? ", volgens je orders min hold" : "") : "Eerstvolgende werkdag", "var(--s3)", false, m.schedSrc ? "Shopify" : m.shopSrc],
+    ["pending", "Shopify pending", p.pending, m.schedSrc ? "Volgende payouts volgens je orders, min hold" : "Komende werkdagen", "var(--s4)", false, m.schedSrc ? "Shopify" : m.shopSrc],
     ["hold", "Shopify reserve (hold)", p.hold, "Op slot", "var(--s2)", true, m.shopSrc],
   ];
   const chk = shopCheck(), s = S.settings;
@@ -1349,8 +1351,9 @@ function viewMoney() {
   }
   const lenders = Object.values(byLender);
   return `
-  <section><h1 class="serif" style="font-size:28px">Waar mijn geld staat</h1><p class="sub">Bank: laatste afschrift t/m ${dayL(m.bankDate)}. PayPal: ${m.ppSrc === "PayPal" ? `live, berekend uit al je PayPal-transacties${ppFrom ? " sinds " + ppFrom : ""}` : S.paypal.status === "laden" ? "laden…" : "niet bereikbaar"}. Shopify: ${m.shopSrc === "berekend" ? `berekend uit je verkopen via Shopify Payments (uitbetaling na ${s.payoutDelay} werkdagen, reserve ${pct(s.shopReservePct)} voor ${s.shopReserveDays} dagen)` : m.shopSrc === "handmatig" ? "handmatige stand van " + dayL(m.snap.at) : S.feesLive.status === "laden" ? "laden…" : "ontbreekt"}.</p></section>
-  <section class="grid kpis">${kpi("Totaal", euro(m.total, true))}${kpi("Direct beschikbaar", euro(m.now, true), "bank en PayPal", "good")}${kpi("Binnenkort", euro(m.soon, true), "onderweg, payout en pending")}${kpi("Op slot", euro(m.locked, true), "reserves en holds", "neg")}</section>
+  <section><h1 class="serif" style="font-size:28px">Waar mijn geld staat</h1><p class="sub">Bank: laatste afschrift t/m ${dayL(m.bankDate)}. PayPal: ${m.ppSrc === "PayPal" ? `live, berekend uit al je PayPal-transacties${ppFrom ? " sinds " + ppFrom : ""}` : S.paypal.status === "laden" ? "laden…" : "niet bereikbaar"}. Shopify: ${m.schedSrc ? `ingeplande uitbetalingen uit je orders; reserve berekend als ${pct(s.shopReservePct, 0)} van je verkopen, ${s.shopReserveDays} dagen vast` : m.shopSrc === "berekend" ? `berekend uit je verkopen via Shopify Payments (uitbetaling na ${s.payoutDelay} werkdagen, reserve ${pct(s.shopReservePct)} voor ${s.shopReserveDays} dagen)` : m.shopSrc === "handmatig" ? "handmatige stand van " + dayL(m.snap.at) : S.feesLive.status === "laden" ? "laden…" : "ontbreekt"}.</p></section>
+  ${m.bankEstimated ? `<div class="alert l2"><span class="warn" aria-hidden="true">▲</span><div><b>Je banksaldo is een schatting: ${euro(p.bankNow, true)}</b><span class="dim">Laatste afschrift t/m ${dayL(m.bankDate)}: ${euro(p.bank, true)}. Daarna betaalden Shopify en PayPal ${euro(p.transit, true)} uit, en ging er naar schatting ${euro(m.since, true)} af (Meta volgens Meta, inkoop, software en team uit je laatste 30 dagen bank, plus je correcties). Privé-opnames zitten er niet in. Sleep je afschrift t/m gisteren erin, dan staat hier je echte saldo.</span></div></div>` : ""}
+  <section class="grid kpis">${kpi("Totaal", euro(m.total, true))}${kpi("Direct beschikbaar", euro(m.now, true), "bank en PayPal", "good")}${kpi("Binnenkort", euro(m.soon, true), "Shopify payout en pending")}${kpi("Op slot", euro(m.locked, true), "reserves en holds", "neg")}</section>
   <section class="card"><h2>Verdeling</h2>
     ${m.total > 0 ? `<div class="costbar" style="height:38px">${parts.filter((x) => x[2] > 0).map((x) => `<div class="${x[5] ? "hatch" : ""}" title="${esc(x[1])}: ${euro(x[2])}" style="width:${(x[2] / m.total) * 100}%;background-color:${x[4]}"></div>`).join("")}</div>` : ""}
     <div class="scroll" style="margin-top:12px"><table><thead><tr><th>Plek</th><th class="r">Bedrag</th><th class="r">Aandeel</th><th>Beschikbaar</th></tr></thead><tbody>
@@ -1615,7 +1618,7 @@ function aiProjection({ days, basisDays = 14, revenueChangePct = 0, metaChangePc
 function aiMoney() {
   const m = moneyNow(), p = m.pos, cov = coverage();
   return {
-    bedragen_in: "euro", bank: eurN(p.bank), bank_saldo_tot: m.bankDate, onderweg_naar_bank: eurN(p.transit), paypal: eurN(p.paypal), paypal_vastgehouden: eurN(p.ppLocked),
+    bedragen_in: "euro", bank_nu_geschat: eurN(p.bankNow), bank_volgens_afschrift: eurN(p.bank), bank_saldo_tot: m.bankDate, sindsdien_binnengekomen: eurN(p.transit), sindsdien_uitgegeven_geschat: eurN(m.since), paypal: eurN(p.paypal), paypal_vastgehouden: eurN(p.ppLocked),
     shopify_payout_ingepland: eurN(p.payout), shopify_payout_datum: m.payoutDate, shopify_pending: eurN(p.pending), shopify_reserve: eurN(p.hold),
     direct_beschikbaar: eurN(m.now), binnenkort: eurN(m.soon), op_slot: eurN(m.locked), totaal: eurN(m.total),
     bron_shopify: m.shopSrc, bron_paypal: m.ppSrc, bank_ontbreekt_vanaf: cov.missingFrom,
@@ -2208,18 +2211,20 @@ function buildWorkbook(X) {
   add("Geld", [
     title, [],
     ["Plek", "Bedrag", "Beschikbaar"],
-    ["Bank (Revolut)", nE(m.pos.bank), "nu"],
-    ["Onderweg naar bank", nE(m.pos.transit), "na het laatste afschrift uitbetaald"],
+    ["Bank volgens afschrift", nE(m.pos.bank), "t/m " + (m.bankDate || "ontbreekt")],
+    ["Sindsdien uitbetaald door Shopify en PayPal", nE(m.pos.transit), "berekend"],
+    ["Sindsdien uitgegeven (schatting)", nE(-m.since), "Meta, inkoop, software, team; zonder privé"],
+    ["Bank nu (geschat)", fx("B4+B5+B6"), "nu"],
     ["PayPal", nE(m.pos.paypal), "nu"],
     ["PayPal vastgehouden", nE(m.pos.ppLocked), "op slot"],
     ["Shopify payout ingepland", nE(m.pos.payout), m.payoutDate || "eerstvolgende werkdag"],
     ["Shopify pending", nE(m.pos.pending), "komende werkdagen"],
     ["Shopify reserve (hold)", nE(m.pos.hold), "op slot"],
-    ["Totaal", fx("SUM(B4:B10)")],
+    ["Totaal", fx("B7+SUM(B8:B12)")],
     [],
-    ["Direct beschikbaar", fx("B4+B6")],
-    ["Binnenkort", fx("B5+B8+B9")],
-    ["Op slot", fx("B7+B10")],
+    ["Direct beschikbaar", fx("B7+B8")],
+    ["Binnenkort", fx("B10+B11")],
+    ["Op slot", fx("B9+B12")],
     [],
     ["Bron PayPal", m.ppSrc === "PayPal" ? "uit PayPal" : m.ppSrc],
     ["Bron Shopify", m.shopSrc === "berekend" ? `berekend: uitbetaling na ${S.settings.payoutDelay} werkdagen, reserve ${Math.round(S.settings.shopReservePct * 1000) / 10}% voor ${S.settings.shopReserveDays} dagen` : m.shopSrc],
