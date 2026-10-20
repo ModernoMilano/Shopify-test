@@ -101,3 +101,27 @@ Alle ads linken naar https://modernomilano.com/collections/reverso-autumn. De ca
    - binnen en product (AU04, AU06, AU07, AU11, AU16)
    - collectie en reversible (AU15, AU17–AU20)
 2. **Na 5–7 dagen:** zet de 2 sterkste per ad set door. Gebruik de 1:1-versies voor feed en de 9:16-versies voor Stories en Reels.
+
+## Extra: 10 creatieve clean ads (zonder tekst)
+
+Een tweede set met opvallende concepten in plaats van "model staat in beeld". Er staan geen prijzen en geen hooks op:
+
+- **CR01, CR03, CR05–CR08:** alleen het logo
+- **CR02, CR04, CR09, CR10:** alleen de tekst "REVERSO AUTUMN"
+
+**Bestanden**
+- Alle beelden: [ModernoMilano_ReversoAutumn_creative10.zip](https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/5fd1a221-0ff8-4cf0-84fc-27ec56398ee0.zip), in 9:16 en 1:1
+- [Overzichtsblad](https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/345e970e-7237-464b-bb60-7130bd091ede.jpg)
+
+| # | Concept | Product | In beeld |
+|---|---|---|---|
+| CR01 | Gilet hangt aan een eikentak, vallende bladeren | Cammello & Marrone | Logo |
+| CR02 | Outfit van bovenaf op een tapijt van rode bladeren | Total Bordeaux | REVERSO AUTUMN |
+| CR03 | Close-up van kraag, rits en esdoornblad op bladeren | Total Marrone | Logo |
+| CR04 | Split-screen: links camel-kant, rechts bruine kant (omkeerbaar) | Cammello & Marrone | REVERSO AUTUMN (REVERSO links, AUTUMN rechts) |
+| CR05 | Model in een draaikolk van bladeren op een plein | Crema & Blu | Logo |
+| CR06 | "Onzichtbare man": de outfit loopt zelf door het park | Total Nero | Logo |
+| CR07 | Model ligt van bovenaf gezien in de gele bladeren | Oliva & Crema | Logo |
+| CR08 | Weerspiegeling in een plas op kinderkopjes | Antracite & Pietra | Logo |
+| CR09 | Outfit over een stoel bij een regenachtig raam | Crema & Nero | REVERSO AUTUMN |
+| CR10 | Kleurenpalet: 4 gilets, elk met een herfstblad in dezelfde kleur | Cammello, Bordeaux, Oliva, Marrone | REVERSO AUTUMN |
