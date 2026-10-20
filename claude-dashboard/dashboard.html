@@ -934,7 +934,7 @@ function estimateMissing(p, metaLive) {
   if (!gap.length) return null;
   const out = { days: gap.length, from: gap[0], to: gap[gap.length - 1], basis: null, total: null, cogs: null, other: null, team: null, meta: 0, revenue: 0 };
   if (!cov.last) return out;
-  const bTo = cov.last, bFrom = addDays(bTo, -29), base = finance({ from: bFrom, to: bTo }, { noEst: true }).res;
+  const bTo = cov.last, bFrom = addDays(bTo, -29), base = finance({ from: bFrom, to: bTo }, { noEst: true, shopOnly: true }).res;
   if (!base.revenue) return out;
   out.revenue = gap.reduce((a, k) => a + ((S.sales.byDay[k] || {}).total || 0), 0);
   out.basis = { from: bFrom, to: bTo, cogsPct: base.cogs / base.revenue };
@@ -950,6 +950,10 @@ function finance(p, opts) {
   const days = eachDay(p.from, p.to > today ? today : p.to);
   let revenue = 0, taxes = 0, orders = 0, missingSales = 0;
   for (const k of days) { const r = S.sales.byDay[k]; if (r) { revenue += r.total; taxes += r.taxes; orders += r.orders; } else missingSales++; }
+  // omzet die niet via Shopify liep (handmatig), telt mee in de omzet maar niet in orders
+  // voor percentages en prognoses (shopOnly) telt eenmalige omzet buiten Shopify niet mee
+  const manRev = opts && opts.shopOnly ? 0 : manualSum(["revenue"], p), shopRev = revenue;
+  revenue += manRev;
   const txs = allTxs();
   const eff = txs.filter((t) => { const e = t.pd || t.d; return e >= p.from && e <= p.to; });
   const booked = txs.filter((t) => t.d >= p.from && t.d <= p.to);
@@ -978,9 +982,11 @@ function finance(p, opts) {
   const cogs = bucket("cogs") + manualSum(["cogs"], p);
   const est = opts && opts.noEst ? null : estimateMissing(p, metaSpend !== null);
   const res = pnl({ revenue, taxes, orders, cogs, meta, fees, chargebacks, other, team, est: est && est.total ? est.total : 0, inventory: manualSum(["inventory"], p) }, S.settings.reserveVat);
+  // gemiddelde orderwaarde alleen over Shopify-orders
+  if (manRev) res.aov = orders ? Math.round(shopRev / orders) : null;
   const hasBank = txs.length > 0;
   const lines = [
-    { key: "revenue", label: "Omzet", v: revenue, src: S.sales.status === "ok" ? ["Shopify"] : [S.sales.status === "laden" ? "laden" : "ontbreekt"], note: missingSales && S.sales.status === "ok" ? `${missingSales} ${missingSales === 1 ? "dag" : "dagen"} zonder data` : "" },
+    { key: "revenue", label: "Omzet", v: revenue, src: (S.sales.status === "ok" ? ["Shopify"] : [S.sales.status === "laden" ? "laden" : "ontbreekt"]).concat(manRev ? ["handmatig"] : []), note: [manRev ? `Shopify ${euro(shopRev, true)}, buiten Shopify ${euro(manRev, true)}` : "", missingSales && S.sales.status === "ok" ? `${missingSales} ${missingSales === 1 ? "dag" : "dagen"} zonder data` : ""].filter(Boolean).join(", ") },
     { key: "cogs", label: "COGS en verzending", v: cogs, src: [hasBank ? "bank" : "ontbreekt"].concat(manualSum(["cogs"], p) ? ["handmatig"] : []) },
     { key: "meta", label: "Meta ads", v: meta, src: metaSpend !== null ? ["Meta"] : [hasBank ? "bank" : "ontbreekt"], note: metaSpend !== null ? `verbruikt volgens Meta, betaald via bank en PayPal ${euro(metaPaid, true)}` : "betaald volgens bank, Meta-koppeling niet bereikbaar" },
     { key: "fees", label: "Shopify en PayPal fees", v: fees, src: (S.feesLive.status === "fout" && !shopFees ? ["ontbreekt"] : ["Shopify"]).concat(ppOk() ? ["PayPal"] : ["ontbreekt"], manFees ? ["handmatig"] : []), note: [shopFees || pp.f ? `Shopify ${euro(shopFees, true)}, PayPal ${ppOk() ? euro(pp.f, true) : "ontbreekt"}` : "", fx ? `waarvan ${euro(fx, true)} wisselkoers-fee bij Shopify` : "", feeDaysMissing ? `${feeDaysMissing} dagen nog niet opgehaald` : "", pp.nx ? `${pp.nx} PayPal-regels zonder koers` : ""].filter(Boolean).join(", ") },
@@ -989,7 +995,7 @@ function finance(p, opts) {
     { key: "team", label: "Teamkosten", v: team, src: team ? (bucket("team") ? ["bank"] : ["handmatig"]) : ["ontbreekt"], note: team ? "" : "nog niet ingevoerd" },
     ...(est ? [{ key: "est", label: `Nog niet op je bank (${est.days} ${est.days === 1 ? "dag" : "dagen"})`, v: est.total || 0, src: [est.total === null ? "ontbreekt" : "schatting"], note: est.total === null ? `geen bankafschrift vanaf ${dayL(est.from)} en geen basis om te schatten` : `COGS ${pct(est.basis.cogsPct)} van de omzet ${euro(est.cogs, true)}, software en overig ${euro(est.other, true)}, team ${euro(est.team, true)}${est.meta ? `, Meta ${euro(est.meta, true)}` : ""}; uit de bank van ${dayL(est.basis.from)} t/m ${dayL(est.basis.to)}. Verdwijnt zodra je het afschrift t/m ${dayL(est.to)} uploadt.` }] : []),
   ];
-  return { p, res, lines, bank, eff, booked, metaSpend, metaPaid, metaRows, fx, feeOrders, feeOrdersNoData, missingSales, days, pp, lost, est };
+  return { p, res, lines, bank, eff, booked, metaSpend, metaPaid, metaRows, fx, feeOrders, feeOrdersNoData, missingSales, days, pp, lost, est, manRev, shopRev };
 }
 function latestBalance(beforeKey) {
   const list = [...S.balances].filter((b) => !beforeKey || b.at <= beforeKey).sort((a, b) => a.at.localeCompare(b.at));
@@ -1091,7 +1097,7 @@ function coverage() {
 /* Verwachte betalingen: correcties met een datum na het laatste afschrift die nog niet via de bank zijn betaald. */
 function expectedBills() {
   const E = moneyNow().bankDate;
-  return S.manual.filter((m) => m.expected && QUICK_KINDS[m.kind] && m.amount > 0 && (!E || m.from > E) && !quickMatch(m)).map((m) => ({ date: m.from, amount: m.amount, label: m.label }));
+  return S.manual.filter((m) => m.expected && m.kind !== "revenue" && QUICK_KINDS[m.kind] && m.amount > 0 && (!E || m.from > E) && !quickMatch(m)).map((m) => ({ date: m.from, amount: m.amount, label: m.label }));
 }
 /* Banksaldo nu, geschat: het laatste afschrift plus wat Shopify en PayPal sindsdien uitbetaalden, min wat sindsdien
    waarschijnlijk van de bank ging (Meta uit Meta, inkoop, software en team geschat, correcties). Privé zit er niet in. */
@@ -1291,7 +1297,7 @@ function viewOverview() {
 }
 
 /* ---------- correcties: een kost of factuur die nog niet in de bank staat, meetellen in deze periode ---------- */
-const QUICK_KINDS = { cogs: "COGS en verzending", other: "Overige kosten", team: "Teamkosten", fees: "Fees" };
+const QUICK_KINDS = { cogs: "COGS en verzending", other: "Overige kosten", team: "Teamkosten", fees: "Fees", revenue: "Extra omzet (niet in Shopify)" };
 const QUICK_BUCKET = { cogs: "cogs", other: "other", team: "team" };
 /* Is de verwachte factuur inmiddels via de bank betaald? Zoek een uitgave kort na de datum met ongeveer hetzelfde bedrag. */
 function quickMatch(m) {
@@ -1305,7 +1311,7 @@ function quickBlock(p) {
   const today = dayKey(new Date()), def = p.to < today ? p.to : today < p.from ? p.from : today;
   const list = S.manual.filter((m) => QUICK_KINDS[m.kind] && m.from <= p.to && (m.to || m.from) >= p.from).sort((a, b) => a.from.localeCompare(b.from));
   return `<section class="card"><h2>Correcties voor deze periode</h2>
-    <p class="dim" style="margin:0 0 10px">Een factuur of kost die nog niet op je bank staat maar wel bij deze periode hoort. Hij telt meteen mee in de winst, met het label handmatig.</p>
+    <p class="dim" style="margin:0 0 10px">Een factuur of kost die nog niet op je bank staat maar wel bij deze periode hoort, of omzet die niet via Shopify liep. Het telt meteen mee in de winst, met het label handmatig.</p>
     <form data-form="quick" class="row" style="gap:8px;flex-wrap:wrap">
       <input class="input" id="q_label" placeholder="omschrijving, bv. factuur leverancier" required style="flex:1 1 200px">
       <input class="input" id="q_amount" placeholder="bedrag, bv. 5000" inputmode="decimal" required style="width:130px">
@@ -1313,7 +1319,7 @@ function quickBlock(p) {
       <label class="dim" style="font-size:12px">telt mee op <input class="input" type="date" id="q_date" value="${def}" min="${p.from}" max="${p.to}" required></label>
       <button class="btn" type="submit">Toevoegen</button>
     </form>
-    ${list.length ? `<table style="margin-top:10px"><tbody>${list.map((m) => { const hit = quickMatch(m); return `<tr><td>${esc(m.label)} <span class="muted" style="font-size:12px">${esc(QUICK_KINDS[m.kind])}${m.expected ? ", verwacht" : ""}</span>${hit ? `<div class="good" style="font-size:12px">Betaald op ${dayL(hit.d)} via de bank (${euro(-hit.a)}). <button class="btn ghost" style="padding:1px 8px" type="button" data-act="quickLink" data-id="${m.id}" data-k="${esc(hit.k)}">Koppel aan deze betaling</button></div>` : ""}</td><td class="dim" style="white-space:nowrap">${m.to && m.to !== m.from ? `${dayL(m.from)} t/m ${dayL(m.to)}` : dayL(m.from)}</td><td class="r">${euro(-m.amount)}</td><td class="r"><button class="btn ghost" style="padding:2px 8px" type="button" data-act="delManual" data-id="${m.id}">verwijder</button></td></tr>`; }).join("")}</tbody></table>
+    ${list.length ? `<table style="margin-top:10px"><tbody>${list.map((m) => { const hit = quickMatch(m); return `<tr><td>${esc(m.label)} <span class="muted" style="font-size:12px">${esc(QUICK_KINDS[m.kind])}${m.expected ? ", verwacht" : ""}</span>${hit ? `<div class="good" style="font-size:12px">Betaald op ${dayL(hit.d)} via de bank (${euro(-hit.a)}). <button class="btn ghost" style="padding:1px 8px" type="button" data-act="quickLink" data-id="${m.id}" data-k="${esc(hit.k)}">Koppel aan deze betaling</button></div>` : ""}</td><td class="dim" style="white-space:nowrap">${m.to && m.to !== m.from ? `${dayL(m.from)} t/m ${dayL(m.to)}` : dayL(m.from)}</td><td class="r ${m.kind === "revenue" ? "good" : ""}">${euro(m.kind === "revenue" ? m.amount : -m.amount)}</td><td class="r"><button class="btn ghost" style="padding:2px 8px" type="button" data-act="delManual" data-id="${m.id}">verwijder</button></td></tr>`; }).join("")}</tbody></table>
     <p class="muted" style="font-size:12px;margin:8px 0 0">Komt de betaling later op je bank, klik dan op Koppel. De bankbetaling telt dan mee in deze periode en de correctie verdwijnt, zodat niets dubbel telt.</p>` : ""}
   </section>`;
 }
@@ -1490,7 +1496,7 @@ function viewBank() {
   </section>`;
 }
 
-const MANUAL_KINDS = { paypal_fees: "PayPal fees", chargebacks: "Chargebacks en disputes", fees: "Overige fees", cogs: "COGS (niet via bank)", other: "Overige kosten", team: "Teamkosten eenmalig", inventory: "Toename voorraadwaarde" };
+const MANUAL_KINDS = { revenue: "Extra omzet (niet in Shopify)", paypal_fees: "PayPal fees", chargebacks: "Chargebacks en disputes", fees: "Overige fees", cogs: "COGS (niet via bank)", other: "Overige kosten", team: "Teamkosten eenmalig", inventory: "Toename voorraadwaarde" };
 function viewInput() {
   const s = S.settings, snap = latestBalance(), today = dayKey(new Date()), ms = today.slice(0, 8) + "01";
   const team = S.manual.filter((m) => m.kind === "team_month"), posts = S.manual.filter((m) => MANUAL_KINDS[m.kind]), inv = S.manual.filter((m) => m.kind === "open_invoice");
@@ -1579,9 +1585,9 @@ function aiProjection({ days, basisDays = 14, revenueChangePct = 0, metaChangePc
   if (!(days >= 1 && days <= 365)) throw new Error("days moet tussen 1 en 365 liggen");
   if (!(basisDays >= 3 && basisDays <= 90)) throw new Error("basisDays moet tussen 3 en 90 liggen");
   const today = dayKey(new Date()), bTo = addDays(today, -1), bFrom = addDays(bTo, -(basisDays - 1));
-  const live = finance({ from: bFrom, to: bTo }).res;
+  const live = finance({ from: bFrom, to: bTo }, { shopOnly: true }).res;
   const cov = coverage(), cTo = cov.last && cov.last < bTo ? cov.last : bTo, cFrom = addDays(cTo, -29);
-  const cost = cov.last ? finance({ from: cFrom, to: cTo }).res : null;
+  const cost = cov.last ? finance({ from: cFrom, to: cTo }, { noEst: true, shopOnly: true }).res : null;
   if (!live.revenue) throw new Error("geen omzet in de basisperiode");
   // delen door de dagen waarvoor echt omzetdata is, zodat een ontbrekende dag het gemiddelde niet omlaag trekt
   const n = eachDay(bFrom, bTo).filter((k) => S.sales.byDay[k]).length || basisDays;
@@ -1757,11 +1763,11 @@ function viewAsk() {
 const monthStart = (k) => k.slice(0, 8) + "01";
 function pfBase(basisDays) {
   const today = dayKey(new Date()), bTo = addDays(today, -1), bFrom = addDays(bTo, -(basisDays - 1)), s = S.settings;
-  const live = finance({ from: bFrom, to: bTo }).res;
+  const live = finance({ from: bFrom, to: bTo }, { shopOnly: true }).res;
   const n = eachDay(bFrom, bTo).filter((k) => S.sales.byDay[k]).length;
   if (!n || !live.revenue) return null;
   const cov = coverage(), cTo = cov.last && cov.last < bTo ? cov.last : bTo, cFrom = addDays(cTo, -29);
-  const cost = cov.last ? finance({ from: cFrom, to: cTo }).res : null;
+  const cost = cov.last ? finance({ from: cFrom, to: cTo }, { noEst: true, shopOnly: true }).res : null;
   const okCost = cost && cost.revenue > 0;
   const sumRev = (a, b) => eachDay(a, b).reduce((t, k) => t + ((S.sales.byDay[k] || {}).total || 0), 0);
   const r1 = sumRev(addDays(bTo, -13), bTo), r0 = sumRev(addDays(bTo, -27), addDays(bTo, -14));
@@ -2126,7 +2132,7 @@ document.addEventListener("submit", (e) => {
   if (kind === "quick") {
     const a = parseEuroInput(val("q_amount")), d = val("q_date");
     if (a === null || !isDay(d)) { toast("Vul een bedrag en datum in"); return; }
-    const entry = { id: uid(), kind: val("q_kind"), label: val("q_label").trim() || "Correctie", amount: a, from: d, to: d, expected: true };
+    const qk = val("q_kind"), entry = { id: uid(), kind: qk, label: val("q_label").trim() || (qk === "revenue" ? "Extra omzet" : "Correctie"), amount: a, from: d, to: d, expected: qk !== "revenue" };
     saveManual((l) => [...l, entry]).then(() => toast("Correctie toegevoegd, telt mee in de winst"));
     f.reset(); document.activeElement && document.activeElement.blur(); return;
   }
