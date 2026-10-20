@@ -249,7 +249,8 @@ function forecast(s) {
       shop += payable; payable = 0;
     }
     if (s.releaseAmount && s.releaseDate === date) shop += s.releaseAmount;
-    const supplier = s.supplierDay === i ? s.supplier : 0;
+    const bills = (s.bills || []).filter((b) => (i === 1 ? b.date <= date : b.date === date)).reduce((a, b) => a + b.amount, 0);
+    const supplier = ((s.bills || []).length ? 0 : s.supplierDay === i ? s.supplier : 0) + bills;
     const ps = (s.privateWeek + s.softwareWeek) / 7;
     const extra = s.extraDay || 0;
     bal += shop + s.paypalDay - s.metaDay - supplier - ps - extra;
@@ -1038,10 +1039,28 @@ function coverage() {
   const missingFrom = last && last < yesterday ? addDays(last, 1) : null;
   return { merged, gaps, last, missingFrom, missingDays: missingFrom ? daysBetween(missingFrom, yesterday) + 1 : 0 };
 }
+/* Verwachte betalingen: correcties met een datum na het laatste afschrift die nog niet via de bank zijn betaald. */
+function expectedBills() {
+  const E = moneyNow().bankDate;
+  return S.manual.filter((m) => m.expected && QUICK_KINDS[m.kind] && m.amount > 0 && (!E || m.from > E) && !quickMatch(m)).map((m) => ({ date: m.from, amount: m.amount, label: m.label }));
+}
+/* Banksaldo nu, geschat: het laatste afschrift plus wat Shopify en PayPal sindsdien uitbetaalden, min wat sindsdien
+   waarschijnlijk van de bank ging (Meta uit Meta, inkoop, software en team geschat, correcties). Privé zit er niet in. */
+function bankNowEstimate() {
+  const m = moneyNow(), E = m.bankDate, today = dayKey(new Date());
+  const out = { known: m.pos.bank, transit: m.pos.transit, since: 0, from: null, to: null, bankDate: E };
+  if (E && addDays(E, 1) <= addDays(today, -1)) {
+    out.from = addDays(E, 1); out.to = addDays(today, -1);
+    const r = finance({ from: out.from, to: out.to }).res, f = finance({ from: out.from, to: out.to });
+    out.since = Math.round(r.meta - f.pp.meta + r.cogs + r.other - f.pp.out + r.team + (r.est || 0));
+  }
+  out.total = out.known + out.transit - out.since;
+  return out;
+}
 function fcSettings() {
-  const s = S.settings, m = moneyNow();
+  const s = S.settings, m = moneyNow(), bn = bankNowEstimate();
   return {
-    days: s.forecastDays, start: addDays(dayKey(new Date()), 1), bank: m.pos.bank + m.pos.transit, payout: m.pos.payout, payoutDate: m.payoutDate,
+    days: s.forecastDays, start: addDays(dayKey(new Date()), 1), bank: bn.total, bankEst: bn, bills: expectedBills(), payout: m.pos.payout, payoutDate: m.payoutDate,
     pending: m.pos.pending, pendingWorkdays: 3, salesDay: s.salesDay, ratio: s.payoutRatio, delay: s.payoutDelay, paypalDay: s.paypalDay, metaDay: s.metaDay,
     privateWeek: s.privateWeek, softwareWeek: s.softwareWeek, supplier: s.supplier, supplierDay: s.supplierDay, buffer: s.buffer, releaseAmount: 0, releaseDate: "", extraDay: 0,
   };
@@ -1050,7 +1069,7 @@ function alerts(f) {
   const out = [], s = S.settings, m = moneyNow();
   const fc = forecast({ ...fcSettings(), days: 7 });
   if (fc.belowZero || fc.belowBuffer) out.push({ l: 1, t: fc.belowZero ? "Bank dreigt onder nul te komen" : "Bank komt onder je buffer", b: `Laagste punt de komende 7 dagen: ${euro(fc.lowest.bal, true)} op ${dayL(fc.lowest.date)}. Buffer: ${euro(s.buffer, true)}.`, tab: "prognose" });
-  const openInv = S.manual.filter((x) => x.kind === "open_invoice" && !x.paid).reduce((a, x) => a + x.amount, 0);
+  const openInv = S.manual.filter((x) => x.kind === "open_invoice" && !x.paid).reduce((a, x) => a + x.amount, 0) + expectedBills().reduce((a, b) => a + b.amount, 0);
   if (openInv > 0 && openInv > m.pos.bank + m.pos.payout) out.push({ l: 1, t: "Fulfillment eerst: Meta niet verhogen", b: `Openstaande leveranciersfacturen (${euro(openInv, true)}) zijn hoger dan bank plus ingeplande payout (${euro(m.pos.bank + m.pos.payout, true)}).`, tab: "invoer" });
   const today = dayKey(new Date());
   const last3 = [addDays(today, -3), addDays(today, -2), addDays(today, -1)];
@@ -1314,6 +1333,8 @@ function viewForecast() {
   const sl = (k, l, max, step) => `<div class="slider"><label for="fc_${k}"><span class="top"><span class="dim">${l}</span><b class="num" id="fcv_${k}">${euro(s[k], true)}</b></span></label><input type="range" id="fc_${k}" data-fc="${k}" min="0" max="${max}" step="${step}" value="${s[k]}"></div>`;
   return `
   <section><h1 class="serif" style="font-size:28px">Prognose</h1><p class="sub">Banksaldo dag voor dag vanaf ${dayL(s.start)}. Shopify betaalt alleen op werkdagen uit. Schuiven is om mee te rekenen; met Opslaan worden het je standaardwaarden.</p></section>
+  ${s.bankEst && s.bankEst.since ? `<div class="alert l2"><span class="warn" aria-hidden="true">▲</span><div><b>Startsaldo is een schatting: ${euro(s.bankEst.total, true)}</b><span class="dim">Je bankafschrift loopt t/m ${dayL(s.bankEst.bankDate)} (saldo ${euro(s.bankEst.known, true)}). Daarna kwam er volgens Shopify en PayPal ongeveer ${euro(s.bankEst.transit, true)} binnen, en ging er naar schatting ${euro(s.bankEst.since, true)} af (Meta uit Meta, inkoop, software en team uit je laatste 30 dagen bank, plus je correcties). Privé-opnames zitten er niet in. Sleep je afschrift t/m gisteren erin voor het echte saldo.</span></div></div>` : ""}
+  ${s.bills && s.bills.length ? `<section class="card"><h2>Verwachte betalingen</h2><table><tbody>${s.bills.map((b) => `<tr><td>${esc(b.label)}</td><td class="dim">${dayL(b.date)}</td><td class="r">${euro(-b.amount)}</td></tr>`).join("")}</tbody><tfoot><tr><td>Totaal</td><td></td><td class="r">${euro(-s.bills.reduce((a, b) => a + b.amount, 0))}</td></tr></tfoot></table><p class="muted" style="font-size:12px;margin:8px 0 0">Uit Correcties op Overzicht. Ze vervangen de vaste leveranciersbetaling in deze prognose. Wat al vervallen is, staat op de eerste dag.</p></section>` : ""}
   <section class="grid" style="grid-template-columns:minmax(0,1fr)">
     <div class="card stack" style="gap:12px">
       <div class="seg" role="group" aria-label="Aantal dagen">${[7, 14, 30].map((n) => `<button type="button" data-fcdays="${n}" aria-pressed="${s.days === n}">${n} dagen</button>`).join("")}</div>
@@ -2240,7 +2261,7 @@ render();
   S.dbState = db ? "ok" : "niet beschikbaar";
   if (db) {
     const onErr = (e) => { S.dbState = e && e.code === "revoked" ? "geen toegang meer" : "fout"; render(); };
-    const cfg = (name, apply) => db.doc("config/" + name).onSnapshot((s) => { apply(s.exists ? s.data() : null); S.fc = S.fc && name !== "settings" && name !== "balances" ? S.fc : null; render(); }, onErr);
+    const cfg = (name, apply) => db.doc("config/" + name).onSnapshot((s) => { apply(s.exists ? s.data() : null); S.fc = S.fc && name !== "settings" && name !== "balances" && name !== "manual" ? S.fc : null; render(); }, onErr);
     cfg("settings", (d) => (S.settings = { ...DEFAULT_SETTINGS, ...(d || {}) }));
     cfg("rules", (d) => (S.rules = d && Array.isArray(d.rules) ? d.rules : null));
     cfg("manual", (d) => (S.manual = (d && d.entries) || []));
