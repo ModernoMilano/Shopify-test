@@ -16,3 +16,11 @@ Wijzigen: pas `dashboard.html` aan en publiceer opnieuw naar dezelfde URL.
 Tabblad met een chat (capability `sample`). Claude rekent niet uit het hoofd maar roept de rekenfuncties van de pagina aan:
 `cijfers_periode`, `dagcijfers`, `winst_prognose` (omzet, Meta en fees uit de laatste 14 dagen, COGS en vaste kosten uit
 de laatste 30 dagen bank), `geld_nu` en `kasprognose`. Elke vraag gebruikt het Claude-tegoed van wie de pagina opent.
+
+## Betrouwbaarheid van de winst
+
+- Een afschrift dat niet tot op de cent sluit wordt niet opgeslagen. De lezer kent beide notaties: "€1.234,56" en "1.234,56€".
+- Dezelfde mutatie uit een PDF en een CSV telt één keer (zelfde dag, bedrag en saldo).
+- Dagen zonder bankafschrift krijgen een zichtbare schatting voor COGS, software en team uit de laatste 30 dagen bank.
+- Chargebacks komen uit de tijdlijn van de order: het bedrag dat Shopify echt van de payout inhield, op die datum, min wat na een gewonnen dispute terugkwam.
+- Hold: Shopify houdt standaard 10% van de verkopen 35 dagen vast, PayPal komt uit de transacties. Op Overzicht staat de winst die je nu kunt gebruiken.

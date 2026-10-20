@@ -10,6 +10,11 @@ describe("hulpfuncties", () => {
     expect(parseDutchDate("27 okt 2026")).toBe("2026-10-27");
     expect(parseEuroAmount("€1.836,01")).toBe(183601);
     expect(parseEuroAmount("$60,00")).toBeNull();
+    // nieuwere afschriften: euroteken achter het bedrag
+    expect(parseEuroAmount("1.836,01€")).toBe(183601);
+    expect(parseEuroAmount("-50,00€")).toBe(-5000);
+    expect(parseEuroAmount("500,00 €")).toBe(50000);
+    expect(parseEuroAmount("1,00€ = 1,13$")).toBeNull();
   });
 });
 

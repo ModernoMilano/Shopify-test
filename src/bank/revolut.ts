@@ -51,11 +51,14 @@ export function parseDutchDate(s: string): string | null {
 }
 
 /** "€1.234,56" → 123456 */
+/** Revolut schrijft "€1.234,56" (oudere afschriften) of "1.234,56€" (nieuwere), soms met een spatie. */
 export function parseEuroAmount(s: string): number | null {
-  const m = s.trim().match(/^-?€\s?(-?[\d.]+,\d{2})$/);
+  const t = s.replace(/[\u00a0\u202f]/g, " ").trim();
+  if (!t.includes("€")) return null;
+  const m = t.match(/^(-?)\s?€\s?(-?)([\d.]+,\d{2})$/) || t.match(/^(-?)()([\d.]+,\d{2})\s?€$/);
   if (!m) return null;
-  const n = Number(m[1].replace(/\./g, "").replace(",", "."));
-  return Math.round((s.trim().startsWith("-") ? -n : n) * 100);
+  const n = Number(m[3].replace(/\./g, "").replace(",", "."));
+  return Math.round((m[1] || m[2] ? -n : n) * 100);
 }
 
 // ---------------------------------------------------------------------------
@@ -91,7 +94,7 @@ export function parseRevolutPdfItems(items: PdfTextItem[]): ParsedStatement {
   const flush = () => {
     if (current) {
       current.details = currentDetails.join("\n");
-      const fee = current.details.match(/Kosten: €([\d.]+,\d{2})/);
+      const fee = current.details.match(/Kosten: (?:€\s?)?([\d.]+,\d{2})\s?€?/);
       if (fee) current.feeCents = parseEuroAmount(`€${fee[1]}`) ?? 0;
       statement.transactions.push(current);
     }
