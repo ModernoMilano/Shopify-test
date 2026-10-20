@@ -1,0 +1,109 @@
+<section class="mm-reverso-section">
+  <div class="mm-reverso-inner">
+    <div class="mm-reverso-image">
+      <img src="https://cdn.shopify.com/s/files/1/1009/1197/2689/files/MM-Reverso-Autumn-Crema-Bordeaux-QuarterZip-2-macro.png?width=1600" alt="ModernoMilano Reverso Autumn set with quarter zip" width="1360" height="2048" loading="eager">
+    </div>
+    <div class="mm-reverso-content">
+      <h2 class="mm-reverso-title">REVERSO AUTUMN</h2>
+      <p class="mm-reverso-text">
+        One set, two looks, made for the colder days. Our fully reversible gilet now comes with a soft quarter-zip knit or a long sleeve mercerized cotton tee, paired with tailored trousers in warm autumn colourways. Layer it up, turn it inside out and carry the season in quiet Milanese style.
+      </p>
+    </div>
+  </div>
+</section>
+<style>
+.mm-reverso-section {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  background: #f8f8f8;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.mm-reverso-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 40px;
+  padding: 80px 40px 70px;
+}
+.mm-reverso-image img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+.mm-reverso-content {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.mm-reverso-title {
+  margin: 0 0 18px;
+  font-family: Arial, sans-serif;
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #111;
+}
+.mm-reverso-text {
+  margin: 0 auto;
+  max-width: 430px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #4f4f4f;
+}
+@media screen and (max-width: 989px) {
+  .mm-reverso-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 60px 20px 55px;
+  }
+  .mm-reverso-title {
+    font-size: 24px;
+    letter-spacing: 4px;
+  }
+  .mm-reverso-image img {
+    height: 420px;
+  }
+}
+@media screen and (max-width: 749px) {
+  .mm-reverso-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+  }
+  .mm-reverso-image {
+    width: 100%;
+  }
+  .mm-reverso-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.52 / 1;
+    object-fit: cover;
+  }
+  .mm-reverso-content {
+    width: 100%;
+    padding: 36px 24px 42px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .mm-reverso-title {
+    font-size: 20px;
+    letter-spacing: 4px;
+    margin-bottom: 16px;
+  }
+  .mm-reverso-text {
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 320px;
+  }
+}
+</style>
