@@ -1,0 +1,108 @@
+<nav class="mm-milano-sets-nav">
+  <div class="mm-milano-sets-nav-inner">
+    <a href="https://modernomilano.com/collections/reverso-collection" class="mm-milano-sets-nav-link">
+      <span>Reverso Collection</span>
+    </a>
+    <span class="mm-milano-sets-nav-divider"></span>
+    <a href="https://modernomilano.com/collections/reverso-autumn" class="mm-milano-sets-nav-link">
+      <span>Reverso Autumn</span>
+    </a>
+  </div>
+</nav>
+<style>
+.mm-milano-sets-nav {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  background: #E3E0D7;
+  border-top: 1px solid rgba(17,17,17,0.08);
+  border-bottom: 1px solid rgba(17,17,17,0.08);
+  box-sizing: border-box;
+}
+.mm-milano-sets-nav-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 26px 40px;
+}
+.mm-milano-sets-nav-link {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #111;
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  padding-bottom: 6px;
+  transition: color 0.3s ease;
+}
+.mm-milano-sets-nav-link span {
+  position: relative;
+}
+.mm-milano-sets-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 1px;
+  background: #111;
+  transition: width 0.35s ease;
+}
+.mm-milano-sets-nav-link:hover {
+  color: #111;
+}
+.mm-milano-sets-nav-link:hover::after {
+  width: 100%;
+}
+.mm-milano-sets-nav-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(17,17,17,0.25);
+  display: inline-block;
+}
+/* TABLET */
+@media screen and (max-width: 989px) {
+  .mm-milano-sets-nav-inner {
+    gap: 28px;
+    padding: 20px 24px;
+  }
+  .mm-milano-sets-nav-link {
+    font-size: 15px;
+    letter-spacing: 1.2px;
+  }
+}
+/* MOBILE */
+@media screen and (max-width: 749px) {
+  .mm-milano-sets-nav-inner {
+    gap: 0;
+    padding: 0;
+  }
+  .mm-milano-sets-nav-divider {
+    display: none;
+  }
+  .mm-milano-sets-nav-link {
+    flex: 1 1 50%;
+    text-align: center;
+    padding: 18px 8px;
+    border-right: 1px solid rgba(17,17,17,0.08);
+    font-size: 12px;
+    letter-spacing: 0.8px;
+  }
+  .mm-milano-sets-nav-link:last-child {
+    border-right: none;
+  }
+  .mm-milano-sets-nav-link::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .mm-milano-sets-nav-link:hover {
+    background: rgba(17,17,17,0.03);
+  }
+}
+</style>
