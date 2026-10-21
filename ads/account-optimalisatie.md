@@ -44,6 +44,7 @@ Doel: winst, niet spend. Break-even ROAS 1,93 (Meta). Cash-doel: omzet per EUR 1
 | 2026-10-21 23:00 | ANGLES Gift VALUE (120252135660700541) budget, 72u ROAS 1,19 (-20%) | Claude, op besluit eigenaar | EUR 50 | EUR 40 |
 | 2026-10-21 23:00 | ANGLES Easy VALUE (120252135661390541) budget, 72u ROAS 0,00 (-50%) | Claude, op besluit eigenaar | EUR 50 | EUR 25 |
 | 2026-10-21 23:00 | ANGLES Quiet Luxury VALUE (120252135661880541) budget, 72u ROAS 0,00 (-50%) | Claude, op besluit eigenaar | EUR 50 | EUR 25 |
+| 2026-10-21 23:30 | Nieuwe campagne MM \| REVERSO AUTUMN \| CBO (120252169427770541): 1 broad ad set, 16 ads, landen DE/AT/IT/FR/ES/US, alle ads naar /collections/reverso-autumn | Claude, op besluit eigenaar | - | live, EUR 200 per dag |
 
 Totaal dagbudget actieve campagnes: van ongeveer EUR 1.830 naar EUR 1.433, na opschalen EUR 1.683. Eerste evaluatie: 22 okt (na 48-72 uur).
 
@@ -56,3 +57,4 @@ Op 21 okt 2026 getest met een gepauzeerde ad set (campagne 52577555933480, ad se
 Let op: MODERNO PIXEL is eigendom van het ad account 1429115185245447 en niet van het bedrijf. Advies: deel de pixel ook met het bedrijf moderno.milano.
 
 48-uurscheck 21 okt 23:00: Worldwide Test (2,07) en Retargeting (2 euro spend in 48u, levert niet) ongewijzigd. Totaal dagbudget van ongeveer EUR 1.833 naar EUR 1.660. Volgende check op zijn vroegst 23 okt 23:00.
+Na de lancering van Reverso Autumn is het totale dagbudget ongeveer EUR 1.860.
