@@ -34,6 +34,16 @@ Doel: winst, niet spend. Break-even ROAS 1,93 (Meta). Cash-doel: omzet per EUR 1
 | 2026-10-19 | DEU Reverso: ad REVERSO_DE_01_OlivaCrema_Kollektion (120252095274430541) gepauzeerd. EUR 197, 0 aankopen | Claude, op besluit eigenaar | actief | pauze |
 | 2026-10-19 | Nasir WW LAL: ad Ad 9 Bundle & Save beige - Copy (120251724269190541) gepauzeerd. 14d EUR 114, 0 aankopen | Claude, op besluit eigenaar | actief | pauze |
 | 2026-10-19 | Nieuwe campagne MM \| ANGLES \| ABO (120252135580150541): 3 ad sets van EUR 50 (Gift, Easy, Quiet Luxury) met in totaal 12 ads, zie ads/angles/README.md | Claude, op besluit eigenaar | - | live (EUR 150 per dag); ad sets daarna vervangen door VALUE-versies |
+| 2026-10-21 23:00 | WORLDWIDE 2.0 (120251716748050541) budget, 48u ROAS 2,70 (+20%) | Claude, op besluit eigenaar | EUR 300 | EUR 360 |
+| 2026-10-21 23:00 | Nasir | Creative Test (120251874411360541) budget, 48u ROAS 3,15; volgens SOP EUR 250 voor de nieuwe batch | Claude, op besluit eigenaar | EUR 100 | EUR 250 |
+| 2026-10-21 23:00 | MM | UK | SCALING (120250178281330541) budget, 48u ROAS 2,22 (op besluit eigenaar +20%) | Claude, op besluit eigenaar | EUR 100 | EUR 120 |
+| 2026-10-21 23:00 | USA CBO (120251181130410541) budget, 48u ROAS 1,21 (-20%) | Claude, op besluit eigenaar | EUR 120 | EUR 96 |
+| 2026-10-21 23:00 | Nasir | WW LAL (120251724269040541) budget, 48u ROAS 0,87 (-50%) | Claude, op besluit eigenaar | EUR 288 | EUR 144 |
+| 2026-10-21 23:00 | Nasir | Reverso Set (120251979200110541) budget, 48u ROAS 0,81 (-50%) | Claude, op besluit eigenaar | EUR 150 | EUR 75 |
+| 2026-10-21 23:00 | MM | DEU | SCALING (120250179400190541) budget, 48u ROAS 0,00 (-50%) | Claude, op besluit eigenaar | EUR 200 | EUR 100 |
+| 2026-10-21 23:00 | ANGLES Gift VALUE (120252135660700541) budget, 72u ROAS 1,19 (-20%) | Claude, op besluit eigenaar | EUR 50 | EUR 40 |
+| 2026-10-21 23:00 | ANGLES Easy VALUE (120252135661390541) budget, 72u ROAS 0,00 (-50%) | Claude, op besluit eigenaar | EUR 50 | EUR 25 |
+| 2026-10-21 23:00 | ANGLES Quiet Luxury VALUE (120252135661880541) budget, 72u ROAS 0,00 (-50%) | Claude, op besluit eigenaar | EUR 50 | EUR 25 |
 
 Totaal dagbudget actieve campagnes: van ongeveer EUR 1.830 naar EUR 1.433, na opschalen EUR 1.683. Eerste evaluatie: 22 okt (na 48-72 uur).
 
@@ -44,3 +54,5 @@ Ad-check 19 okt: niet gepauzeerd op besluit eigenaar (in de gaten houden): USA W
 Het tweede ad account **BACKUP** (1135630682306636) staat in het bedrijf moderno.milano en is gekoppeld aan Windsor. Het is bedoeld voor nieuwe campagnes, niet als kopie van het hoofdaccount.
 Op 21 okt 2026 getest met een gepauzeerde ad set (campagne 52577555933480, ad set 52577555971280): Meta accepteert MODERNO PIXEL (887729633860515) met Purchase in BACKUP. De testcampagne mag weg; dat kan alleen in Ads Manager.
 Let op: MODERNO PIXEL is eigendom van het ad account 1429115185245447 en niet van het bedrijf. Advies: deel de pixel ook met het bedrijf moderno.milano.
+
+48-uurscheck 21 okt 23:00: Worldwide Test (2,07) en Retargeting (2 euro spend in 48u, levert niet) ongewijzigd. Totaal dagbudget van ongeveer EUR 1.833 naar EUR 1.660. Volgende check op zijn vroegst 23 okt 23:00.
