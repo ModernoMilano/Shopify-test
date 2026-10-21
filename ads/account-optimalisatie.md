@@ -38,3 +38,9 @@ Doel: winst, niet spend. Break-even ROAS 1,93 (Meta). Cash-doel: omzet per EUR 1
 Totaal dagbudget actieve campagnes: van ongeveer EUR 1.830 naar EUR 1.433, na opschalen EUR 1.683. Eerste evaluatie: 22 okt (na 48-72 uur).
 
 Ad-check 19 okt: niet gepauzeerd op besluit eigenaar (in de gaten houden): USA Winning W1 IMG 14 (120252066339990541, 14d ROAS 0,84), Nasir WW LAL UNBOXING - Copy (120251724269110541, 0,88), Retargeting Lounge-set Video Ad 5 (120251931745970541, EUR 139, 0 aankopen), Creative Test IMG 3 (120251889693950541, 0,51), Nasir Reverso IMG 4 en IMG 5 (EUR 110, 0 aankopen).
+
+## BACKUP ad account
+
+Het tweede ad account **BACKUP** (1135630682306636) staat in het bedrijf moderno.milano en is gekoppeld aan Windsor. Het is bedoeld voor nieuwe campagnes, niet als kopie van het hoofdaccount.
+Op 21 okt 2026 getest met een gepauzeerde ad set (campagne 52577555933480, ad set 52577555971280): Meta accepteert MODERNO PIXEL (887729633860515) met Purchase in BACKUP. De testcampagne mag weg; dat kan alleen in Ads Manager.
+Let op: MODERNO PIXEL is eigendom van het ad account 1429115185245447 en niet van het bedrijf. Advies: deel de pixel ook met het bedrijf moderno.milano.
