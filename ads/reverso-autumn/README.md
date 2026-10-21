@@ -29,6 +29,19 @@
 | AUT_15_FourGilets | 120252169455000541 | The Reverso Autumn Collection |
 | AUT_16_Chair_CremaNero | 120252169461450541 | Reverso Autumn Set, Crema & Nero |
 
+## Copy-test (sinds 21 okt 2026, 23:50)
+
+Alle 16 ads hebben displaylink **modernomilano.com** (caption). De ads zijn verdeeld over 4 copy-stijlen van elk 4 ads; de stijl staat achter de adnaam. Na 48 uur vergelijken we de stijlen op ROAS, CTR en CPA.
+
+| Stijl | Opbouw | Ads |
+|---|---|---|
+| USP | hook + vier vinkjes (omkeerbaar, wolmix, broek, easy returns en worldwide shipping) + prijs | 01, 05, 09, 13 |
+| PROBLEM | herkenbaar probleem (wat past bij wat, tussenweer, geen tijd) + set als oplossing + prijs | 02, 06, 10, 14 |
+| SHORT | twee korte regels + prijs | 03, 07, 11, 15 |
+| VALUE | "What you get for EUR X" + opsomming + "Normally EUR Y. You save EUR Z." | 04, 08, 12, 16 |
+
+Let op: elke stijl draait op andere afbeeldingen, dus een verschil kan ook aan het beeld liggen. Bij een duidelijke winnaar testen we die copy daarna op de beste afbeeldingen van de andere stijlen.
+
 ## BACKUP 1135630682306636 (niet in gebruik)
 
 Campagne 52577557666880 en ad set 52577557679080 staan op pauze en hebben geen ads: er is geen betaalmethode gekoppeld. De teksten in `ads.json` linken nog naar de afzonderlijke productpagina's.
