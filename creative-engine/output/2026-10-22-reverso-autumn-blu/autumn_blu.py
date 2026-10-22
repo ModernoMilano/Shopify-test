@@ -88,8 +88,8 @@ KNIT = {"c": "the knit's short quarter zip is closed to the top, its ribbed mock
         "d": "the knit's short quarter zip is half open, the navy knit itself and a little bare skin at the throat showing in the opening.",
         "a": "", "b": ""}
 MOTION = {
-    "V1": ("The camera is locked off on a tripod and stays perfectly still. He slowly draws the gilet's zip up to his throat with "
-           "his right hand, lets the hand drop to his side, breathes out once (a faint breath of mist in the cold air) and keeps "
+    "V1": ("The camera is locked off on a tripod and stays perfectly still. He slowly draws the knit's quarter zip up to his throat with "
+           "his right hand (the gilet stays open), lets the hand drop to his side, breathes out once (a faint breath of mist in the cold air) and keeps "
            "looking out over the water, calm and still, until the end of the shot. Small, natural movement; nothing else moves "
            "except the mist drifting slowly over the canal."),
     "V2": ("The camera is locked off on a tripod and stays perfectly still. He walks slowly and evenly away from the camera "
