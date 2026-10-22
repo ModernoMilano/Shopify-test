@@ -16,4 +16,5 @@ Productfoto's op Higgsfield (`data/higgsfield-media.json`): flatlay `7fc22639-b0
 |---|---|---|
 | Startbeeld A, 2 varianten | `873252fa-c538-4e3d-84ec-fe37dde62b53` (A0), `3a8b6c84-05e1-46da-8a52-72db6846afab` (A1) | beide goed bij beide controleurs (8,5 en 8); **A0 gekozen** (schonere huid, helderder oog, leesbaarder laagopbouw aan de zoom). Opmerking: lichte magenta zweem t.o.v. het bordeaux-beeld, een kleurgradatie, geen scènefout. |
 | Clip A, concept 480p | `18c28230-bf76-4834-8544-e97004c6931a` | beide goed (9 en 7,5): dezelfde man in elk frame, kleding blijft gelijk, geen pietra bij armsgaten of zoom; beweging zoals gevraagd (kin en blik omhoog naar links, hoofddraai ~30-35°). Minor: de camera drijft in de laatste halve seconde nog ~1,7% naar rechts en stopt op de snede; in de montage opvangen (laatste frames uitlopen of B met dezelfde drift laten beginnen); frame 119 als basis voor startbeeld B. |
-| Clip A, 1080p | `9976dc4f-958c-4a35-846e-80cc4f3ba531` | |
+| Clip A, 1080p | `9976dc4f-958c-4a35-846e-80cc4f3ba531` | 1080x1920, 121 frames |
+| Frame 119 van A (upload, basis voor startbeeld B) | `a8ca88f4-7c57-4d02-82fb-daf53b65321f` | |
