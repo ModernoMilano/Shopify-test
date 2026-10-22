@@ -36,4 +36,9 @@ Link (versie 2, na de hercontrole van de snede): https://d2ol7oe51mr4n9.cloudfro
 
 Versie 1 (snede versprong, niet gebruiken): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/6cc4429b-6172-47a0-afa3-6cb7f026dc6d.zip
 
-Eindcontrole van de montage: EINDCONTROLE
+Eindcontrole van de montage (twee onafhankelijke controleurs, alleen via frames en metingen, geen bewegend beeld):
+
+- Ronde 1 (versie 1): merkregels, product en gezicht goed (9): zelfde man in elk frame, gilet in A antraciet buiten met pietra alleen in kraag en voorranden, in B pietra buiten met antraciet alleen in kraag en voorranden, armsgaten en zoom schoon, geen tekst, label of accessoire, woordmerk het echte bestand, 40% breed, gecentreerd, 18% dim, fade 8,0-8,5 s. **Afgekeurd op de snede**: shot B stond 4,9% te ver ingezoomd (align.py liet zich misleiden door het lichte gilet), handen en broek versprongen 41-51 px.
+- Ronde 2 (versie 2, de opgeleverde): **goedgekeurd, 8/10**. Snede gemeten op 1080p: hoofd 4 px, handen 6 px, achtergrond 6 px, zuil 11 px (parallax tussen twee generaties; een enkele verschuiving kan niet alles op nul zetten). Geen dubbele, bevroren, zwarte of lege frames; A beweegt glad, B staat stil en komt tot rust; vanaf 8,5 s is het beeld de bedoelde rust onder het woordmerk. Nog klein: shot B is 3-5 L* lichter en iets roder dan A (zoals ook bij Total Bordeaux), en de zuil is in B zachter dan in A. Beide zijn in de montage te verhelpen (gain 0,97 en een tikje minder magenta op B, lichte verscherping op de zuil) als je dat wilt.
+
+Kosten van deze reel: 206 credits (startbeelden 16, concepten 30, 1080p 160); tegoed na afloop 333,25.
