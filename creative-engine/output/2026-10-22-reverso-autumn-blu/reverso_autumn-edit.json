@@ -40,7 +40,13 @@
   {
    "src": "V2",
    "from": 0,
-   "dur": 4.0
+   "dur": 4.0,
+   "crop": [
+    0.065,
+    0.0,
+    0.935,
+    0.87
+   ]
   }
  ],
  "logo": {
@@ -49,6 +55,11 @@
   "seconds": 2.0,
   "y": 0.5,
   "fade": 0.5,
-  "dim": 0.18
+  "dim": 0.26
+ },
+ "_notes": {
+  "S1": "S1b bijgesneden tot macro (kin weg, kraag en rits groot)",
+  "V2": "onderste 13% weg: bij het optillen van de hiel kwam een schoen in beeld (geen loafers in de look)",
+  "logo": "dim 0,26 in plaats van 0,18: de eindkaart valt op de crème rug van het gilet"
  }
 }
