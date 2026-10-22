@@ -97,7 +97,8 @@ def image_request(sid):
     parts = [s["prompt"]]
     if s["person"]:
         parts += [P["keep_en"], ID_LINE, P["expression_en"].capitalize() + "."]
-    parts += [SET, HANDS if s["person"] else "", NO_TEXT, REAL]
+    real = REAL if s["person"] else REAL.replace(REAL[REAL.index("Natural healthy skin"):REAL.index("The clothes")], "")
+    parts += [SET, HANDS if s["person"] else "", NO_TEXT, real]
     medias = [{"value": v, "role": "image_references"} for v in s["refs"]]
     return {"model": "nano_banana_pro", "resolution": "4k", "aspect_ratio": "9:16", "prompt": "\n\n".join(p for p in parts if p),
             "medias": medias}
