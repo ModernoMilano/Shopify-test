@@ -22,11 +22,11 @@ Productfoto's op Higgsfield (`data/higgsfield-media.json`): flatlay `7fc22639-b0
 | Clip B, concept 480p | `b3c9b024-f67f-41c4-8ff6-3c2d6724c410` | beide goed (9 en 8): opent op het startbeeld (zelfde houding, blik, handen), camera echt stil (max 0,04 px), kin en blik zakken 0,5-2,5 s, rust vanaf 3,1 s, laatste 2 s stil; gilet blijft pietra buiten. Minor: kader 3% wijder dan A (montage), vijf enkele stilstaande frames (onzichtbaar op 24 fps; gladmaken). |
 | Clip B, 1080p | `76df01c4-5715-48e1-a863-121c9af82cc1` | 1080x1920, 121 frames |
 
-Uitlijning (align.py, concept van B op frame 119 van A): B opent 6% wijder; crop [0.0021, 0.0106, 0.9455, 0.954]. Op de 1080p-versie: B opent 5,75% wijder; crop [0.0009, 0.0109, 0.9465, 0.9566] (in `reel_ap-edit.json`).
+Uitlijning (align.py, concept van B op frame 119 van A): B opent 6% wijder; crop [0.0021, 0.0106, 0.9455, 0.954]. Op de 1080p-versie gaf align.py (randen over het hele beeld) 5,75% wijder, maar dat was fout: het lichtere pietra-gilet misleidt de meting (eindcontrole 22 okt: handen en broek versprongen 41-51 px op de snede). Met SIFT op het beeld zonder het gilet: schaal 0,992. Gebruikte crops: A [0.0287, 0.0044, 1.0, 0.9757], B [0.0024, 0.0003, 0.9656, 0.9635]; rest op de snede hoofd 3 px, bogen 6 px, zuil 11 px (parallax). Daarbovenop een push-in van 3% over A ("zoom" 1,0 naar 1,03) en B constant op 1,03, zodat de snede blijft kloppen en A iets dichterbij komt, zoals bij Total Bordeaux.
 
 ## Montage
 
-`reel_ap-edit.json` met `montage.py` (2026-10-08-reels-focus), in de sandbox in `~/tb/mont`: shot A 5,0 s (gladgemaakt met smooth.py), harde snede, shot B 5,0 s (gladgemaakt; 5,75% ingezoomd volgens align.py zodat het eerste frame op het laatste frame van A valt), het woordmerk op 40% van de breedte in het midden de laatste 2 s, 0,5 s opkomen, beeld 18% donkerder. Uitvoer 1080x1920, 24 fps, 240 frames, 10,0 s, zonder geluid en zonder tekst. Cover: frame uit shot B op 6,0 s.
+`reel_ap-edit.json` met `montage.py` (2026-10-08-reels-focus), in de sandbox in `~/tb/mont`: shot A 5,0 s (gladgemaakt met smooth.py), harde snede, shot B 5,0 s (gladgemaakt; A en B elk met een eigen uitsnede zodat het eerste frame van B op het laatste frame van A valt, zie hierboven), het woordmerk op 40% van de breedte in het midden de laatste 2 s, 0,5 s opkomen, beeld 18% donkerder. Uitvoer 1080x1920, 24 fps, 240 frames, 10,0 s, zonder geluid en zonder tekst. Cover: frame uit shot B op 6,0 s.
 
 ## Oplevering
 
