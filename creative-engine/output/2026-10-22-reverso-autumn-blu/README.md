@@ -48,3 +48,10 @@ oogt niet duidelijk elastisch; in V2d een smalle navy ribband van de trui onder 
 
 Les: een volgshot houdt de voeten niet buiten beeld zodra hij een hiel optilt. Volgende keer het startbeeld tot halverwege de kuit
 kaderen, of de camera laten meelopen én iets omhoog kantelen.
+
+## Montage
+
+`python3 montage.py reverso_autumn-edit.json reverso_autumn.mp4` (montage.py en smooth.py uit `2026-10-08-reels-focus`, Cormorant Garamond
+in `f/cormorant.ttf`, de eindkaart als `src/LOGO.png`). 1080×1920, 24 fps, 312 frames = 13,0 s, zonder geluid (muziek bij het plaatsen).
+S1 2,5 s (macro-uitsnede, zoom 1,00→1,04) · V1 4 s · S2 2,5 s (zoom 1,00→1,03) · V2 4 s (onderste 13% weg) · eindkaart over de laatste 2 s
+(breedte 0,40, dim 0,26). Beide clips door smooth.py.

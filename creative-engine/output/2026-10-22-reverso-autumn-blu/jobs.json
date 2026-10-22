@@ -48,5 +48,11 @@
   "S2": "S2b",
   "V1": "V1d",
   "V2": "V2d"
+ },
+ "final_urls": {
+  "V1": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261022_211549_a4327f99-87e7-43f5-b007-f6577a973a06.mp4",
+  "V2": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261022_212158_d0da38aa-269e-4b73-adfb-1f4696892c9a.mp4",
+  "S1b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261022_201725_350ae62d-1d4d-4fe7-9367-7ea9f6b2f25c.png",
+  "S2b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261022_201725_1d94940e-a5fa-4dbf-8a6e-07409ff18deb.png"
  }
 }
