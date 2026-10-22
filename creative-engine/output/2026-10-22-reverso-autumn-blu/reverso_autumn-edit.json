@@ -19,9 +19,9 @@
    ],
    "crop": [
     0.2,
-    0.115,
+    0.15,
     0.8,
-    0.7103
+    0.7453
    ]
   },
   {
@@ -35,7 +35,8 @@
    "zoom": [
     1.0,
     1.03
-   ]
+   ],
+   "gain": 1.18
   },
   {
    "src": "V2",
@@ -55,11 +56,12 @@
   "seconds": 2.0,
   "y": 0.5,
   "fade": 0.5,
-  "dim": 0.26
+  "dim": 0.22
  },
  "_notes": {
-  "S1": "S1b bijgesneden tot macro (kin weg, kraag en rits groot)",
+  "S1": "S1b bijgesneden tot macro (kraag en rits groot); bovenrand op 15% zodat ook de hals met stoppels buiten beeld blijft",
   "V2": "onderste 13% weg: bij het optillen van de hiel kwam een schoen in beeld (geen loafers in de look)",
-  "logo": "dim 0,26 in plaats van 0,18: de eindkaart valt op de crème rug van het gilet"
+  "logo": "dim 0,22: de eindkaart valt op de crème rug van het gilet; 0,26 maakte het gilet te grijs",
+  "S2": "gain 1,18: de still was een stuk donkerder (luma 113) dan V1 (140) en V2 (154); alleen belichting, geen kleurlook"
  }
 }

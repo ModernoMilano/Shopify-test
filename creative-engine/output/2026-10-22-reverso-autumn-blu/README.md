@@ -55,3 +55,20 @@ kaderen, of de camera laten meelopen én iets omhoog kantelen.
 in `f/cormorant.ttf`, de eindkaart als `src/LOGO.png`). 1080×1920, 24 fps, 312 frames = 13,0 s, zonder geluid (muziek bij het plaatsen).
 S1 2,5 s (macro-uitsnede, zoom 1,00→1,04) · V1 4 s · S2 2,5 s (zoom 1,00→1,03) · V2 4 s (onderste 13% weg) · eindkaart over de laatste 2 s
 (breedte 0,40, dim 0,26). Beide clips door smooth.py.
+
+## Kosten
+
+| Post | Credits |
+|---|---|
+| 12 startbeelden 4K (8 + 4) | 48 |
+| 2 concepten 480p, 4 s | 24 |
+| 2 × 1080p, 4 s, bitrate high | 128 |
+| **Totaal** | **200** (saldo 333,25 → 133,25) |
+
+### Controle montage (workflow wf_25d1353e, 2 controleurs)
+
+Beide lenzen keuren goed: snedes exact op 2,5 / 6,5 / 9,0 s zonder dubbele of zwarte frames, geen randen, stills bewegen, eindkaart
+gecentreerd en leesbaar ("REVERSO AUTUMN"), geen schoen in V2, geen mond of kin in S1, polsen bloot, geen T-shirt, zelfde man op
+2,6 / 4,5 / 6,4 s. Verwerkt in de oplevering: S2 was donkerder dan V1 en V2 (luma 113 tegen 140 en 154) → gain 1,18 (luma 131);
+de eindkaart maakte het gilet te grijs → dim 0,22; S1 toonde bovenin nog een reep hals → bovenrand van de uitsnede naar 15%.
+Blijft (uit de bronclips): de zoomtrekker van het gilet is in V1 koper/rosé en in S1/S2 zilver; de rits van de trui is overal zilver.
