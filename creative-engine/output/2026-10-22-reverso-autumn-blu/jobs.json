@@ -63,5 +63,25 @@
    "Cover.jpg (frame op 4,5 s)"
   ],
   "render": "reverso_autumn-edit.json (= v3 in de sandbox: S1-uitsnede top 0,15, S2 gain 1,18, dim 0,22)"
+ },
+ "v2": {
+  "images": {
+   "N1a": "ccc047fe-adae-4a53-b37f-ee0a0f8f435a",
+   "N1b": "017dffc7-5d74-4eeb-ab9a-d6455544ec6f",
+   "N2a": "778bed7f-a721-4f64-a33e-dbb43a28b585",
+   "N2b": "92672912-5d74-4a24-9506-530b66bead40",
+   "N3a": "c28c86eb-827d-4e19-a400-551c6769c24b",
+   "N3b": "f2e0d8b1-48be-4b0e-8ce6-dde35a2585e5",
+   "N3c": "7cdc562d-92cb-4300-a59e-d076e25b4e5e",
+   "N3d": "fd307777-9cd1-4c26-9e98-5744a885d598"
+  },
+  "drafts": {},
+  "finals": {},
+  "credits_images": 32,
+  "rejected_by_me": {
+   "N1a": "navy T-shirt onder de open trui",
+   "N3a": "ook de trui en de broek op de stoelen (etalage)",
+   "N3b": "de broek gevouwen op de zitting (etalage)"
+  }
  }
 }

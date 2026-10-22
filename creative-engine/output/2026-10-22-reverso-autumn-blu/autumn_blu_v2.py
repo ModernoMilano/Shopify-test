@@ -48,7 +48,8 @@ SHOTS = {
     "N3": {"person": False, "refs": [REVERSED, FLAT],
            "prompt": (f"9:16, 4K. {LIGHT} On {CAFE}, the reversible gilet of the set hangs over the back of the bistro chair, the "
                       "CREAM side out and the navy side showing only inside the stand collar and along the open front edges, the "
-                      "silver zip open, slightly rumpled as if just taken off, one shoulder hanging lower than the other. On the "
+                      "silver zip open, slightly rumpled as if just taken off, one shoulder hanging lower than the other. The seat of "
+                      "the chair is empty and nothing else of the set is in the picture: no knit, no trousers, only the gilet. On the "
                       "marble table an espresso in a small white cup on its saucer, a thread of steam rising in the cold air. Seen "
                       "from slightly above, close, the chair off-centre to the left. Full-frame digital camera, 50 mm, f/2.8. "
                       "Nobody sits at the table; a waiter and a passer-by far in the background, out of focus. No lettering on "
@@ -56,19 +57,26 @@ SHOTS = {
 }
 
 MOTION = {
-    "N1": ("Slow motion at a quarter of real speed. The camera is handheld and nearly still, only a faint natural breathing drift. "
-           "His right hand draws the small metal pull of the quarter zip slowly upward along the zip, the thumb and index finger "
-           "closed around the pull the whole way, the zip teeth closing behind the pull as it rises, until the ribbed collar meets "
-           "at the throat; then the hand comes to rest. The knit and the gilet move only where the hand moves them; the mist "
-           "behind drifts slowly. Nothing else moves. His face stays above the top edge of the frame."),
-    "N2": ("Slow motion at a quarter of real speed. The camera is handheld and nearly still, a slow faint drift closer. With his "
-           "right hand he settles the gilet's open front edge, sliding the hand slowly down the edge from the collar to the chest, "
-           "and turns his head a few degrees to follow something on the water, eyes down and away from the camera, mouth closed "
-           "the whole time. A light breeze lifts a few strands of his hair. Behind him the mist drifts over the canal, the water "
-           "ripples softly and the distant passers-by keep walking. Nothing else moves; no other gesture."),
-    "N3": ("Slow motion at half of real speed. The camera is locked off and perfectly still. The thread of steam rises and curls "
-           "from the espresso; the mist drifts slowly over the canal behind; the waiter and the passer-by in the far background "
-           "move on, out of focus. The gilet and the chair do not move. Nothing else happens."),
+    # Lessen uit de afkeuring (kijkers-workflow wf_2f43d4aa): nooit "breathes out", geen knipperen-en-draaien naar de camera,
+    # één fysieke handeling per shot, de camera ademt (handheld), de achtergrond leeft (mist drijft, water rimpelt, mensen lopen
+    # echt door), haar en stof bewegen in een briesje, een echte looppas is één stap per ~0,6 s.
+    "N1": ("Slow motion at a quarter of real speed. Handheld camera, nearly still, with a slight natural breathing drift. His right "
+           "hand draws the small metal pull of the quarter zip slowly upward along the zip, thumb and index finger closed around "
+           "the pull the whole way, the zip teeth closing behind the pull as it rises, the knit fabric shifting with the pull, "
+           "until the ribbed collar meets at the throat; then the fingers let go and the hand sinks out of the frame. The open "
+           "edges of the gilet sway slightly as he moves; behind him the mist drifts over the canal and a far figure walks on. "
+           "His face stays above the top edge of the frame. Nothing else happens."),
+    "N2": ("Slow motion at a quarter of real speed. Handheld camera, nearly still, with a slight natural breathing drift and a very "
+           "slow push-in. One physical thing only: with his right hand he settles the gilet's open front edge, sliding the hand "
+           "slowly down the edge from the collar to the chest, while his eyes stay down on the water; his eyes lead a small "
+           "turn of the head to follow something on the water, mouth closed the whole time, no blink to the camera, no other "
+           "gesture. A light breeze lifts a few strands of his hair and moves the open edges of the gilet. Behind him the mist "
+           "drifts over the canal, the water ripples and catches the light, and the distant passers-by keep walking at a real "
+           "pace, growing slowly as they come closer."),
+    "N3": ("Real-time speed. Handheld camera, nearly still, with a slight natural breathing drift. The thread of steam rises and "
+           "curls from the espresso; the mist drifts slowly over the canal behind; the waiter in the far background walks on "
+           "and a passer-by crosses far behind, out of focus; the open edges of the gilet stir once in a light breeze. The chair "
+           "and the table do not move. Nothing else happens."),
 }
 SIDE = {"N1": "navy outside, cream only inside the collar and along the open front edges", "N2": "navy outside, cream only inside the collar and along the open front edges",
         "N3": "cream outside, navy only inside the collar and along the open front edges"}
