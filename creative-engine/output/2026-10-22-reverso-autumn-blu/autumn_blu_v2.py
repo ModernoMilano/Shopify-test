@@ -21,8 +21,11 @@ import json, os, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from autumn_blu import (SET, NO_TEXT, HANDS, REAL, LIGHT, ID_LINE, P, EL, FACES, PRESET_DECLINE, FLAT, MACRO, FRONT, REVERSED)
+from autumn_blu import (SET, NO_TEXT, HANDS, REAL, LIGHT, ID_LINE, P, EL, FACES, PRESET_DECLINE, FLAT, MACRO, FRONT, BACK, REVERSED)
 
+LOAFER = "85b7e720-20a8-498c-8992-148b082d584e"  # MILANO SUEDE LOAFER - NAVY, higgsfield-media.json (geïmporteerd 23 okt)
+LOAFER_LINE = ("- Milano suede loafers in deep navy, a classic unlined slip-on with an apron toe and a low heel, worn without socks: "
+               "a mirrored left and right pair, bare ankles.")
 CAFE = ("the terrace of a small Italian café on the Navigli in Milan: a dark bentwood bistro chair and a small round marble table, "
         "the café's doorway and the misty canal out of focus behind")
 
@@ -47,6 +50,18 @@ SHOTS = {
                       "pocket. His eyes are down on the water, away from the camera, mouth closed, a quiet unposed moment. "
                       "Full-frame digital camera, 85 mm, f/2. Two or three distant passers-by far along the canal, small and out of "
                       "focus, faces unreadable.")},
+    "N4": {"person": True, "refs": [REVERSED, BACK, LOAFER],
+           # Ronde 1 (V2d, volgshot op afstand) las als een loopband: hij werd kleiner en de camera stond op rails. Nu: voeten in beeld
+           # met de loafers uit de collectie, de camera loopt mee, de kasseien schuiven onder het kader door.
+           "prompt": (f"9:16, 4K. {LIGHT} {EL} seen from behind, full length from the top of his head to the wet stones under his "
+                      "feet, off-centre to the left of the frame, caught mid-step walking away from the camera along the stone "
+                      "towpath of the canal towards its pale far end, the misty water on his right, the houses and doorways along "
+                      "the bank out of focus on the left. He wears the reversible gilet with the CREAM side out, navy showing only "
+                      "inside the stand collar and along the open front edges, over the deep navy Mezza Zip knit with its long "
+                      "sleeves, deep navy trousers and deep navy suede loafers without socks; his arms swing lightly, palms toward "
+                      "his thighs; his back and the back of his head to the camera, face not visible. A few fallen yellow leaves on "
+                      "the wet stones. Nobody else on the towpath. Full-frame digital camera, 35 mm, f/4, at chest height, about "
+                      "three metres behind him.")},
     "N3": {"person": False, "refs": [REVERSED, FLAT],
            "prompt": (f"9:16, 4K. {LIGHT} On {CAFE}, the reversible gilet of the set hangs over the back of the bistro chair, the "
                       "CREAM side out and the navy side showing only inside the stand collar and along the open front edges, the "
@@ -75,13 +90,22 @@ MOTION = {
            "gesture. A light breeze lifts a few strands of his hair and moves the open edges of the gilet. Behind him the mist "
            "drifts over the canal, the water ripples and catches the light, and the distant passers-by keep walking at a real "
            "pace, growing slowly as they come closer."),
+    "N4": ("Real-time speed. The handheld camera walks behind him at his own pace, about three metres back, bobbing very slightly "
+           "with each of the operator's steps, keeping him framed from the top of his head to the stones under his feet. The shot "
+           "opens exactly on the start frame. He walks away from the camera along the stone towpath at an unhurried everyday pace, "
+           "one step roughly every 0.6 seconds, heel to toe, his navy suede loafers and the hem of the trousers visible at every "
+           "step, his arms swinging lightly with the palms toward his thighs, never turning round. As he walks, the wet cobbles "
+           "slide steadily under the bottom edge of the frame and the doorways and shutters on the left pass by; a thin mist drifts "
+           "slowly from left to right over the water on his right. A light breeze moves the open front edges and the hem of the "
+           "gilet. Nothing else happens."),
     "N3": ("Real-time speed. Handheld camera, nearly still, with a slight natural breathing drift. The thread of steam rises and "
            "curls from the espresso; the mist drifts slowly over the canal behind; the waiter in the far background walks on "
            "and a passer-by crosses far behind, out of focus; the open edges of the gilet stir once in a light breeze. The chair "
            "and the table do not move. Nothing else happens."),
 }
 SIDE = {"N1": "navy outside, cream only inside the collar and along the open front edges", "N2": "navy outside, cream only inside the collar and along the open front edges",
-        "N3": "cream outside, navy only inside the collar and along the open front edges"}
+        "N3": "cream outside, navy only inside the collar and along the open front edges",
+        "N4": "cream outside, navy only inside the collar and along the open front edges"}
 
 
 def image_request(sid):
@@ -90,7 +114,8 @@ def image_request(sid):
     if s["person"]:
         parts += [P["keep_en"], ID_LINE, P["expression_en"].capitalize() + "."]
     real = REAL if s["person"] else REAL.replace(REAL[REAL.index("Natural healthy skin"):REAL.index("The clothes")], "")
-    parts += [SET, HANDS if s["person"] else "His hand and wrist are bare: no watch, no ring, no bracelet.", NO_TEXT, real]
+    set_ = SET + ("\n" + LOAFER_LINE if sid == "N4" else "")
+    parts += [set_, HANDS if s["person"] else "His hand and wrist are bare: no watch, no ring, no bracelet.", NO_TEXT, real]
     if sid == "N3":
         parts[-3] = ""
     return {"model": "nano_banana_pro", "resolution": "4k", "aspect_ratio": "9:16", "prompt": "\n\n".join(p for p in parts if p),
@@ -114,6 +139,8 @@ def video(clip, start, draft=True, draft_job=None):
     req = {"model": "seedance_2_5", "mode": "omni_reference", "resolution": "480p" if draft else "1080p", "draft": draft,
            "bitrate_mode": "high", "duration": 4, "aspect_ratio": "9:16", "generate_audio": False, "prompt": prompt,
            "medias": medias, "declined_preset_id": PRESET_DECLINE}
+    if clip == "N4":
+        req["duration"] = 5
     if not draft:
         req["draft_job_id"] = draft_job
     return req
