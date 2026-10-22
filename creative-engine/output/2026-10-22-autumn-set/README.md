@@ -32,6 +32,8 @@ Uitlijning (align.py, concept van B op frame 119 van A): B opent 6% wijder; crop
 
 Eén zip, `ModernoMilano-Reverso-Autumn-Set-reel.zip` (9,9 MB): de video (10,0 s, 1080x1920, 24 fps, H.264, zonder geluid en zonder tekst) en `Cover.jpg`.
 
-Link: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/6cc4429b-6172-47a0-afa3-6cb7f026dc6d.zip
+Link (versie 2, na de hercontrole van de snede): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/76bdf30a-024d-45a0-acdc-9453ee665777.zip
+
+Versie 1 (snede versprong, niet gebruiken): https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/6cc4429b-6172-47a0-afa3-6cb7f026dc6d.zip
 
 Eindcontrole van de montage: EINDCONTROLE
