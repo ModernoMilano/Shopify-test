@@ -14,4 +14,4 @@ Productfoto's op Higgsfield (`data/higgsfield-media.json`): flatlay `7fc22639-b0
 
 | Stap | Job | Controle |
 |---|---|---|
-| Startbeeld A, 2 varianten | `873252fa-c538-4e3d-84ec-fe37dde62b53` (A0), `3a8b6c84-05e1-46da-8a52-72db6846afab` (A1) | |
+| Startbeeld A, 2 varianten | `873252fa-c538-4e3d-84ec-fe37dde62b53` (A0), `3a8b6c84-05e1-46da-8a52-72db6846afab` (A1) | beide goed bij beide controleurs (8,5 en 8); **A0 gekozen** (schonere huid, helderder oog, leesbaarder laagopbouw aan de zoom). Opmerking: lichte magenta zweem t.o.v. het bordeaux-beeld, een kleurgradatie, geen scènefout. |
