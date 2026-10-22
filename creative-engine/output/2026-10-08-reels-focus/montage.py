@@ -123,7 +123,8 @@ def logo_layer(path, spec):
     lg = lg.crop(lg.getbbox())
     lw = round(W * spec.get("width", 0.4))
     lg = lg.resize((lw, round(lg.size[1] * lw / lg.size[0])), Image.LANCZOS)
-    x, y = (W - lg.size[0]) // 2, round(spec.get("y", 0.5) * H - lg.size[1] / 2)
+    # "x": horizontale positie van het midden (fractie van 1080, standaard 0,5): het logo kan zo naast de persoon staan
+    x, y = round(spec.get("x", 0.5) * W - lg.size[0] / 2), round(spec.get("y", 0.5) * H - lg.size[1] / 2)
     lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     if spec.get("shadow"):
         sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
