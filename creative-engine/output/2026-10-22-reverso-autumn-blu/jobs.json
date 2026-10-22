@@ -25,7 +25,18 @@
    "credits": 15
   }
  },
- "finals": {},
+ "finals": {
+  "V1": {
+   "job": "a4327f99-87e7-43f5-b007-f6577a973a06",
+   "draft": "221b8703-770e-4866-ad85-2151e8a02b02",
+   "credits": 64
+  },
+  "V2": {
+   "job": "d0da38aa-269e-4b73-adfb-1f4696892c9a",
+   "draft": "3eb31d6a-27a7-4b80-8578-c27968a5b3cf",
+   "credits": 64
+  }
+ },
  "rejected_by_me": {
   "V1a": "wit T-shirt onder de trui, rits van de trui open",
   "V1b": "idem",

@@ -26,3 +26,25 @@ REVERSO AUTUMN (endcard.py). Beste Seedance op Higgsfield op 22 okt: `seedance_2
 | Eigen blik | V1a/V1b: wit T-shirt onder de trui (niet van ons) → afgekeurd. V2a/V2b: ten voeten uit met schoenen, geen loafers in de look → afgekeurd. S1: lippen in beeld → wordt bijgesneden (bovenste 12%). |
 | Ronde 2 (4 × 4K, 16 credits) | V1c (rits trui dicht), V1d (rits half open, blote hals), V2c/V2d (tot onder de knie, geen voeten) |
 | Controle (workflow, 2 lenzen per shot) | zie hieronder |
+
+### Controle startbeelden (workflow wf_d3641878, 8 controleurs, 22 okt)
+
+| Shot | Kleding-lens | Echtheid-lens | Keuze |
+|---|---|---|---|
+| S1 | S1a nee (ritstanden navy i.p.v. zilver, kin blijft in beeld); S1b ja | beide ja, S1b schoner | **S1b**, bijgesneden tot macro [0.20, 0.115, 0.80, 0.7103] |
+| S2 | S2a nee (zwevende ritsschuiver binnenin de kraag); S2b ja | S2a nee (zelfde schuiver); S2b ja | **S2b** |
+| V1 | V1c nee (crème bies langs armsgat en zoom); V1d ja | V1c nee (dichte stoppels, ander gezicht); V1d ja, zelfde man, gezicht 650 px | **V1d** (hand aan de rits van de trui) |
+| V2 | V2c nee (kraag navy aan de buitenkant); V2d ja | beide ja | **V2d** |
+
+Kleine punten die blijven: zoomtrekker van het gilet in V1d koper/rosé i.p.v. zilver; vier verre voorbijgangers in V1d; de zoom van het gilet
+oogt niet duidelijk elastisch; in V2d een smalle navy ribband van de trui onder het gilet.
+
+### Concepten 480p (workflow wf_3946eb9d, 4 controleurs)
+
+| Clip | Kleding-lens | Echtheid-lens | Besluit |
+|---|---|---|---|
+| V1 (job 221b8703…, start V1d) | ja: rits van de trui gaat dicht 0–1,75 s, hand zakt, gilet navy buiten, polsen bloot, geen tekst | ja: zelfde man op 0/2/3,9 s, vingers in orde, vaste camera | **1080p** job a4327f99… |
+| V2 (job 3eb31d6a…, start V2d) | ja, mits bijgesneden: een sneaker komt onderin in beeld vanaf ~2 s, hoogste punt y = 0,925 | ja, zelfde opmerking (0,93); man wordt ~10% kleiner, water bijna stil | **1080p** job d0da38aa…, montage snijdt de onderste 13% weg |
+
+Les: een volgshot houdt de voeten niet buiten beeld zodra hij een hiel optilt. Volgende keer het startbeeld tot halverwege de kuit
+kaderen, of de camera laten meelopen én iets omhoog kantelen.
