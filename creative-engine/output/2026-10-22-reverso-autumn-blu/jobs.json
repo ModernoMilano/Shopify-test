@@ -108,7 +108,18 @@
     "note": "take 2: halve snelheid, hand in zijzak, adem, kin en blik omhoog"
    }
   },
-  "finals": {},
+  "finals": {
+   "N1": {
+    "job": "cd8fa2a5-4cfc-4953-90e5-7363f2a00685",
+    "draft": "fbf13fa3-4d71-425d-b203-c589fcbb3196",
+    "credits": 64
+   },
+   "N3": {
+    "job": "a4df108a-4fac-4769-800a-aaff21c4910b",
+    "draft": "ad0b418d-fa45-4303-8ebf-521cc168cdeb",
+    "credits": 64
+   }
+  },
   "credits_images": 48,
   "rejected_by_me": {
    "N1a": "navy T-shirt onder de open trui",
