@@ -7,7 +7,7 @@ licht", gekozen door de eigenaar op 22 okt 2026). Navigli in de ochtendmist, 13 
   V2  video          4 s    van achteren: hij loopt het licht in langs het kanaal, gilet crème buiten; logo + REVERSO AUTUMN de laatste 2 s
 
 Gebruik:
-  python3 -I autumn_blu.py images                 -> requests voor generate_image_batch (2 varianten per shot, 8 beelden)
+  python3 -I autumn_blu.py images S1a V1c ...     -> requests voor generate_image_batch (shot + variantletter)
   python3 -I autumn_blu.py draft <V1|V2> <start>  -> Seedance 2.5, concept 480p, 4 s
   python3 -I autumn_blu.py final <V1|V2> <start> <draft_job> -> 1080p
 """
@@ -61,9 +61,9 @@ SHOTS = {
            "prompt": (f"9:16, 4K. {LIGHT} {EL} stands at the stone edge of the canal, seen from his left in a three-quarter view, "
                       "waist-up and off-centre to the right of the frame, the misty water and the far bank behind him. He wears the "
                       "reversible gilet with the deep NAVY side out, hanging open, cream showing only inside the stand collar and "
-                      "along the open front edges, over the deep navy Mezza Zip knit whose quarter zip is still half open; his "
-                      "right hand holds the small metal pull of the quarter zip at his chest, about to draw it up; his left hand "
-                      "is in his trouser pocket. His eyes are on the water, away from the camera, mouth closed; a faint breath of "
+                      "along the open front edges, over the deep navy Mezza Zip knit; {KNIT} He wears nothing under the knit "
+                      "that shows: no T-shirt, no shirt, no collar other than the knit's own. His right hand holds the pull of the "
+                      "gilet's silver zip low on his chest, about to draw it up; his left hand is in his trouser pocket. His eyes are on the water, away from the camera, mouth closed; a faint breath of "
                       "mist in the cold air. Full-frame digital camera, 85 mm, f/2. Two or three distant passers-by far along the "
                       "canal, small and out of focus, faces unreadable.")},
     "S2": {"kind": "still", "seconds": 2.5, "zoom": [1.0, 1.03], "refs": [REVERSED, FLAT], "person": False,
@@ -73,7 +73,8 @@ SHOTS = {
                       "the cream fabric. Behind and below, out of focus, the misty water of the canal. Full-frame digital camera, "
                       "50 mm, f/2.8. Nobody is in the picture.")},
     "V2": {"kind": "video", "seconds": 4, "refs": [REVERSED, BACK], "person": True,
-           "prompt": (f"9:16, 4K. {LIGHT} {EL} seen from behind, full length but off-centre to the left of the frame, walking away "
+           "prompt": (f"9:16, 4K. {LIGHT} {EL} seen from behind, framed from just above his head down to just below his knees (his feet and "
+                      "shoes are below the bottom edge of the frame), off-centre to the left of the frame, walking away "
                       "from the camera along the stone towpath of the canal towards the pale light, the misty water on his "
                       "right, the houses along the bank out of focus on the left. He now wears the reversible gilet with the "
                       "CREAM side out, navy showing only inside the stand collar, over the deep navy Mezza Zip knit with its "
@@ -81,8 +82,13 @@ SHOTS = {
                       "the camera, face not visible. Fallen yellow leaves on the wet stones catch the light. Full-frame digital "
                       "camera, 50 mm, f/2.8. Two or three distant passers-by far ahead along the canal, small and out of focus.")},
 }
+# Ronde 1 (a/b) had de trui met open rits en een wit T-shirt eronder (niet van ons) en V2 ten voeten uit met schoenen
+# (geen loafers in de look, dus geen voeten in beeld). Ronde 2: c = rits van de trui dicht, d = rits half open zonder T-shirt.
+KNIT = {"c": "the knit's short quarter zip is closed to the top, its ribbed mock-neck collar closed at the throat with the small metal pull.",
+        "d": "the knit's short quarter zip is half open, the navy knit itself and a little bare skin at the throat showing in the opening.",
+        "a": "", "b": ""}
 MOTION = {
-    "V1": ("The camera is locked off on a tripod and stays perfectly still. He slowly draws the quarter zip up to his throat with "
+    "V1": ("The camera is locked off on a tripod and stays perfectly still. He slowly draws the gilet's zip up to his throat with "
            "his right hand, lets the hand drop to his side, breathes out once (a faint breath of mist in the cold air) and keeps "
            "looking out over the water, calm and still, until the end of the shot. Small, natural movement; nothing else moves "
            "except the mist drifting slowly over the canal."),
@@ -92,9 +98,9 @@ MOTION = {
 }
 
 
-def image_request(sid):
+def image_request(sid, variant="c"):
     s = SHOTS[sid]
-    parts = [s["prompt"]]
+    parts = [s["prompt"].replace("{KNIT}", KNIT.get(variant, KNIT["c"]))]
     if s["person"]:
         parts += [P["keep_en"], ID_LINE, P["expression_en"].capitalize() + "."]
     real = REAL if s["person"] else REAL.replace(REAL[REAL.index("Natural healthy skin"):REAL.index("The clothes")], "")
@@ -104,13 +110,9 @@ def image_request(sid):
             "medias": medias}
 
 
-def images():
-    out, i = [], 0
-    for sid in ["S1", "V1", "S2", "V2"]:
-        for v in "ab":
-            out.append({"index": i, "sid": f"{sid}{v}", "params": image_request(sid)})
-            i += 1
-    return out
+def images(keys):
+    """keys zoals ["S1a", "V1c"]: shot + variantletter. Ronde 1 was a/b voor alle vier shots; ronde 2 is V1c/V1d en V2c/V2d."""
+    return [{"index": i, "sid": k, "params": image_request(k[:2], k[2])} for i, k in enumerate(keys)]
 
 
 def video(clip, start, draft=True, draft_job=None):
@@ -131,6 +133,6 @@ def video(clip, start, draft=True, draft_job=None):
 
 if __name__ == "__main__":
     cmd, args = sys.argv[1], sys.argv[2:]
-    out = {"images": lambda: images(), "draft": lambda: video(args[0], args[1]),
+    out = {"images": lambda: images(args), "draft": lambda: video(args[0], args[1]),
            "final": lambda: video(args[0], args[1], False, args[2])}[cmd]()
     print(json.dumps(out, ensure_ascii=False))

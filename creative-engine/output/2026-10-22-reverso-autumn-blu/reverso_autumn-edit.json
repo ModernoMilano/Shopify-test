@@ -1,0 +1,17 @@
+{
+ "fonts": {"serif": "f/cormorant.ttf"},
+ "src": {
+  "S1": "TODO png van het gekozen S1-beeld",
+  "V1": "TODO 1080p mp4 V1",
+  "S2": "TODO png van het gekozen S2-beeld",
+  "V2": "TODO 1080p mp4 V2",
+  "LOGO": "endcard.png"
+ },
+ "cuts": [
+  {"src": "S1", "dur": 2.5, "zoom": [1.0, 1.04], "crop": [0.06, 0.12, 0.94, 1.0]},
+  {"src": "V1", "from": 0, "dur": 4.0},
+  {"src": "S2", "dur": 2.5, "zoom": [1.0, 1.03]},
+  {"src": "V2", "from": 0, "dur": 4.0}
+ ],
+ "logo": {"src": "LOGO", "width": 0.40, "seconds": 2.0, "y": 0.5, "fade": 0.5, "dim": 0.18}
+}
