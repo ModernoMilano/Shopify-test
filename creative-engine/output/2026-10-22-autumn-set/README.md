@@ -20,6 +20,6 @@ Productfoto's op Higgsfield (`data/higgsfield-media.json`): flatlay `7fc22639-b0
 | Frame 119 van A (upload, basis voor startbeeld B) | `a8ca88f4-7c57-4d02-82fb-daf53b65321f` | |
 | Startbeeld B, 2 varianten | `e9cffc12-c473-4e7d-94e5-13b117276f6d` (B0), `7e2ebd1d-98ec-422f-88a0-9b2401c471b1` (B1) | beide goed bij beide controleurs; **B0 gekozen** (9 en 9; B1 heeft onderaan de rits twee lopers op elkaar). Pixel-geregistreerd op frame 119 van A (hoofd, handen, zuil, achtergrond 0 px verschil), pietra buiten, antraciet alleen in de kraag en langs de voorranden, armsgaten en zoom pietra. |
 | Clip B, concept 480p | `b3c9b024-f67f-41c4-8ff6-3c2d6724c410` | beide goed (9 en 8): opent op het startbeeld (zelfde houding, blik, handen), camera echt stil (max 0,04 px), kin en blik zakken 0,5-2,5 s, rust vanaf 3,1 s, laatste 2 s stil; gilet blijft pietra buiten. Minor: kader 3% wijder dan A (montage), vijf enkele stilstaande frames (onzichtbaar op 24 fps; gladmaken). |
-| Clip B, 1080p | `76df01c4-5715-48e1-a863-121c9af82cc1` | |
+| Clip B, 1080p | `76df01c4-5715-48e1-a863-121c9af82cc1` | 1080x1920, 121 frames |
 
-Uitlijning (align.py, concept van B op frame 119 van A): B opent 6% wijder; crop [0.0021, 0.0106, 0.9455, 0.954]. Opnieuw meten op de 1080p-versie.
+Uitlijning (align.py, concept van B op frame 119 van A): B opent 6% wijder; crop [0.0021, 0.0106, 0.9455, 0.954]. Op de 1080p-versie: B opent 5,75% wijder; crop [0.0009, 0.0109, 0.9465, 0.9566] (in `reel_ap-edit.json`).
