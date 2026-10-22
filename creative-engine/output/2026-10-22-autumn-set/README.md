@@ -27,3 +27,11 @@ Uitlijning (align.py, concept van B op frame 119 van A): B opent 6% wijder; crop
 ## Montage
 
 `reel_ap-edit.json` met `montage.py` (2026-10-08-reels-focus), in de sandbox in `~/tb/mont`: shot A 5,0 s (gladgemaakt met smooth.py), harde snede, shot B 5,0 s (gladgemaakt; 5,75% ingezoomd volgens align.py zodat het eerste frame op het laatste frame van A valt), het woordmerk op 40% van de breedte in het midden de laatste 2 s, 0,5 s opkomen, beeld 18% donkerder. Uitvoer 1080x1920, 24 fps, 240 frames, 10,0 s, zonder geluid en zonder tekst. Cover: frame uit shot B op 6,0 s.
+
+## Oplevering
+
+Eén zip, `ModernoMilano-Reverso-Autumn-Set-reel.zip` (9,9 MB): de video (10,0 s, 1080x1920, 24 fps, H.264, zonder geluid en zonder tekst) en `Cover.jpg`.
+
+Link: https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/6cc4429b-6172-47a0-afa3-6cb7f026dc6d.zip
+
+Eindcontrole van de montage: EINDCONTROLE
