@@ -54,5 +54,14 @@
   "V2": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261022_212158_d0da38aa-269e-4b73-adfb-1f4696892c9a.mp4",
   "S1b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261022_201725_350ae62d-1d4d-4fe7-9367-7ea9f6b2f25c.png",
   "S2b": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261022_201725_1d94940e-a5fa-4dbf-8a6e-07409ff18deb.png"
+ },
+ "delivery": {
+  "zip": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/adc7d3b4-57ad-4e36-be1d-6f0a7bcd359e.zip",
+  "media_id": "adc7d3b4-57ad-4e36-be1d-6f0a7bcd359e",
+  "contents": [
+   "Reverso Autumn.mp4 (1080x1920, 24 fps, 13 s, zonder geluid)",
+   "Cover.jpg (frame op 4,5 s)"
+  ],
+  "render": "reverso_autumn-edit.json (= v3 in de sandbox: S1-uitsnede top 0,15, S2 gain 1,18, dim 0,22)"
  }
 }

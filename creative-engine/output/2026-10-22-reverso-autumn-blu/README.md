@@ -72,3 +72,10 @@ gecentreerd en leesbaar ("REVERSO AUTUMN"), geen schoen in V2, geen mond of kin 
 2,6 / 4,5 / 6,4 s. Verwerkt in de oplevering: S2 was donkerder dan V1 en V2 (luma 113 tegen 140 en 154) → gain 1,18 (luma 131);
 de eindkaart maakte het gilet te grijs → dim 0,22; S1 toonde bovenin nog een reep hals → bovenrand van de uitsnede naar 15%.
 Blijft (uit de bronclips): de zoomtrekker van het gilet is in V1 koper/rosé en in S1/S2 zilver; de rits van de trui is overal zilver.
+
+## Oplevering (22 okt, 21:42)
+
+**Zip (video + Cover.jpg):** https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/adc7d3b4-57ad-4e36-be1d-6f0a7bcd359e.zip
+(media adc7d3b4…; Reverso Autumn.mp4 1080×1920, 24 fps, 13,0 s, zonder geluid; Cover.jpg = frame op 4,5 s).
+De eigenaar vroeg om een bestand; deze cloudomgeving mag de Higgsfield-hosts (d2ol7oe51mr4n9.cloudfront.net, d8j0ntlcm91z4.cloudfront.net)
+niet benaderen (netwerkbeleid van de omgeving, 403 op CONNECT), dus de video kon niet als bijlage worden gestuurd; de link is de weg.
