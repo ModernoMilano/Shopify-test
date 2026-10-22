@@ -1,9 +1,24 @@
 {
  "images": {
-  "S1a": "45251678-7659-490b-a2d1-06cadbae3259", "S1b": "350ae62d-1d4d-4fe7-9367-7ea9f6b2f25c",
-  "V1a": "e401d7fb-041f-4032-b41c-e750c3d8690f", "V1b": "df53808e-f626-4601-97b7-77d721041c1c",
-  "S2a": "cc877453-13a9-4a7e-9890-cdb3db1a16b9", "S2b": "1d94940e-a5fa-4dbf-8a6e-07409ff18deb",
-  "V2a": "52d88b79-66fb-4cb1-9f08-8bdc749efb2e", "V2b": "c3031892-23e6-4c90-a7fa-c6ebe699e2d3"
+  "S1a": "45251678-7659-490b-a2d1-06cadbae3259",
+  "S1b": "350ae62d-1d4d-4fe7-9367-7ea9f6b2f25c",
+  "V1a": "e401d7fb-041f-4032-b41c-e750c3d8690f",
+  "V1b": "df53808e-f626-4601-97b7-77d721041c1c",
+  "S2a": "cc877453-13a9-4a7e-9890-cdb3db1a16b9",
+  "S2b": "1d94940e-a5fa-4dbf-8a6e-07409ff18deb",
+  "V2a": "52d88b79-66fb-4cb1-9f08-8bdc749efb2e",
+  "V2b": "c3031892-23e6-4c90-a7fa-c6ebe699e2d3",
+  "V1c": "ee692d53-c6bf-4957-892f-05369c471f2e",
+  "V1d": "9df132c7-1761-4795-90fb-5d0841bb8672",
+  "V2c": "31ca1910-381e-4d46-837b-c33c57427941",
+  "V2d": "a9e27bfb-b142-453f-a841-10231cc9b825"
  },
- "drafts": {}, "finals": {}
+ "drafts": {},
+ "finals": {},
+ "rejected_by_me": {
+  "V1a": "wit T-shirt onder de trui, rits van de trui open",
+  "V1b": "idem",
+  "V2a": "ten voeten uit: schoenen in beeld (geen loafers in de look)",
+  "V2b": "idem"
+ }
 }

@@ -3,7 +3,7 @@ SemiBold, dezelfde crème als het woordmerk, letterafstand 0,27 em, tekstbreedte
 bestand als 'logo' op breedte 0,40 van 1080 in het midden over de laatste 2 s.
 
   python3 -I endcard.py <logo.png> <cormorant.ttf> <uit.png>
-Font: https://github.com/google/fonts/raw/main/ofl/cormorantgaramond/CormorantGaramond%5Bwght%5D.ttf (OFL)."""
+Font: https://raw.githubusercontent.com/google/fonts/main/ofl/cormorantgaramond/CormorantGaramond%5Bwght%5D.ttf (OFL)."""
 import sys
 from PIL import Image, ImageDraw, ImageFont
 
