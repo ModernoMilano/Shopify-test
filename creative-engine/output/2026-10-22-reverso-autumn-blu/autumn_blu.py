@@ -92,9 +92,13 @@ MOTION = {
            "his right hand (the gilet stays open), lets the hand drop to his side, breathes out once (a faint breath of mist in the cold air) and keeps "
            "looking out over the water, calm and still, until the end of the shot. Small, natural movement; nothing else moves "
            "except the mist drifting slowly over the canal."),
-    "V2": ("The camera is locked off on a tripod and stays perfectly still. He walks slowly and evenly away from the camera "
-           "along the towpath, a natural unhurried pace, his back to the camera the whole time, never turning round, until the "
-           "end of the shot; the mist drifts slowly over the water. Small, natural movement; nothing else moves."),
+    # V2: de camera volgt hem (dolly), zodat het kader hoofd-tot-onder-de-knie blijft en zijn voeten nooit in beeld komen
+    # (geen loafers in de look). Met een vaste camera zou hij kleiner worden en zouden de schoenen onderin verschijnen.
+    "V2": ("The camera follows him in a slow, smooth tracking shot at a constant distance, keeping exactly this framing from "
+           "the top of his head to just below his knees for the whole shot, so his feet never enter the frame. He walks "
+           "slowly and evenly away from the camera along the towpath into the pale light, a natural unhurried pace, his "
+           "back to the camera the whole time, never turning round, until the end of the shot; the mist drifts slowly over "
+           "the water and the distant passers-by walk on. Small, natural movement."),
 }
 
 
@@ -121,7 +125,7 @@ def video(clip, start, draft=True, draft_job=None):
     prompt = (f"{MOTION[clip]} He is the man in the start frame and in the reference images; use the reference images only for "
               f"his face and hair. He keeps the same face, hair and clothes throughout: the sleeveless gilet stays {side} for the "
               f"whole shot, over the navy quarter-zip knit. His wrists bare. {NO_TEXT} Real-time motion with natural motion "
-              "blur, one continuous take from the fixed camera.")
+              f"blur, one continuous take from the {'fixed' if clip == 'V1' else 'tracking'} camera.")
     medias = [{"role": "start_image", "value": start}] + [{"role": "image_references", "value": f} for f in FACES]
     req = {"model": "seedance_2_5", "mode": "omni_reference", "resolution": "480p" if draft else "1080p", "draft": draft,
            "bitrate_mode": "high", "duration": 4, "aspect_ratio": "9:16", "generate_audio": False, "prompt": prompt,
