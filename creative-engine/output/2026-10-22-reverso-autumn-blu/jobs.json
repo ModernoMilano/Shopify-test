@@ -75,7 +75,9 @@
    "N3c": "7cdc562d-92cb-4300-a59e-d076e25b4e5e",
    "N3d": "fd307777-9cd1-4c26-9e98-5744a885d598",
    "N1c": "9748571a-3bd0-404b-abd1-acc8624d2848",
-   "N1d": "e3ce5b9b-831d-4119-8255-12d5da808ecd"
+   "N1d": "e3ce5b9b-831d-4119-8255-12d5da808ecd",
+   "N4a": "1948422a-2117-4432-8ebc-32d1d4edc91b",
+   "N4b": "aa312bc7-ef39-4290-a078-a73d7bb69da4"
   },
   "drafts": {
    "N2": {
@@ -92,27 +94,42 @@
     "job": "fbf13fa3-4d71-425d-b203-c589fcbb3196",
     "start": "N1c",
     "credits": 12
+   },
+   "N4": {
+    "job": "72c62539-33d8-401b-8191-1e007c973c44",
+    "start": "N4a",
+    "credits": 15,
+    "seconds": 5
+   },
+   "N2t2": {
+    "job": "acc6a60b-0c7b-44f3-9fa9-4093afe33bf6",
+    "start": "N2b",
+    "credits": 12,
+    "note": "take 2: halve snelheid, hand in zijzak, adem, kin en blik omhoog"
    }
   },
   "finals": {},
-  "credits_images": 40,
+  "credits_images": 48,
   "rejected_by_me": {
    "N1a": "navy T-shirt onder de open trui",
    "N3a": "ook de trui en de broek op de stoelen (etalage)",
    "N3b": "de broek gevouwen op de zitting (etalage)",
    "N1b": "navy onderlaag in de open trui, glitterdruppels, navy rits (controle)",
    "N2a": "wit T-shirt onder de trui (controle)",
-   "N3c": "zoom zonder elastiek, stijve drapering (controle)"
+   "N3c": "zoom zonder elastiek, stijve drapering (controle)",
+   "N4b": "sneakers met witte zool in plaats van loafers"
   },
   "chosen": {
    "N2": "N2b",
    "N3": "N3d",
-   "N1": "N1c"
+   "N1": "N1c",
+   "N4": "N4a"
   },
   "preview": {
    "media": "6ca33050-e8d3-45b3-b0d5-bb58f34f6030",
    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/6ca33050-e8d3-45b3-b0d5-bb58f34f6030.mp4",
    "note": "480p-concepten gemonteerd, 12,7 s"
-  }
+  },
+  "loafer_media": "85b7e720-20a8-498c-8992-148b082d584e"
  }
 }

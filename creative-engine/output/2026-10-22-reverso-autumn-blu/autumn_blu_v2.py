@@ -98,6 +98,16 @@ MOTION = {
            "slide steadily under the bottom edge of the frame and the doorways and shutters on the left pass by; a thin mist drifts "
            "slowly from left to right over the water on his right. A light breeze moves the open front edges and the hem of the "
            "gilet. Nothing else happens."),
+    # Take 2 van N2 (23 okt): de controleurs vonden take 1 (kwart snelheid, kraag-gebaar) een "bewegende foto": haar en lichaam
+    # stil, water en mist dood. Take 2: halve snelheid, hand langzaam in de zijzak van het gilet, adem, kin en blik iets omhoog.
+    "N2t2": ("Half speed, a gentle slow motion. Handheld camera, nearly still, with a slight natural breathing drift; it drifts a "
+             "few centimetres closer during the shot and settles. The shot opens exactly on the start frame. One physical thing "
+             "only: with his right hand he slowly pushes the open front edge of the gilet aside and slides the hand into the "
+             "gilet's right side pocket, where it stays; his left hand stays in his trouser pocket. He takes a slow breath, his "
+             "shoulders rise and settle, and over about two seconds his chin and eyes lift a little from the water towards the "
+             "far end of the canal and settle there, mouth closed the whole time. A light breeze lifts a few strands of his hair "
+             "and moves the open front edges and the hem of the gilet. Behind him a thin mist drifts slowly from left to right "
+             "over the water and the water ripples softly and catches the light. Nothing else happens."),
     "N3": ("Real-time speed. Handheld camera, nearly still, with a slight natural breathing drift. The thread of steam rises and "
            "curls from the espresso; the mist drifts slowly over the canal behind; the waiter in the far background walks on "
            "and a passer-by crosses far behind, out of focus; the open edges of the gilet stir once in a light breeze. The chair "
@@ -105,7 +115,8 @@ MOTION = {
 }
 SIDE = {"N1": "navy outside, cream only inside the collar and along the open front edges", "N2": "navy outside, cream only inside the collar and along the open front edges",
         "N3": "cream outside, navy only inside the collar and along the open front edges",
-        "N4": "cream outside, navy only inside the collar and along the open front edges"}
+        "N4": "cream outside, navy only inside the collar and along the open front edges",
+        "N2t2": "navy outside, cream only inside the collar and along the open front edges"}
 
 
 def image_request(sid):
@@ -127,14 +138,15 @@ def images(keys):
 
 
 def video(clip, start, draft=True, draft_job=None):
+    shot = SHOTS["N2" if clip == "N2t2" else clip]
     who = ("He is the man in the start frame and in the reference images; use the reference images only for his face and hair. "
-           "He keeps the same face, hair and clothes throughout" if SHOTS[clip]["person"] else
+           "He keeps the same face, hair and clothes throughout" if shot["person"] else
            "Everything stays exactly as in the start frame; the clothes keep their shape and colour throughout")
     knit = "" if clip == "N3" else ", over the navy quarter-zip knit"
     prompt = (f"{MOTION[clip]} {who}: the sleeveless gilet stays {SIDE[clip]} for the whole shot{knit}. "
               f"{'His wrists bare. ' if clip != 'N3' else ''}{NO_TEXT} Natural motion blur, one continuous take.")
     medias = [{"role": "start_image", "value": start}]
-    if SHOTS[clip]["person"]:
+    if shot["person"]:
         medias += [{"role": "image_references", "value": f} for f in FACES]
     req = {"model": "seedance_2_5", "mode": "omni_reference", "resolution": "480p" if draft else "1080p", "draft": draft,
            "bitrate_mode": "high", "duration": 4, "aspect_ratio": "9:16", "generate_audio": False, "prompt": prompt,
