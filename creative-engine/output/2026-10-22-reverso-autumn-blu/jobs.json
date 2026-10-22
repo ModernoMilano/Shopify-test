@@ -73,15 +73,41 @@
    "N3a": "c28c86eb-827d-4e19-a400-551c6769c24b",
    "N3b": "f2e0d8b1-48be-4b0e-8ce6-dde35a2585e5",
    "N3c": "7cdc562d-92cb-4300-a59e-d076e25b4e5e",
-   "N3d": "fd307777-9cd1-4c26-9e98-5744a885d598"
+   "N3d": "fd307777-9cd1-4c26-9e98-5744a885d598",
+   "N1c": "9748571a-3bd0-404b-abd1-acc8624d2848",
+   "N1d": "e3ce5b9b-831d-4119-8255-12d5da808ecd"
   },
-  "drafts": {},
+  "drafts": {
+   "N2": {
+    "job": "4904ef4a-4f2d-4d18-91f3-2cf3473a6894",
+    "start": "N2b",
+    "credits": 12
+   },
+   "N3": {
+    "job": "ad0b418d-fa45-4303-8ebf-521cc168cdeb",
+    "start": "N3d",
+    "credits": 12
+   },
+   "N1": {
+    "job": "fbf13fa3-4d71-425d-b203-c589fcbb3196",
+    "start": "N1c",
+    "credits": 12
+   }
+  },
   "finals": {},
-  "credits_images": 32,
+  "credits_images": 40,
   "rejected_by_me": {
    "N1a": "navy T-shirt onder de open trui",
    "N3a": "ook de trui en de broek op de stoelen (etalage)",
-   "N3b": "de broek gevouwen op de zitting (etalage)"
+   "N3b": "de broek gevouwen op de zitting (etalage)",
+   "N1b": "navy onderlaag in de open trui, glitterdruppels, navy rits (controle)",
+   "N2a": "wit T-shirt onder de trui (controle)",
+   "N3c": "zoom zonder elastiek, stijve drapering (controle)"
+  },
+  "chosen": {
+   "N2": "N2b",
+   "N3": "N3d",
+   "N1": "N1c"
   }
  }
 }

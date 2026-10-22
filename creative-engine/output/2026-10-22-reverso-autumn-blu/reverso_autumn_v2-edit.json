@@ -1,0 +1,19 @@
+{
+ "fonts": {"serif": "f/cormorant.ttf"},
+ "src": {
+  "N1": "TODO 1080p N1 (concept fbf13fa3-4d71-425d-b203-c589fcbb3196, start N1c 9748571a…)",
+  "N2": "TODO 1080p N2 (concept 4904ef4a-4f2d-4d18-91f3-2cf3473a6894, start N2b 92672912…)",
+  "N3": "TODO 1080p N3 (concept ad0b418d-fa45-4303-8ebf-521cc168cdeb, start N3d fd307777…)",
+  "V2": "V2 1080p (d0da38aa…) versneld 1,7x met ffmpeg setpts=PTS/1.7,fps=24 -> V2fast.mp4",
+  "LOGO": "endcard.png"
+ },
+ "cuts": [
+  {"src": "N1", "from": 0.2, "dur": 3.6},
+  {"src": "N2", "from": 0.2, "dur": 3.8},
+  {"src": "N3", "from": 0.3, "dur": 3.0},
+  {"src": "V2", "from": 0, "dur": 2.35, "crop": [0.065, 0.0, 0.935, 0.87]}
+ ],
+ "logo": {"src": "LOGO", "width": 0.40, "seconds": 2.0, "y": 0.5, "fade": 0.5, "dim": 0.18},
+ "_notes": {"preview": "480p-concepten gemonteerd als preview_v2.mp4 (12,7 s), media 6ca33050…; de eigenaar beoordeelt eerst de richting",
+            "V2": "de kijkers zagen in V2 een tredmolen (stap per 1,1-1,7 s) en een camera op rails; 1,7x versneld wordt de pas menselijk en blijft de omgekeerde (crème) kant het slot"}
+}
