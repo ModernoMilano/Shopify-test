@@ -28,13 +28,15 @@ CAFE = ("the terrace of a small Italian café on the Navigli in Milan: a dark be
 
 SHOTS = {
     "N1": {"person": False, "refs": [MACRO, FRONT],
+           # N1a had een navy T-shirt onder de trui, N1b een navy onderlaag, glitterdruppels en een navy rits: ronde 2 zonder druppels.
            "prompt": (f"9:16, 4K close-up at chest height, seen from the front and slightly from his left. {LIGHT} The deep navy "
                       "Milano Mezza Zip knit worn under the open navy reversible gilet, cream showing only inside the gilet's stand "
-                      "collar and along its open front edges. The knit's short quarter zip is half open. His right hand, a bare wrist "
-                      "with the knit's ribbed cuff just visible, holds the small metal pull of the quarter zip between thumb and "
-                      "index finger at mid-chest, about to draw it up. Only the collar, the chest and the hand are in the frame; his "
-                      "face is above the top edge of the frame. Fine droplets of mist on the fabric catch the pale light. "
-                      "Full-frame digital camera, 100 mm macro, f/4, shallow depth of field.")},
+                      "collar and along its open front edges; the gilet's full-length zip is silver metal on both front edges. The "
+                      "knit's short quarter zip is half open and inside the opening there is only his bare skin: he wears nothing "
+                      "under the knit. His right hand, a bare wrist with the knit's ribbed cuff just visible, holds the small metal "
+                      "pull of the quarter zip between thumb and index finger at mid-chest, about to draw it up. Only the collar, "
+                      "the chest and the hand are in the frame; his face is above the top edge of the frame. The fabrics are dry and "
+                      "matte. Full-frame digital camera, 100 mm macro, f/4, shallow depth of field.")},
     "N2": {"person": True, "refs": [FRONT, MACRO],
            "prompt": (f"9:16, 4K. {LIGHT} {EL} stands at the stone edge of the canal, seen from his left in a three-quarter view, "
                       "waist-up and off-centre to the right of the frame, the misty water and the far bank behind him. He wears the "
@@ -103,7 +105,8 @@ def video(clip, start, draft=True, draft_job=None):
     who = ("He is the man in the start frame and in the reference images; use the reference images only for his face and hair. "
            "He keeps the same face, hair and clothes throughout" if SHOTS[clip]["person"] else
            "Everything stays exactly as in the start frame; the clothes keep their shape and colour throughout")
-    prompt = (f"{MOTION[clip]} {who}: the sleeveless gilet stays {SIDE[clip]} for the whole shot, over the navy quarter-zip knit. "
+    knit = "" if clip == "N3" else ", over the navy quarter-zip knit"
+    prompt = (f"{MOTION[clip]} {who}: the sleeveless gilet stays {SIDE[clip]} for the whole shot{knit}. "
               f"{'His wrists bare. ' if clip != 'N3' else ''}{NO_TEXT} Natural motion blur, one continuous take.")
     medias = [{"role": "start_image", "value": start}]
     if SHOTS[clip]["person"]:
