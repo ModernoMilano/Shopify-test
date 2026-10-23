@@ -77,7 +77,9 @@
    "N1c": "9748571a-3bd0-404b-abd1-acc8624d2848",
    "N1d": "e3ce5b9b-831d-4119-8255-12d5da808ecd",
    "N4a": "1948422a-2117-4432-8ebc-32d1d4edc91b",
-   "N4b": "aa312bc7-ef39-4290-a078-a73d7bb69da4"
+   "N4b": "aa312bc7-ef39-4290-a078-a73d7bb69da4",
+   "N4c": "70d2f3de-af0b-43e2-9e0c-776a9a1eb4cc",
+   "N4d": "b34fd38a-046e-4cf5-9e81-220fac01f015"
   },
   "drafts": {
    "N2": {
@@ -106,6 +108,24 @@
     "start": "N2b",
     "credits": 12,
     "note": "take 2: halve snelheid, hand in zijzak, adem, kin en blik omhoog"
+   },
+   "N4navy": {
+    "job": "190fb00e-759e-448b-930f-42f683a23ba7",
+    "start": "N4c",
+    "credits": 15,
+    "seconds": 5
+   },
+   "N4navy_t2_N4d": {
+    "job": "6b5126f9-f754-43d7-8109-9ac6f7a83c9c",
+    "start": "N4d",
+    "credits": 15,
+    "seconds": 5
+   },
+   "N4navy_t2_N4c": {
+    "job": "13e0eaed-4715-48e0-89b5-876406ac8689",
+    "start": "N4c",
+    "credits": 15,
+    "seconds": 5
    }
   },
   "finals": {
@@ -132,7 +152,7 @@
     "seconds": 5
    }
   },
-  "credits_images": 48,
+  "credits_images": 56,
   "rejected_by_me": {
    "N1a": "navy T-shirt onder de open trui",
    "N3a": "ook de trui en de broek op de stoelen (etalage)",
@@ -141,13 +161,16 @@
    "N2a": "wit T-shirt onder de trui (controle)",
    "N3c": "zoom zonder elastiek, stijve drapering (controle)",
    "N4b": "sneakers met witte zool in plaats van loafers",
-   "N2t2": "take 2: hoofd draait 60-70 graden naar de camera in de laatste 2 s (controleur, AI-feel 3)"
+   "N2t2": "take 2: hoofd draait 60-70 graden naar de camera in de laatste 2 s (controleur, AI-feel 3)",
+   "N4a": "crème buiten; de eigenaar wil de wegloper met het gilet navy buiten (23 okt)",
+   "N4d": "ook goed (navy buiten), maar centraal gekaderd; N4c houdt de goedgekeurde kadrering van N4a",
+   "N4navy take 1 (190fb00e)": "echtheid-lens: halve loopband, stenen schuiven maar de huizen staan stil, passen 10-20 cm, standvoet glijdt"
   },
   "chosen": {
    "N2": "N2b",
    "N3": "N3d",
    "N1": "N1c",
-   "N4": "N4a"
+   "N4": "N4c (navy buiten)"
   },
   "preview": {
    "media": "6ca33050-e8d3-45b3-b0d5-bb58f34f6030",

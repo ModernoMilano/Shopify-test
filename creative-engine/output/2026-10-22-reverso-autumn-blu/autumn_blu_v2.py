@@ -90,24 +90,16 @@ MOTION = {
            "gesture. A light breeze lifts a few strands of his hair and moves the open edges of the gilet. Behind him the mist "
            "drifts over the canal, the water ripples and catches the light, and the distant passers-by keep walking at a real "
            "pace, growing slowly as they come closer."),
-    "N4": ("Real-time speed. The handheld camera walks behind him at his own pace, about three metres back, bobbing very slightly "
-           "with each of the operator's steps, keeping him framed from the top of his head to the stones under his feet. The shot "
-           "opens exactly on the start frame. He walks away from the camera along the stone towpath at an unhurried everyday pace, "
-           "one step roughly every 0.6 seconds, heel to toe, his navy suede loafers and the hem of the trousers visible at every "
-           "step, his arms swinging lightly with the palms toward his thighs, never turning round. As he walks, the wet cobbles "
-           "slide steadily under the bottom edge of the frame and the doorways and shutters on the left pass by; a thin mist drifts "
-           "slowly from left to right over the water on his right. A light breeze moves the open front edges and the hem of the "
-           "gilet. Nothing else happens."),
-    # Take 2 van N2 (23 okt): de controleurs vonden take 1 (kwart snelheid, kraag-gebaar) een "bewegende foto": haar en lichaam
-    # stil, water en mist dood. Take 2: halve snelheid, hand langzaam in de zijzak van het gilet, adem, kin en blik iets omhoog.
-    "N2t2": ("Half speed, a gentle slow motion. Handheld camera, nearly still, with a slight natural breathing drift; it drifts a "
-             "few centimetres closer during the shot and settles. The shot opens exactly on the start frame. One physical thing "
-             "only: with his right hand he slowly pushes the open front edge of the gilet aside and slides the hand into the "
-             "gilet's right side pocket, where it stays; his left hand stays in his trouser pocket. He takes a slow breath, his "
-             "shoulders rise and settle, and over about two seconds his chin and eyes lift a little from the water towards the "
-             "far end of the canal and settle there, mouth closed the whole time. A light breeze lifts a few strands of his hair "
-             "and moves the open front edges and the hem of the gilet. Behind him a thin mist drifts slowly from left to right "
-             "over the water and the water ripples softly and catches the light. Nothing else happens."),
+    # Take 2 van de wegloper (23 okt): take 1 met navy buiten (190fb00e) was een halve loopband (stenen schuiven, huizen stil,
+    # passen van 10-20 cm). Nu: de camera reist expliciet mee, de gevels links trekken voorbij, lange passen, zes meter in vijf s.
+    "N4": ("Real-time speed. A smooth handheld follow: the operator walks behind him at the same unhurried pace, about three "
+           "metres back, so the camera travels forward continuously for the whole shot; the wet cobbles stream steadily toward "
+           "the bottom edge of the frame and the doorways and shutters on the left pass by one after another behind him, the "
+           "far end of the canal drawing nearer. He walks away from the camera with long, easy strides, one step roughly every "
+           "0.6 seconds, each heel landing well ahead of the trailing foot, his navy suede loafers and bare ankles visible at "
+           "every step, his arms swinging lightly, never turning round; in five seconds he covers about six metres of towpath. "
+           "A thin mist drifts slowly over the water on his right; a light breeze moves his hair and the hem of the gilet. The "
+           "shot opens exactly on the start frame. Nothing else happens."),
     "N3": ("Real-time speed. Handheld camera, nearly still, with a slight natural breathing drift. The thread of steam rises and "
            "curls from the espresso; the mist drifts slowly over the canal behind; the waiter in the far background walks on "
            "and a passer-by crosses far behind, out of focus; the open edges of the gilet stir once in a light breeze. The chair "
