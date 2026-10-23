@@ -159,3 +159,19 @@ maar b en d kregen een witte rubberzool onder de loafer (het product heeft een d
 de broekzakken. Gekozen: a (9d380e4a…). Bewegingsprompt `N4nz` (zakken): als N4 take 2, met "his hands staying in his trouser
 pockets the whole time, his elbows moving gently with each step". Concept 480p: ecf0699e… (15 credits), controle wf_7d5ef22e
 (kleding-lens en echtheid-lens).
+
+**Concepten en keuze (23 okt, 12:00–12:50).** Concept N4nz-a (ecf0699e…): kleding-lens goed (kraagband RGB ≈ 45/46/57 in alle 121
+frames, nul warme pixels), echtheid-lens afgekeurd: loopband (gevels stil terwijl de grond 3 px per frame schuift), gladde glijvlucht,
+72 passen per minuut. Daarom twee nieuwe concepten vanaf hetzelfde startbeeld (30 credits): N4nz-b (36da4535…, dezelfde prompt) en
+N4nz2-c (c6e39603…, prompt `N4nz2` met expliciete parallax: deuren en luiken links worden groter en verlaten het kader, bollards rechts
+trekken voorbij, hij blijft even groot, honderd passen per minuut). Controle wf_16634991: b afgekeurd (morfende wereld: bollard krimpt
+en schuift opzij, muur groeit uit de linkerrand); c goedgekeurd door beide lenzen (bollard rechts groeit van 130 naar 250 px en
+verlaat het kader, 96–110 passen per minuut, standvoet vast op de stenen, kraag navy in elk frame, AI-gevoel 2). Les: de prompt
+moet de parallax benoemen (wat groter wordt en het kader verlaat), "de camera reist mee" alleen is voor Seedance niet genoeg.
+1080p van c: 0580660e… (80 credits); bij 1080p zelf nagemeten: kraagband RGB 36–41 / 38–42 / 49–53 in elk achtste frame, nul warme
+pixels.
+
+**Montage versie 3.** `reverso_autumn_v2-edit.json`: N1 0,4–3,5 · N2 0,6–3,9 · N3 1,2–3,6 · N4 (nieuw) 1,2–4,7 (12,3 s, 295 frames),
+de nieuwe clip gladgemaakt met smooth.py (de hik op elke seconde). Het woordmerk kan niet meer rechtsonder (daar staan nu de
+bollards en de donkere kasseien): nu rechtsboven over het mistwater naast zijn schouder, 0,28 breed op x 0,81 / y 0,22; op y 0,27
+raakte zijn elleboog de M (−10 px), op y 0,22 blijft er minstens 51 px vrij (per rij gemeten over de laatste 2 s), rechtermarge 54 px.

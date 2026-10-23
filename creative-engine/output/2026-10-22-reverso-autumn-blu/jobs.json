@@ -163,7 +163,8 @@
     "draft": "13e0eaed-4715-48e0-89b5-876406ac8689",
     "credits": 80,
     "seconds": 5
-   }
+   },
+   "N4nz2-c": "0580660e-82c8-4838-9951-ca08f624a45d"
   },
   "credits_images": 56,
   "rejected_by_me": {
@@ -182,14 +183,16 @@
    "N4n-b": "witte rubberzool onder de loafer (product heeft een donkere leren zool); kraag wel goed navy",
    "N4n-c": "door Higgsfield geweigerd (nsfw-filter, vals alarm), geen beeld",
    "N4n-d": "armen vrij en kraag navy, maar weer een witte rubberzool onder de loafer",
-   "N4nz-a (ecf0699e)": "controle wf_7d5ef22e: kleding-lens goed (kraag navy in alle 121 frames); echtheid-lens afgekeurd: loopband (gevels stil, grond schuift 3 px/frame), camera gladde glijvlucht, 72 passen/min, AI-gevoel 3"
+   "N4nz-a (ecf0699e)": "controle wf_7d5ef22e: kleding-lens goed (kraag navy in alle 121 frames); echtheid-lens afgekeurd: loopband (gevels stil, grond schuift 3 px/frame), camera gladde glijvlucht, 72 passen/min, AI-gevoel 3",
+   "N4nz-b (36da4535)": "controle wf_16634991, echtheid-lens afgekeurd: morfende wereld (bollard links krimpt en schuift naar rechts, muur groeit uit de linkerrand, overkant verdwijnt in de mist), 1 Hz-hik, AI-gevoel 3"
   },
   "chosen": {
    "N2": "N2b",
    "N3": "N3d",
    "N1": "N1c",
    "N4": "N4c (navy buiten), take 2 C (13e0eaed)",
-   "N4n": "N4n-a (9d380e4a): kraag rechtop en navy rondom, donkere leren zolen, handen in de zakken"
+   "N4n": "N4n-a (9d380e4a): kraag rechtop en navy rondom, donkere leren zolen, handen in de zakken",
+   "N4nz2": "N4nz2-c (c6e39603): parallax-prompt, beide lenzen goed"
   },
   "preview": {
    "media": "6ca33050-e8d3-45b3-b0d5-bb58f34f6030",
@@ -205,7 +208,8 @@
    "N4navy": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_111426_347adfeb-12c7-4d16-a2ad-358d204cd452.mp4",
    "N4nz-a_draft": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_115852_ecf0699e-5861-4dfb-9a48-a7dde963c44b.mp4",
    "N4nz-b_draft": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_121833_36da4535-b7d5-4d57-94b3-1e60ba2a369e.mp4",
-   "N4nz2-c_draft": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_121843_c6e39603-2330-44c8-a302-216397dd947d.mp4"
+   "N4nz2-c_draft": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_121843_c6e39603-2330-44c8-a302-216397dd947d.mp4",
+   "N4nz2-c": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_124916_0580660e-82c8-4838-9951-ca08f624a45d.mp4"
   },
   "montage": {
    "file": "reverso_autumn_v2e.mp4",
@@ -228,7 +232,17 @@
    }
   },
   "notes": {
-   "N4n": "23 okt, derde ronde wegloper: de eigenaar wil ook de kraag navy; N4n-a..d met rits dicht en kraag rechtop (BACK als referentie #1), 16 credits"
+   "N4n": "23 okt, derde ronde wegloper: de eigenaar wil ook de kraag navy; N4n-a..d met rits dicht en kraag rechtop (BACK als referentie #1), 16 credits",
+   "N4nz2-c": "controle wf_16634991, echtheid-lens goedgekeurd (AI-gevoel 2): echte reis (bollard rechts groeit van 130 naar 250 px en verlaat het kader, gevel links schuift 6-11 px/s), 96-110 passen/min, standvoet vast op de stenen; klein: 1 Hz-hik op de seconden (glad te maken), camera gladde glijvlucht, beste stuk 2,1-4,9 s",
+   "N4nz2-c kleding": "kleding-lens goedgekeurd (AI-gevoel 2): kraagband RGB (37-41,38-42,49-52) in alle 121 frames, 0 warme lichte pixels in de kraag, kraag staat rechtop, zolen donker, enkels bloot, handen in de zakken, geen tekst; klein: in de laatste 6 frames een 5x12 px huidrandje naast de kraag tegen de lucht (snijden op 4,75 s), beste stuk 0,5-4,7 s"
+  },
+  "montage_v3": {
+   "file": "reverso_autumn_v3b.mp4 (sandbox ~/tb/blu/v2/mont)",
+   "seconds": 12.29,
+   "frames": 295,
+   "edit": "reverso_autumn_v2-edit.json (= v3b in de sandbox): N1 0,4-3,5 · N2 0,6-3,9 · N3 1,2-3,6 · N4N 1,2-4,7; kaart 0,28 breed op x 0,81 / y 0,22",
+   "card": "tekstvak x 724-1026, y 370-474; minstens 51 px van zijn schouder/elleboog (per rij gemeten over de laatste 2 s); op y 0,27 raakte de elleboog de M",
+   "qa": "wf_4f6e8b2f (montage-lens en regels-lens): loopt"
   }
  }
 }

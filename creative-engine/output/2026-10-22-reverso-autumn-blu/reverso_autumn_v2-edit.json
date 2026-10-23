@@ -6,7 +6,7 @@
   "N1": "1080p N1 job cd8fa2a5-4cfc-4953-90e5-7363f2a00685",
   "N2": "1080p N2 job 976efc0d-8936-4ba0-a6b3-96da0dcbf936 (take 1)",
   "N3": "1080p N3 job a4df108a-4fac-4769-800a-aaff21c4910b",
-  "N4": "1080p N4 navy, take 2 C, job 347adfeb-12c7-4d16-a2ad-358d204cd452 (start N4c 70d2f3de…)",
+  "N4": "1080p N4 navy met kraag navy, concept N4nz2-c, job 0580660e-82c8-4838-9951-ca08f624a45d (start N4n-a 9d380e4a…); in de sandbox src/N4N.mp4",
   "LOGO": "endcard.png in navy (31,38,58) met dezelfde alfa: endcard_navy.png"
  },
  "cuts": [
@@ -28,22 +28,22 @@
   {
    "src": "N4",
    "from": 1.2,
-   "dur": 3.1
+   "dur": 3.5
   }
  ],
  "logo": {
   "src": "LOGO",
-  "width": 0.3,
+  "width": 0.28,
   "seconds": 2.0,
-  "y": 0.62,
+  "y": 0.22,
   "x": 0.81,
   "fade": 0.5,
   "dim": 0.0
  },
  "_notes": {
   "keuze": "snijden op beweging, kop en staart van elke clip eraf (controleurs: N1 0,4-3,5; N2 0,8-4,0; N3 1,0-3,5; N4 2,0-5,0)",
-  "logo": "navy woordmerk rechts over het mistwater (x 0,81, y 0,62, breedte 0,30), zonder dim; 0,30/0,81 sinds de montagecontrole van 23 okt (zijn broekspijp kwam tot 1-2 px van de M)",
+  "logo": "navy woordmerk rechtsboven over het mistwater, naast zijn schouder (x 0,81, y 0,22, breedte 0,28), zonder dim; op y 0,27 raakte zijn elleboog de M (−10 px), op 0,22 blijft er minstens 59 px vrij (per rij nagemeten)",
   "V2": "oude wegloper (d0da38aa) vervalt; N4 heeft voeten in beeld met de loafers uit de collectie en een meelopende camera",
-  "N4": "wegloper met het gilet navy buiten (eigenaar, 23 okt); take 2 C, controleurs: beste stuk 1,2-4,6 s; gemonteerd 1,2-4,3 s zodat het woordmerk minstens 43 px van zijn been blijft"
+  "N4": "wegloper met het gilet volledig navy, kraag inbegrepen (eigenaar, 23 okt, derde ronde); concept N4nz2-c met parallax-prompt, handen in de zakken; controleurs: beste stuk 2,1-4,7 s, snijden voor 4,75 s (huidrandje naast de kraag); gemonteerd 1,2-4,7 s"
  }
 }
