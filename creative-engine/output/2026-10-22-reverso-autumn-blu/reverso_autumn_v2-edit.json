@@ -7,7 +7,7 @@
   "N2": "1080p N2 job 976efc0d-8936-4ba0-a6b3-96da0dcbf936 (take 1)",
   "N3": "1080p N3 job a4df108a-4fac-4769-800a-aaff21c4910b",
   "N4": "1080p N4 (5 s) job 210798cc-ee5d-4f14-802d-6f7e89509f49",
-  "LOGO": "endcard.png"
+  "LOGO": "endcard.png in navy (31,38,58) met dezelfde alfa: endcard_navy.png"
  },
  "cuts": [
   {
@@ -33,16 +33,16 @@
  ],
  "logo": {
   "src": "LOGO",
-  "width": 0.4,
+  "width": 0.36,
   "seconds": 2.0,
-  "y": 0.42,
-  "x": 0.66,
+  "y": 0.62,
+  "x": 0.75,
   "fade": 0.5,
   "dim": 0.0
  },
  "_notes": {
   "keuze": "snijden op beweging, kop en staart van elke clip eraf (controleurs: N1 0,4-3,5; N2 0,8-4,0; N3 1,0-3,5; N4 2,0-5,0)",
-  "logo": "rechts naast hem boven het mistige water (x 0,66, y 0,42), zonder dim: de kijkers lazen een logo op zijn rug met een grijze waas als sjabloon",
+  "logo": "navy woordmerk rechtsonder over het lichte mistwater (x 0,75, y 0,62), zonder dim: crème was onleesbaar op de mist en viel over zijn arm",
   "V2": "oude wegloper (d0da38aa) vervalt; N4 heeft voeten in beeld met de loafers uit de collectie en een meelopende camera"
  }
 }
