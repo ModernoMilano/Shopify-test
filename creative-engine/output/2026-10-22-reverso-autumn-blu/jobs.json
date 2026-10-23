@@ -131,7 +131,9 @@
     "credits": 15,
     "seconds": 5
    },
-   "N4nz-a": "ecf0699e-5861-4dfb-9a48-a7dde963c44b"
+   "N4nz-a": "ecf0699e-5861-4dfb-9a48-a7dde963c44b",
+   "N4nz-b": "36da4535-b7d5-4d57-94b3-1e60ba2a369e",
+   "N4nz2-c": "c6e39603-2330-44c8-a302-216397dd947d"
   },
   "finals": {
    "N1": {
@@ -179,7 +181,8 @@
    "N4navy take 2 D (6b5126f9)": "kleding-lens koos D, echtheid-lens blokkeerde D: korte passen (40 cm), teen glijdt 10 cm aan het eind van elke stand, camera zweeft als een gimbal; C goedgekeurd (voet vast op de stenen, pas-synchrone bob)",
    "N4n-b": "witte rubberzool onder de loafer (product heeft een donkere leren zool); kraag wel goed navy",
    "N4n-c": "door Higgsfield geweigerd (nsfw-filter, vals alarm), geen beeld",
-   "N4n-d": "armen vrij en kraag navy, maar weer een witte rubberzool onder de loafer"
+   "N4n-d": "armen vrij en kraag navy, maar weer een witte rubberzool onder de loafer",
+   "N4nz-a (ecf0699e)": "controle wf_7d5ef22e: kleding-lens goed (kraag navy in alle 121 frames); echtheid-lens afgekeurd: loopband (gevels stil, grond schuift 3 px/frame), camera gladde glijvlucht, 72 passen/min, AI-gevoel 3"
   },
   "chosen": {
    "N2": "N2b",
@@ -200,7 +203,9 @@
    "N3": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261022_234240_a4df108a-4fac-4769-800a-aaff21c4910b.mp4",
    "N4": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_000118_210798cc-ee5d-4f14-802d-6f7e89509f49.mp4",
    "N4navy": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_111426_347adfeb-12c7-4d16-a2ad-358d204cd452.mp4",
-   "N4nz-a_draft": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_115852_ecf0699e-5861-4dfb-9a48-a7dde963c44b.mp4"
+   "N4nz-a_draft": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_115852_ecf0699e-5861-4dfb-9a48-a7dde963c44b.mp4",
+   "N4nz-b_draft": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_121833_36da4535-b7d5-4d57-94b3-1e60ba2a369e.mp4",
+   "N4nz2-c_draft": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_121843_c6e39603-2330-44c8-a302-216397dd947d.mp4"
   },
   "montage": {
    "file": "reverso_autumn_v2e.mp4",

@@ -125,11 +125,27 @@ MOTION["N4nz"] = MOTION["N4"].replace("his arms swinging lightly, never turning 
                                       "his hands staying in his trouser pockets the whole time, his elbows moving gently with "
                                       "each step, his shoulders easy, never turning round;")
 assert MOTION["N4nz"] != MOTION["N4"]
+# N4nz2 (23 okt): concept N4nz-a (ecf0699e) was weer een loopband (gevels stil, grond schuift, 72 passen/min, camera gladde glijvlucht).
+# Nu de parallax expliciet: deuren en luiken links worden groter en verlaten het kader, nieuwe komen uit het verdwijnpunt, bollards
+# rechts trekken voorbij, hij blijft even groot; 100 passen per minuut; een lichte pas-synchrone deining van de drager.
+MOTION["N4nz2"] = (
+    "Real-time speed. The camera is carried by an operator walking behind him at exactly his pace, about three metres back, "
+    "so for the full five seconds the whole scene streams past the camera in perspective: the wet cobbles flow down and out of "
+    "the bottom of the frame, the doorway and the dark shutters on the left grow larger, slide past the left edge of the frame "
+    "and leave the picture while new doorways emerge from the far end to take their place, the stone bollards along the canal "
+    "edge on the right pass by one after another, and the pale far end of the canal draws nearer; he stays the same size in the "
+    "frame because the camera moves with him, and the frame sways very slightly with each step the operator takes. He walks away "
+    "from the camera at a brisk natural walking pace, about a hundred steps a minute, each step about seventy centimetres, each "
+    "heel landing well ahead of the trailing foot, his navy suede loafers and bare ankles visible at every step, his hands "
+    "staying in his trouser pockets the whole time, his elbows moving gently with each step, his shoulders easy, never turning "
+    "round; in five seconds he covers about six metres of towpath. A thin mist drifts slowly over the water on his right; a "
+    "light breeze moves his hair and the hem of the gilet. The shot opens exactly on the start frame. Nothing else happens.")
 SIDE = {"N1": "navy outside, cream only inside the collar and along the open front edges", "N2": "navy outside, cream only inside the collar and along the open front edges",
         "N3": "cream outside, navy only inside the collar and along the open front edges",
         "N4": "navy outside, cream only inside the collar at the nape",
         "N4n": "navy outside everywhere, zipped to the top, the stand collar standing up and deep navy all the way round, the cream inner side hidden",
         "N4nz": "navy outside everywhere, zipped to the top, the stand collar standing up and deep navy all the way round, the cream inner side hidden",
+        "N4nz2": "navy outside everywhere, zipped to the top, the stand collar standing up and deep navy all the way round, the cream inner side hidden",
         "N2t2": "navy outside, cream only inside the collar and along the open front edges"}
 
 
@@ -157,7 +173,7 @@ def images(keys):
 
 
 def video(clip, start, draft=True, draft_job=None):
-    shot = SHOTS[{"N2t2": "N2", "N4nz": "N4n"}.get(clip, clip)]
+    shot = SHOTS[{"N2t2": "N2", "N4nz": "N4n", "N4nz2": "N4n"}.get(clip, clip)]
     who = ("He is the man in the start frame and in the reference images; use the reference images only for his face and hair. "
            "He keeps the same face, hair and clothes throughout" if shot["person"] else
            "Everything stays exactly as in the start frame; the clothes keep their shape and colour throughout")
@@ -170,7 +186,7 @@ def video(clip, start, draft=True, draft_job=None):
     req = {"model": "seedance_2_5", "mode": "omni_reference", "resolution": "480p" if draft else "1080p", "draft": draft,
            "bitrate_mode": "high", "duration": 4, "aspect_ratio": "9:16", "generate_audio": False, "prompt": prompt,
            "medias": medias, "declined_preset_id": PRESET_DECLINE}
-    if clip in ("N4", "N4n", "N4nz"):
+    if clip in ("N4", "N4n", "N4nz", "N4nz2"):
         req["duration"] = 5
     if not draft:
         req["draft_job_id"] = draft_job
