@@ -219,17 +219,24 @@
    "qa": "wf_d72f48c5 (v2c, crème wegloper): regels-lens goedgekeurd, montage-lens blokkeerde de crème eindkaart over zijn rug; wf_1e6e5b89 (v2d, navy wegloper): beide lenzen goedgekeurd, AI-gevoel 2/5, cuts op 3,08/6,38/8,79 s, geen bevroren frames; enige punt: het woordmerk kwam aan het eind tot 1-2 px van zijn broekspijp, daarom in v2e de laatste scène 0,3 s korter en de kaart 0,30 breed op x 0,81 (minstens 43 px vrij, zelf nagemeten per frame)"
   },
   "delivery": {
-   "zip": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/8a6e08eb-0372-4487-be06-0080072a8ab0.zip",
-   "media_id": "8a6e08eb-0372-4487-be06-0080072a8ab0",
+   "zip": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/be4c5ce3-08bf-4514-903e-6c6598290cbd.zip",
+   "media_id": "be4c5ce3-08bf-4514-903e-6c6598290cbd",
    "contents": [
-    "Reverso Autumn v2.mp4 (1080x1920, 24 fps, 11,9 s, zonder geluid, wegloper met het gilet navy buiten)",
+    "Reverso Autumn v3.mp4 (1080x1920, 24 fps, 12,3 s, zonder geluid, wegloper met het gilet volledig navy, kraag inbegrepen)",
     "Cover.jpg (frame op 5,0 s, aan het kanaal)"
    ],
-   "superseded": {
-    "zip": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/c812644e-8522-4476-b94a-8784b2984c0f.zip",
-    "media_id": "c812644e-8522-4476-b94a-8784b2984c0f",
-    "why": "wegloper met het gilet crème buiten (afgekeurd door de eigenaar, 23 okt)"
-   }
+   "superseded": [
+    {
+     "zip": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/c812644e-8522-4476-b94a-8784b2984c0f.zip",
+     "media_id": "c812644e-8522-4476-b94a-8784b2984c0f",
+     "why": "wegloper met het gilet crème buiten (afgekeurd door de eigenaar, 23 okt)"
+    },
+    {
+     "zip": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/8a6e08eb-0372-4487-be06-0080072a8ab0.zip",
+     "media_id": "8a6e08eb-0372-4487-be06-0080072a8ab0",
+     "why": "wegloper met crème in de kraag (afgekeurd door de eigenaar, 23 okt, derde ronde)"
+    }
+   ]
   },
   "notes": {
    "N4n": "23 okt, derde ronde wegloper: de eigenaar wil ook de kraag navy; N4n-a..d met rits dicht en kraag rechtop (BACK als referentie #1), 16 credits",
@@ -237,12 +244,13 @@
    "N4nz2-c kleding": "kleding-lens goedgekeurd (AI-gevoel 2): kraagband RGB (37-41,38-42,49-52) in alle 121 frames, 0 warme lichte pixels in de kraag, kraag staat rechtop, zolen donker, enkels bloot, handen in de zakken, geen tekst; klein: in de laatste 6 frames een 5x12 px huidrandje naast de kraag tegen de lucht (snijden op 4,75 s), beste stuk 0,5-4,7 s"
   },
   "montage_v3": {
-   "file": "reverso_autumn_v3b.mp4 (sandbox ~/tb/blu/v2/mont)",
+   "file": "reverso_autumn_v3c.mp4 (sandbox ~/tb/blu/v2/mont; v3b met de kaart op y 0,20)",
    "seconds": 12.29,
    "frames": 295,
-   "edit": "reverso_autumn_v2-edit.json (= v3b in de sandbox): N1 0,4-3,5 · N2 0,6-3,9 · N3 1,2-3,6 · N4N 1,2-4,7; kaart 0,28 breed op x 0,81 / y 0,22",
+   "edit": "reverso_autumn_v2-edit.json (= v3c in de sandbox): N1 0,4-3,5 · N2 0,6-3,9 · N3 1,2-3,6 · N4N 1,2-4,7; kaart 0,28 breed op x 0,81 / y 0,20",
    "card": "tekstvak x 724-1026, y 370-474; minstens 51 px van zijn schouder/elleboog (per rij gemeten over de laatste 2 s); op y 0,27 raakte de elleboog de M",
-   "qa": "wf_4f6e8b2f (montage-lens en regels-lens): loopt"
+   "qa": "wf_4f6e8b2f: montage-lens goed (AI-gevoel 2,5; cuts op 3,08/6,38/8,79 s, geen bevroren frames, geen hik meer in N4, kaart raakt hem nooit, dichtste punt 26 px in het laatste frame) en regels-lens goed (AI-gevoel 2; kraagband L 43-47 B-R +11..13 in alle 84 N4-frames, rug L 36-41; v2e-kraag was RGB 166/135/113 = beige, v3b 56/53/63 = navy)",
+   "card_final": "y 0,20: tekstvak x 724-1026, y 332-436; dichtste punt 49 px (luma<75-masker, laatste frame), nul overlappende rijen"
   }
  }
 }

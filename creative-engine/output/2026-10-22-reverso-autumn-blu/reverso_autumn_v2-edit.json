@@ -35,14 +35,14 @@
   "src": "LOGO",
   "width": 0.28,
   "seconds": 2.0,
-  "y": 0.22,
+  "y": 0.2,
   "x": 0.81,
   "fade": 0.5,
   "dim": 0.0
  },
  "_notes": {
   "keuze": "snijden op beweging, kop en staart van elke clip eraf (controleurs: N1 0,4-3,5; N2 0,8-4,0; N3 1,0-3,5; N4 2,0-5,0)",
-  "logo": "navy woordmerk rechtsboven over het mistwater, naast zijn schouder (x 0,81, y 0,22, breedte 0,28), zonder dim; op y 0,27 raakte zijn elleboog de M (−10 px), op 0,22 blijft er minstens 59 px vrij (per rij nagemeten)",
+  "logo": "navy woordmerk rechtsboven over het mistwater, naast zijn schouder (x 0,81, y 0,20, breedte 0,28), zonder dim; op y 0,27 raakte zijn elleboog de M, op y 0,22 kwam de onderregel tot 26 px van zijn schouder (montage-lens), daarom 0,20",
   "V2": "oude wegloper (d0da38aa) vervalt; N4 heeft voeten in beeld met de loafers uit de collectie en een meelopende camera",
   "N4": "wegloper met het gilet volledig navy, kraag inbegrepen (eigenaar, 23 okt, derde ronde); concept N4nz2-c met parallax-prompt, handen in de zakken; controleurs: beste stuk 2,1-4,7 s, snijden voor 4,75 s (huidrandje naast de kraag); gemonteerd 1,2-4,7 s"
  }

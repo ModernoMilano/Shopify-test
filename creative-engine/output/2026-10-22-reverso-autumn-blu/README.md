@@ -175,3 +175,17 @@ pixels.
 de nieuwe clip gladgemaakt met smooth.py (de hik op elke seconde). Het woordmerk kan niet meer rechtsonder (daar staan nu de
 bollards en de donkere kasseien): nu rechtsboven over het mistwater naast zijn schouder, 0,28 breed op x 0,81 / y 0,22; op y 0,27
 raakte zijn elleboog de M (−10 px), op y 0,22 blijft er minstens 51 px vrij (per rij gemeten over de laatste 2 s), rechtermarge 54 px.
+
+**Montagecontrole en oplevering versie 3 (23 okt, 13:20).** Controle wf_4f6e8b2f op v3b: montage-lens goed (AI-gevoel 2,5; cuts op
+3,08 / 6,38 / 8,79 s, geen bevroren frames, de hik van elke seconde is weg na smooth.py, de wereld schuift echt voorbij, ~100 passen
+per minuut) en regels-lens goed (AI-gevoel 2; kraagband L 43–47 met B−R +11..13 in alle 84 frames van de laatste scène, de rug L 36–41;
+ter vergelijking: de kraag in v2e was RGB 166/135/113 = beige, in v3 56/53/63 = navy). Enige puntje: de onderregel van het woordmerk
+kwam in het laatste frame tot 26 px van zijn schouder; daarom v3c met de kaart op y 0,20 (dichtste punt 49 px, per rij nagemeten,
+geen overlap). Wat blijft: N2 is nog steeds een rustige slow-motion pose (het meest "AI"-moment), N3 bijna stil, de ober ver op de
+achtergrond in N3, een dunne koele mistrand op de kraagrand (grijsblauw, geen crème), rechtermarge van de kaart 55 px.
+
+**Zip (video + Cover.jpg):** https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/be4c5ce3-08bf-4514-903e-6c6598290cbd.zip
+(media be4c5ce3…). De zips 8a6e08eb… (crème kraag) en c812644e… (crème gilet) vervallen.
+
+**Kosten derde ronde:** 4 startbeelden 16 + 3 concepten 45 + 1080p 80 = 141 credits. Totaal voor Reverso Autumn tot nu toe:
+v1 + v2 383, correctie navy 133, correctie kraag 141.
