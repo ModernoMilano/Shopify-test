@@ -124,3 +124,14 @@ het gezicht is glad op 100%. De camera in N4 loopt te glad voor "handheld". De z
 | 5 concepten 480p (N1, N2 take 1, N2 take 2, N3, N4 5 s) | 63 |
 | 4 × 1080p (N1, N2, N3 4 s; N4 5 s) | 272 |
 | **Totaal versie 2** | **383** (saldo na afloop 476,25; de eigenaar kocht tussendoor bij) |
+
+## Correctie 23 okt: de wegloper met het gilet navy buiten
+
+De eigenaar: "de laatste scène is niet goed, de bodywarmer is niet in de navy kleur, alleen in de kraag, de hele bodywarmer moet blauw".
+Dus "weer andersom" betekende: aan het einde navy buiten, crème alleen in de kraag. Startbeelden N4c/N4d (70d2f3de…, b34fd38a…)
+met FRONT + BACK + loafer als referentie. Take 1 (190fb00e…, start N4c) werd door de echtheid-lens afgekeurd als halve loopband
+(stenen schuiven, huizen stil, passen van 10-20 cm, standvoet glijdt). Take 2 met expliciet meereizende camera en lange passen,
+twee concepten: D (6b5126f9…, start N4d, muur links) en C (13e0eaed…, start N4c). Kleding-lens koos D; echtheid-lens keurde D af
+(korte passen, teen glijdt, gimbal-zweef) en C goed (voet vast op de stenen, pas-synchrone bob, AI-gevoel 2,5). C naar 1080p:
+347adfeb…. Montage `reverso_autumn_v2-edit.json`: N4 1,2–4,6 s, navy woordmerk rechts over het water (x 0,80, y 0,62, 0,32 breed).
+Extra kosten: 8 + 15 + 30 + 80 = 133 credits.
