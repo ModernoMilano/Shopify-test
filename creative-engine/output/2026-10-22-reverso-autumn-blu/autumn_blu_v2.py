@@ -50,18 +50,18 @@ SHOTS = {
                       "pocket. His eyes are down on the water, away from the camera, mouth closed, a quiet unposed moment. "
                       "Full-frame digital camera, 85 mm, f/2. Two or three distant passers-by far along the canal, small and out of "
                       "focus, faces unreadable.")},
-    "N4": {"person": True, "refs": [REVERSED, BACK, LOAFER],
-           # Ronde 1 (V2d, volgshot op afstand) las als een loopband: hij werd kleiner en de camera stond op rails. Nu: voeten in beeld
-           # met de loafers uit de collectie, de camera loopt mee, de kasseien schuiven onder het kader door.
+    "N4": {"person": True, "refs": [FRONT, BACK, LOAFER],
+           # Ronde 1 (V2d, volgshot op afstand) las als een loopband. N4a/N4b (23 okt, crème buiten) waren goed, maar de eigenaar
+           # wil de wegloper met het gilet NAVY buiten ("de hele bodywarmer moet blauw, alleen de kraag crème"): N4c/N4d.
            "prompt": (f"9:16, 4K. {LIGHT} {EL} seen from behind, full length from the top of his head to the wet stones under his "
                       "feet, off-centre to the left of the frame, caught mid-step walking away from the camera along the stone "
                       "towpath of the canal towards its pale far end, the misty water on his right, the houses and doorways along "
-                      "the bank out of focus on the left. He wears the reversible gilet with the CREAM side out, navy showing only "
-                      "inside the stand collar and along the open front edges, over the deep navy Mezza Zip knit with its long "
-                      "sleeves, deep navy trousers and deep navy suede loafers without socks; his arms swing lightly, palms toward "
-                      "his thighs; his back and the back of his head to the camera, face not visible. A few fallen yellow leaves on "
-                      "the wet stones. Nobody else on the towpath. Full-frame digital camera, 35 mm, f/4, at chest height, about "
-                      "three metres behind him.")},
+                      "the bank out of focus on the left. He wears the reversible gilet with the deep NAVY side out, the whole back "
+                      "and sides of the gilet deep navy, cream showing only as the inner side of the stand collar at the nape, over "
+                      "the deep navy Mezza Zip knit with its long sleeves, deep navy trousers and deep navy suede loafers without "
+                      "socks; his arms swing lightly, palms toward his thighs; his back and the back of his head to the camera, face "
+                      "not visible. A few fallen yellow leaves on the wet stones. Nobody else on the towpath. Full-frame digital "
+                      "camera, 35 mm, f/4, at chest height, about three metres behind him.")},
     "N3": {"person": False, "refs": [REVERSED, FLAT],
            "prompt": (f"9:16, 4K. {LIGHT} On {CAFE}, the reversible gilet of the set hangs over the back of the bistro chair, the "
                       "CREAM side out and the navy side showing only inside the stand collar and along the open front edges, the "
@@ -115,7 +115,7 @@ MOTION = {
 }
 SIDE = {"N1": "navy outside, cream only inside the collar and along the open front edges", "N2": "navy outside, cream only inside the collar and along the open front edges",
         "N3": "cream outside, navy only inside the collar and along the open front edges",
-        "N4": "cream outside, navy only inside the collar and along the open front edges",
+        "N4": "navy outside, cream only inside the collar at the nape",
         "N2t2": "navy outside, cream only inside the collar and along the open front edges"}
 
 
