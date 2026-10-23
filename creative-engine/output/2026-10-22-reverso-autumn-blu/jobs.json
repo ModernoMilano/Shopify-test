@@ -118,6 +118,12 @@
     "job": "a4df108a-4fac-4769-800a-aaff21c4910b",
     "draft": "ad0b418d-fa45-4303-8ebf-521cc168cdeb",
     "credits": 64
+   },
+   "N2": {
+    "job": "976efc0d-8936-4ba0-a6b3-96da0dcbf936",
+    "draft": "4904ef4a-4f2d-4d18-91f3-2cf3473a6894",
+    "credits": 64,
+    "note": "take 1 gekozen (controleur: take 2 draait het hoofd naar de camera)"
    }
   },
   "credits_images": 48,
@@ -128,7 +134,8 @@
    "N1b": "navy onderlaag in de open trui, glitterdruppels, navy rits (controle)",
    "N2a": "wit T-shirt onder de trui (controle)",
    "N3c": "zoom zonder elastiek, stijve drapering (controle)",
-   "N4b": "sneakers met witte zool in plaats van loafers"
+   "N4b": "sneakers met witte zool in plaats van loafers",
+   "N2t2": "take 2: hoofd draait 60-70 graden naar de camera in de laatste 2 s (controleur, AI-feel 3)"
   },
   "chosen": {
    "N2": "N2b",

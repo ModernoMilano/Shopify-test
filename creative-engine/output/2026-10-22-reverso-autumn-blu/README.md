@@ -79,3 +79,25 @@ Blijft (uit de bronclips): de zoomtrekker van het gilet is in V1 koper/rosé en 
 (media adc7d3b4…; Reverso Autumn.mp4 1080×1920, 24 fps, 13,0 s, zonder geluid; Cover.jpg = frame op 4,5 s).
 De eigenaar vroeg om een bestand; deze cloudomgeving mag de Higgsfield-hosts (d2ol7oe51mr4n9.cloudfront.net, d8j0ntlcm91z4.cloudfront.net)
 niet benaderen (netwerkbeleid van de omgeving, 403 op CONNECT), dus de video kon niet als bijlage worden gestuurd; de link is de weg.
+
+# Versie 2 (23 oktober 2026) · na de afkeuring
+
+De eigenaar: "echt heel slecht, veel te AI, vooral als hij uitblaast"; de rits-beweging klopt niet; aan het einde wegloper met het gilet
+omgedraaid; in plaats van het uitademen een vertraagde beweging; het gilet niet over een reling maar over een stoel bij een Italiaans
+koffietentje. Drie onafhankelijke kijkers (workflow wf_2f43d4aa: regisseur, VFX, Instagram-kijker) plusten de oude film uit;
+hun synthese staat in de workflow-journal. Kern: geacteerde "beats" in de prompt (rits, hand laat los, uitademen), een loopband in V2
+(camera op rails, hij wordt kleiner), dode camera en bevroren achtergrond, stills met Ken-Burns-zoom, logo op zijn rug.
+
+## Nieuwe opzet (autumn_blu_v2.py)
+
+| Shot | Wat | Startbeeld | Concept | 1080p |
+|---|---|---|---|---|
+| N1 | slow motion macro: hand trekt de rits van de trui dicht, gezicht buiten beeld | N1c (9748571a…) na N1a (T-shirt) en N1b (onderlaag, glitterdruppels) | fbf13fa3… | cd8fa2a5… |
+| N2 | slow motion aan het kanaal: hand glijdt langs de voorrand van het gilet, blik op het water | N2b (92672912…); N2a had een wit T-shirt | take 1 4904ef4a… (take 2 acc6a60b…: hand in zijzak + blik omhoog, afgevallen: hoofd draait naar de camera) | 976efc0d… |
+| N3 | café: gilet crème over een bistrostoel, espresso, ober ver weg | N3d (fd307777…); N3a/b toonden ook trui en broek, N3c zoom zonder elastiek | ad0b418d… | a4df108a… |
+| N4 | de wegloper: van achteren, loafers navy (zonder sokken) zodat voeten mogen, camera loopt mee | N4a (1948422a…); N4b had sneakers | 72c62539… (5 s) | zie hieronder |
+
+Controle concepten (wf_8a90b1a9, 2 lenzen): N1, N2, N3 goedgekeurd (AI-gevoel 2 / 3 / 2). N2 blijft "een levende foto" (haar en lichaam
+stil); take 2 had meer leven maar draaide het hoofd naar de camera, de controleur koos take 1. Wegloper (wf_e19489ef): geen loopband
+meer, de kasseien schuiven onder het kader, de man blijft even groot, de muur links komt in beeld; camera te glad voor "handheld".
+Loafer-productfoto geïmporteerd als 85b7e720… (higgsfield-media.json).
