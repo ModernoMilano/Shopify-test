@@ -160,6 +160,21 @@
    "N2": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261022_235346_976efc0d-8936-4ba0-a6b3-96da0dcbf936.mp4",
    "N3": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261022_234240_a4df108a-4fac-4769-800a-aaff21c4910b.mp4",
    "N4": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_000118_210798cc-ee5d-4f14-802d-6f7e89509f49.mp4"
+  },
+  "montage": {
+   "file": "reverso_autumn_v2c.mp4",
+   "seconds": 12.21,
+   "frames": 293,
+   "edit": "reverso_autumn_v2-edit.json (= v2c in de sandbox)",
+   "qa": "wf_d72f48c5: regels-lens goedgekeurd (AI-gevoel 2); montage-lens blokkeerde alleen de crème eindkaart over zijn rug (AI-gevoel 3), opgelost met de navy kaart rechts over het water"
+  },
+  "delivery": {
+   "zip": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/c812644e-8522-4476-b94a-8784b2984c0f.zip",
+   "media_id": "c812644e-8522-4476-b94a-8784b2984c0f",
+   "contents": [
+    "Reverso Autumn v2.mp4 (1080x1920, 24 fps, 12,2 s, zonder geluid)",
+    "Cover.jpg (frame op 5,0 s, aan het kanaal)"
+   ]
   }
  }
 }

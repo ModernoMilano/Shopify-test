@@ -101,3 +101,26 @@ Controle concepten (wf_8a90b1a9, 2 lenzen): N1, N2, N3 goedgekeurd (AI-gevoel 2 
 stil); take 2 had meer leven maar draaide het hoofd naar de camera, de controleur koos take 1. Wegloper (wf_e19489ef): geen loopband
 meer, de kasseien schuiven onder het kader, de man blijft even groot, de muur links komt in beeld; camera te glad voor "handheld".
 Loafer-productfoto geïmporteerd als 85b7e720… (higgsfield-media.json).
+
+## Montage en oplevering versie 2 (23 okt, 00:17)
+
+`reverso_autumn_v2-edit.json`: N1 0,4–3,5 · N2 0,6–3,9 · N3 1,2–3,6 · N4 1,0–4,4 (12,2 s, 293 frames), snijden op beweging, kop en
+staart van elke clip eraf. Eindkaart in navy (endcard_navy.png, zelfde vorm als endcard.png) rechtsonder over het mistwater, zonder
+dim: crème op de mist was onleesbaar en de eerste plaatsing viel over zijn rug (montage-lens, wf_d72f48c5). De regels-lens keurde
+de montage goed (AI-gevoel 2): geen T-shirt, polsen bloot, geen tekst, gilet navy in N1/N2 en crème in N3/N4, loafers zonder sokken,
+één man, mond dicht, zelfde man, vijf vingers, de wereld schuift langs in de wegloper.
+
+**Zip (video + Cover.jpg):** https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/c812644e-8522-4476-b94a-8784b2984c0f.zip
+(media c812644e…). Het 480p-voorbeeld van de concepten: media 6ca33050… (niet gebruiken).
+
+Wat blijft (uit de bronclips, niet te monteren): N2 is nog steeds een rustige slow-motion pose (één bewegende hand, stil haar);
+het gezicht is glad op 100%. De camera in N4 loopt te glad voor "handheld". De zoomtrekker van de trui verandert in N1 licht van vorm.
+
+## Kosten versie 2
+
+| Post | Credits |
+|---|---|
+| 12 startbeelden 4K | 48 |
+| 5 concepten 480p (N1, N2 take 1, N2 take 2, N3, N4 5 s) | 63 |
+| 4 × 1080p (N1, N2, N3 4 s; N4 5 s) | 272 |
+| **Totaal versie 2** | **383** (saldo na afloop 476,25; de eigenaar kocht tussendoor bij) |

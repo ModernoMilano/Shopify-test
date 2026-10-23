@@ -27,22 +27,22 @@
   },
   {
    "src": "N4",
-   "from": 1.4,
-   "dur": 3.6
+   "from": 1.0,
+   "dur": 3.4
   }
  ],
  "logo": {
   "src": "LOGO",
-  "width": 0.36,
+  "width": 0.32,
   "seconds": 2.0,
-  "y": 0.62,
-  "x": 0.75,
+  "y": 0.74,
+  "x": 0.8,
   "fade": 0.5,
   "dim": 0.0
  },
  "_notes": {
   "keuze": "snijden op beweging, kop en staart van elke clip eraf (controleurs: N1 0,4-3,5; N2 0,8-4,0; N3 1,0-3,5; N4 2,0-5,0)",
-  "logo": "navy woordmerk rechtsonder over het lichte mistwater (x 0,75, y 0,62), zonder dim: crème was onleesbaar op de mist en viel over zijn arm",
+  "logo": "navy woordmerk rechtsonder over het mistwater (x 0,80, y 0,74, breedte 0,32), zonder dim; N4 iets eerder in (1,0 s) zodat hij links van de kaart blijft",
   "V2": "oude wegloper (d0da38aa) vervalt; N4 heeft voeten in beeld met de loafers uit de collectie en een meelopende camera"
  }
 }
