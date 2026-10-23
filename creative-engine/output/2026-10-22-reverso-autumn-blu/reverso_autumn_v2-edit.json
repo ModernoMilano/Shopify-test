@@ -6,7 +6,7 @@
   "N1": "1080p N1 job cd8fa2a5-4cfc-4953-90e5-7363f2a00685",
   "N2": "1080p N2 job 976efc0d-8936-4ba0-a6b3-96da0dcbf936 (take 1)",
   "N3": "1080p N3 job a4df108a-4fac-4769-800a-aaff21c4910b",
-  "N4": "1080p N4 (5 s) job 210798cc-ee5d-4f14-802d-6f7e89509f49",
+  "N4": "1080p N4 navy, take 2 C, job 347adfeb-12c7-4d16-a2ad-358d204cd452 (start N4c 70d2f3de…)",
   "LOGO": "endcard.png in navy (31,38,58) met dezelfde alfa: endcard_navy.png"
  },
  "cuts": [
@@ -27,7 +27,7 @@
   },
   {
    "src": "N4",
-   "from": 1.0,
+   "from": 1.2,
    "dur": 3.4
   }
  ],
@@ -35,14 +35,15 @@
   "src": "LOGO",
   "width": 0.32,
   "seconds": 2.0,
-  "y": 0.74,
+  "y": 0.62,
   "x": 0.8,
   "fade": 0.5,
   "dim": 0.0
  },
  "_notes": {
   "keuze": "snijden op beweging, kop en staart van elke clip eraf (controleurs: N1 0,4-3,5; N2 0,8-4,0; N3 1,0-3,5; N4 2,0-5,0)",
-  "logo": "navy woordmerk rechtsonder over het mistwater (x 0,80, y 0,74, breedte 0,32), zonder dim; N4 iets eerder in (1,0 s) zodat hij links van de kaart blijft",
-  "V2": "oude wegloper (d0da38aa) vervalt; N4 heeft voeten in beeld met de loafers uit de collectie en een meelopende camera"
+  "logo": "navy woordmerk rechts over het mistwater (x 0,80, y 0,62, breedte 0,32), zonder dim",
+  "V2": "oude wegloper (d0da38aa) vervalt; N4 heeft voeten in beeld met de loafers uit de collectie en een meelopende camera",
+  "N4": "wegloper met het gilet navy buiten (eigenaar, 23 okt); take 2 C, controleurs: beste stuk 1,2-4,6 s"
  }
 }

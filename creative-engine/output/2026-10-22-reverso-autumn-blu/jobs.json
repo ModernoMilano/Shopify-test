@@ -150,6 +150,12 @@
     "draft": "72c62539-33d8-401b-8191-1e007c973c44",
     "credits": 80,
     "seconds": 5
+   },
+   "N4navy": {
+    "job": "347adfeb-12c7-4d16-a2ad-358d204cd452",
+    "draft": "13e0eaed-4715-48e0-89b5-876406ac8689",
+    "credits": 80,
+    "seconds": 5
    }
   },
   "credits_images": 56,
@@ -164,13 +170,14 @@
    "N2t2": "take 2: hoofd draait 60-70 graden naar de camera in de laatste 2 s (controleur, AI-feel 3)",
    "N4a": "crème buiten; de eigenaar wil de wegloper met het gilet navy buiten (23 okt)",
    "N4d": "ook goed (navy buiten), maar centraal gekaderd; N4c houdt de goedgekeurde kadrering van N4a",
-   "N4navy take 1 (190fb00e)": "echtheid-lens: halve loopband, stenen schuiven maar de huizen staan stil, passen 10-20 cm, standvoet glijdt"
+   "N4navy take 1 (190fb00e)": "echtheid-lens: halve loopband, stenen schuiven maar de huizen staan stil, passen 10-20 cm, standvoet glijdt",
+   "N4navy take 2 D (6b5126f9)": "kleding-lens koos D, echtheid-lens blokkeerde D: korte passen (40 cm), teen glijdt 10 cm aan het eind van elke stand, camera zweeft als een gimbal; C goedgekeurd (voet vast op de stenen, pas-synchrone bob)"
   },
   "chosen": {
    "N2": "N2b",
    "N3": "N3d",
    "N1": "N1c",
-   "N4": "N4c (navy buiten)"
+   "N4": "N4c (navy buiten), take 2 C (13e0eaed)"
   },
   "preview": {
    "media": "6ca33050-e8d3-45b3-b0d5-bb58f34f6030",
