@@ -62,6 +62,20 @@ SHOTS = {
                       "socks; his arms swing lightly, palms toward his thighs; his back and the back of his head to the camera, face "
                       "not visible. A few fallen yellow leaves on the wet stones. Nobody else on the towpath. Full-frame digital "
                       "camera, 35 mm, f/4, at chest height, about three metres behind him.")},
+    "N4n": {"person": True, "refs": [BACK, FRONT, LOAFER],
+            # 23 okt, derde ronde: de eigenaar wil ook de kraag navy ("de kraag is beige terwijl die gewoon blauw moet zijn").
+            # Mijn N4-prompt vroeg zelf om crème bij de nek. Nu: rits dicht, kraag rechtop, één ononderbroken navy zoals productfoto #1.
+            "prompt": (f"9:16, 4K. {LIGHT} {EL} seen from behind, full length from the top of his head to the wet stones under his "
+                       "feet, off-centre to the left of the frame, caught mid-step walking away from the camera along the stone "
+                       "towpath of the canal towards its pale far end, the misty water on his right, the houses and doorways along "
+                       "the bank out of focus on the left. He wears the reversible gilet exactly as in reference image #1, the back "
+                       "view: the deep NAVY side out, zipped up to the very top, its stand collar standing up straight and close "
+                       "around his neck and deep navy all the way round, so that from behind the gilet is one unbroken deep navy "
+                       "from the top of the collar to the hem, the cream inner side completely hidden inside. Under it the deep "
+                       "navy Mezza Zip knit, only its long navy sleeves showing; deep navy trousers and deep navy suede loafers "
+                       "without socks; his arms swing lightly, palms toward his thighs; his back and the back of his head to the "
+                       "camera, face not visible. A few fallen yellow leaves on the wet stones. Nobody else on the towpath. "
+                       "Full-frame digital camera, 35 mm, f/4, at chest height, about three metres behind him.")},
     "N3": {"person": False, "refs": [REVERSED, FLAT],
            "prompt": (f"9:16, 4K. {LIGHT} On {CAFE}, the reversible gilet of the set hangs over the back of the bistro chair, the "
                       "CREAM side out and the navy side showing only inside the stand collar and along the open front edges, the "
@@ -105,9 +119,17 @@ MOTION = {
            "and a passer-by crosses far behind, out of focus; the open edges of the gilet stir once in a light breeze. The chair "
            "and the table do not move. Nothing else happens."),
 }
+MOTION["N4n"] = MOTION["N4"]
+# N4nz: startbeeld met de handen in de broekzakken (N4n-a); de armen zwaaien dan niet, de ellebogen bewegen mee met de pas.
+MOTION["N4nz"] = MOTION["N4"].replace("his arms swinging lightly, never turning round;",
+                                      "his hands staying in his trouser pockets the whole time, his elbows moving gently with "
+                                      "each step, his shoulders easy, never turning round;")
+assert MOTION["N4nz"] != MOTION["N4"]
 SIDE = {"N1": "navy outside, cream only inside the collar and along the open front edges", "N2": "navy outside, cream only inside the collar and along the open front edges",
         "N3": "cream outside, navy only inside the collar and along the open front edges",
         "N4": "navy outside, cream only inside the collar at the nape",
+        "N4n": "navy outside everywhere, zipped to the top, the stand collar standing up and deep navy all the way round, the cream inner side hidden",
+        "N4nz": "navy outside everywhere, zipped to the top, the stand collar standing up and deep navy all the way round, the cream inner side hidden",
         "N2t2": "navy outside, cream only inside the collar and along the open front edges"}
 
 
@@ -117,7 +139,12 @@ def image_request(sid):
     if s["person"]:
         parts += [P["keep_en"], ID_LINE, P["expression_en"].capitalize() + "."]
     real = REAL if s["person"] else REAL.replace(REAL[REAL.index("Natural healthy skin"):REAL.index("The clothes")], "")
-    set_ = SET + ("\n" + LOAFER_LINE if sid == "N4" else "")
+    set_ = SET + ("\n" + LOAFER_LINE if sid in ("N4", "N4n") else "")
+    if sid == "N4n":
+        set_ = set_.replace("The inner colour shows only inside the stand collar and along the open front edges, never at the "
+                            "armholes or the hem.", "Zipped up with the stand collar standing, the inner colour is completely hidden: "
+                            "seen from behind the gilet, collar included, is one deep navy.")
+        assert "completely hidden" in set_
     parts += [set_, HANDS if s["person"] else "His hand and wrist are bare: no watch, no ring, no bracelet.", NO_TEXT, real]
     if sid == "N3":
         parts[-3] = ""
@@ -126,11 +153,11 @@ def image_request(sid):
 
 
 def images(keys):
-    return [{"index": i, "sid": k, "params": image_request(k[:2])} for i, k in enumerate(keys)]
+    return [{"index": i, "sid": k, "params": image_request(k.split("-")[0] if "-" in k else k[:2])} for i, k in enumerate(keys)]
 
 
 def video(clip, start, draft=True, draft_job=None):
-    shot = SHOTS["N2" if clip == "N2t2" else clip]
+    shot = SHOTS[{"N2t2": "N2", "N4nz": "N4n"}.get(clip, clip)]
     who = ("He is the man in the start frame and in the reference images; use the reference images only for his face and hair. "
            "He keeps the same face, hair and clothes throughout" if shot["person"] else
            "Everything stays exactly as in the start frame; the clothes keep their shape and colour throughout")
@@ -143,7 +170,7 @@ def video(clip, start, draft=True, draft_job=None):
     req = {"model": "seedance_2_5", "mode": "omni_reference", "resolution": "480p" if draft else "1080p", "draft": draft,
            "bitrate_mode": "high", "duration": 4, "aspect_ratio": "9:16", "generate_audio": False, "prompt": prompt,
            "medias": medias, "declined_preset_id": PRESET_DECLINE}
-    if clip == "N4":
+    if clip in ("N4", "N4n", "N4nz"):
         req["duration"] = 5
     if not draft:
         req["draft_job_id"] = draft_job

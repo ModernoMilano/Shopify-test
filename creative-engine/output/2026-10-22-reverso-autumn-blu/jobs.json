@@ -79,7 +79,11 @@
    "N4a": "1948422a-2117-4432-8ebc-32d1d4edc91b",
    "N4b": "aa312bc7-ef39-4290-a078-a73d7bb69da4",
    "N4c": "70d2f3de-af0b-43e2-9e0c-776a9a1eb4cc",
-   "N4d": "b34fd38a-046e-4cf5-9e81-220fac01f015"
+   "N4d": "b34fd38a-046e-4cf5-9e81-220fac01f015",
+   "N4n-a": "9d380e4a-3925-4c4e-ae53-203058d2306b",
+   "N4n-b": "f844242d-4861-4024-9b9e-b07ec4e71fb6",
+   "N4n-c": "dcd58acf-7785-4545-a4b7-bb85dc8de00e",
+   "N4n-d": "3f1748e2-217d-49bb-9a80-3440de93c5b4"
   },
   "drafts": {
    "N2": {
@@ -126,7 +130,8 @@
     "start": "N4c",
     "credits": 15,
     "seconds": 5
-   }
+   },
+   "N4nz-a": "ecf0699e-5861-4dfb-9a48-a7dde963c44b"
   },
   "finals": {
    "N1": {
@@ -171,13 +176,17 @@
    "N4a": "crème buiten; de eigenaar wil de wegloper met het gilet navy buiten (23 okt)",
    "N4d": "ook goed (navy buiten), maar centraal gekaderd; N4c houdt de goedgekeurde kadrering van N4a",
    "N4navy take 1 (190fb00e)": "echtheid-lens: halve loopband, stenen schuiven maar de huizen staan stil, passen 10-20 cm, standvoet glijdt",
-   "N4navy take 2 D (6b5126f9)": "kleding-lens koos D, echtheid-lens blokkeerde D: korte passen (40 cm), teen glijdt 10 cm aan het eind van elke stand, camera zweeft als een gimbal; C goedgekeurd (voet vast op de stenen, pas-synchrone bob)"
+   "N4navy take 2 D (6b5126f9)": "kleding-lens koos D, echtheid-lens blokkeerde D: korte passen (40 cm), teen glijdt 10 cm aan het eind van elke stand, camera zweeft als een gimbal; C goedgekeurd (voet vast op de stenen, pas-synchrone bob)",
+   "N4n-b": "witte rubberzool onder de loafer (product heeft een donkere leren zool); kraag wel goed navy",
+   "N4n-c": "door Higgsfield geweigerd (nsfw-filter, vals alarm), geen beeld",
+   "N4n-d": "armen vrij en kraag navy, maar weer een witte rubberzool onder de loafer"
   },
   "chosen": {
    "N2": "N2b",
    "N3": "N3d",
    "N1": "N1c",
-   "N4": "N4c (navy buiten), take 2 C (13e0eaed)"
+   "N4": "N4c (navy buiten), take 2 C (13e0eaed)",
+   "N4n": "N4n-a (9d380e4a): kraag rechtop en navy rondom, donkere leren zolen, handen in de zakken"
   },
   "preview": {
    "media": "6ca33050-e8d3-45b3-b0d5-bb58f34f6030",
@@ -190,7 +199,8 @@
    "N2": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261022_235346_976efc0d-8936-4ba0-a6b3-96da0dcbf936.mp4",
    "N3": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261022_234240_a4df108a-4fac-4769-800a-aaff21c4910b.mp4",
    "N4": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_000118_210798cc-ee5d-4f14-802d-6f7e89509f49.mp4",
-   "N4navy": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_111426_347adfeb-12c7-4d16-a2ad-358d204cd452.mp4"
+   "N4navy": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_111426_347adfeb-12c7-4d16-a2ad-358d204cd452.mp4",
+   "N4nz-a_draft": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_115852_ecf0699e-5861-4dfb-9a48-a7dde963c44b.mp4"
   },
   "montage": {
    "file": "reverso_autumn_v2e.mp4",
@@ -211,6 +221,9 @@
     "media_id": "c812644e-8522-4476-b94a-8784b2984c0f",
     "why": "wegloper met het gilet crème buiten (afgekeurd door de eigenaar, 23 okt)"
    }
+  },
+  "notes": {
+   "N4n": "23 okt, derde ronde wegloper: de eigenaar wil ook de kraag navy; N4n-a..d met rits dicht en kraag rechtop (BACK als referentie #1), 16 credits"
   }
  }
 }

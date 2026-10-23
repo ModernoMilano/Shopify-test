@@ -147,3 +147,15 @@ bij het afzetten, en de rechter iconenkolom van Instagram kan over het einde van
 
 **Zip (video + Cover.jpg):** https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/8a6e08eb-0372-4487-be06-0080072a8ab0.zip
 (media 8a6e08eb…). De eerdere zip c812644e… (wegloper met crème buiten) vervalt.
+
+## Derde ronde 23 okt: de kraag moet ook navy
+
+De eigenaar: "de kraag in het laatste beeld dat hij wegloopt is beige terwijl die gewoon blauw moet zijn". Mijn N4-prompt vroeg zelf om
+"cream showing only as the inner side of the stand collar at the nape"; dat was de fout. Nieuw shot `N4n` in `autumn_blu_v2.py`:
+rits dicht, kraag rechtop, "one unbroken deep navy from the top of the collar to the hem", de productfoto van de rug (BACK) als
+referentie #1 en een eigen SET-regel ("zipped up with the stand collar standing, the inner colour is completely hidden").
+Vier startbeelden N4n-a..d (16 credits): c geweigerd door het nsfw-filter (vals alarm); a, b en d hebben de kraag navy rondom,
+maar b en d kregen een witte rubberzool onder de loafer (het product heeft een donkere zool); a heeft donkere zolen en de handen in
+de broekzakken. Gekozen: a (9d380e4a…). Bewegingsprompt `N4nz` (zakken): als N4 take 2, met "his hands staying in his trouser
+pockets the whole time, his elbows moving gently with each step". Concept 480p: ecf0699e… (15 credits), controle wf_7d5ef22e
+(kleding-lens en echtheid-lens).
