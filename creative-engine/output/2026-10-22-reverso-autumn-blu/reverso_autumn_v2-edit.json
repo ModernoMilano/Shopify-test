@@ -1,19 +1,48 @@
 {
- "fonts": {"serif": "f/cormorant.ttf"},
+ "fonts": {
+  "serif": "f/cormorant.ttf"
+ },
  "src": {
-  "N1": "TODO 1080p N1 (concept fbf13fa3-4d71-425d-b203-c589fcbb3196, start N1c 9748571a…)",
-  "N2": "TODO 1080p N2 (concept 4904ef4a-4f2d-4d18-91f3-2cf3473a6894, start N2b 92672912…)",
-  "N3": "TODO 1080p N3 (concept ad0b418d-fa45-4303-8ebf-521cc168cdeb, start N3d fd307777…)",
-  "V2": "V2 1080p (d0da38aa…) versneld 1,7x met ffmpeg setpts=PTS/1.7,fps=24 -> V2fast.mp4",
+  "N1": "1080p N1 job cd8fa2a5-4cfc-4953-90e5-7363f2a00685",
+  "N2": "1080p N2 job 976efc0d-8936-4ba0-a6b3-96da0dcbf936 (take 1)",
+  "N3": "1080p N3 job a4df108a-4fac-4769-800a-aaff21c4910b",
+  "N4": "1080p N4 (5 s) job 210798cc-ee5d-4f14-802d-6f7e89509f49",
   "LOGO": "endcard.png"
  },
  "cuts": [
-  {"src": "N1", "from": 0.2, "dur": 3.6},
-  {"src": "N2", "from": 0.2, "dur": 3.8},
-  {"src": "N3", "from": 0.3, "dur": 3.0},
-  {"src": "V2", "from": 0, "dur": 2.35, "crop": [0.065, 0.0, 0.935, 0.87]}
+  {
+   "src": "N1",
+   "from": 0.4,
+   "dur": 3.1
+  },
+  {
+   "src": "N2",
+   "from": 0.6,
+   "dur": 3.3
+  },
+  {
+   "src": "N3",
+   "from": 1.2,
+   "dur": 2.4
+  },
+  {
+   "src": "N4",
+   "from": 1.4,
+   "dur": 3.6
+  }
  ],
- "logo": {"src": "LOGO", "width": 0.40, "seconds": 2.0, "y": 0.5, "fade": 0.5, "dim": 0.18},
- "_notes": {"preview": "480p-concepten gemonteerd als preview_v2.mp4 (12,7 s), media 6ca33050…; de eigenaar beoordeelt eerst de richting",
-            "V2": "de kijkers zagen in V2 een tredmolen (stap per 1,1-1,7 s) en een camera op rails; 1,7x versneld wordt de pas menselijk en blijft de omgekeerde (crème) kant het slot"}
+ "logo": {
+  "src": "LOGO",
+  "width": 0.4,
+  "seconds": 2.0,
+  "y": 0.42,
+  "x": 0.66,
+  "fade": 0.5,
+  "dim": 0.0
+ },
+ "_notes": {
+  "keuze": "snijden op beweging, kop en staart van elke clip eraf (controleurs: N1 0,4-3,5; N2 0,8-4,0; N3 1,0-3,5; N4 2,0-5,0)",
+  "logo": "rechts naast hem boven het mistige water (x 0,66, y 0,42), zonder dim: de kijkers lazen een logo op zijn rug met een grijze waas als sjabloon",
+  "V2": "oude wegloper (d0da38aa) vervalt; N4 heeft voeten in beeld met de loafers uit de collectie en een meelopende camera"
+ }
 }

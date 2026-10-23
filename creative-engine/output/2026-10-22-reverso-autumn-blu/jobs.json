@@ -124,6 +124,12 @@
     "draft": "4904ef4a-4f2d-4d18-91f3-2cf3473a6894",
     "credits": 64,
     "note": "take 1 gekozen (controleur: take 2 draait het hoofd naar de camera)"
+   },
+   "N4": {
+    "job": "210798cc-ee5d-4f14-802d-6f7e89509f49",
+    "draft": "72c62539-33d8-401b-8191-1e007c973c44",
+    "credits": 80,
+    "seconds": 5
    }
   },
   "credits_images": 48,
@@ -148,6 +154,11 @@
    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/6ca33050-e8d3-45b3-b0d5-bb58f34f6030.mp4",
    "note": "480p-concepten gemonteerd, 12,7 s"
   },
-  "loafer_media": "85b7e720-20a8-498c-8992-148b082d584e"
+  "loafer_media": "85b7e720-20a8-498c-8992-148b082d584e",
+  "final_urls": {
+   "N1": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261022_234234_cd8fa2a5-4cfc-4953-90e5-7363f2a00685.mp4",
+   "N2": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261022_235346_976efc0d-8936-4ba0-a6b3-96da0dcbf936.mp4",
+   "N3": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261022_234240_a4df108a-4fac-4769-800a-aaff21c4910b.mp4"
+  }
  }
 }
