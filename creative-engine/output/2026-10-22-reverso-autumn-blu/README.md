@@ -135,3 +135,15 @@ twee concepten: D (6b5126f9…, start N4d, muur links) en C (13e0eaed…, start 
 (korte passen, teen glijdt, gimbal-zweef) en C goed (voet vast op de stenen, pas-synchrone bob, AI-gevoel 2,5). C naar 1080p:
 347adfeb…. Montage `reverso_autumn_v2-edit.json`: N4 1,2–4,6 s, navy woordmerk rechts over het water (x 0,80, y 0,62, 0,32 breed).
 Extra kosten: 8 + 15 + 30 + 80 = 133 credits.
+
+**Montagecontrole en oplevering (23 okt, 11:40).** Montage v2d (N1 0,4–3,5 · N2 0,6–3,9 · N3 1,2–3,6 · N4 1,2–4,6; 12,2 s) door
+twee controleurs (wf_1e6e5b89): beide goedgekeurd, AI-gevoel 2 van 5. Gemeten: cuts op 3,08 / 6,38 / 8,79 s, geen bevroren of dubbele
+frames, gilet navy over de hele rug en zijkanten in elk N4-frame, crème alleen binnen in de kraag bij de nek, loafers zonder sokken,
+geen accessoires, geen tekst behalve de eindkaart, mond dicht, zelfde man. Enige punt: aan het eind kwam zijn broekspijp tot 1–2 px van
+de M van het woordmerk. Daarom v2e: N4 1,2–4,3 s (0,3 s korter, 11,9 s totaal) en de kaart 0,30 breed op x 0,81; per frame nagemeten:
+minstens 43 px tussen been en woordmerk, rechtermarge 44 px. Kleine punten die blijven: N2 is een rustige slow-motion pose, N3 is bijna
+stil (stoom, ober, lichte camerabeweging), de crème kraagband bij de nek leest op afstand als een sjaaltje, de zolen flitsen donkerbruin
+bij het afzetten, en de rechter iconenkolom van Instagram kan over het einde van "Milano" vallen.
+
+**Zip (video + Cover.jpg):** https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/8a6e08eb-0372-4487-be06-0080072a8ab0.zip
+(media 8a6e08eb…). De eerdere zip c812644e… (wegloper met crème buiten) vervalt.

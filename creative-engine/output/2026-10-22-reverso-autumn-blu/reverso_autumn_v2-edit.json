@@ -28,22 +28,22 @@
   {
    "src": "N4",
    "from": 1.2,
-   "dur": 3.4
+   "dur": 3.1
   }
  ],
  "logo": {
   "src": "LOGO",
-  "width": 0.32,
+  "width": 0.3,
   "seconds": 2.0,
   "y": 0.62,
-  "x": 0.8,
+  "x": 0.81,
   "fade": 0.5,
   "dim": 0.0
  },
  "_notes": {
   "keuze": "snijden op beweging, kop en staart van elke clip eraf (controleurs: N1 0,4-3,5; N2 0,8-4,0; N3 1,0-3,5; N4 2,0-5,0)",
-  "logo": "navy woordmerk rechts over het mistwater (x 0,80, y 0,62, breedte 0,32), zonder dim",
+  "logo": "navy woordmerk rechts over het mistwater (x 0,81, y 0,62, breedte 0,30), zonder dim; 0,30/0,81 sinds de montagecontrole van 23 okt (zijn broekspijp kwam tot 1-2 px van de M)",
   "V2": "oude wegloper (d0da38aa) vervalt; N4 heeft voeten in beeld met de loafers uit de collectie en een meelopende camera",
-  "N4": "wegloper met het gilet navy buiten (eigenaar, 23 okt); take 2 C, controleurs: beste stuk 1,2-4,6 s"
+  "N4": "wegloper met het gilet navy buiten (eigenaar, 23 okt); take 2 C, controleurs: beste stuk 1,2-4,6 s; gemonteerd 1,2-4,3 s zodat het woordmerk minstens 43 px van zijn been blijft"
  }
 }

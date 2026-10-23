@@ -193,19 +193,24 @@
    "N4navy": "https://d8j0ntlcm91z4.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/hf_20261023_111426_347adfeb-12c7-4d16-a2ad-358d204cd452.mp4"
   },
   "montage": {
-   "file": "reverso_autumn_v2c.mp4",
-   "seconds": 12.21,
-   "frames": 293,
-   "edit": "reverso_autumn_v2-edit.json (= v2c in de sandbox)",
-   "qa": "wf_d72f48c5: regels-lens goedgekeurd (AI-gevoel 2); montage-lens blokkeerde alleen de crème eindkaart over zijn rug (AI-gevoel 3), opgelost met de navy kaart rechts over het water"
+   "file": "reverso_autumn_v2e.mp4",
+   "seconds": 11.88,
+   "frames": 285,
+   "edit": "reverso_autumn_v2-edit.json (= v2e in de sandbox: N4 1,2-4,3 s, kaart 0,30 breed op x 0,81)",
+   "qa": "wf_d72f48c5 (v2c, crème wegloper): regels-lens goedgekeurd, montage-lens blokkeerde de crème eindkaart over zijn rug; wf_1e6e5b89 (v2d, navy wegloper): beide lenzen goedgekeurd, AI-gevoel 2/5, cuts op 3,08/6,38/8,79 s, geen bevroren frames; enige punt: het woordmerk kwam aan het eind tot 1-2 px van zijn broekspijp, daarom in v2e de laatste scène 0,3 s korter en de kaart 0,30 breed op x 0,81 (minstens 43 px vrij, zelf nagemeten per frame)"
   },
   "delivery": {
-   "zip": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/c812644e-8522-4476-b94a-8784b2984c0f.zip",
-   "media_id": "c812644e-8522-4476-b94a-8784b2984c0f",
+   "zip": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/8a6e08eb-0372-4487-be06-0080072a8ab0.zip",
+   "media_id": "8a6e08eb-0372-4487-be06-0080072a8ab0",
    "contents": [
-    "Reverso Autumn v2.mp4 (1080x1920, 24 fps, 12,2 s, zonder geluid)",
+    "Reverso Autumn v2.mp4 (1080x1920, 24 fps, 11,9 s, zonder geluid, wegloper met het gilet navy buiten)",
     "Cover.jpg (frame op 5,0 s, aan het kanaal)"
-   ]
+   ],
+   "superseded": {
+    "zip": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/c812644e-8522-4476-b94a-8784b2984c0f.zip",
+    "media_id": "c812644e-8522-4476-b94a-8784b2984c0f",
+    "why": "wegloper met het gilet crème buiten (afgekeurd door de eigenaar, 23 okt)"
+   }
   }
  }
 }
