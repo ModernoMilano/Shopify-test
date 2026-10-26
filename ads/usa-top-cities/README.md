@@ -40,7 +40,7 @@ Texas bewust niet (EUR 520 spend, 4 bestellingen).
 | US_AUT_15 Four Gilets SHORT | 120252239884940541 | nieuwe US-copy in USD, naar collectie |
 | US_AUT_03 Pick Your Color SHORT | 120252239885310541 | nieuwe US-copy in USD, naar collectie |
 | US_CSH_01 BATCG 3.2 Cashmere Loafer Set | 120252239941140541 | creative 2205719649993074 (USA CBO: EUR 1.186, 8 aankopen, ROAS 2,53), naar /collections/cashmere-loafer-sets |
-| US_CSH_02 CASHMERE SALE | 120252239941730541 | creative 948060634986799. **Gepauzeerd 26 okt**: kop zegt "50% Off", cashmere staat op 25% korting |
+| US_CSH_02 CASHMERE SALE | 120252239941730541 | creative 948060634986799. Kop en tekst aangepast naar "Up to 50% Off Cashmere" (klopt: Cortina Polo en Lido staan op 50%, lounge sets op 25%); weer live 26 okt |
 | US_CSH_03 Cashmere Set Video | 120252239943060541 | creative 1629479355212941 (Retargeting Video Ad 4: EUR 137, 8 aankopen; nu voor het eerst koud verkeer) |
 
 US-prijzen (Shopify Markets): quarter zip set USD 251 (was 428), long sleeve set USD 200 (was 343).
