@@ -55,6 +55,7 @@ Doel: winst, niet spend. Break-even ROAS 1,93 (Meta). Cash-doel: omzet per EUR 1
 | 2026-10-26 | MM \| DEU \| WINNERS DE \| CBO (120252240065450541) live gezet, ad copy eerst ingekort naar één alinea | Claude, op besluit eigenaar | pauze | live, EUR 100 per dag |
 | 2026-10-26 | Nieuwe campagne MM \| LU-BE-CA-DK \| WINNERS \| CBO (120252240260010541), 5 winners, zie ads/new-markets/README.md | Claude, op besluit eigenaar | - | live, EUR 60 per dag |
 | 2026-10-26 | Nieuwe campagne MM \| GCC (AE-QA-KW-SA-BH) \| WINNERS \| CBO (120252240261170541), 5 ads op basis van VAE-data, zie ads/new-markets/README.md | Claude, op besluit eigenaar | - | live, EUR 50 per dag |
+| 2026-10-26 | USA TOP CITIES: US_CSH_02 CASHMERE SALE (120252239941730541) gepauzeerd, kop "50% Off" klopt niet met huidige 25% korting. Check alle nieuwe campagnes ingepland 29 okt 23:00 | Claude | actief | pauze |
 
 Totaal dagbudget actieve campagnes: van ongeveer EUR 1.830 naar EUR 1.433, na opschalen EUR 1.683. Eerste evaluatie: 22 okt (na 48-72 uur).
 
