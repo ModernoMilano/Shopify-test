@@ -52,6 +52,7 @@ Doel: winst, niet spend. Break-even ROAS 1,93 (Meta). Cash-doel: omzet per EUR 1
 | 2026-10-26 | Nieuwe campagne MM \| USA \| TOP CITIES \| CBO (120252239876100541) met ad set 120252239877630541 (11 metro's, 8 ads), zie ads/usa-top-cities/README.md | Claude, op besluit eigenaar | - | aangemaakt op pauze, EUR 60 per dag |
 | 2026-10-26 | USA TOP CITIES live gezet, budget EUR 80; CT IMG 14 eruit (ROAS 0,52 in de VS) en 3 cashmere-ads toegevoegd | Claude, op besluit eigenaar | pauze | live, EUR 80 per dag |
 | 2026-10-26 | Nieuwe campagne MM \| DEU \| WINNERS DE \| CBO (120252240065450541), ad set 120252240066740541, 6 ads, zie ads/deu-winners/README.md | Claude, op besluit eigenaar | - | aangemaakt op pauze, EUR 100 per dag |
+| 2026-10-26 | MM \| DEU \| WINNERS DE \| CBO (120252240065450541) live gezet, ad copy eerst ingekort naar één alinea | Claude, op besluit eigenaar | pauze | live, EUR 100 per dag |
 
 Totaal dagbudget actieve campagnes: van ongeveer EUR 1.830 naar EUR 1.433, na opschalen EUR 1.683. Eerste evaluatie: 22 okt (na 48-72 uur).
 

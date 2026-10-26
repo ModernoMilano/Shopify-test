@@ -1,6 +1,6 @@
 # MM | DEU | WINNERS DE | CBO
 
-Aangemaakt 26 okt 2026 op verzoek van de eigenaar. Campagne staat op **pauze** tot akkoord; ad set en ads staan klaar.
+Aangemaakt 26 okt 2026 op verzoek van de eigenaar. Live gezet op 26 okt 2026 na akkoord eigenaar.
 
 - Campagne: 120252240065450541, CBO, EUR 100 per dag
 - Ad set: 120252240066740541 "DE | BROAD excl. München-Nürnberg-Stuttgart | Advantage+ | VALUE" (VALUE / Purchase, Advantage+ audience, 25-65, feed/stories/reels FB+IG)
