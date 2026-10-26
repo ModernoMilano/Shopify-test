@@ -57,6 +57,7 @@ Doel: winst, niet spend. Break-even ROAS 1,93 (Meta). Cash-doel: omzet per EUR 1
 | 2026-10-26 | Nieuwe campagne MM \| GCC (AE-QA-KW-SA-BH) \| WINNERS \| CBO (120252240261170541), 5 ads op basis van VAE-data, zie ads/new-markets/README.md | Claude, op besluit eigenaar | - | live, EUR 50 per dag |
 | 2026-10-26 | USA TOP CITIES: US_CSH_02 CASHMERE SALE (120252239941730541) gepauzeerd, kop "50% Off" klopt niet met huidige 25% korting. Check alle nieuwe campagnes ingepland 29 okt 23:00 | Claude | actief | pauze |
 | 2026-10-26 | USA TOP CITIES: US_CSH_02 CASHMERE SALE kop/tekst naar "Up to 50% off" en weer aangezet (eigenaar: korting is tot 50%) | Claude, op besluit eigenaar | pauze | live |
+| 2026-10-26 | Retargeting (120251757398300541): levert sinds 20 okt niet (alle ads tegelijk gestopt; budget, spend cap, einddatum en ads in orde). Oude ad set 120251757398310541 gepauzeerd; nieuwe ad set 120252240787730541 (View Content 90d + Video Viewers 120d, Advantage+ audience UIT, VALUE) met 3 ads (Video Ad 4, Bestseller Jacket, BATCH 3 4); campagnebudget EUR 75 -> 40. Campagne blijft op pauze (door eigenaar/Nasir gepauzeerd) tot akkoord | Claude, op verzoek eigenaar | 1 ad set, EUR 75 | nieuwe ad set klaar, EUR 40 |
 
 Totaal dagbudget actieve campagnes: van ongeveer EUR 1.830 naar EUR 1.433, na opschalen EUR 1.683. Eerste evaluatie: 22 okt (na 48-72 uur).
 
