@@ -70,3 +70,32 @@ Ideas we expect to see, but improve on them:
 - **Keep prices out of the image where possible.** We sell in EUR, USD and GBP. If a price is in the image, make one version per currency.
 - **Design for a refresh every 2 weeks.** The audience is small. Give us a first batch plus an idea of what batch 2 looks like.
 - **Success means** retargeting ROAS of 3 or higher, and a frequency of 3 per week or less.
+
+---
+
+## Live sinds 26 okt 2026 (batch 1, 12 statics van de strategist, via Shopify Files)
+
+Campagne Retargeting 120251757398300541, EUR 40/dag. Copy: één korte alinea per ad.
+
+**RT EN** (ad set 120252240787730541, US/GB/IE/IT/ES/NO/PL):
+| Ad | Ad ID | Link |
+|---|---|---|
+| RT1_EN NoRisk Lounge Beige | 120252241358020541 | /collections/cashmere-sets |
+| RT1_EN NoRisk Lounge Black | 120252241360920541 | /collections/cashmere-sets |
+| RT1_EN NoRisk Two-Tone Dark Mocha | 120252241361990541 | /collections/cashmere-sets |
+| RT3_EN Size Guide Two-Tone | 120252241363020541 | /collections/cashmere-sets |
+| RT1_EN NoRisk Reverso Sabbia | 120252241364450541 | /collections/bundle-save |
+| RT4_EN Complete Look Reverso Sabbia | 120252241365420541 | /collections/bundle-save |
+| RT_01 Lounge-set Video Ad 4 (blijft) | 120252240790980541 | the-milano-edit |
+
+**RT DE** (ad set 120252241324930541, DE/AT/LU), links op /de/:
+| Ad | Ad ID |
+|---|---|
+| RT1_DE KeinRisiko Lounge Beige | 120252241367430541 |
+| RT1_DE KeinRisiko Lounge Black | 120252241368400541 |
+| RT1_DE KeinRisiko Two-Tone Dark Mocha | 120252241369260541 |
+| RT3_DE Größentabelle Two-Tone | 120252241370250541 |
+| RT1_DE KeinRisiko Reverso Sabbia | 120252241371710541 |
+| RT4_DE Drei Teile Reverso Sabbia | 120252241373600541 |
+
+Gepauzeerd (prospecting-creatives): RT_02 Bestseller Jacket, RT_03 BATCH 3 4, RT_DE_01, RT_DE_02.

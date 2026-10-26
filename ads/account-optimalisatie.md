@@ -61,6 +61,7 @@ Doel: winst, niet spend. Break-even ROAS 1,93 (Meta). Cash-doel: omzet per EUR 1
 | 2026-10-26 | Retargeting ad set 120252240787730541: doelgroep WARM AUDIENCE 30D (120252240870260541, AddToCart + InitiateCheckout 30d) toegevoegd, KOPERS 180D (120252240881330541) uitgesloten | Claude, op verzoek eigenaar | VC 90d + Video 120d | + Warm 30d, excl. kopers |
 | 2026-10-26 | Retargeting-campagne (120251757398300541) weer aangezet met alleen de nieuwe ad set, EUR 40 per dag | Claude, op besluit eigenaar | pauze | live |
 | 2026-10-26 | Retargeting gesplitst: RT EN (120252240787730541) US/GB/IE/IT/ES/NO/PL; nieuwe RT DE (120252241324930541) DE/AT/LU, zelfde doelgroepen, met 2 Duitse ads (Cashmere Lounge Set DE, Reverso Blu Preis175). Nieuwe creatives strategist volgen: cashmere naar /collections/cashmere-sets, Reverso Sabbia naar /collections/bundle-save | Claude, op besluit eigenaar | 1 ad set | 2 ad sets (EN/DE) |
+| 2026-10-26 | Retargeting: 12 nieuwe retargeting-statics live (6 EN, 6 DE; cashmere -> cashmere-sets, Sabbia -> bundle-save), prospecting-ads in RT gepauzeerd, zie ads/retargeting/creative-brief.md | Claude, op besluit eigenaar | 3+2 ads | 7 EN + 6 DE |
 
 Totaal dagbudget actieve campagnes: van ongeveer EUR 1.830 naar EUR 1.433, na opschalen EUR 1.683. Eerste evaluatie: 22 okt (na 48-72 uur).
 
