@@ -39,3 +39,7 @@ Let op:
 - Alleen de advertentietekst is vertaald. Tekst die ín de afbeeldingen staat (BATCH 3 4, BATCG 3.2, Tracksuit) is niet gecontroleerd: Meta-afbeeldingen zijn vanuit deze sessie niet te downloaden. Eigenaar checkt de preview in Ads Manager.
 - CASHMERE SALE bewust niet gebruikt: de kop zegt "50% Off", cashmere staat nu op 25% korting (EUR 150 / 200).
 - De Engelse versies van BATCH 3 4 (EUR 221) en BATCG 3.2 (EUR 166) verkochten in DEU SCALING niets; dit is de Duitse test.
+
+## Copy-aanpassing 26 okt
+
+Op verzoek eigenaar alle advertentieteksten zonder lege regels en zonder vinkjes-lijstjes: één korte alinea, net als de bewezen winners (BATCH 3 4, Cashmere Tracksuit, BATCG 3.2). Aangepast via update_ad_creative (ad-ID's blijven gelijk): DE_WIN_01 t/m 04.

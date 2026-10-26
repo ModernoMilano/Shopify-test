@@ -49,3 +49,5 @@ Evaluatie na 7 dagen tegen USA CBO.
 
 Cashmere-ads toegevoegd op verzoek eigenaar: cashmere lounge sets zijn de bestsellers in de VS (Shopify: Beige 50, Black 29, Gray 15, Navy 10 bestellingen). BATCH 3 4 (US_WIN_02) linkt ook naar /collections/cashmere.
 Let op: US_WIN_01 (Bestseller Jacket) linkt naar de Duitse productpagina (/de/products/milano-hooded-jacket-champagne).
+
+Copy-aanpassing 26 okt: US_AUT_07, 09, 15 en 03 herschreven naar één korte alinea zonder lege regels of vinkjes (stijl van de winners). Ad-ID's blijven gelijk.
