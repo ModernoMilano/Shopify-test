@@ -50,6 +50,8 @@ Doel: winst, niet spend. Break-even ROAS 1,93 (Meta). Cash-doel: omzet per EUR 1
 | 2026-10-21 23:45 | Creative Test: CT Week 1 IMG 3 (120251889693950541) gepauzeerd, ROAS 1,20 en Meta meldt WITH_ISSUES | Claude, op besluit eigenaar | actief | pauze |
 | 2026-10-21 23:50 | REVERSO AUTUMN: alle 16 ads displaylink modernomilano.com en 4 copy-stijlen (USP / PROBLEM / SHORT / VALUE), ad-ID's ongewijzigd | Claude, op besluit eigenaar | 1 copy-stijl | 4 stijlen |
 
+| 2026-10-26 | Nieuwe campagne MM \| USA \| TOP CITIES \| CBO (120252239876100541) met ad set 120252239877630541 (11 metro's, 8 ads), zie ads/usa-top-cities/README.md | Claude, op besluit eigenaar | - | aangemaakt op pauze, EUR 60 per dag |
+
 Totaal dagbudget actieve campagnes: van ongeveer EUR 1.830 naar EUR 1.433, na opschalen EUR 1.683. Eerste evaluatie: 22 okt (na 48-72 uur).
 
 Ad-check 19 okt: niet gepauzeerd op besluit eigenaar (in de gaten houden): USA Winning W1 IMG 14 (120252066339990541, 14d ROAS 0,84), Nasir WW LAL UNBOXING - Copy (120251724269110541, 0,88), Retargeting Lounge-set Video Ad 5 (120251931745970541, EUR 139, 0 aankopen), Creative Test IMG 3 (120251889693950541, 0,51), Nasir Reverso IMG 4 en IMG 5 (EUR 110, 0 aankopen).
