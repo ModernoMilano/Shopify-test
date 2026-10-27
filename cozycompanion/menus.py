@@ -16,7 +16,7 @@ MENUS = {
             C("Smart Feeding", "smart-feeding"), C("Hydration", "hydration"),
             C("GPS & Safety", "gps-safety"), C("Shop all pet tech", "smart-pet-tech")]),
         C("Gifts", "holiday-gift-guide", [
-            C("Holiday Gift Guide", "holiday-gift-guide"), C("Gifts under €50", "gifts-under-50"),
+            C("Holiday Gift Guide", "holiday-gift-guide"),
             C("Bundle & Save 10%", "bundle-deals")]),
         P("Our Story", "about"),
         {"title": "Help", "type": "PAGE", "resourceId": pg["faq"], "items": [
