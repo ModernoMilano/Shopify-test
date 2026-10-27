@@ -673,5 +673,77 @@
    2000,
    2000
   ]
+ },
+ "b_pad": {
+  "id": "gid://shopify/MediaImage/72719835627850",
+  "alt": "CozyCompanion Plush Heat Pad in grey",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-b_pad.png?v=1793136889",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "b_throw": {
+  "id": "gid://shopify/MediaImage/72719835660618",
+  "alt": "CozyCompanion Heklet heated sherpa throw, folded",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-b_throw.png?v=1793136888",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "b_tag": {
+  "id": "gid://shopify/MediaImage/72719835693386",
+  "alt": "MiTag Duo with CozyCompanion leather case",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-b_tag.png?v=1793136888",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "b_petpad": {
+  "id": "gid://shopify/MediaImage/72719835726154",
+  "alt": "CozyCompanion heated pet pad with paw pattern",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-b_petpad.png?v=1793136888",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "b_fountain": {
+  "id": "gid://shopify/MediaImage/72719846179146",
+  "alt": "CozyCompanion stainless steel pet fountain",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-b_fountain.png?v=1793136927",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "b_fountain4l": {
+  "id": "gid://shopify/MediaImage/72719846211914",
+  "alt": "CozyCompanion 4L stainless steel pet fountain",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-b_fountain4l.png?v=1793136927",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "b_feeder": {
+  "id": "gid://shopify/MediaImage/72719846244682",
+  "alt": "CozyCompanion 4L automatic pet feeder in white",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-b_feeder.png?v=1793136927",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "b_feederblack": {
+  "id": "gid://shopify/MediaImage/72719846277450",
+  "alt": "CozyCompanion 4L automatic pet feeder in black",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-b_feederblack.png?v=1793136927",
+  "size": [
+   2048,
+   2048
+  ]
  }
 }

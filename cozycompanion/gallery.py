@@ -10,20 +10,20 @@ reg = json.load(open(os.path.join(S, "files.json")))
 CTX = ssl.create_default_context(cafile="/root/.ccr/ca-bundle.crt")
 
 GALLERIES = {
-    "plush-heat-pad": ["n_pad_pack", "g_hp_colors2", "n_pad_life", "g_hp_shoulders", "g_hp_detail"],
-    "heklet-heated-sherpa-throw": ["n_throw_pack", "g_th_detail", "n_throw_life", "g_th_bed", "g_th_flat2"],
-    "mitag-duo-smart-tag": ["n_tag_pack", "g_mt_lineup", "g_mt_two2", "n_tag_life", "g_mt_keys"],
-    "heated-pet-pad": ["n_petpad_pack", "g_pp_rose", "n_petpad_life", "g_pp_dog", "g_pp_detail"],
-    "stainless-steel-pet-fountain": ["n_fountain_pack", "g_ft_4l", "g_ft_detail", "n_fountain_life", "g_ft_dog", "g_ft_parts"],
-    "automatic-pet-feeder-4l": ["n_feeder_pack", "g_fd_black", "g_fd_duo", "n_feeder_life", "g_fd_dog", "g_fd_detail"],
+    "plush-heat-pad": ["b_pad", "g_hp_colors2", "n_pad_life", "g_hp_shoulders", "g_hp_detail"],
+    "heklet-heated-sherpa-throw": ["b_throw", "g_th_detail", "n_throw_life", "g_th_bed", "g_th_flat2"],
+    "mitag-duo-smart-tag": ["b_tag", "g_mt_lineup", "g_mt_two2", "n_tag_life", "g_mt_keys"],
+    "heated-pet-pad": ["b_petpad", "g_pp_rose", "n_petpad_life", "g_pp_dog", "g_pp_detail"],
+    "stainless-steel-pet-fountain": ["b_fountain", "b_fountain4l", "g_ft_detail", "n_fountain_life", "g_ft_dog", "g_ft_parts"],
+    "automatic-pet-feeder-4l": ["b_feeder", "b_feederblack", "g_fd_duo", "n_feeder_life", "g_fd_dog", "g_fd_detail"],
 }
 # variant option value (substring) -> photo shown when that variant is picked
 VARIANT_MEDIA = {
-    "plush-heat-pad": {"Grey": "n_pad_pack", "Yellow": "g_hp_colors2", "Green": "g_hp_colors2", "Blue": "g_hp_colors2"},
-    "heated-pet-pad": {"Rose": "g_pp_rose", "Paws": "n_petpad_pack"},
-    "stainless-steel-pet-fountain": {"4L": "g_ft_4l", "2L": "n_fountain_pack"},
-    "automatic-pet-feeder-4l": {"White": "n_feeder_pack", "Black": "g_fd_black"},
-    "mitag-duo-smart-tag": {"2 black": "g_mt_two2", "brown": "n_tag_pack", "case": "g_mt_lineup", "1 ": "g_mt_two2"},
+    "plush-heat-pad": {"Grey": "b_pad", "Yellow": "g_hp_colors2", "Green": "g_hp_colors2", "Blue": "g_hp_colors2"},
+    "heated-pet-pad": {"Rose": "g_pp_rose", "Paws": "b_petpad"},
+    "stainless-steel-pet-fountain": {"4L": "b_fountain4l", "2L": "b_fountain"},
+    "automatic-pet-feeder-4l": {"White": "b_feeder", "Black": "b_feederblack"},
+    "mitag-duo-smart-tag": {"2 black": "g_mt_two2", "brown": "b_tag", "case": "g_mt_lineup", "1 ": "g_mt_two2"},
 }
 
 def fetch(name):
