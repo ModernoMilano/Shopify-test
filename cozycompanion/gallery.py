@@ -21,6 +21,10 @@ GALLERIES = {
     "glance-camera-feeder": ["x_glance_white", "x_glance_black", "x_glance_detail", "x_glance_life", "x_glance_blacklife"],
     "murmur-camera-feeder": ["x_murmur_pack", "x_murmur_detail", "x_murmur_life", "x_murmur_kitten"],
     "brook-xl-cordless-fountain": ["x_brookxl_pack", "x_brookxl_filters", "x_brookxl_detail", "x_brookxl_dog", "x_brookxl_cat"],
+    "flutter-cat-play-station": ["y_flutter_pack", "y_flutter_detail", "y_flutter_life"],
+    "spark-laser-cat-toy": ["y_spark_pack", "y_spark_detail", "y_spark_life"],
+    "voyage-rolling-pet-carrier": ["y_voyage_pack", "y_voyage_colors", "y_voyage_life"],
+    "roam-back-seat-dog-bed": ["y_roam_pack", "y_roam_detail", "y_roam_life"],
 }
 # variant option value (substring) -> photo shown when that variant is picked
 VARIANT_MEDIA = {
@@ -30,6 +34,7 @@ VARIANT_MEDIA = {
     "dine-automatic-feeder": {"White": "b_feeder_23", "Black": "b_feederblack_23"},
     "glance-camera-feeder": {"White": "x_glance_white", "Black": "x_glance_black"},
     "brook-xl-cordless-fountain": {"only": "x_brookxl_pack", "filters": "x_brookxl_filters"},
+    "voyage-rolling-pet-carrier": {"Grey": "y_voyage_pack", "Black": "y_voyage_colors", "Blue": "y_voyage_colors", "Pink": "y_voyage_colors"},
     "compass-smart-tag": {"2 black": "g_mt_two2_23", "brown": "b_tag_23", "case": "g_mt_lineup_23", "1 ": "g_mt_two2_23"},
 }
 

@@ -1249,5 +1249,113 @@
    1360,
    2048
   ]
+ },
+ "y_flutter_pack": {
+  "id": "gid://shopify/MediaImage/72720567533898",
+  "alt": "Flutter 2-in-1 Cat Play Station",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-y_flutter_pack.png?v=1793139827",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "y_flutter_life": {
+  "id": "gid://shopify/MediaImage/72720567566666",
+  "alt": "A Bengal cat pouncing on the Flutter feather",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-y_flutter_life.png?v=1793139828",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "y_spark_pack": {
+  "id": "gid://shopify/MediaImage/72720567599434",
+  "alt": "Spark Automatic Laser Cat Toy",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-y_spark_pack.png?v=1793139827",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "y_spark_life": {
+  "id": "gid://shopify/MediaImage/72720567632202",
+  "alt": "A cat chasing the dot of the Spark laser toy",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-y_spark_life.png?v=1793139828",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "y_voyage_pack": {
+  "id": "gid://shopify/MediaImage/72720567664970",
+  "alt": "Voyage Rolling Pet Carrier XL in grey",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-y_voyage_pack.png?v=1793139828",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "y_voyage_colors": {
+  "id": "gid://shopify/MediaImage/72720567697738",
+  "alt": "Voyage carrier in grey, black, blue and pink",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-y_voyage_colors.png?v=1793139829",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "y_roam_pack": {
+  "id": "gid://shopify/MediaImage/72720567730506",
+  "alt": "Roam Back Seat Dog Bed installed in a car",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-y_roam_pack.png?v=1793139829",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "y_roam_life": {
+  "id": "gid://shopify/MediaImage/72720567763274",
+  "alt": "A golden retriever lying on the Roam back seat bed",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-y_roam_life.png?v=1793139829",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "y_flutter_detail": {
+  "id": "gid://shopify/MediaImage/72720577102154",
+  "alt": "Feather and ball of the Flutter play station",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-y_flutter_detail.png?v=1793139884",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "y_spark_detail": {
+  "id": "gid://shopify/MediaImage/72720577134922",
+  "alt": "Spark laser toy charging via USB-C",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-y_spark_detail.png?v=1793139884",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "y_voyage_life": {
+  "id": "gid://shopify/MediaImage/72720577167690",
+  "alt": "Travelling with the Voyage rolling pet carrier",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-y_voyage_life.png?v=1793139885",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "y_roam_detail": {
+  "id": "gid://shopify/MediaImage/72720577200458",
+  "alt": "Waterproof quilted surface of the Roam seat cover",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-y_roam_detail.png?v=1793139886",
+  "size": [
+   1360,
+   2048
+  ]
  }
 }

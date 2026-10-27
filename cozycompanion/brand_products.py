@@ -19,54 +19,42 @@ RENAME = {
 }
 
 NEW = {
-  "rexproduct-petpocket-dog-kennel-size-m-light-gray-with-gray": dict(
-    title="Haven Pet Den · Size M", handle="haven-pet-den", type="Pet Bed", template="pettech",
-    tags=["beds-dens", "for-pets-living"], cols=["holiday-gift-guide", "bundle-deals"],
-    highlights=["Bed and den in one", "Quiet, scratch-resistant felt", "Washable cover, non-slip base"],
-    seo="Haven Pet Den: a foldable Scandinavian-style bed and den for cats and small dogs, made in Poland from recycled, Oeko-Tex certified materials.",
-    html=d("A calm, cosy hideaway that looks beautiful in any room.",
-           ["Felt shell softens noise for a calmer rest", "Bite-, tear- and scratch-resistant", "Removable cover, washable at 30 °C", "Oeko-Tex 100 & GRS certified, made in Poland"],
-           "Size M: approx. 60 × 63 × 45 cm · foldable · light grey"),
-    options={}),
-  "doel-2026-upgrade-automatic-smart-litter-box-self-cleaning-cat-litter": dict(
-    title="Halo Self-Cleaning Litter Box", handle="halo-self-cleaning-litter-box", type="Litter Box", template="pettech",
-    tags=["litter-hygiene"], cols=["smart-pet-tech", "holiday-gift-guide", "bundle-deals"],
-    highlights=["Cleans itself after every visit", "4 weight sensors for safety", "App control via 2.4 GHz Wi-Fi"],
-    seo="Halo self-cleaning cat litter box with weight sensors, app control and a spacious 65L drum. For cats from 1.5 to 8 kg.",
-    html=d("Less scooping, a fresher home and more time together.",
-           ["Automatic cleaning after each visit", "4 gravity sensors pause the drum when a cat is near", "Spacious 65L drum for cats of 1.5–8 kg", "App control and schedules (2.4 GHz Wi-Fi)"],
-           "For cats older than 6 months · clumping litter only (bentonite, mineral, mixed, small tofu) · place on a flat, hard floor"),
-    options={"Color": ("Colour", {"WHITE": "White"}), "Ships From": ("Ships from", {})}),
-  "4l-with-hd-camera-automatic-pet-feeder-cat-and-dog-food-automatic": dict(
-    title="Glance 4L Camera Feeder", handle="glance-camera-feeder", type="Smart Pet Feeder", template="pettech",
-    tags=["feeding", "camera-feeder"], cols=["smart-pet-tech", "holiday-gift-guide", "bundle-deals"],
-    highlights=["HD camera to check in anytime", "Scheduled meals via the app", "One or two stainless bowls"],
-    seo="Glance 4L automatic pet feeder with HD camera, app-scheduled meals and stainless steel bowls. Single or double bowl, in white or black.",
-    html=d("See them, feed them and stay close, wherever your day takes you.",
-           ["HD camera with live view in the app", "Timed, portioned meals", "Double bowl option for two pets", "Dual power: adapter plus battery backup"],
-           "4L visible food container · approx. 32 × 19 × 28 cm · stainless steel bowls"),
-    options={"Color": ("Style", {"Double Meal Black": "Black · 2 bowls", "Single Meal White": "White · 1 bowl",
-                                 "Double Meal White": "White · 2 bowls", "Single Meal Black": "Black · 1 bowl"}),
-             "Volume": ("Capacity", {})}),
-  "rojeco-automatic-cat-feeder-with-camera-video-cat-food-dispenser-pet": dict(
-    title="Murmur 3L Camera Feeder", handle="murmur-camera-feeder", type="Smart Pet Feeder", template="pettech",
-    tags=["feeding", "camera-feeder"], cols=["smart-pet-tech", "holiday-gift-guide", "bundle-deals"],
-    highlights=["Live video and two-way voice", "Record a 10-second meal call", "Up to 8 meals a day"],
-    seo="Murmur 3L camera pet feeder with live video, two-way voice, a recorded meal call and up to 8 scheduled meals a day.",
-    html=d("Call them to dinner in your own voice, even from the office.",
-           ["Live video with 115° wide-angle view", "Two-way voice and a 10 s recorded meal call", "Up to 8 meals a day, 1–20 portions each", "Kibble from 3–13 mm"],
-           "3L · EU adapter and 1.5 m USB cable included"),
-    options={"Color": ("Version", {"3L Camera Version": "3L · camera"})}),
-  "7l-stainless-steel-wireless-recharging-sensor-cat-water-fountain-auto": dict(
-    title="Brook XL Cordless Fountain 7L", handle="brook-xl-cordless-fountain", type="Pet Water Fountain", template="pettech",
-    tags=["hydration", "fountain"], cols=["smart-pet-tech", "holiday-gift-guide", "bundle-deals"],
-    highlights=["Cordless: 4000 mAh battery", "Sensor, timer or constant flow", "Large 7L stainless bowl"],
-    seo="Brook XL cordless stainless steel pet fountain: 7L capacity, 4000 mAh battery and sensor, timer or constant flow modes.",
-    html=d("Fresh running water anywhere, no cable in sight.",
-           ["4000 mAh battery, place it anywhere", "3 modes: sensor, timer or constant (when plugged in)", "Shallow 1\" tray suits how dogs lap", "7L: refill about once a week"],
-           "Stainless steel · up to 50 days standby in timer mode · choose with or without spare filters"),
-    options={"Color": ("Filters", {"OnLy Pet Water": "Fountain only", "Pet Water 3Chips": "+ 3 spare filters",
-                                   "Pet Water 6Chips": "+ 6 spare filters", "Pet Water 12Chips": "+ 12 spare filters"})}),
+  "rojeco-2-in-1-smart-cat-toys-automatic-feather-fun-ball-toy-set-for": dict(
+    title="Flutter 2-in-1 Cat Play Station", handle="flutter-cat-play-station", type="Cat Toy", template="pettech",
+    tags=["play"], cols=["smart-pet-tech", "holiday-gift-guide", "bundle-deals"],
+    highlights=["Pop-up feather and rolling ball", "Several speed and light modes", "Battery or cable powered"],
+    seo="Flutter 2-in-1 interactive cat toy: a feather that pops out at random and a rolling ball, with several play modes.",
+    html=d("Hunting instinct, satisfied: a feather that pops up where they least expect it.",
+           ["Feather appears at random from 6 openings", "Rolling ball in the track for double the fun", "Fast, medium and smart play modes", "Replaceable feathers included"],
+           "Power: 4 × AA (not included) or power cable"),
+    options={"Color": ("Colour", {})}),
+  "rojeco-automatic-cat-laser-toy-interactive-adjustable-mode-electric": dict(
+    title="Spark Automatic Laser Cat Toy", handle="spark-laser-cat-toy", type="Cat Toy", template="pettech",
+    tags=["play"], cols=["smart-pet-tech", "holiday-gift-guide", "bundle-deals"],
+    highlights=["Plays on its own, 10 min every 2 h", "360° rotation, magnetic base", "Rechargeable via USB-C"],
+    seo="Spark automatic laser cat toy with timed play sessions, 360° rotation, a magnetic base and a rechargeable USB-C battery.",
+    html=d("Playtime that starts itself, even while you're out.",
+           ["Random-moving laser dot for chase and pounce", "Auto play: 10 minutes every 2 hours", "Magnetic base, 360° rotation", "Very quiet operation"],
+           "1000 mAh battery · USB-C · never shine the laser into eyes"),
+    options={"Color": ("Colour", {}), "Ships From": ("Ships from", {})}),
+  "extra-large-portable-pet-trolley-case-detachable-dog-trolley-case": dict(
+    title="Voyage Rolling Pet Carrier XL", handle="voyage-rolling-pet-carrier", type="Pet Carrier", template="pettech",
+    tags=["travel"], cols=["smart-pet-tech", "holiday-gift-guide", "bundle-deals"],
+    highlights=["Wheels and telescopic handle", "Mesh windows and top opening", "Carries pets up to approx. 16 kg"],
+    seo="Voyage XL rolling pet carrier with wheels, telescopic handle, mesh windows and a top opening. For cats and small dogs up to approx. 16 kg.",
+    html=d("Travel together, comfortably and in style.",
+           ["Detachable trolley with 4 wheels", "Mesh windows and curtains for calm and airflow", "Top and front openings, handy pockets", "Holds up to approx. 16 kg (35 lbs)"],
+           "Approx. 60 × 39 × 44 cm · grey, black, blue or pink"),
+    options={"Color": ("Colour", {})}),
+  "dog-seat-cover-car-seat-cover-for-pets-waterproof-pet-seat-cover": dict(
+    title="Roam Back Seat Dog Bed & Cover", handle="roam-back-seat-dog-bed", type="Car Seat Cover", template="pettech",
+    tags=["travel"], cols=["smart-pet-tech", "holiday-gift-guide", "bundle-deals"],
+    highlights=["Turns the back seat into a flat bed", "Waterproof, quilted surface", "Mesh window and door flaps"],
+    seo="Roam back seat dog bed and car seat cover: a firm, flat, waterproof bed for the back seat with mesh window and door protection.",
+    html=d("Road trips, sorted: a flat, cosy bed across the whole back seat.",
+           ["Firm base bridges the footwell into one flat bed", "Waterproof quilted fabric protects your seats", "Side flaps protect doors; mesh window to see each other", "Pockets and harness openings"],
+           "Fits most cars · approx. 112 cm wide · black or grey"),
+    options={"Color": ("Colour", {}), "Ships From": ("Ships from", {})}),
 }
 
 COLS = {c["handle"]: c["id"] for c in gql("{collections(first:50){nodes{id handle}}}")["collections"]["nodes"]}
@@ -76,7 +64,7 @@ def prod(handle):
 
 for old, (title, handle) in RENAME.items():
     p = prod(old)
-    if not p: print("skip (already renamed?)", old); continue
+    if not p: continue
     check(gql("mutation($p:ProductUpdateInput!){productUpdate(product:$p){product{id} userErrors{field message}}}",
               {"p": {"id": p["id"], "title": title, "handle": handle, "redirectNewHandle": True,
                      "seo": {"title": f"{title} | CozyCompanion"}}})["productUpdate"], title)

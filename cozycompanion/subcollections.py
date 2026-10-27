@@ -36,6 +36,10 @@ COLS = [
      "Calm, cosy hideaways that look beautiful in any room."),
     ("Litter & Hygiene", "litter-hygiene", "litter-hygiene", "s_morning",
      "Less scooping, a fresher home and more time together."),
+    ("Play & Enrichment", "play-enrichment", "play", "l1",
+     "Smart toys that keep curious minds busy, even when you're out."),
+    ("Travel", "pet-travel", "travel", "l3",
+     "Carriers and car comfort for every adventure together."),
 ]
 existing = {c["handle"]: c["id"] for c in gql("{collections(first:50){nodes{id handle}}}")["collections"]["nodes"]}
 def ensure(title, handle, rules, img, desc):
