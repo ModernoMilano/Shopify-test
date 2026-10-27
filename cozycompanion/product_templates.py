@@ -56,6 +56,8 @@ def build(kind):
                                "t": text("<p><strong>The CozyCompanion promise</strong><br>Not completely in love? Return it within 30 days for a full refund of the purchase price.</p>",
                                          "paragraph", width="fit-content")},
                     "block_order": ["i", "t"]}
+    # Owner's choice: no Shop Pay / "More payment options" buttons on the product page
+    B["buy_buttons_eYQEYi"]["blocks"]["accelerated-checkout"]["disabled"] = True
     det["block_order"] = ["group_icgrde", "tagline", "highlights", "divider_VJhene", "variant_picker_R3rGDr",
                           "buy_buttons_eYQEYi", "payments", "offer", "trust", "promise", "text_aEtTtq", "info"]
     main["blocks"]["media-gallery"]["settings"].update({"media_presentation": "grid", "media_columns": "two",

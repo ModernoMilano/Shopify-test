@@ -52,6 +52,8 @@ det["block_order"] = ["group_icgrde", "divider_VJhene", "variant_picker_R3rGDr",
                       "offer", "trust", "text_aEtTtq", "info"]
 main["blocks"].pop("disclosures_g9mWze", None)
 main["block_order"] = []
+# Owner's choice: no Shop Pay / "More payment options" buttons on the product page
+B["buy_buttons_eYQEYi"]["blocks"]["accelerated-checkout"]["disabled"] = True
 main["blocks"]["media-gallery"]["settings"].update({"media_presentation": "carousel", "aspect_ratio": "square",
                                                     "media_fit": "cover", "large_first_image": True})
 rec = d["sections"]["product_recommendations_qggXJq"]
