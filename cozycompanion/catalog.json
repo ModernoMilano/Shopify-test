@@ -1,0 +1,99 @@
+{
+  "vendor": "CozyCompanion",
+  "collections": [
+    {
+      "handle": "smart-pet-tech",
+      "title": "Smart Pet Tech",
+      "descriptionHtml": "<p>Intelligent care for the companions who share your home. Thoughtfully engineered feeders, fountains and trackers that keep your pet nourished, hydrated and safe, so you can be present even when you are away.</p>"
+    },
+    {
+      "handle": "cozy-heated-blankets",
+      "title": "Cozy Heated Blankets",
+      "descriptionHtml": "<p>Warmth, refined. Plush heated and weighted blankets designed for slow evenings, deep sleep and quiet comfort, for you and for them.</p>"
+    },
+    {
+      "handle": "bundle-deals",
+      "title": "Bundle Deals",
+      "descriptionHtml": "<p>Curated pairings that belong together. Complete the ritual of comfort and care, and enjoy more for less.</p>"
+    },
+    {
+      "handle": "holiday-gift-guide",
+      "title": "Holiday Gift Guide",
+      "descriptionHtml": "<p>Gifts that say <em>I thought of you</em>. Our most-loved pieces for pet lovers, homebodies and everyone who deserves a little more warmth this season.</p>"
+    }
+  ],
+  "products": [
+    {
+      "handle": "smart-pet-feeder-camera-1080p",
+      "title": "Smart Pet Feeder Camera 1080P HD",
+      "productType": "Pet Tech",
+      "price": "184.99",
+      "tags": ["pet-tech", "feeder", "camera", "gift"],
+      "collections": ["smart-pet-tech", "holiday-gift-guide"],
+      "descriptionHtml": "<p><strong>See them. Feed them. From anywhere.</strong></p><p>Mealtime becomes a moment of connection. This smart feeder pairs precise, scheduled portions with a crisp 1080P HD camera, so you can check in, watch them enjoy every bite and never miss a meal, wherever your day takes you.</p><ul><li><strong>Crystal-clear 1080P view</strong> – a live window into home, right on your phone.</li><li><strong>Scheduled, portioned meals</strong> – consistent routines that support a healthy weight.</li><li><strong>Peace of mind on long days</strong> – late meetings and weekends away, handled.</li><li><strong>Elegant, minimal design</strong> – crafted to sit beautifully in a considered home.</li></ul><p>Because caring for them should never depend on where you are.</p>"
+    },
+    {
+      "handle": "automatic-pet-feeder-smart-sensor",
+      "title": "Automatic Pet Feeder Smart Sensor",
+      "productType": "Pet Tech",
+      "price": "184.53",
+      "tags": ["pet-tech", "feeder", "sensor"],
+      "collections": ["smart-pet-tech"],
+      "descriptionHtml": "<p><strong>Effortless nourishment, intelligently timed.</strong></p><p>A feeder that thinks ahead. Smart sensing and automatic portioning keep fresh food ready on a dependable schedule, giving your companion the calm comfort of routine and giving you one less thing to remember.</p><ul><li><strong>Smart sensor technology</strong> – responsive, reliable dispensing.</li><li><strong>Automatic portion control</strong> – the right amount, every time.</li><li><strong>Routine they can rely on</strong> – steady mealtimes for a happier, calmer pet.</li><li><strong>Clean, sculptural form</strong> – technology that disappears into your interior.</li></ul><p>Thoughtful care, quietly running in the background.</p>"
+    },
+    {
+      "handle": "smart-mini-gps-pet-tracker",
+      "title": "Smart Mini GPS Pet Tracker",
+      "productType": "Pet Tech",
+      "price": "59.99",
+      "tags": ["pet-tech", "gps", "tracker", "gift"],
+      "collections": ["smart-pet-tech", "holiday-gift-guide"],
+      "descriptionHtml": "<p><strong>Freedom for them. Reassurance for you.</strong></p><p>Light enough to forget, smart enough to matter. This compact GPS tracker clips discreetly to their collar so every adventure ends with a reunion, and every worry ends with a glance at your phone.</p><ul><li><strong>Real-time location</strong> – know where they are, the moment you need to.</li><li><strong>Featherlight, mini design</strong> – comfortable for pets of every size.</li><li><strong>Discreet on the collar</strong> – understated, never in the way.</li><li><strong>Confidence on every walk</strong> – explore more, worry less.</li></ul><p>The smallest gesture of love, with the biggest peace of mind.</p>"
+    },
+    {
+      "handle": "premium-pet-water-fountain-68oz",
+      "title": "Premium Pet Water Fountain 68oz",
+      "productType": "Pet Tech",
+      "price": "44.99",
+      "tags": ["pet-tech", "fountain", "hydration", "gift"],
+      "collections": ["smart-pet-tech", "holiday-gift-guide"],
+      "descriptionHtml": "<p><strong>Fresh, flowing water. A healthier habit.</strong></p><p>Pets are naturally drawn to moving water. This premium fountain keeps a generous 68oz (approx. 2L) of fresh, circulating water within reach all day, gently encouraging them to drink more and stay beautifully hydrated.</p><ul><li><strong>Generous 68oz capacity</strong> – fewer refills, always fresh.</li><li><strong>Continuous gentle flow</strong> – inviting water pets love to drink.</li><li><strong>Supports healthy hydration</strong> – a simple daily ritual of wellbeing.</li><li><strong>Quiet, refined presence</strong> – calm enough for the most serene home.</li></ul><p>Everyday care, elevated.</p>"
+    },
+    {
+      "handle": "laura-hill-electric-heated-blanket-double",
+      "title": "Laura Hill Electric Heated Blanket Double",
+      "productType": "Heated Blanket",
+      "price": "46.88",
+      "tags": ["heated-blanket", "double", "bedroom"],
+      "collections": ["cozy-heated-blankets"],
+      "descriptionHtml": "<p><strong>Slip into warmth, every single night.</strong></p><p>Turn your bed into a sanctuary. Sized for a double bed, this electric heated blanket wraps you in soft, even warmth, so cold sheets become a memory and every night begins with comfort.</p><ul><li><strong>Double-bed size</strong> – generous warmth for one or two.</li><li><strong>Soft, even heat</strong> – soothing comfort from edge to edge.</li><li><strong>Pre-warm your bed</strong> – climb into cozy, not cold.</li><li><strong>Soft-touch finish</strong> – luxurious against the skin.</li></ul><p>The quiet luxury of a warm bed, waiting for you.</p>"
+    },
+    {
+      "handle": "usb-powered-heated-blanket-3-settings",
+      "title": "USB Powered Heated Blanket 3 Settings",
+      "productType": "Heated Blanket",
+      "price": "36.99",
+      "tags": ["heated-blanket", "usb", "portable", "gift"],
+      "collections": ["cozy-heated-blankets", "holiday-gift-guide"],
+      "descriptionHtml": "<p><strong>Your warmth, wherever you settle.</strong></p><p>On the sofa, at your desk or on the road, this USB-powered heated blanket brings personal warmth anywhere there is a port. Three heat settings let you find exactly the right level of comfort.</p><ul><li><strong>USB powered</strong> – works with a laptop, power bank or adapter.</li><li><strong>3 heat settings</strong> – from a gentle glow to deeply cozy.</li><li><strong>Portable and light</strong> – home office, car or reading nook.</li><li><strong>Plush and soft</strong> – a little indulgence for everyday moments.</li></ul><p>Small comfort, big difference.</p>"
+    },
+    {
+      "handle": "weighted-heated-blanket-9kg",
+      "title": "Weighted Heated Blanket 9kg",
+      "productType": "Heated Blanket",
+      "price": "109.99",
+      "tags": ["heated-blanket", "weighted", "sleep", "gift"],
+      "collections": ["cozy-heated-blankets", "holiday-gift-guide"],
+      "descriptionHtml": "<p><strong>The embrace of weight. The comfort of warmth.</strong></p><p>Two of the most soothing sensations, united. A calming 9kg of evenly distributed weight meets gentle, enveloping heat, creating a deeply grounding feeling that helps you unwind, let go and drift into restful sleep.</p><ul><li><strong>9kg of even weight</strong> – a comforting, hug-like feel.</li><li><strong>Gentle, enveloping heat</strong> – warmth that melts away the day.</li><li><strong>Made for deep relaxation</strong> – evenings on the sofa or nights in bed.</li><li><strong>Premium soft finish</strong> – indulgent from the first touch.</li></ul><p>Our most luxurious way to wind down.</p>"
+    },
+    {
+      "handle": "pet-heated-blanket-washable",
+      "title": "Pet-Specific Heated Blanket Washable",
+      "productType": "Pet Heated Blanket",
+      "price": "45.99",
+      "tags": ["heated-blanket", "pet", "washable", "gift"],
+      "collections": ["cozy-heated-blankets", "smart-pet-tech", "holiday-gift-guide"],
+      "descriptionHtml": "<p><strong>Because they deserve to be cozy too.</strong></p><p>Designed especially for pets, this heated blanket offers a gentle, comforting warmth that is ideal for chilly evenings, senior companions and pets who simply love to curl up. Washable, so it stays fresh and inviting.</p><ul><li><strong>Made for pets</strong> – gentle warmth suited to your companion.</li><li><strong>Washable</strong> – easy to keep clean, fresh and hygienic.</li><li><strong>Soothing comfort</strong> – lovely for older pets and cold-weather naps.</li><li><strong>Soft and inviting</strong> – their new favourite spot in the house.</li></ul><p>Warmth they will thank you for, in their own way.</p>"
+    }
+  ]
+}
