@@ -1,0 +1,389 @@
+{
+ "p1": {
+  "id": "gid://shopify/MediaImage/72714765795658",
+  "alt": "Smart Pet Feeder Camera 1080P HD on a cream background",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-p1.png?v=1793115053",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "p2": {
+  "id": "gid://shopify/MediaImage/72714765828426",
+  "alt": "Automatic Pet Feeder with Smart Sensor on a cream background",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-p2.png?v=1793115053",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "p3": {
+  "id": "gid://shopify/MediaImage/72714765861194",
+  "alt": "Smart Mini GPS Pet Tracker on a leather collar",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-p3.png?v=1793115053",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "p4": {
+  "id": "gid://shopify/MediaImage/72714765893962",
+  "alt": "Premium Pet Water Fountain 68oz with flowing water",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-p4.png?v=1793115054",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "p5": {
+  "id": "gid://shopify/MediaImage/72714765926730",
+  "alt": "Laura Hill Electric Heated Blanket Double, folded",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-p5.png?v=1793115055",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "p6": {
+  "id": "gid://shopify/MediaImage/72714765959498",
+  "alt": "USB Powered Heated Blanket with 3-setting controller",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-p6.png?v=1793115055",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "p7": {
+  "id": "gid://shopify/MediaImage/72714765992266",
+  "alt": "Weighted Heated Blanket 9kg, quilted and folded",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-p7.png?v=1793115056",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "p8": {
+  "id": "gid://shopify/MediaImage/72714766025034",
+  "alt": "Washable heated blanket pad for pets",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-p8.png?v=1793115054",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "l1": {
+  "id": "gid://shopify/MediaImage/72714791747914",
+  "alt": "Golden retriever eating from the Smart Pet Feeder Camera in a bright living room",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-l1.png?v=1793115110",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "l2": {
+  "id": "gid://shopify/MediaImage/72714791780682",
+  "alt": "Grey cat beside the Automatic Pet Feeder in a calm kitchen",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-l2.png?v=1793115109",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "l3": {
+  "id": "gid://shopify/MediaImage/72714791813450",
+  "alt": "Whippet running in the dunes wearing the Smart Mini GPS Pet Tracker",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-l3.png?v=1793115109",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "l7": {
+  "id": "gid://shopify/MediaImage/72714791846218",
+  "alt": "Relaxing under the Weighted Heated Blanket by the fireplace",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-l7.png?v=1793115110",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "l8": {
+  "id": "gid://shopify/MediaImage/72714791878986",
+  "alt": "French bulldog asleep on the heated pet blanket",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-l8.png?v=1793115110",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "c_tech": {
+  "id": "gid://shopify/MediaImage/72714791911754",
+  "alt": "Smart pet tech flat lay on cream linen",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-c_tech.png?v=1793115111",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "hero": {
+  "id": "gid://shopify/MediaImage/72714791944522",
+  "alt": "Cosy living room with a heated blanket and a golden retriever",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-hero.png?v=1793115109",
+  "size": [
+   2688,
+   1520
+  ]
+ },
+ "holiday": {
+  "id": "gid://shopify/MediaImage/72714791977290",
+  "alt": "Cat sleeping on a heated blanket by the fireplace with a gift",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-holiday.png?v=1793115110",
+  "size": [
+   2688,
+   1520
+  ]
+ },
+ "l4": {
+  "id": "gid://shopify/MediaImage/72714876256586",
+  "alt": "Ginger cat drinking from a flowing pet water fountain",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-l4.png?v=1793115290",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "l5": {
+  "id": "gid://shopify/MediaImage/72714876289354",
+  "alt": "Elegant bedroom with a plush heated blanket on a double bed",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-l5.png?v=1793115293",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "c_blankets": {
+  "id": "gid://shopify/MediaImage/72714876322122",
+  "alt": "A stack of plush blankets in cream, taupe, grey and dusty rose",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-c_blankets.png?v=1793115290",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "favicon": {
+  "id": "gid://shopify/MediaImage/72715012964682",
+  "alt": "CozyCompanion monogram",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-favicon.png?v=1793115832",
+  "size": [
+   1024,
+   1024
+  ]
+ },
+ "logo1": {
+  "id": "gid://shopify/MediaImage/72718819950922",
+  "alt": "CozyCompanion logo concept 1",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-logo1.png?v=1793131907",
+  "size": [
+   2688,
+   1520
+  ]
+ },
+ "logo2": {
+  "id": "gid://shopify/MediaImage/72718819983690",
+  "alt": "CozyCompanion logo concept 2",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-logo2.png?v=1793131906",
+  "size": [
+   2688,
+   1520
+  ]
+ },
+ "logo3": {
+  "id": "gid://shopify/MediaImage/72718820016458",
+  "alt": "CozyCompanion logo concept 3",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-logo3.png?v=1793131906",
+  "size": [
+   2688,
+   1520
+  ]
+ },
+ "logo4": {
+  "id": "gid://shopify/MediaImage/72718820049226",
+  "alt": "CozyCompanion logo concept 4",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-logo4.png?v=1793131906",
+  "size": [
+   2688,
+   1520
+  ]
+ },
+ "script1": {
+  "id": "gid://shopify/MediaImage/72718836859210",
+  "alt": "CozyCompanion script logo A",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-script1.png?v=1793132055",
+  "size": [
+   2688,
+   1520
+  ]
+ },
+ "script2": {
+  "id": "gid://shopify/MediaImage/72718836891978",
+  "alt": "CozyCompanion script logo B",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-script2.png?v=1793132055",
+  "size": [
+   2688,
+   1520
+  ]
+ },
+ "script3": {
+  "id": "gid://shopify/MediaImage/72718836924746",
+  "alt": "CozyCompanion script logo C",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-script3.png?v=1793132055",
+  "size": [
+   2688,
+   1520
+  ]
+ },
+ "script4": {
+  "id": "gid://shopify/MediaImage/72718836957514",
+  "alt": "CozyCompanion script logo D",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-script4.png?v=1793132055",
+  "size": [
+   2688,
+   1520
+  ]
+ },
+ "hero_m": {
+  "id": "gid://shopify/MediaImage/72719144780106",
+  "alt": "A golden retriever resting on a cosy cream heated blanket",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-hero_m.png?v=1793134231",
+  "size": [
+   1520,
+   2688
+  ]
+ },
+ "s_bond": {
+  "id": "gid://shopify/MediaImage/72719144812874",
+  "alt": "A hand resting on a small dog asleep on a heated blanket",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-s_bond.png?v=1793134231",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "s_morning": {
+  "id": "gid://shopify/MediaImage/72719144845642",
+  "alt": "Morning coffee while a cat eats from an automatic feeder",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-s_morning.png?v=1793134230",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "n_pad_pack": {
+  "id": "gid://shopify/MediaImage/72719354757450",
+  "alt": "Plush Heat Pad 60 x 30 cm in grey",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-n_pad_pack.png?v=1793135313",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "n_throw_pack": {
+  "id": "gid://shopify/MediaImage/72719354790218",
+  "alt": "Heklet Heated Sherpa Throw, folded",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-n_throw_pack.png?v=1793135313",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "n_tag_pack": {
+  "id": "gid://shopify/MediaImage/72719354822986",
+  "alt": "MiTag Duo smart tag with leather case",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-n_tag_pack.png?v=1793135313",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "n_petpad_pack": {
+  "id": "gid://shopify/MediaImage/72719354855754",
+  "alt": "Heated Pet Pad with paw pattern",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-n_petpad_pack.png?v=1793135313",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "n_fountain_pack": {
+  "id": "gid://shopify/MediaImage/72719361704266",
+  "alt": "Stainless steel pet water fountain",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-n_fountain_pack.png?v=1793135354",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "n_feeder_pack": {
+  "id": "gid://shopify/MediaImage/72719361737034",
+  "alt": "4L automatic pet feeder in white",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-n_feeder_pack.png?v=1793135354",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "n_throw_life": {
+  "id": "gid://shopify/MediaImage/72719361769802",
+  "alt": "Reading on the sofa under the Heklet heated throw",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-n_throw_life.png?v=1793135355",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "n_pad_life": {
+  "id": "gid://shopify/MediaImage/72719361802570",
+  "alt": "The Plush Heat Pad draped over a lap",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-n_pad_life.png?v=1793135355",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "n_tag_life": {
+  "id": "gid://shopify/MediaImage/72719378514250",
+  "alt": "A whippet wearing the MiTag Duo in a leather case on its collar",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-n_tag_life.png?v=1793135402",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "n_petpad_life": {
+  "id": "gid://shopify/MediaImage/72719378547018",
+  "alt": "A cat asleep on the heated pet pad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-n_petpad_life.png?v=1793135401",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "n_fountain_life": {
+  "id": "gid://shopify/MediaImage/72719378579786",
+  "alt": "A cat drinking from the stainless steel fountain",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-n_fountain_life.png?v=1793135402",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "n_feeder_life": {
+  "id": "gid://shopify/MediaImage/72719378612554",
+  "alt": "A cat eating from the 4L automatic feeder",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-n_feeder_life.png?v=1793135402",
+  "size": [
+   1792,
+   2240
+  ]
+ }
+}

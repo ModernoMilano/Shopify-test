@@ -1,0 +1,1768 @@
+[
+ {
+  "id": "gid://shopify/Product/16143295119690",
+  "title": "Smart Pet Feeder Camera 1080P HD",
+  "handle": "smart-pet-feeder-camera-1080p-hd",
+  "vendor": "CozyCompanion",
+  "status": "DRAFT",
+  "productType": "Smart Pet Feeder",
+  "tags": [
+   "camera",
+   "feeder",
+   "feeding",
+   "gift",
+   "pet-tech",
+   "temp-ai-images"
+  ],
+  "createdAt": "2026-10-27T15:25:30Z",
+  "variants": {
+   "nodes": [
+    {
+     "id": "gid://shopify/ProductVariant/64118716432714",
+     "title": "Default Title",
+     "price": "184.99",
+     "compareAtPrice": null,
+     "sku": null,
+     "inventoryItem": {
+      "unitCost": null,
+      "tracked": false
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72714765795658",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-p1.png?v=1793115053",
+      "width": 2048,
+      "height": 2048
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72714791747914",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-l1.png?v=1793115110",
+      "width": 1792,
+      "height": 2240
+     }
+    }
+   ]
+  },
+  "options": [
+   {
+    "name": "Title",
+    "values": [
+     "Default Title"
+    ]
+   }
+  ],
+  "descriptionHtml": "<p><strong>Mealtime, beautifully handled \u2014 even when you're away.</strong></p>\n<p>The Smart Pet Feeder Camera brings you home in an instant. Look in through crisp 1080P HD video, check that dinner has been served, and enjoy a quiet moment together from wherever your day takes you.</p>\n<ul>\n<li>\n<strong>1080P HD view</strong> \u2013 a clear window into your home, right from your phone.</li>\n<li>\n<strong>Scheduled, portioned meals</strong> \u2013 a calm, consistent routine your companion can count on.</li>\n<li>\n<strong>Peace of mind on long days</strong> \u2013 no more rushing home to fill the bowl.</li>\n<li>\n<strong>Refined design</strong> \u2013 understated lines that sit gracefully in any interior.</li>\n</ul>\n<p>Thoughtful care, quietly automated.</p>"
+ },
+ {
+  "id": "gid://shopify/Product/16143295185226",
+  "title": "Automatic Pet Feeder Smart Sensor",
+  "handle": "automatic-pet-feeder-smart-sensor",
+  "vendor": "CozyCompanion",
+  "status": "DRAFT",
+  "productType": "Smart Pet Feeder",
+  "tags": [
+   "feeder",
+   "feeding",
+   "pet-tech",
+   "sensor",
+   "temp-ai-images"
+  ],
+  "createdAt": "2026-10-27T15:25:32Z",
+  "variants": {
+   "nodes": [
+    {
+     "id": "gid://shopify/ProductVariant/64118716498250",
+     "title": "Default Title",
+     "price": "184.53",
+     "compareAtPrice": null,
+     "sku": null,
+     "inventoryItem": {
+      "unitCost": null,
+      "tracked": false
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72714765828426",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-p2.png?v=1793115053",
+      "width": 2048,
+      "height": 2048
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72714791780682",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-l2.png?v=1793115109",
+      "width": 1792,
+      "height": 2240
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719144845642",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-s_morning.png?v=1793134230",
+      "width": 1792,
+      "height": 2240
+     }
+    }
+   ]
+  },
+  "options": [
+   {
+    "name": "Title",
+    "values": [
+     "Default Title"
+    ]
+   }
+  ],
+  "descriptionHtml": "<p><strong>Effortless nourishment, precisely timed.</strong></p>\n<p>Designed for households that value calm routines, the Automatic Pet Feeder with Smart Sensor serves measured meals on schedule \u2014 so your companion is cared for, every single time.</p>\n<ul>\n<li>\n<strong>Smart sensor technology</strong> \u2013 responsive, reliable dispensing you can trust.</li>\n<li>\n<strong>Portion control</strong> \u2013 supports a healthy weight with consistent servings.</li>\n<li>\n<strong>A steady rhythm</strong> \u2013 regular mealtimes help pets feel settled and secure.</li>\n<li>\n<strong>Minimal footprint</strong> \u2013 a clean, modern silhouette for elegant spaces.</li>\n</ul>\n<p>Less to remember. More time to simply enjoy each other.</p>"
+ },
+ {
+  "id": "gid://shopify/Product/16143295250762",
+  "title": "Smart Mini GPS Pet Tracker",
+  "handle": "smart-mini-gps-pet-tracker",
+  "vendor": "CozyCompanion",
+  "status": "DRAFT",
+  "productType": "Pet GPS Tracker",
+  "tags": [
+   "gift",
+   "gps",
+   "gps-safety",
+   "pet-tech",
+   "temp-ai-images",
+   "tracker"
+  ],
+  "createdAt": "2026-10-27T15:25:33Z",
+  "variants": {
+   "nodes": [
+    {
+     "id": "gid://shopify/ProductVariant/64118716596554",
+     "title": "Default Title",
+     "price": "59.99",
+     "compareAtPrice": null,
+     "sku": null,
+     "inventoryItem": {
+      "unitCost": null,
+      "tracked": false
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72714765861194",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-p3.png?v=1793115053",
+      "width": 2048,
+      "height": 2048
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72714791813450",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-l3.png?v=1793115109",
+      "width": 1792,
+      "height": 2240
+     }
+    }
+   ]
+  },
+  "options": [
+   {
+    "name": "Title",
+    "values": [
+     "Default Title"
+    ]
+   }
+  ],
+  "descriptionHtml": "<p><strong>Freedom for them. Reassurance for you.</strong></p>\n<p>Small enough to forget it's there, smart enough to matter when it counts. The Smart Mini GPS Pet Tracker attaches discreetly to your companion's collar, keeping their whereabouts close at hand on your phone.</p>\n<ul>\n<li>\n<strong>Real-time location</strong> \u2013 find your companion quickly, wherever they wander.</li>\n<li>\n<strong>Featherlight and discreet</strong> \u2013 comfortable for daily wear, for cats and dogs alike.</li>\n<li>\n<strong>Confident adventures</strong> \u2013 open fields, new trails and city walks, all with peace of mind.</li>\n<li>\n<strong>A considered gift</strong> \u2013 for every pet parent who worries a little.</li>\n</ul>\n<p>Because the ones we love should always find their way home.</p>"
+ },
+ {
+  "id": "gid://shopify/Product/16143295283530",
+  "title": "Premium Pet Water Fountain 68oz",
+  "handle": "premium-pet-water-fountain-68oz",
+  "vendor": "CozyCompanion",
+  "status": "DRAFT",
+  "productType": "Pet Water Fountain",
+  "tags": [
+   "fountain",
+   "hydration",
+   "pet-tech",
+   "temp-ai-images"
+  ],
+  "createdAt": "2026-10-27T15:25:34Z",
+  "variants": {
+   "nodes": [
+    {
+     "id": "gid://shopify/ProductVariant/64118716629322",
+     "title": "Default Title",
+     "price": "44.99",
+     "compareAtPrice": null,
+     "sku": null,
+     "inventoryItem": {
+      "unitCost": null,
+      "tracked": false
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72714765893962",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-p4.png?v=1793115054",
+      "width": 2048,
+      "height": 2048
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72714876256586",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-l4.png?v=1793115290",
+      "width": 1792,
+      "height": 2240
+     }
+    }
+   ]
+  },
+  "options": [
+   {
+    "name": "Title",
+    "values": [
+     "Default Title"
+    ]
+   }
+  ],
+  "descriptionHtml": "<p><strong>Fresh, flowing water \u2014 an everyday luxury.</strong></p>\n<p>Pets are naturally drawn to moving water. The Premium Pet Water Fountain keeps a generous 68oz (approx. 2L) circulating and filtered, gently encouraging your companion to drink more throughout the day.</p>\n<ul>\n<li>\n<strong>Continuously circulating water</strong> \u2013 fresher and more inviting than a still bowl.</li>\n<li>\n<strong>Filtered for purity</strong> \u2013 helps keep hair and debris out of every sip.</li>\n<li>\n<strong>Generous 68oz capacity</strong> \u2013 fewer refills, even in multi-pet homes.</li>\n<li>\n<strong>Quiet and refined</strong> \u2013 a calm presence in the kitchen or living room.</li>\n</ul>\n<p>Good hydration, elegantly encouraged.</p>"
+ },
+ {
+  "id": "gid://shopify/Product/16143295349066",
+  "title": "Laura Hill Electric Heated Blanket Double",
+  "handle": "laura-hill-electric-heated-blanket-double",
+  "vendor": "CozyCompanion",
+  "status": "DRAFT",
+  "productType": "Heated Blanket",
+  "tags": [
+   "double",
+   "for-you",
+   "gift",
+   "heated-blanket",
+   "temp-ai-images"
+  ],
+  "createdAt": "2026-10-27T15:25:36Z",
+  "variants": {
+   "nodes": [
+    {
+     "id": "gid://shopify/ProductVariant/64118716694858",
+     "title": "Default Title",
+     "price": "46.88",
+     "compareAtPrice": null,
+     "sku": null,
+     "inventoryItem": {
+      "unitCost": null,
+      "tracked": false
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72714765926730",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-p5.png?v=1793115055",
+      "width": 2048,
+      "height": 2048
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72714876289354",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-l5.png?v=1793115293",
+      "width": 1792,
+      "height": 2240
+     }
+    }
+   ]
+  },
+  "options": [
+   {
+    "name": "Title",
+    "values": [
+     "Default Title"
+    ]
+   }
+  ],
+  "descriptionHtml": "<p><strong>Warmth made for two.</strong></p>\n<p>Slip into an evening of soft, even warmth. The Laura Hill Electric Heated Blanket is generously sized for a double bed or a shared sofa, wrapping you in gentle heat on the coldest nights of the year.</p>\n<ul>\n<li>\n<strong>Double size</strong> \u2013 ample coverage for couples, or for curling up alone in style.</li>\n<li>\n<strong>Adjustable warmth</strong> \u2013 choose the comfort level that feels just right.</li>\n<li>\n<strong>Plush, soft-touch finish</strong> \u2013 as indulgent to hold as it is to sleep under.</li>\n<li>\n<strong>Warm the person, not the house</strong> \u2013 a cosy, considered way to stay comfortable through winter.</li>\n</ul>\n<p>Long evenings in have never felt so inviting.</p>"
+ },
+ {
+  "id": "gid://shopify/Product/16143295381834",
+  "title": "USB Powered Heated Blanket 3 Settings",
+  "handle": "usb-powered-heated-blanket-3-settings",
+  "vendor": "CozyCompanion",
+  "status": "DRAFT",
+  "productType": "Heated Blanket",
+  "tags": [
+   "for-you",
+   "gift",
+   "heated-blanket",
+   "portable",
+   "temp-ai-images",
+   "usb"
+  ],
+  "createdAt": "2026-10-27T15:25:37Z",
+  "variants": {
+   "nodes": [
+    {
+     "id": "gid://shopify/ProductVariant/64118716727626",
+     "title": "Default Title",
+     "price": "36.99",
+     "compareAtPrice": null,
+     "sku": null,
+     "inventoryItem": {
+      "unitCost": null,
+      "tracked": false
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72714765959498",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-p6.png?v=1793115055",
+      "width": 2048,
+      "height": 2048
+     }
+    }
+   ]
+  },
+  "options": [
+   {
+    "name": "Title",
+    "values": [
+     "Default Title"
+    ]
+   }
+  ],
+  "descriptionHtml": "<p><strong>Your personal warmth, wherever you settle.</strong></p>\n<p>Powered by USB, this soft heated blanket goes where you go \u2014 the home office, the reading chair, the car or a chilly evening on the terrace. Simply connect to a power bank or USB adapter and unwind.</p>\n<ul>\n<li>\n<strong>3 heat settings</strong> \u2013 from a gentle glow to deep, comforting warmth.</li>\n<li>\n<strong>USB powered</strong> \u2013 works with power banks, laptops and wall adapters.</li>\n<li>\n<strong>Lightweight and portable</strong> \u2013 folds easily for travel and everyday use.</li>\n<li>\n<strong>A thoughtful gift</strong> \u2013 for anyone who always feels the cold.</li>\n</ul>\n<p>Small comforts, beautifully portable.</p>"
+ },
+ {
+  "id": "gid://shopify/Product/16143295447370",
+  "title": "Weighted Heated Blanket 9kg",
+  "handle": "weighted-heated-blanket-9kg",
+  "vendor": "CozyCompanion",
+  "status": "DRAFT",
+  "productType": "Weighted Blanket",
+  "tags": [
+   "for-you",
+   "gift",
+   "heated-blanket",
+   "relaxation",
+   "temp-ai-images",
+   "weighted"
+  ],
+  "createdAt": "2026-10-27T15:25:38Z",
+  "variants": {
+   "nodes": [
+    {
+     "id": "gid://shopify/ProductVariant/64118716793162",
+     "title": "Default Title",
+     "price": "109.99",
+     "compareAtPrice": null,
+     "sku": null,
+     "inventoryItem": {
+      "unitCost": null,
+      "tracked": false
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72714765992266",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-p7.png?v=1793115056",
+      "width": 2048,
+      "height": 2048
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72714791846218",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-l7.png?v=1793115110",
+      "width": 1792,
+      "height": 2240
+     }
+    }
+   ]
+  },
+  "options": [
+   {
+    "name": "Title",
+    "values": [
+     "Default Title"
+    ]
+   }
+  ],
+  "descriptionHtml": "<p><strong>The feeling of being held \u2014 with warmth to match.</strong></p>\n<p>Our Weighted Heated Blanket brings together two of life's quiet comforts: the calming, evenly distributed pressure of a 9kg weighted blanket and the soothing embrace of gentle heat. It's an invitation to slow down, breathe and truly unwind.</p>\n<ul>\n<li>\n<strong>9kg evenly distributed weight</strong> \u2013 a grounding, cocooning sensation.</li>\n<li>\n<strong>Soothing adjustable heat</strong> \u2013 melts away the chill of a long day.</li>\n<li>\n<strong>Designed for deep relaxation</strong> \u2013 your new evening ritual on the sofa or in bed.</li>\n<li>\n<strong>Luxurious soft-touch cover</strong> \u2013 indulgent against the skin.</li>\n</ul>\n<p>Rest, reimagined.</p>"
+ },
+ {
+  "id": "gid://shopify/Product/16143295480138",
+  "title": "Pet-Specific Heated Blanket Washable",
+  "handle": "pet-specific-heated-blanket-washable",
+  "vendor": "CozyCompanion",
+  "status": "DRAFT",
+  "productType": "Pet Heated Blanket",
+  "tags": [
+   "for-pets",
+   "gift",
+   "heated-blanket",
+   "pet",
+   "temp-ai-images",
+   "washable"
+  ],
+  "createdAt": "2026-10-27T15:25:40Z",
+  "variants": {
+   "nodes": [
+    {
+     "id": "gid://shopify/ProductVariant/64118716825930",
+     "title": "Default Title",
+     "price": "45.99",
+     "compareAtPrice": null,
+     "sku": null,
+     "inventoryItem": {
+      "unitCost": null,
+      "tracked": false
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72714766025034",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-p8.png?v=1793115054",
+      "width": 2048,
+      "height": 2048
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72714791878986",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-l8.png?v=1793115110",
+      "width": 1792,
+      "height": 2240
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719144812874",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-s_bond.png?v=1793134231",
+      "width": 1792,
+      "height": 2240
+     }
+    }
+   ]
+  },
+  "options": [
+   {
+    "name": "Title",
+    "values": [
+     "Default Title"
+    ]
+   }
+  ],
+  "descriptionHtml": "<p><strong>Because they deserve to be cosy, too.</strong></p>\n<p>Made especially for our four-legged companions, this heated blanket offers gentle, comforting warmth for naps, long nights and chilly mornings \u2014 a quiet luxury that senior pets, small breeds and short-coated companions particularly appreciate.</p>\n<ul>\n<li>\n<strong>Designed for pets</strong> \u2013 soothing warmth tailored to curl-up comfort.</li>\n<li>\n<strong>Washable</strong> \u2013 easy to keep fresh, clean and inviting.</li>\n<li>\n<strong>Soft, plush surface</strong> \u2013 a favourite spot they'll return to again and again.</li>\n<li>\n<strong>Fits their space</strong> \u2013 on the bed, in the crate or by your side on the sofa.</li>\n</ul>\n<p>Warm hearts, warm paws.</p>"
+ },
+ {
+  "id": "gid://shopify/Product/16143950414154",
+  "title": "Portable Heated Blanket 10W Super Soft Fast Heating Electric Plush",
+  "handle": "portable-heated-blanket-10w-super-soft-fast-heating-electric-plush",
+  "vendor": "Maroon Asteria",
+  "status": "ACTIVE",
+  "productType": "Towels & Robes",
+  "tags": [
+   "Electric Plush Throw",
+   "Heated Blanket"
+  ],
+  "createdAt": "2026-10-27T21:00:39Z",
+  "variants": {
+   "nodes": [
+    {
+     "id": "gid://shopify/ProductVariant/64121515671882",
+     "title": "Gray",
+     "price": "24.58",
+     "compareAtPrice": null,
+     "sku": "1355206-Gray-CHINA",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "22.35",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121515704650",
+     "title": "Yellow",
+     "price": "24.57",
+     "compareAtPrice": null,
+     "sku": "1355206-Yellow-CHINA",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "22.34",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121515737418",
+     "title": "Green",
+     "price": "24.61",
+     "compareAtPrice": null,
+     "sku": "1355206-Green-CHINA",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "22.38",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121515770186",
+     "title": "Blue",
+     "price": "24.58",
+     "compareAtPrice": null,
+     "sku": "1355206-Blue-CHINA",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "22.35",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72719275950410",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S329c0a00faa64c8cb1e3cc50a2b16ccc0.jpg?v=1793134842",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719275983178",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S80a5aba92dc84fe4aeb8574fba024b4aH.jpg?v=1793134842",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719276015946",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Se83f0d0b2dd84eb198060953ab7b2cd65.jpg?v=1793134841",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719276048714",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S0922d43fbe7a474abc73046ede358b3eD.jpg?v=1793134842",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719279948106",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S5631ee986bb0453f86c1d6cebcb2881cj.jpg?v=1793134846",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719279980874",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S373cafa7af084007b325fec790b433f4j.jpg?v=1793134846",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719280013642",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S13540fe0c0854979bf51ea202448d8cdN.jpg?v=1793134845",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719280046410",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S6b8ba19d939d43eba4a097089f412843R.jpg?v=1793134846",
+      "width": 500,
+      "height": 500
+     }
+    }
+   ]
+  },
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Gray",
+     "Yellow",
+     "Green",
+     "Blue"
+    ]
+   }
+  ],
+  "descriptionHtml": "<div class=\"detailmodule_html\">\n<div class=\"detail-desc-decorate-richtext\">\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\"><strong>Bullet Points: </strong></span></span></span><br>\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\">1.Extraordinary Relaxation: Immerse in ideal comfort with our electric throw blanket. Its skin-friendly thick flannel design provides more luxurious warmth and a cozy feel. Say goodbye to discomfort and enjoy an exceptional experience like never before.</span></span></span>\n</div>\n\n<div class=\"detail-desc-decorate-richtext\">\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\">\u00a0</span></span></span><br>\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\">2.Warm and Soft Heated Blanket: Indulge in the comfort of this electric throw blanket that will hug you with warmth in just 15 minutes, providing fast and even warmth for a snuggly experience.</span></span></span>\n</div>\n\n<div class=\"detail-desc-decorate-richtext\">\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\">\u00a0</span></span></span><br>\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\">3.Greater Flexibility: With a detachable controller and long cord, this electric throw blanket provides flexible use in larger rooms or outdoors. It also has overheating protection for safe and cozy warmth during cold winters.</span></span></span>\n</div>\n\n<div class=\"detail-desc-decorate-richtext\">\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\">\u00a0</span></span></span><br>\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\">4.Comfortable and Energy-Saving: Unlike other electric throw blankets, ours uses advanced temperature control technology that detects your body temperature and adjusts accordingly. With this feature, you can enjoy the perfect temperature without overheating, making it both comfortable and safe. </span></span></span>\n\n<p><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\">5.Maximum Comfort: Indulge in long-lasting warmth with our high-quality electric throw blanket. Made of long lasting flannel fabric that won't fall off easily, this blanket is ideal for cold nights. The material is softer and warmer than others, ensuring maximum comfort. </span></span></span></p>\n\n<p><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\"><strong>Description</strong></span></span></span></p>\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\">Stay cozy and warm with our Heating Blanket Throw! Soft and comfortable with rapid heating up technology and overheating protection, you'll feel at ease as you relax. The comfortable feeling won't fall off and will keep you warm on even the chilliest of nights. Trust us to provide you with the perfect addition to your home. </span></span></span><br>\n<br>\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\"><strong>Specification: </strong></span></span></span><br>\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\">Name: Electric Throw Blanket </span></span></span><br>\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\">Material: Plush </span></span></span><br>\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\">Product Weight: about 250g </span></span></span><br>\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\">Product Size: about 30x60cm/11.81x23.62 inches </span></span></span><br>\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\">Power Supply: 5V 2A </span></span></span><br>\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\">Power: 10W </span></span></span><br>\n<br>\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\"><strong>Packing List: </strong></span></span></span><br>\n<span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"><span style=\"font-size: 18px;\">1* Electric Throw Blanket</span></span></span>\n</div>\n</div>\n"
+ },
+ {
+  "id": "gid://shopify/Product/16143950741834",
+  "title": "Electric Blanket Heklet InnovaGoods White Grey 130 x 180 cm 160 W",
+  "handle": "electric-blanket-heklet-innovagoods-white-grey-130-x-180-cm-160-w",
+  "vendor": "Bigbuy",
+  "status": "ACTIVE",
+  "productType": "Home Improvement",
+  "tags": [
+   "small electric appliances",
+   "winter"
+  ],
+  "createdAt": "2026-10-27T21:00:42Z",
+  "variants": {
+   "nodes": [
+    {
+     "id": "gid://shopify/ProductVariant/64121516360010",
+     "title": "Default Title",
+     "price": "44.83",
+     "compareAtPrice": null,
+     "sku": "V0103914",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "34.65",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72719278506314",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_000_mkt1.jpg?v=1793134845",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719278539082",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_000_mkt0.jpg?v=1793134845",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719278571850",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_150_pack0.jpg?v=1793134844",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719278604618",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_150_pack1.jpg?v=1793134845",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719278637386",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_110_wbg1.jpg?v=1793134845",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719278670154",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_110_wbg0.jpg?v=1793134844",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719278702922",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_100_wbg0.jpg?v=1793134844",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719278735690",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_100_wbg1.jpg?v=1793134844",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719278768458",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_060_mkt0.jpg?v=1793134844",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719278801226",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_060_mkt1.jpg?v=1793134845",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719278833994",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_050_mkt1.jpg?v=1793134845",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719278866762",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_050_mkt0.jpg?v=1793134845",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719278899530",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_040_mkt1.jpg?v=1793134845",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719278932298",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_040_mkt0.jpg?v=1793134844",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719278965066",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_030_mkt0.jpg?v=1793134845",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719278997834",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_030_mkt1.jpg?v=1793134845",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719279030602",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_020_mkt0.jpg?v=1793134844",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719279063370",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_020_mkt1.jpg?v=1793134845",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719279096138",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_010_mkt0.jpg?v=1793134845",
+      "width": 1200,
+      "height": 1200
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719279128906",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/v0103914_010_mkt1.jpg?v=1793134845",
+      "width": 1200,
+      "height": 1200
+     }
+    }
+   ]
+  },
+  "options": [
+   {
+    "name": "Title",
+    "values": [
+     "Default Title"
+    ]
+   }
+  ],
+  "descriptionHtml": "<p><b>InnovaGoods</b> offers the latest items for your home, such as the <b>Electric Blanket Heklet InnovaGoods White Grey 130 x 180 cm 160 W </b>! Discover a wide range of high-quality products which stand out for their functionality, efficiency and innovative design: lighting, storage, decoration, air conditioning, garden, pets, cleaning, etc.</p><br><br><p>This <b>electric blanket</b> is perfect for keeping out the cold and provides a comforting sense of warmth and wellbeing.\u00a0Reversible: fleece fabric and an extremely soft velvety feel. Remote control with removable cable, 9 temperature settings and timer. Power: 160 W.</p><p>A <b>heated blanket</b> that is ideal for use on the bed, sofa, while working from home, etc. The removable cable makes it easy to wash by hand or machine. Automatic switch-off.</p><ul>\n<li>\n<b>Reversible design, soft, multi-purpose</b>: our heated electric blanket is extremely comfortable for wrapping up in and keeping out the cold, providing a pleasant sense of warmth and wellbeing. It can be used on beds, sofas, while working from home, etc. One side feels like the softest velvet and the other has a warm fleecy texture.</li>\n<li>\n<b>Adjustable temperature, fast heat up</b>: this electric blanket has 9 temperature settings (max. 47 \u00baC +/-5 \u00baC approx.) that can be selected using the remote control included. Its advanced technology means that it heats up quickly and its low energy consumption also saves energy. Power: 160 W.</li>\n<li>\n<b>Timer, automatic switch-off</b>: our heated blanket can be programmed for use with up to 9 time intervals (from 20 to 180 mins). Once the time selected has elapsed, it will switch itself off automatically. It can also switched off manually using the on/off button. A very safe blanket with protection from overheating.</li>\n<li>\n<b>Remote control with removable cable</b>: this heated blanket includes a remote control which can be conveniently used to control all its functions. The temperature and timer selected can be viewed on the control screen. It works using mains electricity. The remote control with cable can be removed from the blanket to make cleaning easier.</li>\n<li>\n<b>Easy to clean by hand or machine</b>: this heated blanket can be handwashed or machine washed (30 \u00baC max.) by following the instructions in the enclosed manual.</li>\n</ul><br><br><ul>\n<li>Material: <ul>\n<li>Polyester</li>\n<li>ABS</li>\n<li>PTC</li>\n</ul>\n</li>\n<li>Colour: <ul>\n<li>Grey</li>\n<li>White</li>\n</ul>\n</li>\n<li>Type: Electric Blanket</li>\n<li>Characteristics: Reversible</li>\n<li>Soft and pleasant to the touch: Velvety</li>\n<li>Approx. thickness: 1 cm</li>\n<li>Remote control with cable: Removable</li>\n<li>PTC technology: Fast heating</li>\n<li>Adjustable temperature: 9 temperature levels</li>\n<li>Temperature max.: 47 \u00baC (+/-5 \u00baC)</li>\n<li>Timer: 20-180 min</li>\n<li>Automatic shutdown: Yes</li>\n<li>Protection against overheating: Yes</li>\n<li>Low consumption: Energy saving</li>\n<li>Easy to clean: <ul>\n<li>Hand wash</li>\n<li>Machine wash</li>\n</ul>\n</li>\n<li>Maximum wash temperature: 30 \u00baC</li>\n<li>Type of plug: C</li>\n<li>Cable length: 235 cm</li>\n<li>Power: 160 W</li>\n<li>AC In: 220-240 V / 50 Hz</li>\n<li>Approx. dimensions: 130 x 180 cm</li>\n</ul><br><br><p>Packaging and manual in 24 languages: English, French, Spanish, German, Italian, Portuguese, Dutch, Polish, Hungarian, Romanian, Danish, Swedish, Finnish, Lithuanian, Norwegian, Slovenian, Greek, Czech, Bulgarian, Croatian, Slovakian, Estonian, Russian and Latvian.</p>"
+ },
+ {
+  "id": "gid://shopify/Product/16143951331658",
+  "title": "Both For iOS & Android MiLi MiTag Duo Item Finder Global GPS Tracking",
+  "handle": "both-for-ios-android-mili-mitag-duo-item-finder-global-gps-tracking",
+  "vendor": "AliExpress",
+  "status": "ACTIVE",
+  "productType": "Other",
+  "tags": [],
+  "createdAt": "2026-10-27T21:00:47Z",
+  "variants": {
+   "nodes": [
+    {
+     "id": "gid://shopify/ProductVariant/64121521275210",
+     "title": "Black-black case",
+     "price": "13.20",
+     "compareAtPrice": null,
+     "sku": "BLACK-BLACKCASE",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "10.17",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121521307978",
+     "title": "Black-blue case",
+     "price": "14.31",
+     "compareAtPrice": null,
+     "sku": "BLACK-BLUECASE",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "11.18",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121521340746",
+     "title": "Black-2PCS",
+     "price": "17.54",
+     "compareAtPrice": null,
+     "sku": "BLACK-2PCS",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "14.11",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121521373514",
+     "title": "Black-white case",
+     "price": "14.23",
+     "compareAtPrice": null,
+     "sku": "BLACK-WHITECASE",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "11.1",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121521406282",
+     "title": "White-white case",
+     "price": "13.08",
+     "compareAtPrice": null,
+     "sku": "WHITE-WHITECASE",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "10.06",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121521439050",
+     "title": "White-black case",
+     "price": "13.15",
+     "compareAtPrice": null,
+     "sku": "WHITE-BLACKCASE",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "10.11",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121521471818",
+     "title": "Black-brow case",
+     "price": "14.40",
+     "compareAtPrice": null,
+     "sku": "BLACK-BROWCASE",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "11.26",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121521504586",
+     "title": "White-white paw",
+     "price": "12.89",
+     "compareAtPrice": null,
+     "sku": "WHITE-WHITEPAW",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "9.88",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121521537354",
+     "title": "Black-1PCS",
+     "price": "11.73",
+     "compareAtPrice": null,
+     "sku": "BLACK-1PCS",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "8.83",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121521570122",
+     "title": "White-1PCS",
+     "price": "11.61",
+     "compareAtPrice": null,
+     "sku": "WHITE-1PCS",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "8.71",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121521602890",
+     "title": "Black -red case",
+     "price": "14.41",
+     "compareAtPrice": null,
+     "sku": "BLACK-REDCASE",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "11.27",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72719283814730",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S44873fff06724f88a36a4717cf71851fa.webp?v=1793134850",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719283847498",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S1ef42121551a43ae97f8588b5de3978eD.webp?v=1793134850",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719283880266",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Sfe9e98d210554d45b54c38b192448963o.webp?v=1793134850",
+      "width": 1500,
+      "height": 1319
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719283913034",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Sa249635569874927ba819c383cb228f27.webp?v=1793134850",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719283945802",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Sa852179aaad8485db79bac6e2ff10f90S.webp?v=1793134850",
+      "width": 1458,
+      "height": 1500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719283978570",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S14b182263d824c6d825781768bd6d46au.webp?v=1793134850",
+      "width": 1024,
+      "height": 1024
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719285911882",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Se90dd1db72074414a1c1540cdeb51eefo.webp?v=1793134853",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719285944650",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S3f8b9d6cc5174a66aaf27c74462ca184v.webp?v=1793134853",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719285977418",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S3e29429961ff457a8824818f249f5b8c6.webp?v=1793134853",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719286010186",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S3c20e18237f04c1b825a697767ce1941J.webp?v=1793134853",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719286042954",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Sde8aca58feb74f72a455430645ebcc7at.webp?v=1793134853",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719286075722",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S335e24abe8de4908888e974e443f8035w.webp?v=1793134853",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719286108490",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S37014cc104224ae594b77ad8b0ff027bb.webp?v=1793134853",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719286141258",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S739a7db98f304f558f1a58e7caef3dcbR.webp?v=1793134852",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719286174026",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S3dedbe7752824b8e94c9ee01c3634d51z.webp?v=1793134852",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719286206794",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S8c8ff38aee6b447e9c3633f011806fb2X.webp?v=1793134853",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719286239562",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Sb0c3ba46c1d24c49b6291b3c330c53b7R.webp?v=1793134853",
+      "width": 500,
+      "height": 500
+     }
+    }
+   ]
+  },
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Black-black case",
+     "Black-blue case",
+     "Black-2PCS",
+     "Black-white case",
+     "White-white case",
+     "White-black case",
+     "Black-brow case",
+     "White-white paw",
+     "Black-1PCS",
+     "White-1PCS",
+     "Black -red case"
+    ]
+   }
+  ],
+  "descriptionHtml": "<p><strong><span style=\"font-size:20px\">Please note before purchasing\uff1a</span></strong></p><p><br></p><p><span style=\"font-size:16px\">\u26a0\ufe0f.This Smart Tags is works with both Apple Find My &amp; Android Find My Device. (</span><span style=\"color:rgb(211, 49, 21);font-size:16px\"><strong>Note: It can not be paired with iOS and Android simultaneously.</strong></span><span style=\"font-size:16px\">)</span></p><p><br></p><p><span style=\"font-size:16px\">\u26a0\ufe0f.Huawei mobile phones are not supported,If your mobile phone is from Huawei, please do not place an order as this product is not supported</span></p><p><br></p><p><span style=\"font-size:16px\">\u26a0\ufe0f.To Russian buyers:Russian friends can only connect to this product using an Apple phone. If using a local phone, the system does not support this app (Find My Device App), which may cause the device to malfunction. Please do not place an order to purchase. Thank you for your understanding.</span></p><p><br></p><p><span style=\"font-size:16px\">\ud83c\udf4a.Tracker for iOS or android:The tracker tag can be paired with iOS Find My or Google Find Hub App. When switching between iOS and Android, you can reset MiTag and pair it with your new phone. No need to buy extra. (\u26a0\ufe0fNote: It can not be paired with iOS and Android simultaneously.)</span></p><p><br></p><p><span style=\"font-size:16px\">\ud83c\udf4a.Dual System CompatibilitySeamlessly integrates with both Android and iOS devices, offering broad compatibility for all users. (Note: It can not be paired with iOS and Android simultaneously.) Equipped with a long-lasting battery, ensuring continuous use.</span></p><p><br></p><p><br></p>"
+ },
+ {
+  "id": "gid://shopify/Product/16143951429962",
+  "title": "Winter Pet Heating Blanket Waterproof Wearable Wear Resistant",
+  "handle": "winter-pet-heating-blanket-waterproof-wearable-wear-resistant",
+  "vendor": "AliExpress",
+  "status": "ACTIVE",
+  "productType": "Other",
+  "tags": [],
+  "createdAt": "2026-10-27T21:00:49Z",
+  "variants": {
+   "nodes": [
+    {
+     "id": "gid://shopify/ProductVariant/64121523536202",
+     "title": "45CMX45CM / Rose pattern EU plug / China Mainland",
+     "price": "14.68",
+     "compareAtPrice": null,
+     "sku": "ROSEPATTERNEUPLUG-45CMX45CM-CHINAMAINLAND",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "11.51",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121523568970",
+     "title": "Footprint pattern EU / 50CMx70CM / China Mainland",
+     "price": "27.93",
+     "compareAtPrice": null,
+     "sku": "50CMX70CM-FOOTPRINTPATTERNEU-CHINAMAINLAND",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "23.55",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121523601738",
+     "title": "45CMX45CM / Rose pattern US plug / China Mainland",
+     "price": "14.88",
+     "compareAtPrice": null,
+     "sku": "ROSEPATTERNUSPLUG-45CMX45CM-CHINAMAINLAND",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "11.68",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121523634506",
+     "title": "Footprint pattern US / 45CMX45CM / China Mainland",
+     "price": "16.80",
+     "compareAtPrice": null,
+     "sku": "45CMX45CM-FOOTPRINTPATTERNUS-CHINAMAINLAND",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "13.44",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121523667274",
+     "title": "Rose pattern US plug / 50CMx70CM / China Mainland",
+     "price": "29.79",
+     "compareAtPrice": null,
+     "sku": "50CMX70CM-ROSEPATTERNUSPLUG-CHINAMAINLAND",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "25.25",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121523700042",
+     "title": "45CMX45CM / Footprint pattern EU / China Mainland",
+     "price": "14.53",
+     "compareAtPrice": null,
+     "sku": "FOOTPRINTPATTERNEU-45CMX45CM-CHINAMAINLAND",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "11.38",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121523732810",
+     "title": "Footprint pattern US / 50CMx70CM / China Mainland",
+     "price": "29.94",
+     "compareAtPrice": null,
+     "sku": "50CMX70CM-FOOTPRINTPATTERNUS-CHINAMAINLAND",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "25.38",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72719285092682",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S32c1739f26484fbdbc3f36ea88748adbc.webp?v=1793134852",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719285125450",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S977e489da877494aa5526c428c2f500bd.webp?v=1793134852",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719285158218",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S76b9f78cada54f3dbd220cb33c7f39301.webp?v=1793134852",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719285190986",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S4515c73a00984087b7120ccbffdbeff33.webp?v=1793134852",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719285223754",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Sbec713d4a4bc48d9905695e42c61947d6.webp?v=1793134853",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719285256522",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Se3eb35eca6994a879fcf25591a3c5f84z.webp?v=1793134852",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719287058762",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Sba7e0c902e35409fb3ca704dc2b8443eO.webp?v=1793134854",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719287091530",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S3727c4d3485e4f85b20792e2d513282d8.webp?v=1793134854",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719287124298",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S02d66fc8f9934ca48821ff002618fdd87.webp?v=1793134854",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719287157066",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S1bfda4274c62454db3523a41f0f13574X.webp?v=1793134854",
+      "width": 500,
+      "height": 500
+     }
+    }
+   ]
+  },
+  "options": [
+   {
+    "name": "Size",
+    "values": [
+     "45CMX45CM",
+     "Footprint pattern EU",
+     "Footprint pattern US",
+     "Rose pattern US plug"
+    ]
+   },
+   {
+    "name": "Color",
+    "values": [
+     "Rose pattern EU plug",
+     "50CMx70CM",
+     "Rose pattern US plug",
+     "45CMX45CM",
+     "Footprint pattern EU"
+    ]
+   },
+   {
+    "name": "Ships From",
+    "values": [
+     "China Mainland"
+    ]
+   }
+  ],
+  "descriptionHtml": "<div class=\"detailmodule_html\"><div class=\"detail-desc-decorate-richtext\">\n<p><kse:widget data-widget-type=\"customText\" id=\"4000000037284\" type=\"custom\"></kse:widget></p>\n\n<div style=\"clear: both;\">\n<p></p>\n</div>\n\n<div style=\"font-family:Arial, Helvetica, sans-serif;font-size:12px;line-height:150%\">\u00a0\n<p>Keep warm in the sleep is indispensable in order to maintain the body temperature and better promote the metabolism of the body. This heating pad provides warm but not hot for giving a comfortable experience to your pet\u00a0especially in sleeping. Your pet will enjoys the warmth.<br><br><strong>Feature:</strong><br><strong>Rapid Temperature Rising:\u00a0</strong>U-shaped distributed heating wire allows the pad can quickly heat up in a short time, and is convenient and quick to use.<br><strong>Heat Uniformly:\u00a0</strong>The heating wires inside the pad are set uniformly so that it heats uniformly, which ensures the comfort of the pets and does not hurt their skin and fur.<br><strong>3-level Temperature Control:</strong>\u00a0Its temperature is controllable, which enables better meet the needs of pets, giving pets more detailed care and better warmth experience.<br><strong>Waterproof And Durable:\u00a0</strong>The powerful waterproof effect ensures it is safe in use. When you accidentally drip on the pad, just dry the water, it wouldn't be affected.<br><strong>Anti-bite Tube:\u00a0</strong>Anti-bite tube protects the wire while keeping the pet safe.\u00a0Dust-proof and Dirt-proof: Made of anti-dirty fabric, it features great stain resistance for reducing your care work.<br><strong>Worry Free Warranty:\u00a0</strong>Any problem, please contact our store without hesitation. Honor to serve you.<br><br><strong>Specification:</strong><br>Item Name: Pet Heating Pad<br>Main Material: PU Oxford cloth<br>Color: Grey<br>Voltage: 110V(US); 220V(EU)<br>2 Patterns Available:\u00a0Rose/Footprint<br>Rated Power: 20W<br>Temperature: 95\u2109-112\u2109<br>Item Size: 45*45cm<br>Power cord: 147cm<br>Package Size: 45 * 45 * 1cm<br>Package Weight: 400g<br>Poly bag package.<br><br><strong><span style=\"color:rgb(255, 0, 0)\">Notice:</span></strong><br><span style=\"color:rgb(255, 0, 0)\">* Do not warm up the pad for more than 2 hours.<br>* We recommend maintain a low level if using the pad for a long time.<br>* There could be a few deviations due to manual measurement or slight color difference owing to photographing condition. Thank you for your understanding.</span><br><br><strong>Package List:</strong><br>1 * Pet Heating Pad<br>1 * User Manual</p>\n\n<p style=\"margin-bottom:6px;margin-top:6px\"></p>\n\n<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>\n\n<div style=\"margin-bottom:6px;margin-top:6px\">\n<div>\u00a0</div>\n</div>\n</div>\n\n<p><kse:widget data-widget-type=\"customText\" id=\"4000000036904\" type=\"relation\"></kse:widget></p>\n</div></div>\r\n"
+ },
+ {
+  "id": "gid://shopify/Product/16143951659338",
+  "title": "ROJECO Stainless Steel Cat Water Fountain Filters 2L Automatic Pet",
+  "handle": "rojeco-stainless-steel-cat-water-fountain-filters-2l-automatic-pet",
+  "vendor": "AliExpress",
+  "status": "ACTIVE",
+  "productType": "Other",
+  "tags": [],
+  "createdAt": "2026-10-27T21:00:52Z",
+  "variants": {
+   "nodes": [
+    {
+     "id": "gid://shopify/ProductVariant/64121523962186",
+     "title": "New 4L 1 Filter / No plug",
+     "price": "36.31",
+     "compareAtPrice": null,
+     "sku": "NEW4L1FILTER-NOPLUG",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "31.18",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121523994954",
+     "title": "New 4L 9 Filters / No plug",
+     "price": "44.31",
+     "compareAtPrice": null,
+     "sku": "NEW4L9FILTERS-NOPLUG",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "38.45",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121524027722",
+     "title": "New 4L 5 Filters / No plug",
+     "price": "40.46",
+     "compareAtPrice": null,
+     "sku": "NEW4L5FILTERS-NOPLUG",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "34.94",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121524060490",
+     "title": "No Adapter / No plug",
+     "price": "31.96",
+     "compareAtPrice": null,
+     "sku": "NOADAPTER-NOPLUG",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "27.22",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121524093258",
+     "title": "9PCS Filter Set / No plug",
+     "price": "37.89",
+     "compareAtPrice": null,
+     "sku": "9PCSFILTERSET-NOPLUG",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "32.61",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121524126026",
+     "title": "17PCS Filter Set / No plug",
+     "price": "44.28",
+     "compareAtPrice": null,
+     "sku": "17PCSFILTERSET-NOPLUG",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "38.41",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72719287189834",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S46e5e66c466d4778a4600145d90982b0C.webp?v=1793134854",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719287222602",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S8d11cc16f8c9467c8a79102e17164304b.webp?v=1793134854",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719287255370",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Se33b552e5797418d9a663a7caffe5dcfh.webp?v=1793134854",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719287288138",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S06acff7b83da4ae8a6d238a0f4f1e741p.webp?v=1793134854",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719287320906",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Sa65ac13cd7f143db8f0df9176030d03aZ.webp?v=1793134854",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719287353674",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S6ef7020881f5448da6205e9d2c45ecbba.webp?v=1793134854",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719289549130",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Sa9dd076cb55041b78bf51d505ea6a420G.webp?v=1793134859",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719289581898",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S28827703d2b54bca867fd076d64fece8q.webp?v=1793134859",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719289614666",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S31781aeb40e14e60919f70c3f68470a2R.webp?v=1793134859",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719289647434",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S58fc50a3ed7f4b4697572ede98dc07c1v.webp?v=1793134859",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719289680202",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S39683f5ccb0b48bc95ee13c56dfe0b122.webp?v=1793134859",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719289712970",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Sf043c6b1d0ca49d896c92bdbe3ceb588L.webp?v=1793134859",
+      "width": 500,
+      "height": 500
+     }
+    }
+   ]
+  },
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "New 4L 1 Filter",
+     "New 4L 9 Filters",
+     "New 4L 5 Filters",
+     "No Adapter",
+     "9PCS Filter Set",
+     "17PCS Filter Set"
+    ]
+   },
+   {
+    "name": "Voltage/Plug Type",
+    "values": [
+     "No plug"
+    ]
+   }
+  ],
+  "descriptionHtml": "<p><span style=\"color:rgb(244, 78, 59);font-size:28px\"><strong>Product features:</strong></span></p><p>1. Made of 304 stainless steel, reducing bacterial growth</p><p>2. Window design allows viewing of remaining water volume</p><p>3. Ultra-quiet operation mode</p><p>4. Easy to disassemble, clean and install</p><p>5. Dual filtration system, providing clean water for pets</p><p><span style=\"color:rgb(244, 78, 59);font-size:26px\"><strong>Regarding the product:</strong></span></p><p>1. Capacity: 2L</p><p>2. How long can it be drunk: Based on the normal daily water intake of an adult cat (240-350ml), it can be drunk for 5-8 days.</p><p>3. How often should the filter element be replaced: Generally, it is recommended to replace it approximately every 2-4 weeks.</p><p>4. How loud is the noise: Below 20 decibels</p><p><br></p>"
+ },
+ {
+  "id": "gid://shopify/Product/16143951954250",
+  "title": "NITYERS 4L Automatic Cat Feeder, Smart Pet Food Dispenser with Key",
+  "handle": "nityers-4l-automatic-cat-feeder-smart-pet-food-dispenser-with-key",
+  "vendor": "AliExpress",
+  "status": "ACTIVE",
+  "productType": "Other",
+  "tags": [],
+  "createdAt": "2026-10-27T21:00:57Z",
+  "variants": {
+   "nodes": [
+    {
+     "id": "gid://shopify/ProductVariant/64121524486474",
+     "title": "White Timed Feeder / ABS SUS / United States",
+     "price": "45.78",
+     "compareAtPrice": null,
+     "sku": "WHITETIMEDFEEDER-ABSSUS-UNITEDSTATES",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "38.86",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    },
+    {
+     "id": "gid://shopify/ProductVariant/64121524519242",
+     "title": "Black Timed Feeder / ABS SUS / United States",
+     "price": "45.78",
+     "compareAtPrice": null,
+     "sku": "BLACKTIMEDFEEDER-ABSSUS-UNITEDSTATES",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "38.86",
+       "currencyCode": "EUR"
+      },
+      "tracked": true
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72719290270026",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S9692023edb9e436d8047f4e0b905abe0q.webp?v=1793134860",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719290302794",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S5cd1135be86d4adf9ec79a160ef168698.webp?v=1793134860",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719290335562",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Sbc4ddcfa921448f8ad48b0f9a1f2cfa4h.webp?v=1793134860",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719290368330",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S31d210b9789243dfa748949b494f3f98t.webp?v=1793134860",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719290401098",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S92cbf56252db4219b431e2c532250c41W.webp?v=1793134860",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719290433866",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S353105fdc4604f188096fd967a94c585o.webp?v=1793134860",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719290466634",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Sd068567d994d48b0918baba14b0a81547.webp?v=1793134860",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719290499402",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/Sa40e5019a1f64bd0922431338ba42a2cc.webp?v=1793134860",
+      "width": 1000,
+      "height": 1000
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719291253066",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S9af03dbd00424980abdaa2da99eaa7efT.webp?v=1793134862",
+      "width": 500,
+      "height": 500
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72719291285834",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/S7f94911a702c404aa2bcf0eeb333bdc9r.webp?v=1793134862",
+      "width": 500,
+      "height": 500
+     }
+    }
+   ]
+  },
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "White Timed Feeder",
+     "Black Timed Feeder"
+    ]
+   },
+   {
+    "name": "Volume",
+    "values": [
+     "ABS SUS"
+    ]
+   },
+   {
+    "name": "Ships From",
+    "values": [
+     "United States"
+    ]
+   }
+  ],
+  "descriptionHtml": "<br><div class=\"detailmodule_text\"><p style=\"font-family:OpenSans;font-size:20px;font-weight:900;line-height:28px;white-space:pre-wrap;color:rgb(0, 0, 0);margin-bottom:12px\" class=\"detail-desc-decorate-title\">Automatic Pet Feeder - 4L Timed Food Dispenser for Cats &amp; Dogs</p></div><div class=\"detailmodule_text\"><p style=\"font-size:20px;font-weight:bold;color:rgb(3, 0, 0)\">PRODUCT SPECIFICATIONS</p></div><div class=\"detailmodule_text\"><p style=\"font-size:13px;font-weight:normal;color:rgb(3, 0, 0)\">- Capacity : 4L / 16.9 Cups (Perfect for trips &amp; busy weekends)<br>- Feeding Schedule : 1\u20136 meals per day<br>- Portion Control : Customizable portions per meal<br>- Kibble Size  : Supported 2mm - 15mm (Dry food only)<br>- Material : Food-grade Stainless Steel Bowl (Prevents cat chin acne)<br>- Freshness System : Soft rubber rotor + Triple-seal top lid + Desiccant box</p></div><p></p><div class=\"detailmodule_media\"><div class=\"video-container-5000551582976\"><div class=\"detail-video\" id=\"5000551582976\" data-previewurl=\"\"></div></div></div><div class=\"detailmodule_text\"><p style=\"font-size:20px;font-weight:bold;color:rgb(3, 0, 0)\">Key Highlights</p></div><div class=\"detailmodule_text\"><p style=\"font-family:OpenSans;font-size:14px;font-weight:300;line-height:20px;white-space:pre-wrap;color:rgb(0, 0, 0);margin-bottom:12px\" class=\"detail-desc-decorate-content\">+ No WiFi Needed: Super easy setup via LCD screen &amp; intuitive buttons. No app crashes, no connection hassle!<br><br>+ Anti-Clogging Design: Supports dry food sizes from 2mm to 15mm. Perfect for larger kibble &amp; dental diets without jamming. <br><br>+ Dual Power Supply<br><br>+ Anti-Theft Design: Springlock lid + silicone sealing rotor. 100% Smart-Paw Proof! Your pets can\u2019t sneak extra food out.</p></div><div class=\"detailmodule_text\"><p style=\"font-size:20px;font-weight:bold;color:rgb(3, 0, 0)\">WHAT'S IN THE BOX?</p></div><div class=\"detailmodule_text\"><p style=\"font-family:OpenSans;font-size:14px;font-weight:300;line-height:20px;white-space:pre-wrap;color:rgb(0, 0, 0);margin-bottom:12px\" class=\"detail-desc-decorate-content\">1 x Automatic Pet Feeder (4L)<br><br>1 x Stainless Steel Food Bowl<br><br>1 x Power Adapter &amp; Cable<br><br>1 x User Manual<br><br>(Note: 3D-size batteries are NOT included)*</p></div><div class=\"detailmodule_image\"></div><div class=\"detailmodule_image\"></div><br>"
+ }
+]

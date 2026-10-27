@@ -7,3 +7,8 @@ next-env.d.ts
 
 # Echte bankafschriften en exports: nooit committen
 fixtures/private/
+
+# CozyCompanion API token (24h)
+cozycompanion/tok.json
+cozycompanion/.body.json
+cozycompanion/__pycache__/
