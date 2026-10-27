@@ -1,7 +1,8 @@
 """CozyCompanion pricing rule. Raises any variant priced below target; never lowers a price.
 
-target = cost x multiplier + estimated shipping, rounded UP to a .95 price ending in 4.95 / 9.95
-  multiplier: cost < 15 -> 3.0 | < 30 -> 2.6 | < 60 -> 2.3 | otherwise 2.0
+Every single-item order must leave MARGIN profit after ADS ad spend per purchase:
+  price / 1.21 (VAT) - (2.9% + 0.30 payment fee) - cost - shipping - ADS >= MARGIN
+  target = (cost + shipping + 0.30 + ADS + MARGIN) / (1/1.21 - 0.029), rounded UP to a x4.95 / x9.95 price
   shipping estimate: EU warehouse (Bigbuy) 5, ships from US 8, otherwise 4
 Usage: reprice.py [--dry-run]
 """
@@ -16,17 +17,21 @@ from lib import gql, check
 
 DRY = "--dry-run" in sys.argv
 
-def multiplier(cost):
-    return 3.0 if cost < 15 else 2.6 if cost < 30 else 2.3 if cost < 60 else 2.0
+def charm(x):
+    return math.ceil((x + 0.05) / 5) * 5 - 0.05   # 41.2 -> 44.95, 45.0 -> 49.95
+
+ADS = 30.0      # ad spend per purchase (EUR), set by the owner
+MARGIN = 15.0   # profit left per single-item order after ads
+NET = 1 / 1.21 - 0.029
+
+def target_price(cost, ship):
+    return charm((cost + ship + 0.30 + ADS + MARGIN) / NET)
 
 def shipping(vendor, sku, options):
     text = (sku or "") + " ".join(options)
     if vendor.lower() == "bigbuy": return 5.0
     if "UNITED STATES" in text.upper() or "UNITEDSTATES" in text.upper(): return 8.0
     return 4.0
-
-def charm(x):
-    return math.ceil((x + 0.05) / 5) * 5 - 0.05   # 41.2 -> 44.95, 45.0 -> 49.95
 
 assert gql("{shop{myshopifyDomain}}")["shop"]["myshopifyDomain"] == "pj0q30-dd.myshopify.com"
 d = gql("""{ products(first:100, query:"-status:archived"){ nodes{ id title vendor tags
@@ -48,7 +53,7 @@ for p in d["products"]["nodes"]:
         uc = v["inventoryItem"]["unitCost"]
         if uc:
             cost = float(uc["amount"])
-            t = charm(cost * multiplier(cost) + shipping(p["vendor"], v["sku"], [o["value"] for o in v["selectedOptions"]]))
+            t = target_price(cost, shipping(p["vendor"], v["sku"], [o["value"] for o in v["selectedOptions"]]))
             k = group_key(p, v); targets[k] = max(targets.get(k, 0), t, float(v["price"]))
     for v in p["variants"]["nodes"]:
         uc = v["inventoryItem"]["unitCost"]

@@ -13,7 +13,7 @@ curl -s -X POST "https://$COZY_SHOPIFY_DOMAIN/admin/oauth/access_token" \
 
 | Script | What it does |
 |---|---|
-| `reprice.py [--dry-run]` | Pricing rule: cost × 3.0/2.6/2.3/2.0 + shipping estimate, rounded up to x4.95/x9.95; equal prices for look-alike variants; never lowers a price |
+| `reprice.py [--dry-run]` | Pricing rule: every single-item order keeps €15 profit after €30 ad spend, VAT, payment fees and shipping (`ADS`, `MARGIN` at the top); rounded up to x4.95/x9.95; equal prices for look-alike variants; never lowers a price |
 | `spocket_cleanup.py` | Titles, copy, options, prices and collections for the first six Spocket imports |
 | `product_templates.py` | `product.blanket` / `product.pettech` page templates (story, how it works, FAQ) |
 | `homepage.py`, `headfoot.py`, `theme_settings.py`, `product_tpl.py` | Horizon theme: homepage, header/footer, brand settings, default product page |
