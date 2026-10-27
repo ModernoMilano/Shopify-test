@@ -31,95 +31,75 @@ def accordion(rows):
             "blocks": blocks, "block_order": order}
 
 def build(kind):
+    """Tight product page: title, stars, price, 3 highlights, options, add to cart, one trust row,
+    payment icons, then everything else folded into an accordion. Below: one short story band and
+    recommendations."""
     d = copy.deepcopy(base)
     main = d["sections"]["main"]
     det = main["blocks"]["product-details"]; B = det["blocks"]
 
-    # Tagline under the title, highlights under the price
-    B["tagline"] = text("<p><em>{{ closest.product.metafields.custom.tagline.value }}</em></p>", "h5",
-                        **{"padding-block-start": 0, "padding-block-end": 0})
-    hl = {f"h{k}": row("check_box", "<p>{{ closest.product.metafields.custom.highlight_%d.value }}</p>" % k) for k in (1, 2, 3)}
-    B["highlights"] = {"type": "group", "settings": {"gap": 8, "width": "fill"}, "blocks": hl, "block_order": list(hl)}
-    # Social proof that is always true: star rating straight from the review app's standard
-    # reviews.rating metafield (renders nothing until real reviews exist), accepted payment
-    # methods, and the guarantee as a seal.
+    # Header: title, stars (only render once a review app has real ratings), price
     hdr = B["group_icgrde"]
     hdr["blocks"]["stars"] = {"type": "review", "settings": {"stars_style": "shaded", "show_number": True,
                               "text_color": ROSE, "width": "fit-content"}, "blocks": {}}
-    hdr["block_order"] = [k for k in hdr["block_order"] if k != "stars"]
-    hdr["block_order"].insert(hdr["block_order"].index("text_xrnftG") + 1, "stars")
-    B["payments"] = {"type": "payment-icons", "settings": {"horizontal_alignment": "flex-start", "gap": 8}, "blocks": {}}
-    B["promise"] = {"type": "group", "settings": {"content_direction": "row", "vertical_on_mobile": False, "gap": 14,
-                    "vertical_alignment": "center", "width": "fill", "background_color": SAND,
-                    "padding-block-start": 14, "padding-block-end": 14, "padding-inline-start": 16, "padding-inline-end": 16},
-                    "blocks": {"i": icon("heart", 28),
-                               "t": text("<p><strong>The CozyCompanion promise</strong><br>Not completely in love? Return it within 30 days for a full refund of the purchase price.</p>",
-                                         "paragraph", width="fit-content")},
-                    "block_order": ["i", "t"]}
+    hdr["block_order"] = ["text_xrnftG", "stars", "price_tVjtKg"]
+    hdr["blocks"] = {k: v for k, v in hdr["blocks"].items() if k in hdr["block_order"]}
+    hdr["settings"]["gap"] = 8
+
+    hl = {f"h{k}": row("check_box", "<p>{{ closest.product.metafields.custom.highlight_%d.value }}</p>" % k) for k in (1, 2, 3)}
+    B["highlights"] = {"type": "group", "settings": {"gap": 6, "width": "fill"}, "blocks": hl, "block_order": list(hl)}
+
     # Owner's choice: no Shop Pay / "More payment options" buttons on the product page
     B["buy_buttons_eYQEYi"]["blocks"]["accelerated-checkout"]["disabled"] = True
-    det["block_order"] = ["group_icgrde", "tagline", "highlights", "divider_VJhene", "variant_picker_R3rGDr",
-                          "buy_buttons_eYQEYi", "payments", "offer", "trust", "promise", "text_aEtTtq", "info"]
-    main["blocks"]["media-gallery"]["settings"].update({"media_presentation": "grid", "media_columns": "two",
-        "large_first_image": True, "aspect_ratio": "square", "media_fit": "cover", "image_gap": 6})
+
+    # One compact trust row instead of stacked lines
+    tr = {}
+    for k, (ic, t) in enumerate([("plane", "Tracked worldwide"), ("return", "30-day returns"), ("lock", "Secure checkout")]):
+        tr[f"t{k}"] = {"type": "group", "settings": {"gap": 6, "horizontal_alignment_flex_direction_column": "center", "width": "fill"},
+                       "blocks": {"i": icon(ic, 20), "x": text(f"<p>{t}</p>", "custom", font_size="0.75rem", alignment="center")},
+                       "block_order": ["i", "x"]}
+    B["trust"] = {"type": "group", "settings": {"content_direction": "row", "vertical_on_mobile": False, "gap": 8,
+                  "horizontal_alignment": "space-between", "vertical_alignment": "flex-start", "width": "fill",
+                  "padding-block-start": 4, "padding-block-end": 4}, "blocks": tr, "block_order": list(tr)}
+    B["payments"] = {"type": "payment-icons", "settings": {"horizontal_alignment": "center", "gap": 6}, "blocks": {}}
+
+    care = ("<p>Follow the care label and included instructions. Disconnect the controller before washing; "
+            "never use it folded while switched on.</p>") if kind == "blanket" else \
+           ("<p>Setup and power details are in the description and the included guide. Clean regularly with a soft cloth.</p>")
+    B["info"] = accordion([
+        ("Description", "{{ closest.product.description }}"),
+        ("Shipping", "<p>Dispatched in 1&ndash;3 business days, tracked worldwide. EU delivery 3&ndash;8 business days. <a href=\"/pages/shipping\">Details</a></p>"),
+        ("30-day returns", "<p>Not in love? Return it unused within 30 days for a full refund. <a href=\"/pages/returns\">How it works</a></p>"),
+        ("Care &amp; safety" if kind == "blanket" else "Setup &amp; care", care),
+    ])
+    B["info"]["blocks"]["r0"]["settings"]["open_by_default"] = True
+    for k in ("tagline", "offer", "promise", "text_aEtTtq"):
+        B.pop(k, None)
+    det["settings"]["gap"] = 20
+    det["block_order"] = ["group_icgrde", "highlights", "variant_picker_R3rGDr", "buy_buttons_eYQEYi",
+                          "trust", "payments", "info"]
+    det["blocks"] = {k: v for k, v in B.items() if k in det["block_order"]}
+    # Photos are 2:3: one large photo with thumbnails underneath, on desktop and mobile
+    main["blocks"]["media-gallery"]["settings"].update({"media_presentation": "carousel", "aspect_ratio": "adapt",
+        "media_fit": "cover", "slideshow_controls_style": "thumbnails", "thumbnail_position": "bottom",
+        "thumbnail_width": 72, "thumbnail_radius": 0, "slideshow_mobile_controls_style": "thumbnails",
+        "icons_style": "chevron", "constrain_to_viewport": True, "zoom": True})
 
     if kind == "blanket":
-        story = ("l7", "The evening ritual", "Warmth that invites you to slow down.",
-                 "<p>Draw the curtains, dim the lights and let gentle warmth do the rest. Our blankets are made for the quiet hours: a good book, a slow film, a companion curled up beside you.</p>")
-        steps = [("fire", "1. Unfold &amp; connect", "Spread it over your bed or sofa and connect the controller."),
-                 ("lightning_bolt", "2. Choose your warmth", "Pick the setting that feels just right, from a soft glow to deep heat."),
-                 ("heart", "3. Unwind", "Let the day melt away. Switch off whenever you're done.")]
-        faq = [("How do I wash it?", "<p>Always follow the care label. Disconnect the controller and cable first; many of our blankets can be machine washed on a gentle, cool cycle.</p>"),
-               ("Is it safe to use every evening?", "<p>Our blankets are made for everyday comfort. Follow the included instructions, don't use the blanket folded or bunched while it's on, and switch it off when you're done.</p>"),
-               ("Does it work outside the EU?", "<p>Check the plug type before ordering: mains-powered blankets come with the plug noted on the product listing. USB blankets work anywhere with a USB power source.</p>"),
-               ("What if it's not right for me?", "<p>You have 30 days to return it unused under our happiness guarantee. <a href=\"/pages/returns\">How returns work</a></p>")]
-        story_bg = SAND
+        story = ("l7", "The evening ritual", "Warmth that invites you to slow down.")
     else:
-        story = ("s_morning", "Care, even when you're away", "Peace of mind, quietly automated.",
-                 "<p>Busy mornings, long days, unexpected delays: our smart essentials keep your companion's routine calm and consistent, so you can focus on the moments you spend together.</p>")
-        steps = [("box", "1. Unbox &amp; place", "Find a calm spot at home, or clip it to their collar."),
-                 ("stopwatch", "2. Set it up", "Follow the included guide; most setups take just a few minutes."),
-                 ("paw_print", "3. Relax", "Their routine runs itself; check in whenever you like.")]
-        faq = [("Do I need an app?", "<p>It depends on the device: the description above tells you exactly how it's set up. Some work entirely with buttons, others connect to an app on your phone.</p>"),
-               ("Is it suitable for cats and dogs?", "<p>Yes, our pet tech is designed for cats and dogs. Check the size and capacity on the product page to match your companion.</p>"),
-               ("How is it powered?", "<p>Power details, including what's in the box, are listed in the description above and in the included instructions.</p>"),
-               ("What if it's not right for us?", "<p>You have 30 days to return it unused under our happiness guarantee. <a href=\"/pages/returns\">How returns work</a></p>")]
-        story_bg = SAND
-
-    sections, order = dict(d["sections"]), list(d["order"])
-    # Story block
+        story = ("s_morning", "Care, even when you're away", "Peace of mind, quietly automated.")
+    sections = {k: v for k, v in d["sections"].items() if k not in ("story", "how", "faq")}
     sections["story"] = {"type": "media-with-content", "settings": {"media_position": "left", "media_width": "medium",
-        "media_height": "60svh", "section_width": "full-width", "background_color": story_bg},
+        "media_height": "50svh", "section_width": "full-width", "background_color": SAND},
         "blocks": {"media": {"type": "_media-without-appearance", "static": True, "settings": {"media_type": "image", "image": img(story[0])}, "blocks": {}},
                    "content": {"type": "_content-without-appearance", "static": True,
-                               "settings": {"horizontal_alignment_flex_direction_column": "flex-start", "vertical_alignment_flex_direction_column": "center", "gap": 18},
+                               "settings": {"horizontal_alignment_flex_direction_column": "flex-start", "vertical_alignment_flex_direction_column": "center", "gap": 12},
                                "blocks": {"e": text(f"<p>{story[1]}</p>", "h6", text_color=ROSE, width="fit-content"),
-                                          "h": text(f"<h2>{story[2]}</h2>", "h3", max_width="narrow", width="fit-content"),
-                                          "b": text(story[3], "rte", max_width="narrow", width="fit-content")},
-                               "block_order": ["e", "h", "b"]}}}
-    # How it works
-    st = {}
-    for k, (ic, h, t) in enumerate(steps):
-        st[f"s{k}"] = {"type": "group", "settings": {"gap": 8, "horizontal_alignment_flex_direction_column": "center", "width": "fill"},
-                       "blocks": {"i": icon(ic, 28), "h": text(f"<h3>{h}</h3>", "h6", alignment="center"),
-                                  "t": text(f"<p>{t}</p>", "rte", alignment="center", max_width="narrow")},
-                       "block_order": ["i", "h", "t"]}
-    sections["how"] = {"type": "section", "settings": {"content_direction": "column", "gap": 28, "section_width": "page-width",
-        "horizontal_alignment_flex_direction_column": "center", "background_color": CREAM,
-        "padding-block-start": 56, "padding-block-end": 40},
-        "blocks": {"head": text("<h2>How it works</h2>", "h3", alignment="center"),
-                   "steps": {"type": "group", "settings": {"content_direction": "row", "vertical_on_mobile": True, "gap": 24,
-                             "horizontal_alignment": "space-between", "vertical_alignment": "flex-start", "width": "fill"},
-                             "blocks": st, "block_order": list(st)}},
-        "block_order": ["head", "steps"]}
-    # FAQ
-    sections["faq"] = {"type": "section", "settings": {"content_direction": "column", "gap": 20, "section_width": "page-width",
-        "background_color": CREAM, "padding-block-start": 24, "padding-block-end": 56},
-        "blocks": {"head": text("<h2>Good to know</h2>", "h3", alignment="center"), "acc": accordion(faq)},
-        "block_order": ["head", "acc"]}
-    rec = [k for k in order if k.startswith("product_recommendations")]
-    order = ["main", "story", "how", "faq"] + rec
-    d["sections"], d["order"] = sections, order
+                                          "h": text(f"<h2>{story[2]}</h2>", "h3", max_width="narrow", width="fit-content")},
+                               "block_order": ["e", "h"]}}}
+    rec = [k for k in d["order"] if k.startswith("product_recommendations")]
+    d["sections"], d["order"] = sections, ["main"] + rec + ["story"]
     return HEADER + "\n" + json.dumps(d, indent=2)
 
 print(put_theme_files({"templates/product.blanket.json": build("blanket"),

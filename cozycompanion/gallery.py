@@ -1,5 +1,5 @@
-"""Replace each product's gallery with our own square photos (supplier images removed) and
-point variants at the matching photo. Portrait (4:5) shots are cropped to 1:1 first.
+"""Replace each product's gallery with our own 2:3 photos (supplier images removed) and
+point variants at the matching photo.
 Usage: gallery.py"""
 import sys, os, io, json, time, ssl, subprocess, urllib.request
 S = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, S)
@@ -10,20 +10,20 @@ reg = json.load(open(os.path.join(S, "files.json")))
 CTX = ssl.create_default_context(cafile="/root/.ccr/ca-bundle.crt")
 
 GALLERIES = {
-    "plush-heat-pad": ["b_pad", "g_hp_colors2", "n_pad_life", "g_hp_shoulders", "g_hp_detail"],
-    "heklet-heated-sherpa-throw": ["b_throw", "g_th_detail", "n_throw_life", "g_th_bed", "g_th_flat2"],
-    "mitag-duo-smart-tag": ["b_tag", "g_mt_lineup", "g_mt_two2", "n_tag_life", "g_mt_keys"],
-    "heated-pet-pad": ["b_petpad", "g_pp_rose", "n_petpad_life", "g_pp_dog", "g_pp_detail"],
-    "stainless-steel-pet-fountain": ["b_fountain", "b_fountain4l", "g_ft_detail", "n_fountain_life", "g_ft_dog", "g_ft_parts"],
-    "automatic-pet-feeder-4l": ["b_feeder", "b_feederblack", "g_fd_duo", "n_feeder_life", "g_fd_dog", "g_fd_detail"],
+    "plush-heat-pad": ["b_pad_23", "g_hp_colors2_23", "n_pad_life_23", "g_hp_shoulders_23", "g_hp_detail_23"],
+    "heklet-heated-sherpa-throw": ["b_throw_23b", "g_th_detail_23", "n_throw_life_23", "g_th_bed_23", "g_th_flat2_23"],
+    "mitag-duo-smart-tag": ["b_tag_23", "g_mt_lineup_23", "g_mt_two2_23", "n_tag_life_23", "g_mt_keys_23"],
+    "heated-pet-pad": ["b_petpad_23", "g_pp_rose_23", "n_petpad_life_23", "g_pp_dog_23", "g_pp_detail_23c"],
+    "stainless-steel-pet-fountain": ["b_fountain_23", "b_fountain4l_23", "g_ft_detail_23c", "n_fountain_life_23", "g_ft_dog_23", "g_ft_parts_23"],
+    "automatic-pet-feeder-4l": ["b_feeder_23", "b_feederblack_23", "g_fd_duo_23", "n_feeder_life_23", "g_fd_dog_23", "g_fd_detail_23c"],
 }
 # variant option value (substring) -> photo shown when that variant is picked
 VARIANT_MEDIA = {
-    "plush-heat-pad": {"Grey": "b_pad", "Yellow": "g_hp_colors2", "Green": "g_hp_colors2", "Blue": "g_hp_colors2"},
-    "heated-pet-pad": {"Rose": "g_pp_rose", "Paws": "b_petpad"},
-    "stainless-steel-pet-fountain": {"4L": "b_fountain4l", "2L": "b_fountain"},
-    "automatic-pet-feeder-4l": {"White": "b_feeder", "Black": "b_feederblack"},
-    "mitag-duo-smart-tag": {"2 black": "g_mt_two2", "brown": "b_tag", "case": "g_mt_lineup", "1 ": "g_mt_two2"},
+    "plush-heat-pad": {"Grey": "b_pad_23", "Yellow": "g_hp_colors2_23", "Green": "g_hp_colors2_23", "Blue": "g_hp_colors2_23"},
+    "heated-pet-pad": {"Rose": "g_pp_rose_23", "Paws": "b_petpad_23"},
+    "stainless-steel-pet-fountain": {"4L": "b_fountain4l_23", "2L": "b_fountain_23"},
+    "automatic-pet-feeder-4l": {"White": "b_feeder_23", "Black": "b_feederblack_23"},
+    "mitag-duo-smart-tag": {"2 black": "g_mt_two2_23", "brown": "b_tag_23", "case": "g_mt_lineup_23", "1 ": "g_mt_two2_23"},
 }
 
 def fetch(name):
@@ -47,7 +47,6 @@ def make_square(name):
     return sq
 
 for handle, names in GALLERIES.items():
-    names = [make_square(n) for n in names]
     want = [reg[n]["id"] for n in names]
     p = gql("query($h:String!){productByHandle(handle:$h){id media(first:100){nodes{id}}}}", {"h": handle})["productByHandle"]
     have = [m["id"] for m in p["media"]["nodes"]]
@@ -69,7 +68,7 @@ for handle, names in GALLERIES.items():
         items = []
         for v in vs:
             key = next((k for k in vm if k.lower() in v["title"].lower()), None)
-            if key: items.append({"variantId": v["id"], "mediaIds": [reg[make_square(vm[key])]["id"]]})
+            if key: items.append({"variantId": v["id"], "mediaIds": [reg[vm[key]]["id"]]})
         if items:
             r = gql("mutation($pid:ID!,$v:[ProductVariantAppendMediaInput!]!){productVariantAppendMedia(productId:$pid,variantMedia:$v){userErrors{field message}}}",
                     {"pid": p["id"], "v": items})["productVariantAppendMedia"]
