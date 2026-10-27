@@ -1,6 +1,7 @@
 """CozyCompanion pricing rule. Raises any variant priced below target; never lowers a price.
 
-Every single-item order must leave MARGIN profit after ADS ad spend per purchase:
+Products tagged price-3x are priced at 3x cost (rounded up to .95). All others:
+every single-item order must leave MARGIN profit after ADS ad spend per purchase:
   price / 1.21 (VAT) - (2.9% + 0.30 payment fee) - cost - shipping - ADS >= MARGIN
   target = (cost + shipping + 0.30 + ADS + MARGIN) / (1/1.21 - 0.029), rounded UP to a x4.95 / x9.95 price
   shipping estimate: EU warehouse (Bigbuy) 5, ships from US 8, otherwise 4
@@ -27,6 +28,10 @@ NET = 1 / 1.21 - 0.029
 def target_price(cost, ship):
     return charm((cost + ship + 0.30 + ADS + MARGIN) / NET)
 
+def triple(cost):
+    """Products tagged price-3x (owner's rule for the second batch): 3x cost, rounded up to .95."""
+    return math.ceil(cost * 3 + 0.05) - 0.05
+
 def shipping(vendor, sku, options):
     text = (sku or "") + " ".join(options)
     if vendor.lower() == "bigbuy": return 5.0
@@ -49,6 +54,21 @@ def group_key(p, v):
 for p in d["products"]["nodes"]:
     upd = []
     targets = {}
+    if "price-3x" in p["tags"]:
+        # exact rule: each variant 3x its own cost; variants within EUR 5 of each other (e.g. colours)
+        # share the highest of those prices. Set exactly, so a too-high price is corrected too.
+        vs = [v for v in p["variants"]["nodes"] if v["inventoryItem"]["unitCost"]]
+        raw = {v["id"]: triple(float(v["inventoryItem"]["unitCost"]["amount"])) for v in vs}
+        for v in vs:
+            target = max(t for t in raw.values() if abs(t - raw[v["id"]]) < 5)
+            if abs(float(v["price"]) - target) > 0.001:
+                upd.append({"id": v["id"], "price": f"{target:.2f}"})
+                print(f"  {p['title'][:45]:45} | {v['title'][:30]:30} €{float(v['price']):6.2f} -> €{target:6.2f} (3x cost €{float(v['inventoryItem']['unitCost']['amount']):.2f})")
+        if upd and not DRY:
+            check(gql("mutation($pid:ID!,$v:[ProductVariantsBulkInput!]!){productVariantsBulkUpdate(productId:$pid,variants:$v){userErrors{field message}}}",
+                      {"pid": p["id"], "v": upd})["productVariantsBulkUpdate"], p["title"])
+        changes += len(upd)
+        continue
     for v in p["variants"]["nodes"]:
         uc = v["inventoryItem"]["unitCost"]
         if uc:

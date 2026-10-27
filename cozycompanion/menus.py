@@ -14,7 +14,8 @@ MENUS = {
             C("Weighted Comfort", "weighted-comfort"), C("Shop all blankets", "cozy-heated-blankets")]),
         C("Smart Pet Tech", "smart-pet-tech", [
             C("Smart Feeding", "smart-feeding"), C("Hydration", "hydration"),
-            C("GPS & Safety", "gps-safety"), C("Shop all pet tech", "smart-pet-tech")]),
+            C("GPS & Safety", "gps-safety"), C("Litter & Hygiene", "litter-hygiene"),
+            C("Beds & Dens", "beds-dens"), C("Shop all pet tech", "smart-pet-tech")]),
         C("Gifts", "holiday-gift-guide", [
             C("Holiday Gift Guide", "holiday-gift-guide"),
             C("Bundle & Save 10%", "bundle-deals")]),

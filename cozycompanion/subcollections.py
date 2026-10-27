@@ -15,7 +15,7 @@ TAGS = {
     "Pet-Specific Heated Blanket Washable": ["for-pets"],
 }
 ids = product_ids()
-for title, tags in TAGS.items():
+for title, tags in ({} if '--collections-only' in sys.argv else TAGS).items():
     check(gql("mutation($id:ID!,$t:[String!]!){tagsAdd(id:$id,tags:$t){userErrors{message}}}", {"id": ids[title], "t": tags})["tagsAdd"], title)
 print("tags ok")
 # 2. Smart collections
@@ -31,7 +31,11 @@ COLS = [
     ("Hydration", "hydration", "hydration", "l4",
      "Fresh, flowing, filtered water that gently encourages your companion to drink more."),
     ("GPS & Safety", "gps-safety", "gps-safety", "l3",
-     "Featherlight trackers for confident adventures and peace of mind wherever they wander."),
+     "Smart tags for collars and keys, for peace of mind wherever they wander."),
+    ("Beds & Dens", "beds-dens", "beds-dens", "s_bond",
+     "Calm, cosy hideaways that look beautiful in any room."),
+    ("Litter & Hygiene", "litter-hygiene", "litter-hygiene", "s_morning",
+     "Less scooping, a fresher home and more time together."),
 ]
 existing = {c["handle"]: c["id"] for c in gql("{collections(first:50){nodes{id handle}}}")["collections"]["nodes"]}
 def ensure(title, handle, rules, img, desc):

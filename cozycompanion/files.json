@@ -1051,5 +1051,203 @@
    1600,
    2400
   ]
+ },
+ "x_den_pack": {
+  "id": "gid://shopify/MediaImage/72720447242570",
+  "alt": "Haven Pet Den in light grey felt",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_den_pack.png?v=1793139314",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_halo_pack": {
+  "id": "gid://shopify/MediaImage/72720447275338",
+  "alt": "Halo Self-Cleaning Litter Box",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_halo_pack.png?v=1793139313",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_glance_white": {
+  "id": "gid://shopify/MediaImage/72720447308106",
+  "alt": "Glance 4L Camera Feeder in white with two bowls",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_glance_white.png?v=1793139312",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_glance_black": {
+  "id": "gid://shopify/MediaImage/72720447340874",
+  "alt": "Glance 4L Camera Feeder in black",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_glance_black.png?v=1793139312",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_murmur_pack": {
+  "id": "gid://shopify/MediaImage/72720447373642",
+  "alt": "Murmur 3L Camera Feeder",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_murmur_pack.png?v=1793139312",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_brookxl_pack": {
+  "id": "gid://shopify/MediaImage/72720447406410",
+  "alt": "Brook XL Cordless Fountain 7L",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_brookxl_pack.png?v=1793139313",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_den_front": {
+  "id": "gid://shopify/MediaImage/72720460054858",
+  "alt": "Haven Pet Den seen from the front",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_den_front.png?v=1793139368",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_den_dog": {
+  "id": "gid://shopify/MediaImage/72720460087626",
+  "alt": "A Jack Russell asleep in the Haven Pet Den",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_den_dog.png?v=1793139369",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_den_cat": {
+  "id": "gid://shopify/MediaImage/72720460120394",
+  "alt": "A cat peeking out of the Haven Pet Den",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_den_cat.png?v=1793139370",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_halo_life": {
+  "id": "gid://shopify/MediaImage/72720460153162",
+  "alt": "A cat stepping out of the Halo litter box",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_halo_life.png?v=1793139368",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_halo_detail": {
+  "id": "gid://shopify/MediaImage/72720460185930",
+  "alt": "Entrance and control panel of the Halo litter box",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_halo_detail.png?v=1793139369",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_glance_life": {
+  "id": "gid://shopify/MediaImage/72720460218698",
+  "alt": "Two cats eating from the Glance camera feeder",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_glance_life.png?v=1793139369",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_glance_detail": {
+  "id": "gid://shopify/MediaImage/72720460251466",
+  "alt": "Camera lens of the Glance feeder",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_glance_detail.png?v=1793139368",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_murmur_life": {
+  "id": "gid://shopify/MediaImage/72720460284234",
+  "alt": "A cat eating from the Murmur camera feeder",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_murmur_life.png?v=1793139368",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_murmur_detail": {
+  "id": "gid://shopify/MediaImage/72720467788106",
+  "alt": "Camera window of the Murmur feeder",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_murmur_detail.png?v=1793139409",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_brookxl_dog": {
+  "id": "gid://shopify/MediaImage/72720467820874",
+  "alt": "A golden retriever drinking from the Brook XL fountain",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_brookxl_dog.png?v=1793139409",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_brookxl_detail": {
+  "id": "gid://shopify/MediaImage/72720467853642",
+  "alt": "Faucet and cordless pump module of the Brook XL fountain",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_brookxl_detail.png?v=1793139409",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_brookxl_filters": {
+  "id": "gid://shopify/MediaImage/72720467886410",
+  "alt": "Brook XL fountain with spare filters",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_brookxl_filters.png?v=1793139409",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_brookxl_cat": {
+  "id": "gid://shopify/MediaImage/72720467919178",
+  "alt": "A Maine Coon drinking from the Brook XL fountain",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_brookxl_cat.png?v=1793139410",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_halo_bath": {
+  "id": "gid://shopify/MediaImage/72720467951946",
+  "alt": "The Halo litter box in a bathroom with a cat on top",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_halo_bath.png?v=1793139409",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_glance_blacklife": {
+  "id": "gid://shopify/MediaImage/72720467984714",
+  "alt": "A tuxedo cat eating from the black Glance feeder",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_glance_blacklife.png?v=1793139409",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "x_murmur_kitten": {
+  "id": "gid://shopify/MediaImage/72720468017482",
+  "alt": "A kitten eating from the Murmur feeder",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-x_murmur_kitten.png?v=1793139409",
+  "size": [
+   1360,
+   2048
+  ]
  }
 }
