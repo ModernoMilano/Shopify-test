@@ -40,8 +40,24 @@ def build(kind):
                         **{"padding-block-start": 0, "padding-block-end": 0})
     hl = {f"h{k}": row("check_box", "<p>{{ closest.product.metafields.custom.highlight_%d.value }}</p>" % k) for k in (1, 2, 3)}
     B["highlights"] = {"type": "group", "settings": {"gap": 8, "width": "fill"}, "blocks": hl, "block_order": list(hl)}
+    # Social proof that is always true: star rating straight from the review app's standard
+    # reviews.rating metafield (renders nothing until real reviews exist), accepted payment
+    # methods, and the guarantee as a seal.
+    hdr = B["group_icgrde"]
+    hdr["blocks"]["stars"] = {"type": "review", "settings": {"stars_style": "shaded", "show_number": True,
+                              "text_color": ROSE, "width": "fit-content"}, "blocks": {}}
+    hdr["block_order"] = [k for k in hdr["block_order"] if k != "stars"]
+    hdr["block_order"].insert(hdr["block_order"].index("text_xrnftG") + 1, "stars")
+    B["payments"] = {"type": "payment-icons", "settings": {"horizontal_alignment": "flex-start", "gap": 8}, "blocks": {}}
+    B["promise"] = {"type": "group", "settings": {"content_direction": "row", "vertical_on_mobile": False, "gap": 14,
+                    "vertical_alignment": "center", "width": "fill", "background_color": SAND,
+                    "padding-block-start": 14, "padding-block-end": 14, "padding-inline-start": 16, "padding-inline-end": 16},
+                    "blocks": {"i": icon("heart", 28),
+                               "t": text("<p><strong>The CozyCompanion promise</strong><br>Not completely in love? Return it within 30 days for a full refund of the purchase price.</p>",
+                                         "paragraph", width="fit-content")},
+                    "block_order": ["i", "t"]}
     det["block_order"] = ["group_icgrde", "tagline", "highlights", "divider_VJhene", "variant_picker_R3rGDr",
-                          "buy_buttons_eYQEYi", "offer", "trust", "text_aEtTtq", "info"]
+                          "buy_buttons_eYQEYi", "payments", "offer", "trust", "promise", "text_aEtTtq", "info"]
     main["blocks"]["media-gallery"]["settings"].update({"media_presentation": "grid", "media_columns": "two",
         "large_first_image": True, "aspect_ratio": "square", "media_fit": "cover", "image_gap": 6})
 
