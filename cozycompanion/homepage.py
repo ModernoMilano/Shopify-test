@@ -81,13 +81,13 @@ add("collections", {"type": "collection-list", "blocks": {
 pl = orig["sections"]["product_list_fa6P9H"]
 def product_list(handle, title, eyebrow, bg):
     s = copy.deepcopy(pl)
-    s["settings"].update({"collection": handle, "max_products": 4, "columns": 4, "background_color": bg,
-                          "padding-block-start": 40, "padding-block-end": 40, "carousel_on_mobile": True, "mobile_card_size": "60cqw"})
+    s["settings"].update({"collection": handle, "max_products": 6, "columns": 3, "background_color": bg,
+                          "padding-block-start": 40, "padding-block-end": 40, "carousel_on_mobile": True, "mobile_card_size": "78cqw"})
     hdr = s["blocks"]["static-header"]["blocks"]
     hdr["product_list_text_YFtzcL"]["settings"].update({"text": f"<h2>{title}</h2>", "type_preset": "h3"})
     hdr["product_list_button_MWeP9V"]["settings"]["label"] = "View all"
     gal = s["blocks"]["static-product-card"]["blocks"]["product_card_gallery_677WP3"]["settings"]
-    gal["image_ratio"] = "square"
+    gal["image_ratio"] = "adapt"   # our photos are all 2:3, so show them whole
     return s
 add("edit", product_list("smart-pet-tech", "The CozyCompanion edit", "", CREAM))
 add("wear", product_list("wear-walk", "Wear &amp; walk", "", CREAM))

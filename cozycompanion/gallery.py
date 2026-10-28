@@ -71,13 +71,23 @@ GALLERIES = {
     "trail-hands-free-dog-leash": ["z_trail_pack", "z_trail_run"],
     "dapper-gingham-bow-tie": ["z_dapper_pack", "z_dapper_dog"],
     "fin-dog-life-jacket": ["z_fin_pack", "z_fin_swim"],
+    "sift-honeycomb-litter-mat": ["z_sift_pack", "z_sift_cat"],
+    "lift-pet-hair-remover-ball": ["z_lift_pack", "z_lift_sofa"],
+    "polish-pet-nail-grinder": ["z_polish_pack", "z_polish_dog"],
+    "savor-bone-lick-mat": ["z_savor_pack", "z_savor_dog"],
+    "measure-smart-scale-scoop": ["z_measure_pack", "z_measure_kitchen"],
+    "beacon-led-collar-light": ["z_beacon_pack", "z_beacon_walk"],
+    "tame-dematting-comb": ["z_tame_pack", "z_tame_dog"],
+    "slate-silicone-feeding-mat": ["z_slate_pack", "z_slate_cat"],
+    "wiggle-window-cat-teaser": ["z_wiggle_pack", "z_wiggle_cat"],
+    "jetset-soft-pet-carrier": ["z_jetset_pack", "z_jetset_travel"],
+    "breeze-pet-grooming-dryer": ["z_breeze_pack", "z_breeze_dog"],
+    "ascend-acacia-pet-stairs-ramp": ["z_ascend_pack", "z_ascend_dog"],
+    "dream-memory-foam-dog-bed": ["z_dream_pack", "z_dream_dog"],
 }
-# many colors/breeds and we only shot one: keep the supplier's variant photos after ours
-KEEP_VARIANT_PHOTOS = {"stride-dog-harness-leash-set", "zoom-self-rolling-cat-ball", "buddy-plush-dog-toy", "drizzle-dog-raincoat",
-                       "chase-plush-prey-cat-toy", "fetch-automatic-ball-launcher", "frost-harness-winter-dog-jacket", "splash-quick-dry-dog-bathrobe",
-                       "snug-sherpa-pet-blanket", "doze-dog-pajamas", "tidy-double-bowl-feeder", "riddle-treat-dispensing-ball",
-                       "burrow-plush-pet-bed", "chomp-rubber-treat-ball", "pounce-automatic-feather-cat-toy", "chirp-catnip-ball",
-                       "cradle-pet-sling-carrier", "trail-hands-free-dog-leash", "fin-dog-life-jacket"}
+# Owner's call: no supplier photos at all, not even per colour. The page opens on the selected
+# variant's photo, so a supplier shot there became the first (ugly) image. Keep this empty.
+KEEP_VARIANT_PHOTOS = set()
 # variant option value (substring) -> photo shown when that variant is picked
 VARIANT_MEDIA = {
     "ember-heat-pad": {"Gray": "b_pad_23", "Yellow": "g_hp_colors2_23", "Green": "g_hp_colors2_23", "Blue": "g_hp_colors2_23"},
@@ -118,6 +128,8 @@ def make_square(name):
 ONLY = sys.argv[1:]
 for handle, names in GALLERIES.items():
     if ONLY and handle not in ONLY: continue
+    extra = [n for n in (f"i_why_{handle}", f"i_det_{handle}") if n in reg]
+    names = names[:2] + extra + names[2:] + (["i_promise"] if "i_promise" in reg else [])
     want = [reg[n]["id"] for n in names]
     p = gql("query($h:String!){productByHandle(handle:$h){id media(first:100){nodes{id}}}}", {"h": handle})["productByHandle"]
     have = [m["id"] for m in p["media"]["nodes"]]

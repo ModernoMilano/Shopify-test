@@ -66,11 +66,21 @@ def build(kind):
     care = ("<p>Follow the care label and included instructions. Disconnect the controller before washing; "
             "never use it folded while switched on.</p>") if kind == "blanket" else \
            ("<p>Setup and power details are in the description and the included guide. Clean regularly with a soft cloth.</p>")
+    size = ("<p><strong>Coats, sweaters &amp; harnesses:</strong> measure your pet's neck, chest (the widest part, just behind the front legs) "
+            "and back length (base of the neck to base of the tail) with a soft tape. Compare with the sizes on this page; between two sizes, choose the larger one.</p>"
+            "<p><strong>Beds &amp; blankets:</strong> measure your pet lying stretched out, nose to tail, and add 6&ndash;10 in.</p>"
+            "<p>Not sure? Email us at <a href=\"mailto:cozycompanion.us@gmail.com\">cozycompanion.us@gmail.com</a> and we'll help you choose.</p>")
+    faq = ("<p><strong>When will my order arrive?</strong><br>Orders are prepared in 1&ndash;3 business days and delivered across the US in 5&ndash;12 business days, with tracking.</p>"
+           "<p><strong>What if it doesn't fit or they don't love it?</strong><br>Return it unused within 30 days for a full refund under our happiness guarantee.</p>"
+           "<p><strong>Is it suitable for my dog or cat?</strong><br>Check the sizes and details above. Always supervise pets with new toys and accessories at first.</p>"
+           "<p><strong>Do you have a welcome offer?</strong><br>Yes: join the Cozy Circle and get 15% off your first order with code COZY15.</p>")
     B["info"] = accordion([
         ("Description", "{{ closest.product.description }}"),
-        ("Shipping", "<p>Dispatched in 1&ndash;3 business days with tracking. Delivery across the US in 5&ndash;12 business days. <a href=\"/pages/shipping\">Details</a></p>"),
+        ("Size &amp; fit", size),
+        ("Shipping", "<p>Dispatched in 1&ndash;3 business days with tracking. Delivery across the US in 5&ndash;12 business days. Free tracked shipping on orders over $150. <a href=\"/pages/shipping\">Details</a></p>"),
         ("30-day returns", "<p>Not in love? Return it unused within 30 days for a full refund. <a href=\"/pages/returns\">How it works</a></p>"),
         ("Care &amp; safety" if kind == "blanket" else "Setup &amp; care", care),
+        ("FAQ", faq),
     ])
     B["info"]["blocks"]["r0"]["settings"]["open_by_default"] = True
     for k in ("tagline", "offer", "promise", "text_aEtTtq"):
@@ -88,7 +98,7 @@ def build(kind):
     if kind == "blanket":
         story = ("l7", "The evening ritual", "Warmth that invites you to slow down.")
     else:
-        story = ("s_morning", "Care, even when you're away", "Peace of mind, quietly automated.")
+        story = ("h3_story", "The CozyCompanion promise", "Considered essentials, chosen with care.")
     sections = {k: v for k, v in d["sections"].items() if k not in ("story", "how", "faq")}
     sections["story"] = {"type": "media-with-content", "settings": {"media_position": "left", "media_width": "medium",
         "media_height": "50svh", "section_width": "full-width", "background_color": SAND},
@@ -99,8 +109,9 @@ def build(kind):
                                           "h": text(f"<h2>{story[2]}</h2>", "h3", max_width="narrow", width="fit-content")},
                                "block_order": ["e", "h"]}}}
     rec = [k for k in d["order"] if k.startswith("product_recommendations")]
+    main["settings"]["enable_sticky_add_to_cart"] = True   # buy button follows on scroll (mobile especially)
     d["sections"], d["order"] = sections, ["main"] + rec + ["story"]
-    return HEADER + "\n" + json.dumps(d, indent=2)
+    return (HEADER + "\n" + json.dumps(d, indent=2)).replace("You may also like ", "Pairs well with")
 
 print(put_theme_files({"templates/product.blanket.json": build("blanket"),
                        "templates/product.pettech.json": build("pettech")}))

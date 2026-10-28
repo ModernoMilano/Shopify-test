@@ -76,7 +76,7 @@ def menus():
         "main-menu": ("Main menu", [
             C("Shop", "smart-pet-tech", [
                 C("Sleep & Lounge", "beds-dens"), C("Dine & Drink", "smart-feeding"), C("Play", "play-enrichment"),
-                C("Wear & Walk", "wear-walk"), C("Travel", "pet-travel"), C("Smart Home", "smart-home"), C("Shop all", "smart-pet-tech")]),
+                C("Wear & Walk", "wear-walk"), C("Groom & Clean", "groom-clean"), C("Travel", "pet-travel"), C("Smart Home", "smart-home"), C("Shop all", "smart-pet-tech")]),
             C("Dogs", "dogs"), C("Cats", "cats"),
             C("Gifts", "holiday-gift-guide", [
                 C("Holiday Gift Guide", "holiday-gift-guide"), C("Gifts under $50", "gifts-under-50"), C("Bundle & Save 10%", "bundle-deals")]),

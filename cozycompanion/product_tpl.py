@@ -57,5 +57,5 @@ B["buy_buttons_eYQEYi"]["blocks"]["accelerated-checkout"]["disabled"] = True
 main["blocks"]["media-gallery"]["settings"].update({"media_presentation": "carousel", "aspect_ratio": "square",
                                                     "media_fit": "cover", "large_first_image": True})
 rec = d["sections"]["product_recommendations_qggXJq"]
-rec["blocks"]["text_cbcgyb"]["settings"]["text"] = "<h3>Complete the ritual</h3>"
+rec["blocks"]["text_cbcgyb"]["settings"]["text"] = "<h3>Pairs well with</h3>"
 print(put_theme_files({"templates/product.json": r[:i] + "\n" + json.dumps(d, indent=2)}))
