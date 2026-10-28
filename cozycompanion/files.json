@@ -1663,5 +1663,77 @@
    512,
    512
   ]
+ },
+ "h2_hero_m": {
+  "id": "gid://shopify/MediaImage/72741876400458",
+  "alt": "A golden retriever asleep on a heated pet pad while a cat eats from a smart feeder",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-h2_hero_m.png?v=1793214188",
+  "size": [
+   1536,
+   2752
+  ]
+ },
+ "h2_evening": {
+  "id": "gid://shopify/MediaImage/72741876433226",
+  "alt": "An evening on the sofa with a heat pad, a dog asleep on its heated pad below",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-h2_evening.png?v=1793214189",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "h2_bond": {
+  "id": "gid://shopify/MediaImage/72741876465994",
+  "alt": "A senior spaniel asleep on a rose heated pet pad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-h2_bond.png?v=1793214190",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "h2_holiday": {
+  "id": "gid://shopify/MediaImage/72741876498762",
+  "alt": "A kitten peeking out of a gift-wrapped pet den by the Christmas tree",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-h2_holiday.png?v=1793214189",
+  "size": [
+   2752,
+   1536
+  ]
+ },
+ "h2_c_comfort": {
+  "id": "gid://shopify/MediaImage/72741876531530",
+  "alt": "Heated pads stacked on an oak bench",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-h2_c_comfort.png?v=1793214189",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "h2_hero": {
+  "id": "gid://shopify/MediaImage/72741926797642",
+  "alt": "A golden retriever asleep on a heated pet pad while a cat eats from a smart feeder in a warm living room",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-h2_hero.png?v=1793214263",
+  "size": [
+   2752,
+   1536
+  ]
+ },
+ "h2_morning": {
+  "id": "gid://shopify/MediaImage/72741926830410",
+  "alt": "A cat eating from a smart camera feeder next to a pet fountain as its owner heads out",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-h2_morning.png?v=1793214263",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "h2_c_tech": {
+  "id": "gid://shopify/MediaImage/72741926863178",
+  "alt": "Smart pet tech: camera feeder, fountain, smart tag and laser toy",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-h2_c_tech.png?v=1793214263",
+  "size": [
+   1856,
+   2304
+  ]
  }
 }

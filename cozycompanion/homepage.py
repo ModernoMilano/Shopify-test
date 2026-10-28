@@ -37,8 +37,8 @@ b, o = blocks(
               "block_order": ["a", "b"]}),
 )
 add("hero", {"type": "hero", "blocks": b, "block_order": o, "settings": {
-    "media_type_1": "image", "image_1": img("hero"), "content_direction": "column",
-    "custom_mobile_media": True, "media_type_1_mobile": "image", "image_1_mobile": img("hero_m"),
+    "media_type_1": "image", "image_1": img("h2_hero"), "content_direction": "column",
+    "custom_mobile_media": True, "media_type_1_mobile": "image", "image_1_mobile": img("h2_hero_m"),
     "horizontal_alignment_flex_direction_column": "flex-start", "vertical_alignment_flex_direction_column": "center",
     "gap": 20, "section_width": "full-width", "section_height": "large",
     "toggle_overlay": True, "overlay_style": "gradient", "gradient_direction": "to top", "overlay_color": "#1a1a1a8c",
@@ -71,7 +71,7 @@ add("collections", {"type": "collection-list", "blocks": {
                         "padding-inline-start": 14, "padding-inline-end": 14}}},
         "block_order": ["collection-title"]}},
     "block_order": ["header"],
-    "settings": {"collection_list": ["cozy-heated-blankets", "smart-pet-tech", "holiday-gift-guide", "bundle-deals"],
+    "settings": {"collection_list": ["smart-pet-tech", "cozy-heated-blankets", "holiday-gift-guide", "bundle-deals"],
                  "layout_type": "grid", "columns": 4, "mobile_columns": "2", "columns_gap": 12, "rows_gap": 12,
                  "carousel_on_mobile": True, "mobile_card_size": "60cqw",
                  "section_width": "page-width", "background_color": CREAM,
@@ -105,7 +105,7 @@ def editorial(image, pos, eyebrow, heading, body, label, link, bg):
                                    "body": text(body, "rte", max_width="narrow"),
                                    "cta": button(label, link, "button-secondary")},
                         "block_order": ["eyebrow", "heading", "body", "cta"]}}}
-add("story", editorial("l7", "left", "Chapter II &middot; The evening ritual", "The art of slowing down.",
+add("story", editorial("h2_evening", "left", "Chapter II &middot; The evening ritual", "The art of slowing down.",
     "<p>CozyCompanion began with a simple idea: the best moments at home are the quiet ones. A warm blanket, a soft light, a companion curled up beside you.</p><p>We curate pieces that make those moments easier to come by: gentle warmth for chilly evenings and smart essentials that care for your pets, even when you can't be there.</p>",
     "Discover our story", "shopify://pages/about", SAND))
 
@@ -130,16 +130,16 @@ add("promise", {"type": "section", "blocks": {"head": text("<h2>The CozyCompanio
     "content_direction": "column", "gap": 28, "section_width": "page-width", "background_color": CREAM,
     "horizontal_alignment_flex_direction_column": "center", "padding-block-start": 56, "padding-block-end": 56}})
 
-add("chapter2", editorial("s_morning", "right", "Chapter I &middot; Care, even when you're away", "Peace of mind, quietly automated.",
+add("chapter2", editorial("h2_morning", "right", "Chapter I &middot; Care, even when you're away", "Peace of mind, quietly automated.",
     "<p>Long day at work? Dinner is served on time, fresh water keeps flowing, and a quick glance at your phone shows they're fine.</p><p>Our smart pet essentials take care of the routine, so the time you spend together is simply time together.</p>",
     "Explore smart pet tech", "shopify://collections/smart-pet-tech", CREAM))
 add("pettech", product_list("smart-pet-tech", "Smart pet tech", "", CREAM))
-add("chapter3", editorial("s_bond", "left", "Chapter III &middot; Warm hearts, warm paws", "Because they deserve to be cozy, too.",
+add("chapter3", editorial("h2_bond", "left", "Chapter III &middot; Warm hearts, warm paws", "Because they deserve to be cozy, too.",
     "<p>Senior dogs, small breeds and short-coated cats feel the cold first. A gentle, washable heated blanket gives them a warm place that's entirely their own, right beside yours.</p>",
     "Shop heated blankets for pets", "shopify://collections/heated-blankets-for-pets", SAND))
 
 # 8. Holiday
-add("holiday", editorial("holiday", "right", "Holiday Gift Guide", "Gifts that feel like a hug.",
+add("holiday", editorial("h2_holiday", "right", "Holiday Gift Guide", "Gifts that feel like a hug.",
     "<p>Warmth for the people you love and quiet comfort for the pets who complete the picture. Explore our most giftable pieces, all ready to be wrapped.</p>",
     "Shop the gift guide", "shopify://collections/holiday-gift-guide", CHAR))
 c = sections["holiday"]["blocks"]["content"]["blocks"]
