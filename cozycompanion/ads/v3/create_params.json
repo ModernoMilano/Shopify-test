@@ -1,0 +1,392 @@
+[
+ {
+  "adset_id": "120246810964710609",
+  "name": "COLLECTIONS | v3 C1 sorry_wear",
+  "status": "active",
+  "creative": {
+   "name": "v3_sorry_wear",
+   "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=v3_sorry_wear",
+   "degrees_of_freedom_spec": {
+    "creative_features_spec": {
+     "text_optimizations": {
+      "enroll_status": "OPT_OUT"
+     },
+     "inline_comment": {
+      "enroll_status": "OPT_OUT"
+     },
+     "enhance_cta": {
+      "enroll_status": "OPT_OUT"
+     },
+     "add_text_overlay": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_animation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_templates": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_uncrop": {
+      "enroll_status": "OPT_OUT"
+     },
+     "product_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "site_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "description_automation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_touchups": {
+      "enroll_status": "OPT_IN"
+     },
+     "image_brightness_and_contrast": {
+      "enroll_status": "OPT_IN"
+     }
+    }
+   },
+   "object_story_spec": {
+    "page_id": "1411553698703314",
+    "link_data": {
+     "link": "https://cozycompanion.us/collections/wear-walk",
+     "picture": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v3f_wear-walk.jpg",
+     "message": "Sorry, not sorry. 🧥\nQuilted jackets, knit hoods, paw boots and hands-free leashes: the Wear & Walk edit has everything for cold-weather walks in one place.\nTake 15% off your first order with code COZY15.",
+     "name": "The Wear & Walk edit",
+     "description": "Jackets, boots, harnesses & leashes",
+     "call_to_action": {
+      "type": "SHOP_NOW",
+      "value": {
+       "link": "https://cozycompanion.us/collections/wear-walk"
+      }
+     }
+    }
+   }
+  }
+ },
+ {
+  "adset_id": "120246810964710609",
+  "name": "COLLECTIONS | v3 C2 nap_sleep",
+  "status": "active",
+  "creative": {
+   "name": "v3_nap_sleep",
+   "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=v3_nap_sleep",
+   "degrees_of_freedom_spec": {
+    "creative_features_spec": {
+     "text_optimizations": {
+      "enroll_status": "OPT_OUT"
+     },
+     "inline_comment": {
+      "enroll_status": "OPT_OUT"
+     },
+     "enhance_cta": {
+      "enroll_status": "OPT_OUT"
+     },
+     "add_text_overlay": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_animation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_templates": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_uncrop": {
+      "enroll_status": "OPT_OUT"
+     },
+     "product_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "site_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "description_automation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_touchups": {
+      "enroll_status": "OPT_IN"
+     },
+     "image_brightness_and_contrast": {
+      "enroll_status": "OPT_IN"
+     }
+    }
+   },
+   "object_story_spec": {
+    "page_id": "1411553698703314",
+    "link_data": {
+     "link": "https://cozycompanion.us/collections/beds-dens",
+     "picture": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v3f_beds-dens.jpg",
+     "message": "They're not getting up. 😴\nMemory foam, soft bolsters and deep round nests for the long afternoon nap. Shop the Sleep & Lounge edit: beds, dens and cat trees for dogs and cats.\n15% off your first order with code COZY15.",
+     "name": "They're not getting up.",
+     "description": "Beds, dens & cat trees",
+     "call_to_action": {
+      "type": "SHOP_NOW",
+      "value": {
+       "link": "https://cozycompanion.us/collections/beds-dens"
+      }
+     }
+    }
+   }
+  }
+ },
+ {
+  "adset_id": "120246810964710609",
+  "name": "COLLECTIONS | v3 C3 notes_cats",
+  "status": "active",
+  "creative": {
+   "name": "v3_notes_cats",
+   "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=v3_notes_cats",
+   "degrees_of_freedom_spec": {
+    "creative_features_spec": {
+     "text_optimizations": {
+      "enroll_status": "OPT_OUT"
+     },
+     "inline_comment": {
+      "enroll_status": "OPT_OUT"
+     },
+     "enhance_cta": {
+      "enroll_status": "OPT_OUT"
+     },
+     "add_text_overlay": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_animation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_templates": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_uncrop": {
+      "enroll_status": "OPT_OUT"
+     },
+     "product_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "site_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "description_automation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_touchups": {
+      "enroll_status": "OPT_IN"
+     },
+     "image_brightness_and_contrast": {
+      "enroll_status": "OPT_IN"
+     }
+    }
+   },
+   "object_story_spec": {
+    "page_id": "1411553698703314",
+    "link_data": {
+     "link": "https://cozycompanion.us/collections/cats",
+     "picture": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v3f_cats.jpg",
+     "message": "She has a list. ✔️\nWindow teasers, designer scratchers, catnip and a cat tree that actually looks good in your living room. It's all in the For Cats edit.\n15% off your first order: COZY15.",
+     "name": "Everything she'll claim as hers",
+     "description": "Toys, scratchers, beds & trees",
+     "call_to_action": {
+      "type": "SHOP_NOW",
+      "value": {
+       "link": "https://cozycompanion.us/collections/cats"
+      }
+     }
+    }
+   }
+  }
+ },
+ {
+  "adset_id": "120246810964710609",
+  "name": "COLLECTIONS | v3 C4 spa_groom",
+  "status": "active",
+  "creative": {
+   "name": "v3_spa_groom",
+   "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=v3_spa_groom",
+   "degrees_of_freedom_spec": {
+    "creative_features_spec": {
+     "text_optimizations": {
+      "enroll_status": "OPT_OUT"
+     },
+     "inline_comment": {
+      "enroll_status": "OPT_OUT"
+     },
+     "enhance_cta": {
+      "enroll_status": "OPT_OUT"
+     },
+     "add_text_overlay": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_animation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_templates": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_uncrop": {
+      "enroll_status": "OPT_OUT"
+     },
+     "product_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "site_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "description_automation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_touchups": {
+      "enroll_status": "OPT_IN"
+     },
+     "image_brightness_and_contrast": {
+      "enroll_status": "OPT_IN"
+     }
+    }
+   },
+   "object_story_spec": {
+    "page_id": "1411553698703314",
+    "link_data": {
+     "link": "https://cozycompanion.us/collections/groom-clean",
+     "picture": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v3f_groom-clean.jpg",
+     "message": "Spa day, without the appointment. 🛁\nVacuum grooming kits, quiet cordless clippers, nail grinders and hair removers: the Groom & Clean edit keeps coats tidy and hair off your floor.\nTake 15% off your first order with code COZY15.",
+     "name": "Spa day. At home.",
+     "description": "Grooming & cleaning essentials",
+     "call_to_action": {
+      "type": "SHOP_NOW",
+      "value": {
+       "link": "https://cozycompanion.us/collections/groom-clean"
+      }
+     }
+    }
+   }
+  }
+ },
+ {
+  "adset_id": "120246810964710609",
+  "name": "COLLECTIONS | v3 C5 note_dine",
+  "status": "active",
+  "creative": {
+   "name": "v3_note_dine",
+   "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=v3_note_dine",
+   "degrees_of_freedom_spec": {
+    "creative_features_spec": {
+     "text_optimizations": {
+      "enroll_status": "OPT_OUT"
+     },
+     "inline_comment": {
+      "enroll_status": "OPT_OUT"
+     },
+     "enhance_cta": {
+      "enroll_status": "OPT_OUT"
+     },
+     "add_text_overlay": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_animation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_templates": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_uncrop": {
+      "enroll_status": "OPT_OUT"
+     },
+     "product_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "site_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "description_automation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_touchups": {
+      "enroll_status": "OPT_IN"
+     },
+     "image_brightness_and_contrast": {
+      "enroll_status": "OPT_IN"
+     }
+    }
+   },
+   "object_story_spec": {
+    "page_id": "1411553698703314",
+    "link_data": {
+     "link": "https://cozycompanion.us/collections/smart-feeding",
+     "picture": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v3f_smart-feeding.jpg",
+     "message": "Dinner, but make it a game. 🐾\nPuzzle feeders, lick mats and treat balls slow down fast eaters and keep busy minds happy. Explore the Dine & Drink edit, from bowls to fountains.\n15% off your first order with code COZY15.",
+     "name": "Dinner, slowed down.",
+     "description": "Bowls, feeders & fountains",
+     "call_to_action": {
+      "type": "SHOP_NOW",
+      "value": {
+       "link": "https://cozycompanion.us/collections/smart-feeding"
+      }
+     }
+    }
+   }
+  }
+ },
+ {
+  "adset_id": "120246810964710609",
+  "name": "COLLECTIONS | v3 C6 packed_travel",
+  "status": "active",
+  "creative": {
+   "name": "v3_packed_travel",
+   "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=v3_packed_travel",
+   "degrees_of_freedom_spec": {
+    "creative_features_spec": {
+     "text_optimizations": {
+      "enroll_status": "OPT_OUT"
+     },
+     "inline_comment": {
+      "enroll_status": "OPT_OUT"
+     },
+     "enhance_cta": {
+      "enroll_status": "OPT_OUT"
+     },
+     "add_text_overlay": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_animation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_templates": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_uncrop": {
+      "enroll_status": "OPT_OUT"
+     },
+     "product_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "site_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "description_automation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_touchups": {
+      "enroll_status": "OPT_IN"
+     },
+     "image_brightness_and_contrast": {
+      "enroll_status": "OPT_IN"
+     }
+    }
+   },
+   "object_story_spec": {
+    "page_id": "1411553698703314",
+    "link_data": {
+     "link": "https://cozycompanion.us/collections/pet-travel",
+     "picture": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v3f_pet-travel.jpg",
+     "message": "Packed for two. 🚙\nCarriers, car booster seats and folding pet stairs for weekend trips with your favorite co-pilot. Shop the Travel edit.\nTracked shipping and 30-day returns. 15% off your first order: COZY15.",
+     "name": "Packed for two.",
+     "description": "Carriers, car seats & stairs",
+     "call_to_action": {
+      "type": "SHOP_NOW",
+      "value": {
+       "link": "https://cozycompanion.us/collections/pet-travel"
+      }
+     }
+    }
+   }
+  }
+ }
+]

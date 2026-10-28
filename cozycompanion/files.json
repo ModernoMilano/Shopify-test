@@ -5173,5 +5173,149 @@
    1600,
    2400
   ]
+ },
+ "adraw3_wear-walk": {
+  "id": "gid://shopify/MediaImage/72745359114570",
+  "alt": "Wear & Walk",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-adraw3_wear-walk.png?v=1793230923",
+  "size": [
+   1536,
+   2752
+  ]
+ },
+ "adraw3_beds-dens": {
+  "id": "gid://shopify/MediaImage/72745359147338",
+  "alt": "Sleep & Lounge",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-adraw3_beds-dens.png?v=1793230923",
+  "size": [
+   1536,
+   2752
+  ]
+ },
+ "adraw3_cats": {
+  "id": "gid://shopify/MediaImage/72745359180106",
+  "alt": "For Cats",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-adraw3_cats.png?v=1793230922",
+  "size": [
+   1536,
+   2752
+  ]
+ },
+ "adraw3_groom-clean": {
+  "id": "gid://shopify/MediaImage/72745359212874",
+  "alt": "Groom & Clean",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-adraw3_groom-clean.png?v=1793230923",
+  "size": [
+   1536,
+   2752
+  ]
+ },
+ "adraw3_smart-feeding": {
+  "id": "gid://shopify/MediaImage/72745359245642",
+  "alt": "Dine & Drink",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-adraw3_smart-feeding.png?v=1793230923",
+  "size": [
+   1536,
+   2752
+  ]
+ },
+ "adraw3_pet-travel": {
+  "id": "gid://shopify/MediaImage/72745359278410",
+  "alt": "Travel",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-adraw3_pet-travel.png?v=1793230923",
+  "size": [
+   1536,
+   2752
+  ]
+ },
+ "adsq3_beds-dens": {
+  "id": "gid://shopify/MediaImage/72745389293898",
+  "alt": "Sleep & Lounge",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-adsq3_beds-dens.png?v=1793231185",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "adsq3_cats": {
+  "id": "gid://shopify/MediaImage/72745389326666",
+  "alt": "For Cats",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-adsq3_cats.png?v=1793231184",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "adout3_cats": {
+  "id": "gid://shopify/MediaImage/72745389359434",
+  "alt": "For Cats",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-adout3_cats.png?v=1793231185",
+  "size": [
+   1536,
+   2752
+  ]
+ },
+ "v3f_wear-walk": {
+  "id": "gid://shopify/MediaImage/72745394471242",
+  "alt": "CozyCompanion wear-walk edit",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v3f_wear-walk.jpg?v=1793231287",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "v3f_cats": {
+  "id": "gid://shopify/MediaImage/72745394995530",
+  "alt": "CozyCompanion cats edit",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v3f_cats.jpg?v=1793231290",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "v3f_groom-clean": {
+  "id": "gid://shopify/MediaImage/72745395257674",
+  "alt": "CozyCompanion groom-clean edit",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v3f_groom-clean.jpg?v=1793231294",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "v3f_smart-feeding": {
+  "id": "gid://shopify/MediaImage/72745395454282",
+  "alt": "CozyCompanion smart-feeding edit",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v3f_smart-feeding.jpg?v=1793231298",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "v3f_pet-travel": {
+  "id": "gid://shopify/MediaImage/72745395650890",
+  "alt": "CozyCompanion pet-travel edit",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v3f_pet-travel.jpg?v=1793231304",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "adout3_beds-dens": {
+  "id": "gid://shopify/MediaImage/72745400893770",
+  "alt": "Sleep & Lounge",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-adout3_beds-dens.png?v=1793231387",
+  "size": [
+   1536,
+   2752
+  ]
+ },
+ "v3f_beds-dens": {
+  "id": "gid://shopify/MediaImage/72745404432714",
+  "alt": "CozyCompanion Sleep & Lounge edit",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v3f_beds-dens.jpg?v=1793231434",
+  "size": [
+   1080,
+   1920
+  ]
  }
 }

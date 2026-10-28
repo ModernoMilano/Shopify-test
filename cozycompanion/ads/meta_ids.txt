@@ -3,3 +3,7 @@ campaign 120246807406500609; adsets nestle 120246807462090609 roam 1202468074635
 v2 ads (active, 2026-10-28): N1 sorry_nestle 120246809238470609 | N4 notes_glance 120246809242830609 | N5 texts_nestle 120246809245360609 | N6 bold_roam 120246809245960609 | N7 pov_glance 120246809247240609 | N8 unbox_nestle 120246809248060609 | N9 reasons_roam 120246809248970609
 paused v1 (replaced): A3 nestle_3_thermo, A4 nestle_4_lap, A5 nestle_5_safe, A6 roam_1_bed, A9 roam_4_flat, A12 glance_2_6am, A15 glance_5_watch
 paused 2026-10-28 (price in copy no longer matches shop): A7 roam_2_mud, A8 roam_3_trip, A10 roam_5_before, A11 glance_1_late, A13 glance_3_away, A14 glance_4_two
+v3 collection ads (active, 2026-10-28), ad set USA | COLLECTIONS | Advantage+ | PURCHASE 120246810964710609 (copy of the Roam ad set, CBO):
+  C1 sorry_wear 120246810994220609 → /collections/wear-walk | C2 nap_sleep 120246811008290609 → /collections/beds-dens
+  C3 notes_cats 120246810998900609 → /collections/cats | C4 spa_groom 120246811000330609 → /collections/groom-clean
+  C5 note_dine 120246811001470609 → /collections/smart-feeding | C6 packed_travel 120246811002030609 → /collections/pet-travel
