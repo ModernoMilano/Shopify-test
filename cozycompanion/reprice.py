@@ -117,3 +117,24 @@ for p in d["products"]["nodes"]:
                   {"pid": p["id"], "v": upd})["productVariantsBulkUpdate"], p["title"])
     changes += len(upd)
 print(f"{'would change' if DRY else 'changed'} {changes} variant prices")
+
+# Compare-at ("was") prices: owner's choice (2026-10-28), made after being told about the FTC / state-law
+# risk of reference prices that were never charged. 30% off on the cheapest items up to 50% from $200,
+# as clean whole numbers like the prices themselves.
+def compare_at(price):
+    d = 0.30 + 0.20 * min(max((price - 25) / (200 - 25), 0), 1)
+    return nice(price / (1 - d))
+
+cmp_changes = 0
+for p in d["products"]["nodes"]:
+    fresh = gql("query($id:ID!){product(id:$id){variants(first:100){nodes{id price compareAtPrice}}}}", {"id": p["id"]})["product"]["variants"]["nodes"]
+    upd = []
+    for v in fresh:
+        want = compare_at(float(v["price"]))
+        if v["compareAtPrice"] is None or abs(float(v["compareAtPrice"]) - want) > 0.001:
+            upd.append({"id": v["id"], "compareAtPrice": f"{want:.2f}"})
+    if upd and not DRY:
+        check(gql("mutation($pid:ID!,$v:[ProductVariantsBulkInput!]!){productVariantsBulkUpdate(productId:$pid,variants:$v){userErrors{field message}}}",
+                  {"pid": p["id"], "v": upd})["productVariantsBulkUpdate"], p["title"])
+    cmp_changes += len(upd)
+print(f"{'would change' if DRY else 'changed'} {cmp_changes} compare-at prices")

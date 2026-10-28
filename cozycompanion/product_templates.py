@@ -30,7 +30,7 @@ def accordion(rows):
     return {"type": "accordion", "settings": {"icon": "plus", "dividers": True, "divider_color": LINE, "type_preset": "h6"},
             "blocks": blocks, "block_order": order}
 
-def build(kind):
+def build(kind, size_guide=None):
     """Tight product page: title, stars, price, 3 highlights, options, add to cart, one trust row,
     payment icons, then everything else folded into an accordion. Below: one short story band and
     recommendations."""
@@ -68,17 +68,20 @@ def build(kind):
     care = ("<p>Follow the care label and included instructions. Disconnect the controller before washing; "
             "never use it folded while switched on.</p>") if kind == "blanket" else \
            ("<p>Setup and power details are in the description and the included guide. Clean regularly with a soft cloth.</p>")
-    size = ("<p><strong>Coats, sweaters &amp; harnesses:</strong> measure your pet's neck, chest (the widest part, just behind the front legs) "
-            "and back length (base of the neck to base of the tail) with a soft tape. Compare with the sizes on this page; between two sizes, choose the larger one.</p>"
-            "<p><strong>Beds &amp; blankets:</strong> measure your pet lying stretched out, nose to tail, and add 6&ndash;10 in.</p>"
-            "<p>Not sure? Email us at <a href=\"mailto:cozycompanion.us@gmail.com\">cozycompanion.us@gmail.com</a> and we'll help you choose.</p>")
+    help_line = "<p>Not sure? Email us at <a href=\"mailto:cozycompanion.us@gmail.com\">cozycompanion.us@gmail.com</a> and we'll help you choose.</p>"
+    guides = {
+        "apparel": ("<p>Measure your pet's neck, chest (the widest part, just behind the front legs) and back length "
+                    "(base of the neck to base of the tail) with a soft tape. Compare with the sizes on this page; between two sizes, choose the larger one.</p>" + help_line),
+        "bed": ("<p>Measure your pet lying stretched out, nose to tail, and add 6&ndash;10 in. Curlers can go a size smaller, "
+                "stretchers a size bigger. Compare with the sizes on this page.</p>" + help_line),
+    }
     faq = ("<p><strong>When will my order arrive?</strong><br>Orders are prepared in 1&ndash;3 business days and delivered across the US in 5&ndash;12 business days, with tracking.</p>"
            "<p><strong>What if it doesn't fit or they don't love it?</strong><br>Return it unused within 30 days for a full refund under our happiness guarantee.</p>"
            "<p><strong>Is it suitable for my dog or cat?</strong><br>Check the sizes and details above. Always supervise pets with new toys and accessories at first.</p>"
            "<p><strong>Do you have a welcome offer?</strong><br>Yes: join the Cozy Circle and get 15% off your first order with code COZY15.</p>")
-    B["info"] = accordion([
-        ("Description", "{{ closest.product.description }}"),
-        ("Size &amp; fit", size),
+    rows = [("Description", "{{ closest.product.description }}")]
+    if size_guide: rows.append(("Size &amp; fit", guides[size_guide]))   # only on products that come in sizes
+    B["info"] = accordion(rows + [
         ("Shipping", "<p>Dispatched in 1&ndash;3 business days with tracking. Delivery across the US in 5&ndash;12 business days. Free tracked shipping on orders over $150. <a href=\"/pages/shipping\">Details</a></p>"),
         ("30-day returns", "<p>Not in love? Return it unused within 30 days for a full refund. <a href=\"/pages/returns\">How it works</a></p>"),
         ("Care &amp; safety" if kind == "blanket" else "Setup &amp; care", care),
@@ -119,4 +122,25 @@ def build(kind):
     return (HEADER + "\n" + json.dumps(d, indent=2)).replace("You may also like ", "Pairs well with").replace("<h3>Complete the ritual</h3>", "<h3>Pairs well with</h3>")
 
 print(put_theme_files({"templates/product.blanket.json": build("blanket"),
-                       "templates/product.pettech.json": build("pettech")}))
+                       "templates/product.pettech.json": build("pettech"),
+                       "templates/product.apparel.json": build("pettech", "apparel"),
+                       "templates/product.bed.json": build("pettech", "bed")}))
+
+# Which template each product uses: a size guide only where the product actually comes in sizes
+from lib import gql, check
+after = None
+while True:
+    r = gql("""query($a:String){products(first:100,after:$a,query:"-status:archived"){nodes{id handle tags templateSuffix
+               options{name optionValues{name}}} pageInfo{hasNextPage endCursor}}}""", {"a": after})["products"]
+    for p in r["nodes"]:
+        if p["templateSuffix"] == "blanket": continue
+        sized = any(o["name"].lower().startswith("size") and len(o["optionValues"]) > 1 for o in p["options"])
+        tags = set(p["tags"])
+        want = ("apparel" if sized and tags & {"wear", "walk"} else
+                "bed" if sized and "beds-dens" in tags else "pettech")
+        if p["templateSuffix"] != want:
+            check(gql("mutation($p:ProductUpdateInput!){productUpdate(product:$p){userErrors{field message}}}",
+                      {"p": {"id": p["id"], "templateSuffix": want}})["productUpdate"], p["handle"])
+            print(f"  {p['handle']}: {p['templateSuffix']} -> {want}")
+    if not r["pageInfo"]["hasNextPage"]: break
+    after = r["pageInfo"]["endCursor"]

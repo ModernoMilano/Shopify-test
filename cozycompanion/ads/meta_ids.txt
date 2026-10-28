@@ -2,3 +2,4 @@ ads: 120246808143820609 120246808144630609 120246808145020609 120246808146480609
 campaign 120246807406500609; adsets nestle 120246807462090609 roam 120246807463540609 glance 120246807464400609
 v2 ads (active, 2026-10-28): N1 sorry_nestle 120246809238470609 | N4 notes_glance 120246809242830609 | N5 texts_nestle 120246809245360609 | N6 bold_roam 120246809245960609 | N7 pov_glance 120246809247240609 | N8 unbox_nestle 120246809248060609 | N9 reasons_roam 120246809248970609
 paused v1 (replaced): A3 nestle_3_thermo, A4 nestle_4_lap, A5 nestle_5_safe, A6 roam_1_bed, A9 roam_4_flat, A12 glance_2_6am, A15 glance_5_watch
+paused 2026-10-28 (price in copy no longer matches shop): A7 roam_2_mud, A8 roam_3_trip, A10 roam_5_before, A11 glance_1_late, A13 glance_3_away, A14 glance_4_two

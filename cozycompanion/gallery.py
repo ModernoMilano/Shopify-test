@@ -84,6 +84,8 @@ GALLERIES = {
     "breeze-pet-grooming-dryer": ["z_breeze_pack", "z_breeze_dog"],
     "ascend-acacia-pet-stairs-ramp": ["z_ascend_pack", "z_ascend_dog"],
     "dream-memory-foam-dog-bed": ["z_dream_pack", "z_dream_dog"],
+    "billow-memory-foam-bolster-bed": ["z_billow_pack", "z_billow_dog"],
+    "perch-modern-cat-tree": ["z_perch_pack", "z_perch_cats"],
 }
 # Owner's call: no supplier photos at all, not even per colour. The page opens on the selected
 # variant's photo, so a supplier shot there became the first (ugly) image. Keep this empty.

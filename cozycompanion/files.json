@@ -4390,5 +4390,401 @@
    1600,
    2400
   ]
+ },
+ "z_billow_pack": {
+  "id": "gid://shopify/MediaImage/72745170567498",
+  "alt": "Billow memory foam bolster bed",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_billow_pack.png?v=1793228715",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_perch_pack": {
+  "id": "gid://shopify/MediaImage/72745170600266",
+  "alt": "Perch modern cat tree",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_perch_pack.png?v=1793228717",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_billow_dog": {
+  "id": "gid://shopify/MediaImage/72745170633034",
+  "alt": "A Samoyed asleep on the Billow bed",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_billow_dog.png?v=1793228717",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_perch_cats": {
+  "id": "gid://shopify/MediaImage/72745170665802",
+  "alt": "Two cats on the Perch cat tree",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_perch_cats.png?v=1793228717",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "i_why_breeze-pet-grooming-dryer": {
+  "id": "gid://shopify/MediaImage/72745185411402",
+  "alt": "Breeze Pet Grooming Dryer: why you'll love it",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-i_why_breeze-pet-grooming-dryer.jpg?v=1793228992",
+  "size": [
+   1600,
+   2400
+  ]
+ },
+ "i_det_breeze-pet-grooming-dryer": {
+  "id": "gid://shopify/MediaImage/72745185575242",
+  "alt": "Breeze Pet Grooming Dryer: the details",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-i_det_breeze-pet-grooming-dryer.jpg?v=1793228997",
+  "size": [
+   1600,
+   2400
+  ]
+ },
+ "i_why_ascend-acacia-pet-stairs-ramp": {
+  "id": "gid://shopify/MediaImage/72745185771850",
+  "alt": "Ascend Acacia Pet Stairs & Ramp: why you'll love it",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-i_why_ascend-acacia-pet-stairs-ramp.jpg?v=1793229003",
+  "size": [
+   1600,
+   2400
+  ]
+ },
+ "i_det_ascend-acacia-pet-stairs-ramp": {
+  "id": "gid://shopify/MediaImage/72745185870154",
+  "alt": "Ascend Acacia Pet Stairs & Ramp: the details",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-i_det_ascend-acacia-pet-stairs-ramp.jpg?v=1793229008",
+  "size": [
+   1600,
+   2400
+  ]
+ },
+ "i_why_dream-memory-foam-dog-bed": {
+  "id": "gid://shopify/MediaImage/72745186328906",
+  "alt": "Dream Memory Foam Dog Bed: why you'll love it",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-i_why_dream-memory-foam-dog-bed.jpg?v=1793229016",
+  "size": [
+   1600,
+   2400
+  ]
+ },
+ "i_det_dream-memory-foam-dog-bed": {
+  "id": "gid://shopify/MediaImage/72745186394442",
+  "alt": "Dream Memory Foam Dog Bed: the details",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-i_det_dream-memory-foam-dog-bed.jpg?v=1793229020",
+  "size": [
+   1600,
+   2400
+  ]
+ },
+ "i_why_billow-memory-foam-bolster-bed": {
+  "id": "gid://shopify/MediaImage/72745186492746",
+  "alt": "Billow Memory Foam Bolster Bed: why you'll love it",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-i_why_billow-memory-foam-bolster-bed.jpg?v=1793229027",
+  "size": [
+   1600,
+   2400
+  ]
+ },
+ "i_det_billow-memory-foam-bolster-bed": {
+  "id": "gid://shopify/MediaImage/72745186591050",
+  "alt": "Billow Memory Foam Bolster Bed: the details",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-i_det_billow-memory-foam-bolster-bed.jpg?v=1793229031",
+  "size": [
+   1600,
+   2400
+  ]
+ },
+ "i_why_perch-modern-cat-tree": {
+  "id": "gid://shopify/MediaImage/72745186885962",
+  "alt": "Perch Modern Cat Tree: why you'll love it",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-i_why_perch-modern-cat-tree.jpg?v=1793229041",
+  "size": [
+   1600,
+   2400
+  ]
+ },
+ "i_det_perch-modern-cat-tree": {
+  "id": "gid://shopify/MediaImage/72745187213642",
+  "alt": "Perch Modern Cat Tree: the details",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-i_det_perch-modern-cat-tree.jpg?v=1793229046",
+  "size": [
+   1600,
+   2400
+  ]
+ },
+ "z_dream_detail": {
+  "id": "gid://shopify/MediaImage/72745234104650",
+  "alt": "Close-up detail of the Dream memory foam bed",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_dream_detail.png?v=1793229737",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_ascend_detail": {
+  "id": "gid://shopify/MediaImage/72745234137418",
+  "alt": "Close-up detail of the Ascend pet stairs",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_ascend_detail.png?v=1793229737",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_fetch_detail": {
+  "id": "gid://shopify/MediaImage/72745234170186",
+  "alt": "Close-up detail of the Fetch ball launcher",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_fetch_detail.png?v=1793229736",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_billow_detail": {
+  "id": "gid://shopify/MediaImage/72745234202954",
+  "alt": "Close-up detail of the Billow bolster bed",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_billow_detail.png?v=1793229737",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_perch_detail": {
+  "id": "gid://shopify/MediaImage/72745234235722",
+  "alt": "Close-up detail of the Perch cat tree",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_perch_detail.png?v=1793229737",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_frost_detail": {
+  "id": "gid://shopify/MediaImage/72745234268490",
+  "alt": "Close-up detail of the Frost winter jacket",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_frost_detail.png?v=1793229738",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_jetset_detail": {
+  "id": "gid://shopify/MediaImage/72745234301258",
+  "alt": "Close-up detail of the Jetset carrier",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_jetset_detail.png?v=1793229738",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_breeze_detail": {
+  "id": "gid://shopify/MediaImage/72745234334026",
+  "alt": "Close-up detail of the Breeze grooming dryer",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_breeze_detail.png?v=1793229736",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_pounce_detail": {
+  "id": "gid://shopify/MediaImage/72745234366794",
+  "alt": "Close-up detail of the Pounce cat toy",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_pounce_detail.png?v=1793229736",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_snug_detail": {
+  "id": "gid://shopify/MediaImage/72745234399562",
+  "alt": "Close-up detail of the Snug sherpa blanket",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_snug_detail.png?v=1793229736",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_splash_detail": {
+  "id": "gid://shopify/MediaImage/72745234432330",
+  "alt": "Close-up detail of the Splash bathrobe",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_splash_detail.png?v=1793229736",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_mistle_detail": {
+  "id": "gid://shopify/MediaImage/72745234465098",
+  "alt": "Close-up detail of the Mistle knit hood",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_mistle_detail.png?v=1793229736",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_polish_detail": {
+  "id": "gid://shopify/MediaImage/72745234497866",
+  "alt": "Close-up detail of the Polish nail grinder",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_polish_detail.png?v=1793229735",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_flit_detail": {
+  "id": "gid://shopify/MediaImage/72745234530634",
+  "alt": "Close-up detail of the Flit bird toy",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_flit_detail.png?v=1793229736",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_wiggle_detail": {
+  "id": "gid://shopify/MediaImage/72745234563402",
+  "alt": "Close-up detail of the Wiggle window teaser",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_wiggle_detail.png?v=1793229736",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_buddy_detail": {
+  "id": "gid://shopify/MediaImage/72745234596170",
+  "alt": "Close-up detail of the Buddy plush toy",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_buddy_detail.png?v=1793229737",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_burrow_detail": {
+  "id": "gid://shopify/MediaImage/72745234628938",
+  "alt": "Close-up detail of the Burrow pet bed",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_burrow_detail.png?v=1793229736",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_dapper_detail": {
+  "id": "gid://shopify/MediaImage/72745234661706",
+  "alt": "Close-up detail of the Dapper bow tie",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_dapper_detail.png?v=1793229737",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_fin_detail": {
+  "id": "gid://shopify/MediaImage/72745234694474",
+  "alt": "Close-up detail of the Fin life jacket",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_fin_detail.png?v=1793229736",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_stride_detail": {
+  "id": "gid://shopify/MediaImage/72745234727242",
+  "alt": "Close-up detail of the Stride harness",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_stride_detail.png?v=1793229737",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_plume_detail": {
+  "id": "gid://shopify/MediaImage/72745234760010",
+  "alt": "Close-up detail of the Plume teaser wand",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_plume_detail.png?v=1793229737",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_forage_detail": {
+  "id": "gid://shopify/MediaImage/72745234792778",
+  "alt": "Close-up detail of the Forage snuffle mat",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_forage_detail.png?v=1793229737",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_drizzle_detail": {
+  "id": "gid://shopify/MediaImage/72745234825546",
+  "alt": "Close-up detail of the Drizzle raincoat",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_drizzle_detail.png?v=1793229737",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_puddle_detail": {
+  "id": "gid://shopify/MediaImage/72745234858314",
+  "alt": "Close-up detail of the Puddle boots",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_puddle_detail.png?v=1793229736",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_tidy_detail": {
+  "id": "gid://shopify/MediaImage/72745234891082",
+  "alt": "Close-up detail of the Tidy double bowl feeder",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_tidy_detail.png?v=1793229736",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_trail_detail": {
+  "id": "gid://shopify/MediaImage/72745234923850",
+  "alt": "Close-up detail of the Trail hands-free leash",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_trail_detail.png?v=1793229736",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_sift_detail": {
+  "id": "gid://shopify/MediaImage/72745234956618",
+  "alt": "Close-up detail of the Sift litter mat",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_sift_detail.png?v=1793229736",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_beacon_detail": {
+  "id": "gid://shopify/MediaImage/72745234989386",
+  "alt": "Close-up detail of the Beacon LED light",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_beacon_detail.png?v=1793229736",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_glide_detail": {
+  "id": "gid://shopify/MediaImage/72745235022154",
+  "alt": "Close-up detail of the Glide frisbee",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_glide_detail.png?v=1793229736",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_cradle_detail": {
+  "id": "gid://shopify/MediaImage/72745235054922",
+  "alt": "Close-up detail of the Cradle sling",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_cradle_detail.png?v=1793229737",
+  "size": [
+   1696,
+   2528
+  ]
  }
 }
