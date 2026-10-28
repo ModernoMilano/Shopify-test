@@ -7,7 +7,7 @@ CO = "ModernoMilano"
 ADDR = "Midden Geestweg 4, 1861 VG Bergen, the Netherlands"
 KVK = "81346034"
 VAT = "NL003553643B29"
-EMAIL = '<a href="mailto:info@modernomilano.com">info@modernomilano.com</a>'
+EMAIL = '<a href="mailto:cozycompanion.us@gmail.com">cozycompanion.us@gmail.com</a>'
 PHONE = "+31 6 83907658"
 UPDATED = "October 28, 2026"
 CONTACT = '<a href="/pages/contact">contact page</a>'
@@ -67,7 +67,7 @@ PAGES["faq"] = ("Frequently Asked Questions", f"""
 <p>Enter your code in the discount field at checkout. Our Bundle &amp; Save offer (10% off when you buy 2 or more items) is applied automatically in your cart.</p>
 
 <h2>Still have a question?</h2>
-<p>We're happy to help. Send us a message through our {CONTACT} and we'll get back to you within 1&ndash;2 business days.</p>
+<p>We're happy to help. Email us at {EMAIL} or send a message through our {CONTACT}, and we'll get back to you within 1&ndash;2 business days.</p>
 """)
 
 PAGES["shipping"] = ("Shipping Policy", f"""
@@ -214,8 +214,8 @@ for handle, (title, body) in PAGES.items():
 # Contact page intro (the theme renders the form below the body)
 cid = existing.get("contact")
 if cid:
-    body = ("<p>We'd love to hear from you. Whether you have a question about a product, your order or a return, "
-            "send us a message below and we'll get back to you within 1&ndash;2 business days.</p>"
+    body = (f"<p>We'd love to hear from you. Whether you have a question about a product, your order or a return, "
+            "send us a message below or email us at {EMAIL} and we'll get back to you within 1&ndash;2 business days.</p>"
             "<p>Before you write, you may find your answer in our <a href=\"/pages/faq\">FAQ</a>.</p>")
     check(gql("mutation($id:ID!,$p:PageUpdateInput!){pageUpdate(id:$id,page:$p){page{handle} userErrors{field message}}}",
               {"id": cid, "p": {"title": "Contact us", "body": body}})["pageUpdate"], "contact")
