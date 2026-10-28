@@ -26,8 +26,8 @@ def check(x, y, s):
     d.ellipse((x, y, x + s, y + s), fill=ROSE)
     d.line([(x + s*0.27, y + s*0.52), (x + s*0.44, y + s*0.68), (x + s*0.74, y + s*0.34)], fill=WHITE, width=4*S, joint="curve")
 
-items = [(lock, "Secure checkout"), (truck, "Tracked US shipping"), (check, "PayPal & cards")]
-f = F("Jost-500.ttf", 30 * S); ic = 30 * S; gap_i = 11 * S; gap = 44 * S
+items = [(lock, "Secure checkout"), (truck, "Tracked worldwide shipping"), (check, "PayPal & cards")]
+f = F("Jost-500.ttf", 27 * S); ic = 27 * S; gap_i = 10 * S; gap = 36 * S
 widths = [ic + gap_i + d.textlength(t, font=f) for _, t in items]
 x = (W - (sum(widths) + gap * (len(items) - 1))) / 2
 for (fn, t), w in zip(items, widths):
