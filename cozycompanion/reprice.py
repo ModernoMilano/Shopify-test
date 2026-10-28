@@ -11,9 +11,10 @@ import sys, os, json, math, subprocess
 S = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, S)
 
 # fresh token every run (tokens last 24h)
-subprocess.run(["curl", "-s", "-X", "POST", f"https://{os.environ['COZY_SHOPIFY_DOMAIN']}/admin/oauth/access_token",
-                "-H", "Content-Type: application/x-www-form-urlencoded", "-o", os.path.join(S, "tok.json"),
+subprocess.run(["curl", "-sf", "--retry", "4", "--retry-all-errors", "--retry-delay", "5", "-X", "POST", f"https://{os.environ['COZY_SHOPIFY_DOMAIN']}/admin/oauth/access_token",
+                "-H", "Content-Type: application/x-www-form-urlencoded", "-o", os.path.join(S, "tok.new"),
                 "-d", f"grant_type=client_credentials&client_id={os.environ['COZY_SHOPIFY_CLIENT_ID']}&client_secret={os.environ['COZY_SHOPIFY_CLIENT_SECRET']}"], check=True)
+os.replace(os.path.join(S, "tok.new"), os.path.join(S, "tok.json"))
 from lib import gql, check
 
 DRY = "--dry-run" in sys.argv
