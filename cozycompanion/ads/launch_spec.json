@@ -43,7 +43,7 @@
     ]
    },
    "promoted_object": {
-    "pixel_id": "<COZY_PIXEL_ID>",
+    "pixel_id": "4744685195788856",
     "custom_event_type": "PURCHASE"
    }
   },
@@ -88,7 +88,7 @@
     ]
    },
    "promoted_object": {
-    "pixel_id": "<COZY_PIXEL_ID>",
+    "pixel_id": "4744685195788856",
     "custom_event_type": "PURCHASE"
    }
   },
@@ -133,7 +133,7 @@
     ]
    },
    "promoted_object": {
-    "pixel_id": "<COZY_PIXEL_ID>",
+    "pixel_id": "4744685195788856",
     "custom_event_type": "PURCHASE"
    }
   }
@@ -155,9 +155,6 @@
    "image_animation": {
     "enroll_status": "OPT_OUT"
    },
-   "music": {
-    "enroll_status": "OPT_OUT"
-   },
    "image_templates": {
     "enroll_status": "OPT_OUT"
    },
@@ -173,18 +170,6 @@
    "description_automation": {
     "enroll_status": "OPT_OUT"
    },
-   "text_translation": {
-    "enroll_status": "OPT_OUT"
-   },
-   "reveal_details_over_time": {
-    "enroll_status": "OPT_OUT"
-   },
-   "show_summary": {
-    "enroll_status": "OPT_OUT"
-   },
-   "show_destination_blurbs": {
-    "enroll_status": "OPT_OUT"
-   },
    "image_touchups": {
     "enroll_status": "OPT_IN"
    },
@@ -193,7 +178,7 @@
    }
   }
  },
- "page_id": "<COZY_PAGE_ID>",
+ "page_id": "1411553698703314",
  "ads": [
   {
    "name": "NESTLE | nestle_1_senior | senior pets / comfort",
@@ -201,7 +186,7 @@
    "image_url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_final_nestle_1_senior.jpg",
    "message": "Old joints feel the cold first. 🐾\nWhen the temperature drops, older dogs and cats look for the warmest corner they can find. Nestle gives them one: gentle, adjustable warmth right where they nap.\n✔ 3 heat levels (approx. 95–111 °F)\n✔ Waterproof, stain-resistant cover\n✔ Chew-resistant cord, US plug\n30-day returns · tracked shipping",
    "headline": "Gentle warmth for older pets",
-   "description": "Nestle Heated Pet Pad · from $79.95",
+   "description": "Nestle Heated Pet Pad · 30-day returns",
    "link": "https://cozycompanion.us/products/nestle-heated-pet-pad",
    "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=nestle_1_senior",
    "call_to_action_type": "SHOP_NOW"
@@ -212,7 +197,7 @@
    "image_url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_final_nestle_2_spot.jpg",
    "message": "Every pet has one goal in winter: find the warmest spot in the house.\nGive them their own. Nestle is a heated pad that turns any bed, crate or corner into their favorite place to nap, so the couch is yours again.\n3 heat levels · waterproof · chew-resistant cord",
    "headline": "The warmest spot is now theirs",
-   "description": "Heated pet pad · from $79.95",
+   "description": "Heated pet pad · 30-day returns",
    "link": "https://cozycompanion.us/products/nestle-heated-pet-pad",
    "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=nestle_2_spot",
    "call_to_action_type": "SHOP_NOW"
@@ -223,7 +208,7 @@
    "image_url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_final_nestle_3_thermo.jpg",
    "message": "You keep the thermostat low. They still want to be toasty. 🥶➡️🥰\nNestle uses just 20 W to warm their spot, not the whole house. Pop it in their bed or crate and pick one of 3 heat levels.",
    "headline": "Warm pet, low thermostat",
-   "description": "20 W heated pet pad · from $79.95",
+   "description": "20 W heated pet pad · 30-day returns",
    "link": "https://cozycompanion.us/products/nestle-heated-pet-pad",
    "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=nestle_3_thermo",
    "call_to_action_type": "SHOP_NOW"
@@ -234,7 +219,7 @@
    "image_url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_final_nestle_4_lap.jpg",
    "message": "We're sorry to tell you this, but your lap has been replaced. 😹\nNestle is the heated pad cats pick over everything (yes, even you). Soft, waterproof, 3 heat levels.",
    "headline": "Sorry, your lap just lost",
-   "description": "Nestle Heated Pet Pad · from $79.95",
+   "description": "Nestle Heated Pet Pad · 30-day returns",
    "link": "https://cozycompanion.us/products/nestle-heated-pet-pad",
    "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=nestle_4_lap",
    "call_to_action_type": "SHOP_NOW"
@@ -245,7 +230,7 @@
    "image_url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_final_nestle_5_safe.jpg",
    "message": "Thinking about a heated pad but worried about chewing or accidents?\nNestle was designed with that in mind:\n✔ Anti-bite protection on the cord\n✔ Low 20 W power with 3 heat levels\n✔ Waterproof, stain-resistant cover\nWarmth you don't have to worry about.",
    "headline": "Warmth without the worry",
-   "description": "Chew-resistant cord · from $79.95",
+   "description": "Chew-resistant cord · 30-day returns",
    "link": "https://cozycompanion.us/products/nestle-heated-pet-pad",
    "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=nestle_5_safe",
    "call_to_action_type": "SHOP_NOW"
@@ -256,7 +241,7 @@
    "image_url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_final_roam_1_bed.jpg",
    "message": "Your back seat just became a dog bed. 🚙🐕\nRoam's firm base bridges the footwell, so your dog gets one flat, cozy bed across the entire seat: room to lie down, stretch out and actually relax on the drive.\n✔ Fits most cars & SUVs\n✔ Waterproof, quilted cover\n✔ Mesh window so you can see each other",
    "headline": "One flat bed across the back seat",
-   "description": "Roam Back Seat Dog Bed · from $121.95",
+   "description": "Roam Back Seat Dog Bed · 30-day returns",
    "link": "https://cozycompanion.us/products/roam-back-seat-dog-bed",
    "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=roam_1_bed",
    "call_to_action_type": "SHOP_NOW"
@@ -267,7 +252,7 @@
    "image_url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_final_roam_2_mud.jpg",
    "message": "Muddy paws, wet fur, dog hair everywhere… your seats will never know.\nRoam covers the whole back seat plus the door sides with a waterproof, quilted surface that wipes clean after every adventure.",
    "headline": "Muddy paws? Seats stay clean",
-   "description": "Waterproof back seat dog bed · from $121.95",
+   "description": "Waterproof back seat dog bed · 30-day returns",
    "link": "https://cozycompanion.us/products/roam-back-seat-dog-bed",
    "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=roam_2_mud",
    "call_to_action_type": "SHOP_NOW"
@@ -278,7 +263,7 @@
    "image_url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_final_roam_3_trip.jpg",
    "message": "Holiday road trip? Bring the whole family. 🍂\nGive your dog a flat, comfy spot for every mile to Grandma's, with room to stretch out instead of sliding around the seat.\nOrder now for the holiday drive.",
    "headline": "Road-trip ready for the holidays",
-   "description": "Roam Back Seat Dog Bed · from $121.95",
+   "description": "Roam Back Seat Dog Bed · 30-day returns",
    "link": "https://cozycompanion.us/products/roam-back-seat-dog-bed",
    "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=roam_3_trip",
    "call_to_action_type": "SHOP_NOW"
@@ -289,7 +274,7 @@
    "image_url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_final_roam_4_flat.jpg",
    "message": "Does your dog slip into the footwell every time you brake?\nRoam's firm base fills the gap, turning the back seat into one flat, stable surface. More comfort for them, fewer distractions for you.",
    "headline": "No more sliding into the footwell",
-   "description": "Firm, flat base · from $121.95",
+   "description": "Firm, flat base · 30-day returns",
    "link": "https://cozycompanion.us/products/roam-back-seat-dog-bed",
    "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=roam_4_flat",
    "call_to_action_type": "SHOP_NOW"
@@ -300,7 +285,7 @@
    "image_url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_final_roam_5_before.jpg",
    "message": "Same seat. Same dog. One upgrade.\nBefore: hair, mud and scratches. After: a flat, waterproof dog bed that protects your seats and doors.",
    "headline": "The back seat upgrade",
-   "description": "Roam Back Seat Dog Bed & Cover · from $121.95",
+   "description": "Roam Back Seat Dog Bed & Cover · 30-day returns",
    "link": "https://cozycompanion.us/products/roam-back-seat-dog-bed",
    "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=roam_5_before",
    "call_to_action_type": "SHOP_NOW"
@@ -311,7 +296,7 @@
    "image_url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_final_glance_1_late.jpg",
    "message": "Stuck late at work? Dinner's still on time. 🕖\nGlance serves scheduled, perfectly portioned meals, and its HD camera lets you check in from the app whenever you want.\n✔ Timed, portioned meals\n✔ HD camera with live view\n✔ Battery backup if the power drops",
    "headline": "Dinner on time, every time",
-   "description": "Glance Camera Feeder · from $188.95",
+   "description": "Glance Camera Feeder · 30-day returns",
    "link": "https://cozycompanion.us/products/glance-camera-feeder",
    "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=glance_1_late",
    "call_to_action_type": "SHOP_NOW"
@@ -322,7 +307,7 @@
    "image_url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_final_glance_2_6am.jpg",
    "message": "Cat owners know: the 6 a.m. wake-up call is not optional. 😾\nUnless breakfast shows up on its own. Set Glance to serve their first meal on schedule, and enjoy your weekend sleep-in.",
    "headline": "The 6 a.m. wake-up call? Cancelled.",
-   "description": "Automatic camera feeder · from $188.95",
+   "description": "Automatic camera feeder · 30-day returns",
    "link": "https://cozycompanion.us/products/glance-camera-feeder",
    "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=glance_2_6am",
    "call_to_action_type": "SHOP_NOW"
@@ -333,7 +318,7 @@
    "image_url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_final_glance_3_away.jpg",
    "message": "Weekend away. Zero guilt. ✈️\nA 4L container, scheduled meals, battery backup, and a camera to check in on them from anywhere. Glance has dinner covered while you're out.",
    "headline": "Go away for the weekend, worry-free",
-   "description": "4L camera feeder · from $188.95",
+   "description": "4L camera feeder · 30-day returns",
    "link": "https://cozycompanion.us/products/glance-camera-feeder",
    "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=glance_3_away",
    "call_to_action_type": "SHOP_NOW"
@@ -344,7 +329,7 @@
    "image_url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_final_glance_4_two.jpg",
    "message": "Two pets, one feeder, no more food fights. 🐱🐶\nThe double-bowl Glance splits every meal into two stainless steel bowls, so each pet gets their own portion, right on schedule.",
    "headline": "Two pets. Two bowls. Peace.",
-   "description": "Double-bowl camera feeder · from $203.95",
+   "description": "Double-bowl camera feeder · 30-day returns",
    "link": "https://cozycompanion.us/products/glance-camera-feeder",
    "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=glance_4_two",
    "call_to_action_type": "SHOP_NOW"
@@ -355,10 +340,15 @@
    "image_url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_final_glance_5_watch.jpg",
    "message": "Miss them during the day? Peek in anytime. 📱\nGlance has a built-in HD camera with live view in the app, so you can watch them eat from your desk, the airport or the couch.",
    "headline": "Watch them eat from anywhere",
-   "description": "Glance HD Camera Feeder · from $188.95",
+   "description": "Glance HD Camera Feeder · 30-day returns",
    "link": "https://cozycompanion.us/products/glance-camera-feeder",
    "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=glance_5_watch",
    "call_to_action_type": "SHOP_NOW"
   }
- ]
+ ],
+ "adset_ids": {
+  "nestle": "120246807462090609",
+  "roam": "120246807463540609",
+  "glance": "120246807464400609"
+ }
 }

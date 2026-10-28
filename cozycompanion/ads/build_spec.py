@@ -14,9 +14,9 @@ TARGETING = {"age_min": 18, "age_max": 65,
              "instagram_positions": ["stream", "story", "reels", "profile_feed"],
              "device_platforms": ["mobile", "desktop"]}
 # Advantage+ creative: everything off except visual touch-ups
-OFF = ["text_optimizations", "inline_comment", "enhance_cta", "add_text_overlay", "image_animation", "music",
-       "image_templates", "image_uncrop", "product_extensions", "site_extensions", "description_automation",
-       "text_translation", "reveal_details_over_time", "show_summary", "show_destination_blurbs"]
+OFF = ["text_optimizations", "inline_comment", "enhance_cta", "add_text_overlay", "image_animation",
+       "image_templates", "image_uncrop", "product_extensions", "site_extensions", "description_automation"]
+
 ON = ["image_touchups", "image_brightness_and_contrast"]
 DOF = {"creative_features_spec": {**{k: {"enroll_status": "OPT_OUT"} for k in OFF}, **{k: {"enroll_status": "OPT_IN"} for k in ON}}}
 ads = []
