@@ -37,7 +37,19 @@ GALLERIES = {
     "lounge-plush-pet-sofa": ["z_lounge_pack", "z_lounge_colors", "z_lounge_cat", "z_lounge_dog"],
     "pace-stainless-slow-feeder-bowl": ["z_pace_pack", "z_pace_kibble", "z_pace_dog"],
     "quest-dog-puzzle-feeder": ["z_quest_pack", "z_quest_detail", "z_quest_dog"],
+    "stride-dog-harness-leash-set": ["z_stride_pack", "z_stride_walk"],
+    "wander-cat-harness-leash": ["z_wander_pack", "z_wander_walk"],
+    "flit-flapping-bird-cat-toy": ["z_flit_pack", "z_flit_play"],
+    "zoom-self-rolling-cat-ball": ["z_zoom_pack", "z_zoom_play"],
+    "plume-feather-teaser-wand": ["z_plume_pack", "z_plume_play"],
+    "knot-tug-fetch-ball": ["z_knot_pack", "z_knot_play"],
+    "buddy-plush-dog-toy": ["z_buddy_pack", "z_buddy_life"],
+    "forage-snuffle-mat": ["z_forage_pack", "z_forage_dog"],
+    "knit-small-dog-sweater": ["z_knit_pack", "z_knit_poodle"],
+    "drizzle-dog-raincoat": ["z_drizzle_pack", "z_drizzle_walk"],
 }
+# many colors/breeds and we only shot one: keep the supplier's variant photos after ours
+KEEP_VARIANT_PHOTOS = {"stride-dog-harness-leash-set", "zoom-self-rolling-cat-ball", "buddy-plush-dog-toy", "drizzle-dog-raincoat"}
 # variant option value (substring) -> photo shown when that variant is picked
 VARIANT_MEDIA = {
     "ember-heat-pad": {"Gray": "b_pad_23", "Yellow": "g_hp_colors2_23", "Green": "g_hp_colors2_23", "Blue": "g_hp_colors2_23"},
@@ -81,6 +93,11 @@ for handle, names in GALLERIES.items():
     want = [reg[n]["id"] for n in names]
     p = gql("query($h:String!){productByHandle(handle:$h){id media(first:100){nodes{id}}}}", {"h": handle})["productByHandle"]
     have = [m["id"] for m in p["media"]["nodes"]]
+    if handle in KEEP_VARIANT_PHOTOS:
+        vs = gql("query($h:String!){productByHandle(handle:$h){variants(first:100){nodes{media(first:1){nodes{id}}}}}}", {"h": handle})["productByHandle"]["variants"]["nodes"]
+        for v in vs:
+            mid = next(iter(m["id"] for m in v["media"]["nodes"]), None)
+            if mid and mid not in want: want.append(mid)
     for fid in want:
         if fid not in have:
             check(gql("mutation($f:[FileUpdateInput!]!){fileUpdate(files:$f){userErrors{field message}}}",

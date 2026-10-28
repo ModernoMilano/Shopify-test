@@ -61,7 +61,7 @@ def build(kind):
     B["trust"] = {"type": "group", "settings": {"content_direction": "row", "vertical_on_mobile": False, "gap": 8,
                   "horizontal_alignment": "space-between", "vertical_alignment": "flex-start", "width": "fill",
                   "padding-block-start": 4, "padding-block-end": 4}, "blocks": tr, "block_order": list(tr)}
-    B["payments"] = {"type": "payment-icons", "settings": {"horizontal_alignment": "center", "gap": 6}, "blocks": {}}
+    B.pop("payments", None)   # owner's choice: no payment icons anywhere
 
     care = ("<p>Follow the care label and included instructions. Disconnect the controller before washing; "
             "never use it folded while switched on.</p>") if kind == "blanket" else \
@@ -77,7 +77,7 @@ def build(kind):
         B.pop(k, None)
     det["settings"]["gap"] = 20
     det["block_order"] = ["group_icgrde", "highlights", "variant_picker_R3rGDr", "buy_buttons_eYQEYi",
-                          "trust", "payments", "info"]
+                          "trust", "info"]
     det["blocks"] = {k: v for k, v in B.items() if k in det["block_order"]}
     # Photos are 2:3: one large photo with thumbnails underneath, on desktop and mobile
     main["blocks"]["media-gallery"]["settings"].update({"media_presentation": "carousel", "aspect_ratio": "adapt",

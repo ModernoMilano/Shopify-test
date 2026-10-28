@@ -1,0 +1,1278 @@
+[
+ {
+  "id": "gid://shopify/Product/16147895943498",
+  "title": "Adjustable Dog Harness & Leash Set",
+  "handle": "adjustable-dog-harness-leash-set",
+  "status": "DRAFT",
+  "descriptionHtml": "<p>Durable nylon dog harness and leash set, adjustable for a perfect fit. Available in multiple sizes (XS-XL) and colors, suitable for small, medium, and large dogs. Comfortable, secure, easy to use\u2014ideal for daily walks and training.</p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Black",
+     "Camouflage",
+     "Green",
+     "Gray",
+     "Orange",
+     "Purple",
+     "Rose Red",
+     "Red"
+    ]
+   },
+   {
+    "name": "Size",
+    "values": [
+     "XL",
+     "XS",
+     "Small",
+     "Large",
+     "Medium"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "Black / XL",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.6"
+      }
+     }
+    },
+    {
+     "title": "Camouflage / XS",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.16"
+      }
+     }
+    },
+    {
+     "title": "Camouflage / Small",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.36"
+      }
+     }
+    },
+    {
+     "title": "Camouflage / XL",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.6"
+      }
+     }
+    },
+    {
+     "title": "Camouflage / Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.74"
+      }
+     }
+    },
+    {
+     "title": "Camouflage / Medium",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.54"
+      }
+     }
+    },
+    {
+     "title": "Black / Medium",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.54"
+      }
+     }
+    },
+    {
+     "title": "Black / Small",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.36"
+      }
+     }
+    },
+    {
+     "title": "Black / Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.74"
+      }
+     }
+    },
+    {
+     "title": "Black / XS",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.16"
+      }
+     }
+    },
+    {
+     "title": "Green / Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.74"
+      }
+     }
+    },
+    {
+     "title": "Gray / XL",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.6"
+      }
+     }
+    },
+    {
+     "title": "Gray / XS",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.16"
+      }
+     }
+    },
+    {
+     "title": "Green / Small",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.36"
+      }
+     }
+    },
+    {
+     "title": "Green / XL",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.6"
+      }
+     }
+    },
+    {
+     "title": "Green / XS",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.16"
+      }
+     }
+    },
+    {
+     "title": "Green / Medium",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.54"
+      }
+     }
+    },
+    {
+     "title": "Gray / Medium",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.54"
+      }
+     }
+    },
+    {
+     "title": "Gray / Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.74"
+      }
+     }
+    },
+    {
+     "title": "Gray / Small",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.36"
+      }
+     }
+    },
+    {
+     "title": "Orange / Medium",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.54"
+      }
+     }
+    },
+    {
+     "title": "Orange / Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.74"
+      }
+     }
+    },
+    {
+     "title": "Purple / XS",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.16"
+      }
+     }
+    },
+    {
+     "title": "Orange / XL",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.6"
+      }
+     }
+    },
+    {
+     "title": "Purple / Small",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.36"
+      }
+     }
+    },
+    {
+     "title": "Orange / XS",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.16"
+      }
+     }
+    },
+    {
+     "title": "Orange / Small",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.36"
+      }
+     }
+    },
+    {
+     "title": "Purple / Medium",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.54"
+      }
+     }
+    },
+    {
+     "title": "Purple / Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.74"
+      }
+     }
+    },
+    {
+     "title": "Purple / XL",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.6"
+      }
+     }
+    },
+    {
+     "title": "Rose Red / Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.74"
+      }
+     }
+    },
+    {
+     "title": "Rose Red / XL",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.6"
+      }
+     }
+    },
+    {
+     "title": "Rose Red / XS",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.16"
+      }
+     }
+    },
+    {
+     "title": "Rose Red / Small",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.36"
+      }
+     }
+    },
+    {
+     "title": "Red / XS",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.16"
+      }
+     }
+    },
+    {
+     "title": "Red / Small",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.36"
+      }
+     }
+    },
+    {
+     "title": "Rose Red / Medium",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.54"
+      }
+     }
+    },
+    {
+     "title": "Red / Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.74"
+      }
+     }
+    },
+    {
+     "title": "Red / Medium",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.54"
+      }
+     }
+    },
+    {
+     "title": "Red / XL",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.6"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/8bd0ffef4f4d95092a445c63b5fc.png?v=1793217599"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/3988e1c74634b83a0952622d4b46.png?v=1793217609"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/3ecd010849e3a0e0879230f8aba6.png?v=1793217619"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cb522eb64e82896fd039d2f107cf.png?v=1793217629"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/2699fe594f408e2277b3047d03fe.png?v=1793217631"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/c0687c9e4655a26d7950073457c0.png?v=1793217640"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/8175fba54bbe829188b0a7c99aa7.png?v=1793217650"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/31b3cf9e48ab974b6e27d696dd56.png?v=1793217662"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/2962e5c4469fbe2753b712bc3577.png?v=1793217671"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/010e6db6470e859e8265bb11a574.png?v=1793217682"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "gid://shopify/Product/16147896172874",
+  "title": "Cat Harness with Adjustable Leash and Collar",
+  "handle": "cat-harness-with-adjustable-leash-and-collar",
+  "status": "DRAFT",
+  "descriptionHtml": "<p>Introducing the ultimate solution for adventurous cat owners\u2014the <strong>Cat Harness and Leash Set</strong>. Designed with your feline's comfort and safety in mind, this innovative harness is perfect for taking your cat on walks, hikes, or simply exploring the great outdoors.</p><p>\n\n</p><p>Crafted from <strong>double layer polyester mesh fabric</strong>, the harness ensures a breathable and comfortable fit. The adjustable collar allows for a customized fit, accommodating cats of various sizes. Available in three sizes\u2014S, M, and L\u2014you can easily find the perfect fit for your furry friend:</p><p>\n\n</p><p><br></p><p>\n\n</p><p>With a secure design that prevents escape, your cat will feel safe as they explore their surroundings. The vibrant <strong>red color</strong> not only enhances visibility but also adds a stylish touch to your cat\u2019s outdoor gear.</p><p>\n\n</p><p>Check out these images for a closer look:</p><p>\n</p><p>\n    <img src=\"https://ae01.alicdn.com/kf/HTB18GfTKpXXXXajXFXXq6xXFXXXD/223125241/HTB18GfTKpXXXXajXFXXq6xXFXXXD.jpg\" alt=\"Cat Harness Image 1\">\n    <img src=\"https://ae01.alicdn.com/kf/HTB1xAz7KpXXXXa6XXXXq6xXFXXXc/223125241/HTB1xAz7KpXXXXa6XXXXq6xXFXXXc.jpg\" alt=\"Cat Harness Image 2\">\n    <img src=\"https://ae01.alicdn.com/kf/HTB17cYDKpXXXXaRaXXXq6xXFXXXE/223125241/HTB17cYDKpXXXXaRaXXXq6xXFXXXE.jpg\" alt=\"Cat Harness Image 3\">\n    <img src=\"https://ae01.alicdn.com/kf/HTB18A7jHFXXXXcGXFXXq6xXFXXXc/223125241/HTB18A7jHFXXXXcGXFXXq6xXFXXXc.jpg\" alt=\"Cat Harness Image 4\">\n</p><p>\n\n</p><p>Whether your cat is a natural explorer or just needs a little nudge to get outside, this harness is the perfect choice. Don't miss out on the opportunity to enjoy outdoor adventures together!</p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Red"
+    ]
+   },
+   {
+    "name": "Size",
+    "values": [
+     "S",
+     "M",
+     "L"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "Red / S",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "3.92"
+      }
+     }
+    },
+    {
+     "title": "Red / M",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "3.92"
+      }
+     }
+    },
+    {
+     "title": "Red / L",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "3.92"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/9041b1734cffb3cf2bdc216bcb2d.jpg?v=1793217626"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/a6c1b992413abbd241d081ebadac.jpg?v=1793217635"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/4bf83f1845fb81ab73b4a93c61f5.jpg?v=1793217646"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/0d99a5dd4e73ab27cce0d76ba48a.png?v=1793217658"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/5b6b77b849ee9acd0900b2de4568.jpg?v=1793217666"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/c5749b3648e4884e754f04a74bdb.jpg?v=1793217679"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/44594c114013adea34c1dddfb0bc.jpg?v=1793217688"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/0b8b8b5b497f84b16d2b6b70e05b.jpg?v=1793217698"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "gid://shopify/Product/16147896795466",
+  "title": "Flapping Bird Cat Toy USB Rechargeable",
+  "handle": "flapping-bird-cat-toy-usb-rechargeable",
+  "status": "DRAFT",
+  "descriptionHtml": "<p>Give your cat hours of fun with our <strong>Interactive Flapping Bird Cat Toy</strong>\u2014the perfect companion for indoor play.</p><p><strong>Key Features:</strong></p><p><strong>Engaging Flapping Motion:</strong> Designed to simulate the natural movement of a bird, this toy flaps automatically, captivating your cat\u2019s attention and encouraging active play.</p><p><strong>High-Quality Material:</strong> Made from soft, durable plush fabric, this toy is gentle on your cat's paws and built to withstand hours of playtime.</p><p><strong>USB Rechargeable:</strong> Equipped with a built-in battery, this toy is easily rechargeable via USB, eliminating the need for constant battery replacements and ensuring long-lasting fun.</p><p><strong>Compact and Portable:</strong> Measuring 17cm, this toy is perfectly sized for cats of all ages. Its compact design makes it easy to carry and store, so your cat can enjoy it anywhere.</p><p><strong>Product Specifications:</strong></p><p><br></p><p><strong>Package Includes:</strong></p><p><br></p><p>Keep your cat entertained and enriched with this interactive and durable toy, designed to stimulate their natural hunting instincts while providing endless fun.</p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Picture Style"
+    ]
+   },
+   {
+    "name": "Size",
+    "values": [
+     "17cm"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "Picture Style / 17cm",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "8.52"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/e96a4e174fdfb3caa09de1adeab1.jpg?v=1793217665"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/51d1c50140e5bbab865b154c9088.png?v=1793217675"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/8c0a888f4234afab5eeeb3e84d8e.png?v=1793217685"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/0578c3734066b36c152190ad2391.png?v=1793217696"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/efbbc9264086bf648f32e38ce4e7.png?v=1793217706"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/e96a4e174fdfb3caa09de1adeab1_c8018038-73fd-47e9-a914-e6c4b3765a1b.jpg?v=1793217716"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/2654ffa041708e99b612b8139130.png?v=1793217726"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "gid://shopify/Product/16147896992074",
+  "title": "Interactive Indoor Cat Ball Toy",
+  "handle": "interactive-indoor-cat-ball-toy",
+  "status": "DRAFT",
+  "descriptionHtml": "<p>Keep your cat active, engaged, and entertained with the <strong>Interactive Indoor Cat Ball Toy</strong>\u2014a smart motion toy designed for endless indoor fun. With random rolling movements and two adjustable speed modes, this rechargeable toy stimulates your cat\u2019s natural hunting instincts, providing hours of exercise and excitement.</p><p>The <strong>360\u00b0 rolling action</strong> changes direction automatically when it encounters obstacles, creating an unpredictable and fun playtime experience. Powered by a <strong>USB-rechargeable 150mAh lithium battery</strong>, it offers up to <strong>120 minutes of play</strong> on a single charge.</p><p>Crafted with a <strong>smooth, easy-to-clean surface</strong>, this toy is perfect for cats of all sizes and ages. Just wipe it down with a damp cloth, and it's ready for the next round of fun.</p><p><strong>Features:</strong></p><p>Interactive motion and random direction changes</p><p><strong>Dual-speed adjustment</strong> for customized play</p><p><strong>360\u00b0 rolling</strong> with obstacle avoidance</p><p><strong>USB rechargeable</strong> (150mAh battery, up to 120 minutes playtime)</p><p>Durable, easy-to-clean surface</p><p>Great for indoor cats of all ages</p><p>Give your feline friend a fun and healthy outlet for their energy\u2014with Interactive Indoor Cat Ball Toy, playtime just got smarter.</p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Blue",
+     "Orange"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "Blue",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "3.31"
+      }
+     }
+    },
+    {
+     "title": "Orange",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "3.31"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/7b9e6d8a4083864f2d43012dbc7a.png?v=1793217679"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/dfbe081e4f87beedd6940e9cabe8.png?v=1793217691"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cd09529043a3b2fd8c81411a34e2.png?v=1793217701"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/f35fe4d441c684b1be0cb8256e90.png?v=1793217711"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/b9fc748147b79ba6fc1d358bd392.png?v=1793217722"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "gid://shopify/Product/16147897188682",
+  "title": "DIY Colorful Feather Cat Teaser Wand for Pets",
+  "handle": "diy-colorful-feather-cat-teaser-wand-for-pets",
+  "status": "DRAFT",
+  "descriptionHtml": "<p>Unleash the playful side of your feline friend with our <strong>DIY Cat Teaser Wand</strong>, featuring vibrant and colorful pheasant feathers! This interactive toy is designed to provide hours of fun, exercise, and bonding time between you and your beloved cat.</p><p>\n\n</p><p>Crafted from <strong>durable plastic</strong>, our cat sticks are not only strong but also customizable to suit your cat's preferences. Get creative and design a variety of enticing toys that will keep your cat engaged and active, ensuring they maintain an ideal body condition while having a blast!</p><p>\n\n</p><p>Perfect for cat lovers looking to enhance their pet's playtime, this toy is more than just a source of entertainment; it\u2019s a way to strengthen the bond between you and your furry companion. Let the joy of playtime bring happiness to both of you!</p><p>\n\n</p><p><img src=\"https://res.race321.com/pro/3617869572662904371/c96740e8.jpg\" alt=\"Colorful Cat Teaser Wand\"></p><p><br></p><p>\n</p><p><img src=\"https://res.race321.com/pro/3617869572662904371/abe53bba.jpg\" alt=\"Interactive Cat Toy\"></p><p><br></p><p>\n</p><p><img src=\"https://res.race321.com/pro/3617869572662904371/a4c83ac8.jpg\" alt=\"Durable Cat Teaser Stick\"></p><p><br></p><p>\n\n</p><p>Available in <strong>random colors</strong>, this engaging toy is a must-have for every cat household. Get ready to watch your cat pounce, leap, and chase in delight!</p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Random Color"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "Random Color",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.73"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/9678d0e84eb0b9137eacdeca458c.jpg?v=1793217695"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/f90e38a8437ab4bd2cd4e8c9a235.jpg?v=1793217704"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/882f828f46208db39e4e5ac915fb.jpg?v=1793217714"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/982d81614431b533ca9892ea8fe0.jpg?v=1793217724"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "gid://shopify/Product/16147897549130",
+  "title": "Dog Toy, Tug Rope Toy, Training Ball",
+  "handle": "dog-toy-tug-rope-toy-training-ball",
+  "status": "DRAFT",
+  "descriptionHtml": "<p>\n    Unleash your furry friend's playtime potential with our <strong>Durable Dog Toy</strong> designed for endless fun and training opportunities! Made from high-quality <strong>TPR</strong> material, this <strong>knot toy</strong> is perfect for tug-of-war games, fetch sessions, and even obedience training.\n</p><p>\n</p><p>\n    Its unique design ensures that your dog can enjoy a good chew without compromising their safety. The vibrant color options make it visually appealing, while the robust construction promises long-lasting use. \n</p><p>\n</p><p>\n    This versatile toy not only provides entertainment but also helps promote healthy chewing habits and strengthens the bond between you and your pet. \n</p><p>\n</p><p>\n    Take a look at the images below to see how this toy can bring joy to your dog's life:\n</p><p>\n</p><p>\n    <img src=\"https://cbu01.alicdn.com/img/ibank/2020/179/694/16461496971_1239140619.jpg\" alt=\"Durable Dog Toy\" width=\"790\" height=\"573.5729166666666\"></p><p>\n    <img src=\"https://cbu01.alicdn.com/img/ibank/2020/818/017/16408710818_1239140619.jpg\" alt=\"Durable Dog Toy in action\" width=\"790\" height=\"420.51041666666663\"></p><p>\n    <img src=\"https://cbu01.alicdn.com/img/ibank/2020/537/617/16408716735_1239140619.jpg\" alt=\"Dog enjoying the toy\" width=\"790\" height=\"632\"></p><p>\n    <img src=\"https://cbu01.alicdn.com/img/ibank/2020/799/694/16461496997_1239140619.jpg\" alt=\"Strong and durable design\" width=\"790\" height=\"694.5054945054945\"></p><p>\n    <img src=\"https://cbu01.alicdn.com/img/ibank/2020/301/647/16408746103_1239140619.jpg\" alt=\"Perfect for training\" width=\"790\" height=\"632\"></p><p>\n    <img src=\"https://cbu01.alicdn.com/img/ibank/2020/290/566/16527665092_1239140619.jpg\" alt=\"Colorful and fun\" width=\"790\" height=\"623.359375\">\n</p><p>\n</p><p>\n    Elevate your dog's playtime experience with our <strong>Training Ball Toy</strong>! Perfect for dogs of all sizes, this toy is the ideal combination of fun and functionality. <strong>Order now</strong> to give your pet the joy they deserve!\n</p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Default"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "Default",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "3.06"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/1053496045d8a7bd232030f3d0a0.jpg?v=1793217723"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/c3aa9b4a49998f1af5863836e98b.jpg?v=1793217733"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/466ee6a0428ca89c9f60e9a47369.jpg?v=1793217743"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/a382f3084506bf5e332f0f578936.jpg?v=1793217755"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "gid://shopify/Product/16147897975114",
+  "title": "Soft Plush Dog Toy",
+  "handle": "soft-plush-dog-toy",
+  "status": "DRAFT",
+  "descriptionHtml": "<p>Delight in the comfort and charm of this soft plush dog toy, designed to bring warmth and joy to any space. Made from high-quality fabric and filled with soft PP cotton, this cuddly companion offers a plush, huggable experience. Its short down plush texture is gentle to the touch, making it perfect for snuggling or as a decorative piece for your home.</p><p>Available in various sizes, this adorable dog plush is the perfect gift for dog lovers, children, or anyone in need of a cozy, cheerful companion. Whether used as a comforting plush or a playful accent, it\u2019s sure to brighten up any room.</p><p><strong>Key Features:</strong></p><p><br></p><p>Bring home this lovable dog plush toy and enjoy its comforting presence in your space!</p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Wales",
+     "Wolf",
+     "Tibetan Mastiff",
+     "Bernard",
+     "Schnauzer",
+     "Maltese",
+     "Labrador",
+     "Hiromi",
+     "Poodle"
+    ]
+   },
+   {
+    "name": "Size",
+    "values": [
+     "Standard"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "Wales / Standard",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "13.27"
+      }
+     }
+    },
+    {
+     "title": "Wolf / Standard",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "15.05"
+      }
+     }
+    },
+    {
+     "title": "Tibetan Mastiff / Standard",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "15.05"
+      }
+     }
+    },
+    {
+     "title": "Bernard / Standard",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "6.67"
+      }
+     }
+    },
+    {
+     "title": "Schnauzer / Standard",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "8.66"
+      }
+     }
+    },
+    {
+     "title": "Maltese / Standard",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "14.61"
+      }
+     }
+    },
+    {
+     "title": "Labrador / Standard",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "14.61"
+      }
+     }
+    },
+    {
+     "title": "Hiromi / Standard",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "14.09"
+      }
+     }
+    },
+    {
+     "title": "Poodle / Standard",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "11.85"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/34c45ca34c42b127fa7e172d220f.png?v=1793217744"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/756e3ec6455b85ab9e1aa476f078.png?v=1793217756"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/9c9772614f1a8693e62a058fd61b.png?v=1793217766"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/f63310574a5cb840b30938c4a75d.png?v=1793217775"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/94ce73c14640991275005d65cbe0.png?v=1793217787"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/9def5cc349148515bb6f4088c546.png?v=1793217796"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/c63acae94fb2b67f2232eff9c3ec.png?v=1793217807"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/487100d349fca43532641c4f5a5c.png?v=1793217818"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/90ffbc624c148972388177f2acd0.png?v=1793217829"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/118924d4450e89cfa3cb850de68c.png?v=1793217841"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "gid://shopify/Product/16147898958154",
+  "title": "Steam Pet Brush",
+  "handle": "steam-pet-brush",
+  "status": "ACTIVE",
+  "descriptionHtml": "<p>This innovative steam pet brush is a revolutionary grooming tool for cats and dogs.It combines three essential functions in one convenient device. \u00a0The brush emits warm steam that helps to loosen dirt, dander, and matted fur, making grooming easier and more comfortable for your pet. The specially designed bristles effectively remove loose hair, minimizing shedding around your home. The gentle vibrations and warm steam provide a soothing massage that helps to relax your pet and reduce stress. 1 This multi-functional brush is easy to use and helps to keep your pet's coat healthy, shiny, and tangle-free.</p><p>Applicable object: Dog</p><p>Style: 20ml single bottle, 20ml boxed, 20ml suit</p><p>Ingredients: deionized water, glycerin, coconut oil, tea tree oil, yellow herb extract</p><p>Type: Wash-Free essence</p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Green set",
+     "Yellow set"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "Green set",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.74"
+      }
+     }
+    },
+    {
+     "title": "Yellow set",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.74"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/de71512f4baf84ea4f9e5da2f61c.png?v=1793217866"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/69a6d6ae48b8855ef55efcc0417b.png?v=1793217875"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/34a76d364c69b3cc4ce6bac2e146.png?v=1793217885"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/92097ae245949e3b324f23074f02.png?v=1793217895"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/b9f5499c41478daa52497bea8c78.png?v=1793217905"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/3347cf9a481cb0079816034d7902.png?v=1793217915"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "gid://shopify/Product/16147899220298",
+  "title": "Dog Snuffle Mat for Pet Enrichment and Training",
+  "handle": "dog-snuffle-mat-for-pet-enrichment-and-training",
+  "status": "ACTIVE",
+  "descriptionHtml": "<p>Unleash your pet\u2019s inner detective with our <strong>Smelling Pad</strong>, a perfect blend of fun and mental stimulation! Designed to engage your furry friend\u2019s natural instincts, this innovative sniffing mat is an essential tool for pet owners looking to provide their pets with a challenging yet enjoyable experience.</p><p><br></p><p>\n\nCrafted from high-quality <strong>terylene</strong>, the Smelling Pad is not only durable but also easy to clean, ensuring a hygienic play environment for your pet. Measuring at a generous <strong>70*50cm</strong>, it offers plenty of space for your pet to explore and interact with their surroundings.</p><p><br></p><p>\n\n<img src=\"https://static.hzpdex.com/35747c49-975b-41df-a5ed-bccff3111aef.png\" alt=\"Smelling Pad Image 1\"></p><p>\n<img style=\"max-width: 100%;\" src=\"https://res.race321.com/pro/4770776800848724536/3773b74f.jpg\" alt=\"Smelling Pad Image 2\"></p><p>\n<img style=\"max-width: 100%;\" src=\"https://res.race321.com/pro/4770776800848724536/4131f8b2.jpg\" alt=\"Smelling Pad Image 3\"></p><p>\n<img style=\"max-width: 100%;\" src=\"https://res.race321.com/pro/4770776800848724536/c50830ac.jpg\" alt=\"Smelling Pad Image 4\"></p><p>\n<img style=\"max-width: 100%;\" src=\"https://res.race321.com/pro/4770776800848724536/7e4070bf.jpg\" alt=\"Smelling Pad Image 5\"></p><p>\n<img style=\"max-width: 100%;\" src=\"https://res.race321.com/pro/4770776800848724536/8513bdf0.jpg\" alt=\"Smelling Pad Image 6\"></p><p>\n<img src=\"https://static.hzpdex.com/ef6e13db-6666-4eb8-9698-fd922b8249dc.png\" alt=\"Smelling Pad Image 7\"></p><p>\n\nAvailable in a stunning <strong>Purple</strong> color, this mat not only captivates your pet's attention but also adds a touch of style to your home. Whether you are using it for slow feeding, training, or simply to relieve stress, the Smelling Pad is the perfect companion for your pet's daily activities.</p><p><br></p><p>\n\nGive your pet the gift of <strong>mental exercise</strong> and fun with our Smelling Pad. It\u2019s more than just a toy; it\u2019s a pathway to a happier, healthier pet!</p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Purple"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "Purple",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "6.3"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/49c0bdc74adbba37143a76661f33.jpg?v=1793217887"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/4c095e2443d29408b562edc7bcc0.jpg?v=1793217897"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/8c9d807e4b46a8103007f50f20f3.jpg?v=1793217907"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/65d609ea4ef6886fce8f868a0c98.jpg?v=1793217917"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "gid://shopify/Product/16147899416906",
+  "title": "Small Dog Sweater",
+  "handle": "small-dog-sweater",
+  "status": "ACTIVE",
+  "descriptionHtml": "<p>Keep your little buddy cozy and cute with the Small Dog Sweater! Made from soft, breathable fabric, this sweater is designed to keep your pet warm without overheating. Its stretchy knit fabric ensures a snug fit, while the stylish design adds a touch of charm to your pup's wardrobe. Whether it\u2019s a chilly walk in the park or a relaxing day at home, this sweater is perfect for keeping your small dog comfortable and fashionable. Available in various colors and sizes, it\u2019s an essential for any pet who loves to stay warm and stylish all season long!</p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "(Bust size 45cm, weighs 8-11 pounds)",
+     "n/a"
+    ]
+   },
+   {
+    "name": "Size",
+    "values": [
+     "Large",
+     "Medium",
+     "XS",
+     "XL",
+     "Small"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "(Bust size 45cm, weighs 8-11 pounds) / Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "2.97"
+      }
+     }
+    },
+    {
+     "title": "n/a / Medium",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "2.97"
+      }
+     }
+    },
+    {
+     "title": "n/a / XS",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "2.97"
+      }
+     }
+    },
+    {
+     "title": "n/a / XL",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "2.97"
+      }
+     }
+    },
+    {
+     "title": "n/a / Small",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "2.97"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/6b7ffa354623a39ce7f7c63e858e.png?v=1793217900"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/92a82c29432591417296c770cb02.png?v=1793217911"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/1187bce14e8baf0da709ce7a49e4.png?v=1793217921"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "gid://shopify/Product/16147899842890",
+  "title": "All-Weather Dog Raincoat",
+  "handle": "all-weather-dog-raincoat",
+  "status": "ACTIVE",
+  "descriptionHtml": "<p>The <em>All-Weather Dog Raincoat</em> keeps your dog dry and comfortable in rainy weather. Made from waterproof material, it offers full coverage with an adjustable fit for all sizes. Lightweight, easy to put on, and perfect for outdoor walks in the rain.</p><p><strong>Features:</strong></p><p><br></p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Yellow",
+     "Rose Red",
+     "Lagoon Blue"
+    ]
+   },
+   {
+    "name": "Size",
+    "values": [
+     "Small",
+     "Medium",
+     "X Large",
+     "Large",
+     "2X Large"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "Yellow / Small",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.76"
+      }
+     }
+    },
+    {
+     "title": "Rose Red / Small",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.76"
+      }
+     }
+    },
+    {
+     "title": "Lagoon Blue / Small",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.76"
+      }
+     }
+    },
+    {
+     "title": "Rose Red / Medium",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.76"
+      }
+     }
+    },
+    {
+     "title": "Lagoon Blue / Medium",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.76"
+      }
+     }
+    },
+    {
+     "title": "Yellow / Medium",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.76"
+      }
+     }
+    },
+    {
+     "title": "Lagoon Blue / X Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.76"
+      }
+     }
+    },
+    {
+     "title": "Rose Red / X Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.76"
+      }
+     }
+    },
+    {
+     "title": "Lagoon Blue / Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.76"
+      }
+     }
+    },
+    {
+     "title": "Rose Red / Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.76"
+      }
+     }
+    },
+    {
+     "title": "Lagoon Blue / 2X Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.76"
+      }
+     }
+    },
+    {
+     "title": "Yellow / X Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.76"
+      }
+     }
+    },
+    {
+     "title": "Yellow / 2X Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.76"
+      }
+     }
+    },
+    {
+     "title": "Rose Red / 2X Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.76"
+      }
+     }
+    },
+    {
+     "title": "Yellow / Large",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.76"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/40ce7fce4868969f6db549d2ba16.png?v=1793217915"
+     }
+    },
+    {
+     "image": null
+    }
+   ]
+  }
+ }
+]
