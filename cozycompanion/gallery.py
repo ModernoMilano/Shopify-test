@@ -15,6 +15,8 @@ GALLERIES = {
     "cloud-plush-pet-blanket": {"Charcoal": "z_cloud_pack", "Mocha": "z_cloud_dog"},
     "nook-self-warming-pet-mat": {"Gray": "z_nook_pack", "Caramel": "z_nook_cat"},
     "purr-tilted-ceramic-cat-bowl": {"Pink": "z_purr_pack", "Black": "z_purr_colors"},
+    "orbit-felt-cat-tunnel-bed": {"Charcoal": "z_orbit_pack", "Blush": "z_orbit_colors", "Sky Blue": "z_orbit_colors", "Light Gray": "z_orbit_colors", "Pebble": "z_orbit_colors"},
+    "lounge-plush-pet-sofa": {"Cream": "z_lounge_pack", "Blush": "z_lounge_colors", "Mocha": "z_lounge_dog"},
     "compass-smart-tag": ["b_tag_23", "g_mt_lineup_23", "g_mt_two2_23", "n_tag_life_23", "g_mt_keys_23"],
     "nestle-heated-pet-pad": ["b_petpad_23", "g_pp_rose_23", "n_petpad_life_23", "g_pp_dog_23", "g_pp_detail_23c"],
     "brook-pet-fountain": ["b_fountain_23", "b_fountain4l_23", "g_ft_detail_23c", "n_fountain_life_23", "g_ft_dog_23", "g_ft_parts_23"],
@@ -31,6 +33,10 @@ GALLERIES = {
     "cloud-plush-pet-blanket": ["z_cloud_pack", "z_cloud_colors", "z_cloud_detail", "z_cloud_cat", "z_cloud_dog"],
     "nook-self-warming-pet-mat": ["z_nook_pack", "z_nook_colors", "z_nook_detail", "z_nook_crate", "z_nook_cat"],
     "purr-tilted-ceramic-cat-bowl": ["z_purr_pack", "z_purr_colors", "z_purr_cat"],
+    "orbit-felt-cat-tunnel-bed": ["z_orbit_pack", "z_orbit_colors", "z_orbit_kitten", "z_orbit_sleep"],
+    "lounge-plush-pet-sofa": ["z_lounge_pack", "z_lounge_colors", "z_lounge_cat", "z_lounge_dog"],
+    "pace-stainless-slow-feeder-bowl": ["z_pace_pack", "z_pace_kibble", "z_pace_dog"],
+    "quest-dog-puzzle-feeder": ["z_quest_pack", "z_quest_detail", "z_quest_dog"],
 }
 # variant option value (substring) -> photo shown when that variant is picked
 VARIANT_MEDIA = {
@@ -44,6 +50,8 @@ VARIANT_MEDIA = {
     "cloud-plush-pet-blanket": {"Charcoal": "z_cloud_pack", "Mocha": "z_cloud_dog"},
     "nook-self-warming-pet-mat": {"Gray": "z_nook_pack", "Caramel": "z_nook_cat"},
     "purr-tilted-ceramic-cat-bowl": {"Pink": "z_purr_pack", "Black": "z_purr_colors"},
+    "orbit-felt-cat-tunnel-bed": {"Charcoal": "z_orbit_pack", "Blush": "z_orbit_colors", "Sky Blue": "z_orbit_colors", "Light Gray": "z_orbit_colors", "Pebble": "z_orbit_colors"},
+    "lounge-plush-pet-sofa": {"Cream": "z_lounge_pack", "Blush": "z_lounge_colors", "Mocha": "z_lounge_dog"},
     "compass-smart-tag": {"2 black": "g_mt_two2_23", "brown": "b_tag_23", "case": "g_mt_lineup_23", "1 ": "g_mt_two2_23"},
 }
 

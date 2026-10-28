@@ -7,6 +7,7 @@ while true; do
   curl -sf --retry 3 -X POST "https://$COZY_SHOPIFY_DOMAIN/admin/oauth/access_token" \
     -H "Content-Type: application/x-www-form-urlencoded" -o tok.new \
     -d "grant_type=client_credentials&client_id=$COZY_SHOPIFY_CLIENT_ID&client_secret=$COZY_SHOPIFY_CLIENT_SECRET" && mv tok.new tok.json
+  python3 -I hold_new.py 2>&1 | grep --line-buffered -E "held:|Error" || true
   python3 -I -c "
 import sys; sys.path.insert(0,'.')
 from lib import gql

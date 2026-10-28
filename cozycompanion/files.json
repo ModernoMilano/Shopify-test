@@ -2122,5 +2122,131 @@
    1696,
    2528
   ]
+ },
+ "z_orbit_pack": {
+  "id": "gid://shopify/MediaImage/72742692618570",
+  "alt": "Orbit Felt Cat Tunnel Bed in charcoal",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_orbit_pack.png?v=1793217813",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_orbit_colors": {
+  "id": "gid://shopify/MediaImage/72742692651338",
+  "alt": "Orbit Felt Cat Tunnel Bed colors",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_orbit_colors.png?v=1793217813",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_orbit_kitten": {
+  "id": "gid://shopify/MediaImage/72742692684106",
+  "alt": "A kitten peeking out of the Orbit tunnel bed",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_orbit_kitten.png?v=1793217813",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_orbit_sleep": {
+  "id": "gid://shopify/MediaImage/72742692716874",
+  "alt": "A cat asleep in the Orbit bed",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_orbit_sleep.png?v=1793217813",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_lounge_pack": {
+  "id": "gid://shopify/MediaImage/72742692749642",
+  "alt": "Lounge Plush Pet Sofa in cream",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_lounge_pack.png?v=1793217812",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_lounge_colors": {
+  "id": "gid://shopify/MediaImage/72742692782410",
+  "alt": "Lounge Plush Pet Sofa colors",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_lounge_colors.png?v=1793217813",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_lounge_cat": {
+  "id": "gid://shopify/MediaImage/72742692815178",
+  "alt": "A ragdoll cat on the Lounge pet sofa",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_lounge_cat.png?v=1793217812",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_lounge_dog": {
+  "id": "gid://shopify/MediaImage/72742692847946",
+  "alt": "A Maltese on the mocha Lounge sofa",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_lounge_dog.png?v=1793217814",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_pace_pack": {
+  "id": "gid://shopify/MediaImage/72742697206090",
+  "alt": "Pace Stainless Slow Feeder Bowl",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_pace_pack.png?v=1793217847",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_pace_kibble": {
+  "id": "gid://shopify/MediaImage/72742697238858",
+  "alt": "Kibble in the Pace slow feeder ridges",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_pace_kibble.png?v=1793217849",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_pace_dog": {
+  "id": "gid://shopify/MediaImage/72742697271626",
+  "alt": "A golden retriever eating from the Pace slow feeder",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_pace_dog.png?v=1793217847",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_quest_pack": {
+  "id": "gid://shopify/MediaImage/72742697304394",
+  "alt": "Quest Dog Puzzle Feeder",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_quest_pack.png?v=1793217846",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_quest_dog": {
+  "id": "gid://shopify/MediaImage/72742697337162",
+  "alt": "A border collie solving the Quest puzzle feeder",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_quest_dog.png?v=1793217847",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_quest_detail": {
+  "id": "gid://shopify/MediaImage/72742697369930",
+  "alt": "Hidden treats in the Quest puzzle feeder",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_quest_detail.png?v=1793217847",
+  "size": [
+   1696,
+   2528
+  ]
  }
 }

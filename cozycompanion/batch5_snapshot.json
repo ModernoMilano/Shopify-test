@@ -1,0 +1,590 @@
+[
+ {
+  "id": "gid://shopify/Product/16147879723338",
+  "title": "Donut Cat Bed & Tunnel",
+  "handle": "donut-cat-bed-tunnel",
+  "status": "DRAFT",
+  "descriptionHtml": "<p>Pamper your cat with the Donut Cat Bed &amp; Tunnel, a versatile piece of cat furniture designed to provide endless fun and cozy relaxation. Made from durable, eco-friendly felt, this dual-use accessory combines the comfort of a soft cat bed with the excitement of an interactive tunnel.</p><p>Whether your cat is ready for a nap or in the mood to play, this multi-functional pet toy meets all their needs. The circular design offers a cozy resting spot that feels secure, while the integrated tunnel encourages exploration, exercise, and playful hide-and-seek. Ideal for kittens and adult cats alike, it adds a touch of charm to any room in your home.</p><p>Perfect for keeping your pet active and entertained, the Donut Cat Bed &amp; Tunnel is a must-have for cat lovers looking to enhance their feline\u2019s indoor environment.</p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Pink",
+     "Sky Blue",
+     "Dark Grey",
+     "Light Grey",
+     "New Light Grey"
+    ]
+   },
+   {
+    "name": "Size",
+    "values": [
+     "50x50x23cm",
+     "60x60x27cm",
+     "50 * 50 * 20"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "Pink / 50x50x23cm",
+     "price": "24.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "7.15"
+      }
+     }
+    },
+    {
+     "title": "Sky Blue / 50x50x23cm",
+     "price": "24.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "7.15"
+      }
+     }
+    },
+    {
+     "title": "Dark Grey / 50x50x23cm",
+     "price": "24.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "7.15"
+      }
+     }
+    },
+    {
+     "title": "Pink / 60x60x27cm",
+     "price": "24.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "8.19"
+      }
+     }
+    },
+    {
+     "title": "Light Grey / 60x60x27cm",
+     "price": "24.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "8.19"
+      }
+     }
+    },
+    {
+     "title": "Dark Grey / 60x60x27cm",
+     "price": "24.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "8.19"
+      }
+     }
+    },
+    {
+     "title": "Sky Blue / 60x60x27cm",
+     "price": "24.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "8.19"
+      }
+     }
+    },
+    {
+     "title": "New Light Grey / 50 * 50 * 20",
+     "price": "24.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "8.19"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/1dd457614a938010ecffb5b0147e.png?v=1793217156"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/f068536d4791b7728a22188b0fc7.png?v=1793217168"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/3c55b0224bcfb113cab0d24771d2.png?v=1793217178"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/62cf0d0244e5975606522c607c92.png?v=1793217187"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/5942f7c444829812988a770fe95c.png?v=1793217197"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/1b5b92c54b168f663ba5e62c9d5d.png?v=1793217210"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/2357c56340f78e870a098faf5965.png?v=1793217219"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/3b065e234649829d2c5e67ac53fc.png?v=1793217230"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/b2ee79f548e1b889c467679561f6.png?v=1793217241"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/737d2c144e068531c3d2576bc95c.png?v=1793217253"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/9e44c3854a2d8a62fcc49a13fe8d.png?v=1793217262"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/325209354052b5ec153154bf0116.png?v=1793217273"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "gid://shopify/Product/16147880214858",
+  "title": "Luxury Plush Cat Bed",
+  "handle": "luxury-plush-cat-bed",
+  "status": "DRAFT",
+  "descriptionHtml": "<p>Indulge your furry friend with this luxurious and cozy cat bed. The soft plush exterior and comfortable cushion provide optimal comfort, while the elevated design offers a sense of security. Perfect for cats and small dogs, this bed is a stylish and functional addition to any home.</p><p>Material Others</p><p>Product Attributes Ordinary</p><p>Package Size 500*400*250(1mm); 400*350*120(1mm); 500*350*200(1mm)</p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Cherry Blossom Powder(3PC)",
+     "Mousse Coffee(1PC)",
+     "New Mousse Coffee(1PC)",
+     "Cherry Blossom Powder(1PC)",
+     "Mousse Coffee(2PC)",
+     "Moonlight Beige(1PC)",
+     "Mousse Coffee(3PC)",
+     "Cherry Blossom Powder(2PC)",
+     "Cherry Blossom Powder (1PC)"
+    ]
+   },
+   {
+    "name": "Size",
+    "values": [
+     "M",
+     "2XL",
+     "XL",
+     "L"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "Cherry Blossom Powder(3PC) / M",
+     "price": "61.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "20.6"
+      }
+     }
+    },
+    {
+     "title": "Mousse Coffee(1PC) / M",
+     "price": "20.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "6.83"
+      }
+     }
+    },
+    {
+     "title": "New Mousse Coffee(1PC) / 2XL",
+     "price": "26.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "8.82"
+      }
+     }
+    },
+    {
+     "title": "Cherry Blossom Powder(1PC) / M",
+     "price": "20.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "6.83"
+      }
+     }
+    },
+    {
+     "title": "Mousse Coffee(2PC) / M",
+     "price": "41.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "13.71"
+      }
+     }
+    },
+    {
+     "title": "Moonlight Beige(1PC) / M",
+     "price": "20.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "6.83"
+      }
+     }
+    },
+    {
+     "title": "Mousse Coffee(3PC) / M",
+     "price": "61.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "20.6"
+      }
+     }
+    },
+    {
+     "title": "Cherry Blossom Powder(2PC) / M",
+     "price": "41.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "13.71"
+      }
+     }
+    },
+    {
+     "title": "Moonlight Beige(1PC) / XL",
+     "price": "31.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "10.64"
+      }
+     }
+    },
+    {
+     "title": "Cherry Blossom Powder(1PC) / XL",
+     "price": "31.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "10.64"
+      }
+     }
+    },
+    {
+     "title": "Cherry Blossom Powder (1PC) / 2XL",
+     "price": "41.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "12.44"
+      }
+     }
+    },
+    {
+     "title": "Moonlight Beige(1PC) / 2XL",
+     "price": "41.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "12.44"
+      }
+     }
+    },
+    {
+     "title": "Moonlight Beige(1PC) / L",
+     "price": "26.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "8.82"
+      }
+     }
+    },
+    {
+     "title": "Cherry Blossom Powder (1PC) / L",
+     "price": "26.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "8.82"
+      }
+     }
+    },
+    {
+     "title": "Mousse Coffee(1PC) / L",
+     "price": "26.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "8.82"
+      }
+     }
+    },
+    {
+     "title": "Mousse Coffee(1PC) / XL",
+     "price": "31.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "10.64"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/3a3cd3a04b30bcf4d65dda8d5926.png?v=1793217171"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/ee8a3efa484e8e65da40f5d20b9d.png?v=1793217182"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/422ceeed438b957b815bedd0fbd6.png?v=1793217191"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/d114285f45afa09fdf639c1d326c.png?v=1793217191"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/67edf14344ddaf3d031cb2214985.png?v=1793217201"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/69088ae541d0acf75c892bc9c170.png?v=1793217203"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/41a4948c4c3891651786c34442a3.png?v=1793217212"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/659e59454875b4d59b06b1fee755.png?v=1793217224"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/7aa030f44f87a04a103045f709e7.png?v=1793217234"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/aaa06e654075a283a54678ec5b23.png?v=1793217243"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cdbdb3fc466582e765bc83450826.png?v=1793217255"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/58710f714e4eb47bbc97d938b6aa.png?v=1793217265"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "gid://shopify/Product/16147890209098",
+  "title": "Stainless Steel Pet Slow Feeder",
+  "handle": "stainless-steel-pet-slow-feeder",
+  "status": "DRAFT",
+  "descriptionHtml": "<p>The \"Stainless Steel Pet Slow Feeder\" is designed to promote healthier eating habits for your pet by slowing down their feeding pace. Made from durable, high-quality stainless steel, it features a built-in neck protector that reduces strain while eating. The slow-feeding design helps prevent choking, indigestion, and bloating by encouraging pets to eat at a more controlled rate. Ideal for dogs or cats, this easy-to-clean bowl is both practical and stylish, offering a long-lasting solution for pets that tend to eat too quickly.</p>",
+  "options": [
+   {
+    "name": "Size",
+    "values": [
+     "SL1002"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "SL1002",
+     "price": "17.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.77"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/d4d942f442f08423ce0136d073bd.png?v=1793217436"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/982c405f4b8188aa2063c9734a46.png?v=1793217447"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/22d207a5421eb53cc73d21ab9efb.png?v=1793217456"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/066f6f7c424794057b94629b0e73.png?v=1793217467"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "gid://shopify/Product/16147890897226",
+  "title": "Interactive Slow Feeder Puzzle Toy for Dogs",
+  "handle": "interactive-slow-feeder-puzzle-toy-for-dogs",
+  "status": "DRAFT",
+  "descriptionHtml": "<p>Keep your dog engaged and healthy with this <strong>Interactive Slow Feeder Puzzle Toy</strong>:</p><p><br></p><p>Perfect for reducing boredom and enhancing your dog's eating habits!</p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "New  SL2",
+     "ML2",
+     "SL3",
+     "ML3",
+     "LL3"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "New  SL2",
+     "price": "12.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "4.11"
+      }
+     }
+    },
+    {
+     "title": "ML2",
+     "price": "12.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "4.11"
+      }
+     }
+    },
+    {
+     "title": "SL3",
+     "price": "12.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "4.11"
+      }
+     }
+    },
+    {
+     "title": "ML3",
+     "price": "12.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "4.11"
+      }
+     }
+    },
+    {
+     "title": "LL3",
+     "price": "12.95",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "4.11"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/ea12ac624b33854b2686f6c9b085.png?v=1793217446"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/60f6eb5d4c349495eb602e2660c3.png?v=1793217454"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/5542475e44508a28bd2905df01ab.png?v=1793217466"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/592aceb84ea1b42131d4f670477a.png?v=1793217476"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/d30cda79448c8815144323a17d28.png?v=1793217487"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/d7d7b1934947aa6870ac46335219.png?v=1793217498"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cb002333472097c2f71dee19dffc.png?v=1793217507"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/14bfbb2a4b84b9621440f2a1ab83.png?v=1793217519"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/57d3b0834d5da848cde1ffb58d07.png?v=1793217529"
+     }
+    },
+    {
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/653172a74670af51b76e31a09f36.png?v=1793217537"
+     }
+    },
+    {
+     "image": null
+    }
+   ]
+  }
+ }
+]
