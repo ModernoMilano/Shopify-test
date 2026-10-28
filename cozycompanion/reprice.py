@@ -55,7 +55,7 @@ def group_key(p, v):
 for p in d["products"]["nodes"]:
     upd = []
     targets = {}
-    if "price-3x" in p["tags"]:
+    if "price-3x" in p["tags"] or "cc-ready" not in p["tags"]:  # new imports default to the 3x rule
         # exact rule: each variant 3x its own cost; variants within EUR 5 of each other (e.g. colours)
         # share the highest of those prices. Set exactly, so a too-high price is corrected too.
         vs = [v for v in p["variants"]["nodes"] if v["inventoryItem"]["unitCost"]]

@@ -1996,5 +1996,131 @@
    1080,
    1920
   ]
+ },
+ "z_cloud_pack": {
+  "id": "gid://shopify/MediaImage/72742596116810",
+  "alt": "Cloud Plush Pet Blanket in charcoal",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_cloud_pack.png?v=1793217336",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_cloud_colors": {
+  "id": "gid://shopify/MediaImage/72742596149578",
+  "alt": "Cloud Plush Pet Blanket in charcoal and mocha",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_cloud_colors.png?v=1793217336",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_cloud_detail": {
+  "id": "gid://shopify/MediaImage/72742596182346",
+  "alt": "Faux fur and sherpa detail of the Cloud Plush Pet Blanket",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_cloud_detail.png?v=1793217338",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_cloud_cat": {
+  "id": "gid://shopify/MediaImage/72742596215114",
+  "alt": "A cat asleep on the Cloud Plush Pet Blanket on a sofa",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_cloud_cat.png?v=1793217337",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_cloud_dog": {
+  "id": "gid://shopify/MediaImage/72742596247882",
+  "alt": "A beagle on the Cloud Plush Pet Blanket in mocha",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_cloud_dog.png?v=1793217337",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_nook_pack": {
+  "id": "gid://shopify/MediaImage/72742596280650",
+  "alt": "Nook Self-Warming Pet Mat in gray",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_nook_pack.png?v=1793217336",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_nook_colors": {
+  "id": "gid://shopify/MediaImage/72742637699402",
+  "alt": "Nook Self-Warming Pet Mat in gray and caramel",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_nook_colors.png?v=1793217471",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_nook_detail": {
+  "id": "gid://shopify/MediaImage/72742637732170",
+  "alt": "Non-slip underside of the Nook Self-Warming Pet Mat",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_nook_detail.png?v=1793217473",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_nook_crate": {
+  "id": "gid://shopify/MediaImage/72742637764938",
+  "alt": "A French bulldog asleep on the Nook mat in a crate",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_nook_crate.png?v=1793217473",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_nook_cat": {
+  "id": "gid://shopify/MediaImage/72742637797706",
+  "alt": "A cat on the caramel Nook mat on a window seat",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_nook_cat.png?v=1793217472",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_purr_pack": {
+  "id": "gid://shopify/MediaImage/72742637830474",
+  "alt": "Purr Tilted Ceramic Cat Bowl in pink",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_purr_pack.png?v=1793217471",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_purr_colors": {
+  "id": "gid://shopify/MediaImage/72742637863242",
+  "alt": "Purr Tilted Ceramic Cat Bowl color pairs",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_purr_colors.png?v=1793217472",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_purr_tilt": {
+  "id": "gid://shopify/MediaImage/72742637896010",
+  "alt": "Side view of the tilted Purr bowl",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_purr_tilt.png?v=1793217472",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_purr_cat": {
+  "id": "gid://shopify/MediaImage/72742637928778",
+  "alt": "A Persian cat eating from the Purr bowl",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_purr_cat.png?v=1793217472",
+  "size": [
+   1696,
+   2528
+  ]
  }
 }

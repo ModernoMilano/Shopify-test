@@ -12,6 +12,9 @@ CTX = ssl.create_default_context(cafile="/root/.ccr/ca-bundle.crt")
 GALLERIES = {
     "ember-heat-pad": ["b_pad_23", "g_hp_colors2_23", "n_pad_life_23", "g_hp_shoulders_23", "g_hp_detail_23"],
     "hearth-heated-sherpa-throw": ["b_throw_23b", "g_th_detail_23", "n_throw_life_23", "g_th_bed_23", "g_th_flat2_23"],
+    "cloud-plush-pet-blanket": {"Charcoal": "z_cloud_pack", "Mocha": "z_cloud_dog"},
+    "nook-self-warming-pet-mat": {"Gray": "z_nook_pack", "Caramel": "z_nook_cat"},
+    "purr-tilted-ceramic-cat-bowl": {"Pink": "z_purr_pack", "Black": "z_purr_colors"},
     "compass-smart-tag": ["b_tag_23", "g_mt_lineup_23", "g_mt_two2_23", "n_tag_life_23", "g_mt_keys_23"],
     "nestle-heated-pet-pad": ["b_petpad_23", "g_pp_rose_23", "n_petpad_life_23", "g_pp_dog_23", "g_pp_detail_23c"],
     "brook-pet-fountain": ["b_fountain_23", "b_fountain4l_23", "g_ft_detail_23c", "n_fountain_life_23", "g_ft_dog_23", "g_ft_parts_23"],
@@ -25,6 +28,9 @@ GALLERIES = {
     "spark-laser-cat-toy": ["y_spark_pack", "y_spark_detail", "y_spark_life"],
     "voyage-rolling-pet-carrier": ["y_voyage_pack", "y_voyage_colors", "y_voyage_life"],
     "roam-back-seat-dog-bed": ["y_roam_hero_c", "y_roam_pack", "y_roam_detail", "y_roam_life"],
+    "cloud-plush-pet-blanket": ["z_cloud_pack", "z_cloud_colors", "z_cloud_detail", "z_cloud_cat", "z_cloud_dog"],
+    "nook-self-warming-pet-mat": ["z_nook_pack", "z_nook_colors", "z_nook_detail", "z_nook_crate", "z_nook_cat"],
+    "purr-tilted-ceramic-cat-bowl": ["z_purr_pack", "z_purr_colors", "z_purr_cat"],
 }
 # variant option value (substring) -> photo shown when that variant is picked
 VARIANT_MEDIA = {
@@ -35,6 +41,9 @@ VARIANT_MEDIA = {
     "glance-camera-feeder": {"White": "x_glance_white", "Black": "x_glance_black"},
     "brook-xl-cordless-fountain": {"only": "x_brookxl_pack", "filters": "x_brookxl_filters"},
     "voyage-rolling-pet-carrier": {"Gray": "y_voyage_pack", "Black": "y_voyage_colors", "Blue": "y_voyage_colors", "Pink": "y_voyage_colors"},
+    "cloud-plush-pet-blanket": {"Charcoal": "z_cloud_pack", "Mocha": "z_cloud_dog"},
+    "nook-self-warming-pet-mat": {"Gray": "z_nook_pack", "Caramel": "z_nook_cat"},
+    "purr-tilted-ceramic-cat-bowl": {"Pink": "z_purr_pack", "Black": "z_purr_colors"},
     "compass-smart-tag": {"2 black": "g_mt_two2_23", "brown": "b_tag_23", "case": "g_mt_lineup_23", "1 ": "g_mt_two2_23"},
 }
 

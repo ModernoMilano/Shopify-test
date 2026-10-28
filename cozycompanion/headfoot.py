@@ -23,7 +23,7 @@ hs = h["sections"]["header_section"]
 hs["settings"].update({"logo_position": "center", "menu_position": "left", "show_language": False,
                        "show_country": False, "background_color_top": CREAM, "text_color_top": CHAR,
                        "divider_width": 1, "divider_color": "#e3dbd2", "enable_sticky_header": "scroll-up"})
-hs["blocks"]["header-menu"]["settings"].update({"menu_style": "collection_images", "type_case_primary_link": "uppercase",
+hs["blocks"]["header-menu"]["settings"].update({"menu_style": "text", "type_case_primary_link": "uppercase",
     "type_font_primary_size": "0.75rem", "background_color": CREAM, "drawer_dividers": True,
     "drawer_accordion": True, "drawer_accordion_expand_first": True, "menu_font_style": "regular"})
 

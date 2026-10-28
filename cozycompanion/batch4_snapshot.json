@@ -1,1 +1,438 @@
-[]
+[
+ {
+  "id": "gid://shopify/Product/16147877200202",
+  "title": "Waterproof Shaggy Pet Blanket",
+  "handle": "waterproof-shaggy-pet-blanket",
+  "status": "DRAFT",
+  "vendor": "CozyCompanion",
+  "productType": "",
+  "tags": [],
+  "descriptionHtml": "<p><br></p><p><strong>Material:</strong> Soft Blanket</p><p><strong>Product Category:</strong> Pet Kennel</p><p><strong>Color Options:</strong></p><p><br></p><p><strong>Specifications:</strong></p><p><br></p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Coffee S",
+     "Gray S",
+     "Coffee M",
+     "Gray M",
+     "Coffee L",
+     "Gray L",
+     "Coffee XL",
+     "Gray XL"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "Coffee S",
+     "price": "45.44",
+     "sku": "ZZ5VAZ5",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.33"
+      }
+     }
+    },
+    {
+     "title": "Gray S",
+     "price": "45.44",
+     "sku": "Y7TTB48QE",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "5.33"
+      }
+     }
+    },
+    {
+     "title": "Coffee M",
+     "price": "61.64",
+     "sku": "7E6WMH7ZS",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "6.71"
+      }
+     }
+    },
+    {
+     "title": "Gray M",
+     "price": "61.64",
+     "sku": "GZ3I6G5I2",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "6.71"
+      }
+     }
+    },
+    {
+     "title": "Coffee L",
+     "price": "116.71",
+     "sku": "XL4AGOXJ3",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "12.24"
+      }
+     }
+    },
+    {
+     "title": "Gray L",
+     "price": "116.71",
+     "sku": "4ZY61XYLY",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "12.24"
+      }
+     }
+    },
+    {
+     "title": "Coffee XL",
+     "price": "167.11",
+     "sku": "3O7MNJWJZ",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "17.77"
+      }
+     }
+    },
+    {
+     "title": "Gray XL",
+     "price": "167.11",
+     "sku": "4RCUGB7ZL",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "17.77"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72742565183818",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/be6c810d43c7b3ab32f99a21d078.png?v=1793217039",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742565839178",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/d4437a4e43b8b0b922aa93df9a6f.png?v=1793217049",
+      "width": 750,
+      "height": 750
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742566461770",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/7a4ce4c54e9a892276147d7481e5.png?v=1793217061",
+      "width": 725,
+      "height": 443
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742567543114",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/ae9c47b0467e9d3e18ce18311e29.png?v=1793217071",
+      "width": 725,
+      "height": 443
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742568100170",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/d4fe99044f35b19c58979775fcb7.png?v=1793217081",
+      "width": 666,
+      "height": 697
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742568624458",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/a79f09214efb8fe63e6e327188ac.png?v=1793217091",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742569378122",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/1a2f6ec647c3839bf99e02a437ca.png?v=1793217105",
+      "width": 1920,
+      "height": 1920
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742570131786",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/1782944e48d0b218f59379c53da5.png?v=1793217113",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742570950986",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/4ad29f9645268dc2bb710af5393f.png?v=1793217123",
+      "width": 725,
+      "height": 443
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742572458314",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/4bd0a2e6464da0b69b44171155ff.png?v=1793217134",
+      "width": 725,
+      "height": 443
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742573113674",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/d35079e744e48aa5e7bb30f7b50c.png?v=1793217144",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742574031178",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/c830fcea48feb941e0334d72a3f8.png?v=1793217153",
+      "width": 800,
+      "height": 800
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "gid://shopify/Product/16147878576458",
+  "title": "Self-Heating Pet Bed",
+  "handle": "self-heating-pet-bed",
+  "status": "ACTIVE",
+  "vendor": "CozyCompanion",
+  "productType": "",
+  "tags": [],
+  "descriptionHtml": "<p>Keep your furry friend warm and cozy with this self-heating pet bed. The soft fleece surface provides ultimate comfort, while the innovative self-heating technology helps to maintain a comfortable temperature.</p><p>1. Warmth: This warm pillow is designed with multiple layers of functional fabrics, and the insulating and insulating layer in the middle plays the role of heat reflection, allowing pets to keep the temperature in winter</p><p>2. Comfort: the surface layer is soft velor, and the middle is filled with cotton.</p><p>3. Anti-slip: The non-slip bottom design makes it difficult for pets to move the mat</p><p>4. Waterproof: The middle barrier insulation layer not only keeps warm but also prevents accidental leakage of pet urine to the ground</p><p>5.Machine washable: machine washable, easy to clean</p><p>6. A practical and multifunctional winter heating mat, which can be placed directly on the floor, on the car, or in the dog cage, or on the outdoor grass, so that your pet can get the best care and experience a warm winter</p><p><br></p><p>\u00a0</p><p><strong>Note:</strong></p><p>1. Please allow 1-3cm differences due to manual measurement and 3-5g for the difference between different colors.</p><p>2. Due to the screen difference, the color maybe a little different from what you expect, please allow it.</p><p>3.100cm = 0.39 \"</p><p><br></p><p>\u00a0</p><p><strong>Specification:</strong></p><p>Material: nylon</p><p>Pattern: plain</p><p>Color: 2 colors: brown, gray</p><p>Material: nylon</p><p>Type: Carpet</p><p>Cleaning type: machine washable</p><p>Features: suitable for travel / removable and washable</p><p>Place of Origin: China (Origin)</p><p>Size: 4 sizes: SML XL</p><p>Cut:</p><p>S: 61 * 46 * 0.9CM / 24.01 * 18.11 * 0.35 \"</p><p>M: 72 * 48.5 * 0.9CM / 28.34 * 18.89 * 0.35 \"</p><p>L: 92 * 62 * 0.9CM / 36.22 * 24.40 * 0.35 \"</p><p>XL: 110 * 70 * 0.9CM / 43.30 * 27.55 * 0.35 \"</p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Grey",
+     "Brown"
+    ]
+   },
+   {
+    "name": "Size",
+    "values": [
+     "S",
+     "L",
+     "XL",
+     "M"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "Grey / S",
+     "price": "42.39",
+     "sku": "UF98J549M",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "6.32"
+      }
+     }
+    },
+    {
+     "title": "Brown / S",
+     "price": "42.39",
+     "sku": "8J9KHJB",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "6.32"
+      }
+     }
+    },
+    {
+     "title": "Brown / L",
+     "price": "58.22",
+     "sku": "ZA891FTYJ",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "9.06"
+      }
+     }
+    },
+    {
+     "title": "Brown / XL",
+     "price": "68.67",
+     "sku": "SSHMNJ3SN",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "10.89"
+      }
+     }
+    },
+    {
+     "title": "Brown / M",
+     "price": "45.75",
+     "sku": "UML909S0D",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "7.24"
+      }
+     }
+    },
+    {
+     "title": "Grey / M",
+     "price": "45.75",
+     "sku": "QT921RGT2",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "7.24"
+      }
+     }
+    },
+    {
+     "title": "Grey / L",
+     "price": "58.22",
+     "sku": "NJSW7I1KM",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "9.06"
+      }
+     }
+    },
+    {
+     "title": "Grey / XL",
+     "price": "68.67",
+     "sku": "3GGGEIYKA",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "10.89"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72742570033482",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/1e1c776d49529c18fd45895d3536.png?v=1793217110",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742570754378",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/f5b0d4ea4408a95df5f00d3f23bc.png?v=1793217120",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742571999562",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/2cf2976242c99aacef34726ef7a6.png?v=1793217130",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742572982602",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/048ae0a7405989920617b43a0ef9.png?v=1793217140",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742573703498",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/78209431494f81fb23929eaca6ee.png?v=1793217151",
+      "width": 800,
+      "height": 800
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "gid://shopify/Product/16147879002442",
+  "title": "Ceramic Cat Bowl Cat Bowl Cat Food Bowl Neck Guard Oblique Mouth Dog Bowl Pet Bowl",
+  "handle": "ceramic-cat-bowl-cat-bowl-cat-food-bowl-neck-guard-oblique-mouth-dog-bowl-pet-bowl",
+  "status": "ACTIVE",
+  "vendor": "CozyCompanion",
+  "productType": "",
+  "tags": [],
+  "descriptionHtml": "<p>Material: Ceramic</p><p>\n</p><p>\n <img src=\"https://cf.cjdropshipping.com/8a4de3e5-3d1e-48c6-895e-c6b5eebf5421.jpg\">\n <img src=\"https://cf.cjdropshipping.com/50db31e2-2ac3-4070-943b-d60603b5fc84.jpg\">\n <img src=\"https://cf.cjdropshipping.com/58547d4d-1d9e-473f-bd24-f2ff9a7afed8.jpg\">\n <img src=\"https://cf.cjdropshipping.com/605f08fc-d13f-4e27-88f7-536aa931fe33.jpg\">\n <img src=\"https://cf.cjdropshipping.com/78bcd6a3-bc4a-4c0e-bb53-0fe8b7fb0297.jpg\">\n <img src=\"https://cf.cjdropshipping.com/9b1a6cb2-e99d-499f-8fe2-fff72c1003a3.jpg\">\n</p>",
+  "options": [
+   {
+    "name": "Color",
+    "values": [
+     "Pink and Blue",
+     "Black and White"
+    ]
+   }
+  ],
+  "variants": {
+   "nodes": [
+    {
+     "title": "Pink and Blue",
+     "price": "75.77",
+     "sku": "CJJT210530101AZ",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "24.13"
+      }
+     }
+    },
+    {
+     "title": "Black and White",
+     "price": "75.77",
+     "sku": "CJJT210530102BY",
+     "inventoryItem": {
+      "unitCost": {
+       "amount": "24.13"
+      }
+     }
+    }
+   ]
+  },
+  "media": {
+   "nodes": [
+    {
+     "id": "gid://shopify/MediaImage/72742572392778",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/e24a008943489a65fcd27302c3a9.jpg?v=1793217133",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742573179210",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/9c63db974109bbc6effb1c78158f.jpg?v=1793217143",
+      "width": 800,
+      "height": 800
+     }
+    },
+    {
+     "id": "gid://shopify/MediaImage/72742574195018",
+     "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/ae44b921433ebac91c824d6c8b77.jpg?v=1793217153",
+      "width": 800,
+      "height": 800
+     }
+    }
+   ]
+  }
+ }
+]
