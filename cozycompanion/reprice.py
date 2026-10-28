@@ -1,6 +1,6 @@
 """CozyCompanion pricing rule. Raises any variant priced below target; never lowers a price.
 
-Products tagged price-3x are priced at 3x cost (rounded up to .95). All others:
+Products tagged price-3x are priced at 3x (cost + SHIP_3X shipping), at least FLOOR, rounded up to .95. All others:
 every single-item order must leave MARGIN profit after ADS ad spend per purchase:
   price / 1.21 (VAT) - (2.9% + 0.30 payment fee) - cost - shipping - ADS >= MARGIN
   target = (cost + shipping + 0.30 + ADS + MARGIN) / (1/1.21 - 0.029), rounded UP to a x4.95 / x9.95 price
@@ -29,9 +29,12 @@ NET = 1 / 1.21 - 0.029
 def target_price(cost, ship):
     return charm((cost + ship + 0.30 + ADS + MARGIN) / NET)
 
+SHIP_3X = 4.0   # Zendrop shipping per item, counted into cost before tripling (owner's rule)
+FLOOR = 14.95   # nothing in a high-end store sells for less
+
 def triple(cost):
-    """Products tagged price-3x (owner's rule for the second batch): 3x cost, rounded up to .95."""
-    return math.ceil(cost * 3 + 0.05) - 0.05
+    """Products tagged price-3x: 3x (cost + shipping), never below FLOOR, rounded up to .95."""
+    return max(FLOOR, math.ceil((cost + SHIP_3X) * 3 + 0.05) - 0.05)
 
 def shipping(vendor, sku, options, tags=()):
     text = (sku or "") + " ".join(options)
@@ -40,8 +43,14 @@ def shipping(vendor, sku, options, tags=()):
     return 4.0
 
 assert gql("{shop{myshopifyDomain}}")["shop"]["myshopifyDomain"] == "pj0q30-dd.myshopify.com"
-d = gql("""{ products(first:100, query:"-status:archived"){ nodes{ id title vendor tags
-  variants(first:100){nodes{id title sku price selectedOptions{value} inventoryItem{unitCost{amount}}}} } } }""")
+nodes, after = [], None
+while True:   # the catalog is past 100 products, so page through all of it
+    page = gql("""query($a:String){ products(first:100, after:$a, query:"-status:archived"){ nodes{ id title vendor tags
+      variants(first:100){nodes{id title sku price selectedOptions{value} inventoryItem{unitCost{amount}}}} } pageInfo{hasNextPage endCursor} } }""", {"a": after})["products"]
+    nodes += page["nodes"]
+    if not page["pageInfo"]["hasNextPage"]: break
+    after = page["pageInfo"]["endCursor"]
+d = {"products": {"nodes": nodes}}
 changes = 0
 def group_key(p, v):
     """Variants that look the same to a shopper share one price: same first option when there are
@@ -64,7 +73,7 @@ for p in d["products"]["nodes"]:
             target = max(t for t in raw.values() if abs(t - raw[v["id"]]) < 5)
             if abs(float(v["price"]) - target) > 0.001:
                 upd.append({"id": v["id"], "price": f"{target:.2f}"})
-                print(f"  {p['title'][:45]:45} | {v['title'][:30]:30} €{float(v['price']):6.2f} -> €{target:6.2f} (3x cost €{float(v['inventoryItem']['unitCost']['amount']):.2f})")
+                print(f"  {p['title'][:45]:45} | {v['title'][:30]:30} €{float(v['price']):6.2f} -> €{target:6.2f} (3x cost+ship €{float(v['inventoryItem']['unitCost']['amount']):.2f})")
         if upd and not DRY:
             check(gql("mutation($pid:ID!,$v:[ProductVariantsBulkInput!]!){productVariantsBulkUpdate(productId:$pid,variants:$v){userErrors{field message}}}",
                       {"pid": p["id"], "v": upd})["productVariantsBulkUpdate"], p["title"])

@@ -2725,5 +2725,248 @@
    1696,
    2528
   ]
+ },
+ "m_sleep": {
+  "id": "gid://shopify/MediaImage/72744784789834",
+  "alt": "A cat asleep in a cream CozyCompanion bed",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-m_sleep.png?v=1793225343",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "m_dine": {
+  "id": "gid://shopify/MediaImage/72744784822602",
+  "alt": "A cat eating from a CozyCompanion ceramic bowl",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-m_dine.png?v=1793225343",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "m_play": {
+  "id": "gid://shopify/MediaImage/72744784855370",
+  "alt": "A Bengal cat leaping for a feather wand",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-m_play.png?v=1793225343",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "m_wear": {
+  "id": "gid://shopify/MediaImage/72744784888138",
+  "alt": "A whippet in a CozyCompanion winter jacket",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-m_wear.png?v=1793225345",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "m_dogs": {
+  "id": "gid://shopify/MediaImage/72744784920906",
+  "alt": "A golden retriever beside a CozyCompanion tote",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-m_dogs.png?v=1793225344",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "m_cats": {
+  "id": "gid://shopify/MediaImage/72744784953674",
+  "alt": "A Ragdoll cat on a CozyCompanion gift box",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-m_cats.png?v=1793225344",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "m_all": {
+  "id": "gid://shopify/MediaImage/72744784986442",
+  "alt": "CozyCompanion pet essentials flat lay",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-m_all.png?v=1793225344",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "m_gifts": {
+  "id": "gid://shopify/MediaImage/72744785019210",
+  "alt": "CozyCompanion gift boxes with a sleeping spaniel",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-m_gifts.png?v=1793225344",
+  "size": [
+   2048,
+   2048
+  ]
+ },
+ "h3_hero": {
+  "id": "gid://shopify/MediaImage/72744837448010",
+  "alt": "A golden retriever and Ragdoll cat in a serene cream living room",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-h3_hero.png?v=1793225546",
+  "size": [
+   2752,
+   1536
+  ]
+ },
+ "h3_hero_m": {
+  "id": "gid://shopify/MediaImage/72744837480778",
+  "alt": "A golden retriever and Ragdoll cat at home",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-h3_hero_m.png?v=1793225546",
+  "size": [
+   1536,
+   2752
+  ]
+ },
+ "h3_story": {
+  "id": "gid://shopify/MediaImage/72744837513546",
+  "alt": "A woman hugging her Australian shepherd at the front door",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-h3_story.png?v=1793225546",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "z_pounce_pack": {
+  "id": "gid://shopify/MediaImage/72744837546314",
+  "alt": "Pounce automatic feather cat toy",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_pounce_pack.png?v=1793225545",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_pounce_cat": {
+  "id": "gid://shopify/MediaImage/72744837579082",
+  "alt": "A Siamese cat about to pounce on the Pounce toy",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_pounce_cat.png?v=1793225546",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_chirp_pack": {
+  "id": "gid://shopify/MediaImage/72744837611850",
+  "alt": "Chirp catnip balls in pink, yellow and blue",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_chirp_pack.png?v=1793225545",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_chirp_kitten": {
+  "id": "gid://shopify/MediaImage/72744837644618",
+  "alt": "A kitten playing with Chirp catnip balls",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_chirp_kitten.png?v=1793225545",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_cradle_pack": {
+  "id": "gid://shopify/MediaImage/72744887320906",
+  "alt": "Cradle mesh pet sling carrier",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_cradle_pack.png?v=1793225791",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_bloom_pack": {
+  "id": "gid://shopify/MediaImage/72744887353674",
+  "alt": "Bloom floral cat collar",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_bloom_pack.png?v=1793225789",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_mistle_pack": {
+  "id": "gid://shopify/MediaImage/72744887386442",
+  "alt": "Mistle knit dog hood",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_mistle_pack.png?v=1793225789",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_trail_pack": {
+  "id": "gid://shopify/MediaImage/72744887419210",
+  "alt": "Trail hands-free dog leash with waist belt",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_trail_pack.png?v=1793225790",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_dapper_pack": {
+  "id": "gid://shopify/MediaImage/72744887451978",
+  "alt": "Dapper gingham dog bow tie",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_dapper_pack.png?v=1793225789",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_fin_pack": {
+  "id": "gid://shopify/MediaImage/72744887484746",
+  "alt": "Fin dog life jacket with shark fin",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_fin_pack.png?v=1793225789",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_cradle_walk": {
+  "id": "gid://shopify/MediaImage/72744887517514",
+  "alt": "A Maltese in the Cradle sling carrier",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_cradle_walk.png?v=1793225790",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_bloom_cat": {
+  "id": "gid://shopify/MediaImage/72744887550282",
+  "alt": "A cat wearing the Bloom floral collar",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_bloom_cat.png?v=1793225791",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_mistle_dog": {
+  "id": "gid://shopify/MediaImage/72744903639370",
+  "alt": "A bull terrier in the Mistle knit hood",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_mistle_dog.png?v=1793225889",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_trail_run": {
+  "id": "gid://shopify/MediaImage/72744903672138",
+  "alt": "Running with the Trail hands-free leash",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_trail_run.png?v=1793225890",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_dapper_dog": {
+  "id": "gid://shopify/MediaImage/72744903704906",
+  "alt": "A spaniel wearing the Dapper gingham bow tie",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_dapper_dog.png?v=1793225890",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_fin_swim": {
+  "id": "gid://shopify/MediaImage/72744903737674",
+  "alt": "A Labrador swimming in the Fin life jacket",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_fin_swim.png?v=1793225890",
+  "size": [
+   1696,
+   2528
+  ]
  }
 }

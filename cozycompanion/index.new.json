@@ -1,0 +1,1759 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "blocks": {
+        "eyebrow": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The modern pet house</p>",
+            "type_preset": "h6",
+            "width": "fit-content",
+            "alignment": "left",
+            "max_width": "normal",
+            "padding-block-end": 0,
+            "text_color": "#f5f1ed"
+          },
+          "blocks": {}
+        },
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>Live beautifully, together.</h1>",
+            "type_preset": "h1",
+            "width": "fit-content",
+            "alignment": "left",
+            "max_width": "narrow",
+            "padding-block-end": 0,
+            "text_color": "#f5f1ed"
+          },
+          "blocks": {}
+        },
+        "sub": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Considered essentials for the dogs and cats we share our homes with: beautiful beds, bowls, coats and play.</p>",
+            "type_preset": "paragraph",
+            "width": "fit-content",
+            "alignment": "left",
+            "max_width": "narrow",
+            "padding-block-end": 8,
+            "text_color": "#f5f1ed"
+          },
+          "blocks": {}
+        },
+        "ctas": {
+          "type": "group",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "gap": 10,
+            "width": "fill"
+          },
+          "blocks": {
+            "a": {
+              "type": "button",
+              "settings": {
+                "label": "Shop dogs",
+                "link": "shopify://collections/dogs",
+                "style_class": "button-custom",
+                "custom_button_background": "#f5f1ed",
+                "custom_button_text": "#1a1a1a",
+                "custom_button_border": "#f5f1ed"
+              },
+              "blocks": {}
+            },
+            "b": {
+              "type": "button",
+              "settings": {
+                "label": "Shop cats",
+                "link": "shopify://collections/cats",
+                "style_class": "button-custom",
+                "custom_button_background": "rgba(0,0,0,0)",
+                "custom_button_text": "#f5f1ed",
+                "custom_button_border": "#f5f1ed"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "a",
+            "b"
+          ]
+        }
+      },
+      "block_order": [
+        "eyebrow",
+        "heading",
+        "sub",
+        "ctas"
+      ],
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/cozycompanion-h3_hero.png",
+        "content_direction": "column",
+        "custom_mobile_media": true,
+        "media_type_1_mobile": "image",
+        "image_1_mobile": "shopify://shop_images/cozycompanion-h3_hero_m.png",
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 20,
+        "section_width": "full-width",
+        "section_height": "large",
+        "toggle_overlay": true,
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "overlay_color": "#1a1a1a8c",
+        "padding-block-start": 64,
+        "padding-block-end": 64
+      }
+    },
+    "trust": {
+      "type": "marquee",
+      "blocks": {
+        "i0": {
+          "type": "icon",
+          "settings": {
+            "icon": "truck",
+            "width": 18,
+            "icon_color": "#b76e79"
+          },
+          "blocks": {}
+        },
+        "t0": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Tracked shipping around the world</p>",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "case": "uppercase",
+            "letter_spacing": "loose",
+            "wrap": "nowrap",
+            "text_color": "#f5f1ed"
+          },
+          "blocks": {}
+        },
+        "i1": {
+          "type": "icon",
+          "settings": {
+            "icon": "return",
+            "width": 18,
+            "icon_color": "#b76e79"
+          },
+          "blocks": {}
+        },
+        "t1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>30-day happiness guarantee</p>",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "case": "uppercase",
+            "letter_spacing": "loose",
+            "wrap": "nowrap",
+            "text_color": "#f5f1ed"
+          },
+          "blocks": {}
+        },
+        "i2": {
+          "type": "icon",
+          "settings": {
+            "icon": "lock",
+            "width": 18,
+            "icon_color": "#b76e79"
+          },
+          "blocks": {}
+        },
+        "t2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Secure checkout</p>",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "case": "uppercase",
+            "letter_spacing": "loose",
+            "wrap": "nowrap",
+            "text_color": "#f5f1ed"
+          },
+          "blocks": {}
+        },
+        "i3": {
+          "type": "icon",
+          "settings": {
+            "icon": "heart",
+            "width": 18,
+            "icon_color": "#b76e79"
+          },
+          "blocks": {}
+        },
+        "t3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>15% off your first order: COZY15</p>",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "case": "uppercase",
+            "letter_spacing": "loose",
+            "wrap": "nowrap",
+            "text_color": "#f5f1ed"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "i0",
+        "t0",
+        "i1",
+        "t1",
+        "i2",
+        "t2",
+        "i3",
+        "t3"
+      ],
+      "settings": {
+        "background_color": "#1a1a1a",
+        "padding-block-start": 14,
+        "padding-block-end": 14,
+        "gap_between_elements": 28
+      }
+    },
+    "collections": {
+      "type": "collection-list",
+      "blocks": {
+        "header": {
+          "type": "group",
+          "settings": {
+            "gap": 8,
+            "padding-block-end": 16,
+            "horizontal_alignment_flex_direction_column": "center"
+          },
+          "blocks": {
+            "eyebrow": {
+              "type": "text",
+              "settings": {
+                "text": "<p>The CozyCompanion edit</p>",
+                "type_preset": "h6",
+                "width": "fit-content",
+                "alignment": "left",
+                "max_width": "normal",
+                "padding-block-end": 0,
+                "text_color": "#b76e79"
+              },
+              "blocks": {}
+            },
+            "h": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>Shop the house</h2>",
+                "type_preset": "h2",
+                "width": "fit-content",
+                "alignment": "left",
+                "max_width": "normal",
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "eyebrow",
+            "h"
+          ]
+        },
+        "static-collection-card": {
+          "type": "_collection-card",
+          "static": true,
+          "settings": {
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-end",
+            "placement": "on_image"
+          },
+          "blocks": {
+            "collection-card-image": {
+              "type": "_collection-card-image",
+              "static": true,
+              "settings": {
+                "image_ratio": "square"
+              }
+            },
+            "collection-title": {
+              "type": "collection-title",
+              "settings": {
+                "type_preset": "h5",
+                "background": true,
+                "background_color": "#f5f1ed",
+                "padding-block-start": 8,
+                "padding-block-end": 8,
+                "padding-inline-start": 14,
+                "padding-inline-end": 14
+              }
+            }
+          },
+          "block_order": [
+            "collection-title"
+          ]
+        }
+      },
+      "block_order": [
+        "header"
+      ],
+      "settings": {
+        "collection_list": [
+          "dogs",
+          "cats",
+          "beds-dens",
+          "smart-feeding",
+          "play-enrichment",
+          "wear-walk"
+        ],
+        "layout_type": "grid",
+        "columns": 3,
+        "mobile_columns": "2",
+        "columns_gap": 12,
+        "rows_gap": 12,
+        "carousel_on_mobile": true,
+        "mobile_card_size": "60cqw",
+        "section_width": "page-width",
+        "background_color": "#f5f1ed",
+        "padding-block-start": 56,
+        "padding-block-end": 40
+      }
+    },
+    "edit": {
+      "type": "product-list",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_list_text_YFtzcL": {
+              "type": "_product-list-text",
+              "name": "t:names.collection_title",
+              "settings": {
+                "text": "<h2>The CozyCompanion edit</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_list_button_MWeP9V": {
+              "type": "_product-list-button",
+              "name": "t:names.product_list_button",
+              "settings": {
+                "label": "View all",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_list_text_YFtzcL",
+            "product_list_button_MWeP9V"
+          ]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_677WP3": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "square",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_YXxMTj": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_JQzVV4": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_677WP3",
+            "product_title_YXxMTj",
+            "price_JQzVV4"
+          ]
+        }
+      },
+      "name": "t:names.product_list",
+      "settings": {
+        "collection": "smart-pet-tech",
+        "layout_type": "grid",
+        "carousel_on_mobile": true,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 8,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 28,
+        "background_color": "#f5f1ed",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "wear": {
+      "type": "product-list",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_list_text_YFtzcL": {
+              "type": "_product-list-text",
+              "name": "t:names.collection_title",
+              "settings": {
+                "text": "<h2>Wear &amp; walk</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_list_button_MWeP9V": {
+              "type": "_product-list-button",
+              "name": "t:names.product_list_button",
+              "settings": {
+                "label": "View all",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_list_text_YFtzcL",
+            "product_list_button_MWeP9V"
+          ]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_677WP3": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "square",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_YXxMTj": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_JQzVV4": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_677WP3",
+            "product_title_YXxMTj",
+            "price_JQzVV4"
+          ]
+        }
+      },
+      "name": "t:names.product_list",
+      "settings": {
+        "collection": "wear-walk",
+        "layout_type": "grid",
+        "carousel_on_mobile": true,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 8,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 28,
+        "background_color": "#f5f1ed",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "sleep": {
+      "type": "product-list",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_list_text_YFtzcL": {
+              "type": "_product-list-text",
+              "name": "t:names.collection_title",
+              "settings": {
+                "text": "<h2>Sleep &amp; lounge</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_list_button_MWeP9V": {
+              "type": "_product-list-button",
+              "name": "t:names.product_list_button",
+              "settings": {
+                "label": "View all",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_list_text_YFtzcL",
+            "product_list_button_MWeP9V"
+          ]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_677WP3": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "square",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_YXxMTj": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_JQzVV4": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_677WP3",
+            "product_title_YXxMTj",
+            "price_JQzVV4"
+          ]
+        }
+      },
+      "name": "t:names.product_list",
+      "settings": {
+        "collection": "beds-dens",
+        "layout_type": "grid",
+        "carousel_on_mobile": true,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 8,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 28,
+        "background_color": "#f5f1ed",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "story": {
+      "type": "media-with-content",
+      "settings": {
+        "media_position": "left",
+        "media_width": "medium",
+        "media_height": "60svh",
+        "section_width": "full-width",
+        "background_color": "#ebe3da"
+      },
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/cozycompanion-h3_story.png"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 20
+          },
+          "blocks": {
+            "eyebrow": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Chapter I &middot; The bond</p>",
+                "type_preset": "h6",
+                "width": "fit-content",
+                "alignment": "left",
+                "max_width": "normal",
+                "padding-block-end": 0,
+                "text_color": "#b76e79"
+              },
+              "blocks": {}
+            },
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>Made for the moments that matter.</h2>",
+                "type_preset": "h2",
+                "width": "fit-content",
+                "alignment": "left",
+                "max_width": "narrow",
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "body": {
+              "type": "text",
+              "settings": {
+                "text": "<p>CozyCompanion began with a simple idea: our pets deserve the same care we put into our homes. Things that look beautiful, feel good and simply work.</p><p>So we curate a small, considered collection: plush beds, refined bowls, coats for every weather and play that keeps curious minds busy. Nothing loud, nothing disposable.</p>",
+                "type_preset": "rte",
+                "width": "fit-content",
+                "alignment": "left",
+                "max_width": "narrow",
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "cta": {
+              "type": "button",
+              "settings": {
+                "label": "Discover our story",
+                "link": "shopify://pages/about",
+                "style_class": "button-secondary"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "eyebrow",
+            "heading",
+            "body",
+            "cta"
+          ]
+        }
+      }
+    },
+    "promise": {
+      "type": "section",
+      "blocks": {
+        "head": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>The CozyCompanion promise</h2>",
+            "type_preset": "h3",
+            "width": "100%",
+            "alignment": "center",
+            "max_width": "normal",
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        },
+        "row0": {
+          "type": "group",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "gap": 16,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-start",
+            "width": "fill"
+          },
+          "blocks": {
+            "v0": {
+              "type": "group",
+              "settings": {
+                "gap": 8,
+                "horizontal_alignment_flex_direction_column": "center",
+                "width": "fill"
+              },
+              "blocks": {
+                "icon": {
+                  "type": "icon",
+                  "settings": {
+                    "icon": "heart",
+                    "width": 28,
+                    "icon_color": "#b76e79"
+                  },
+                  "blocks": {}
+                },
+                "h": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h3>Curated with care</h3>",
+                    "type_preset": "h6",
+                    "width": "100%",
+                    "alignment": "center",
+                    "max_width": "normal",
+                    "padding-block-end": 0
+                  },
+                  "blocks": {}
+                },
+                "t": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Chosen for design, comfort and daily use.</p>",
+                    "type_preset": "rte",
+                    "width": "100%",
+                    "alignment": "center",
+                    "max_width": "narrow",
+                    "padding-block-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon",
+                "h",
+                "t"
+              ]
+            },
+            "v1": {
+              "type": "group",
+              "settings": {
+                "gap": 8,
+                "horizontal_alignment_flex_direction_column": "center",
+                "width": "fill"
+              },
+              "blocks": {
+                "icon": {
+                  "type": "icon",
+                  "settings": {
+                    "icon": "paw_print",
+                    "width": 28,
+                    "icon_color": "#b76e79"
+                  },
+                  "blocks": {}
+                },
+                "h": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h3>For dogs &amp; cats</h3>",
+                    "type_preset": "h6",
+                    "width": "100%",
+                    "alignment": "center",
+                    "max_width": "normal",
+                    "padding-block-end": 0
+                  },
+                  "blocks": {}
+                },
+                "t": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>From first walk to last nap of the day.</p>",
+                    "type_preset": "rte",
+                    "width": "100%",
+                    "alignment": "center",
+                    "max_width": "narrow",
+                    "padding-block-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon",
+                "h",
+                "t"
+              ]
+            }
+          },
+          "block_order": [
+            "v0",
+            "v1"
+          ]
+        },
+        "row1": {
+          "type": "group",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "gap": 16,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-start",
+            "width": "fill"
+          },
+          "blocks": {
+            "v0": {
+              "type": "group",
+              "settings": {
+                "gap": 8,
+                "horizontal_alignment_flex_direction_column": "center",
+                "width": "fill"
+              },
+              "blocks": {
+                "icon": {
+                  "type": "icon",
+                  "settings": {
+                    "icon": "return",
+                    "width": 28,
+                    "icon_color": "#b76e79"
+                  },
+                  "blocks": {}
+                },
+                "h": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h3>30-day guarantee</h3>",
+                    "type_preset": "h6",
+                    "width": "100%",
+                    "alignment": "center",
+                    "max_width": "normal",
+                    "padding-block-end": 0
+                  },
+                  "blocks": {}
+                },
+                "t": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Not in love? Return it, no fuss.</p>",
+                    "type_preset": "rte",
+                    "width": "100%",
+                    "alignment": "center",
+                    "max_width": "narrow",
+                    "padding-block-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon",
+                "h",
+                "t"
+              ]
+            },
+            "v1": {
+              "type": "group",
+              "settings": {
+                "gap": 8,
+                "horizontal_alignment_flex_direction_column": "center",
+                "width": "fill"
+              },
+              "blocks": {
+                "icon": {
+                  "type": "icon",
+                  "settings": {
+                    "icon": "plane",
+                    "width": 28,
+                    "icon_color": "#b76e79"
+                  },
+                  "blocks": {}
+                },
+                "h": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h3>Shipped worldwide</h3>",
+                    "type_preset": "h6",
+                    "width": "100%",
+                    "alignment": "center",
+                    "max_width": "normal",
+                    "padding-block-end": 0
+                  },
+                  "blocks": {}
+                },
+                "t": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Tracked delivery on every order.</p>",
+                    "type_preset": "rte",
+                    "width": "100%",
+                    "alignment": "center",
+                    "max_width": "narrow",
+                    "padding-block-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon",
+                "h",
+                "t"
+              ]
+            }
+          },
+          "block_order": [
+            "v0",
+            "v1"
+          ]
+        }
+      },
+      "block_order": [
+        "head",
+        "row0",
+        "row1"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "gap": 28,
+        "section_width": "page-width",
+        "background_color": "#f5f1ed",
+        "horizontal_alignment_flex_direction_column": "center",
+        "padding-block-start": 56,
+        "padding-block-end": 56
+      }
+    },
+    "chapter2": {
+      "type": "media-with-content",
+      "settings": {
+        "media_position": "right",
+        "media_width": "medium",
+        "media_height": "60svh",
+        "section_width": "full-width",
+        "background_color": "#f5f1ed"
+      },
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/cozycompanion-h2_morning.png"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 20
+          },
+          "blocks": {
+            "eyebrow": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Chapter III &middot; Care, even when you're away</p>",
+                "type_preset": "h6",
+                "width": "fit-content",
+                "alignment": "left",
+                "max_width": "normal",
+                "padding-block-end": 0,
+                "text_color": "#b76e79"
+              },
+              "blocks": {}
+            },
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>Peace of mind, quietly automated.</h2>",
+                "type_preset": "h2",
+                "width": "fit-content",
+                "alignment": "left",
+                "max_width": "narrow",
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "body": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Long day at work? Dinner is served on time, fresh water keeps flowing, and a quick glance at your phone shows they're fine.</p><p>Our smart pet essentials take care of the routine, so the time you spend together is simply time together.</p>",
+                "type_preset": "rte",
+                "width": "fit-content",
+                "alignment": "left",
+                "max_width": "narrow",
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "cta": {
+              "type": "button",
+              "settings": {
+                "label": "Explore the smart home",
+                "link": "shopify://collections/smart-home",
+                "style_class": "button-secondary"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "eyebrow",
+            "heading",
+            "body",
+            "cta"
+          ]
+        }
+      }
+    },
+    "pettech": {
+      "type": "product-list",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_list_text_YFtzcL": {
+              "type": "_product-list-text",
+              "name": "t:names.collection_title",
+              "settings": {
+                "text": "<h2>The smart home</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_list_button_MWeP9V": {
+              "type": "_product-list-button",
+              "name": "t:names.product_list_button",
+              "settings": {
+                "label": "View all",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_list_text_YFtzcL",
+            "product_list_button_MWeP9V"
+          ]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_677WP3": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "square",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_YXxMTj": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_JQzVV4": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_677WP3",
+            "product_title_YXxMTj",
+            "price_JQzVV4"
+          ]
+        }
+      },
+      "name": "t:names.product_list",
+      "settings": {
+        "collection": "smart-home",
+        "layout_type": "grid",
+        "carousel_on_mobile": true,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 8,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 28,
+        "background_color": "#f5f1ed",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "chapter3": {
+      "type": "media-with-content",
+      "settings": {
+        "media_position": "left",
+        "media_width": "medium",
+        "media_height": "60svh",
+        "section_width": "full-width",
+        "background_color": "#ebe3da"
+      },
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/cozycompanion-m_sleep.png"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 20
+          },
+          "blocks": {
+            "eyebrow": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Chapter II &middot; Rest, beautifully</p>",
+                "type_preset": "h6",
+                "width": "fit-content",
+                "alignment": "left",
+                "max_width": "normal",
+                "padding-block-end": 0,
+                "text_color": "#b76e79"
+              },
+              "blocks": {}
+            },
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>The best seat in the house is theirs.</h2>",
+                "type_preset": "h2",
+                "width": "fit-content",
+                "alignment": "left",
+                "max_width": "narrow",
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "body": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Deep bolsters, plush cushions and soft sherpa: beds and blankets designed to look at home in yours, and to be the place they always come back to.</p>",
+                "type_preset": "rte",
+                "width": "fit-content",
+                "alignment": "left",
+                "max_width": "narrow",
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "cta": {
+              "type": "button",
+              "settings": {
+                "label": "Shop sleep &amp; lounge",
+                "link": "shopify://collections/beds-dens",
+                "style_class": "button-secondary"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "eyebrow",
+            "heading",
+            "body",
+            "cta"
+          ]
+        }
+      }
+    },
+    "holiday": {
+      "type": "media-with-content",
+      "settings": {
+        "media_position": "right",
+        "media_width": "medium",
+        "media_height": "60svh",
+        "section_width": "full-width",
+        "background_color": "#1a1a1a"
+      },
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/cozycompanion-h2_holiday.png"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 20
+          },
+          "blocks": {
+            "eyebrow": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Holiday Gift Guide</p>",
+                "type_preset": "h6",
+                "width": "fit-content",
+                "alignment": "left",
+                "max_width": "normal",
+                "padding-block-end": 0,
+                "text_color": "#b76e79"
+              },
+              "blocks": {}
+            },
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>Gifts they'll actually love.</h2>",
+                "type_preset": "h2",
+                "width": "fit-content",
+                "alignment": "left",
+                "max_width": "narrow",
+                "padding-block-end": 0,
+                "text_color": "#f5f1ed"
+              },
+              "blocks": {}
+            },
+            "body": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Thoughtful gifts for the pets who complete the picture, and the people who love them. Explore our most giftable pieces, all ready to be wrapped.</p>",
+                "type_preset": "rte",
+                "width": "fit-content",
+                "alignment": "left",
+                "max_width": "narrow",
+                "padding-block-end": 0,
+                "text_color": "#f5f1ed"
+              },
+              "blocks": {}
+            },
+            "cta": {
+              "type": "button",
+              "settings": {
+                "label": "Shop the gift guide",
+                "link": "shopify://collections/holiday-gift-guide",
+                "style_class": "button-custom",
+                "custom_button_background": "#b76e79",
+                "custom_button_text": "#ffffff",
+                "custom_button_border": "#b76e79"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "eyebrow",
+            "heading",
+            "body",
+            "cta"
+          ]
+        }
+      }
+    },
+    "newsletter": {
+      "type": "section",
+      "settings": {
+        "content_direction": "column",
+        "gap": 16,
+        "horizontal_alignment_flex_direction_column": "center",
+        "section_width": "page-width",
+        "background_color": "#ebe3da",
+        "padding-block-start": 56,
+        "padding-block-end": 56
+      },
+      "blocks": {
+        "eyebrow": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Join the Cozy Circle</p>",
+            "type_preset": "h6",
+            "width": "100%",
+            "alignment": "center",
+            "max_width": "normal",
+            "padding-block-end": 0,
+            "text_color": "#b76e79"
+          },
+          "blocks": {}
+        },
+        "h": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>15% off your first order.</h2>",
+            "type_preset": "h2",
+            "width": "100%",
+            "alignment": "center",
+            "max_width": "normal",
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        },
+        "t": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Be the first to hear about new arrivals, seasonal edits and members-only offers. Use code <strong>COZY15</strong> at checkout.</p>",
+            "type_preset": "rte",
+            "width": "100%",
+            "alignment": "center",
+            "max_width": "narrow",
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        },
+        "signup": {
+          "type": "email-signup",
+          "settings": {
+            "width": "fill",
+            "heading": "",
+            "label": "Join",
+            "style_class": "button"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "eyebrow",
+        "h",
+        "t",
+        "signup"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "trust",
+    "collections",
+    "edit",
+    "story",
+    "wear",
+    "chapter3",
+    "sleep",
+    "chapter2",
+    "pettech",
+    "promise",
+    "holiday",
+    "newsletter"
+  ]
+}

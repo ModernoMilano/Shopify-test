@@ -63,12 +63,21 @@ GALLERIES = {
     "burrow-plush-pet-bed": ["z_burrow_pack", "z_burrow_cat"],
     "fold-magnetic-cat-scratcher": ["z_fold_pack", "z_fold_cat"],
     "chomp-rubber-treat-ball": ["z_chomp_pack", "z_chomp_dog"],
+    "pounce-automatic-feather-cat-toy": ["z_pounce_pack", "z_pounce_cat"],
+    "chirp-catnip-ball": ["z_chirp_pack", "z_chirp_kitten"],
+    "cradle-pet-sling-carrier": ["z_cradle_pack", "z_cradle_walk"],
+    "bloom-floral-cat-collar": ["z_bloom_pack", "z_bloom_cat"],
+    "mistle-knit-dog-hood": ["z_mistle_pack", "z_mistle_dog"],
+    "trail-hands-free-dog-leash": ["z_trail_pack", "z_trail_run"],
+    "dapper-gingham-bow-tie": ["z_dapper_pack", "z_dapper_dog"],
+    "fin-dog-life-jacket": ["z_fin_pack", "z_fin_swim"],
 }
 # many colors/breeds and we only shot one: keep the supplier's variant photos after ours
 KEEP_VARIANT_PHOTOS = {"stride-dog-harness-leash-set", "zoom-self-rolling-cat-ball", "buddy-plush-dog-toy", "drizzle-dog-raincoat",
                        "chase-plush-prey-cat-toy", "fetch-automatic-ball-launcher", "frost-harness-winter-dog-jacket", "splash-quick-dry-dog-bathrobe",
                        "snug-sherpa-pet-blanket", "doze-dog-pajamas", "tidy-double-bowl-feeder", "riddle-treat-dispensing-ball",
-                       "burrow-plush-pet-bed", "chomp-rubber-treat-ball"}
+                       "burrow-plush-pet-bed", "chomp-rubber-treat-ball", "pounce-automatic-feather-cat-toy", "chirp-catnip-ball",
+                       "cradle-pet-sling-carrier", "trail-hands-free-dog-leash", "fin-dog-life-jacket"}
 # variant option value (substring) -> photo shown when that variant is picked
 VARIANT_MEDIA = {
     "ember-heat-pad": {"Gray": "b_pad_23", "Yellow": "g_hp_colors2_23", "Green": "g_hp_colors2_23", "Blue": "g_hp_colors2_23"},

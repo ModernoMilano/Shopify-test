@@ -23,7 +23,7 @@ hs = h["sections"]["header_section"]
 hs["settings"].update({"logo_position": "center", "menu_position": "left", "show_language": False,
                        "show_country": False, "background_color_top": CREAM, "text_color_top": CHAR,
                        "divider_width": 1, "divider_color": "#e3dbd2", "enable_sticky_header": "scroll-up"})
-hs["blocks"]["header-menu"]["settings"].update({"menu_style": "text", "type_case_primary_link": "uppercase",
+hs["blocks"]["header-menu"]["settings"].update({"menu_style": "featured_collections", "type_case_primary_link": "uppercase",
     "type_font_primary_size": "0.75rem", "background_color": CREAM, "drawer_dividers": True,
     "drawer_accordion": True, "drawer_accordion_expand_first": True, "menu_font_style": "regular"})
 
@@ -38,14 +38,14 @@ foot = f["sections"]["footer_m9NzUG"]
 foot["blocks"] = {
     "brand": {"type": "group", "settings": {"gap": 14, "width": "fill"}, "blocks": {
         "name": {"type": "logo", "settings": {"inverse": True, "unit": "pixel", "pixel_height": 32}, "blocks": {}},
-        "about": text("<p>Luxury comfort for you and your companions. Heated blankets and smart pet essentials, thoughtfully curated for the quiet moments at home.</p><p>Questions? <a href=\"mailto:cozycompanion.us@gmail.com\">cozycompanion.us@gmail.com</a></p>"),
+        "about": text("<p>Considered essentials for the dogs and cats we share our homes with: beautiful beds, bowls, coats and play, chosen with care.</p><p>Questions? <a href=\"mailto:cozycompanion.us@gmail.com\">cozycompanion.us@gmail.com</a></p>"),
         "signup_h": text("<p><strong>Join the Cozy Circle</strong> and get 15% off your first order with code COZY15.</p>"),
         "signup": {"type": "email-signup", "settings": {"width": "fill", "heading": "", "input_style": "custom",
                    "input_background_color": CREAM, "input_text_color": CHAR, "style_class": "button-custom",
                    "custom_button_background": ROSE, "custom_button_text": "#ffffff", "custom_button_border": ROSE,
                    "display_type": "text", "label": "Join"}, "blocks": {}},
         "payments": {"type": "payment-icons", "settings": {"horizontal_alignment": "flex-start", "gap": 8}, "blocks": {}}},
-        "block_order": ["name", "about", "signup_h", "signup", "payments"]},
+        "block_order": ["name", "about", "signup_h", "signup"]},
     "shop": menu("footer-shop", "Shop"),
     "help": menu("footer", "Customer care"),
     "legal": menu("footer-legal", "Legal"),

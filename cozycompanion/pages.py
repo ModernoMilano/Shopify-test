@@ -15,12 +15,12 @@ CONTACT = '<a href="/pages/contact">contact page</a>'
 PAGES = {}
 
 PAGES["about"] = ("Our Story", f"""
-<p><em>CozyCompanion was born from a simple belief: the best moments at home are the quiet ones.</em></p>
-<p>A soft blanket at the end of a long day. Warm light, a good book, a cup of tea. A companion curled up beside you, breathing slowly, perfectly content. These are the moments that make a house feel like home &mdash; and the ones we design for.</p>
+<p><em>CozyCompanion was born from a simple belief: our pets deserve the same care we put into our homes.</em></p>
+<p>The first walk of the morning. The sound of a bowl being filled. A dog stretched out across the best spot on the sofa, a cat asleep in a patch of sun. These are the moments that make a house feel like home &mdash; and the ones we design for.</p>
 <h2>Luxury, the gentle kind</h2>
-<p>To us, luxury isn't loud. It's the feeling of fabric that's genuinely soft, warmth that arrives exactly when you want it, and technology that quietly takes care of things so you don't have to. We curate every piece in our collection around that idea: considered, beautiful, and made to be used every day.</p>
-<h2>For you, and for them</h2>
-<p>Our pets are family. That's why our collection brings together two worlds that belong together: <a href="/collections/cozy-heated-blankets">heated blankets</a> for cozy evenings, and <a href="/collections/smart-pet-tech">smart pet essentials</a> that keep your companions fed, hydrated, warm and close &mdash; even when you can't be there.</p>
+<p>To us, luxury isn't loud. It's a bed with bolsters deep enough to sink into, a bowl that looks beautiful on your kitchen floor, a coat that keeps out the cold, and a toy that keeps a curious mind busy. We curate a small, considered collection around that idea: well designed, comfortable, and made to be used every day.</p>
+<h2>For dogs, and for cats</h2>
+<p>Everything we offer is chosen for the pets we share our lives with: <a href="/collections/dogs">for dogs</a>, <a href="/collections/cats">for cats</a>, and for every part of their day &mdash; <a href="/collections/beds-dens">sleep</a>, <a href="/collections/smart-feeding">mealtime</a>, <a href="/collections/play-enrichment">play</a> and <a href="/collections/wear-walk">the daily walk</a>.</p>
 <h2>Our promise</h2>
 <ul>
 <li><strong>Thoughtfully curated</strong> &ndash; we only offer pieces we would happily give to the people (and pets) we love.</li>
@@ -48,14 +48,13 @@ PAGES["faq"] = ("Frequently Asked Questions", f"""
 <h3>What if my item arrives damaged or faulty?</h3>
 <p>We're so sorry if that happens. Contact us within 14 days of delivery with your order number and a photo of the issue, and we'll arrange a replacement or full refund at no cost to you.</p>
 
-<h2>Heated blankets</h2>
-<h3>How do I care for my heated blanket?</h3>
-<p>Always follow the care label and instructions included with your blanket. Before washing, disconnect the controller and power cable. Many of our blankets are machine washable on a gentle, cool cycle; never iron, dry-clean or tumble-dry on high heat unless the label says it's safe.</p>
-<h3>Can I use a heated blanket every night?</h3>
-<p>Heated blankets are designed for everyday comfort. For safe use, follow the instructions included with your product, don't fold or bunch the blanket while it's switched on, and switch it off when it isn't in use.</p>
-<h3>Is the pet heated blanket suitable for all pets?</h3>
-<p>It's designed for cats and dogs, and is especially loved by senior pets, small breeds and short-coated companions. Always supervise pets who like to chew, and make sure they can move off the blanket if they become too warm.</p>
-
+<h2>Products &amp; care</h2>
+<h3>How do I choose the right size?</h3>
+<p>Each product page lists the available sizes and measurements. Measure your pet (for coats and harnesses: neck, chest and back length) and compare it with the size details. Between two sizes? Choose the larger one, or ask us through our {CONTACT}.</p>
+<h3>How do I care for beds, blankets and apparel?</h3>
+<p>Always follow the care label and any instructions included with your product. Most textiles can be hand washed or washed on a gentle, cool cycle and air dried.</p>
+<h3>Are your toys safe for strong chewers?</h3>
+<p>No toy is indestructible. Choose a toy that suits your pet's size and chewing style, supervise play, and replace a toy once it shows signs of wear.</p>
 <h2>Smart pet tech</h2>
 <h3>Do the smart feeders and tracker need an app?</h3>
 <p>Smart features are set up through the companion app described in the instructions included with your device. Basic setup takes just a few minutes.</p>
@@ -185,7 +184,7 @@ PAGES["terms-of-service"] = ("Terms of Service", f"""
 <h2>7. Guarantee and conformity</h2>
 <p>Our products meet the agreement and the specifications stated in the offer. Our warranty is described in our <a href="/pages/returns">returns &amp; refunds policy</a> and does not limit any rights you have under applicable law.</p>
 <h2>8. Product use</h2>
-<p>Please use all products, in particular electrical products such as heated blankets and smart devices, in accordance with the instructions supplied with them.</p>
+<p>Please use all products, in particular electrical products such as feeders, fountains and smart devices, in accordance with the instructions supplied with them.</p>
 <h2>9. Liability</h2>
 <p>Our liability is limited to the amount of the order concerned, except in cases of intent or gross negligence, or where liability cannot be limited by law.</p>
 <h2>10. Complaints</h2>

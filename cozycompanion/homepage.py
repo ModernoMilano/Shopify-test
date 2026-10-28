@@ -26,19 +26,19 @@ def add(key, sec):
 
 # 1. Hero
 b, o = blocks(
-    ("eyebrow", text("<p>Luxury comfort for you &amp; your companions</p>", "h6", CREAM)),
-    ("heading", text("<h1>Warmth, thoughtfully designed.</h1>", "h1", CREAM, max_width="narrow")),
-    ("sub", text("<p>Heated blankets and smart pet essentials, made for long evenings in and the ones who share them.</p>", "paragraph", CREAM, max_width="narrow", pad_bottom=8)),
+    ("eyebrow", text("<p>The modern pet house</p>", "h6", CREAM)),
+    ("heading", text("<h1>Live beautifully, together.</h1>", "h1", CREAM, max_width="narrow")),
+    ("sub", text("<p>Considered essentials for the dogs and cats we share our homes with: beautiful beds, bowls, coats and play.</p>", "paragraph", CREAM, max_width="narrow", pad_bottom=8)),
     ("ctas", {"type": "group", "settings": {"content_direction": "row", "vertical_on_mobile": False, "gap": 10, "width": "fill"},
-              "blocks": {"a": button("Shop blankets", "shopify://collections/cozy-heated-blankets", "button-custom",
+              "blocks": {"a": button("Shop dogs", "shopify://collections/dogs", "button-custom",
                                      custom_button_background=CREAM, custom_button_text=CHAR, custom_button_border=CREAM),
-                         "b": button("Pet tech", "shopify://collections/smart-pet-tech", "button-custom",
+                         "b": button("Shop cats", "shopify://collections/cats", "button-custom",
                                      custom_button_background="rgba(0,0,0,0)", custom_button_text=CREAM, custom_button_border=CREAM)},
               "block_order": ["a", "b"]}),
 )
 add("hero", {"type": "hero", "blocks": b, "block_order": o, "settings": {
-    "media_type_1": "image", "image_1": img("h2_hero"), "content_direction": "column",
-    "custom_mobile_media": True, "media_type_1_mobile": "image", "image_1_mobile": img("h2_hero_m"),
+    "media_type_1": "image", "image_1": img("h3_hero"), "content_direction": "column",
+    "custom_mobile_media": True, "media_type_1_mobile": "image", "image_1_mobile": img("h3_hero_m"),
     "horizontal_alignment_flex_direction_column": "flex-start", "vertical_alignment_flex_direction_column": "center",
     "gap": 20, "section_width": "full-width", "section_height": "large",
     "toggle_overlay": True, "overlay_style": "gradient", "gradient_direction": "to top", "overlay_color": "#1a1a1a8c",
@@ -61,18 +61,18 @@ add("trust", {"type": "marquee", "blocks": mq, "block_order": mo,
 add("collections", {"type": "collection-list", "blocks": {
     "header": {"type": "group", "settings": {"gap": 8, "padding-block-end": 16, "horizontal_alignment_flex_direction_column": "center"},
                "blocks": {"eyebrow": text("<p>The CozyCompanion edit</p>", "h6", ROSE),
-                          "h": text("<h2>Shop by ritual</h2>", "h2")},
+                          "h": text("<h2>Shop the house</h2>", "h2")},
                "block_order": ["eyebrow", "h"]},
     "static-collection-card": {"type": "_collection-card", "static": True,
         "settings": {"horizontal_alignment": "flex-start", "vertical_alignment": "flex-end", "placement": "on_image"},
-        "blocks": {"collection-card-image": {"type": "_collection-card-image", "static": True, "settings": {"image_ratio": "portrait"}},
+        "blocks": {"collection-card-image": {"type": "_collection-card-image", "static": True, "settings": {"image_ratio": "square"}},
                    "collection-title": {"type": "collection-title", "settings": {"type_preset": "h5", "background": True,
                         "background_color": CREAM, "padding-block-start": 8, "padding-block-end": 8,
                         "padding-inline-start": 14, "padding-inline-end": 14}}},
         "block_order": ["collection-title"]}},
     "block_order": ["header"],
-    "settings": {"collection_list": ["smart-pet-tech", "cozy-heated-blankets", "holiday-gift-guide", "bundle-deals"],
-                 "layout_type": "grid", "columns": 4, "mobile_columns": "2", "columns_gap": 12, "rows_gap": 12,
+    "settings": {"collection_list": ["dogs", "cats", "beds-dens", "smart-feeding", "play-enrichment", "wear-walk"],
+                 "layout_type": "grid", "columns": 3, "mobile_columns": "2", "columns_gap": 12, "rows_gap": 12,
                  "carousel_on_mobile": True, "mobile_card_size": "60cqw",
                  "section_width": "page-width", "background_color": CREAM,
                  "padding-block-start": 56, "padding-block-end": 40}})
@@ -89,7 +89,9 @@ def product_list(handle, title, eyebrow, bg):
     gal = s["blocks"]["static-product-card"]["blocks"]["product_card_gallery_677WP3"]["settings"]
     gal["image_ratio"] = "square"
     return s
-add("blankets", product_list("cozy-heated-blankets", "Cozy heated blankets", "", CREAM))
+add("edit", product_list("smart-pet-tech", "The CozyCompanion edit", "", CREAM))
+add("wear", product_list("wear-walk", "Wear &amp; walk", "", CREAM))
+add("sleep", product_list("beds-dens", "Sleep &amp; lounge", "", CREAM))
 
 # 5. Brand story
 def editorial(image, pos, eyebrow, heading, body, label, link, bg):
@@ -105,8 +107,8 @@ def editorial(image, pos, eyebrow, heading, body, label, link, bg):
                                    "body": text(body, "rte", max_width="narrow"),
                                    "cta": button(label, link, "button-secondary")},
                         "block_order": ["eyebrow", "heading", "body", "cta"]}}}
-add("story", editorial("h2_evening", "left", "Chapter II &middot; The evening ritual", "The art of slowing down.",
-    "<p>CozyCompanion began with a simple idea: the best moments at home are the quiet ones. A warm blanket, a soft light, a companion curled up beside you.</p><p>We curate pieces that make those moments easier to come by: gentle warmth for chilly evenings and smart essentials that care for your pets, even when you can't be there.</p>",
+add("story", editorial("h3_story", "left", "Chapter I &middot; The bond", "Made for the moments that matter.",
+    "<p>CozyCompanion began with a simple idea: our pets deserve the same care we put into our homes. Things that look beautiful, feel good and simply work.</p><p>So we curate a small, considered collection: plush beds, refined bowls, coats for every weather and play that keeps curious minds busy. Nothing loud, nothing disposable.</p>",
     "Discover our story", "shopify://pages/about", SAND))
 
 # 6. Value props (two rows of two, so phones get a compact 2x2 grid)
@@ -116,8 +118,8 @@ def vp_item(icon, h, t):
                        "h": text(f"<h3>{h}</h3>", "h6", align="center", width="100%"),
                        "t": text(f"<p>{t}</p>", "rte", align="center", width="100%", max_width="narrow")},
             "block_order": ["icon", "h", "t"]}
-ITEMS = [("fire", "Adjustable warmth", "From a soft glow to deep, soothing heat."),
-         ("paw_print", "Made for pets too", "Fed, hydrated, warm and close."),
+ITEMS = [("heart", "Curated with care", "Chosen for design, comfort and daily use."),
+         ("paw_print", "For dogs &amp; cats", "From first walk to last nap of the day."),
          ("return", "30-day guarantee", "Not in love? Return it, no fuss."),
          ("plane", "Shipped worldwide", "Tracked delivery on every order.")]
 rows = {}
@@ -130,17 +132,17 @@ add("promise", {"type": "section", "blocks": {"head": text("<h2>The CozyCompanio
     "content_direction": "column", "gap": 28, "section_width": "page-width", "background_color": CREAM,
     "horizontal_alignment_flex_direction_column": "center", "padding-block-start": 56, "padding-block-end": 56}})
 
-add("chapter2", editorial("h2_morning", "right", "Chapter I &middot; Care, even when you're away", "Peace of mind, quietly automated.",
+add("chapter2", editorial("h2_morning", "right", "Chapter III &middot; Care, even when you're away", "Peace of mind, quietly automated.",
     "<p>Long day at work? Dinner is served on time, fresh water keeps flowing, and a quick glance at your phone shows they're fine.</p><p>Our smart pet essentials take care of the routine, so the time you spend together is simply time together.</p>",
-    "Explore smart pet tech", "shopify://collections/smart-pet-tech", CREAM))
-add("pettech", product_list("smart-pet-tech", "Smart pet tech", "", CREAM))
-add("chapter3", editorial("h2_bond", "left", "Chapter III &middot; Warm hearts, warm paws", "Because they deserve to be cozy, too.",
-    "<p>Senior dogs, small breeds and short-coated cats feel the cold first. A gentle, washable heated blanket gives them a warm place that's entirely their own, right beside yours.</p>",
-    "Shop heated blankets for pets", "shopify://collections/heated-blankets-for-pets", SAND))
+    "Explore the smart home", "shopify://collections/smart-home", CREAM))
+add("pettech", product_list("smart-home", "The smart home", "", CREAM))
+add("chapter3", editorial("m_sleep", "left", "Chapter II &middot; Rest, beautifully", "The best seat in the house is theirs.",
+    "<p>Deep bolsters, plush cushions and soft sherpa: beds and blankets designed to look at home in yours, and to be the place they always come back to.</p>",
+    "Shop sleep &amp; lounge", "shopify://collections/beds-dens", SAND))
 
 # 8. Holiday
-add("holiday", editorial("h2_holiday", "right", "Holiday Gift Guide", "Gifts that feel like a hug.",
-    "<p>Warmth for the people you love and quiet comfort for the pets who complete the picture. Explore our most giftable pieces, all ready to be wrapped.</p>",
+add("holiday", editorial("h2_holiday", "right", "Holiday Gift Guide", "Gifts they'll actually love.",
+    "<p>Thoughtful gifts for the pets who complete the picture, and the people who love them. Explore our most giftable pieces, all ready to be wrapped.</p>",
     "Shop the gift guide", "shopify://collections/holiday-gift-guide", CHAR))
 c = sections["holiday"]["blocks"]["content"]["blocks"]
 for k in ("heading", "body"): c[k]["settings"]["text_color"] = CREAM
@@ -159,8 +161,8 @@ add("newsletter", {"type": "section", "settings": {"content_direction": "column"
     "block_order": ["eyebrow", "h", "t", "signup"]})
 
 # Story flow: hook -> chapter -> shop it, three times, then browse, promise, gifting, sign-up
-order[:] = ["hero", "trust", "chapter2", "pettech", "story", "blankets", "chapter3",
-            "collections", "promise", "holiday", "newsletter"]
+order[:] = ["hero", "trust", "collections", "edit", "story", "wear", "chapter3", "sleep",
+            "chapter2", "pettech", "promise", "holiday", "newsletter"]
 out = HEADER + "\n" + json.dumps({"sections": sections, "order": order}, indent=2)
 open(os.path.join(S, "index.new.json"), "w").write(out)
 print(put_theme_files({"templates/index.json": out}))
