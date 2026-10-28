@@ -1384,5 +1384,140 @@
    1360,
    2048
   ]
+ },
+ "ad_n1": {
+  "id": "gid://shopify/MediaImage/72734679531850",
+  "alt": "ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_n1.png?v=1793196824",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "ad_n2": {
+  "id": "gid://shopify/MediaImage/72734679564618",
+  "alt": "ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_n2.png?v=1793196823",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "ad_n3": {
+  "id": "gid://shopify/MediaImage/72734679597386",
+  "alt": "ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_n3.png?v=1793196823",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "ad_n4": {
+  "id": "gid://shopify/MediaImage/72734679630154",
+  "alt": "ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_n4.png?v=1793196823",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "ad_n5": {
+  "id": "gid://shopify/MediaImage/72734679662922",
+  "alt": "ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_n5.png?v=1793196824",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "ad_r1": {
+  "id": "gid://shopify/MediaImage/72734679695690",
+  "alt": "ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_r1.png?v=1793196824",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "ad_r2": {
+  "id": "gid://shopify/MediaImage/72734679728458",
+  "alt": "ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_r2.png?v=1793196825",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "ad_r3": {
+  "id": "gid://shopify/MediaImage/72734679761226",
+  "alt": "ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_r3.png?v=1793196823",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "ad_r4": {
+  "id": "gid://shopify/MediaImage/72734697357642",
+  "alt": "ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_r4.png?v=1793196874",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "ad_r5before": {
+  "id": "gid://shopify/MediaImage/72734697390410",
+  "alt": "ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_r5before.png?v=1793196872",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "ad_g1": {
+  "id": "gid://shopify/MediaImage/72734697423178",
+  "alt": "ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_g1.png?v=1793196872",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "ad_g2": {
+  "id": "gid://shopify/MediaImage/72734697455946",
+  "alt": "ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_g2.png?v=1793196872",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "ad_g3": {
+  "id": "gid://shopify/MediaImage/72734697488714",
+  "alt": "ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_g3.png?v=1793196872",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "ad_g4": {
+  "id": "gid://shopify/MediaImage/72734697521482",
+  "alt": "ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_g4.png?v=1793196872",
+  "size": [
+   1792,
+   2240
+  ]
+ },
+ "ad_g5": {
+  "id": "gid://shopify/MediaImage/72734697554250",
+  "alt": "ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_g5.png?v=1793196872",
+  "size": [
+   1792,
+   2240
+  ]
  }
 }

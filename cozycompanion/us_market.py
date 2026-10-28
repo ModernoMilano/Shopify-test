@@ -17,11 +17,11 @@ def us(t):
 # product handle -> exact text replacements (after spelling), new highlights, title
 PRODUCTS = {
   "ember-heat-pad": dict(title="Ember Heat Pad 24 × 12 in", rep=[("60 × 30 cm · 10 W", "24 × 12 in (60 × 30 cm) · 10 W")]),
-  "nestle-heated-pet-pad": dict(rep=[("<li>EU or US plug</li>", "<li>US plug, 5 ft cord</li>"),
+  "nestle-heated-pet-pad": dict(rep=[("3 levels, approx. 35–44 °C", "3 heat levels, approx. 95–111 °F"), ("<li>EU or US plug</li>", "<li>US plug, 5 ft cord</li>"),
         ("45 × 45 or 50 × 70 cm · 20 W · cord approx. 147 cm", "18 × 18 in or 20 × 28 in · 20 W")]),
   "brook-pet-fountain": dict(rep=[("2L or 4L · USB cable included", "2L (68 oz) or 4L (135 oz) · USB cable included")]),
   "dine-automatic-feeder": dict(rep=[("4L · dry kibble 2–15 mm", "4L (17 cups) · dry kibble up to 0.6 in")]),
-  "haven-pet-den": dict(rep=[("approx. 60 × 63 × 45 cm", "approx. 24 × 25 × 18 in")]),
+  "haven-pet-den": dict(rep=[("washable at 30 °C", "machine washable cold (86 °F)"), ("approx. 60 × 63 × 45 cm", "approx. 24 × 25 × 18 in")]),
   "halo-self-cleaning-litter-box": dict(rep=[("cats of 1.5–8 kg", "cats from 3.3 to 17.6 lb")]),
   "glance-camera-feeder": dict(rep=[("approx. 32 × 19 × 28 cm", "approx. 12.6 × 7.5 × 11 in")]),
   "murmur-camera-feeder": dict(rep=[("<li>Kibble from 3–13 mm</li>", "<li>Kibble from 0.1 to 0.5 in</li>"),
