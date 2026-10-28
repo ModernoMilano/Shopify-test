@@ -9,10 +9,10 @@ def load(f):
 # Header
 hh, h = load("sections__header-group.json")
 ann = h["sections"]["header_announcements_9jGBFp"]
-msgs = ["Bundle &amp; Save: 10% off when you buy 2 or more",
+msgs = ["Join the Cozy Circle: 15% off your first order with code COZY15",
         "30-day happiness guarantee on every order",
         "Tracked shipping across the US"]
-links = ["shopify://collections/bundle-deals", "shopify://pages/returns", "shopify://pages/shipping"]
+links = ["shopify://collections/smart-pet-tech", "shopify://pages/returns", "shopify://pages/shipping"]
 ann["blocks"] = {f"a{i}": {"type": "_announcement", "settings": {"text": m, "link": l, "font_size": "0.75rem",
                  "case": "uppercase", "letter_spacing": "loose", "text_color": CREAM}, "blocks": {}}
                  for i, (m, l) in enumerate(zip(msgs, links))}
@@ -39,7 +39,7 @@ foot["blocks"] = {
     "brand": {"type": "group", "settings": {"gap": 14, "width": "fill"}, "blocks": {
         "name": {"type": "logo", "settings": {"inverse": True, "unit": "pixel", "pixel_height": 32}, "blocks": {}},
         "about": text("<p>Luxury comfort for you and your companions. Heated blankets and smart pet essentials, thoughtfully curated for the quiet moments at home.</p><p>Questions? <a href=\"mailto:cozycompanion.us@gmail.com\">cozycompanion.us@gmail.com</a></p>"),
-        "signup_h": text("<p><strong>Join the Cozy Circle</strong> for new arrivals and member-only offers.</p>"),
+        "signup_h": text("<p><strong>Join the Cozy Circle</strong> and get 15% off your first order with code COZY15.</p>"),
         "signup": {"type": "email-signup", "settings": {"width": "fill", "heading": "", "input_style": "custom",
                    "input_background_color": CREAM, "input_text_color": CHAR, "style_class": "button-custom",
                    "custom_button_background": ROSE, "custom_button_text": "#ffffff", "custom_button_border": ROSE,

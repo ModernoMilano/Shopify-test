@@ -64,7 +64,7 @@ PAGES["faq"] = ("Frequently Asked Questions", f"""
 <h3>Which payment methods do you accept?</h3>
 <p>We accept all major credit and debit cards, plus the express payment options shown at checkout. Every payment is processed through a secure, encrypted checkout. All prices are in US dollars.</p>
 <h3>How do I use my discount code?</h3>
-<p>Enter your code in the discount field at checkout. Our Bundle &amp; Save offer (10% off when you buy 2 or more items) is applied automatically in your cart.</p>
+<p>Enter your code (for example <strong>COZY15</strong> for 15% off your first order) in the discount field at checkout. Our Bundle &amp; Save offer (10% off when you buy 2 or more items) is applied automatically in your cart. One discount applies per order.</p>
 
 <h2>Still have a question?</h2>
 <p>We're happy to help. Email us at {EMAIL} or send a message through our {CONTACT}, and we'll get back to you within 1&ndash;2 business days.</p>
