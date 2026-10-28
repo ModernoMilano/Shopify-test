@@ -47,9 +47,28 @@ GALLERIES = {
     "forage-snuffle-mat": ["z_forage_pack", "z_forage_dog"],
     "knit-small-dog-sweater": ["z_knit_pack", "z_knit_poodle"],
     "drizzle-dog-raincoat": ["z_drizzle_pack", "z_drizzle_walk"],
+    "cove-ceramic-cat-bowl": ["z_cove_pack", "z_cove_cat"],
+    "chase-plush-prey-cat-toy": ["z_chase_pack", "z_chase_cat"],
+    "fetch-automatic-ball-launcher": ["z_fetch_pack", "z_fetch_dog"],
+    "glide-soft-dog-frisbee": ["z_glide_pack", "z_glide_dog"],
+    "gnaw-dental-chew-toy": ["z_gnaw_pack", "z_gnaw_puppy"],
+    "puddle-suspender-dog-boots": ["z_puddle_pack", "z_puddle_walk"],
+    "frost-harness-winter-dog-jacket": ["z_frost_pack", "z_frost_snow"],
+    "splash-quick-dry-dog-bathrobe": ["z_splash_pack", "z_splash_dog"],
+    "snug-sherpa-pet-blanket": ["z_snug_pack", "z_snug_dog"],
+    "doze-dog-pajamas": ["z_doze_pack", "z_doze_dog"],
+    "tidy-double-bowl-feeder": ["z_tidy_pack", "z_tidy_dog"],
+    "riddle-treat-dispensing-ball": ["z_riddle_pack", "z_riddle_dog"],
+    "maze-puzzle-feeder-bowl": ["z_maze_pack", "z_maze_dog"],
+    "burrow-plush-pet-bed": ["z_burrow_pack", "z_burrow_cat"],
+    "fold-magnetic-cat-scratcher": ["z_fold_pack", "z_fold_cat"],
+    "chomp-rubber-treat-ball": ["z_chomp_pack", "z_chomp_dog"],
 }
 # many colors/breeds and we only shot one: keep the supplier's variant photos after ours
-KEEP_VARIANT_PHOTOS = {"stride-dog-harness-leash-set", "zoom-self-rolling-cat-ball", "buddy-plush-dog-toy", "drizzle-dog-raincoat"}
+KEEP_VARIANT_PHOTOS = {"stride-dog-harness-leash-set", "zoom-self-rolling-cat-ball", "buddy-plush-dog-toy", "drizzle-dog-raincoat",
+                       "chase-plush-prey-cat-toy", "fetch-automatic-ball-launcher", "frost-harness-winter-dog-jacket", "splash-quick-dry-dog-bathrobe",
+                       "snug-sherpa-pet-blanket", "doze-dog-pajamas", "tidy-double-bowl-feeder", "riddle-treat-dispensing-ball",
+                       "burrow-plush-pet-bed", "chomp-rubber-treat-ball"}
 # variant option value (substring) -> photo shown when that variant is picked
 VARIANT_MEDIA = {
     "ember-heat-pad": {"Gray": "b_pad_23", "Yellow": "g_hp_colors2_23", "Green": "g_hp_colors2_23", "Blue": "g_hp_colors2_23"},
@@ -93,11 +112,13 @@ for handle, names in GALLERIES.items():
     want = [reg[n]["id"] for n in names]
     p = gql("query($h:String!){productByHandle(handle:$h){id media(first:100){nodes{id}}}}", {"h": handle})["productByHandle"]
     have = [m["id"] for m in p["media"]["nodes"]]
+    per_color = {}   # first option value (color/style) -> the one supplier photo we keep for it
     if handle in KEEP_VARIANT_PHOTOS:
-        vs = gql("query($h:String!){productByHandle(handle:$h){variants(first:100){nodes{media(first:1){nodes{id}}}}}}", {"h": handle})["productByHandle"]["variants"]["nodes"]
-        for v in vs:
+        kv = gql("query($h:String!){productByHandle(handle:$h){variants(first:100){nodes{id selectedOptions{value} media(first:1){nodes{id}}}}}}", {"h": handle})["productByHandle"]["variants"]["nodes"]
+        for v in kv:
             mid = next(iter(m["id"] for m in v["media"]["nodes"]), None)
-            if mid and mid not in want: want.append(mid)
+            per_color.setdefault(v["selectedOptions"][0]["value"], mid) if mid else None
+        want += [m for m in dict.fromkeys(per_color.values()) if m not in want]
     for fid in want:
         if fid not in have:
             check(gql("mutation($f:[FileUpdateInput!]!){fileUpdate(files:$f){userErrors{field message}}}",
@@ -109,6 +130,13 @@ for handle, names in GALLERIES.items():
     time.sleep(3)
     check(gql("mutation($id:ID!,$m:[MoveInput!]!){productReorderMedia(id:$id,moves:$m){userErrors{field message}}}",
               {"id": p["id"], "m": [{"id": fid, "newPosition": str(i)} for i, fid in enumerate(want)]})["productReorderMedia"], handle)
+    if per_color:   # sizes of the same color all point at that color's one photo
+        items = [{"variantId": v["id"], "mediaIds": [per_color[v["selectedOptions"][0]["value"]]]} for v in kv
+                 if per_color.get(v["selectedOptions"][0]["value"]) and per_color[v["selectedOptions"][0]["value"]] not in [m["id"] for m in v["media"]["nodes"]]]
+        if items:
+            r = gql("mutation($pid:ID!,$v:[ProductVariantAppendMediaInput!]!){productVariantAppendMedia(productId:$pid,variantMedia:$v){userErrors{field message}}}",
+                    {"pid": p["id"], "v": items})["productVariantAppendMedia"]
+            if r["userErrors"]: print("   variant media:", r["userErrors"])
     # variant photos
     vm = VARIANT_MEDIA.get(handle)
     if vm:
