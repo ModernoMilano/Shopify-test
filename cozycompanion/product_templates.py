@@ -68,7 +68,7 @@ def build(kind):
            ("<p>Setup and power details are in the description and the included guide. Clean regularly with a soft cloth.</p>")
     B["info"] = accordion([
         ("Description", "{{ closest.product.description }}"),
-        ("Shipping", "<p>Dispatched in 1&ndash;3 business days, tracked worldwide. EU delivery 3&ndash;8 business days. <a href=\"/pages/shipping\">Details</a></p>"),
+        ("Shipping", "<p>Dispatched in 1&ndash;3 business days with tracking. Delivery across the US in 5&ndash;12 business days. <a href=\"/pages/shipping\">Details</a></p>"),
         ("30-day returns", "<p>Not in love? Return it unused within 30 days for a full refund. <a href=\"/pages/returns\">How it works</a></p>"),
         ("Care &amp; safety" if kind == "blanket" else "Setup &amp; care", care),
     ])

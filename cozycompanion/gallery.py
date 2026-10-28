@@ -28,13 +28,13 @@ GALLERIES = {
 }
 # variant option value (substring) -> photo shown when that variant is picked
 VARIANT_MEDIA = {
-    "ember-heat-pad": {"Grey": "b_pad_23", "Yellow": "g_hp_colors2_23", "Green": "g_hp_colors2_23", "Blue": "g_hp_colors2_23"},
+    "ember-heat-pad": {"Gray": "b_pad_23", "Yellow": "g_hp_colors2_23", "Green": "g_hp_colors2_23", "Blue": "g_hp_colors2_23"},
     "nestle-heated-pet-pad": {"Rose": "g_pp_rose_23", "Paws": "b_petpad_23"},
     "brook-pet-fountain": {"4L": "b_fountain4l_23", "2L": "b_fountain_23"},
     "dine-automatic-feeder": {"White": "b_feeder_23", "Black": "b_feederblack_23"},
     "glance-camera-feeder": {"White": "x_glance_white", "Black": "x_glance_black"},
     "brook-xl-cordless-fountain": {"only": "x_brookxl_pack", "filters": "x_brookxl_filters"},
-    "voyage-rolling-pet-carrier": {"Grey": "y_voyage_pack", "Black": "y_voyage_colors", "Blue": "y_voyage_colors", "Pink": "y_voyage_colors"},
+    "voyage-rolling-pet-carrier": {"Gray": "y_voyage_pack", "Black": "y_voyage_colors", "Blue": "y_voyage_colors", "Pink": "y_voyage_colors"},
     "compass-smart-tag": {"2 black": "g_mt_two2_23", "brown": "b_tag_23", "case": "g_mt_lineup_23", "1 ": "g_mt_two2_23"},
 }
 

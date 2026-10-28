@@ -21,7 +21,7 @@ print("tags ok")
 # 2. Smart collections
 COLS = [
     ("Heated Blankets for You", "heated-blankets-for-you", "for-you", "l5",
-     "Plush, adjustable warmth for cosy nights in, from double-bed comfort to portable USB throws."),
+     "Plush, adjustable warmth for cozy nights in, from double-bed comfort to portable USB throws."),
     ("Heated Blankets for Pets", "heated-blankets-for-pets", "for-pets", "l8",
      "Gentle, washable warmth made for curl-up naps, especially loved by senior pets and short-coated companions."),
     ("Weighted Comfort", "weighted-comfort", "weighted", "l7",
@@ -33,7 +33,7 @@ COLS = [
     ("GPS & Safety", "gps-safety", "gps-safety", "l3",
      "Smart tags for collars and keys, for peace of mind wherever they wander."),
     ("Beds & Dens", "beds-dens", "beds-dens", "s_bond",
-     "Calm, cosy hideaways that look beautiful in any room."),
+     "Calm, cozy hideaways that look beautiful in any room."),
     ("Litter & Hygiene", "litter-hygiene", "litter-hygiene", "s_morning",
      "Less scooping, a fresher home and more time together."),
     ("Play & Enrichment", "play-enrichment", "play", "l1",
@@ -57,5 +57,5 @@ def ensure(title, handle, rules, img, desc):
     print("collection ok:", handle)
 for title, handle, tag, img, desc in COLS:
     ensure(title, handle, [{"column": "TAG", "relation": "EQUALS", "condition": tag}], img, desc)
-ensure("Gifts under €50", "gifts-under-50", [{"column": "VARIANT_PRICE", "relation": "LESS_THAN", "condition": "50"}], "holiday",
-       "Thoughtful, beautifully cosy gifts under €50, for the people and pets you love.")
+ensure("Gifts under $50", "gifts-under-50", [{"column": "VARIANT_PRICE", "relation": "LESS_THAN", "condition": "50"}], "holiday",
+       "Thoughtful, beautifully cozy gifts under $50, for the people and pets you love.")

@@ -42,7 +42,7 @@ def row(h, icon, body, open_=False):
             "blocks": {"t": text(body)}, "block_order": ["t"]}
 B["info"] = {"type": "accordion", "settings": {"icon": "plus", "dividers": True, "divider_color": LINE, "type_preset": "h6"},
     "blocks": {
-        "ship": row("Shipping", "truck", "<p>Prepared within 1&ndash;3 business days and shipped worldwide with tracking on every order: 3&ndash;8 business days within the EU, 7&ndash;15 business days to the rest of the world. <a href=\"/pages/shipping\">Shipping details</a></p>"),
+        "ship": row("Shipping", "truck", "<p>Prepared within 1&ndash;3 business days and shipped with tracking on every order: delivery across the US in 5&ndash;12 business days. <a href=\"/pages/shipping\">Shipping details</a></p>"),
         "ret": row("30-day returns", "return", "<p>Not completely in love? Return it unused within 30 days of delivery. <a href=\"/pages/returns\">How returns work</a></p>"),
         "care": row("Care & safe use", "washing", "<p>Always follow the care label and the instructions included with your product. For heated blankets, disconnect the controller before washing and never use the blanket folded while it's switched on.</p>"),
         "help": row("Questions?", "chat_bubble", "<p>We're happy to help. <a href=\"/pages/contact\">Send us a message</a> and we'll reply within 1&ndash;2 business days, or browse our <a href=\"/pages/faq\">FAQ</a>.</p>"),

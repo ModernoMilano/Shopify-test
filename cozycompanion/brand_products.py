@@ -51,7 +51,7 @@ NEW = {
     tags=["travel"], cols=["smart-pet-tech", "holiday-gift-guide", "bundle-deals"],
     highlights=["Turns the back seat into a flat bed", "Waterproof, quilted surface", "Mesh window and door flaps"],
     seo="Roam back seat dog bed and car seat cover: a firm, flat, waterproof bed for the back seat with mesh window and door protection.",
-    html=d("Road trips, sorted: a flat, cosy bed across the whole back seat.",
+    html=d("Road trips, sorted: a flat, cozy bed across the whole back seat.",
            ["Firm base bridges the footwell into one flat bed", "Waterproof quilted fabric protects your seats", "Side flaps protect doors; mesh window to see each other", "Pockets and harness openings"],
            "Fits most cars · approx. 112 cm wide · black or grey"),
     options={"Color": ("Colour", {}), "Ships From": ("Ships from", {})}),

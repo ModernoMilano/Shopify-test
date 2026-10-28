@@ -134,7 +134,7 @@ add("chapter2", editorial("s_morning", "right", "Chapter II &middot; Care, even 
     "<p>Long day at work? Dinner is served on time, fresh water keeps flowing, and a quick glance at your phone shows they're fine.</p><p>Our smart pet essentials take care of the routine, so the time you spend together is simply time together.</p>",
     "Explore smart pet tech", "shopify://collections/smart-pet-tech", CREAM))
 add("pettech", product_list("smart-pet-tech", "Smart pet tech", "", CREAM))
-add("chapter3", editorial("s_bond", "left", "Chapter III &middot; Warm hearts, warm paws", "Because they deserve to be cosy, too.",
+add("chapter3", editorial("s_bond", "left", "Chapter III &middot; Warm hearts, warm paws", "Because they deserve to be cozy, too.",
     "<p>Senior dogs, small breeds and short-coated cats feel the cold first. A gentle, washable heated blanket gives them a warm place that's entirely their own, right beside yours.</p>",
     "Shop heated blankets for pets", "shopify://collections/heated-blankets-for-pets", SAND))
 
