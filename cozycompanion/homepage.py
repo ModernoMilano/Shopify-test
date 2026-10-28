@@ -81,7 +81,7 @@ add("collections", {"type": "collection-list", "blocks": {
 pl = orig["sections"]["product_list_fa6P9H"]
 def product_list(handle, title, eyebrow, bg):
     s = copy.deepcopy(pl)
-    s["settings"].update({"collection": handle, "max_products": 6, "columns": 3, "background_color": bg,
+    s["settings"].update({"collection": handle, "max_products": 12, "columns": 3, "layout_type": "carousel", "background_color": bg,
                           "padding-block-start": 40, "padding-block-end": 40, "carousel_on_mobile": True, "mobile_card_size": "78cqw"})
     hdr = s["blocks"]["static-header"]["blocks"]
     hdr["product_list_text_YFtzcL"]["settings"].update({"text": f"<h2>{title}</h2>", "type_preset": "h3"})

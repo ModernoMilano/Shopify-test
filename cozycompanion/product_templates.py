@@ -62,6 +62,7 @@ def build(kind):
                   "horizontal_alignment": "space-between", "vertical_alignment": "flex-start", "width": "fill",
                   "padding-block-start": 4, "padding-block-end": 4}, "blocks": tr, "block_order": list(tr)}
     B.pop("payments", None)   # owner's choice: no payment icons anywhere
+    B["bundle"] = {"type": "cc-bundle", "settings": {}, "blocks": {}}   # 'Complete the set' -20% (bundles.py)
 
     care = ("<p>Follow the care label and included instructions. Disconnect the controller before washing; "
             "never use it folded while switched on.</p>") if kind == "blanket" else \
@@ -87,7 +88,7 @@ def build(kind):
         B.pop(k, None)
     det["settings"]["gap"] = 20
     det["block_order"] = ["group_icgrde", "highlights", "variant_picker_R3rGDr", "buy_buttons_eYQEYi",
-                          "trust", "info"]
+                          "trust", "bundle", "info"]
     det["blocks"] = {k: v for k, v in B.items() if k in det["block_order"]}
     # Photos are 2:3: one large photo with thumbnails underneath, on desktop and mobile
     main["blocks"]["media-gallery"]["settings"].update({"media_presentation": "carousel", "aspect_ratio": "adapt",
@@ -110,8 +111,11 @@ def build(kind):
                                "block_order": ["e", "h"]}}}
     rec = [k for k in d["order"] if k.startswith("product_recommendations")]
     main["settings"]["enable_sticky_add_to_cart"] = True   # buy button follows on scroll (mobile especially)
+    for k in rec:   # 'Pairs well with': more products, swipeable
+        d["sections"][k]["settings"].update({"layout_type": "carousel", "max_products": 10, "columns": 4,
+                                             "carousel_on_mobile": True, "mobile_columns": "2"})
     d["sections"], d["order"] = sections, ["main"] + rec + ["story"]
-    return (HEADER + "\n" + json.dumps(d, indent=2)).replace("You may also like ", "Pairs well with")
+    return (HEADER + "\n" + json.dumps(d, indent=2)).replace("You may also like ", "Pairs well with").replace("<h3>Complete the ritual</h3>", "<h3>Pairs well with</h3>")
 
 print(put_theme_files({"templates/product.blanket.json": build("blanket"),
                        "templates/product.pettech.json": build("pettech")}))
