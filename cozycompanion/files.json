@@ -1357,5 +1357,32 @@
    1360,
    2048
   ]
+ },
+ "y_roam_hero_a": {
+  "id": "gid://shopify/MediaImage/72731142619466",
+  "alt": "Roam Back Seat Dog Bed & Cover in grey",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-y_roam_hero_a.png?v=1793187807",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "y_roam_hero_b": {
+  "id": "gid://shopify/MediaImage/72731142652234",
+  "alt": "Roam Back Seat Dog Bed & Cover installed on the back seat",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-y_roam_hero_b.png?v=1793187806",
+  "size": [
+   1360,
+   2048
+  ]
+ },
+ "y_roam_hero_c": {
+  "id": "gid://shopify/MediaImage/72731142685002",
+  "alt": "Roam Back Seat Dog Bed & Cover, front view",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-y_roam_hero_c.png?v=1793187808",
+  "size": [
+   1360,
+   2048
+  ]
  }
 }

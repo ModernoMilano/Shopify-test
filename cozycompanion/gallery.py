@@ -1,6 +1,6 @@
 """Replace each product's gallery with our own 2:3 photos (supplier images removed) and
 point variants at the matching photo.
-Usage: gallery.py"""
+Usage: gallery.py [handle ...]   (no handles = all products)"""
 import sys, os, io, json, time, ssl, subprocess, urllib.request
 S = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, S)
 from PIL import Image
@@ -24,7 +24,7 @@ GALLERIES = {
     "flutter-cat-play-station": ["y_flutter_pack", "y_flutter_detail", "y_flutter_life"],
     "spark-laser-cat-toy": ["y_spark_pack", "y_spark_detail", "y_spark_life"],
     "voyage-rolling-pet-carrier": ["y_voyage_pack", "y_voyage_colors", "y_voyage_life"],
-    "roam-back-seat-dog-bed": ["y_roam_pack", "y_roam_detail", "y_roam_life"],
+    "roam-back-seat-dog-bed": ["y_roam_hero_c", "y_roam_pack", "y_roam_detail", "y_roam_life"],
 }
 # variant option value (substring) -> photo shown when that variant is picked
 VARIANT_MEDIA = {
@@ -58,7 +58,9 @@ def make_square(name):
     reg.update(json.load(open(os.path.join(S, "files.json"))))
     return sq
 
+ONLY = sys.argv[1:]
 for handle, names in GALLERIES.items():
+    if ONLY and handle not in ONLY: continue
     want = [reg[n]["id"] for n in names]
     p = gql("query($h:String!){productByHandle(handle:$h){id media(first:100){nodes{id}}}}", {"h": handle})["productByHandle"]
     have = [m["id"] for m in p["media"]["nodes"]]
