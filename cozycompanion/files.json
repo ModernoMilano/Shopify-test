@@ -1654,5 +1654,14 @@
    1080,
    1350
   ]
+ },
+ "favicon-transparent": {
+  "id": "gid://shopify/MediaImage/72741348573514",
+  "alt": "CozyCompanion favicon",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-favicon-transparent.png?v=1793212853",
+  "size": [
+   512,
+   512
+  ]
  }
 }
