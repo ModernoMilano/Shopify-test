@@ -1933,5 +1933,68 @@
    1536,
    2752
   ]
+ },
+ "v2f_sorry_nestle": {
+  "id": "gid://shopify/MediaImage/72742477103434",
+  "alt": "CozyCompanion ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v2f_sorry_nestle.jpg?v=1793216443",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "v2f_notes_glance": {
+  "id": "gid://shopify/MediaImage/72742477463882",
+  "alt": "CozyCompanion ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v2f_notes_glance.jpg?v=1793216447",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "v2f_texts_nestle": {
+  "id": "gid://shopify/MediaImage/72742477791562",
+  "alt": "CozyCompanion ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v2f_texts_nestle.jpg?v=1793216451",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "v2f_bold_roam": {
+  "id": "gid://shopify/MediaImage/72742478479690",
+  "alt": "CozyCompanion ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v2f_bold_roam.jpg?v=1793216454",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "v2f_pov_glance": {
+  "id": "gid://shopify/MediaImage/72742478807370",
+  "alt": "CozyCompanion ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v2f_pov_glance.jpg?v=1793216458",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "v2f_unbox_nestle": {
+  "id": "gid://shopify/MediaImage/72742478971210",
+  "alt": "CozyCompanion ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v2f_unbox_nestle.jpg?v=1793216462",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "v2f_reasons_roam": {
+  "id": "gid://shopify/MediaImage/72742479135050",
+  "alt": "CozyCompanion ad",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v2f_reasons_roam.jpg?v=1793216466",
+  "size": [
+   1080,
+   1920
+  ]
  }
 }
