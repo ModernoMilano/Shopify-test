@@ -11,7 +11,7 @@ hh, h = load("sections__header-group.json")
 ann = h["sections"]["header_announcements_9jGBFp"]
 msgs = ["Join the Cozy Circle: 15% off your first order with code COZY15",
         "30-day happiness guarantee on every order",
-        "Tracked shipping across the US"]
+        "Free tracked shipping on orders over $150"]
 links = ["shopify://collections/smart-pet-tech", "shopify://pages/returns", "shopify://pages/shipping"]
 ann["blocks"] = {f"a{i}": {"type": "_announcement", "settings": {"text": m, "link": l, "font_size": "0.75rem",
                  "case": "uppercase", "letter_spacing": "loose", "text_color": CREAM}, "blocks": {}}
