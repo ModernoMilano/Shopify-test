@@ -105,7 +105,7 @@ def editorial(image, pos, eyebrow, heading, body, label, link, bg):
                                    "body": text(body, "rte", max_width="narrow"),
                                    "cta": button(label, link, "button-secondary")},
                         "block_order": ["eyebrow", "heading", "body", "cta"]}}}
-add("story", editorial("l7", "left", "Chapter I &middot; The evening ritual", "The art of slowing down.",
+add("story", editorial("l7", "left", "Chapter II &middot; The evening ritual", "The art of slowing down.",
     "<p>CozyCompanion began with a simple idea: the best moments at home are the quiet ones. A warm blanket, a soft light, a companion curled up beside you.</p><p>We curate pieces that make those moments easier to come by: gentle warmth for chilly evenings and smart essentials that care for your pets, even when you can't be there.</p>",
     "Discover our story", "shopify://pages/about", SAND))
 
@@ -130,7 +130,7 @@ add("promise", {"type": "section", "blocks": {"head": text("<h2>The CozyCompanio
     "content_direction": "column", "gap": 28, "section_width": "page-width", "background_color": CREAM,
     "horizontal_alignment_flex_direction_column": "center", "padding-block-start": 56, "padding-block-end": 56}})
 
-add("chapter2", editorial("s_morning", "right", "Chapter II &middot; Care, even when you're away", "Peace of mind, quietly automated.",
+add("chapter2", editorial("s_morning", "right", "Chapter I &middot; Care, even when you're away", "Peace of mind, quietly automated.",
     "<p>Long day at work? Dinner is served on time, fresh water keeps flowing, and a quick glance at your phone shows they're fine.</p><p>Our smart pet essentials take care of the routine, so the time you spend together is simply time together.</p>",
     "Explore smart pet tech", "shopify://collections/smart-pet-tech", CREAM))
 add("pettech", product_list("smart-pet-tech", "Smart pet tech", "", CREAM))
@@ -159,7 +159,7 @@ add("newsletter", {"type": "section", "settings": {"content_direction": "column"
     "block_order": ["eyebrow", "h", "t", "signup"]})
 
 # Story flow: hook -> chapter -> shop it, three times, then browse, promise, gifting, sign-up
-order[:] = ["hero", "trust", "story", "blankets", "chapter2", "pettech", "chapter3",
+order[:] = ["hero", "trust", "chapter2", "pettech", "story", "blankets", "chapter3",
             "collections", "promise", "holiday", "newsletter"]
 out = HEADER + "\n" + json.dumps({"sections": sections, "order": order}, indent=2)
 open(os.path.join(S, "index.new.json"), "w").write(out)
