@@ -32,9 +32,9 @@ def triple(cost):
     """Products tagged price-3x (owner's rule for the second batch): 3x cost, rounded up to .95."""
     return math.ceil(cost * 3 + 0.05) - 0.05
 
-def shipping(vendor, sku, options):
+def shipping(vendor, sku, options, tags=()):
     text = (sku or "") + " ".join(options)
-    if vendor.lower() == "bigbuy": return 5.0
+    if vendor.lower() == "bigbuy" or "supplier-bigbuy" in tags: return 5.0
     if "UNITED STATES" in text.upper() or "UNITEDSTATES" in text.upper(): return 8.0
     return 4.0
 
@@ -73,7 +73,7 @@ for p in d["products"]["nodes"]:
         uc = v["inventoryItem"]["unitCost"]
         if uc:
             cost = float(uc["amount"])
-            t = target_price(cost, shipping(p["vendor"], v["sku"], [o["value"] for o in v["selectedOptions"]]))
+            t = target_price(cost, shipping(p["vendor"], v["sku"], [o["value"] for o in v["selectedOptions"]], p["tags"]))
             k = group_key(p, v); targets[k] = max(targets.get(k, 0), t, float(v["price"]))
     for v in p["variants"]["nodes"]:
         uc = v["inventoryItem"]["unitCost"]
