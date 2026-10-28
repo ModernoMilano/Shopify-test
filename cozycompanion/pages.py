@@ -215,7 +215,7 @@ for handle, (title, body) in PAGES.items():
 cid = existing.get("contact")
 if cid:
     body = (f"<p>We'd love to hear from you. Whether you have a question about a product, your order or a return, "
-            "send us a message below or email us at {EMAIL} and we'll get back to you within 1&ndash;2 business days.</p>"
+            f"send us a message below or email us at {EMAIL} and we'll get back to you within 1&ndash;2 business days.</p>"
             "<p>Before you write, you may find your answer in our <a href=\"/pages/faq\">FAQ</a>.</p>")
     check(gql("mutation($id:ID!,$p:PageUpdateInput!){pageUpdate(id:$id,page:$p){page{handle} userErrors{field message}}}",
               {"id": cid, "p": {"title": "Contact us", "body": body}})["pageUpdate"], "contact")
