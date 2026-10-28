@@ -1,6 +1,6 @@
 """CozyCompanion pricing rule. Raises any variant priced below target; never lowers a price.
 
-Products tagged price-3x are priced at 3x (cost + SHIP_3X shipping), at least FLOOR, rounded up to .95. All others:
+Products tagged price-3x are priced at 3x (cost + SHIP_3X shipping), at least FLOOR, rounded up to a clean price (nice()). All others:
 every single-item order must leave MARGIN profit after ADS ad spend per purchase:
   price / 1.21 (VAT) - (2.9% + 0.30 payment fee) - cost - shipping - ADS >= MARGIN
   target = (cost + shipping + 0.30 + ADS + MARGIN) / (1/1.21 - 0.029), rounded UP to a x4.95 / x9.95 price
@@ -19,8 +19,21 @@ from lib import gql, check
 
 DRY = "--dry-run" in sys.argv
 
-def charm(x):
-    return math.ceil((x + 0.05) / 5) * 5 - 0.05   # 41.2 -> 44.95, 45.0 -> 49.95
+def nice(x):
+    """Owner's rule: clean whole-dollar prices, always rounded UP so the margin never shrinks.
+    Under $100 they end in 5 or 9 (15, 19, 25, 29 ... 95, 99); from $100 they end in 9 (109, 119 ...)."""
+    n = math.ceil(x - 1e-9)
+    while not ((n < 100 and n % 10 in (5, 9)) or (n >= 100 and n % 10 == 9)):
+        n += 1
+    return float(n)
+charm = nice
+
+def nice_down(x):
+    """Largest clean price at or below x (used to tidy prices that may only go down a little)."""
+    n = math.floor(x + 1e-9)
+    while not ((n < 100 and n % 10 in (5, 9)) or (n >= 100 and n % 10 == 9)):
+        n -= 1
+    return float(n)
 
 ADS = 30.0      # ad spend per purchase (EUR), set by the owner
 MARGIN = 15.0   # profit left per single-item order after ads
@@ -30,11 +43,11 @@ def target_price(cost, ship):
     return charm((cost + ship + 0.30 + ADS + MARGIN) / NET)
 
 SHIP_3X = 4.0   # Zendrop shipping per item, counted into cost before tripling (owner's rule)
-FLOOR = 14.95   # nothing in a high-end store sells for less
+FLOOR = 15.0    # nothing in a high-end store sells for less
 
 def triple(cost):
-    """Products tagged price-3x: 3x (cost + shipping), never below FLOOR, rounded up to .95."""
-    return max(FLOOR, math.ceil((cost + SHIP_3X) * 3 + 0.05) - 0.05)
+    """Products tagged price-3x: 3x (cost + shipping), never below FLOOR, rounded up to a clean price."""
+    return max(FLOOR, nice((cost + SHIP_3X) * 3))
 
 def shipping(vendor, sku, options, tags=()):
     text = (sku or "") + " ".join(options)
@@ -79,20 +92,26 @@ for p in d["products"]["nodes"]:
                       {"pid": p["id"], "v": upd})["productVariantsBulkUpdate"], p["title"])
         changes += len(upd)
         continue
+    floors = {}
     for v in p["variants"]["nodes"]:
         uc = v["inventoryItem"]["unitCost"]
         if uc:
             cost = float(uc["amount"])
             t = target_price(cost, shipping(p["vendor"], v["sku"], [o["value"] for o in v["selectedOptions"]], p["tags"]))
-            k = group_key(p, v); targets[k] = max(targets.get(k, 0), t, float(v["price"]))
+            k = group_key(p, v); floors[k] = max(floors.get(k, 0), t)
     for v in p["variants"]["nodes"]:
         uc = v["inventoryItem"]["unitCost"]
         if not uc: print(f"  ! no cost on {p['title']} / {v['title']}: skipped"); continue
-        cost = float(uc["amount"])
-        target = targets[group_key(p, v)]
-        if float(v["price"]) < target:
-            upd.append({"id": v["id"], "price": f"{target:.2f}"})
-            print(f"  {p['title'][:45]:45} | {v['title'][:30]:30} €{float(v['price']):6.2f} -> €{target:6.2f} (cost €{cost:.2f})")
+        cost, price, floor = float(uc["amount"]), float(v["price"]), floors[group_key(p, v)]
+        if price < floor:
+            target = floor   # already a clean price (target_price rounds up with nice())
+        elif nice_down(price) != price and nice_down(price) >= floor:
+            # tidy an untidy price DOWN, never up: live ads quote these prices
+            target = nice_down(price)
+        else:
+            continue
+        upd.append({"id": v["id"], "price": f"{target:.2f}"})
+        print(f"  {p['title'][:45]:45} | {v['title'][:30]:30} €{price:6.2f} -> €{target:6.2f} (cost €{cost:.2f})")
     if upd and not DRY:
         check(gql("mutation($pid:ID!,$v:[ProductVariantsBulkInput!]!){productVariantsBulkUpdate(productId:$pid,variants:$v){userErrors{field message}}}",
                   {"pid": p["id"], "v": upd})["productVariantsBulkUpdate"], p["title"])
