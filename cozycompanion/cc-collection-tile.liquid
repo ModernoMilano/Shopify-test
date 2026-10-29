@@ -12,8 +12,19 @@
   assign img = blank
   if imgs != blank and imgs.size > 0
     assign i = k | modulo: imgs.size
-    assign img = imgs[i]
-    assign prod = prods[i]
+    comment
+      A metafield list can't be indexed with a variable, so walk it.
+    endcomment
+    for x in imgs
+      if forloop.index0 == i
+        assign img = x
+      endif
+    endfor
+    for x in prods
+      if forloop.index0 == i
+        assign prod = x
+      endif
+    endfor
   endif
 -%}
 {%- if img != blank -%}

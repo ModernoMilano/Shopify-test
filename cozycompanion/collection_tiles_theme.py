@@ -27,7 +27,7 @@ style = """
 {% style %}
   /* CozyCompanion: two products side by side on desktop, a calmer centred grid, full-row lifestyle tiles */
   @media screen and (min-width: 750px) {
-    .product-grid--{{ section.id }}.product-grid--grid { --product-grid-columns-desktop: repeat(2, minmax(0, 1fr)); max-width: 1080px; margin-inline: auto; }
+    ul.product-grid.product-grid--{{ section.id }}.product-grid--grid { --product-grid-columns-desktop: repeat(2, minmax(0, 1fr)) !important; max-width: 1080px; margin-inline: auto; }
   }
   .product-grid--{{ section.id }} .cc-tile { grid-column: 1 / -1; margin-block: 8px; }
   .cc-tile__link { position: relative; display: block; overflow: hidden; color: #f5f1ed; text-decoration: none; background: #ebe3da; }
