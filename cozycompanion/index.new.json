@@ -1739,6 +1739,13 @@
         "t",
         "signup"
       ]
+    },
+    "community": {
+      "type": "cc-community",
+      "settings": {
+        "heading": "From our community",
+        "max_items": 10
+      }
     }
   },
   "order": [
@@ -1754,6 +1761,7 @@
     "pettech",
     "promise",
     "holiday",
+    "community",
     "newsletter"
   ]
 }
