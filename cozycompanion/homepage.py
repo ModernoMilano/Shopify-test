@@ -161,8 +161,9 @@ add("newsletter", {"type": "section", "settings": {"content_direction": "column"
     "block_order": ["eyebrow", "h", "t", "signup"]})
 
 # Story flow: hook -> chapter -> shop it, three times, then browse, promise, gifting, sign-up
+add("community", {"type": "cc-community", "settings": {"heading": "From our community", "max_items": 10}})   # hidden until real entries exist
 order[:] = ["hero", "trust", "collections", "edit", "story", "wear", "chapter3", "sleep",
-            "chapter2", "pettech", "promise", "holiday", "newsletter"]
+            "chapter2", "pettech", "promise", "holiday", "community", "newsletter"]
 out = HEADER + "\n" + json.dumps({"sections": sections, "order": order}, indent=2)
 open(os.path.join(S, "index.new.json"), "w").write(out)
 print(put_theme_files({"templates/index.json": out}))

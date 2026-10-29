@@ -1,0 +1,101 @@
+{%- comment -%}
+  CozyCompanion "From our community": genuine customer comments, kept as metaobject entries
+  (Content > Metaobjects > Community review; app-owned type app--440640503809--community_review). On a product page it shows the entries linked to that product first,
+  then the store-wide ones (no product linked). Stars appear only for entries that carry a rating, and the section
+  renders nothing at all until there is at least one entry.
+{%- endcomment -%}
+{%- liquid
+  assign p = closest.product
+  assign heading = section.settings.heading | default: 'From our community'
+  assign shown = 0
+-%}
+{%- capture cards -%}
+  {%- for pass in (1..2) -%}
+    {%- for r in shop.metaobjects['app--440640503809--community_review'].values -%}
+      {%- liquid
+        assign linked = r.product.value
+        if pass == 1
+          if p == blank or linked == blank or linked.id != p.id
+            continue
+          endif
+        else
+          if p != blank and linked != blank
+            continue
+          endif
+          if p == blank and section.settings.store_wide_only and linked != blank
+            continue
+          endif
+        endif
+        if shown >= section.settings.max_items
+          break
+        endif
+        assign shown = shown | plus: 1
+      -%}
+      <li class="cc-community__card">
+        {%- if r.photo.value != blank -%}
+          {{ r.photo.value | image_url: width: 640 | image_tag: loading: 'lazy', class: 'cc-community__photo', alt: r.author.value }}
+        {%- endif -%}
+        {%- if r.rating.value != blank -%}
+          {%- assign stars = r.rating.value.rating | round -%}
+          <p class="cc-community__stars" aria-label="{{ r.rating.value.rating }} out of {{ r.rating.value.scale_max }} stars">
+            {%- for i in (1..5) -%}<span{% if i > stars %} class="is-off"{% endif %}>&#9733;</span>{%- endfor -%}
+          </p>
+        {%- endif -%}
+        <blockquote class="cc-community__quote">{{ r.body.value | escape | newline_to_br }}</blockquote>
+        <p class="cc-community__who">
+          <strong>{{ r.author.value | escape }}</strong>
+          {%- if r.instagram.value != blank -%}<span> &middot; {{ r.instagram.value | escape }}</span>{%- endif -%}
+        </p>
+        {%- if linked != blank and p == blank -%}
+          <a class="cc-community__product" href="{{ linked.url }}">{{ linked.title }}</a>
+        {%- endif -%}
+        {%- if r.source_url.value != blank -%}
+          <a class="cc-community__src" href="{{ r.source_url.value }}" target="_blank" rel="noopener">View on Instagram</a>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- if shown > 0 -%}
+  <section class="cc-community" aria-labelledby="cc-community-{{ section.id }}">
+    <div class="cc-community__inner">
+      <p class="cc-community__eyebrow">Real pets, real homes</p>
+      <h2 id="cc-community-{{ section.id }}" class="cc-community__title">{{ heading | escape }}</h2>
+      <ul class="cc-community__track" role="list">{{ cards }}</ul>
+      <p class="cc-community__note">Shared by our customers on Instagram.</p>
+    </div>
+  </section>
+  <style>
+    .cc-community { background: #f5f1ed; color: #1a1a1a; padding: 56px 0; }
+    .cc-community__inner { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+    .cc-community__eyebrow { margin: 0; text-align: center; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: #b76e79; }
+    .cc-community__title { margin: 6px 0 28px; text-align: center; font-family: var(--font-heading--family); font-weight: 500; font-size: clamp(1.7rem, 4vw, 2.4rem); }
+    .cc-community__track { list-style: none; margin: 0; padding: 0 0 8px; display: grid; grid-auto-flow: column;
+      grid-auto-columns: minmax(260px, 1fr); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .cc-community__track::-webkit-scrollbar { display: none; }
+    @media (max-width: 749px) { .cc-community__track { grid-auto-columns: 82%; } }
+    .cc-community__card { scroll-snap-align: start; display: flex; flex-direction: column; gap: 10px; padding: 22px; background: #fff; border: 1px solid #ebe3da; }
+    .cc-community__photo { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; margin: -22px -22px 6px; width: calc(100% + 44px); max-width: none; }
+    .cc-community__stars { margin: 0; color: #b76e79; letter-spacing: 2px; font-size: 0.95rem; }
+    .cc-community__stars .is-off { color: #ebe3da; }
+    .cc-community__quote { margin: 0; font-family: var(--font-heading--family); font-size: 1.15rem; line-height: 1.45; quotes: "\201C" "\201D"; }
+    .cc-community__quote::before { content: open-quote; } .cc-community__quote::after { content: close-quote; }
+    .cc-community__who { margin: auto 0 0; font-size: 0.85rem; }
+    .cc-community__who span { opacity: 0.65; }
+    .cc-community__product, .cc-community__src { font-size: 0.78rem; color: #b76e79; text-decoration: none; }
+    .cc-community__note { margin: 18px 0 0; text-align: center; font-size: 0.78rem; opacity: 0.65; }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "CozyCompanion community",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "From our community" },
+    { "type": "range", "id": "max_items", "label": "Maximum comments", "min": 3, "max": 12, "step": 1, "default": 8 },
+    { "type": "checkbox", "id": "store_wide_only", "label": "Outside product pages: only comments without a linked product", "default": false }
+  ],
+  "presets": [{ "name": "CozyCompanion community" }]
+}
+{% endschema %}
