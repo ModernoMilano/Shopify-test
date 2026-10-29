@@ -1,0 +1,47 @@
+{%- comment -%}
+  CozyCompanion collection header: title, short intro and a row of category chips (the Shop menu's categories plus
+  Dogs / Cats), so shoppers can jump between categories without the menu. Swipes sideways on mobile.
+{%- endcomment -%}
+{%- liquid
+  assign c = closest.collection
+  assign shop_link = linklists['main-menu'].links | where: 'title', 'Shop' | first
+-%}
+<div class="cc-cnav">
+  <p class="cc-cnav__eyebrow">CozyCompanion</p>
+  <h1 class="cc-cnav__title">{{ c.title | escape }}</h1>
+  {%- if c.description != blank -%}<div class="cc-cnav__intro">{{ c.description | strip_html | truncatewords: 30 }}</div>{%- endif -%}
+  <nav class="cc-cnav__chips" aria-label="Shop by category">
+    {%- for l in shop_link.links -%}
+      {%- assign label = l.title | replace: 'Shop all', 'All' -%}
+      <a href="{{ l.url }}" class="cc-cnav__chip{% if l.url == c.url %} is-active{% endif %}"{% if l.url == c.url %} aria-current="page"{% endif %}>{{ label }}</a>
+    {%- endfor -%}
+    <span class="cc-cnav__sep" aria-hidden="true"></span>
+    <a href="{{ routes.collections_url }}/dogs" class="cc-cnav__chip{% if c.handle == 'dogs' %} is-active{% endif %}">For dogs</a>
+    <a href="{{ routes.collections_url }}/cats" class="cc-cnav__chip{% if c.handle == 'cats' %} is-active{% endif %}">For cats</a>
+  </nav>
+</div>
+<style>
+  .cc-cnav { max-width: 1200px; margin: 0 auto; padding: 40px 16px 8px; text-align: center; color: #1a1a1a; }
+  .cc-cnav__eyebrow { margin: 0; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: #b76e79; }
+  .cc-cnav__title { margin: 6px 0 10px; font-family: var(--font-heading--family); font-weight: 500; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; }
+  .cc-cnav__intro { max-width: 560px; margin: 0 auto 22px; font-size: 0.95rem; line-height: 1.55; opacity: 0.75; }
+  .cc-cnav__chips { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .cc-cnav__chip { padding: 9px 16px; border: 1px solid #1a1a1a26; border-radius: 999px; background: #fff; color: #1a1a1a;
+    font-size: 0.82rem; letter-spacing: 0.02em; text-decoration: none; white-space: nowrap; transition: background .2s, color .2s, border-color .2s; }
+  .cc-cnav__chip:hover { border-color: #b76e79; color: #b76e79; }
+  .cc-cnav__chip.is-active { background: #1a1a1a; border-color: #1a1a1a; color: #f5f1ed; }
+  .cc-cnav__sep { width: 1px; background: #1a1a1a26; margin: 4px 4px; }
+  @media (max-width: 749px) {
+    .cc-cnav { padding-top: 28px; }
+    .cc-cnav__chips { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; margin: 0 -16px; padding: 0 16px 4px; scrollbar-width: none; }
+    .cc-cnav__chips::-webkit-scrollbar { display: none; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "CC collection header",
+  "settings": [],
+  "presets": [{ "name": "CC collection header" }]
+}
+{% endschema %}
