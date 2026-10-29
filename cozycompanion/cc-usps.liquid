@@ -1,0 +1,43 @@
+{%- comment -%}
+  CozyCompanion USP row with line icons (snippets/cc-icon.liquid), shown at the bottom of collection pages.
+{%- endcomment -%}
+<section class="cc-usps" aria-label="Why shop with CozyCompanion">
+  <ul class="cc-usps__list" role="list">
+    {%- for block in section.blocks -%}
+      <li class="cc-usps__item" {{ block.shopify_attributes }}>
+        <span class="cc-usps__icon">{% render 'cc-icon', name: block.settings.icon %}</span>
+        <span class="cc-usps__title">{{ block.settings.title | escape }}</span>
+        {%- if block.settings.text != blank -%}<span class="cc-usps__text">{{ block.settings.text | escape }}</span>{%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</section>
+<style>
+  .cc-usps { background: #f5f1ed; color: #1a1a1a; padding: 48px 16px; margin-top: 24px; border-top: 1px solid #ebe3da; }
+  .cc-usps__list { list-style: none; margin: 0 auto; padding: 0; max-width: 1080px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .cc-usps__item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+  .cc-usps__icon { width: 56px; height: 56px; border-radius: 50%; background: #ebe3da; color: #b76e79; display: inline-flex; align-items: center; justify-content: center; }
+  .cc-usps__icon .cc-icon { width: 26px; height: 26px; }
+  .cc-usps__title { font-family: var(--font-heading--family); font-size: 1.2rem; line-height: 1.2; }
+  .cc-usps__text { font-size: 0.85rem; line-height: 1.45; opacity: 0.7; max-width: 220px; }
+  @media (max-width: 749px) { .cc-usps__list { grid-template-columns: repeat(2, 1fr); gap: 28px 12px; } }
+</style>
+
+{% schema %}
+{
+  "name": "CC USPs",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "usp",
+      "name": "USP",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon (cc-icon name)", "default": "paw" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Title" },
+        { "type": "text", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "CC USPs" }]
+}
+{% endschema %}

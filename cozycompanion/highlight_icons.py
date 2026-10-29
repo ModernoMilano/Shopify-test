@@ -40,6 +40,8 @@ ICONS = {  # inner SVG, viewBox 0 0 24 24
   "hand": '<path d="M8 12V6a1.5 1.5 0 0 1 3 0v5M11 11V4.5a1.5 1.5 0 0 1 3 0V11M14 11V6a1.5 1.5 0 0 1 3 0v7c0 4-2.5 7-6.5 7S5 17 4.5 14l-1-3.5a1.4 1.4 0 0 1 2.6-1L8 13"/>',
   "link": '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
   "grip": '<rect x="4" y="6" width="16" height="12" rx="3"/><path d="M8 10v4M12 10v4M16 10v4"/>',
+  "return": '<path d="M4 8h11a5 5 0 0 1 0 10H8"/><path d="m7.5 4.5-3.5 3.5 3.5 3.5"/>',
+  "truck": '<path d="M2.5 6.5h11v9h-11Z"/><path d="M13.5 9.5h4l3 3v3h-7"/><circle cx="6.5" cy="17" r="1.7"/><circle cx="17" cy="17" r="1.7"/>',
   "star": '<path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.9Z"/>',
 }
 RULES = [  # (regex on the highlight text, icon); first match wins

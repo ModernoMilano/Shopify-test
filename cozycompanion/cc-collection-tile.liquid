@@ -1,0 +1,32 @@
+{%- doc -%}
+  CozyCompanion lifestyle tile inside the collection grid: a wide photo of a pet using a piece from this collection,
+  spanning the full row and linking to that product. Photos/products come from the collection metafields
+  custom.lifestyle_images / custom.lifestyle_products (collection_tiles.py), cycled when there are more slots than photos.
+
+  @param {object} collection - The collection
+  @param {number} k - Which tile this is (0, 1, 2...)
+{%- enddoc -%}
+{%- liquid
+  assign imgs = collection.metafields.custom.lifestyle_images.value
+  assign prods = collection.metafields.custom.lifestyle_products.value
+  assign img = blank
+  if imgs != blank and imgs.size > 0
+    assign i = k | modulo: imgs.size
+    assign img = imgs[i]
+    assign prod = prods[i]
+  endif
+-%}
+{%- if img != blank -%}
+  <li class="product-grid__item cc-tile" aria-label="{{ prod.title | default: collection.title | escape }}">
+    <a class="cc-tile__link" href="{{ prod.url | default: '#' }}">
+      {{ img | image_url: width: 2000 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 1080px, 100vw', class: 'cc-tile__img', alt: prod.title }}
+      {%- if prod != blank -%}
+        <span class="cc-tile__cap">
+          <span class="cc-tile__eyebrow">{{ collection.title | escape }}</span>
+          <span class="cc-tile__title">{{ prod.title | escape }}</span>
+          <span class="cc-tile__cta">Shop now &rarr;</span>
+        </span>
+      {%- endif -%}
+    </a>
+  </li>
+{%- endif -%}
