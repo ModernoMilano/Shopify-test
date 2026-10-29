@@ -5533,5 +5533,500 @@
    1600,
    2400
   ]
+ },
+ "u_ember": {
+  "id": "gid://shopify/MediaImage/72745858466122",
+  "alt": "Lifestyle photo with the Ember Heat Pad: a smiling woman in a cozy knit sweater on her sofa with the heat pad across her",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_ember.png?v=1793234922",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_compass": {
+  "id": "gid://shopify/MediaImage/72745858498890",
+  "alt": "Lifestyle photo with the Compass Smart Pet Tag: a laughing young man crouching on a park path, showing the smart tag on his beag",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_compass.png?v=1793234922",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_nestle": {
+  "id": "gid://shopify/MediaImage/72745858531658",
+  "alt": "Lifestyle photo with the Nestle Heated Pet Pad: a happy older man on the living room floor stroking his senior greyhound sleepin",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_nestle.png?v=1793234922",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_brook": {
+  "id": "gid://shopify/MediaImage/72745858564426",
+  "alt": "Lifestyle photo with the Brook Stainless Pet Fountain: a cheerful woman kneeling in her kitchen watching her tabby cat drink from the f",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_brook.png?v=1793234921",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_dine": {
+  "id": "gid://shopify/MediaImage/72745858597194",
+  "alt": "Lifestyle photo with the Dine Automatic Feeder: a woman in a work blazer at her front door grabbing her keys, smiling back at he",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_dine.png?v=1793234921",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_haven": {
+  "id": "gid://shopify/MediaImage/72745858629962",
+  "alt": "Lifestyle photo with the Haven Pet Den: a happy couple sitting on their bedroom floor as their cat peeks out of the felt",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_haven.png?v=1793234922",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_halo": {
+  "id": "gid://shopify/MediaImage/72745858662730",
+  "alt": "Lifestyle photo with the Halo Self-Cleaning Litter Box: a relaxed young man in a modern laundry room giving a thumbs up next to the self",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_halo.png?v=1793234921",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_glance": {
+  "id": "gid://shopify/MediaImage/72745858695498",
+  "alt": "Lifestyle photo with the Glance Camera Feeder: a smiling woman kneeling beside the camera feeder in her kitchen, waving at its",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_glance.png?v=1793234922",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_murmur": {
+  "id": "gid://shopify/MediaImage/72745864757578",
+  "alt": "Lifestyle photo with the Murmur Camera Feeder: a grinning teenage girl filming her two kittens eating from the camera feeder in",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_murmur.png?v=1793235018",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_brookxl": {
+  "id": "gid://shopify/MediaImage/72745864790346",
+  "alt": "Lifestyle photo with the Brook XL Cordless Fountain: a man in a home office smiling at his husky drinking from the cordless fountain",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_brookxl.png?v=1793235019",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_flutter": {
+  "id": "gid://shopify/MediaImage/72745864823114",
+  "alt": "Lifestyle photo with the Flutter Cat Play Station: a delighted little girl on a rug watching her kitten bat at the play station, he",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_flutter.png?v=1793235019",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_spark": {
+  "id": "gid://shopify/MediaImage/72745864855882",
+  "alt": "Lifestyle photo with the Spark Automatic Laser Cat Toy: a couple laughing on their sofa as their cat leaps after the laser dot from the",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_spark.png?v=1793235019",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_voyage": {
+  "id": "gid://shopify/MediaImage/72745864888650",
+  "alt": "Lifestyle photo with the Voyage Rolling Pet Carrier: a stylish woman walking through a sunny airport terminal pulling the rolling car",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_voyage.png?v=1793235019",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_roam": {
+  "id": "gid://shopify/MediaImage/72745864921418",
+  "alt": "Lifestyle photo with the Roam Back Seat Dog Bed: a smiling father opening the car's back door to show his golden retriever lying",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_roam.png?v=1793235019",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_cloud": {
+  "id": "gid://shopify/MediaImage/72745864954186",
+  "alt": "Lifestyle photo with the Cloud Plush Pet Blanket: a woman and her corgi snuggled together under the plush blanket on a sofa, both",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_cloud.png?v=1793235019",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_nook": {
+  "id": "gid://shopify/MediaImage/72745864986954",
+  "alt": "Lifestyle photo with the Nook Self-Warming Pet Mat: a smiling man by a sunny window petting his cat curled on the self-warming mat",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_nook.png?v=1793235020",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_purr": {
+  "id": "gid://shopify/MediaImage/72745871999306",
+  "alt": "Lifestyle photo with the Purr Tilted Ceramic Cat Bowl: a young woman sitting on her kitchen floor smiling as her Siamese cat eats from",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_purr.png?v=1793235094",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_orbit": {
+  "id": "gid://shopify/MediaImage/72745872032074",
+  "alt": "Lifestyle photo with the Orbit Felt Cat Tunnel Bed: two laughing kids lying on the floor peeking at their cat inside the felt tunnel",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_orbit.png?v=1793235095",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_lounge": {
+  "id": "gid://shopify/MediaImage/72745872064842",
+  "alt": "Lifestyle photo with the Lounge Plush Pet Sofa: a happy woman on her own sofa smiling down at her Pomeranian lounging on the plu",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_lounge.png?v=1793235094",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_pace": {
+  "id": "gid://shopify/MediaImage/72745872097610",
+  "alt": "Lifestyle photo with the Pace Stainless Slow Feeder Bowl: a smiling man in his kitchen putting the stainless slow feeder bowl down for his",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_pace.png?v=1793235095",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_quest": {
+  "id": "gid://shopify/MediaImage/72745872130378",
+  "alt": "Lifestyle photo with the Quest Dog Puzzle Feeder: a cheerful woman on the floor cheering on her border collie solving the puzzle f",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_quest.png?v=1793235094",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_stride": {
+  "id": "gid://shopify/MediaImage/72745872163146",
+  "alt": "Lifestyle photo with the Stride Dog Harness & Leash Set: a smiling jogger in autumn leaves with her vizsla wearing the harness and leash",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_stride.png?v=1793235097",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_wander": {
+  "id": "gid://shopify/MediaImage/72745872195914",
+  "alt": "Lifestyle photo with the Wander Cat Harness & Leash: a delighted young man in a garden with his Bengal cat exploring the grass on the",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_wander.png?v=1793235095",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_flit": {
+  "id": "gid://shopify/MediaImage/72745872228682",
+  "alt": "Lifestyle photo with the Flit Flapping Bird Cat Toy: a grandmother laughing in her armchair as her cat pounces on the flapping bird t",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_flit.png?v=1793235095",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_plume": {
+  "id": "gid://shopify/MediaImage/72745882812746",
+  "alt": "Lifestyle photo with the Plume Feather Teaser Wand: a smiling woman on a rug dangling the feather wand while her cat leaps for it",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_plume.png?v=1793235225",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_knot": {
+  "id": "gid://shopify/MediaImage/72745882845514",
+  "alt": "Lifestyle photo with the Knot Tug & Fetch Ball: a laughing teenage boy in a backyard playing tug with his boxer using the tug an",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_knot.png?v=1793235226",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_buddy": {
+  "id": "gid://shopify/MediaImage/72745882878282",
+  "alt": "Lifestyle photo with the Buddy Plush Dog Toy: a smiling woman on a sofa while her puppy cuddles the plush toy beside her",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_buddy.png?v=1793235226",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_forage": {
+  "id": "gid://shopify/MediaImage/72745882911050",
+  "alt": "Lifestyle photo with the Forage Snuffle Mat: a happy man sitting cross-legged on the floor watching his beagle sniff treats i",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_forage.png?v=1793235227",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_knit": {
+  "id": "gid://shopify/MediaImage/72745882943818",
+  "alt": "Lifestyle photo with the Knit Small Dog Sweater: a smiling woman holding her chihuahua wearing the knit sweater close to her face",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_knit.png?v=1793235224",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_drizzle": {
+  "id": "gid://shopify/MediaImage/72745882976586",
+  "alt": "Lifestyle photo with the Drizzle Dog Raincoat: a cheerful man with an umbrella on a rainy sidewalk, his French bulldog in the r",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_drizzle.png?v=1793235225",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_cove": {
+  "id": "gid://shopify/MediaImage/72745883009354",
+  "alt": "Lifestyle photo with the Cove Ceramic Cat Bowl: a smiling woman setting the ceramic cat bowl on a kitchen floor mat for her ragd",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_cove.png?v=1793235225",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_zoom": {
+  "id": "gid://shopify/MediaImage/72745888055626",
+  "alt": "Lifestyle photo with the Zoom Self-Rolling Cat Ball: a young couple on a hallway floor laughing as their kitten chases the self-rolli",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_zoom.png?v=1793235270",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_chase": {
+  "id": "gid://shopify/MediaImage/72745888088394",
+  "alt": "Lifestyle photo with the Chase Plush Prey Cat Toy: a laughing young man on the floor as his cat wrestles the plush prey toys",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_chase.png?v=1793235271",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_fetch": {
+  "id": "gid://shopify/MediaImage/72745888121162",
+  "alt": "Lifestyle photo with the Fetch Automatic Ball Launcher: a family laughing on their patio as their Jack Russell races after a ball shot f",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_fetch.png?v=1793235269",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_glide": {
+  "id": "gid://shopify/MediaImage/72745888153930",
+  "alt": "Lifestyle photo with the Glide Soft Dog Frisbee: a smiling woman in a sunny park throwing the soft frisbee to her leaping Austral",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_glide.png?v=1793235271",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_gnaw": {
+  "id": "gid://shopify/MediaImage/72745888186698",
+  "alt": "Lifestyle photo with the Gnaw Dental Chew Toy: a happy man on a sofa watching his pit bull happily chewing the dental chew toy",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_gnaw.png?v=1793235271",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_puddle": {
+  "id": "gid://shopify/MediaImage/72745888219466",
+  "alt": "Lifestyle photo with the Puddle Suspender Dog Boots: a laughing woman on a snowy sidewalk with her poodle wearing the suspender boots",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_puddle.png?v=1793235271",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_frost": {
+  "id": "gid://shopify/MediaImage/72745888252234",
+  "alt": "Lifestyle photo with the Frost Winter Dog Jacket: a smiling man in a winter coat on a snowy trail with his dog wearing the winter",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_frost.png?v=1793235270",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_splash": {
+  "id": "gid://shopify/MediaImage/72745888285002",
+  "alt": "Lifestyle photo with the Splash Dog Bathrobe: a laughing mother and daughter in a bathroom drying their wet cockapoo wrapped i",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_splash.png?v=1793235270",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_snug": {
+  "id": "gid://shopify/MediaImage/72745894183242",
+  "alt": "Lifestyle photo with the Snug Sherpa Pet Blanket: a woman reading on her bed smiling at her cat kneading the sherpa blanket",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_snug.png?v=1793235340",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_doze": {
+  "id": "gid://shopify/MediaImage/72745894216010",
+  "alt": "Lifestyle photo with the Doze Dog Pajamas: a giggling couple on their bed with their dachshund wearing the pajamas between",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_doze.png?v=1793235339",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_tidy": {
+  "id": "gid://shopify/MediaImage/72745894248778",
+  "alt": "Lifestyle photo with the Tidy Double Bowl Feeder: a smiling woman pouring water into the double bowl feeder for her two kittens",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_tidy.png?v=1793235340",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_riddle": {
+  "id": "gid://shopify/MediaImage/72745894281546",
+  "alt": "Lifestyle photo with the Riddle Treat Dispensing Ball: a happy man in his living room watching his terrier nudge the treat dispensing b",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_riddle.png?v=1793235338",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_maze": {
+  "id": "gid://shopify/MediaImage/72745894314314",
+  "alt": "Lifestyle photo with the Maze Puzzle Feeder Bowl: a smiling woman filling the puzzle feeder bowl with kibble while her husky waits",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_maze.png?v=1793235338",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_burrow": {
+  "id": "gid://shopify/MediaImage/72745894347082",
+  "alt": "Lifestyle photo with the Burrow Plush Pet Bed: a young woman lying on the floor smiling at her cat cozy in the plush bed",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_burrow.png?v=1793235338",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_fold": {
+  "id": "gid://shopify/MediaImage/72745894379850",
+  "alt": "Lifestyle photo with the Fold Magnetic Cat Scratcher: a grinning man on a rug as his kitten scratches and plays on the magnetic scratc",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_fold.png?v=1793235338",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_chomp": {
+  "id": "gid://shopify/MediaImage/72745894412618",
+  "alt": "Lifestyle photo with the Chomp Rubber Treat Ball: a happy woman in a garden tossing the rubber treat ball to her Labrador puppy",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_chomp.png?v=1793235339",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_pounce": {
+  "id": "gid://shopify/MediaImage/72745901588810",
+  "alt": "Lifestyle photo with the Pounce Feather Cat Toy: two friends laughing on a sofa as a cat pounces at the feather spinning from the",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_pounce.png?v=1793235423",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_chirp": {
+  "id": "gid://shopify/MediaImage/72745901621578",
+  "alt": "Lifestyle photo with the Chirp Catnip Ball: a smiling woman on the floor watching her cat roll around with the catnip balls",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_chirp.png?v=1793235423",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_cradle": {
+  "id": "gid://shopify/MediaImage/72745901654346",
+  "alt": "Lifestyle photo with the Cradle Pet Sling Carrier: a smiling woman at a farmers market carrying her small dog in the sling carrier",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_cradle.png?v=1793235424",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_bloom": {
+  "id": "gid://shopify/MediaImage/72745901687114",
+  "alt": "Lifestyle photo with the Bloom Floral Cat Collar: a happy young woman holding her white cat up to the camera, wearing the floral c",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_bloom.png?v=1793235423",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_mistle": {
+  "id": "gid://shopify/MediaImage/72745901719882",
+  "alt": "Lifestyle photo with the Mistle Knit Dog Hood: a laughing man holding his small dog wearing the red knit hood in front of a dec",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_mistle.png?v=1793235423",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_trail": {
+  "id": "gid://shopify/MediaImage/72745901752650",
+  "alt": "Lifestyle photo with the Trail Hands-Free Dog Leash: a smiling woman jogging along a lakeside path with her dog on the hands-free lea",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_trail.png?v=1793235423",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_dapper": {
+  "id": "gid://shopify/MediaImage/72745901785418",
+  "alt": "Lifestyle photo with the Dapper Gingham Bow Tie: a grinning groom at a garden wedding kneeling beside his dog wearing the gingham",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_dapper.png?v=1793235423",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "u_fin": {
+  "id": "gid://shopify/MediaImage/72745901818186",
+  "alt": "Lifestyle photo with the Fin Dog Life Jacket: a happy family on a wooden dock with their Labrador wearing the life jacket abou",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-u_fin.png?v=1793235422",
+  "size": [
+   1856,
+   2304
+  ]
  }
 }
