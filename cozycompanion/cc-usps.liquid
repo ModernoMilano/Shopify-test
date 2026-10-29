@@ -13,14 +13,28 @@
   </ul>
 </section>
 <style>
-  .cc-usps { background: #f5f1ed; color: #1a1a1a; padding: 48px 16px; margin-top: 24px; border-top: 1px solid #ebe3da; }
-  .cc-usps__list { list-style: none; margin: 0 auto; padding: 0; max-width: 1080px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-  .cc-usps__item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; }
-  .cc-usps__icon { width: 56px; height: 56px; border-radius: 50%; background: #ebe3da; color: #b76e79; display: inline-flex; align-items: center; justify-content: center; }
-  .cc-usps__icon .cc-icon { width: 26px; height: 26px; }
-  .cc-usps__title { font-family: var(--font-heading--family); font-size: 1.2rem; line-height: 1.2; }
-  .cc-usps__text { font-size: 0.85rem; line-height: 1.45; opacity: 0.7; max-width: 220px; }
-  @media (max-width: 749px) { .cc-usps__list { grid-template-columns: repeat(2, 1fr); gap: 28px 12px; } }
+  .cc-usps { display: block; width: 100%; box-sizing: border-box; background: #f5f1ed; color: #1a1a1a;
+    padding: 40px 16px; margin: 32px 0 0; border-top: 1px solid #ebe3da; }
+  .cc-usps * { box-sizing: border-box; }
+  .cc-usps .cc-usps__list { list-style: none; margin: 0 auto; padding: 0; width: 100%; max-width: 1080px;
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+  .cc-usps .cc-usps__item { list-style: none; margin: 0; padding: 0 8px; min-width: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-start; text-align: center; gap: 8px; }
+  .cc-usps .cc-usps__item + .cc-usps__item { border-left: 1px solid #e3dbd2; }
+  .cc-usps .cc-usps__icon { flex: 0 0 auto; width: 52px; height: 52px; border-radius: 50%; background: #ebe3da; color: #b76e79;
+    display: flex; align-items: center; justify-content: center; }
+  .cc-usps .cc-usps__icon svg { display: block; width: 24px; height: 24px; max-width: none; }
+  .cc-usps .cc-usps__title { display: block; margin: 4px 0 0; font-family: var(--font-heading--family); font-size: 1.15rem; line-height: 1.2; }
+  .cc-usps .cc-usps__text { display: block; margin: 0; font-size: 0.82rem; line-height: 1.45; opacity: 0.7; max-width: 220px; }
+  @media screen and (max-width: 749px) {
+    .cc-usps { padding: 28px 12px; }
+    .cc-usps .cc-usps__list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 8px; }
+    .cc-usps .cc-usps__item + .cc-usps__item { border-left: 0; }
+    .cc-usps .cc-usps__icon { width: 44px; height: 44px; }
+    .cc-usps .cc-usps__icon svg { width: 21px; height: 21px; }
+    .cc-usps .cc-usps__title { font-size: 1rem; }
+    .cc-usps .cc-usps__text { display: none; }
+  }
 </style>
 
 {% schema %}
