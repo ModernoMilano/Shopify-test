@@ -1,0 +1,80 @@
+{%- comment -%}
+  CozyCompanion "Life with CozyCompanion": candid lifestyle photos of people at home with their pets and our pieces
+  (product metafield custom.ugc_images, made by ugc.py). This product's photos come first, then one from each related
+  product in the same category, so the row is always full. Brand photography: no names, no review framing.
+{%- endcomment -%}
+{%- liquid
+  assign p = closest.product
+  assign max = section.settings.max_items
+  assign category_handles = 'beds-dens,smart-feeding,play-enrichment,wear-walk,groom-clean,pet-travel' | split: ','
+  assign related = nil
+  for col in p.collections
+    if category_handles contains col.handle
+      assign related = col
+      break
+    endif
+  endfor
+  assign shown = 0
+-%}
+{%- capture tiles -%}
+  {%- for img in p.metafields.custom.ugc_images.value -%}
+    {%- if shown >= max -%}{%- break -%}{%- endif -%}
+    {%- assign shown = shown | plus: 1 -%}
+    <li class="cc-ugc__tile">
+      {{ img | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 25vw, 70vw', class: 'cc-ugc__img', alt: p.title }}
+      <span class="cc-ugc__cap">{{ p.title | escape }}</span>
+    </li>
+  {%- endfor -%}
+  {%- if related -%}
+    {%- for q in related.products limit: 40 -%}
+      {%- if shown >= max -%}{%- break -%}{%- endif -%}
+      {%- if q.id == p.id -%}{%- continue -%}{%- endif -%}
+      {%- assign img = q.metafields.custom.ugc_images.value | first -%}
+      {%- if img == blank -%}{%- continue -%}{%- endif -%}
+      {%- assign shown = shown | plus: 1 -%}
+      <li class="cc-ugc__tile">
+        <a href="{{ q.url }}" class="cc-ugc__link">
+          {{ img | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 25vw, 70vw', class: 'cc-ugc__img', alt: q.title }}
+          <span class="cc-ugc__cap">{{ q.title | escape }} &rarr;</span>
+        </a>
+      </li>
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if shown > 0 -%}
+  <section class="cc-ugc" aria-labelledby="cc-ugc-{{ section.id }}">
+    <div class="cc-ugc__inner">
+      <p class="cc-ugc__eyebrow">Everyday moments</p>
+      <h2 id="cc-ugc-{{ section.id }}" class="cc-ugc__title">{{ section.settings.heading | escape }}</h2>
+      <ul class="cc-ugc__track" role="list">{{ tiles }}</ul>
+    </div>
+  </section>
+  <style>
+    .cc-ugc { background: #fff; color: #1a1a1a; padding: 56px 0 64px; }
+    .cc-ugc__inner { max-width: 1400px; margin: 0 auto; padding: 0 16px; }
+    .cc-ugc__eyebrow { margin: 0; text-align: center; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: #b76e79; }
+    .cc-ugc__title { margin: 6px 0 28px; text-align: center; font-family: var(--font-heading--family); font-weight: 500; font-size: clamp(1.7rem, 4vw, 2.4rem); }
+    .cc-ugc__track { list-style: none; margin: 0; padding: 0; display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 48px) / 4);
+      gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .cc-ugc__track::-webkit-scrollbar { display: none; }
+    @media (max-width: 749px) { .cc-ugc__track { grid-auto-columns: 72%; gap: 10px; } }
+    .cc-ugc__tile { position: relative; scroll-snap-align: start; overflow: hidden; background: #f5f1ed; }
+    .cc-ugc__link { display: block; color: inherit; text-decoration: none; }
+    .cc-ugc__img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transition: transform .6s ease; }
+    .cc-ugc__tile:hover .cc-ugc__img { transform: scale(1.03); }
+    .cc-ugc__cap { position: absolute; left: 10px; bottom: 10px; max-width: calc(100% - 20px); padding: 6px 10px; background: rgba(245, 241, 237, 0.92);
+      font-size: 0.75rem; letter-spacing: 0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "CC lifestyle photos",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Life with CozyCompanion" },
+    { "type": "range", "id": "max_items", "label": "Maximum photos", "min": 2, "max": 8, "step": 1, "default": 6 }
+  ],
+  "presets": [{ "name": "CC lifestyle photos" }]
+}
+{% endschema %}

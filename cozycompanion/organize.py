@@ -13,12 +13,13 @@ from lib import gql, check
 
 DRY = "--dry" in sys.argv
 CATS = {  # category -> ordered subtypes -> first word of the product title
-    "Sleep & Lounge": {"Beds": "Dream Haven Cocoon Billow Lounge Burrow Orbit",
+    "Sleep & Lounge": {"Beds": "Chester Dream Haven Chaise Cocoon Billow Lounge Burrow Orbit",
                        "Blankets & Mats": "Ember Nestle Nook Cloud Snug",
                        "Cat Trees & Scratchers": "Perch Peak Fold",
                        "Pet Stairs": "Ascend"},
     "Dine & Drink": {"Smart Feeders": "Glance Murmur Dine",
                      "Water Fountains": "Brook",
+                     "Feeding Stations": "Pantry",
                      "Bowls": "Purr Pace Tidy Cove",
                      "Puzzle Feeders & Lick Mats": "Forage Maze Quest Savor",
                      "Feeding Accessories": "Measure Slate"},

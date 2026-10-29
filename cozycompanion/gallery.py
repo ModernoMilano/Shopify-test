@@ -92,6 +92,9 @@ GALLERIES = {
     "fresh-smart-litter-deodorizer": ["z_fresh_pack", "z_fresh_room", "z_fresh_detail"],
     "peak-triangle-cat-scratcher": ["z_peak_pack", "z_peak_cat", "z_peak_detail"],
     "ride-sherpa-car-booster-seat": ["z_ride_pack", "z_ride_dog", "z_ride_detail"],
+    "chester-tufted-dog-sofa": ["z_chester_pack", "z_chester_dog", "z_chester_detail"],
+    "pantry-pet-feeding-station": ["z_pantry_pack", "z_pantry_dog", "z_pantry_detail"],
+    "chaise-velvet-storage-pet-sofa": ["z_chaise_pack", "z_chaise_cat", "z_chaise_detail"],
 }
 # Owner's call: no supplier photos at all, not even per colour. The page opens on the selected
 # variant's photo, so a supplier shot there became the first (ugly) image. Keep this empty.

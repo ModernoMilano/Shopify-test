@@ -5398,5 +5398,140 @@
    1696,
    2528
   ]
+ },
+ "z_pantry_pack": {
+  "id": "gid://shopify/MediaImage/72745805480266",
+  "alt": "Pantry pet feeding station, white cabinet with raised stainless bowls",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_pantry_pack.png?v=1793234161",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_pantry_detail": {
+  "id": "gid://shopify/MediaImage/72745805513034",
+  "alt": "Pantry feeding station tilt-out food bin close-up",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_pantry_detail.png?v=1793234162",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_chester_pack": {
+  "id": "gid://shopify/MediaImage/72745805545802",
+  "alt": "Chester tufted dog sofa in beige",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_chester_pack.png?v=1793234163",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_chester_dog": {
+  "id": "gid://shopify/MediaImage/72745805578570",
+  "alt": "Golden retriever lounging on the Chester tufted dog sofa",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_chester_dog.png?v=1793234165",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_chester_detail": {
+  "id": "gid://shopify/MediaImage/72745805611338",
+  "alt": "Chester dog sofa button tufting close-up",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_chester_detail.png?v=1793234163",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "i_why_chester-tufted-dog-sofa": {
+  "id": "gid://shopify/MediaImage/72745809838410",
+  "alt": "Chester Tufted Dog Sofa: why you'll love it",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-i_why_chester-tufted-dog-sofa.jpg?v=1793234216",
+  "size": [
+   1600,
+   2400
+  ]
+ },
+ "i_det_chester-tufted-dog-sofa": {
+  "id": "gid://shopify/MediaImage/72745810559306",
+  "alt": "Chester Tufted Dog Sofa: the details",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-i_det_chester-tufted-dog-sofa.jpg?v=1793234220",
+  "size": [
+   1600,
+   2400
+  ]
+ },
+ "z_pantry_dog": {
+  "id": "gid://shopify/MediaImage/72745815474506",
+  "alt": "Labradoodle eating from the Pantry pet feeding station in a cream kitchen",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_pantry_dog.png?v=1793234303",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "i_why_pantry-pet-feeding-station": {
+  "id": "gid://shopify/MediaImage/72745816916298",
+  "alt": "Pantry Pet Feeding Station: why you'll love it",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-i_why_pantry-pet-feeding-station.jpg?v=1793234323",
+  "size": [
+   1600,
+   2400
+  ]
+ },
+ "i_det_pantry-pet-feeding-station": {
+  "id": "gid://shopify/MediaImage/72745817080138",
+  "alt": "Pantry Pet Feeding Station: the details",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-i_det_pantry-pet-feeding-station.jpg?v=1793234328",
+  "size": [
+   1600,
+   2400
+  ]
+ },
+ "z_chaise_pack": {
+  "id": "gid://shopify/MediaImage/72745831694666",
+  "alt": "Chaise velvet storage pet sofa in light gray",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_chaise_pack.png?v=1793234593",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_chaise_cat": {
+  "id": "gid://shopify/MediaImage/72745831727434",
+  "alt": "Persian cat lounging on the Chaise velvet pet sofa",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_chaise_cat.png?v=1793234595",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "z_chaise_detail": {
+  "id": "gid://shopify/MediaImage/72745831760202",
+  "alt": "Chaise pet sofa with the seat lifted showing hidden storage",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-z_chaise_detail.png?v=1793234595",
+  "size": [
+   1696,
+   2528
+  ]
+ },
+ "i_why_chaise-velvet-storage-pet-sofa": {
+  "id": "gid://shopify/MediaImage/72745833562442",
+  "alt": "Chaise Velvet Storage Pet Sofa: why you'll love it",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-i_why_chaise-velvet-storage-pet-sofa.jpg?v=1793234618",
+  "size": [
+   1600,
+   2400
+  ]
+ },
+ "i_det_chaise-velvet-storage-pet-sofa": {
+  "id": "gid://shopify/MediaImage/72745833660746",
+  "alt": "Chaise Velvet Storage Pet Sofa: the details",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-i_det_chaise-velvet-storage-pet-sofa.jpg?v=1793234623",
+  "size": [
+   1600,
+   2400
+  ]
  }
 }

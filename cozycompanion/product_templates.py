@@ -119,7 +119,8 @@ def build(kind, size_guide=None):
         d["sections"][k]["settings"].update({"layout_type": "carousel", "max_products": 10, "columns": 4,
                                              "carousel_on_mobile": True, "mobile_columns": "2"})
     sections["community"] = {"type": "cc-community", "settings": {"heading": "From our community", "max_items": 8}}   # hidden until real entries exist
-    d["sections"], d["order"] = sections, ["main", "community"] + rec + ["story"]
+    sections["ugc"] = {"type": "cc-ugc", "settings": {"heading": "Life with CozyCompanion", "max_items": 6}}   # lifestyle photos (ugc.py)
+    d["sections"], d["order"] = sections, ["main", "community"] + rec + ["story", "ugc"]
     return (HEADER + "\n" + json.dumps(d, indent=2)).replace("You may also like ", "Pairs well with").replace("<h3>Complete the ritual</h3>", "<h3>Pairs well with</h3>")
 
 print(put_theme_files({"templates/product.blanket.json": build("blanket"),
