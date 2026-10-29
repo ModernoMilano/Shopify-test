@@ -46,8 +46,7 @@ def build(kind, size_guide=None):
     hdr["blocks"] = {k: v for k, v in hdr["blocks"].items() if k in hdr["block_order"]}
     hdr["settings"]["gap"] = 8
 
-    hl = {f"h{k}": row("check_box", "<p>{{ closest.product.metafields.custom.highlight_%d.value }}</p>" % k) for k in (1, 2, 3)}
-    B["highlights"] = {"type": "group", "settings": {"gap": 6, "width": "fill"}, "blocks": hl, "block_order": list(hl)}
+    B["highlights"] = {"type": "cc-highlights", "settings": {}, "blocks": {}}   # 3 highlights with matching icons (highlight_icons.py)
 
     # Owner's choice: no Shop Pay / "More payment options" buttons on the product page
     B["buy_buttons_eYQEYi"]["blocks"]["accelerated-checkout"]["disabled"] = True
