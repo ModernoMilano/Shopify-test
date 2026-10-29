@@ -76,3 +76,6 @@ Let op: MODERNO PIXEL is eigendom van het ad account 1429115185245447 en niet va
 48-uurscheck 21 okt 23:00: Worldwide Test (2,07) en Retargeting (2 euro spend in 48u, levert niet) ongewijzigd. Totaal dagbudget van ongeveer EUR 1.833 naar EUR 1.660. Volgende check op zijn vroegst 23 okt 23:00.
 Na de lancering van Reverso Autumn is het totale dagbudget ongeveer EUR 1.860.
 Creative Test blijft op EUR 250, zodat de 14 ads van Week 2 budget krijgen. Beoordeling op 23 okt 23:00 met de kill-regel.
+
+
+Check 29 okt 23:00 (alleen observatie, niets uitgevoerd). Wijzigingen door anderen sinds 26 okt gezien: USA CBO, Nasir WW LAL, Creative Test en Nasir Reverso op PAUSED; WORLDWIDE 2.0 budget EUR 300; nieuwe campagne Nasir | Worldwide | LAL | ABO (28/10) live; Retargeting: oude ad set weer aan (Video Ad 5 levert), nieuwe RT EN/DE ad sets op pauze, budget EUR 80. InitiateCheckout wordt sinds 24 okt nog steeds niet gemeten (0-2 per dag); Meta ziet 7-9 aankopen per dag tegen 10-18 Shopify-bestellingen.
