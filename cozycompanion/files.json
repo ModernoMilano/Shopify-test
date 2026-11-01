@@ -7648,5 +7648,23 @@
    1080,
    1920
   ]
+ },
+ "st_2026-11-18_v2_raw": {
+  "id": "gid://shopify/MediaImage/72814992523594",
+  "alt": "CozyCompanion social st_2026-11-18_v2",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-11-18_v2_raw.png?v=1793557280",
+  "size": [
+   1536,
+   2752
+  ]
+ },
+ "st_2026-11-18_v2": {
+  "id": "gid://shopify/MediaImage/72814993572170",
+  "alt": "CozyCompanion story st_2026-11-18_v2",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-11-18_v2.jpg?v=1793557290",
+  "size": [
+   1080,
+   1920
+  ]
  }
 }
