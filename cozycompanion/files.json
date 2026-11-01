@@ -7689,5 +7689,14 @@
   "id": "gid://shopify/GenericFile/72815033123146",
   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-r_2026-11-06_v2.mp4?v=1793557764",
   "alt": "CozyCompanion reel r_2026-11-06_v2"
+ },
+ "fb_cover_bg": {
+  "id": "gid://shopify/MediaImage/72818034213194",
+  "alt": "CozyCompanion Facebook cover background",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-fb_cover_bg.png?v=1793576033",
+  "size": [
+   3168,
+   1344
+  ]
  }
 }
