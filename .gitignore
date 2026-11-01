@@ -14,3 +14,4 @@ cozycompanion/.body.json
 cozycompanion/__pycache__/
 cozycompanion/tok.new
 cozycompanion/social/.tmp/
+__pycache__/
