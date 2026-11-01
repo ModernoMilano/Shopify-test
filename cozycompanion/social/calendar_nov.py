@@ -157,5 +157,10 @@ for c in C:
     c["reel"] = REEL.get(c["date"])
 
 if __name__ == "__main__":
-    json.dump(C, open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "calendar.json"), "w"), indent=1, ensure_ascii=False)
+    out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "calendar.json")
+    # Keep the approved images/videos ("assets") already attached to each day when the copy is regenerated.
+    old = {c["date"]: c.get("assets") for c in json.load(open(out))} if os.path.exists(out) else {}
+    for c in C:
+        if old.get(c["date"]): c["assets"] = old[c["date"]]
+    json.dump(C, open(out, "w"), indent=1, ensure_ascii=False)
     print(len(C), "posts")

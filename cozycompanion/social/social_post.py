@@ -141,9 +141,10 @@ def story(result_url, name, text):
     sp = 6; tw = sum(d.textlength(c, font=f2) for c in tag) + sp * (len(tag) - 1); x = (1080 - tw) / 2
     for c in tag: d.text((x, y + 24), c, font=f2, fill=CREAM + (230,)); x += d.textlength(c, font=f2) + sp
     logo = Image.open(os.path.join(S, "logo", "logo-light.png")).convert("RGBA"); logo = logo.crop(logo.getbbox())
+    logo = Image.merge("RGBA", (*[Image.new("L", logo.size, v) for v in CREAM], logo.getchannel("A")))   # solid cream: rose letters vanish on mid tones
     lw = 300; logo = logo.resize((lw, round(lw * logo.height / logo.width)), Image.LANCZOS)
-    top = Image.new("L", (1, 260)); [top.putpixel((0, yy), int(110 * (1 - yy / 260))) for yy in range(260)]
-    tshade = Image.new("RGBA", (1080, 260), CHAR + (0,)); tshade.putalpha(top.resize((1080, 260)))
+    top = Image.new("L", (1, 340)); [top.putpixel((0, yy), int(175 * (1 - yy / 340) ** 1.2)) for yy in range(340)]
+    tshade = Image.new("RGBA", (1080, 340), CHAR + (0,)); tshade.putalpha(top.resize((1080, 340)))
     im.alpha_composite(tshade, (0, 0)); im.alpha_composite(logo, ((1080 - lw) // 2, 110))
     path = os.path.join(TMP, f"{name}.jpg"); im.convert("RGB").save(path, "JPEG", quality=90)
     subprocess.run([sys.executable, "-I", os.path.join(S, "staged_one.py"), path, name, f"CozyCompanion story {name}"],
@@ -153,17 +154,18 @@ def story(result_url, name, text):
 def video(result_url, name):
     """Finished Seedance video -> Shopify Files (public MP4 URL) + local copy and QA frames (8 stills, audio levels)."""
     from lib import check
+    # Shopify only takes external URLs for images and generic files (a VIDEO must be staged), and this sandbox can't
+    # fetch the generator's CDN itself, so the MP4 is stored as a generic file: a public cdn.shopify.com .mp4 URL.
     f = check(gql("mutation($f:[FileCreateInput!]!){fileCreate(files:$f){files{id} userErrors{field message}}}",
-                  {"f": [{"originalSource": result_url, "contentType": "VIDEO", "alt": f"CozyCompanion reel {name}", "filename": f"cozycompanion-{name}.mp4"}]})["fileCreate"])["files"][0]["id"]
+                  {"f": [{"originalSource": result_url, "contentType": "FILE", "alt": f"CozyCompanion reel {name}", "filename": f"cozycompanion-{name}.mp4"}]})["fileCreate"])["files"][0]["id"]
     import time
     for _ in range(60):
-        n = gql("query($id:ID!){node(id:$id){... on Video{fileStatus sources{url mimeType height}}}}", {"id": f})["node"]
+        n = gql("query($id:ID!){node(id:$id){... on GenericFile{fileStatus url mimeType}}}", {"id": f})["node"]
         if n["fileStatus"] in ("READY", "FAILED"): break
         time.sleep(5)
     if n["fileStatus"] != "READY": sys.exit(f"video upload {n['fileStatus']}")
-    src = max((s for s in n["sources"] if s["mimeType"] == "video/mp4"), key=lambda s: s["height"])
-    url = src["url"]
-    data = urllib.request.urlopen(url.replace("https://cdn.shopify.com/videos/", f"https://{DOMAIN}/cdn/shop/videos/"), context=CTX).read()
+    url = n["url"]
+    data = urllib.request.urlopen(f"https://{DOMAIN}/cdn/shop/files/" + url.split("/files/")[-1].split("?")[0], context=CTX).read()
     mp4 = os.path.join(TMP, f"{name}.mp4"); open(mp4, "wb").write(data)
     sheet = os.path.join(TMP, f"{name}_frames.jpg")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", mp4, "-vf", "fps=8/6,scale=270:-1,tile=4x2", "-frames:v", "1", sheet], check=False)
