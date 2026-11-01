@@ -83,7 +83,7 @@ C = [
       scene="A wet cockapoo wrapped in the Splash bathrobe, looking dramatically offended on a fluffy bath mat; a handwritten note on the tiles reads exactly 'Never again.'",
       caption=f"Bath time is over. The drama is not. 🛁\n\nSplash is an absorbent microfiber robe with a hook-and-loop closure, sizes XS to 3XL.\n\n{LINK}",
       tags=f"{H_DOG} #funnydogs #bathtime #doggrooming #dramaqueen"),
- dict(date="2026-11-21", theme="gift_idea", products=["compass-smart-pet-tag"],
+ dict(date="2026-11-21", theme="gift_idea", products=["compass-smart-tag"],
       scene="A beagle wearing a collar with the Compass smart tag, a small gift box with a bow next to it, cozy autumn porch.",
       caption=f"The gift of peace of mind. 🎁\n\nCompass works with Apple Find My or Google Find Hub, plays a sound to find it nearby and is water-resistant.\n\nNew here? Take 15% off your first order with code COZY15. {LINK}",
       tags=f"{H_PET} #pettracker #giftsforpetlovers #holidaygifts #petsafety"),
