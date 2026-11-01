@@ -6460,5 +6460,23 @@
    2752,
    1536
   ]
+ },
+ "s_sample_nook_raw": {
+  "id": "gid://shopify/MediaImage/72814589378890",
+  "alt": "CozyCompanion social s_sample_nook",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-s_sample_nook_raw.png?v=1793554852",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "s_sample_nook": {
+  "id": "gid://shopify/MediaImage/72814590853450",
+  "alt": "CozyCompanion social s_sample_nook",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-s_sample_nook.jpg?v=1793554861",
+  "size": [
+   1080,
+   1350
+  ]
  }
 }
