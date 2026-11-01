@@ -8,6 +8,10 @@ social/QA.md before anything is published.
   python3 -I social/social_post.py finish <image_result_url> <name>
       Brings a finished Nano Banana image into Shopify Files, crops it to Instagram's 4:5 (1080x1350 JPEG),
       uploads that and prints {"public_url", "preview"}; open the preview for the QA check.
+  python3 -I social/social_post.py story <image_result_url> <name> "<text>"
+      9:16 story: brand overlay (line + LINK IN BIO + wordmark), 1080x1920 JPEG in Shopify Files; prints URL + preview.
+  python3 -I social/social_post.py video <video_result_url> <name>
+      Reel MP4 into Shopify Files; prints the public URL, a frame sheet for QA and the audio levels.
   python3 -I social/social_post.py log '<json>'
       Appends what was published (date, theme, handle, image names, post ids) to social/log.json.
 
@@ -98,6 +102,77 @@ def finish(result_url, name):
                    check=True, capture_output=True)
     return {"public_url": reg()[name]["url"].split("?")[0], "preview": path}
 
+FONT = os.path.join(S, "ads", "fonts")
+CREAM, ROSE, CHAR = (245, 241, 237), (183, 110, 121), (26, 26, 26)
+
+def _raw(result_url, name):
+    p = subprocess.run([sys.executable, "-I", os.path.join(S, "upload.py")], input=f"{name}_raw {result_url}|CozyCompanion social {name}\n",
+                       text=True, capture_output=True)
+    if f"{name}_raw" not in reg(): sys.exit("upload failed: " + p.stdout[-300:] + p.stderr[-300:])
+    u = f"https://{DOMAIN}/cdn/shop/files/" + reg()[f"{name}_raw"]["url"].split("/files/")[-1].split("?")[0]
+    return Image.open(io.BytesIO(urllib.request.urlopen(u, context=CTX).read())).convert("RGB")
+
+def story(result_url, name, text):
+    """9:16 Nano Banana image -> 1080x1920 story with a soft bottom gradient, the brand line in Cormorant,
+    'link in bio' in Jost and the small wordmark on top. Returns public URL + local preview."""
+    from PIL import ImageDraw, ImageFont
+    im = _raw(result_url, name)
+    w, h = im.size; th = round(w * 16 / 9)
+    if th > h: tw = round(h * 9 / 16); im = im.crop(((w - tw) // 2, 0, (w - tw) // 2 + tw, h))
+    else: im = im.crop((0, (h - th) // 2, w, (h - th) // 2 + th))
+    im = im.resize((1080, 1920), Image.LANCZOS).convert("RGBA")
+    grad = Image.new("L", (1, 1920))
+    for y in range(1920): grad.putpixel((0, y), int(170 * max(0, (y - 1180) / 740) ** 1.4))
+    shade = Image.new("RGBA", (1080, 1920), CHAR + (0,)); shade.putalpha(grad.resize((1080, 1920)))
+    im = Image.alpha_composite(im, shade)
+    d = ImageDraw.Draw(im)
+    f1 = ImageFont.truetype(os.path.join(FONT, "Cormorant-500.ttf"), 92)
+    f2 = ImageFont.truetype(os.path.join(FONT, "Jost-500.ttf"), 30)
+    words, lines, cur = text.split(), [], ""
+    for wd in words:
+        t = (cur + " " + wd).strip()
+        if d.textlength(t, font=f1) > 900 and cur: lines.append(cur); cur = wd
+        else: cur = t
+    lines.append(cur)
+    y = 1700 - len(lines) * 100
+    for ln in lines:
+        d.text(((1080 - d.textlength(ln, font=f1)) / 2, y), ln, font=f1, fill=CREAM + (255,)); y += 100
+    tag = "LINK IN BIO"
+    sp = 6; tw = sum(d.textlength(c, font=f2) for c in tag) + sp * (len(tag) - 1); x = (1080 - tw) / 2
+    for c in tag: d.text((x, y + 24), c, font=f2, fill=CREAM + (230,)); x += d.textlength(c, font=f2) + sp
+    logo = Image.open(os.path.join(S, "logo", "logo-light.png")).convert("RGBA"); logo = logo.crop(logo.getbbox())
+    lw = 300; logo = logo.resize((lw, round(lw * logo.height / logo.width)), Image.LANCZOS)
+    top = Image.new("L", (1, 260)); [top.putpixel((0, yy), int(110 * (1 - yy / 260))) for yy in range(260)]
+    tshade = Image.new("RGBA", (1080, 260), CHAR + (0,)); tshade.putalpha(top.resize((1080, 260)))
+    im.alpha_composite(tshade, (0, 0)); im.alpha_composite(logo, ((1080 - lw) // 2, 110))
+    path = os.path.join(TMP, f"{name}.jpg"); im.convert("RGB").save(path, "JPEG", quality=90)
+    subprocess.run([sys.executable, "-I", os.path.join(S, "staged_one.py"), path, name, f"CozyCompanion story {name}"],
+                   check=True, capture_output=True)
+    return {"public_url": reg()[name]["url"].split("?")[0], "preview": path}
+
+def video(result_url, name):
+    """Finished Seedance video -> Shopify Files (public MP4 URL) + local copy and QA frames (8 stills, audio levels)."""
+    from lib import check
+    f = check(gql("mutation($f:[FileCreateInput!]!){fileCreate(files:$f){files{id} userErrors{field message}}}",
+                  {"f": [{"originalSource": result_url, "contentType": "VIDEO", "alt": f"CozyCompanion reel {name}", "filename": f"cozycompanion-{name}.mp4"}]})["fileCreate"])["files"][0]["id"]
+    import time
+    for _ in range(60):
+        n = gql("query($id:ID!){node(id:$id){... on Video{fileStatus sources{url mimeType height}}}}", {"id": f})["node"]
+        if n["fileStatus"] in ("READY", "FAILED"): break
+        time.sleep(5)
+    if n["fileStatus"] != "READY": sys.exit(f"video upload {n['fileStatus']}")
+    src = max((s for s in n["sources"] if s["mimeType"] == "video/mp4"), key=lambda s: s["height"])
+    url = src["url"]
+    data = urllib.request.urlopen(url.replace("https://cdn.shopify.com/videos/", f"https://{DOMAIN}/cdn/shop/videos/"), context=CTX).read()
+    mp4 = os.path.join(TMP, f"{name}.mp4"); open(mp4, "wb").write(data)
+    sheet = os.path.join(TMP, f"{name}_frames.jpg")
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", mp4, "-vf", "fps=8/6,scale=270:-1,tile=4x2", "-frames:v", "1", sheet], check=False)
+    vol = subprocess.run(["ffmpeg", "-i", mp4, "-af", "volumedetect", "-f", "null", "-"], capture_output=True, text=True).stderr
+    levels = {k: v for k, v in (l.split("] ")[-1].split(": ") for l in vol.splitlines() if "_volume" in l)}
+    reg_ = reg(); reg_[name] = {"id": f, "url": url, "alt": f"CozyCompanion reel {name}"}
+    json.dump(reg_, open(os.path.join(S, "files.json"), "w"), indent=1)
+    return {"public_url": url, "local": mp4, "frames": sheet, "audio": levels}
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "prepare"
     if cmd == "prepare":
@@ -106,6 +181,10 @@ if __name__ == "__main__":
                                  a[a.index("--date") + 1] if "--date" in a else None), indent=1))
     elif cmd == "finish":
         print(json.dumps(finish(sys.argv[2], sys.argv[3])))
+    elif cmd == "story":
+        print(json.dumps(story(sys.argv[2], sys.argv[3], sys.argv[4])))
+    elif cmd == "video":
+        print(json.dumps(video(sys.argv[2], sys.argv[3])))
     elif cmd == "log":
         entries = log(); entries.append(json.loads(sys.argv[2])); json.dump(entries, open(LOG, "w"), indent=1)
         print("logged", len(entries))

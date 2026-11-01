@@ -27,8 +27,13 @@ for c in C:
     if "COZY15" in c["caption"]: badges += '<span class="b code">COZY15</span>'
     prods = " · ".join(e(titles[h]) for h in c["products"])
     reel = f'<p class="k">Reel (6–8 sec.)</p><p>{e(c["reel"])}</p>' if c.get("reel") else ""
+    a = c.get("assets", {})
+    thumbs = "".join(f'<a href="{e(u)}" target="_blank"><img src="{e(u)}" class="t45" alt=""></a>' for u in a.get("feed", []))
+    if a.get("story"): thumbs += f'<a href="{e(a["story"])}" target="_blank"><img src="{e(a["story"])}" class="t916" alt=""></a>'
+    if a.get("reel"): thumbs += f'<video src="{e(a["reel"])}" class="t916" controls muted playsinline preload="metadata"></video>'
+    thumbs = f'<div class="thumbs">{thumbs}</div>' if thumbs else '<p class="todo">Beelden volgen</p>'
     cards.append(f'''<article class="card"><header><div class="date">{NL_DAY[d.weekday()]} {d.day} nov</div><div>{badges}</div></header>
-<p class="prod">{prods}</p>
+<p class="prod">{prods}</p>{thumbs}
 <div class="grid"><div><p class="k">Beeld (Nano Banana)</p><p>{e(c["scene"])}</p>{reel}
 <p class="k">Story</p><p class="story">“{e(c["story_text"])}”</p></div>
 <div><p class="k">Caption</p><p class="cap">{e(c["caption"]).replace(chr(10), "<br>")}</p><p class="tags">{e(c["tags"])}</p></div></div></article>''')
@@ -51,6 +56,8 @@ h2{{font-family:Cormorant,serif;font-weight:500;font-size:28px;margin:34px 0 12p
 .prod{{font-weight:500;margin:6px 0 10px}}
 .grid{{display:grid;grid-template-columns:1fr 1fr;gap:18px}} @media(max-width:700px){{.grid{{grid-template-columns:1fr}}}}
 .k{{margin:8px 0 2px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose)}} p{{margin:0 0 6px}}
+.thumbs{{display:flex;gap:8px;overflow-x:auto;margin:4px 0 12px}} .thumbs img,.thumbs video{{display:block;border:1px solid var(--sand)}}
+.t45{{height:250px;aspect-ratio:4/5;object-fit:cover}} .t916{{height:250px;aspect-ratio:9/16;object-fit:cover}} .todo{{font-size:12px;opacity:.6}}
 .cap{{background:var(--cream);padding:10px 12px}} .tags{{font-size:12.5px;color:#5b6b8c}} .story{{font-family:Cormorant,serif;font-size:19px}}
 </style></head><body><div class="wrap">
 <h1>Content calendar · November 2026</h1>
