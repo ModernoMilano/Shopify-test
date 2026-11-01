@@ -45,9 +45,11 @@ def target_price(cost, ship):
 SHIP_3X = 4.0   # Zendrop shipping per item, counted into cost before tripling (owner's rule)
 FLOOR = 15.0    # nothing in a high-end store sells for less
 
+MULT = 2.0      # launch pricing (owner, 2026-11-01): 2x instead of 3x to get the first buyers and data; raise later
+
 def triple(cost):
-    """Products tagged price-3x: 3x (cost + shipping), never below FLOOR, rounded up to a clean price."""
-    return max(FLOOR, nice((cost + SHIP_3X) * 3))
+    """Products tagged price-3x: MULT x (cost + shipping), never below FLOOR, rounded up to a clean price."""
+    return max(FLOOR, nice((cost + SHIP_3X) * MULT))
 
 def shipping(vendor, sku, options, tags=()):
     text = (sku or "") + " ".join(options)

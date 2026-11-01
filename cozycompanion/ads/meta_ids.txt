@@ -7,3 +7,8 @@ v3 collection ads (active, 2026-10-28), ad set USA | COLLECTIONS | Advantage+ | 
   C1 sorry_wear 120246810994220609 → /collections/wear-walk | C2 nap_sleep 120246811008290609 → /collections/beds-dens
   C3 notes_cats 120246810998900609 → /collections/cats | C4 spa_groom 120246811000330609 → /collections/groom-clean
   C5 note_dine 120246811001470609 → /collections/smart-feeding | C6 packed_travel 120246811002030609 → /collections/pet-travel
+2026-11-01 restructure (owner: "doe wat jij het beste vindt"): launch prices 2x (reprice.py MULT=2.0), optimisation on ADD_TO_CART.
+  NEW ad set USA | WINNERS | Advantage+ | ADD_TO_CART 120246874349590609 (active), ads (params in ads/winners_create_params.json):
+    nestle_2_spot 120246874351040609 | v2 texts_nestle 120246874351450609 | v2 reasons_roam 120246874351690609 | v3 note_dine 120246874352320609
+  PAUSED ad sets: NESTLE 120246807462090609, ROAM 120246807463540609, GLANCE 120246807464400609, COLLECTIONS 120246810964710609
+  Results at the switch (Oct 29 - Nov 1): EUR 184 spent, 57 landing page views, 1 add to cart, 0 purchases, CPM EUR 50-91.

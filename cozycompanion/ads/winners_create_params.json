@@ -1,0 +1,262 @@
+[
+ {
+  "adset_id": "120246874349590609",
+  "name": "WINNERS | \"they steal your spot\"",
+  "status": "active",
+  "creative": {
+   "name": "nestle_2_spot_atc",
+   "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=atc_nestle_2_spot",
+   "degrees_of_freedom_spec": {
+    "creative_features_spec": {
+     "text_optimizations": {
+      "enroll_status": "OPT_OUT"
+     },
+     "inline_comment": {
+      "enroll_status": "OPT_OUT"
+     },
+     "enhance_cta": {
+      "enroll_status": "OPT_OUT"
+     },
+     "add_text_overlay": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_animation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_templates": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_uncrop": {
+      "enroll_status": "OPT_OUT"
+     },
+     "product_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "site_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "description_automation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_touchups": {
+      "enroll_status": "OPT_IN"
+     },
+     "image_brightness_and_contrast": {
+      "enroll_status": "OPT_IN"
+     }
+    }
+   },
+   "object_story_spec": {
+    "page_id": "1411553698703314",
+    "link_data": {
+     "link": "https://cozycompanion.us/products/nestle-heated-pet-pad",
+     "picture": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-ad_final_nestle_2_spot.jpg",
+     "message": "Every pet has one goal in winter: find the warmest spot in the house.\nGive them their own. Nestle is a heated pad that turns any bed, crate or corner into their favorite place to nap, so the couch is yours again.\n3 heat levels · waterproof · chew-resistant cord",
+     "name": "The warmest spot is now theirs",
+     "description": "Heated pet pad · 30-day returns",
+     "call_to_action": {
+      "type": "SHOP_NOW",
+      "value": {
+       "link": "https://cozycompanion.us/products/nestle-heated-pet-pad"
+      }
+     }
+    }
+   }
+  }
+ },
+ {
+  "adset_id": "120246874349590609",
+  "name": "WINNERS | v2 N5 texts_nestle",
+  "status": "active",
+  "creative": {
+   "name": "v2_texts_nestle_atc",
+   "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=atc_v2_texts_nestle",
+   "degrees_of_freedom_spec": {
+    "creative_features_spec": {
+     "text_optimizations": {
+      "enroll_status": "OPT_OUT"
+     },
+     "inline_comment": {
+      "enroll_status": "OPT_OUT"
+     },
+     "enhance_cta": {
+      "enroll_status": "OPT_OUT"
+     },
+     "add_text_overlay": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_animation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_templates": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_uncrop": {
+      "enroll_status": "OPT_OUT"
+     },
+     "product_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "site_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "description_automation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_touchups": {
+      "enroll_status": "OPT_IN"
+     },
+     "image_brightness_and_contrast": {
+      "enroll_status": "OPT_IN"
+     }
+    }
+   },
+   "object_story_spec": {
+    "page_id": "1411553698703314",
+    "link_data": {
+     "link": "https://cozycompanion.us/products/nestle-heated-pet-pad",
+     "picture": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v2f_texts_nestle.jpg",
+     "message": "Even Mom wants one. 😂\nNestle is the heated pad pets choose over everything: 3 heat levels, waterproof cover, chew-resistant cord.",
+     "name": "She has a heated bed now",
+     "description": "Nestle Heated Pet Pad · 30-day returns",
+     "call_to_action": {
+      "type": "SHOP_NOW",
+      "value": {
+       "link": "https://cozycompanion.us/products/nestle-heated-pet-pad"
+      }
+     }
+    }
+   }
+  }
+ },
+ {
+  "adset_id": "120246874349590609",
+  "name": "WINNERS | v2 N9 reasons_roam",
+  "status": "active",
+  "creative": {
+   "name": "v2_reasons_roam_atc",
+   "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=atc_v2_reasons_roam",
+   "degrees_of_freedom_spec": {
+    "creative_features_spec": {
+     "text_optimizations": {
+      "enroll_status": "OPT_OUT"
+     },
+     "inline_comment": {
+      "enroll_status": "OPT_OUT"
+     },
+     "enhance_cta": {
+      "enroll_status": "OPT_OUT"
+     },
+     "add_text_overlay": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_animation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_templates": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_uncrop": {
+      "enroll_status": "OPT_OUT"
+     },
+     "product_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "site_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "description_automation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_touchups": {
+      "enroll_status": "OPT_IN"
+     },
+     "image_brightness_and_contrast": {
+      "enroll_status": "OPT_IN"
+     }
+    }
+   },
+   "object_story_spec": {
+    "page_id": "1411553698703314",
+    "link_data": {
+     "link": "https://cozycompanion.us/products/roam-back-seat-dog-bed",
+     "picture": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v2f_reasons_roam.jpg",
+     "message": "3 reasons your dog will love road trips:\n1) A firm, flat base, no more sliding into the footwell.\n2) A waterproof, quilted cover.\n3) A mesh window so you can see each other.",
+     "name": "3 reasons for road trips",
+     "description": "Roam Back Seat Dog Bed · 30-day returns",
+     "call_to_action": {
+      "type": "SHOP_NOW",
+      "value": {
+       "link": "https://cozycompanion.us/products/roam-back-seat-dog-bed"
+      }
+     }
+    }
+   }
+  }
+ },
+ {
+  "adset_id": "120246874349590609",
+  "name": "WINNERS | v3 C5 note_dine",
+  "status": "active",
+  "creative": {
+   "name": "v3_note_dine_atc",
+   "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign=cc_usa_launch&utm_content=atc_v3_note_dine",
+   "degrees_of_freedom_spec": {
+    "creative_features_spec": {
+     "text_optimizations": {
+      "enroll_status": "OPT_OUT"
+     },
+     "inline_comment": {
+      "enroll_status": "OPT_OUT"
+     },
+     "enhance_cta": {
+      "enroll_status": "OPT_OUT"
+     },
+     "add_text_overlay": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_animation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_templates": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_uncrop": {
+      "enroll_status": "OPT_OUT"
+     },
+     "product_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "site_extensions": {
+      "enroll_status": "OPT_OUT"
+     },
+     "description_automation": {
+      "enroll_status": "OPT_OUT"
+     },
+     "image_touchups": {
+      "enroll_status": "OPT_IN"
+     },
+     "image_brightness_and_contrast": {
+      "enroll_status": "OPT_IN"
+     }
+    }
+   },
+   "object_story_spec": {
+    "page_id": "1411553698703314",
+    "link_data": {
+     "link": "https://cozycompanion.us/collections/smart-feeding",
+     "picture": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-v3f_smart-feeding.jpg",
+     "message": "Dinner, but make it a game. 🐾\nPuzzle feeders, lick mats and treat balls slow down fast eaters and keep busy minds happy. Explore the Dine & Drink edit, from bowls to fountains.\n15% off your first order with code COZY15.",
+     "name": "Dinner, slowed down.",
+     "description": "Bowls, feeders & fountains",
+     "call_to_action": {
+      "type": "SHOP_NOW",
+      "value": {
+       "link": "https://cozycompanion.us/collections/smart-feeding"
+      }
+     }
+    }
+   }
+  }
+ }
+]
