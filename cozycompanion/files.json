@@ -7720,5 +7720,41 @@
    1080,
    1920
   ]
+ },
+ "f_2026-11-27_2_raw": {
+  "id": "gid://shopify/MediaImage/72814997274954",
+  "alt": "CozyCompanion social f_2026-11-27_2",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-11-27_2_raw.png?v=1793557350",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "f_2026-11-27_2": {
+  "id": "gid://shopify/MediaImage/72814997963082",
+  "alt": "CozyCompanion social f_2026-11-27_2",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-11-27_2.jpg?v=1793557360",
+  "size": [
+   1080,
+   1350
+  ]
+ },
+ "f_2026-11-20_0_v2_raw": {
+  "id": "gid://shopify/MediaImage/72814998192458",
+  "alt": "CozyCompanion social f_2026-11-20_0_v2",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-11-20_0_v2_raw.png?v=1793557370",
+  "size": [
+   1856,
+   2304
+  ]
+ },
+ "f_2026-11-20_0_v2": {
+  "id": "gid://shopify/MediaImage/72814999241034",
+  "alt": "CozyCompanion social f_2026-11-20_0_v2",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-11-20_0_v2.jpg?v=1793557380",
+  "size": [
+   1080,
+   1350
+  ]
  }
 }
