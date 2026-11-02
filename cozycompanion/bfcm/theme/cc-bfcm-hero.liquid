@@ -1,0 +1,86 @@
+{%- comment -%}
+  CozyCompanion BFCM 2026 homepage hero. Only visible while html[data-ccbfcm] is set by snippets/cc-bfcm.liquid
+  (teaser / sale / cm); otherwise it takes no space and the regular hero below it is the first thing on the page.
+{%- endcomment -%}
+{%- liquid
+  assign now = 'now' | date: '%s' | plus: 0
+  assign edit = collections['black-friday-edit']
+  if edit.id
+    assign edit_url = edit.url
+  else
+    assign edit_url = routes.all_products_collection_url
+  endif
+  assign d = section.settings.image_desktop
+  assign m = section.settings.image_mobile | default: d
+-%}
+{%- if now < 1796187600 -%}
+  <div class="cc-bfcm-hero" data-cc-phase="teaser sale cm">
+    <a class="cc-bfcm-hero__link" href="{{ edit_url }}">
+      <picture class="cc-bfcm-hero__media">
+        {%- if d != blank -%}
+          <source media="(min-width: 750px)" srcset="{{ d | image_url: width: 1600 }} 1600w, {{ d | image_url: width: 2400 }} 2400w" sizes="100vw">
+        {%- endif -%}
+        {%- if m != blank -%}
+          {{ m | image_url: width: 1200 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '600, 900, 1200', alt: section.settings.alt, class: 'cc-bfcm-hero__img' }}
+        {%- endif -%}
+      </picture>
+      <span class="cc-bfcm-hero__copy">
+        <span class="cc-bfcm-hero__eyebrow" data-cc-phase="teaser">Black Friday Week &middot; Starts Monday, Nov 23</span>
+        <span class="cc-bfcm-hero__eyebrow" data-cc-phase="sale">Black Friday Week &middot; Now on</span>
+        <span class="cc-bfcm-hero__eyebrow" data-cc-phase="cm">Cyber Monday &middot; Ends tonight</span>
+        <span class="cc-bfcm-hero__title">Black Friday,<br>the cozy way.</span>
+        <span class="cc-bfcm-hero__tiers">
+          <span><b>10%</b> off $75+</span><span><b>15%</b> off $150+</span><span><b>20%</b> off $250+</span>
+        </span>
+        <span class="cc-bfcm-hero__note">Applied automatically at checkout</span>
+        <span class="cc-bfcm-hero__cta" data-cc-phase="teaser">Preview the edit</span>
+        <span class="cc-bfcm-hero__cta" data-cc-phase="sale cm">Shop the edit</span>
+      </span>
+    </a>
+  </div>
+  <style>
+    #shopify-section-{{ section.id }} { width: 100%; }
+    .cc-bfcm-hero { position: relative; background: #1a1a1a; color: #f5f1ed; }
+    .cc-bfcm-hero__link { position: relative; display: block; color: inherit; text-decoration: none; }
+    .cc-bfcm-hero__media { display: block; aspect-ratio: 16 / 9; max-height: 82vh; overflow: hidden; background: #1a1a1a; }
+    .cc-bfcm-hero__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cc-bfcm-hero__link::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(90deg, rgba(20, 18, 17, 0.82) 0%, rgba(20, 18, 17, 0.55) 38%, rgba(20, 18, 17, 0) 62%); }
+    .cc-bfcm-hero__copy { position: absolute; z-index: 1; left: clamp(24px, 6vw, 96px); top: 50%; transform: translateY(-50%);
+      width: min(520px, 42%); display: flex; flex-direction: column; gap: 14px; }
+    .cc-bfcm-hero__copy [data-cc-phase] { display: none; }
+    html[data-ccbfcm='teaser'] .cc-bfcm-hero__copy [data-cc-phase~='teaser'],
+    html[data-ccbfcm='sale'] .cc-bfcm-hero__copy [data-cc-phase~='sale'],
+    html[data-ccbfcm='cm'] .cc-bfcm-hero__copy [data-cc-phase~='cm'] { display: block !important; }
+    .cc-bfcm-hero__eyebrow { font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; color: #d9a3ab; }
+    .cc-bfcm-hero__title { font-family: var(--font-heading--family, 'Cormorant', serif); font-weight: 600;
+      font-size: clamp(2.6rem, 4.6vw, 4.6rem); line-height: 1.02; }
+    .cc-bfcm-hero__tiers { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 0.95rem; }
+    .cc-bfcm-hero__tiers b { color: #d9a3ab; font-weight: 500; }
+    .cc-bfcm-hero__note { font-size: 0.78rem; opacity: 0.75; }
+    .cc-bfcm-hero__cta { align-self: flex-start; margin-top: 6px; padding: 15px 30px; background: #b76e79; color: #fff;
+      font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; transition: background 0.2s; }
+    .cc-bfcm-hero__link:hover .cc-bfcm-hero__cta { background: #a25f69; }
+    @media (max-width: 749px) {
+      .cc-bfcm-hero__media { aspect-ratio: 4 / 5; max-height: none; }
+      .cc-bfcm-hero__link::after { background: linear-gradient(180deg, rgba(20, 18, 17, 0.85) 0%, rgba(20, 18, 17, 0.6) 34%, rgba(20, 18, 17, 0) 58%); }
+      .cc-bfcm-hero__copy { left: 20px; right: 20px; top: 28px; transform: none; width: auto; gap: 10px; }
+      .cc-bfcm-hero__eyebrow { font-size: 0.66rem; letter-spacing: 0.16em; }
+      .cc-bfcm-hero__title { font-size: 2.4rem; }
+      .cc-bfcm-hero__tiers { font-size: 0.85rem; gap: 4px 12px; }
+      .cc-bfcm-hero__cta { padding: 12px 22px; }
+    }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "CC BFCM hero",
+  "settings": [
+    { "type": "image_picker", "id": "image_desktop", "label": "Image (desktop, 16:9)" },
+    { "type": "image_picker", "id": "image_mobile", "label": "Image (mobile, 4:5)" },
+    { "type": "text", "id": "alt", "label": "Alt text", "default": "A dog and a cat relaxing on a velvet pet sofa between wrapped gifts" }
+  ],
+  "presets": [{ "name": "CC BFCM hero" }]
+}
+{% endschema %}

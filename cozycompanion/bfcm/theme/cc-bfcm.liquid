@@ -1,0 +1,60 @@
+{%- doc -%}
+  CozyCompanion BFCM 2026 ("The Black Velvet Edit"): phase switch + top strip. Rendered at the top of <body> in
+  layout/theme.liquid, before the header group, so html[data-ccbfcm] is set before anything below renders.
+  Phases (US Eastern): teaser Nov 20-22, sale Nov 23-29, cm Nov 30; nothing before or after.
+  The switch runs in the browser on the visitor's clock (cached pages can't go stale), with the same epoch bounds as the
+  scheduled discounts (bfcm/discounts.py). Preview any phase with ?ccbfcm=teaser|sale|cm (kept for the browser session;
+  ?ccbfcm=off clears it).
+{%- enddoc -%}
+{%- liquid
+  assign now = 'now' | date: '%s' | plus: 0
+  assign edit = collections['black-friday-edit']
+  if edit.id
+    assign edit_url = edit.url
+  else
+    assign edit_url = routes.all_products_collection_url
+  endif
+-%}
+{%- if now < 1796187600 -%}
+  <script>
+    (function () {
+      var T = 1795150800, S = 1795410000, C = 1796014800, E = 1796101200;
+      var q = null, s = null;
+      try { q = new URLSearchParams(location.search).get('ccbfcm'); } catch (e) {}
+      try {
+        if (q === 'off') sessionStorage.removeItem('ccbfcm');
+        else if (q) sessionStorage.setItem('ccbfcm', q);
+        s = sessionStorage.getItem('ccbfcm');
+      } catch (e) {}
+      var n = Date.now() / 1000;
+      var p = (q && q !== 'off') ? q : s || (n >= T && n < S ? 'teaser' : n >= S && n < C ? 'sale' : n >= C && n < E ? 'cm' : '');
+      if (p === 'teaser' || p === 'sale' || p === 'cm') document.documentElement.setAttribute('data-ccbfcm', p);
+    })();
+  </script>
+  <style>
+    [data-cc-phase] { display: none !important; }
+    html[data-ccbfcm='teaser'] [data-cc-phase~='teaser'],
+    html[data-ccbfcm='sale'] [data-cc-phase~='sale'],
+    html[data-ccbfcm='cm'] [data-cc-phase~='cm'] { display: block !important; }
+    html[data-ccbfcm] #header-group .announcement-bar { display: none !important; }
+    .cc-bfcm-strip { background: #1a1a1a; color: #f5f1ed; text-align: center; padding: 10px 16px;
+      font-family: var(--font-body--family, 'Jost', sans-serif); font-size: 0.72rem; line-height: 1.5;
+      letter-spacing: 0.14em; text-transform: uppercase; border-bottom: 1px solid rgba(183, 110, 121, 0.5); }
+    .cc-bfcm-strip b { color: #d9a3ab; font-weight: 500; }
+    .cc-bfcm-strip a { color: #f5f1ed; text-underline-offset: 3px; white-space: nowrap; }
+    .cc-bfcm-strip .cc-sep { opacity: 0.45; margin: 0 0.6em; }
+    @media (max-width: 749px) {
+      .cc-bfcm-strip { font-size: 0.64rem; letter-spacing: 0.1em; padding: 9px 12px; }
+      .cc-bfcm-strip .cc-hide-m { display: none; }
+    }
+  </style>
+  <div class="cc-bfcm-strip" data-cc-phase="teaser" role="region" aria-label="Black Friday Week">
+    <b>Black Friday Week</b> starts Monday, Nov 23<span class="cc-sep">&middot;</span>Save up to 20%<span class="cc-hide-m"><span class="cc-sep">&middot;</span><a href="{{ edit_url }}">Preview the edit</a></span>
+  </div>
+  <div class="cc-bfcm-strip" data-cc-phase="sale" role="region" aria-label="Black Friday Week">
+    <b>Black Friday Week</b><span class="cc-sep">&middot;</span>10% off $75+ &middot; 15% off $150+ &middot; 20% off $250+<span class="cc-hide-m"><span class="cc-sep">&middot;</span>Applied automatically<span class="cc-sep">&middot;</span><a href="{{ edit_url }}">Shop the edit</a></span>
+  </div>
+  <div class="cc-bfcm-strip" data-cc-phase="cm" role="region" aria-label="Cyber Monday">
+    <b>Cyber Monday &middot; Last day</b><span class="cc-sep">&middot;</span>Up to 20% off, applied automatically<span class="cc-hide-m"><span class="cc-sep">&middot;</span><a href="{{ edit_url }}">Shop the edit</a></span>
+  </div>
+{%- endif -%}

@@ -1,0 +1,147 @@
+{% doc %}
+  CozyCompanion cart extras: bundle progress, delivery cut-off, upsells and reassurance.
+  Every message reflects a real offer or policy (no fake timers or stock counts).
+
+  @param {string} part - 'top', 'upsells' (above checkout), 'bottom' (trust row) or 'empty'
+{% enddoc %}
+
+{%- liquid
+  assign bundle = collections['bundle-deals']
+  assign today = 'now' | date: '%m%d' | plus: 0
+  assign cart_ids = cart.items | map: 'product_id'
+-%}
+
+{%- if part == 'top' -%}
+  <div class="cc-cart-top">
+    {%- if cart.item_count == 1 -%}
+      <p class="cc-cart-top__msg">Add <strong>1 more piece</strong> and save <strong>10%</strong> automatically</p>
+      <div class="cc-progress" aria-hidden="true"><span style="width: 50%"></span></div>
+    {%- elsif cart.total_discount > 0 -%}
+      <p class="cc-cart-top__msg">&#10003; Bundle &amp; Save unlocked: you're saving <strong>{{ cart.total_discount | money }}</strong></p>
+      <div class="cc-progress" aria-hidden="true"><span style="width: 100%"></span></div>
+    {%- else -%}
+      <p class="cc-cart-top__msg">&#10003; Tracked shipping around the world on every order</p>
+    {%- endif -%}
+
+    {%- if today >= 1101 and today <= 1208 -%}
+      <p class="cc-cart-top__note">Holiday gifting: order by <strong>December 5</strong> for the best chance of delivery before Christmas.</p>
+    {%- else -%}
+      <p class="cc-cart-top__note">Prepared with care and dispatched within 1&ndash;3 business days.</p>
+    {%- endif -%}
+  </div>
+
+{%- elsif part == 'upsells' -%}
+  {%- liquid
+    assign shown = 0
+    assign picks = bundle.products | sort: 'price'
+  -%}
+  {%- capture upsells -%}
+    {%- for product in picks -%}
+      {%- if shown >= 10 -%}{%- break -%}{%- endif -%}
+      {%- if cart_ids contains product.id or product.available == false or product.price > 4000 -%}{%- continue -%}{%- endif -%}
+      {%- assign shown = shown | plus: 1 -%}
+      <li class="cc-upsell">
+        <a class="cc-upsell__media" href="{{ product.url }}">
+          {%- if product.featured_image -%}
+            {{ product.featured_image | image_url: width: 300 | image_tag: loading: 'lazy', alt: product.title, class: 'cc-upsell__img' }}
+          {%- endif -%}
+        </a>
+        <a class="cc-upsell__title" href="{{ product.url }}">{{ product.title }}</a>
+        <span class="cc-upsell__price">{% if product.price_varies %}From {% endif %}{{ product.price | money }}</span>
+        {%- if product.has_only_default_variant or product.variants.size == 1 -%}
+          <button type="button" class="cc-upsell__add" data-cc-add="{{ product.selected_or_first_available_variant.id }}">+ Add</button>
+        {%- else -%}
+          <a class="cc-upsell__add" href="{{ product.url }}">Choose</a>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- if shown > 0 -%}
+    <div class="cc-upsells">
+      <p class="cc-label">Complete the ritual{% if cart.item_count == 1 %} &middot; 10% off with 2 pieces{% endif %}<span class="cc-swipe-hint" aria-hidden="true">Swipe &rarr;</span></p>
+      <ul class="cc-upsell-track" role="list">{{ upsells }}</ul>
+    </div>
+    <script type="module">
+      import { CartLinesUpdateEvent } from '@shopify/events';
+      if (!window.ccUpsellBound) {
+        window.ccUpsellBound = true;
+        document.addEventListener('click', async (e) => {
+          const btn = e.target.closest('[data-cc-add]');
+          if (!btn || btn.disabled) return;
+          btn.disabled = true; btn.textContent = 'Adding…';
+          const sectionIds = [...document.querySelectorAll('cart-items-component[data-section-id]')].map((el) => el.dataset.sectionId);
+          const deferred = CartLinesUpdateEvent.createPromise();
+          // dispatched on document so the cart drawer treats it as an external add and re-renders
+          document.dispatchEvent(new CartLinesUpdateEvent({
+            action: 'add', context: 'product',
+            lines: [{ merchandiseId: btn.dataset.ccAdd, quantity: 1 }],
+            promise: deferred.promise,
+          }));
+          try {
+            const res = await fetch(Theme.routes.cart_add_url, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+              body: JSON.stringify({ items: [{ id: Number(btn.dataset.ccAdd), quantity: 1 }], sections: sectionIds.join(',') }),
+            }).then((r) => r.json());
+            const cart = await fetch(Theme.routes.cart_url + '.js', { headers: { Accept: 'application/json' } }).then((r) => r.json());
+            deferred.resolve({
+              cart: CartLinesUpdateEvent.createCartFromAjaxResponse(cart),
+              detail: { items: cart.items, source: 'cc-upsell', itemCount: 1, sections: res.sections, didError: Boolean(res.status) },
+            });
+          } catch (err) {
+            deferred.reject(err);
+            btn.disabled = false; btn.textContent = '+ Add';
+          }
+        });
+      }
+    </script>
+  {%- endif -%}
+
+{%- elsif part == 'bottom' -%}
+  <ul class="cc-usps">
+    <li>{% render 'icon-or-image', icon: 'plane', width: 20, class_name: 'cc-usp-icon' %}<span>Tracked worldwide</span></li>
+    <li>{% render 'icon-or-image', icon: 'return', width: 20, class_name: 'cc-usp-icon' %}<span>30-day returns</span></li>
+    <li>{% render 'icon-or-image', icon: 'lock', width: 20, class_name: 'cc-usp-icon' %}<span>Secure checkout</span></li>
+  </ul>
+
+{%- elsif part == 'empty' -%}
+  <div class="cc-cart-empty">
+    <p>Nothing here yet. Let's find something they'll love.</p>
+    <div class="cc-cart-empty__links">
+      <a class="button" href="{{ routes.collections_url }}/dogs">Shop dogs</a>
+      <a class="button button-secondary" href="{{ routes.collections_url }}/cats">Shop cats</a>
+    </div>
+  </div>
+{%- endif -%}
+
+<style>
+  .cc-cart-top { padding: 12px var(--cart-drawer-padding, 16px) 16px; display: grid; gap: 8px; text-align: center; }
+  .cc-cart-top__msg { margin: 0; font-size: 0.875rem; line-height: 1.4; }
+  .cc-cart-top__note { margin: 0; font-size: 0.75rem; line-height: 1.4; opacity: 0.75; }
+  .cc-progress { height: 4px; background: #e3dbd2; border-radius: 4px; overflow: hidden; }
+  .cc-progress span { display: block; height: 100%; background: #b76e79; border-radius: 4px; transition: width 0.4s ease; }
+  .cc-label { margin: 0 0 6px; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #b76e79; }
+  .cc-upsells { display: grid; gap: 4px; margin-block-end: 12px; min-width: 0; }
+  .cc-label { display: flex; justify-content: space-between; gap: 8px; }
+  .cc-swipe-hint { color: inherit; opacity: 0.55; letter-spacing: 0.08em; }
+  .cc-upsell-track { list-style: none; margin: 0 calc(-1 * var(--cart-drawer-padding, 16px)); padding: 2px var(--cart-drawer-padding, 16px) 8px;
+    display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--cart-drawer-padding, 16px);
+    -webkit-overflow-scrolling: touch; scrollbar-width: none; overscroll-behavior-x: contain; }
+  .cc-upsell-track::-webkit-scrollbar { display: none; }
+  .cc-upsell { flex: 0 0 132px; scroll-snap-align: start; display: grid; grid-template-rows: auto 1fr auto auto; gap: 4px;
+    padding: 8px; background: #ebe3da; font-size: 0.75rem; line-height: 1.3; }
+  .cc-upsell__media { display: block; aspect-ratio: 1; overflow: hidden; background: #f5f1ed; }
+  .cc-upsell__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cc-upsell__title { color: inherit; text-decoration: none; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .cc-upsell__price { opacity: 0.75; }
+  .cc-upsell__add { display: block; text-align: center; padding: 7px 4px; border: 0; background: #1a1a1a; color: #f5f1ed; font: inherit;
+    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; text-decoration: none; }
+  .cc-upsell__add:hover { background: #b76e79; }
+  .cc-upsell__add[disabled] { opacity: 0.6; cursor: default; }
+  .cc-usps { list-style: none; margin: 14px 0 0; padding: 0; width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .cc-usps li { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; font-size: 0.75rem; line-height: 1.3; }
+  .cc-usps svg { width: 20px; height: 20px; flex: none; color: #b76e79; }
+  .cc-cart-empty { display: grid; gap: 16px; justify-items: center; padding: 16px; }
+  .cc-cart-empty p { margin: 0; }
+  .cc-cart-empty__links { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+</style>
