@@ -76,3 +76,31 @@ Bij 3 van de 8 staat alleen het logo (`_Logo` in de naam); de rest is helemaal c
 - **Doorgestreepte prijzen** (~~€375~~ en ~~€300~~) zijn je compare-at prijzen uit Shopify. In de EU (vooral Duitsland) moet een "was"-prijs de laagste prijs van de afgelopen 30 dagen zijn (Omnibus-regel). Twijfel je, gebruik dan in DE alleen de versie zonder doorgestreepte prijs: O2 (SAVE €155) en O3 (12 COLOURS. €220.).
 - **Black Week-offers (O5, O7):** die gelden alleen als de Black Week-korting en de sokken ook voor Reverso Autumn gaan gelden. Dat staat nog niet in Shopify.
 - **Andere valuta:** landen met NOK of PLN zien andere prijzen dan de europrijzen in beeld. Draai de offer-ads alleen in eurolanden.
+
+## Batch 3: Reverso Autumn met de november-offers (10 creatives)
+
+Deze batch vervangt blok B (harde offers) hierboven, dat niet goed genoeg was. Elke offer staat nu op een sfeervol cadeau- of studiobeeld, in grote condensed letters met gouden accenten.
+
+**Bestand:** [ModernoMilano_Reverso_Q4Offers_10.zip](https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/650dd184-99a7-4934-82ce-da0ddc772b5e.zip). Eén map zonder submappen, elke creative in 9:16 en 1:1, plus een overzichtsblad.
+
+| # | Fase | Offer in beeld | Beeld |
+|---|---|---|---|
+| Q1 | Lijst (3–19 nov) | 24H EARLY ACCESS · Black Week starts 20 Nov | Doos met verzegelde envelop, Cammello & Marrone |
+| Q2 | Black Week | STACK & SAVE · 1 set −10% · 2 sets −15% · 3 sets −20% | Drie sets op travertin |
+| Q9 | Black Week | BLACK WEEK PRICES · 1 set €198 · 2 sets €374 · 3 sets €528 | Drie open dozen op linnen |
+| Q3 | Black Week | UP TO 20% OFF · The Reverso Autumn Set | Doos op bankje in een binnenplaats in Milaan |
+| Q4 | Black Week | + FREE WOOL SOCKS | Oliva & Crema met sokken in de doos |
+| Q5 | Retargeting | STILL THINKING ABOUT IT? Now up to 20% off | Half open doos op bed, regenavond |
+| Q6 | Black Friday | THE BIG STACK · 2 sets −€75 tot 5 sets −€300 | Vijf kleuren gestapeld onder een spotlight |
+| Q7 | Black Friday, urgentie | ENDS TONIGHT AT 23:59 · ladder | Waaier van vijf kleuren bij een kaars |
+| Q8 | Milano Stack | THE MILANO STACK · 2 sets −€50 tot 5 sets −€200 | Cadeaus onder de kerstboom, Duomo |
+| Q10 | Milano Stack, ma 30 nov | LAST DAY · ENDS 23:59 · Mix any colours | Vier open dozen in alle kleuren |
+
+**Prijsvoorbeelden (Q9):** gebaseerd op de Quarter Zip-set van €220 met de Black Week-tiers:
+- 1 set −10% = €198
+- 2 sets −15% = €374
+- 3 sets −20% = €528
+
+**Let op**
+- Deze ads kloppen alleen als de Black Week-tiers, de sokken en de stack-ladders ook voor Reverso Autumn gelden. In Shopify staan die kortingen nog nergens.
+- De stack-ladders zijn in euro's korting per stapel, zonder prijs per set.
