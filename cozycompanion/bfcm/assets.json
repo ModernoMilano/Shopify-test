@@ -1,0 +1,490 @@
+{
+ "assets": {
+  "A1_45": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_A1_45.png",
+   "final": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_ad_A1_45.jpg",
+   "aspect": "4:5",
+   "product": "nestle-heated-pet-pad",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "A1_916": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_A1_916.png",
+   "final": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_ad_A1_916.jpg",
+   "aspect": "9:16",
+   "product": "nestle-heated-pet-pad",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "A2_45": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_A2_45.png",
+   "final": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_ad_A2_45.jpg",
+   "aspect": "4:5",
+   "product": "dine-automatic-feeder",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "A2_916": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_A2_916.png",
+   "final": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_ad_A2_916.jpg",
+   "aspect": "9:16",
+   "product": "dine-automatic-feeder",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "A3_45": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_A3_45.png",
+   "final": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_ad_A3_45.jpg",
+   "aspect": "4:5",
+   "product": "chester-tufted-dog-sofa",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "A3_916": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_A3_916.png",
+   "final": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_ad_A3_916.jpg",
+   "aspect": "9:16",
+   "product": "chester-tufted-dog-sofa",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "A4_45": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_A4_45_v2.png",
+   "final": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_ad_A4_45.jpg",
+   "aspect": "4:5",
+   "product": "perch-modern-cat-tree",
+   "qa": "pass",
+   "attempts": 2
+  },
+  "A4_916": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_A4_916_v2.png",
+   "final": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_ad_A4_916.jpg",
+   "aspect": "9:16",
+   "product": "perch-modern-cat-tree",
+   "qa": "pass",
+   "attempts": 2
+  },
+  "P1": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_P1.png",
+   "final": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_feed_P1.jpg",
+   "aspect": "4:5",
+   "product": null,
+   "qa": "pass",
+   "attempts": 1
+  },
+  "P10": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_P10.png",
+   "final": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_feed_P10.jpg",
+   "aspect": "4:5",
+   "product": null,
+   "qa": "pass",
+   "attempts": 1
+  },
+  "P2a": {
+   "clean": null,
+   "final": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_feed_P2a.jpg",
+   "aspect": "4:5",
+   "product": null,
+   "qa": "pass",
+   "attempts": 1
+  },
+  "P3a": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_P3a_v2.png",
+   "final": null,
+   "aspect": "4:5",
+   "product": "chester-tufted-dog-sofa",
+   "qa": "pass",
+   "attempts": 2
+  },
+  "P3b": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_P3b.png",
+   "final": null,
+   "aspect": "4:5",
+   "product": "dream-memory-foam-dog-bed",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "P3c": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_P3c_v2.png",
+   "final": null,
+   "aspect": "4:5",
+   "product": "frost-harness-winter-dog-jacket",
+   "qa": "pass",
+   "attempts": 2
+  },
+  "P4a": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_P4a_v2.png",
+   "final": null,
+   "aspect": "4:5",
+   "product": "perch-modern-cat-tree",
+   "qa": "pass",
+   "attempts": 2
+  },
+  "P4b": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_P4b.png",
+   "final": null,
+   "aspect": "4:5",
+   "product": "haven-pet-den",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "P4c": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_P4c.png",
+   "final": null,
+   "aspect": "4:5",
+   "product": "pounce-automatic-feather-cat-toy",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "P5": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_P5.png",
+   "final": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_feed_P5.jpg",
+   "aspect": "4:5",
+   "product": "chaise-velvet-storage-pet-sofa",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "P6a": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_P6a.png",
+   "final": null,
+   "aspect": "4:5",
+   "product": "snug-sherpa-pet-blanket",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "P6b": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_P6b.png",
+   "final": null,
+   "aspect": "4:5",
+   "product": "nestle-heated-pet-pad",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "P6c": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_P6c.png",
+   "final": null,
+   "aspect": "4:5",
+   "product": "peak-triangle-cat-scratcher",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "P7": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_P7.png",
+   "final": null,
+   "aspect": "4:5",
+   "product": "haven-pet-den",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "P8": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_P8.png",
+   "final": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_feed_P8.jpg",
+   "aspect": "4:5",
+   "product": "dream-memory-foam-dog-bed",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "P9": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_P9.png",
+   "final": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_feed_P9.jpg",
+   "aspect": "4:5",
+   "product": "burrow-plush-pet-bed",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "SB1": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_SB1.png",
+   "final": null,
+   "aspect": "9:16",
+   "product": null,
+   "qa": "pass",
+   "attempts": 1
+  },
+  "SB2": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_SB2.png",
+   "final": null,
+   "aspect": "9:16",
+   "product": null,
+   "qa": "pass",
+   "attempts": 1
+  },
+  "SB3": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_SB3.png",
+   "final": null,
+   "aspect": "9:16",
+   "product": null,
+   "qa": "pass",
+   "attempts": 1
+  },
+  "SB4": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_SB4.png",
+   "final": null,
+   "aspect": "9:16",
+   "product": null,
+   "qa": "pass",
+   "attempts": 1
+  },
+  "SB5": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_SB5.png",
+   "final": null,
+   "aspect": "9:16",
+   "product": null,
+   "qa": "pass",
+   "attempts": 1
+  },
+  "SB6": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_SB6.png",
+   "final": null,
+   "aspect": "9:16",
+   "product": null,
+   "qa": "pass",
+   "attempts": 1
+  },
+  "W1": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_W1.png",
+   "final": null,
+   "aspect": "16:9",
+   "product": "chaise-velvet-storage-pet-sofa",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "W2": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_W2.png",
+   "final": null,
+   "aspect": "4:5",
+   "product": "chaise-velvet-storage-pet-sofa",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "W3": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_W3.png",
+   "final": null,
+   "aspect": "21:9",
+   "product": "chester-tufted-dog-sofa",
+   "qa": "pass",
+   "attempts": 1
+  },
+  "P2b": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_A3_45.png",
+   "final": null,
+   "aspect": "4:5",
+   "product": "chester-tufted-dog-sofa",
+   "qa": "pass",
+   "attempts": 1,
+   "note": "same photo as A3_45"
+  },
+  "P2c": {
+   "clean": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_A4_45_v2.png",
+   "final": null,
+   "aspect": "4:5",
+   "product": "perch-modern-cat-tree",
+   "qa": "pass",
+   "attempts": 2,
+   "note": "same photo as A4_45"
+  }
+ },
+ "stories": [
+  {
+   "date": "2026-11-20",
+   "slot": "am",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-20_am.jpg",
+   "name": "bfcm_out_story_11-20_am"
+  },
+  {
+   "date": "2026-11-20",
+   "slot": "mid",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-20_mid.jpg",
+   "name": "bfcm_out_story_11-20_mid"
+  },
+  {
+   "date": "2026-11-20",
+   "slot": "pm",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-20_pm.jpg",
+   "name": "bfcm_out_story_11-20_pm"
+  },
+  {
+   "date": "2026-11-21",
+   "slot": "am",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-21_am.jpg",
+   "name": "bfcm_out_story_11-21_am"
+  },
+  {
+   "date": "2026-11-21",
+   "slot": "mid",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-21_mid.jpg",
+   "name": "bfcm_out_story_11-21_mid"
+  },
+  {
+   "date": "2026-11-21",
+   "slot": "pm",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-21_pm.jpg",
+   "name": "bfcm_out_story_11-21_pm"
+  },
+  {
+   "date": "2026-11-22",
+   "slot": "am",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-22_am.jpg",
+   "name": "bfcm_out_story_11-22_am"
+  },
+  {
+   "date": "2026-11-22",
+   "slot": "mid",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-22_mid.jpg",
+   "name": "bfcm_out_story_11-22_mid"
+  },
+  {
+   "date": "2026-11-22",
+   "slot": "pm",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-22_pm.jpg",
+   "name": "bfcm_out_story_11-22_pm"
+  },
+  {
+   "date": "2026-11-23",
+   "slot": "am",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-23_am.jpg",
+   "name": "bfcm_out_story_11-23_am"
+  },
+  {
+   "date": "2026-11-23",
+   "slot": "mid",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-23_mid.jpg",
+   "name": "bfcm_out_story_11-23_mid"
+  },
+  {
+   "date": "2026-11-23",
+   "slot": "pm",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-23_pm.jpg",
+   "name": "bfcm_out_story_11-23_pm"
+  },
+  {
+   "date": "2026-11-24",
+   "slot": "am",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-24_am.jpg",
+   "name": "bfcm_out_story_11-24_am"
+  },
+  {
+   "date": "2026-11-24",
+   "slot": "mid",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-24_mid.jpg",
+   "name": "bfcm_out_story_11-24_mid"
+  },
+  {
+   "date": "2026-11-24",
+   "slot": "pm",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-24_pm.jpg",
+   "name": "bfcm_out_story_11-24_pm"
+  },
+  {
+   "date": "2026-11-25",
+   "slot": "am",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-25_am.jpg",
+   "name": "bfcm_out_story_11-25_am"
+  },
+  {
+   "date": "2026-11-25",
+   "slot": "mid",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-25_mid.jpg",
+   "name": "bfcm_out_story_11-25_mid"
+  },
+  {
+   "date": "2026-11-25",
+   "slot": "pm",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-25_pm.jpg",
+   "name": "bfcm_out_story_11-25_pm"
+  },
+  {
+   "date": "2026-11-26",
+   "slot": "am",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-26_am.jpg",
+   "name": "bfcm_out_story_11-26_am"
+  },
+  {
+   "date": "2026-11-26",
+   "slot": "mid",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-26_mid.jpg",
+   "name": "bfcm_out_story_11-26_mid"
+  },
+  {
+   "date": "2026-11-26",
+   "slot": "pm",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-26_pm.jpg",
+   "name": "bfcm_out_story_11-26_pm"
+  },
+  {
+   "date": "2026-11-27",
+   "slot": "am",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-27_am.jpg",
+   "name": "bfcm_out_story_11-27_am"
+  },
+  {
+   "date": "2026-11-27",
+   "slot": "mid",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-27_mid.jpg",
+   "name": "bfcm_out_story_11-27_mid"
+  },
+  {
+   "date": "2026-11-27",
+   "slot": "pm",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-27_pm.jpg",
+   "name": "bfcm_out_story_11-27_pm"
+  },
+  {
+   "date": "2026-11-28",
+   "slot": "am",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-28_am_v2.jpg",
+   "name": "bfcm_out_story_11-28_am_v2"
+  },
+  {
+   "date": "2026-11-28",
+   "slot": "mid",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-28_mid_v2.jpg",
+   "name": "bfcm_out_story_11-28_mid_v2"
+  },
+  {
+   "date": "2026-11-28",
+   "slot": "pm",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-28_pm_v2.jpg",
+   "name": "bfcm_out_story_11-28_pm_v2"
+  },
+  {
+   "date": "2026-11-29",
+   "slot": "am",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-29_am.jpg",
+   "name": "bfcm_out_story_11-29_am"
+  },
+  {
+   "date": "2026-11-29",
+   "slot": "mid",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-29_mid.jpg",
+   "name": "bfcm_out_story_11-29_mid"
+  },
+  {
+   "date": "2026-11-29",
+   "slot": "pm",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-29_pm.jpg",
+   "name": "bfcm_out_story_11-29_pm"
+  },
+  {
+   "date": "2026-11-30",
+   "slot": "am",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-30_am.jpg",
+   "name": "bfcm_out_story_11-30_am"
+  },
+  {
+   "date": "2026-11-30",
+   "slot": "mid",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-30_mid.jpg",
+   "name": "bfcm_out_story_11-30_mid"
+  },
+  {
+   "date": "2026-11-30",
+   "slot": "pm",
+   "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-30_pm.jpg",
+   "name": "bfcm_out_story_11-30_pm"
+  }
+ ],
+ "reels": {
+  "R1": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_R1.mp4",
+  "R2": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_R2.mp4"
+ }
+}
