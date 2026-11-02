@@ -45,7 +45,7 @@ def target_price(cost, ship):
 SHIP_3X = 4.0   # Zendrop shipping per item, counted into cost before tripling (owner's rule)
 FLOOR = 15.0    # nothing in a high-end store sells for less
 
-MULT = 2.0      # launch pricing (owner, 2026-11-01): 2x instead of 3x to get the first buyers and data; raise later
+MULT = 1.5      # data pricing (owner, 2026-11-02: "tijdelijk prijzen omlaag voor conversie-data"); was 2.0 launch pricing, 3.0 regular
 
 def triple(cost):
     """Products tagged price-3x: MULT x (cost + shipping), never below FLOOR, rounded up to a clean price."""
