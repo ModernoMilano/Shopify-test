@@ -6,6 +6,10 @@ Copy everything below the line into the video engine.
 
 You are producing paid-social videos (Meta Reels/Stories, TikTok) for **ModernoMilano**, a premium Italian-inspired menswear brand. Deliver **one-shot, final-quality** videos. Every frame must look like a real, high-end product film shot on a cinema camera, never like AI. If a shot cannot meet the rules below, simplify the shot; never deliver a flawed one.
 
+**Quality benchmark:** match the professionalism of the previous videos you made for ModernoMilano. Those were excellent, and they are the standard for this brief. Use the same production quality, polish, lighting, colour grading, pacing, camera work, editing rhythm, transitions and finishing. This brief only changes the content (events, offers and shots), not the quality bar. When in doubt, do it the way you did it in those videos.
+
+**Scope:** only **5 videos**, one per event, each delivered with two hooks. Put all effort into making these 5 perfect rather than making more.
+
 ## 1. Global rules (apply to every video)
 
 **Format**
@@ -91,124 +95,52 @@ All offers apply to the Milano Cashmere Lounge Sets, which cost €150 each.
   - "Lounge sets from €110 when you stack five."
 - **The Winter Drop:** launches 03.12. Full price, limited pieces. The product is not shown yet: silhouettes and a closed box only.
 
-## 3. The videos
+## 3. The videos: one per event
 
-Each video has a visually unique world. Do not reuse footage between videos. Deliver every video twice (Hook A and Hook B), named exactly as listed.
+Each video has a visually unique world; do not reuse footage between videos. Deliver every video twice, as `_HookA` and `_HookB`. Only the first 3 seconds differ between the two; the body and end card are identical (except where an end-card variant is stated).
 
-### V1 · `P1-V1_EarlyAccess` (list sign-up, 3–25 Nov)
+### V1 · `P1_ListSignup` (list sign-up, 3–25 Nov)
 
 **Hook A**
 - Visual: macro of a sealed black envelope resting on a folded beige set on cream linen. A hand slides in and lifts the envelope toward the camera; the wax seal catches the light.
 - Text: `BLACK WEEK STARTS EARLY.` / `BUT NOT FOR EVERYONE.`
 
 **Hook B**
-- Visual: a closed black gift box with a cream bow on a stone windowsill at night, snow falling outside over a blurred Milan skyline. A warm interior lamp clicks on.
-- Text: `24 HOURS BEFORE` / `EVERYONE ELSE.`
+- Visual: extreme macro, golden side light. A fingertip sinks slowly into the beige knit; individual fibres are visible.
+- Text: `FEEL IT FIRST.`
 
 **Body**
-- Visual: on a linen bed in morning light, hands lift the lid of a black box, fold back the tissue, and press gently into the beige jacket so the knit compresses and recovers.
-- Supporting line: `Join the list for 24h early access to Black Week.`
+- Visual: on a linen bed in morning light, hands lift the lid of a black gift box, fold back the black tissue, and press gently into the beige jacket so the knit compresses and recovers. End on a slow push-in on the folded set.
+- Supporting line: `Join the list: 24h early access + first look at the Winter Drop.`
 
 **End card**
 - Black logo on cream linen.
 - `24H EARLY ACCESS` (Oswald)
-- `Join the list.`
+- `Join the list. Places are limited.`
 
-### V2 · `P1-V2_FeelItFirst` (list sign-up, angle: cashmere close-up / feel)
+### V2 · `P2_BlackWeek` (Black Week, 20–26 Nov)
 
-**Hook A**
-- Visual: extreme macro, golden side light. A fingertip sinks slowly into the beige knit; individual fibres are visible.
-- Text: `FEEL THIS.`
+Hook A is for new customers; Hook B is for retargeting.
 
-**Hook B**
-- Visual: macro of the gray knit sleeve being pulled through a hand in slow motion.
-- Text: `SOFTER THAN YOUR SUNDAY.`
+**Hook A (new customers)**
+- Visual: on a travertine ledge against a warm plaster wall, a hand places three black gift boxes with cream bows one by one, small, medium and large, left to right. The overlays appear in sync with each placement.
+- Text: `-10%` · `-15%` · `-20%`
 
-**Body**
-- Visual: three macro textures in sequence (beige rib, navy collar, black zip with knit), each with a slow rack focus.
-- Supporting line: `Be the first to shop Black Week.`
-
-**End card**
-- Logo
-- `FEEL IT FIRST.`
-- `Join the list.`
-
-### V3 · `P1-V3_ListIsLimited` (list sign-up, angle: "the list is limited")
-
-**Hook A**
-- Visual: a hand unhooks a burgundy velvet rope from a brass stanchion in a dim members' club; a warm spotlight.
-- Text: `THE LIST IS LIMITED.`
-
-**Hook B**
-- Visual: a heavy dark door closes slowly, leaving a thin line of golden light.
-- Text: `ONCE IT'S FULL, IT'S CLOSED.`
+**Hook B (retargeting)**
+- Visual: on a cream bed on a rainy evening, a black gift box with its lid half on. A hand reaches toward it, hesitates and stops.
+- Text: `STILL THINKING` / `ABOUT IT?`
 
 **Body**
-- Visual: behind the rope, three closed black gift boxes on a small wooden table in a spotlight. The camera pushes in slowly; a hand places a cream card (blank) on the top box.
-- Supporting line: `24h early access + first look at the Winter Drop.`
-
-**End card**
-- Logo
-- `GET ON THE LIST.`
-
-### V4 · `P2-V4_TierLadder` (Black Week, new customers)
-
-**Hook A**
-- Visual: on a travertine ledge against a warm plaster wall, three black gift boxes in graduated sizes (small, medium, large) are placed one by one by a hand, left to right. The overlays appear in sync with each placement.
-- Text: `-10%` · `-15%` · `-20%`.
-
-**Hook B**
-- Visual: a folded set drops softly onto a travertine plinth; a second set lands on it, then a third.
-- Text: `THE MORE YOU STACK,` / `THE MORE YOU SAVE.`
-
-**Body**
-- Visual: slow dolly along the three boxes. The lids are lifted to reveal a folded set in each: black, gray, beige.
-- Supporting line: `1 set €135 · 2 sets €255 · 3 sets €360`.
+- Visual: overhead on an oak table. A hand pulls the cream ribbon off and lifts the lid; inside is a folded beige set with rolled cream wool socks tied with twine on top. The hands untie the twine, lift the socks out, then lift the jacket to reveal the full set.
+- Supporting line: `Up to 20% off + free wool socks with every order.`
 
 **End card**
 - Logo
 - `BLACK WEEK · 20–26 NOV`
-- Ladder graphic: `1 SET -10%  |  2 SETS -15%  |  3 SETS -20%`
+- Ladder graphic: `1 SET €135  |  2 SETS €255  |  3 SETS €360`
+- `+ FREE WOOL SOCKS`
 
-### V5 · `P2-V5_SocksUnboxing` (Black Week, new customers)
-
-**Hook A**
-- Visual: macro of fingers pulling the twine bow on rolled cream wool socks; the bow releases in one satisfying motion.
-- Text: `FREE WOOL SOCKS?` / `YES, REALLY.`
-
-**Hook B**
-- Visual: overhead, two hands pull the cream ribbon off a black box in one fast move and lift the lid.
-- Text: `UNBOX BLACK WEEK.`
-
-**Body**
-- Visual: overhead on an oak table. Inside the box are the folded beige set and the rolled socks on top. The hands lift the socks out and unroll one, then lift the jacket to show the full set.
-- Supporting line: `Free wool socks with every Black Week order.`
-
-**End card**
-- Logo
-- `UP TO 20% OFF + FREE WOOL SOCKS`
-- `20–26 NOV`
-
-### V6 · `P2-V6_RT_StillThinking` (Black Week, retargeting)
-
-**Hook A**
-- Visual: on a cream bed on a rainy evening, a black gift box with its lid half on. A hand reaches toward it, hesitates and stops.
-- Text: `STILL THINKING` / `ABOUT IT?`
-
-**Hook B**
-- Visual: overhead of an open box with the navy set. A blank cream card is placed on top; the card text is added as an overlay in post: `Still yours.`
-- Text: `YOU LEFT` / `SOMETHING BEHIND.`
-
-**Body**
-- Visual: the hand lifts the lid fully off. The black or navy set is revealed with a soft lamp glow, rain on the window.
-- Supporting line: `Now up to 20% off this Black Week.`
-
-**End card**
-- Logo
-- `NOW UP TO 20% OFF`
-- `+ free wool socks`
-
-### V7 · `P3-V7_BigStack` (Black Friday, 27 Nov)
+### V3 · `P3_BlackFriday_BigStack` (27 Nov only)
 
 **World:** dark charcoal studio, black marble plinth, one warm spotlight, dust in the beam.
 
@@ -216,52 +148,43 @@ Each video has a visually unique world. Do not reuse footage between videos. Del
 - Visual: darkness. The spotlight snaps on, revealing a tall stack of five folded sets (beige, navy, gray, black, beige from the bottom).
 - Text: `BLACK FRIDAY:` / `THE BIG STACK.`
 
-**Hook B**
-- Visual: overhead on beige linen. A hand places the fifth folded set into a vertical colour column (beige, gray, black, navy, beige).
-- Text: `BUILD YOUR` / `OWN STACK.`
+**Hook B (urgency)**
+- Visual: a candle burning low beside the stack in near darkness; the flame flickers.
+- Text: `FINAL HOURS.` / `ENDS TONIGHT AT 23:59.`
 
 **Body**
-- Visual: slow orbit around the stack. The stack never changes.
-- Supporting line: `Stack five lounge sets: from €90 each.`
+- Visual: a slow orbit around the stack (the stack never changes). Then overhead on beige linen, a hand places the fifth folded set into a vertical colour column (beige, gray, black, navy, beige): "build your own stack".
+- Supporting line: `Stack five lounge sets: from €90 each. Mix any colours.`
 
 **End card**
 - Logo
 - Ladder: `2 SETS -€75 | 3 SETS -€150 | 4 SETS -€225 | 5 SETS -€300`
 - `BLACK FRIDAY · 27 NOV`
+- For Hook B, add `ENDS TONIGHT AT 23:59` in gold.
 
-**Urgency version:** also deliver `P3-V7_BigStack_URGENCY`, with the same body and these changes.
-- Hook A text: `FINAL HOURS.`
-- Hook B text: `ENDS TONIGHT` / `AT 23:59.`
-- Hook visual: a candle burning low beside the stack in near darkness.
-- End card: `ENDS TONIGHT AT 23:59` in gold.
+### V4 · `P4_MilanoStack` (28–30 Nov)
 
-### V8 · `P4-V8_MilanoStack` (28–30 Nov)
-
-**World:** an elegant Milan apartment at dusk, herringbone parquet, the Duomo spires visible through a tall window, a decorated Christmas tree. This world must be completely different from V7.
+**World:** an elegant Milan apartment at dusk, herringbone parquet, the Duomo spires visible through a tall window, a decorated Christmas tree. This world must be completely different from V3.
 
 **Hook A**
 - Visual: through the window, snow falls over the glowing Duomo. The camera pulls back to reveal a stack of five folded sets on a Calacatta marble side table.
 - Text: `THE MILANO STACK.`
 
-**Hook B**
-- Visual: overhead on a walnut floor. Hands place mixed pairs into a big black box: a black jacket with beige trousers, a gray jacket with navy trousers.
-- Text: `MIX & MATCH.` / `STACK & SAVE.`
+**Hook B (last day, Mon 30 Nov)**
+- Visual: a close shot of the presents under the tree as the room lights dim one by one.
+- Text: `LAST DAY.` / `ENDS 23:59.`
 
 **Body**
-- Visual: under the Christmas tree, five folded sets tied with cream ribbons like presents. A hand slides one out (for him), then another (for you).
-- Supporting line: `One for him. One for you.`
+- Visual: overhead on a walnut floor, hands place mixed pairs into a big black box: a black jacket with beige trousers, a gray jacket with navy trousers. Then under the Christmas tree, five folded sets tied with cream ribbons like presents; a hand slides one out (for him), then another (for you).
+- Supporting line: `Mix & match. One for him, one for you.`
 
 **End card**
 - Logo
 - Ladder: `2 SETS -€50 | 3 SETS -€100 | 4 SETS -€150 | 5 SETS -€200`
 - `LOUNGE SETS FROM €110 WHEN YOU STACK FIVE`
+- For Hook B, add `LAST DAY · ENDS 23:59` in gold.
 
-**Last-day version:** also deliver `P4-V8_MilanoStack_LASTDAY` for Mon 30 Nov, with the same body and these changes.
-- Hook A text: `LAST DAY.`
-- Hook B text: `ENDS 23:59` / `TONIGHT.`
-- End card: `LAST DAY · ENDS 23:59` in gold.
-
-### V9 · `P5-V9_WinterDropTeaser` (29 Nov – 2 Dec)
+### V5 · `P5_WinterDrop` (teaser 29 Nov – 2 Dec)
 
 **Hook A**
 - Visual: at night on a snowy Milan terrace balustrade, a closed black box under fresh snow. Its lid lifts a few centimetres and warm golden light spills out, lighting the falling snow. The contents are never shown.
@@ -273,23 +196,24 @@ Each video has a visually unique world. Do not reuse footage between videos. Del
 
 **Body**
 - Visual: two silhouettes from behind on a snowy rooftop at blue hour, looking at the Duomo. Slow rise of the camera.
-- Supporting line: `The Winter Drop.`
+- Supporting line: `The Winter Drop. Limited pieces.`
 
 **End card**
 - Logo
 - `03.12` in gold, large
-- `THE WINTER DROP · LIMITED PIECES`
+- `THE WINTER DROP`
 
 ## 4. Quality control before delivery
 
 Check every frame and redo any shot that fails.
 
-1. No faces, and every hand has 5 normal fingers.
-2. Garment colour, zip, collar, drawstrings and set count are identical to the references and stable over time.
-3. No AI text, no garbled letters, no fake brands or shop signs anywhere in the footage.
-4. All text is sharp overlay text, spelled exactly as in this brief, inside the safe zone.
-5. The logo is the official file, unaltered.
-6. Prices and percentages match section 2 exactly.
-7. The first 0.5 seconds already contain motion. Hook A and Hook B are clearly different.
-8. V7 and V8 look like different worlds; no reused footage.
-9. Export H.264, high bitrate, no audio, with file names exactly as listed plus `_HookA` or `_HookB`.
+1. The professionalism matches your previous ModernoMilano videos: same polish, grading, pacing and finishing.
+2. No faces, and every hand has 5 normal fingers.
+3. Garment colour, zip, collar, drawstrings and set count are identical to the references and stable over time.
+4. No AI text, no garbled letters, no fake brands or shop signs anywhere in the footage.
+5. All text is sharp overlay text, spelled exactly as in this brief, inside the safe zone.
+6. The logo is the official file, unaltered.
+7. Prices and percentages match section 2 exactly.
+8. The first 0.5 seconds already contain motion. Hook A and Hook B are clearly different.
+9. V3 and V4 look like different worlds; no reused footage.
+10. Deliver exactly 5 videos × 2 hooks = 10 files. Export H.264, high bitrate, no audio, named as listed plus `_HookA` or `_HookB`.
