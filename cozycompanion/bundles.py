@@ -1,7 +1,10 @@
 """'Complete the set' bundles: each set gets 20% off automatically when all its pieces are in the cart.
 Shows on every member's product page via the cc-bundle theme block (metafields custom.bundle_products / bundle_name).
 Only price-3x products (3x cost + shipping) are bundled, so 20% off still leaves a healthy margin.
-Shopify allows 25 active automatic discounts; 23 sets + 'Bundle & Save' = 24."""
+Shopify allows 25 active automatic discounts; 23 sets + 'Bundle & Save' = 24.
+2026-11-02 (owner approved): bfcm/merge_sets.py merged Winter Walk + Rainy Day and Lounge + Den into one discount each,
+to free 2 slots for the BFCM tiers (bfcm/discounts.py). Do NOT re-run the discount part of this script without
+accounting for that: it would recreate 'The Rainy Day Set' and 'The Den Set' as separate discounts."""
 import sys, os
 S = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, S)
 from lib import gql, check
