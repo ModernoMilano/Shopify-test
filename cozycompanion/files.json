@@ -8091,5 +8091,87 @@
    1536,
    2752
   ]
+ },
+ "bfcm_R1": {
+  "id": "gid://shopify/GenericFile/72837145231690",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_R1.mp4?v=1793648841",
+  "alt": "CozyCompanion reel bfcm_R1"
+ },
+ "bfcm_R2": {
+  "id": "gid://shopify/GenericFile/72837148541258",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_R2.mp4?v=1793648848",
+  "alt": "CozyCompanion reel bfcm_R2"
+ },
+ "bfcm_out_ad_A1_45": {
+  "id": "gid://shopify/MediaImage/72837151818058",
+  "alt": "CozyCompanion Black Friday Week ad_A1_45",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_ad_A1_45.jpg?v=1793648887",
+  "size": [
+   1080,
+   1350
+  ]
+ },
+ "bfcm_out_ad_A1_916": {
+  "id": "gid://shopify/MediaImage/72837151850826",
+  "alt": "CozyCompanion Black Friday Week ad_A1_916",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_ad_A1_916.jpg?v=1793648891",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "bfcm_out_ad_A2_45": {
+  "id": "gid://shopify/MediaImage/72837153587530",
+  "alt": "CozyCompanion Black Friday Week ad_A2_45",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_ad_A2_45.jpg?v=1793648894",
+  "size": [
+   1080,
+   1350
+  ]
+ },
+ "bfcm_out_ad_A2_916": {
+  "id": "gid://shopify/MediaImage/72837153751370",
+  "alt": "CozyCompanion Black Friday Week ad_A2_916",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_ad_A2_916.jpg?v=1793648899",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "bfcm_out_ad_A3_45": {
+  "id": "gid://shopify/MediaImage/72837154963786",
+  "alt": "CozyCompanion Black Friday Week ad_A3_45",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_ad_A3_45.jpg?v=1793648902",
+  "size": [
+   1080,
+   1350
+  ]
+ },
+ "bfcm_out_ad_A3_916": {
+  "id": "gid://shopify/MediaImage/72837155815754",
+  "alt": "CozyCompanion Black Friday Week ad_A3_916",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_ad_A3_916.jpg?v=1793648906",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "bfcm_out_ad_A4_45": {
+  "id": "gid://shopify/MediaImage/72837156045130",
+  "alt": "CozyCompanion Black Friday Week ad_A4_45",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_ad_A4_45.jpg?v=1793648910",
+  "size": [
+   1080,
+   1350
+  ]
+ },
+ "bfcm_out_ad_A4_916": {
+  "id": "gid://shopify/MediaImage/72837156208970",
+  "alt": "CozyCompanion Black Friday Week ad_A4_916",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_ad_A4_916.jpg?v=1793648914",
+  "size": [
+   1080,
+   1920
+  ]
  }
 }
