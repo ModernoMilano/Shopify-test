@@ -8182,5 +8182,68 @@
    1080,
    1350
   ]
+ },
+ "bfcm_out_feed_P5": {
+  "id": "gid://shopify/MediaImage/72837157126474",
+  "alt": "CozyCompanion Black Friday Week feed_P5",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_feed_P5.jpg?v=1793648928",
+  "size": [
+   1080,
+   1350
+  ]
+ },
+ "bfcm_out_feed_P8": {
+  "id": "gid://shopify/MediaImage/72837157224778",
+  "alt": "CozyCompanion Black Friday Week feed_P8",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_feed_P8.jpg?v=1793648932",
+  "size": [
+   1080,
+   1350
+  ]
+ },
+ "bfcm_out_feed_P9": {
+  "id": "gid://shopify/MediaImage/72837159387466",
+  "alt": "CozyCompanion Black Friday Week feed_P9",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_feed_P9.jpg?v=1793648936",
+  "size": [
+   1080,
+   1350
+  ]
+ },
+ "bfcm_out_story_11-20_am": {
+  "id": "gid://shopify/MediaImage/72837160141130",
+  "alt": "CozyCompanion Black Friday Week story_11-20_am",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-20_am.jpg?v=1793648940",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "bfcm_out_story_11-20_mid": {
+  "id": "gid://shopify/MediaImage/72837160304970",
+  "alt": "CozyCompanion Black Friday Week story_11-20_mid",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_story_11-20_mid.jpg?v=1793648944",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "bfcm_out_feed_P1": {
+  "id": "gid://shopify/MediaImage/72837156307274",
+  "alt": "CozyCompanion Black Friday Week feed_P1",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_feed_P1.jpg?v=1793648917",
+  "size": [
+   1080,
+   1350
+  ]
+ },
+ "bfcm_out_feed_P10": {
+  "id": "gid://shopify/MediaImage/72837156667722",
+  "alt": "CozyCompanion Black Friday Week feed_P10",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-bfcm_out_feed_P10.jpg?v=1793648921",
+  "size": [
+   1080,
+   1350
+  ]
  }
 }
