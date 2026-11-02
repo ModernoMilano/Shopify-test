@@ -114,3 +114,42 @@ De 1:1 is steeds het middenvierkant van de 9:16, zodat alle belangrijke inhoud i
 3. **Winter drop-product.** Ik weet nog niet welk product het is. Daarom tonen de teasers en de lanceringsbeelden alleen silhouetten en een gesloten doos. Stuur me de productfoto's voor echte lanceringsbeelden.
 4. **"The list is limited."** Gebruik dit alleen als de lijst echt beperkt is.
 5. **Retourbeleid.** Het live beleid sluit retouren van "sale items" nog uit. Plak de tekst uit `docs/policies/refund-policy.html` in Shopify voordat je Black Week-kortingen geeft.
+
+## Visuele batch: alleen beeld, geen offers (20 creatives)
+
+Het idee: het grootste deel van het publiek koopt ook zonder korting. Deze ads tonen daarom geen aanbod en geen tekst. Ze wekken nieuwsgierigheid met cadeau- en unboxingbeelden, en het aanbod staat pas op de landingspagina.
+
+- **Bestand:** [ModernoMilano_Visueel_20.zip](https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/b4efaed4-6cbf-45e7-abae-4503f644abce.zip). Eén map zonder submappen: 20 beelden, elk in 9:16 en 1:1, plus `00_Overzicht_visuele_batch.jpg`.
+- **Model:** alles gemaakt met Nano Banana Pro.
+- **Mensen:** geen gezichten. In 01, 14 en 17 zijn alleen handen of een lichaam zonder gezicht te zien.
+- **Logo:** 8 beelden hebben het echte logo met de slogan (`_logo` in de bestandsnaam: 02, 04, 06, 09, 10, 12, 16, 18). De andere 12 zijn helemaal clean (`_clean`).
+
+| # | Beeld |
+|---|---|
+| 01 | Doos op natte kinderkopjes, Milaan bij nacht |
+| 02 | Lichtstraal op een half open doos |
+| 03 | Doos in de lege Galleria bij dageraad |
+| 04 | Verzegelde envelop op beige knit |
+| 05 | Navy set en doos op een koffer in Milano Centrale |
+| 06 | Black set in een operaloge |
+| 07 | Doos op de achterbank van een klassieke auto |
+| 08 | Vier open dozen in een grid, alle kleuren |
+| 09 | Ontbijtdienblad met doos op bed |
+| 10 | Beige jacket aan een messing hanger, antieke kast |
+| 11 | Navy set op een balustrade, Comomeer bij dageraad |
+| 12 | Black set op zwart marmer, lichtstreep |
+| 13 | Doos op de stoep van een Milanees palazzo |
+| 14 | Hand trekt aan het lint |
+| 15 | Eén cadeau onder de kerstboom |
+| 16 | Gray set op bed, licht door jaloezieën |
+| 17 | Lopen door Milaan met de doos onder de arm (zonder gezicht) |
+| 18 | Macro van kraag en rits in de doos |
+| 19 | Doos op de bar van een espressobar |
+| 20 | Chalet-vensterbank met beige set en warme chocolademelk |
+
+- **Primary text** (kort en zonder aanbod):
+  - *Something worth opening.*
+  - *Made to be unwrapped.*
+  - *For the ones who notice the details.*
+- **Headline:** *The ModernoMilano Gift Edit*
+- **Landingspagina:** daar staat het Black Week-aanbod groot bovenaan.
