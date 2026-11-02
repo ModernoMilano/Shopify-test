@@ -8,9 +8,13 @@ Gemaakt op 2 november 2026.
 
 ## Bestanden
 
-Alles staat in één map zonder submappen.
-- **Statics:** [ModernoMilano_BlackWeek_Statics.zip](https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/3256c7bc-1bea-4ac2-8e94-47444508e5ff.zip). 27 creatives, elk in `_9x16` (2160×3840) en `_1x1` (2160×2160), plus een overzichtsblad.
-- **Video's:** 9 concepten met elk 2 hooks (de eerste 3 seconden), samen 18 mp4-bestanden in 1080×1920. De link volgt bij de levering.
+Alles staat in één map zonder submappen: [ModernoMilano_BlackWeek_ALLES.zip](https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/bfa047ef-7f1e-45a9-877c-46bf2ce08fb1.zip) (136 MB, 73 bestanden).
+- **Statics:** 27 creatives, elk in `_9x16` (2160×3840) en `_1x1` (2160×2160), plus `00_Overzicht_alle_statics.jpg`.
+- **Video's:** 9 concepten met elk 2 hooks, samen 18 mp4-bestanden in 1080×1920, elk 10,4 seconden.
+  - 0–3 s: de hook, met tekst in beeld.
+  - 3–8 s: de Seedance-clip.
+  - 8–10,4 s: de eindkaart met logo en aanbod.
+  - Er zit geen geluid in, zodat je in Meta zelf muziek kunt kiezen.
 
 De 1:1 is steeds het middenvierkant van de 9:16, zodat alle belangrijke inhoud in beide formaten staat.
 
