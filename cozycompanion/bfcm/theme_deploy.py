@@ -74,7 +74,7 @@ new = """  <div class="cc-cart-top">
           <li style="left: 100%"{% if cc_sub >= 25000 %} class="is-on"{% endif %}>20%<small>$250</small></li>
         </ol>
       </div>
-      <p class="cc-cart-top__note">Black Friday savings apply automatically at checkout. Ends Nov 30, 11:59 PM ET.</p>
+      <p class="cc-cart-top__note">Applied automatically at checkout &middot; Ends Nov 30</p>
     {%- elsif cart.item_count == 1 -%}"""
 assert perks.count(old) == 1, "cart perks anchor not found"
 perks = perks.replace(old, new)
@@ -91,6 +91,9 @@ perks = perks.replace(css_anchor, """  .cc-tiers { position: relative; padding-b
   .cc-tiers__marks li.is-on::before { background: #b76e79; }
   .cc-tiers__marks small { font-size: 0.62rem; font-weight: 400; opacity: 0.8; }
 """ + css_anchor)
+hol = "    {%- if today >= 1101 and today <= 1208 -%}"
+assert perks.count(hol) == 1
+perks = perks.replace(hol, "    {%- if cc_bf and cart.item_count > 0 -%}\n    {%- elsif today >= 1101 and today <= 1208 -%}")
 files["snippets/cc-cart-perks.liquid"] = perks
 
 put_theme_files(files)
