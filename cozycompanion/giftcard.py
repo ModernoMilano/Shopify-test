@@ -14,8 +14,16 @@ DESC = ("<p>The easiest gift for every pet person: a CozyCompanion digital gift 
         "<li>Use it on anything in the store, in one or more orders</li></ul>")
 
 ex = gql("query($h:String!){productByHandle(handle:$h){id}}", {"h": HANDLE})["productByHandle"]
+if not ex:   # created by hand in the admin ("Add gift card product"): adopt it
+    found = gql('{products(first:5,query:"gift_card:true"){nodes{id title}}}')["products"]["nodes"]
+    ex = found[0] if found else None
 if ex:
     pid = ex["id"]; print("exists", pid)
+    check(gql("""mutation($p:ProductUpdateInput!){productUpdate(product:$p){product{id handle} userErrors{field message}}}""",
+              {"p": {"id": pid, "title": TITLE, "handle": HANDLE, "descriptionHtml": DESC, "vendor": "CozyCompanion",
+                     "productType": "Gift Card", "tags": ["gift-card", "holiday-gift-guide"], "status": "ACTIVE"}})["productUpdate"])
+    vs = gql("query($id:ID!){product(id:$id){variants(first:20){nodes{title price}}}}", {"id": pid})["product"]["variants"]["nodes"]
+    print("variants:", [(v["title"], v["price"]) for v in vs])
 else:
     r = gql("""mutation($p:ProductCreateInput!){productCreate(product:$p){product{id variants(first:5){nodes{id}}} userErrors{field message}}}""",
             {"p": {"title": TITLE, "handle": HANDLE, "descriptionHtml": DESC, "giftCard": True, "vendor": "CozyCompanion",
