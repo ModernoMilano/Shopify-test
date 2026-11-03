@@ -15,3 +15,7 @@ v3 collection ads (active, 2026-10-28), ad set USA | COLLECTIONS | Advantage+ | 
 2026-11-01 Instagram identity: @cozycompanion.usa (instagram_user_id 17841458802784913, owner made the EU free-with-ads choice).
   WINNERS ads recreated with IG identity (active): nestle_2_spot 120246874481250609 | texts_nestle 120246874483680609 |
     reasons_roam 120246874485790609 | note_dine 120246874489030609. The page-only versions (…351040/351450/351690/352320) are paused.
+2026-11-03 Q4 plan approved by the owner (q4/q4_plan.html). Automation: daily am post (trig_01WBKFKsrsSv5D8CVYwWPUmi),
+  BFCM mid story trig_01W77nTkfbxCZ6sY4fFRyr7w, BFCM pm post trig_013FeP11K1jCxNKieKUej6Fd (+ Cyber Monday pm one-shot),
+  ads check Mon+Thu 09:47 NL + Monday report trig_0128auByYB6J2NRqidLPtrT6; phase one-shots Nov 20, Nov 23, Nov 26 (price question),
+  Dec 1, Dec 6, Dec 24, Dec 27. Phase budgets: P1 ~EUR35/day, P2+3 EUR500-1000 total, P4 ~EUR40/day, P5 ~EUR25/day, P6 paused 24-26 then ~EUR10/day.
