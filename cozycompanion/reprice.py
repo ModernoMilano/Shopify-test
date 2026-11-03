@@ -60,11 +60,12 @@ def shipping(vendor, sku, options, tags=()):
 assert gql("{shop{myshopifyDomain}}")["shop"]["myshopifyDomain"] == "pj0q30-dd.myshopify.com"
 nodes, after = [], None
 while True:   # the catalog is past 100 products, so page through all of it
-    page = gql("""query($a:String){ products(first:100, after:$a, query:"-status:archived"){ nodes{ id title vendor tags
+    page = gql("""query($a:String){ products(first:100, after:$a, query:"-status:archived"){ nodes{ id title vendor tags isGiftCard
       variants(first:100){nodes{id title sku price selectedOptions{value} inventoryItem{unitCost{amount}}}} } pageInfo{hasNextPage endCursor} } }""", {"a": after})["products"]
     nodes += page["nodes"]
     if not page["pageInfo"]["hasNextPage"]: break
     after = page["pageInfo"]["endCursor"]
+nodes = [n for n in nodes if not n.get("isGiftCard")]   # gift cards: face value, never repriced, never a compare-at price
 d = {"products": {"nodes": nodes}}
 changes = 0
 def group_key(p, v):
