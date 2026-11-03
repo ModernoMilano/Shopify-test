@@ -1,13 +1,15 @@
 {%- doc -%}
   CozyCompanion BFCM 2026 ("The Black Velvet Edit"): phase switch + top strip. Rendered at the top of <body> in
   layout/theme.liquid, before the header group, so html[data-ccbfcm] is set before anything below renders.
-  Phases (US Eastern): teaser Nov 20-22, sale Nov 23-29, cm Nov 30; nothing before or after.
+  Phases (US Eastern): teaser Nov 20-22, sale Nov 23-29, cm Nov 30, gift Dec 1-5 (shipping cut-off), late Dec 6-23; nothing before or after.
   The switch runs in the browser on the visitor's clock (cached pages can't go stale), with the same epoch bounds as the
-  scheduled discounts (bfcm/discounts.py). Preview any phase with ?ccbfcm=teaser|sale|cm (kept for the browser session;
+  scheduled discounts (bfcm/discounts.py). Preview any phase with ?ccbfcm=teaser|sale|cm|gift|late (kept for the browser session;
   ?ccbfcm=off clears it).
 {%- enddoc -%}
 {%- liquid
   assign now = 'now' | date: '%s' | plus: 0
+  assign gifts_url = '/collections/holiday-gift-guide'
+  assign sets_url = '/collections/bundle-deals'
   assign edit = collections['black-friday-edit']
   if edit.id
     assign edit_url = edit.url
@@ -15,10 +17,10 @@
     assign edit_url = routes.all_products_collection_url
   endif
 -%}
-{%- if now < 1796187600 -%}
+{%- if now < 1798174800 -%}
   <script>
     (function () {
-      var T = 1795150800, S = 1795410000, C = 1796014800, E = 1796101200;
+      var T = 1795150800, S = 1795410000, C = 1796014800, E = 1796101200, G = 1796533200, L = 1798088400;
       var q = null, s = null;
       try { q = new URLSearchParams(location.search).get('ccbfcm'); } catch (e) {}
       try {
@@ -27,15 +29,17 @@
         s = sessionStorage.getItem('ccbfcm');
       } catch (e) {}
       var n = Date.now() / 1000;
-      var p = (q && q !== 'off') ? q : s || (n >= T && n < S ? 'teaser' : n >= S && n < C ? 'sale' : n >= C && n < E ? 'cm' : '');
-      if (p === 'teaser' || p === 'sale' || p === 'cm') document.documentElement.setAttribute('data-ccbfcm', p);
+      var p = (q && q !== 'off') ? q : s || (n >= T && n < S ? 'teaser' : n >= S && n < C ? 'sale' : n >= C && n < E ? 'cm' : n >= E && n < G ? 'gift' : n >= G && n < L ? 'late' : '');
+      if (['teaser', 'sale', 'cm', 'gift', 'late'].indexOf(p) > -1) document.documentElement.setAttribute('data-ccbfcm', p);
     })();
   </script>
   <style>
     [data-cc-phase] { display: none !important; }
     html[data-ccbfcm='teaser'] [data-cc-phase~='teaser'],
     html[data-ccbfcm='sale'] [data-cc-phase~='sale'],
-    html[data-ccbfcm='cm'] [data-cc-phase~='cm'] { display: block !important; }
+    html[data-ccbfcm='cm'] [data-cc-phase~='cm'],
+    html[data-ccbfcm='gift'] [data-cc-phase~='gift'],
+    html[data-ccbfcm='late'] [data-cc-phase~='late'] { display: block !important; }
     html[data-ccbfcm] #header-group .announcement-bar { display: none !important; }
     .cc-bfcm-strip { background: #1a1a1a; color: #f5f1ed; text-align: center; padding: 10px 16px;
       font-family: var(--font-body--family, 'Jost', sans-serif); font-size: 0.72rem; line-height: 1.5;
@@ -56,5 +60,11 @@
   </div>
   <div class="cc-bfcm-strip" data-cc-phase="cm" role="region" aria-label="Cyber Monday">
     <b>Cyber Monday &middot; Last day</b><span class="cc-sep">&middot;</span>Up to 20% off, applied automatically<span class="cc-hide-m"><span class="cc-sep">&middot;</span><a href="{{ edit_url }}">Shop the edit</a></span>
+  </div>
+  <div class="cc-bfcm-strip" data-cc-phase="gift" role="region" aria-label="Holiday gifting">
+    <b>Holiday gifting</b><span class="cc-sep">&middot;</span>Order by Dec 5 for the best chance of delivery before Christmas<span class="cc-hide-m"><span class="cc-sep">&middot;</span><a href="{{ gifts_url }}">Shop gifts</a></span>
+  </div>
+  <div class="cc-bfcm-strip" data-cc-phase="late" role="region" aria-label="The Cozy Season">
+    <b>The Cozy Season</b><span class="cc-sep">&middot;</span>Complete-the-set bundles: 20% off automatically<span class="cc-hide-m"><span class="cc-sep">&middot;</span><a href="{{ sets_url }}">Shop the sets</a></span>
   </div>
 {%- endif -%}

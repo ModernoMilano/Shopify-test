@@ -211,6 +211,9 @@ def day(date=None, slot="am"):
                         "instagram_caption": p["caption"].rstrip() + "\n\n" + p["tags"],
                         "facebook_caption": body + "\n\n" + p["facebook_link"] + "\n\n" + " ".join(p["tags"].split()[:5]),
                         "facebook_image": next((u for u in p["assets"] if not u.split("?")[0].endswith(".mp4")), None)})
+            if not out["facebook_image"]:   # reel days: Facebook gets that day's approved November photo (or the story)
+                novc = {d["date"]: d for d in json.load(open(os.path.join(S, "social", "calendar.json")))}
+                out["facebook_image"] = ((novc.get(date, {}).get("assets") or {}).get("feed") or [out["story"]])[0]
             if p["type"] == "reel": out["reel"] = p["assets"][0]
             else: out["feed"] = p["assets"]
         return out
