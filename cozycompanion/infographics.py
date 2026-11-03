@@ -116,7 +116,7 @@ def promise_card():
     im = Image.new("RGB", (W, H), CHAR); d = ImageDraw.Draw(im)
     logo(im, W / 2, 330, 1100, light=True)
     spaced(d, (0, 560), "THE COZYCOMPANION PROMISE", F("Jost-500.ttf", 40), ROSE, 8, center_w=W)
-    rows = [("Free tracked shipping", "on orders over $150, with tracking all the way to your door"),
+    rows = [("Free tracked shipping", "on every order, with tracking all the way to your door"),
             ("30-day happiness guarantee", "not in love? return it unused within 30 days"),
             ("Secure checkout", "encrypted payment with PayPal and all major cards"),
             ("15% off your first order", "join the Cozy Circle and use code COZY15")]
@@ -139,7 +139,7 @@ if __name__ == "__main__":
     preview = "--preview" in sys.argv
     handles = [a for a in sys.argv[1:] if not a.startswith("--")] or list(GALLERIES)
     if not preview and "i_promise" not in reg:
-        upload(promise_card(), "i_promise", "The CozyCompanion promise: free tracked shipping over $150, 30-day guarantee, secure checkout")
+        upload(promise_card(), "i_promise", "The CozyCompanion promise: free tracked shipping on every order, 30-day guarantee, secure checkout")
     if preview: promise_card().save(os.path.join(OUT, "i_promise.jpg"), quality=90)
     for h in handles:
         if h not in GALLERIES: print("skip (no gallery):", h); continue

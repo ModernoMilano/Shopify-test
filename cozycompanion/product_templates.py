@@ -81,7 +81,7 @@ def build(kind, size_guide=None):
     rows = [("Description", "{{ closest.product.description }}")]
     if size_guide: rows.append(("Size &amp; fit", guides[size_guide]))   # only on products that come in sizes
     B["info"] = accordion(rows + [
-        ("Shipping", "<p>Dispatched in 1&ndash;3 business days with tracking. Delivery across the US in 5&ndash;12 business days. Free tracked shipping on orders over $150. <a href=\"/pages/shipping\">Details</a></p>"),
+        ("Shipping", "<p>Dispatched in 1&ndash;3 business days with tracking. Delivery across the US in 5&ndash;12 business days. Free tracked shipping on every order. <a href=\"/pages/shipping\">Details</a></p>"),
         ("30-day returns", "<p>Not in love? Return it unused within 30 days for a full refund. <a href=\"/pages/returns\">How it works</a></p>"),
         ("Care &amp; safety" if kind == "blanket" else "Setup &amp; care", care),
         ("FAQ", faq),
