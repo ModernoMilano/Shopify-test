@@ -23,12 +23,12 @@ def photo(name):
 
 # id: eyebrow, headline, line, cta, 4:5 photo (+focus y), 9:16 photo (+focus y)
 ADS = {
-    "D1":  ("THE COZY SEASON", "Gifts for the dog who has everything.", None, "Shop the gift guide", ("f_2026-12-02_1_raw", .62), ("st_2026-12-02_raw", .52)),
-    "D1b": ("ORDER BY DEC 5", "Gifts for the dog who has everything.", "for the best chance of delivery before Christmas", "Shop the gift guide", ("f_2026-12-02_1_raw", .62), ("st_2026-12-02_raw", .52)),
-    "D2":  ("THE COZY SEASON", "Gifts for the cat who rules the house.", None, "Shop the gift guide", ("f_2026-12-03_0_raw", .60), ("st_2026-12-03_raw", .62)),
-    "D2b": ("ORDER BY DEC 5", "Gifts for the cat who rules the house.", "for the best chance of delivery before Christmas", "Shop the gift guide", ("f_2026-12-03_0_raw", .60), ("st_2026-12-03_raw", .62)),
+    "D1":  ("THE COZY SEASON", "Gifts for the dog\nwho has everything.", None, "Shop the gift guide", ("f_2026-12-02_1_raw", .62), ("st_2026-12-02_raw", .52)),
+    "D1b": ("ORDER BY DEC 5", "Gifts for the dog\nwho has everything.", "for the best chance of delivery before Christmas", "Shop the gift guide", ("f_2026-12-02_1_raw", .62), ("st_2026-12-02_raw", .52)),
+    "D2":  ("THE COZY SEASON", "Gifts for the cat\nwho rules the house.", None, "Shop the gift guide", ("f_2026-12-03_0_raw", .60), ("st_2026-12-03_raw", .62)),
+    "D2b": ("ORDER BY DEC 5", "Gifts for the cat\nwho rules the house.", "for the best chance of delivery before Christmas", "Shop the gift guide", ("f_2026-12-03_0_raw", .60), ("st_2026-12-03_raw", .62)),
     "D3":  ("COMPLETE THE SET", "The Cozy Nap Set.", "20% off automatically when you buy the set", "Shop the set", ("f_2026-12-12_0_raw", .64), ("st_2026-12-12_raw", .66)),
-    "D4":  ("LAST-MINUTE GIFTING", "Too late to ship? Give a gift card.", "Delivered instantly by email", "Shop gift cards", ("f_2026-12-17_0_raw", .42), ("st_2026-12-17_v2_raw", .38)),
+    "D4":  ("LAST-MINUTE GIFTING", "Too late to ship?\nGive a gift card.", "Delivered instantly by email", "Shop gift cards", ("f_2026-12-17_0_raw", .42), ("st_2026-12-17_v2_raw", .38)),
 }
 NEEDS_APPROVAL = {"D4": "gift card product not created yet (gift cards must be activated in Shopify admin first)"}
 
@@ -42,6 +42,7 @@ def spaced(d, text, f, y, fill, sp, W):
     for c in text: d.text((x, y), c, font=f, fill=fill); x += d.textlength(c, font=f) + sp
 
 def wrap(d, text, f, maxw):
+    if "\n" in text: return text.split("\n")
     words, lines, cur = text.split(), [], ""
     for w in words:
         t = (cur + " " + w).strip()
@@ -61,16 +62,16 @@ def render(aid, fmt):
     d.line([(0, ph_h), (W, ph_h)], fill=SAND, width=2)
     fe, fh, fl, fc = font("Jost-500", 24), font("Cormorant-600", 66), font("Jost-400", 29), font("Jost-500", 22)
     hl = wrap(d, head, fh, W - 160)
-    block = 24 + 22 + len(hl) * 72 + (14 + 38 if line else 0) + 30 + 58
+    block = 24 + 22 + len(hl) * 76 + (14 + 38 if line else 0) + 30 + 58
     top = ph_h + 44 if fmt == "45" else 1240 + max(0, (320 - block) // 2)
     y = top
     spaced(d, eyebrow, fe, y, ROSE, 5, W); y += 24 + 22
     for t in hl:
-        d.text(((W - d.textlength(t, font=fh)) / 2, y), t, font=fh, fill=CHAR); y += 72
+        d.text(((W - d.textlength(t, font=fh)) / 2, y), t, font=fh, fill=CHAR); y += 76
     if line:
         y += 14; d.text(((W - d.textlength(line, font=fl)) / 2, y), line, font=fl, fill=(80, 74, 70)); y += 38
     y += 30
-    lab = cta.upper() + "  →"
+    lab = cta.upper()
     cw = sum(d.textlength(c, font=fc) for c in lab) + 3 * (len(lab) - 1) + 64
     x0 = (W - cw) / 2; d.rectangle([x0, y, x0 + cw, y + 58], fill=CHAR)
     spaced(d, lab, fc, y + 17, CREAM, 3, W)
