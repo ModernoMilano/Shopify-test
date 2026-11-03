@@ -12,7 +12,7 @@ social/QA.md before anything is published.
       9:16 story: brand overlay (line + LINK IN BIO + wordmark), 1080x1920 JPEG in Shopify Files; prints URL + preview.
   python3 -I social/social_post.py video <video_result_url> <name>
       Reel MP4 into Shopify Files; prints the public URL, a frame sheet for QA and the audio levels.
-  python3 -I social/social_post.py day [YYYY-MM-DD]
+  python3 -I social/social_post.py day [YYYY-MM-DD] [--slot am|mid|pm]
       The owner-approved calendar entry for that day (default: today, US Eastern), ready to publish: Instagram
       caption, Facebook caption (with product links), feed/story/reel URLs, and whether it was already posted.
   python3 -I social/social_post.py log '<json>'
@@ -178,26 +178,60 @@ def video(result_url, name):
     json.dump(reg_, open(os.path.join(S, "files.json"), "w"), indent=1)
     return {"public_url": url, "local": mp4, "frames": sheet, "audio": levels}
 
-def day(date=None):
-    """Owner-approved calendar post for one day (social/calendar.json), as ready-to-send payloads."""
+def _titles(handles):
+    t = {}
+    for h in handles:
+        r = gql("query($h:String!){productByHandle(handle:$h){title status}}", {"h": h})["productByHandle"]
+        t[h] = r and r["status"] == "ACTIVE" and r["title"]
+    return t
+
+def _approved(flag):
+    """Owner approvals are recorded as files: bfcm/APPROVED (BFCM plan), q4/APPROVED (December calendar)."""
+    return os.path.exists(os.path.join(S, flag))
+
+def day(date=None, slot="am"):
+    """Owner-approved post(s) for one day and slot ('am' 11:43 ET, 'mid' 14:43 ET, 'pm' 19:13 ET), as ready-to-send
+    payloads. Sources: social/calendar.json (Nov), bfcm/social_plan.json + bfcm/assets.json stories (Nov 20-30, only
+    once bfcm/APPROVED exists), social/calendar_dec.json (Dec, only once q4/APPROVED exists)."""
     if not date:
         date = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=5)).date().isoformat()
-    cal = {d["date"]: d for d in json.load(open(os.path.join(S, "social", "calendar.json")))}
-    if date not in cal: return {"date": date, "error": "no calendar entry for this date"}
+    done = [e for e in log() if e.get("date") == date and e.get("slot", "am") == slot]
+    base = {"date": date, "slot": slot, "already_posted": bool(done)}
+    if "2026-11-20" <= date <= "2026-11-30" and _approved("bfcm/APPROVED"):
+        plan = [p for p in json.load(open(os.path.join(S, "bfcm", "social_plan.json"))) if p["date"] == date and p["slot"] == slot]
+        stories = [x["url"] for x in json.load(open(os.path.join(S, "bfcm", "assets.json"))).get("stories", [])
+                   if x["date"] == date and x["slot"] == slot]
+        if not plan and not stories: return {**base, "error": "nothing planned for this slot"}
+        out = {**base, "source": "bfcm", "story": stories[0] if stories else None, "feed": [], "reel": None}
+        if plan:
+            p = plan[0]; h = p["facebook_link"].split("/products/")[-1] if "/products/" in p["facebook_link"] else None
+            t = _titles([h]) if h else {}
+            body = p["caption"].replace("Shop via the link in bio", "Shop now").replace(" via the link in bio", "").rstrip()
+            out.update({"type": p["type"], "inactive_products": [k for k, v in t.items() if not v],
+                        "instagram_caption": p["caption"].rstrip() + "\n\n" + p["tags"],
+                        "facebook_caption": body + "\n\n" + p["facebook_link"] + "\n\n" + " ".join(p["tags"].split()[:5]),
+                        "facebook_image": next((u for u in p["assets"] if not u.split("?")[0].endswith(".mp4")), None)})
+            if p["type"] == "reel": out["reel"] = p["assets"][0]
+            else: out["feed"] = p["assets"]
+        return out
+    if slot != "am": return {**base, "error": "nothing planned for this slot"}
+    src = "social/calendar.json" if date < "2026-12-01" else "social/calendar_dec.json"
+    if src.endswith("_dec.json") and not _approved("q4/APPROVED"):
+        return {**base, "error": "December calendar not approved by the owner yet"}
+    path = os.path.join(S, src)
+    cal = {d["date"]: d for d in json.load(open(path))} if os.path.exists(path) else {}
+    if date not in cal: return {**base, "error": "no calendar entry for this date"}
     d = cal[date]; a = d.get("assets") or {}
-    titles = {}
-    for h in d["products"]:
-        r = gql("query($h:String!){productByHandle(handle:$h){title status}}", {"h": h})["productByHandle"]
-        titles[h] = r and r["status"] == "ACTIVE" and r["title"]
+    if d.get("needs_owner_approval"): return {**base, "error": "entry needs owner approval: " + d["needs_owner_approval"]}
+    titles = _titles(d["products"])
     links = [f"{(titles[h] or h).split(' ')[0]}: https://cozycompanion.us/products/{h}" for h in d["products"] if titles[h]]
     fb_tags = " ".join(d["tags"].split()[:5])
     fb_body = d["caption"].replace("Shop via the link in bio", "Shop now").replace(" via the link in bio", "").rstrip()
-    done = [e for e in log() if e.get("date") == date]
-    return {"date": date, "theme": d["theme"], "products": d["products"], "inactive_products": [h for h in d["products"] if not titles[h]],
-            "already_posted": bool(done),
+    return {**base, "source": src, "theme": d["theme"], "products": d["products"], "inactive_products": [h for h in d["products"] if not titles[h]],
             "instagram_caption": d["caption"].rstrip() + "\n\n" + d["tags"],
             "facebook_caption": fb_body + "\n\n" + "\n".join(links) + "\n\n" + fb_tags,
-            "feed": a.get("feed") or [], "story": a.get("story"), "reel": a.get("reel"), "reel_planned": bool(d.get("reel"))}
+            "feed": a.get("feed") or [], "story": a.get("story"), "reel": a.get("reel"), "reel_planned": bool(d.get("reel")),
+            "facebook_image": (a.get("feed") or [None])[0]}
 
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "prepare"
@@ -212,7 +246,9 @@ if __name__ == "__main__":
     elif cmd == "video":
         print(json.dumps(video(sys.argv[2], sys.argv[3])))
     elif cmd == "day":
-        print(json.dumps(day(sys.argv[2] if len(sys.argv) > 2 else None), indent=1, ensure_ascii=False))
+        a = sys.argv[2:]; sl = a[a.index("--slot") + 1] if "--slot" in a else "am"
+        dd = next((x for x in a if x[:4].isdigit()), None)
+        print(json.dumps(day(dd, sl), indent=1, ensure_ascii=False))
     elif cmd == "log":
         entries = log(); entries.append(json.loads(sys.argv[2])); json.dump(entries, open(LOG, "w"), indent=1)
         print("logged", len(entries))
