@@ -29,5 +29,22 @@
   "instagram_story_id": "17938257666403468",
   "facebook_post_id": "1411553698703314_122107143087519432",
   "source": "calendar"
+ },
+ {
+  "date": "2026-11-03",
+  "slot": "am",
+  "theme": "care_tip",
+  "handle": "brook-pet-fountain",
+  "products": [
+   "Brook Stainless Pet Fountain"
+  ],
+  "images": [
+   "f_2026-11-03_0"
+  ],
+  "story": "st_2026-11-03",
+  "instagram_media_id": "18639623965003692",
+  "instagram_story_id": "18102633560562436",
+  "facebook_post_id": "1411553698703314_122107550421519432",
+  "source": "calendar"
  }
 ]
