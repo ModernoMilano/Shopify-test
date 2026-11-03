@@ -4,7 +4,7 @@ Look: warm cream/oak/linen interiors, soft candle and tree lights, cream & rose-
 evergreen, snowy windows. Quiet luxury, never kitsch or a red/green overload.
 Rules (social/QA.md): only verified product facts (product highlights), no prices, no reviews or invented quotes,
 COZY15 at most twice a week and never Dec 24-26, delivery wording "best chance of delivery", never "guaranteed".
-Gift-card days are flagged needs_owner_approval: there is no gift card product in the store yet."""
+Gift-card days (12-17, 12-23) link the digital gift card product (created 2026-11-04, approved by the owner)."""
 import json, os
 H_DOG = "#dogsofinstagram #doglife #dogmom #doglover #puppylove"
 H_CAT = "#catsofinstagram #catlife #catmom #catlover #kittylove"
@@ -80,8 +80,7 @@ C = [
       scene="A happy Maltese sitting in the Ride sherpa booster seat on the front passenger seat of a cream-leather car, snowy trees and string lights blurred through the side window. No driver hands, no steering wheel in focus.",
       caption="Driving home for Christmas. 🚗\n\nRide has a soft sherpa lining, raises small pets so they can see out, and has a seat strap and safety clip.\n\n" + LINK,
       tags=f"{H_DOG} #roadtripwithdog #holidaytravel #smalldog #maltese"),
- dict(date="2026-12-17", theme="gift_idea", products=[], gift_card=True,
-      needs_owner_approval="gift card product not created yet",
+ dict(date="2026-12-17", theme="gift_idea", products=["digital-gift-card"], gift_card=True,
       scene="An elegant blank cream gift card with a rose-gold edge resting on dark velvet, a dog's nose curiously sniffing it, a sprig of evergreen and soft candle light. The card itself has no text.",
       caption="Not sure what to get them? 💌\n\nGive the CozyCompanion gift card: delivered by email instantly, so they can pick the piece they love.\n\n" + LINK,
       tags=f"{H_PET} {H_XMAS} #giftcard #lastminutegifts"),
@@ -105,8 +104,7 @@ C = [
       scene="A small dog resting peacefully in the Burrow plush bed in a quiet bedroom, a holiday party softly blurred through the open door.",
       caption="Holiday guests tip: give them a quiet retreat. 🤫\n\nSet up their bed in a calm room away from the party, with water and a favorite toy, and let them choose when to say hello. Burrow's plush bolster sides make it feel like a safe nest.\n\n" + LINK,
       tags=f"{H_PET} #petcare #holidaytips #calmdog #dogbed"),
- dict(date="2026-12-23", theme="gift_idea", products=[], gift_card=True,
-      needs_owner_approval="gift card product not created yet",
+ dict(date="2026-12-23", theme="gift_idea", products=["digital-gift-card"], gift_card=True,
       scene="A blank cream gift card with a rose-gold edge tucked into a cream knit stocking hanging by the fireplace, a cat looking up at it. The card itself has no text.",
       caption="Last-minute? Still lovely. 🎄\n\nThe CozyCompanion gift card is delivered by email instantly, perfect for the pet lover on your list.\n\n" + LINK,
       tags=f"{H_PET} {H_XMAS} #giftcard #lastminutegifts"),
