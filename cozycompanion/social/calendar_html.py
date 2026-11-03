@@ -2,7 +2,9 @@
 import sys, os, json, html, datetime
 S = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, S)
 from lib import gql
-C = json.load(open(os.path.join(S, "social", "calendar.json")))
+DEC = len(sys.argv) > 1 and sys.argv[1] == "dec"   # calendar_html.py dec -> December calendar
+C = json.load(open(os.path.join(S, "social", "calendar_dec.json" if DEC else "calendar.json")))
+MONTH = "December" if DEC else "November"
 titles = {}
 for c in C:
     for h in c["products"]:
@@ -11,9 +13,12 @@ for c in C:
             titles[h] = p["title"] if p else h
 NL_DAY = ["Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag", "Zondag"]
 NL_THEME = {"product_spotlight": "Product in de spotlight", "care_tip": "Verzorgingstip", "life_with": "Life with (baasje + dier)",
-            "collection_carousel": "Carrousel (3 beelden)", "playful": "Grappig", "gift_idea": "Cadeau-idee", "brand_story": "Merkverhaal"}
+            "collection_carousel": "Carrousel (3 beelden)", "playful": "Grappig", "gift_idea": "Cadeau-idee", "brand_story": "Merkverhaal",
+            "gift_guide": "Cadeaugids (carrousel)"}
 SPECIAL = {"2026-11-24": "Thanksgiving-tip", "2026-11-26": "Thanksgiving", "2026-11-27": "Black Friday",
-           "2026-11-28": "Small Business Saturday", "2026-11-30": "Cyber Monday"}
+           "2026-11-28": "Small Business Saturday", "2026-11-30": "Cyber Monday",
+           "2026-12-01": "Giving Tuesday", "2026-12-05": "Laatste bestelling voor kerst", "2026-12-21": "Winterzonnewende",
+           "2026-12-24": "Kerstavond", "2026-12-25": "Kerst", "2026-12-26": "Boxing Day", "2026-12-31": "Oudejaarsavond"}
 e = html.escape
 cards, week = [], None
 for c in C:
@@ -25,20 +30,21 @@ for c in C:
     if c["date"] in SPECIAL: badges += f'<span class="b hol">{e(SPECIAL[c["date"]])}</span>'
     if c.get("reel"): badges += '<span class="b reel">Reel</span>'
     if "COZY15" in c["caption"]: badges += '<span class="b code">COZY15</span>'
-    prods = " · ".join(e(titles[h]) for h in c["products"])
+    if c.get("needs_owner_approval"): badges += '<span class="b hol">Akkoord nodig: cadeaubon bestaat nog niet</span>'
+    prods = " · ".join(e(titles[h]) for h in c["products"]) or ("CozyCompanion gift card" if c.get("gift_card") else "")
     reel = f'<p class="k">Reel (6–8 sec.)</p><p>{e(c["reel"])}</p>' if c.get("reel") else ""
     a = c.get("assets", {})
     thumbs = "".join(f'<a href="{e(u)}" target="_blank"><img src="{e(u)}" class="t45" alt=""></a>' for u in a.get("feed", []))
     if a.get("story"): thumbs += f'<a href="{e(a["story"])}" target="_blank"><img src="{e(a["story"])}" class="t916" alt=""></a>'
     if a.get("reel"): thumbs += f'<video src="{e(a["reel"])}" class="t916" controls muted playsinline preload="metadata"></video>'
     thumbs = f'<div class="thumbs">{thumbs}</div>' if thumbs else '<p class="todo">Beelden volgen</p>'
-    cards.append(f'''<article class="card"><header><div class="date">{NL_DAY[d.weekday()]} {d.day} nov</div><div>{badges}</div></header>
+    cards.append(f'''<article class="card"><header><div class="date">{NL_DAY[d.weekday()]} {d.day} {"dec" if DEC else "nov"}</div><div>{badges}</div></header>
 <p class="prod">{prods}</p>{thumbs}
 <div class="grid"><div><p class="k">Beeld (Nano Banana)</p><p>{e(c["scene"])}</p>{reel}
 <p class="k">Story</p><p class="story">“{e(c["story_text"])}”</p></div>
 <div><p class="k">Caption</p><p class="cap">{e(c["caption"]).replace(chr(10), "<br>")}</p><p class="tags">{e(c["tags"])}</p></div></div></article>''')
 page = f'''<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Content calendar November</title>
+<title>Content calendar {MONTH}</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{{--char:#1a1a1a;--rose:#b76e79;--cream:#f5f1ed;--sand:#ebe3da}}
@@ -60,10 +66,10 @@ h2{{font-family:Cormorant,serif;font-weight:500;font-size:28px;margin:34px 0 12p
 .t45{{height:250px;aspect-ratio:4/5;object-fit:cover}} .t916{{height:250px;aspect-ratio:9/16;object-fit:cover}} .todo{{font-size:12px;opacity:.6}}
 .cap{{background:var(--cream);padding:10px 12px}} .tags{{font-size:12.5px;color:#5b6b8c}} .story{{font-family:Cormorant,serif;font-size:19px}}
 </style></head><body><div class="wrap">
-<h1>Content calendar · November 2026</h1>
+<h1>Content calendar · {MONTH} 2026</h1>
 <p class="sub">@cozycompanion.usa + Facebook-pagina · elke dag 16:43 NL-tijd (11:43 New York) · alle beelden nieuw met Nano Banana 2.1, video's met Seedance 2.0, elk beeld door de strenge QA-check</p>
 <div class="sum"><div><b>29</b>feed-posts</div><div><b>29</b>stories</div><div><b>12</b>Reels</div><div><b>~525</b>credits / maand</div></div>
 {"".join(cards)}
 </div></body></html>'''
-open(os.path.join(S, "social", "kalender_november.html"), "w").write(page)
+open(os.path.join(S, "social", "kalender_december.html" if DEC else "kalender_november.html"), "w").write(page)
 print("ok")
