@@ -201,6 +201,39 @@ STRATEGY = """
 </section>
 """
 
+
+# December website + ad creatives (q4/make_dec_ads.py, Nano Banana heroes q4_W4/W5/W6, logo/make_fb_cover_holiday.py)
+REG = J("files.json") or {}
+def furl(k):
+    return (REG.get(k) or {}).get("url", "").split("?")[0]
+def tile(u, label, ratio="4/5", w=420):
+    return (f'<figure class="dv"><div class="dvi" style="aspect-ratio:{ratio}">{thumb(u, w) if u else "<div class=pending>ontbreekt</div>"}</div>'
+            f'<figcaption>{E(label)}</figcaption></figure>')
+ADS_DEC = [("D1", "Cadeaugids hond", "1–5 dec (samen met de Dec 5-versie)"), ("D1b", "Cadeaugids hond · Order by Dec 5", "1–5 dec"),
+           ("D2", "Cadeaugids kat", "1–5 dec (samen met de Dec 5-versie)"), ("D2b", "Cadeaugids kat · Order by Dec 5", "1–5 dec"),
+           ("D3", "The Cozy Nap Set (20% set-korting)", "hele december"),
+           ("D4", "Cadeaubon", "6–23 dec, zodra de cadeaubon bestaat")]
+ads_html = "".join(
+    f'<div class="adpair"><h3>{E(aid)} · {E(name)}</h3><p class="note" style="margin:0 0 6px">Gebruik: {E(when)}</p>'
+    f'<div class="adrow">{tile(furl(f"q4_ad_{aid}_45"), "Feed 4:5")}{tile(furl(f"q4_ad_{aid}_916"), "Stories/Reels 9:16", "9/16", 300)}</div></div>'
+    for aid, name, when in ADS_DEC)
+DEC_SECTION = f"""
+<section class="card">
+  <h2>December: website &amp; ads</h2>
+  <p class="note" style="margin:0 0 12px">Nieuwe beelden voor fase 4–5. Homepage-banner W4 (desktop) en W5 (mobiel) van 1 t/m 23 december;
+  W6 als banner van de Holiday Gift Guide; de Facebook-omslag voor december. Alles is gecontroleerd, labels op ware grootte.</p>
+  <div class="dgrid">
+    {tile(furl("q4_W4"), "W4 · homepage desktop (16:9)", "16/9", 900)}
+    {tile(furl("q4_W5"), "W5 · homepage mobiel (4:5)", "4/5", 420)}
+  </div>
+  {tile(furl("q4_W6"), "W6 · Holiday Gift Guide banner (21:9)", "21/9", 1200)}
+  <figure class="dv"><div class="dvi" style="aspect-ratio:1640/624">{thumb(furl("q4_fb_cover_holiday"), 1200)}</div>
+  <figcaption>Facebook-omslag december (1640×624) · zelf uploaden via Omslagfoto bewerken</figcaption></figure>
+  <h3 style="margin-top:18px">Advertenties december</h3>
+  <div class="ads">{ads_html}</div>
+</section>
+"""
+
 legend = "".join(f'<span class="lg" style="--ph:{p[4]}">{E(p[3])} <small>{p[1][8:]}/{p[1][5:7]}–{p[2][8:]}/{p[2][5:7]}</small></span>' for p in PHASES)
 doc = f"""<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CozyCompanion Q4 plan</title>
@@ -227,12 +260,17 @@ h2{{font:500 28px/1.15 Cormorant,serif;margin:0 0 12px}} h3{{font:600 20px/1.2 C
 .ts.many .t img,.ts.many .t video{{aspect-ratio:9/16}}
 .k-story .ts{{grid-template-columns:1fr}} .k-story .t{{width:58%;margin:0 auto}} .k-story .t img,.k-stories .t img{{aspect-ratio:9/16}}
 .k-reel .t video{{aspect-ratio:9/16;width:72%;margin:0 auto}}
+.dgrid{{display:grid;grid-template-columns:2fr 1fr;gap:12px;align-items:start}} .dv{{margin:0 0 12px}} .dvi{{overflow:hidden;background:var(--sand)}}
+.dvi img,.dvi video{{width:100%;height:100%;object-fit:cover;display:block}} .dv figcaption{{font-size:12px;opacity:.7;margin-top:4px}}
+.ads{{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}} .adrow{{display:grid;grid-template-columns:1.2fr 1fr;gap:8px;align-items:start}}
+@media (max-width:600px){{.dgrid{{grid-template-columns:1fr}}}}
 .cap{{margin:6px 0 0;font-size:13px;line-height:1.4}} .pending{{font-size:12px;opacity:.6;padding:14px;background:var(--cream);text-align:center}}
 @media (max-width:600px){{h1{{font-size:34px}} .cal{{grid-template-columns:1fr}}}}
 </style></head><body><div class="wrap">
 <h1>CozyCompanion · Q4 plan</h1>
 <p class="sub">3 november – 31 december 2026 · strategie, fases, budget en elke post met beeld. Na jouw akkoord voer ik dit zelf uit.</p>
 {STRATEGY}
+{DEC_SECTION}
 <section class="card"><h2>Kalender met alle beelden</h2>
 <p class="note" style="margin:0 0 6px">Elke dag: wat er wanneer online gaat. Tik op een reel om hem af te spelen. Kleur = fase.</p>
 <div class="legend">{legend}</div>
