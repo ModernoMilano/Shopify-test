@@ -56,7 +56,11 @@ new = """  <div class="cc-cart-top">
         assign cc_w = 100
       endif
     -%}
-    {%- if cc_bf and cart.item_count > 0 -%}
+    {%- if cc_bf and cart.item_count > 0 and cart.currency.iso_code != 'USD' -%}
+      {%- comment -%} the tiers are set in USD; in another currency Shopify converts them, so no dollar maths here {%- endcomment -%}
+      <p class="cc-cart-top__msg"><strong>Black Friday Week:</strong> save 10%, 15% or 20% on larger orders</p>
+      <p class="cc-cart-top__note">Applied automatically at checkout &middot; Ends Nov 30</p>
+    {%- elsif cc_bf and cart.item_count > 0 -%}
       {%- if cc_sub >= 25000 -%}
         <p class="cc-cart-top__msg">&#10003; <strong>20% off</strong> unlocked: our best Black Friday saving</p>
       {%- elsif cc_sub >= 15000 -%}
