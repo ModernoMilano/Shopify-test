@@ -13,8 +13,8 @@ H_HOME = "#cozyhome #slowliving #homedecor #petfriendlyhome"
 H_XMAS = "#holidaygifts #giftideas #christmaswithpets"
 LINK = "Shop via the link in bio 🐾"
 COZY15 = "New here? Take 15% off your first order with code COZY15."
-LOOK = ("Warm cream, oak and linen interior, soft candle and tree lights, cream and rose-gold ornaments and ribbon, "
-        "a sprig of evergreen, quiet luxury, never kitsch")
+LOOK = ("Cozy-season palette: warm cream, oak and linen tones, soft warm light, small touches of cream and rose-gold "
+        "ornaments or ribbon and a sprig of evergreen where natural, quiet luxury, never kitsch")
 C = [
  dict(date="2026-12-01", theme="brand_story", products=["snug-sherpa-pet-blanket"],
       scene="A grey-muzzled senior rescue dog wrapped in the Snug sherpa blanket, resting by a frosty window in a calm cream living room, soft morning light.",

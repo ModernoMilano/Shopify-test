@@ -1,0 +1,742 @@
+{
+ "f_2026-12-02_0": {
+  "date": "2026-12-02",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-02_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-02_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-02_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-02_2": {
+  "date": "2026-12-02",
+  "kind": "feed",
+  "n": 2,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-02_2.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-02_2.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-02_2_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-03_1": {
+  "date": "2026-12-03",
+  "kind": "feed",
+  "n": 1,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-03_1.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-03_1.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-03_1_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-03_2": {
+  "date": "2026-12-03",
+  "kind": "feed",
+  "n": 2,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-03_2.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-03_2.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-03_2_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-03": {
+  "date": "2026-12-03",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-03.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-03.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-03_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-04_0": {
+  "date": "2026-12-04",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-04_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-04_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-04_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-04": {
+  "date": "2026-12-04",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-04.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-04.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-04_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-01_0": {
+  "date": "2026-12-01",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-01_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-01_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-01_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-03_0": {
+  "date": "2026-12-03",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-03_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-03_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-03_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-05_0": {
+  "date": "2026-12-05",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-05_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-05_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-05_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-06_0": {
+  "date": "2026-12-06",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-06_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-06_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-06_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-07_0": {
+  "date": "2026-12-07",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-07_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-07_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-07_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-01": {
+  "date": "2026-12-01",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-01.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-01.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-01_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-02_1": {
+  "date": "2026-12-02",
+  "kind": "feed",
+  "n": 1,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-02_1.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-02_1.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-02_1_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-05": {
+  "date": "2026-12-05",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-05.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-05.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-05_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-06": {
+  "date": "2026-12-06",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-06.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-06.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-06_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-07": {
+  "date": "2026-12-07",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-07.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-07.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-07_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-08_0": {
+  "date": "2026-12-08",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-08_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-08_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-08_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-08_1": {
+  "date": "2026-12-08",
+  "kind": "feed",
+  "n": 1,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-08_1.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-08_1.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-08_1_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-02": {
+  "date": "2026-12-02",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-02.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-02.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-02_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-08_2": {
+  "date": "2026-12-08",
+  "kind": "feed",
+  "n": 2,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-08_2.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-08_2.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-08_2_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-08": {
+  "date": "2026-12-08",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-08.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-08.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-08_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-09_0": {
+  "date": "2026-12-09",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-09_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-09_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-09_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-09": {
+  "date": "2026-12-09",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-09.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-09.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-09_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-10_0": {
+  "date": "2026-12-10",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-10_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-10_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-10_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-10": {
+  "date": "2026-12-10",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-10.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-10.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-10_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-11_0": {
+  "date": "2026-12-11",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-11_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-11_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-11_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-11": {
+  "date": "2026-12-11",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-11_v3.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-11_v3.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-11_v3_raw.png",
+  "attempt": 3,
+  "qa": "pass"
+ },
+ "f_2026-12-12_0": {
+  "date": "2026-12-12",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-12_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-12_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-12_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-12_1": {
+  "date": "2026-12-12",
+  "kind": "feed",
+  "n": 1,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-12_1.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-12_1.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-12_1_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-12_2": {
+  "date": "2026-12-12",
+  "kind": "feed",
+  "n": 2,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-12_2.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-12_2.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-12_2_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-12": {
+  "date": "2026-12-12",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-12.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-12.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-12_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-13_0": {
+  "date": "2026-12-13",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-13_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-13_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-13_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-13": {
+  "date": "2026-12-13",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-13.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-13.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-13_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-14_0": {
+  "date": "2026-12-14",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-14_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-14_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-14_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-16_0": {
+  "date": "2026-12-16",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-16_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-16_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-16_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-16": {
+  "date": "2026-12-16",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-16.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-16.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-16_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-17_0": {
+  "date": "2026-12-17",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-17_0_gc.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-17_0_gc.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-17_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-18_0": {
+  "date": "2026-12-18",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-18_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-18_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-18_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-15_0": {
+  "date": "2026-12-15",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-15_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-15_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-15_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-15": {
+  "date": "2026-12-15",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-15.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-15.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-15_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-17": {
+  "date": "2026-12-17",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-17_v2.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-17_v2.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-17_v2_raw.png",
+  "attempt": 2,
+  "qa": "pass"
+ },
+ "st_2026-12-14": {
+  "date": "2026-12-14",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-14.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-14.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-14_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-18": {
+  "date": "2026-12-18",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-18_v2.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-18_v2.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-18_v2_raw.png",
+  "attempt": 2,
+  "qa": "pass"
+ },
+ "f_2026-12-19_0": {
+  "date": "2026-12-19",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-19_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-19_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-19_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-19_1": {
+  "date": "2026-12-19",
+  "kind": "feed",
+  "n": 1,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-19_1.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-19_1.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-19_1_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-19_2": {
+  "date": "2026-12-19",
+  "kind": "feed",
+  "n": 2,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-19_2.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-19_2.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-19_2_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-19": {
+  "date": "2026-12-19",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-19.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-19.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-19_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-22": {
+  "date": "2026-12-22",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-22_v2.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-22_v2.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-22_v2_raw.png",
+  "attempt": 2,
+  "qa": "pass"
+ },
+ "f_2026-12-20_0": {
+  "date": "2026-12-20",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-20_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-20_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-20_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-20": {
+  "date": "2026-12-20",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-20.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-20.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-20_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-21_0": {
+  "date": "2026-12-21",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-21_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-21_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-21_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-21": {
+  "date": "2026-12-21",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-21.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-21.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-21_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-22_0": {
+  "date": "2026-12-22",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-22_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-22_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-22_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-23": {
+  "date": "2026-12-23",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-23.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-23.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-23_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-24_0": {
+  "date": "2026-12-24",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-24_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-24_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-24_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-25_0": {
+  "date": "2026-12-25",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-25_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-25_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-25_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-25": {
+  "date": "2026-12-25",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-25.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-25.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-25_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-26_0": {
+  "date": "2026-12-26",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-26_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-26_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-26_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-23_0": {
+  "date": "2026-12-23",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-23_0_gc.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-23_0_gc.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-23_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-24": {
+  "date": "2026-12-24",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-24.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-24.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-24_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-26": {
+  "date": "2026-12-26",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-26.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-26.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-26_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-27_0": {
+  "date": "2026-12-27",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-27_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-27_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-27_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-27": {
+  "date": "2026-12-27",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-27.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-27.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-27_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-28_0": {
+  "date": "2026-12-28",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-28_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-28_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-28_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-28": {
+  "date": "2026-12-28",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-28.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-28.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-28_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-29_0": {
+  "date": "2026-12-29",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-29_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-29_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-29_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-29": {
+  "date": "2026-12-29",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-29.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-29.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-29_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-30_0": {
+  "date": "2026-12-30",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-30_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-30_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-30_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-30_1": {
+  "date": "2026-12-30",
+  "kind": "feed",
+  "n": 1,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-30_1.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-30_1.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-30_1_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-30_2": {
+  "date": "2026-12-30",
+  "kind": "feed",
+  "n": 2,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-30_2.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-30_2.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-30_2_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-30": {
+  "date": "2026-12-30",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-30.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-30.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-30_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "f_2026-12-31_0": {
+  "date": "2026-12-31",
+  "kind": "feed",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-31_0.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/f_2026-12-31_0.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-f_2026-12-31_0_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ },
+ "st_2026-12-31": {
+  "date": "2026-12-31",
+  "kind": "story",
+  "n": 0,
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-31.jpg",
+  "preview": "/home/user/Shopify-test/cozycompanion/social/.tmp/st_2026-12-31.jpg",
+  "raw": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-31_raw.png",
+  "attempt": 1,
+  "qa": "pass"
+ }
+}
