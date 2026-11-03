@@ -1,0 +1,18 @@
+C03 AtHome: COPY SET
+
+PRIMARY TEXT (short):
+The set you live in.
+
+PRIMARY TEXT (medium):
+Coffee, sofa, nowhere to be. The cashmere-blend Lounge Set is made for slow days: soft, easy and matched head to toe. €150, free shipping.
+
+PRIMARY TEXT (long):
+The best Sundays have no plan. Just coffee, the sofa and a set you never want to take off. Our cashmere-blend Lounge Set pairs a zip jacket with matching drawstring trousers, so you look put-together without trying. Beige, Gray, Navy or Black, €150. Free shipping on every order.
+
+HEADLINES:
+1. The set you live in
+2. Slow Sundays, sorted
+3. Matched head to toe
+
+DESCRIPTION:
+Lounge Set €150 · Free shipping

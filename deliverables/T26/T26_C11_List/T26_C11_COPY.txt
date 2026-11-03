@@ -1,0 +1,18 @@
+C11 List: COPY SET
+
+PRIMARY TEXT (short):
+24h early access to Black Friday. Join the list.
+
+PRIMARY TEXT (medium):
+Black Friday starts 24 hours early for our list. Plus first access to the winter drop. Join the list today.
+
+PRIMARY TEXT (long):
+Our list goes first. Join now and get 24h early access to Black Friday, before it opens to everyone else, plus first access to the winter drop. It takes ten seconds and it's free to join.
+
+HEADLINES:
+1. Join the list
+2. 24h early access to Black Friday
+3. First access to the winter drop
+
+DESCRIPTION:
+Free to join · Runs 3–25 Nov

@@ -1,0 +1,18 @@
+C04 Travel: COPY SET
+
+PRIMARY TEXT (short):
+The only set you pack.
+
+PRIMARY TEXT (medium):
+From the lounge to the hotel: one matched cashmere-blend set that's easy to wear and looks put-together on arrival. Free shipping.
+
+PRIMARY TEXT (long):
+Packing light starts with one good set. A zip jacket and matching trousers in a soft cashmere blend: comfortable for the flight, sharp enough for check-in, easy for the hotel room. The Lounge Set (€150) in four colours or the Two-Tone set (€250). Free shipping on every order.
+
+HEADLINES:
+1. The only set you pack
+2. Travel, refined
+3. Arrive looking sharp
+
+DESCRIPTION:
+Cashmere-blend travel sets · Free shipping
