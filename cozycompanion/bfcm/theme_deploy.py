@@ -28,9 +28,18 @@ files["layout/theme.liquid"] = lay.replace(anchor, "{% render 'cc-bfcm' %}\n    
 idx = backup("templates/index.json")
 head, body = idx[: idx.find("{")], json.loads(idx[idx.find("{"):])
 hero = body["sections"].get("bfcm_hero", {"type": "cc-bfcm-hero", "settings": {}})
-if len(sys.argv) == 3:
-    hero["settings"]["image_desktop"] = f"shopify://shop_images/{sys.argv[1]}"
-    hero["settings"]["image_mobile"] = f"shopify://shop_images/{sys.argv[2]}"
+# hero images are remembered in bfcm/theme/hero_settings.json (Shopify Files names):
+#   theme_deploy.py <bfcm_desktop> <bfcm_mobile>        theme_deploy.py --dec <dec_desktop> <dec_mobile>
+cfg_path = os.path.join(B, "hero_settings.json")
+cfg = json.load(open(cfg_path)) if os.path.exists(cfg_path) else {}
+a = sys.argv[1:]
+if len(a) == 3 and a[0] == "--dec":
+    cfg["image_desktop_dec"], cfg["image_mobile_dec"] = a[1], a[2]
+elif len(a) == 2:
+    cfg["image_desktop"], cfg["image_mobile"] = a[0], a[1]
+json.dump(cfg, open(cfg_path, "w"), indent=1)
+for k, v in cfg.items():
+    hero["settings"][k] = f"shopify://shop_images/{v}"
 body["sections"]["bfcm_hero"] = hero
 body["order"] = ["bfcm_hero"] + [k for k in body["order"] if k != "bfcm_hero"]
 files["templates/index.json"] = head + json.dumps(body, indent=2)

@@ -1,6 +1,7 @@
 {%- comment -%}
   CozyCompanion BFCM 2026 homepage hero. Only visible while html[data-ccbfcm] is set by snippets/cc-bfcm.liquid
-  (teaser / sale / cm); otherwise it takes no space and the regular hero below it is the first thing on the page.
+  (teaser / sale / cm), plus the December "Cozy Season" hero (gift Dec 1-5 / late Dec 6-23); otherwise it takes no space
+  and the regular hero below it is the first thing on the page.
 {%- endcomment -%}
 {%- liquid
   assign now = 'now' | date: '%s' | plus: 0
@@ -12,7 +13,51 @@
   endif
   assign d = section.settings.image_desktop
   assign m = section.settings.image_mobile | default: d
+  assign dd = section.settings.image_desktop_dec
+  assign dm = section.settings.image_mobile_dec | default: dd
 -%}
+{%- if now < 1798174800 and dd != blank -%}
+  <div class="cc-dec-hero" data-cc-phase="gift late">
+    <a class="cc-dec-hero__link" href="/collections/holiday-gift-guide">
+      <picture class="cc-dec-hero__media">
+        <source media="(min-width: 750px)" srcset="{{ dd | image_url: width: 1600 }} 1600w, {{ dd | image_url: width: 2400 }} 2400w" sizes="100vw">
+        {{ dm | image_url: width: 1200 | image_tag: loading: 'eager', sizes: '100vw', widths: '600, 900, 1200', alt: 'A dog and a cat relaxing by a softly lit Christmas tree', class: 'cc-dec-hero__img' }}
+      </picture>
+      <span class="cc-dec-hero__copy">
+        <span class="cc-dec-hero__eyebrow cc-dec-gift">The Cozy Season &middot; Order by Dec 5 for the best chance of Christmas delivery</span>
+        <span class="cc-dec-hero__eyebrow cc-dec-late">The Cozy Season</span>
+        <span class="cc-dec-hero__title">Gifts for every pet,<br>and their people.</span>
+        <span class="cc-dec-hero__note">Complete-the-set bundles: 20% off automatically</span>
+        <span class="cc-dec-hero__cta">Shop the gift guide</span>
+      </span>
+    </a>
+  </div>
+  <style>
+    .cc-dec-hero { position: relative; background: #f5f1ed; color: #1a1a1a; }
+    .cc-dec-hero__link { position: relative; display: block; color: inherit; text-decoration: none; }
+    .cc-dec-hero__media { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 82vh; overflow: hidden; }
+    .cc-dec-hero__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cc-dec-hero__link::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(90deg, rgba(245, 241, 237, 0.92) 0%, rgba(245, 241, 237, 0.7) 36%, rgba(245, 241, 237, 0) 60%); }
+    .cc-dec-hero__copy { position: absolute; z-index: 1; left: clamp(24px, 6vw, 96px); top: 50%; transform: translateY(-50%);
+      width: min(500px, 42%); display: flex; flex-direction: column; gap: 14px; }
+    .cc-dec-hero__eyebrow { font-size: 0.74rem; letter-spacing: 0.2em; text-transform: uppercase; color: #b76e79; display: none; }
+    html[data-ccbfcm='gift'] .cc-dec-gift, html[data-ccbfcm='late'] .cc-dec-late { display: block; }
+    .cc-dec-hero__title { font-family: var(--font-heading--family, 'Cormorant', serif); font-weight: 600; font-size: clamp(2.5rem, 4.4vw, 4.4rem); line-height: 1.02; }
+    .cc-dec-hero__note { font-size: 0.85rem; opacity: 0.8; }
+    .cc-dec-hero__cta { align-self: flex-start; margin-top: 6px; padding: 15px 30px; background: #1a1a1a; color: #f5f1ed;
+      font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; transition: background 0.2s; }
+    .cc-dec-hero__link:hover .cc-dec-hero__cta { background: #b76e79; }
+    @media (max-width: 749px) {
+      .cc-dec-hero__media { aspect-ratio: 4 / 5; max-height: none; }
+      .cc-dec-hero__link::after { background: linear-gradient(180deg, rgba(245, 241, 237, 0.94) 0%, rgba(245, 241, 237, 0.72) 34%, rgba(245, 241, 237, 0) 58%); }
+      .cc-dec-hero__copy { left: 20px; right: 20px; top: 26px; transform: none; width: auto; gap: 10px; }
+      .cc-dec-hero__eyebrow { font-size: 0.64rem; letter-spacing: 0.14em; }
+      .cc-dec-hero__title { font-size: 2.3rem; }
+      .cc-dec-hero__cta { padding: 12px 22px; }
+    }
+  </style>
+{%- endif -%}
 {%- if now < 1796187600 -%}
   <div class="cc-bfcm-hero" data-cc-phase="teaser sale cm">
     <a class="cc-bfcm-hero__link" href="{{ edit_url }}">
@@ -79,6 +124,8 @@
   "settings": [
     { "type": "image_picker", "id": "image_desktop", "label": "Image (desktop, 16:9)" },
     { "type": "image_picker", "id": "image_mobile", "label": "Image (mobile, 4:5)" },
+    { "type": "image_picker", "id": "image_desktop_dec", "label": "December image (desktop, 16:9)" },
+    { "type": "image_picker", "id": "image_mobile_dec", "label": "December image (mobile, 4:5)" },
     { "type": "text", "id": "alt", "label": "Alt text", "default": "A dog and a cat relaxing on a velvet pet sofa between wrapped gifts" }
   ],
   "presets": [{ "name": "CC BFCM hero" }]
