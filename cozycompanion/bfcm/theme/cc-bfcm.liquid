@@ -1,7 +1,7 @@
 {%- doc -%}
   CozyCompanion BFCM 2026 ("The Black Velvet Edit"): phase switch + top strip. Rendered at the top of <body> in
   layout/theme.liquid, before the header group, so html[data-ccbfcm] is set before anything below renders.
-  Phases (US Eastern): teaser Nov 20-22, sale Nov 23-29, cm Nov 30, gift Dec 1-5 (shipping cut-off), late Dec 6-23; nothing before or after.
+  Phases (US Eastern): teaser Nov 20-22, sale Nov 23-29, cm Nov 30, gift Dec 1-16 (Christmas order-by date), late Dec 17-23; nothing before or after.
   The switch runs in the browser on the visitor's clock (cached pages can't go stale), with the same epoch bounds as the
   scheduled discounts (bfcm/discounts.py). Preview any phase with ?ccbfcm=teaser|sale|cm|gift|late (kept for the browser session;
   ?ccbfcm=off clears it).
@@ -20,7 +20,7 @@
 {%- if now < 1798174800 -%}
   <script>
     (function () {
-      var T = 1795150800, S = 1795410000, C = 1796014800, E = 1796101200, G = 1796533200, L = 1798088400;
+      var T = 1795150800, S = 1795410000, C = 1796014800, E = 1796101200, G = 1797483600, L = 1798088400;
       var q = null, s = null;
       try { q = new URLSearchParams(location.search).get('ccbfcm'); } catch (e) {}
       try {
@@ -62,7 +62,7 @@
     <b>Cyber Monday &middot; Last day</b><span class="cc-sep">&middot;</span>Up to 20% off, applied automatically<span class="cc-hide-m"><span class="cc-sep">&middot;</span><a href="{{ edit_url }}">Shop the edit</a></span>
   </div>
   <div class="cc-bfcm-strip" data-cc-phase="gift" role="region" aria-label="Holiday gifting">
-    <b>Holiday gifting</b><span class="cc-sep">&middot;</span>Order by Dec 5 for the best chance of delivery before Christmas<span class="cc-hide-m"><span class="cc-sep">&middot;</span><a href="{{ gifts_url }}">Shop gifts</a></span>
+    <b>Holiday gifting</b><span class="cc-sep">&middot;</span>Order by Dec 16 for delivery before Christmas<span class="cc-hide-m"><span class="cc-sep">&middot;</span><a href="{{ gifts_url }}">Shop gifts</a></span>
   </div>
   <div class="cc-bfcm-strip" data-cc-phase="late" role="region" aria-label="The Cozy Season">
     <b>The Cozy Season</b><span class="cc-sep">&middot;</span>Complete-the-set bundles: 20% off automatically<span class="cc-hide-m"><span class="cc-sep">&middot;</span><a href="{{ sets_url }}">Shop the sets</a></span>

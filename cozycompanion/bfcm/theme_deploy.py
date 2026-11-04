@@ -104,9 +104,9 @@ perks = perks.replace(css_anchor, """  .cc-tiers { position: relative; padding-b
   .cc-tiers__marks li.is-on::before { background: #b76e79; }
   .cc-tiers__marks small { font-size: 0.62rem; font-weight: 400; opacity: 0.8; }
 """ + css_anchor)
-hol = "    {%- if today >= 1101 and today <= 1208 -%}"
+hol = "    {%- if today >= 1101 and today <= 1216 -%}"
 assert perks.count(hol) == 1
-perks = perks.replace(hol, "    {%- if cc_bf and cart.item_count > 0 -%}\n    {%- elsif today >= 1101 and today <= 1208 -%}")
+perks = perks.replace(hol, "    {%- if cc_bf and cart.item_count > 0 -%}\n    {%- elsif today >= 1101 and today <= 1216 -%}")
 files["snippets/cc-cart-perks.liquid"] = perks
 
 put_theme_files(files)

@@ -74,14 +74,14 @@ def build(kind, size_guide=None):
         "bed": ("<p>Measure your pet lying stretched out, nose to tail, and add 6&ndash;10 in. Curlers can go a size smaller, "
                 "stretchers a size bigger. Compare with the sizes on this page.</p>" + help_line),
     }
-    faq = ("<p><strong>When will my order arrive?</strong><br>Orders are prepared in 1&ndash;3 business days and delivered across the US in 5&ndash;12 business days, with tracking.</p>"
+    faq = ("<p><strong>When will my order arrive?</strong><br>Orders are dispatched within 1 business day and delivered in 3&ndash;5 business days, with tracking.</p>"
            "<p><strong>What if it doesn't fit or they don't love it?</strong><br>Return it unused within 30 days for a full refund under our happiness guarantee.</p>"
            "<p><strong>Is it suitable for my dog or cat?</strong><br>Check the sizes and details above. Always supervise pets with new toys and accessories at first.</p>"
            "<p><strong>Do you have a welcome offer?</strong><br>Yes: join the Cozy Circle and get 15% off your first order with code COZY15.</p>")
     rows = [("Description", "{{ closest.product.description }}")]
     if size_guide: rows.append(("Size &amp; fit", guides[size_guide]))   # only on products that come in sizes
     B["info"] = accordion(rows + [
-        ("Shipping", "<p>Dispatched in 1&ndash;3 business days with tracking. Delivery across the US in 5&ndash;12 business days. Free tracked shipping on every order. <a href=\"/pages/shipping\">Details</a></p>"),
+        ("Shipping", "<p>Dispatched within 1 business day with tracking. Delivered in 3&ndash;5 business days. Free tracked shipping on every order. <a href=\"/pages/shipping\">Details</a></p>"),
         ("30-day returns", "<p>Not in love? Return it unused within 30 days for a full refund. <a href=\"/pages/returns\">How it works</a></p>"),
         ("Care &amp; safety" if kind == "blanket" else "Setup &amp; care", care),
         ("FAQ", faq),

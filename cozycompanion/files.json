@@ -10191,5 +10191,77 @@
    1600,
    2400
   ]
+ },
+ "st_2026-12-04_v2_raw": {
+  "id": "gid://shopify/MediaImage/72879228748106",
+  "alt": "CozyCompanion social st_2026-12-04_v2",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-04_v2_raw.png?v=1793823337",
+  "size": [
+   1536,
+   2752
+  ]
+ },
+ "st_2026-12-04_v2": {
+  "id": "gid://shopify/MediaImage/72879235105098",
+  "alt": "CozyCompanion story st_2026-12-04_v2",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-04_v2.jpg?v=1793823346",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "st_2026-12-05_v2_raw": {
+  "id": "gid://shopify/MediaImage/72879237103946",
+  "alt": "CozyCompanion social st_2026-12-05_v2",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-05_v2_raw.png?v=1793823356",
+  "size": [
+   1536,
+   2752
+  ]
+ },
+ "st_2026-12-05_v2": {
+  "id": "gid://shopify/MediaImage/72879242936650",
+  "alt": "CozyCompanion story st_2026-12-05_v2",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-st_2026-12-05_v2.jpg?v=1793823367",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "q4_ad_D1b_45_v2": {
+  "id": "gid://shopify/MediaImage/72879251849546",
+  "alt": "CozyCompanion December ad D1b",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-q4_ad_D1b_45_v2.jpg?v=1793823409",
+  "size": [
+   1080,
+   1350
+  ]
+ },
+ "q4_ad_D1b_916_v2": {
+  "id": "gid://shopify/MediaImage/72879252439370",
+  "alt": "CozyCompanion December ad D1b",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-q4_ad_D1b_916_v2.jpg?v=1793823414",
+  "size": [
+   1080,
+   1920
+  ]
+ },
+ "q4_ad_D2b_45_v2": {
+  "id": "gid://shopify/MediaImage/72879253684554",
+  "alt": "CozyCompanion December ad D2b",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-q4_ad_D2b_45_v2.jpg?v=1793823418",
+  "size": [
+   1080,
+   1350
+  ]
+ },
+ "q4_ad_D2b_916_v2": {
+  "id": "gid://shopify/MediaImage/72879254503754",
+  "alt": "CozyCompanion December ad D2b",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-q4_ad_D2b_916_v2.jpg?v=1793823422",
+  "size": [
+   1080,
+   1920
+  ]
  }
 }

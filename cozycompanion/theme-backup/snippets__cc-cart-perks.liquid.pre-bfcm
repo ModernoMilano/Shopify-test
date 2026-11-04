@@ -23,10 +23,10 @@
       <p class="cc-cart-top__msg">&#10003; Tracked shipping around the world on every order</p>
     {%- endif -%}
 
-    {%- if today >= 1101 and today <= 1208 -%}
-      <p class="cc-cart-top__note">Holiday gifting: order by <strong>December 5</strong> for the best chance of delivery before Christmas.</p>
+    {%- if today >= 1101 and today <= 1216 -%}
+      <p class="cc-cart-top__note">Holiday gifting: order by <strong>December 16</strong> for the best chance of delivery before Christmas.</p>
     {%- else -%}
-      <p class="cc-cart-top__note">Prepared with care and dispatched within 1&ndash;3 business days.</p>
+      <p class="cc-cart-top__note">Prepared with care and dispatched within 1 business day.</p>
     {%- endif -%}
   </div>
 

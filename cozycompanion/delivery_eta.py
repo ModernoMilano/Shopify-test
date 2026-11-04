@@ -1,6 +1,6 @@
 """Replace the bare 'Ships from: International warehouse / United States' line with an honest delivery estimate
 (owner, 2026-11-03: "idk what you think" -> my advice). Numbers come from /pages/shipping: dispatch 1-3 business days,
-then 3-7 (US warehouse) or 7-12 (international warehouses) business days => 4-10 / 8-15 business days in total.
+updated 2026-11-04 by the owner: delivered in 3-5 business days.
 Product page: "Estimated delivery: Nov 10 – Nov 17" (dates computed in the visitor's browser, weekends skipped).
 Cart: the 'Ships from' value is no longer listed. Originals kept in theme-backup/*.orig."""
 import os
@@ -22,13 +22,9 @@ OLD = """        {%- if product_option.values.size == 1 and variant_style != 'sw
           >"""
 NEW = """        {%- if product_option.name == 'Ships from' and product_option.values.size == 1 -%}
           {%- liquid
-            if product_option.selected_value == 'United States'
-              assign cc_eta_min = 4
-              assign cc_eta_max = 10
-            else
-              assign cc_eta_min = 8
-              assign cc_eta_max = 15
-            endif
+            # owner 2026-11-04: dispatched within 1 business day, delivered in 3-5 business days (every warehouse)
+            assign cc_eta_min = 3
+            assign cc_eta_max = 5
           -%}
           <div class="variant-option cc-eta" data-cc-eta="{{ cc_eta_min }},{{ cc_eta_max }}">
             <svg class="cc-eta__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5h11v9H3z"/><path d="M14 9.5h3.5l3 3v3H14z"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>

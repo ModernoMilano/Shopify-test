@@ -11,8 +11,8 @@ PHASES = [
     ("f1", "2026-11-03", "2026-11-19", "1 · Data & conversie", "#6f8f7a"),
     ("f2", "2026-11-20", "2026-11-22", "2 · BFCM teaser", "#8a6d7a"),
     ("f3", "2026-11-23", "2026-11-30", "3 · Black Friday Week", "#1a1a1a"),
-    ("f4", "2026-12-01", "2026-12-05", "4 · Cadeauseizoen", "#b76e79"),
-    ("f5", "2026-12-06", "2026-12-23", "5 · Last-minute cadeaus", "#a5835a"),
+    ("f4", "2026-12-01", "2026-12-16", "4 · Cadeauseizoen", "#b76e79"),
+    ("f5", "2026-12-17", "2026-12-23", "5 · Last-minute cadeaus", "#a5835a"),
     ("f6", "2026-12-24", "2026-12-31", "6 · Kerst & Nieuwjaar", "#5d6b7a"),
 ]
 def phase(d):
@@ -68,7 +68,7 @@ while d <= dt.date(2026, 12, 31):
 NL_DAY = ["ma", "di", "wo", "do", "vr", "za", "zo"]
 NL_MON = {11: "nov", 12: "dec"}
 SPECIAL = {"2026-11-23": "Sale start", "2026-11-26": "Thanksgiving", "2026-11-27": "Black Friday", "2026-11-30": "Cyber Monday",
-           "2026-12-01": "Giving Tuesday", "2026-12-05": "Laatste besteldag voor kerst", "2026-12-21": "Kortste dag",
+           "2026-12-01": "Giving Tuesday", "2026-12-16": "Laatste besteldag voor kerst", "2026-12-21": "Kortste dag",
            "2026-12-24": "Kerstavond", "2026-12-25": "Kerst", "2026-12-31": "Oudjaar"}
 
 cal = []
@@ -128,12 +128,12 @@ STRATEGY = """
       <li><b>Ads:</b> aparte BFCM-groep met 4 advertenties en 2 reels, plus retargeting van winkelwagens. Fase 2 + 3 samen: €500–1000.</li>
       <li><b>Social:</b> 1–2 posts + 3 stories per dag: launch, Black Friday, "last 48 hours", Cyber Monday "ends tonight".</li>
       <li><b>Website:</b> banner, balk en een voortgangsbalk naar de volgende korting in de winkelwagen ✓.</li></ul></div>
-    <div class="pc" style="--ph:#b76e79"><h3>4 · Cadeauseizoen</h3><p class="d">1 – 5 december</p>
-      <ul><li><b>Doel:</b> cadeaus verkopen vóór de laatste besteldag (5 dec).</li>
+    <div class="pc" style="--ph:#b76e79"><h3>4 · Cadeauseizoen</h3><p class="d">1 – 16 december</p>
+      <ul><li><b>Doel:</b> cadeaus verkopen vóór de laatste besteldag (16 dec; levering 3–5 werkdagen).</li>
       <li><b>Aanbod:</b> cadeaugidsen (hond, kat, stocking stuffers) en sets 20%. Geen nieuwe korting nodig.</li>
       <li><b>Ads:</b> cadeau-advertenties naar de Holiday Gift Guide en retargeting (±€40/dag).</li>
-      <li><b>Website:</b> balk "Order by Dec 5 for the best chance of Christmas delivery".</li></ul></div>
-    <div class="pc" style="--ph:#a5835a"><h3>5 · Last-minute cadeaus</h3><p class="d">6 – 23 december</p>
+      <li><b>Website:</b> balk "Order by Dec 16 for delivery before Christmas".</li></ul></div>
+    <div class="pc" style="--ph:#a5835a"><h3>5 · Last-minute cadeaus</h3><p class="d">17 – 23 december</p>
       <ul><li><b>Probleem:</b> pakketjes komen niet meer op tijd.</li>
       <li><b>Oplossing:</b> een <b>digitale cadeaubon</b>, direct per e-mail (moet jij goedkeuren; ik maak hem aan).</li>
       <li><b>Ads:</b> lager (±€25/dag): cadeaubon + retargeting.</li>
@@ -151,10 +151,10 @@ STRATEGY = """
     <tr><th>Fase</th><th>Per dag</th><th>Totaal</th></tr>
     <tr><td>1 · Data &amp; conversie (17 dagen)</td><td>±€35</td><td>±€600</td></tr>
     <tr><td>2 + 3 · BFCM (11 dagen)</td><td>€45–90</td><td>€500–1000 (jouw keuze)</td></tr>
-    <tr><td>4 · Cadeauseizoen (5 dagen)</td><td>±€40</td><td>±€200</td></tr>
-    <tr><td>5 · Last-minute (18 dagen)</td><td>±€25</td><td>±€450</td></tr>
+    <tr><td>4 · Cadeauseizoen (16 dagen)</td><td>±€40</td><td>±€640</td></tr>
+    <tr><td>5 · Last-minute (7 dagen)</td><td>±€25</td><td>±€175</td></tr>
     <tr><td>6 · Kerst &amp; Nieuwjaar</td><td>€0–10</td><td>±€50</td></tr>
-    <tr><th>Q4 totaal</th><th></th><th>±€1.800 – 2.300</th></tr>
+    <tr><th>Q4 totaal</th><th></th><th>±€1.950 – 2.450</th></tr>
   </table>
   <p class="note">Werkt iets uitzonderlijk goed (kosten per verkoop ruim onder doel), dan vraag ik je eerst voordat ik boven het fasebudget ga.</p>
 </section>
@@ -205,14 +205,14 @@ STRATEGY = """
 # December website + ad creatives (q4/make_dec_ads.py, Nano Banana heroes q4_W4/W5/W6, logo/make_fb_cover_holiday.py)
 REG = J("files.json") or {}
 def furl(k):
-    return (REG.get(k) or {}).get("url", "").split("?")[0]
+    return ((REG.get(k + "_v2") or REG.get(k) or {}).get("url", "")).split("?")[0]
 def tile(u, label, ratio="4/5", w=420):
     return (f'<figure class="dv"><div class="dvi" style="aspect-ratio:{ratio}">{thumb(u, w) if u else "<div class=pending>ontbreekt</div>"}</div>'
             f'<figcaption>{E(label)}</figcaption></figure>')
-ADS_DEC = [("D1", "Cadeaugids hond", "1–5 dec (samen met de Dec 5-versie)"), ("D1b", "Cadeaugids hond · Order by Dec 5", "1–5 dec"),
-           ("D2", "Cadeaugids kat", "1–5 dec (samen met de Dec 5-versie)"), ("D2b", "Cadeaugids kat · Order by Dec 5", "1–5 dec"),
+ADS_DEC = [("D1", "Cadeaugids hond", "1–16 dec (samen met de Dec 16-versie)"), ("D1b", "Cadeaugids hond · Order by Dec 16", "1–16 dec"),
+           ("D2", "Cadeaugids kat", "1–16 dec (samen met de Dec 16-versie)"), ("D2b", "Cadeaugids kat · Order by Dec 16", "1–16 dec"),
            ("D3", "The Cozy Nap Set (20% set-korting)", "hele december"),
-           ("D4", "Cadeaubon", "6–23 dec, zodra de cadeaubon bestaat")]
+           ("D4", "Cadeaubon", "17–23 dec (cadeaubon staat live)")]
 ads_html = "".join(
     f'<div class="adpair"><h3>{E(aid)} · {E(name)}</h3><p class="note" style="margin:0 0 6px">Gebruik: {E(when)}</p>'
     f'<div class="adrow">{tile(furl(f"q4_ad_{aid}_45"), "Feed 4:5")}{tile(furl(f"q4_ad_{aid}_916"), "Stories/Reels 9:16", "9/16", 300)}</div></div>'

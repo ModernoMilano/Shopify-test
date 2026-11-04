@@ -24,13 +24,13 @@ def photo(name):
 # id: eyebrow, headline, line, cta, 4:5 photo (+focus y), 9:16 photo (+focus y)
 ADS = {
     "D1":  ("THE COZY SEASON", "Gifts for the dog\nwho has everything.", None, "Shop the gift guide", ("f_2026-12-02_1_raw", .62), ("st_2026-12-02_raw", .52)),
-    "D1b": ("ORDER BY DEC 5", "Gifts for the dog\nwho has everything.", "for the best chance of delivery before Christmas", "Shop the gift guide", ("f_2026-12-02_1_raw", .62), ("st_2026-12-02_raw", .52)),
+    "D1b": ("ORDER BY DEC 16", "Gifts for the dog\nwho has everything.", "for delivery before Christmas", "Shop the gift guide", ("f_2026-12-02_1_raw", .62), ("st_2026-12-02_raw", .52)),
     "D2":  ("THE COZY SEASON", "Gifts for the cat\nwho rules the house.", None, "Shop the gift guide", ("f_2026-12-03_0_raw", .60), ("st_2026-12-03_raw", .62)),
-    "D2b": ("ORDER BY DEC 5", "Gifts for the cat\nwho rules the house.", "for the best chance of delivery before Christmas", "Shop the gift guide", ("f_2026-12-03_0_raw", .60), ("st_2026-12-03_raw", .62)),
+    "D2b": ("ORDER BY DEC 16", "Gifts for the cat\nwho rules the house.", "for delivery before Christmas", "Shop the gift guide", ("f_2026-12-03_0_raw", .60), ("st_2026-12-03_raw", .62)),
     "D3":  ("COMPLETE THE SET", "The Cozy Nap Set.", "20% off automatically when you buy the set", "Shop the set", ("f_2026-12-12_0_raw", .64), ("st_2026-12-12_raw", .66)),
     "D4":  ("LAST-MINUTE GIFTING", "Too late to ship?\nGive a gift card.", "Delivered instantly by email", "Shop gift cards", ("f_2026-12-17_0_raw", .42), ("st_2026-12-17_v2_raw", .38)),
 }
-NEEDS_APPROVAL = {"D4": "gift card product not created yet (gift cards must be activated in Shopify admin first)"}
+NEEDS_APPROVAL = {}   # gift card product exists since 2026-11-04
 
 def cover(im, w, h, fy):
     s = max(w / im.width, h / im.height); im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
