@@ -1,6 +1,6 @@
 """Cart buttons in the CozyCompanion style (owner, 2026-11-03: "de knoppen in de cart ... zien er standaard uit").
-Checkout: charcoal, lock icon, "Secure checkout · $total", rose-gold on hover. Express buttons: same height and corners,
-with an "or pay with" divider. Payment-method icons underneath. Patches snippets/cart-summary.liquid (original kept in
+Checkout: charcoal, lock icon, "Secure checkout · $total", rose-gold on hover. Express buttons are off in the cart
+(owner 2026-11-04: calmer cart; they still show in checkout); a compact USP row sits right under the checkout button. Patches snippets/cart-summary.liquid (original kept in
 theme-backup/snippets__cart-summary.liquid.orig)."""
 import os
 from lib import theme_file, put_theme_files, S
@@ -27,15 +27,14 @@ src = src.replace(OLD_BTN, NEW_BTN)
 OLD_EXP = """      {{ content_for_additional_checkout_buttons }}
     </div>
   {% endif %}"""
-NEW_EXP = """      <p class="cc-express__label"><span>or pay with</span></p>
-      {{ content_for_additional_checkout_buttons }}
+NEW_EXP = """      {{ content_for_additional_checkout_buttons }}
     </div>
   {% endif %}
   {%- if cart != empty -%}
-    <ul class="cc-paymethods" role="list" aria-label="Accepted payment methods">
-      {%- for type in shop.enabled_payment_types limit: 7 -%}
-        <li>{{ type | payment_type_svg_tag: class: 'cc-paymethods__icon' }}</li>
-      {%- endfor -%}
+    <ul class="cc-ctas-usps" role="list">
+      <li>{% render 'cc-icon', name: 'truck' %}<span>Free shipping &middot; 3&ndash;5 days</span></li>
+      <li>{% render 'cc-icon', name: 'return' %}<span>30-day returns</span></li>
+      <li>{% render 'cc-icon', name: 'lock' %}<span>Secure checkout</span></li>
     </ul>
   {%- endif -%}"""
 assert src.count(OLD_EXP) == 1, "express anchor"
@@ -66,9 +65,9 @@ STYLE = """
     --shopify-accelerated-checkout-button-border-radius: 2px;
     --shopify-accelerated-checkout-row-gap: 8px;
   }
-  .cc-paymethods { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
-  .cc-paymethods li { display: flex; }
-  .cc-paymethods__icon { width: 34px; height: 22px; opacity: 0.85; }
+  .cc-ctas-usps { list-style: none; margin: 2px 0 0; padding: 0; display: flex; justify-content: space-between; gap: 6px; }
+  .cc-ctas-usps li { display: flex; align-items: center; gap: 5px; font-size: 0.7rem; line-height: 1.2; color: rgba(26, 26, 26, 0.85); }
+  .cc-ctas-usps svg { width: 15px; height: 15px; flex: 0 0 auto; color: #b76e79; }
   @media (max-width: 749px) {
     .cart__ctas .cart__checkout-button.button { height: 54px; min-height: 54px; }
     .cc-checkout__text { font-size: 0.74rem; letter-spacing: 0.14em; gap: 8px; }

@@ -26,7 +26,6 @@ NEW = """                <scroll-hint class="cart-drawer__items">
                   {% render 'cart-products', context: 'drawer' %}
                   <div class="cc-cart-extras">
                     {% render 'cc-cart-perks', part: 'upsells' %}
-                    {% render 'cc-cart-perks', part: 'bottom' %}
                   </div>
                 </scroll-hint>
 
@@ -40,6 +39,9 @@ CSS = """
   /* CozyCompanion: one scrolling area (lines, upsells, trust row); only totals + checkout stay sticky */
   .cart-drawer__content .cart-drawer__items { flex: 1 0 auto; overflow: visible; }
   .cc-cart-extras { margin-top: var(--gap-xl, 24px); padding-bottom: 8px; }
+  /* no scroll fade over the sticky totals / checkout button / USP row */
+  scroll-hint.cart-drawer__content { mask-image: none !important; -webkit-mask-image: none !important; }
+  .cart-drawer__summary { mask-image: none !important; -webkit-mask-image: none !important; box-shadow: 0 -10px 24px -18px rgba(26, 26, 26, 0.35); }
   .cc-cart-extras .cc-upsells { margin-block-end: 8px; }
 {% endstylesheet %}"""
 assert src.count("{% endstylesheet %}") == 1
