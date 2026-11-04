@@ -46,5 +46,22 @@
   "instagram_story_id": "18102633560562436",
   "facebook_post_id": "1411553698703314_122107550421519432",
   "source": "calendar"
+ },
+ {
+  "date": "2026-11-04",
+  "slot": "am",
+  "source": "social/calendar.json",
+  "theme": "life_with",
+  "handle": "glance-camera-feeder",
+  "products": [
+   "Glance Camera Feeder"
+  ],
+  "images": [
+   "f_2026-11-04_0_v2"
+  ],
+  "story": "st_2026-11-04_v3",
+  "instagram_media_id": "18060748520804810",
+  "instagram_story_id": "18100948787097012",
+  "facebook_post_id": "1411553698703314_122107831257519432"
  }
 ]
