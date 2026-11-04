@@ -65,6 +65,20 @@ new = """  <div class="cc-cart-top">
         assign cc_w = 100
       endif
     -%}
+    {%- liquid
+      # COZY20 launch week (cozy20.py): one tap applies the code and opens checkout; ends Nov 11 23:59 ET
+      assign cc_codes = cart.discount_applications | where: 'type', 'discount_code' | map: 'title' | join: ','
+    -%}
+    {%- if cc_now < 1794459600 and cart.item_count > 0 -%}
+      <div class="cc-launch">
+        {%- if cc_codes contains 'COZY20' -%}
+          <p class="cc-launch__msg">&#10003; <strong>COZY20 applied:</strong> 20% off your first order</p>
+        {%- else -%}
+          <p class="cc-launch__msg"><strong>First order?</strong> 20% off with <b>COZY20</b> &middot; launch week, ends Nov 11</p>
+          <a class="cc-launch__btn" href="/discount/COZY20?redirect=%2Fcheckout">Apply 20% &amp; check out</a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
     {%- if cc_bf and cart.item_count > 0 and cart.currency.iso_code != 'USD' -%}
       {%- comment -%} the tiers are set in USD; in another currency Shopify converts them, so no dollar maths here {%- endcomment -%}
       <p class="cc-cart-top__msg"><strong>Black Friday Week:</strong> save 10%, 15% or 20% on larger orders</p>
@@ -93,7 +107,13 @@ assert perks.count(old) == 1, "cart perks anchor not found"
 perks = perks.replace(old, new)
 css_anchor = "  .cc-progress {"
 assert perks.count(css_anchor) == 1
-perks = perks.replace(css_anchor, """  .cc-tiers { position: relative; padding-bottom: 30px; margin: 4px 14px 0 4px; }
+perks = perks.replace(css_anchor, """  .cc-launch { display: grid; gap: 8px; padding: 12px 14px; background: #1a1a1a; color: #f5f1ed; text-align: center; }
+  .cc-launch__msg { margin: 0; font-size: 0.85rem; line-height: 1.4; }
+  .cc-launch__msg b { color: #d9a3ab; letter-spacing: 0.06em; }
+  .cc-launch__btn { display: block; padding: 11px 12px; background: #b76e79; color: #fff; text-decoration: none; font-size: 0.72rem;
+    letter-spacing: 0.16em; text-transform: uppercase; }
+  .cc-launch__btn:hover { background: #a25f69; }
+  .cc-tiers { position: relative; padding-bottom: 30px; margin: 4px 14px 0 4px; }
   .cc-tiers .cc-progress { height: 6px; }
   .cc-tiers__marks { list-style: none; margin: 0; padding: 0; }
   .cc-tiers__marks li { position: absolute; top: -3px; transform: translateX(-50%); display: flex; flex-direction: column;

@@ -1,7 +1,7 @@
 {%- doc -%}
   CozyCompanion BFCM 2026 ("The Black Velvet Edit"): phase switch + top strip. Rendered at the top of <body> in
   layout/theme.liquid, before the header group, so html[data-ccbfcm] is set before anything below renders.
-  Phases (US Eastern): teaser Nov 20-22, sale Nov 23-29, cm Nov 30, gift Dec 1-16 (Christmas order-by date), late Dec 17-23; nothing before or after.
+  Phases (US Eastern): launch (COZY20) until Nov 11, teaser Nov 20-22, sale Nov 23-29, cm Nov 30, gift Dec 1-16 (Christmas order-by date), late Dec 17-23; nothing before or after.
   The switch runs in the browser on the visitor's clock (cached pages can't go stale), with the same epoch bounds as the
   scheduled discounts (bfcm/discounts.py). Preview any phase with ?ccbfcm=teaser|sale|cm|gift|late (kept for the browser session;
   ?ccbfcm=off clears it).
@@ -20,7 +20,7 @@
 {%- if now < 1798174800 -%}
   <script>
     (function () {
-      var T = 1795150800, S = 1795410000, C = 1796014800, E = 1796101200, G = 1797483600, L = 1798088400;
+      var K = 1794459600, T = 1795150800, S = 1795410000, C = 1796014800, E = 1796101200, G = 1797483600, L = 1798088400;
       var q = null, s = null;
       try { q = new URLSearchParams(location.search).get('ccbfcm'); } catch (e) {}
       try {
@@ -29,12 +29,13 @@
         s = sessionStorage.getItem('ccbfcm');
       } catch (e) {}
       var n = Date.now() / 1000;
-      var p = (q && q !== 'off') ? q : s || (n >= T && n < S ? 'teaser' : n >= S && n < C ? 'sale' : n >= C && n < E ? 'cm' : n >= E && n < G ? 'gift' : n >= G && n < L ? 'late' : '');
-      if (['teaser', 'sale', 'cm', 'gift', 'late'].indexOf(p) > -1) document.documentElement.setAttribute('data-ccbfcm', p);
+      var p = (q && q !== 'off') ? q : s || (n < K ? 'launch' : n >= T && n < S ? 'teaser' : n >= S && n < C ? 'sale' : n >= C && n < E ? 'cm' : n >= E && n < G ? 'gift' : n >= G && n < L ? 'late' : '');
+      if (['launch', 'teaser', 'sale', 'cm', 'gift', 'late'].indexOf(p) > -1) document.documentElement.setAttribute('data-ccbfcm', p);
     })();
   </script>
   <style>
     [data-cc-phase] { display: none !important; }
+    html[data-ccbfcm='launch'] [data-cc-phase~='launch'],
     html[data-ccbfcm='teaser'] [data-cc-phase~='teaser'],
     html[data-ccbfcm='sale'] [data-cc-phase~='sale'],
     html[data-ccbfcm='cm'] [data-cc-phase~='cm'],
@@ -52,6 +53,9 @@
       .cc-bfcm-strip .cc-hide-m { display: none; }
     }
   </style>
+  <div class="cc-bfcm-strip" data-cc-phase="launch" role="region" aria-label="Launch week offer">
+    <b>Launch week</b><span class="cc-sep">&middot;</span>20% off your first order with code <b>COZY20</b><span class="cc-hide-m"><span class="cc-sep">&middot;</span>Ends Nov 11<span class="cc-sep">&middot;</span>Free tracked shipping</span>
+  </div>
   <div class="cc-bfcm-strip" data-cc-phase="teaser" role="region" aria-label="Black Friday Week">
     <b>Black Friday Week</b> starts Monday, Nov 23<span class="cc-sep">&middot;</span>Save up to 20%<span class="cc-hide-m"><span class="cc-sep">&middot;</span><a href="{{ edit_url }}">Preview the edit</a></span>
   </div>

@@ -19,3 +19,4 @@ v3 collection ads (active, 2026-10-28), ad set USA | COLLECTIONS | Advantage+ | 
   BFCM mid story trig_01W77nTkfbxCZ6sY4fFRyr7w, BFCM pm post trig_013FeP11K1jCxNKieKUej6Fd (+ Cyber Monday pm one-shot),
   ads check Mon+Thu 09:47 NL + Monday report trig_0128auByYB6J2NRqidLPtrT6; phase one-shots Nov 20, Nov 23, Nov 26 (price question),
   Dec 1, Dec 6, Dec 24, Dec 27. Phase budgets: P1 ~EUR35/day, P2+3 EUR500-1000 total, P4 ~EUR40/day, P5 ~EUR25/day, P6 paused 24-26 then ~EUR10/day.
+2026-11-04 COZY20 launch-week code (owner request): 20% off, once per customer, until 2026-11-11 23:59 ET (cozy20.py); top strip + one-tap "Apply 20% & check out" in the cart, both end automatically. Use COZY20 in retargeting copy this week.
