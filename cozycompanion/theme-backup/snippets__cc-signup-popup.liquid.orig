@@ -1,0 +1,111 @@
+{%- comment -%}
+  CozyCompanion email pop-up: join the list, see COZY15 (15% off the first order) on screen right away.
+  Shows once per visitor after a short delay (not on cart/checkout); dismiss = hidden for 7 days, signed up = never again.
+  Uses Shopify's customer form, so sign-ups land in Customers with email marketing consent.
+{%- endcomment -%}
+{%- unless template.name == 'cart' or template.name == 'password' -%}
+{%- assign cc_code = 'COZY15' -%}
+<dialog class="cc-pop" id="cc-pop" aria-labelledby="cc-pop-title">
+  <div class="cc-pop__card">
+    <button type="button" class="cc-pop__close" aria-label="Close" data-cc-pop-close>&times;</button>
+    <div class="cc-pop__media">
+      <img class="cc-pop__img" src="{{ 'cozycompanion-m_dogs.png' | file_img_url: '900x' }}" alt="A golden retriever beside a CozyCompanion tote" width="900" height="900" loading="lazy">
+    </div>
+    <div class="cc-pop__body">
+      {%- form 'customer', id: 'cc-pop-form', class: 'cc-pop__form' -%}
+        {%- if form.posted_successfully? -%}
+          <p class="cc-pop__eyebrow">Welcome to the Cozy Circle</p>
+          <h2 class="cc-pop__title" id="cc-pop-title">Here's your 15% off</h2>
+          <p class="cc-pop__text">Use this code at checkout on your first order.</p>
+          <button type="button" class="cc-pop__code" data-cc-copy="{{ cc_code }}">
+            <span>{{ cc_code }}</span><small data-cc-copy-label>Tap to copy</small>
+          </button>
+          <a class="cc-pop__cta" href="{{ routes.collections_url }}/smart-pet-tech" data-cc-pop-shop>Start shopping</a>
+          <script>window.ccPopSuccess = true;</script>
+        {%- else -%}
+          <p class="cc-pop__eyebrow">Join the Cozy Circle</p>
+          <h2 class="cc-pop__title" id="cc-pop-title">15% off your first order</h2>
+          <p class="cc-pop__text">New arrivals, members-only edits and a little something for your first order. No spam, ever.</p>
+          <input type="hidden" name="contact[tags]" value="newsletter, popup-cozy15">
+          <input type="hidden" name="contact[accepts_marketing]" value="true">
+          <label class="cc-pop__label" for="cc-pop-email">Email address</label>
+          <input class="cc-pop__input" id="cc-pop-email" type="email" name="contact[email]" required autocomplete="email" placeholder="you@example.com">
+          {%- if form.errors -%}<p class="cc-pop__error">{{ form.errors | default_errors }}</p><script>window.ccPopError = true;</script>{%- endif -%}
+          <button type="submit" class="cc-pop__cta">Unlock 15% off</button>
+          <button type="button" class="cc-pop__skip" data-cc-pop-close>No thanks</button>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+</dialog>
+
+<style>
+  .cc-pop { border: 0; padding: 0; background: transparent; max-width: min(760px, calc(100vw - 24px)); width: 100%; color: #1a1a1a; }
+  .cc-pop::backdrop { background: rgb(26 26 26 / 0.55); backdrop-filter: blur(2px); }
+  .cc-pop[open] { animation: cc-pop-in 0.35s ease both; }
+  @keyframes cc-pop-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  .cc-pop__card { position: relative; display: grid; grid-template-columns: 1fr 1fr; background: #f5f1ed; overflow: hidden; }
+  .cc-pop__media { min-height: 100%; background: #ebe3da; }
+  .cc-pop__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cc-pop__body { padding: 40px 32px; display: flex; align-items: center; }
+  .cc-pop__form { display: grid; gap: 12px; width: 100%; text-align: center; }
+  .cc-pop__eyebrow { margin: 0; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: #b76e79; }
+  .cc-pop__title { margin: 0; font-family: var(--font-heading--family); font-size: clamp(1.6rem, 4vw, 2.1rem); line-height: 1.15; font-weight: 400; }
+  .cc-pop__text { margin: 0 0 4px; font-size: 0.9rem; line-height: 1.5; opacity: 0.8; }
+  .cc-pop__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .cc-pop__input { width: 100%; padding: 14px 16px; border: 1px solid #1a1a1a33; background: #fff; font: inherit; font-size: 1rem; color: #1a1a1a; }
+  .cc-pop__input:focus { outline: 2px solid #b76e79; outline-offset: 1px; }
+  .cc-pop__cta { display: block; padding: 15px 16px; border: 0; background: #1a1a1a; color: #f5f1ed; font: inherit; font-size: 0.8rem;
+    letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; text-decoration: none; }
+  .cc-pop__cta:hover { background: #b76e79; }
+  .cc-pop__skip { border: 0; background: none; font: inherit; font-size: 0.8rem; text-decoration: underline; color: inherit; opacity: 0.6; cursor: pointer; }
+  .cc-pop__error { margin: 0; font-size: 0.8rem; color: #a3323a; }
+  .cc-pop__close { position: absolute; top: 8px; right: 10px; z-index: 1; width: 36px; height: 36px; border: 0; border-radius: 50%;
+    background: rgb(245 241 237 / 0.85); font-size: 1.4rem; line-height: 1; cursor: pointer; color: #1a1a1a; }
+  .cc-pop__code { display: grid; gap: 2px; padding: 16px; border: 1.5px dashed #b76e79; background: #fff; cursor: pointer; font: inherit; color: #1a1a1a; }
+  .cc-pop__code span { font-size: 1.6rem; letter-spacing: 0.22em; font-weight: 600; }
+  .cc-pop__code small { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #b76e79; }
+  @media (max-width: 640px) {
+    .cc-pop { margin: auto auto 0; max-width: 100vw; }
+    .cc-pop__card { grid-template-columns: 1fr; }
+    .cc-pop__media { height: 180px; }
+    .cc-pop__body { padding: 24px 20px 28px; }
+  }
+</style>
+
+<script>
+  (() => {
+    const pop = document.getElementById('cc-pop');
+    if (!pop || typeof pop.showModal !== 'function') return;
+    const KEY = 'ccPop';
+    const read = () => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } };
+    const write = (v) => { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} };
+    const open = () => { if (!pop.open) pop.showModal(); };
+    const close = () => {
+      pop.close();
+      const s = read();
+      if (!s.joined) write({ ...s, snoozeUntil: Date.now() + 7 * 864e5 });
+    };
+    pop.addEventListener('click', (e) => {
+      if (e.target === pop || e.target.closest('[data-cc-pop-close]')) close();
+      const copy = e.target.closest('[data-cc-copy]');
+      if (copy) {
+        navigator.clipboard?.writeText(copy.dataset.ccCopy).then(() => {
+          const l = copy.querySelector('[data-cc-copy-label]'); if (l) l.textContent = 'Copied!';
+        }).catch(() => {});
+      }
+      if (e.target.closest('[data-cc-pop-shop]')) pop.close();
+    });
+    pop.addEventListener('cancel', (e) => { e.preventDefault(); close(); });
+
+    if (window.ccPopSuccess) { write({ joined: true }); open(); return; }   // just signed up: show the code
+    if (window.ccPopError) { open(); return; }
+    const s = read();
+    if (s.joined || (s.snoozeUntil && s.snoozeUntil > Date.now())) return;
+    let shown = false;
+    const show = () => { if (shown) return; shown = true; open(); };
+    setTimeout(show, 8000);
+    document.addEventListener('mouseout', (e) => { if (!e.relatedTarget && e.clientY < 10) show(); });   // exit intent on desktop
+  })();
+</script>
+{%- endunless -%}
