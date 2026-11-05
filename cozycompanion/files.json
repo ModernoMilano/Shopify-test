@@ -10263,5 +10263,14 @@
    1080,
    1920
   ]
+ },
+ "checkout_logo": {
+  "id": "gid://shopify/MediaImage/72903328497994",
+  "alt": "CozyCompanion logo for checkout",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-checkout_logo.png?v=1793917956",
+  "size": [
+   1200,
+   235
+  ]
  }
 }
