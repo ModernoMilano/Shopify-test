@@ -128,8 +128,9 @@ def compare_at(price):
     d = 0.30 + 0.20 * min(max((price - 25) / (200 - 25), 0), 1)
     return nice(price / (1 - d))
 
+COMPARE_AT = False   # 2026-11-05: no "was" prices on the regular range (compare_at_off.py; backup + --restore there)
 cmp_changes = 0
-for p in d["products"]["nodes"]:
+for p in (d["products"]["nodes"] if COMPARE_AT else []):
     fresh = gql("query($id:ID!){product(id:$id){variants(first:100){nodes{id price compareAtPrice}}}}", {"id": p["id"]})["product"]["variants"]["nodes"]
     upd = []
     for v in fresh:
