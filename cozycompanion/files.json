@@ -10272,5 +10272,14 @@
    1200,
    235
   ]
+ },
+ "checkout_logo_usps": {
+  "id": "gid://shopify/MediaImage/72903337247050",
+  "alt": "CozyCompanion logo with free shipping, 3-5 day delivery and 30-day returns",
+  "url": "https://cdn.shopify.com/s/files/1/1093/2102/7914/files/cozycompanion-checkout_logo_usps.png?v=1793918046",
+  "size": [
+   1200,
+   263
+  ]
  }
 }
