@@ -63,5 +63,26 @@
   "instagram_media_id": "18060748520804810",
   "instagram_story_id": "18100948787097012",
   "facebook_post_id": "1411553698703314_122107831257519432"
+ },
+ {
+  "date": "2026-11-05",
+  "slot": "am",
+  "source": "social/calendar.json",
+  "theme": "collection_carousel",
+  "handle": [
+   "frost-harness-winter-dog-jacket",
+   "mistle-knit-dog-hood",
+   "puddle-suspender-dog-boots"
+  ],
+  "images": [
+   "f_2026-11-05_0",
+   "f_2026-11-05_1",
+   "f_2026-11-05_2"
+  ],
+  "story": "st_2026-11-05",
+  "instagram_media_id": "18115526557858564",
+  "instagram_story_id": "18096914627248955",
+  "facebook_post_id": "1411553698703314_122108223633519432",
+  "note": "Instagram rejected cdn.shopify.com URLs; posted via cozycompanion.us/cdn/shop/files"
  }
 ]

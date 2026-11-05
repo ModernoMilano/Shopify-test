@@ -185,6 +185,20 @@ def _titles(handles):
         t[h] = r and r["status"] == "ACTIVE" and r["title"]
     return t
 
+def _pub(u):
+    """Media URL for Instagram/Facebook: the store's own domain. Since 2026-11-05 Instagram rejects fetches from
+    cdn.shopify.com ("Only photo or video can be accepted"), while https://cozycompanion.us/cdn/shop/files/... works."""
+    if not u: return u
+    import re
+    m = re.match(r"https://cdn\.shopify\.com/s/files/1/\d+/\d+/\d+/files/([^?]+)", u)
+    return f"https://cozycompanion.us/cdn/shop/files/{m.group(1)}" if m else u
+
+def _pubify(d):
+    for k in ("story", "reel", "facebook_image"):
+        if d.get(k): d[k] = _pub(d[k])
+    if d.get("feed"): d["feed"] = [_pub(u) for u in d["feed"]]
+    return d
+
 def _approved(flag):
     """Owner approvals are recorded as files: bfcm/APPROVED (BFCM plan), q4/APPROVED (December calendar)."""
     return os.path.exists(os.path.join(S, flag))
@@ -251,7 +265,7 @@ if __name__ == "__main__":
     elif cmd == "day":
         a = sys.argv[2:]; sl = a[a.index("--slot") + 1] if "--slot" in a else "am"
         dd = next((x for x in a if x[:4].isdigit()), None)
-        print(json.dumps(day(dd, sl), indent=1, ensure_ascii=False))
+        print(json.dumps(_pubify(day(dd, sl)), indent=1, ensure_ascii=False))
     elif cmd == "log":
         entries = log(); entries.append(json.loads(sys.argv[2])); json.dump(entries, open(LOG, "w"), indent=1)
         print("logged", len(entries))
