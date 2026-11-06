@@ -84,5 +84,18 @@
   "instagram_story_id": "18096914627248955",
   "facebook_post_id": "1411553698703314_122108223633519432",
   "note": "Instagram rejected cdn.shopify.com URLs; posted via cozycompanion.us/cdn/shop/files"
+ },
+ {
+  "date": "2026-11-06",
+  "slot": "am",
+  "source": "social/calendar.json",
+  "theme": "playful",
+  "handle": "haven-pet-den",
+  "reel": "r_2026-11-06_v2_ig",
+  "story": "st_2026-11-06",
+  "instagram_media_id": "18648998185006897",
+  "instagram_story_id": "18139502977653053",
+  "facebook_post_id": "1411553698703314_122108507007519432",
+  "note": "reel re-muxed for Instagram (faststart, 48 kHz audio) after container ERROR"
  }
 ]
