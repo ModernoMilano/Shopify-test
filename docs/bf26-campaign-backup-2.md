@@ -1,6 +1,6 @@
 # BF26: Black Friday campaign in BACKUP 2.0
 
-**Status (6 November):** the campaign is fully built and **paused**: 1 campaign, 2 ad sets, 16 ads. Nothing spends until it is switched on.
+**Status (6 November, ~14:15):** **LIVE.** The campaign, both ad sets and all 16 ads are active at €100 per day.
 
 **Ads drop page:** https://claude.ai/artifact/CYawQUiqCh6UMC9qtJqWQ1
 
