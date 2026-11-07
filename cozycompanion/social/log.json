@@ -97,5 +97,20 @@
   "instagram_story_id": "18139502977653053",
   "facebook_post_id": "1411553698703314_122108507007519432",
   "note": "reel re-muxed for Instagram (faststart, 48 kHz audio) after container ERROR"
+ },
+ {
+  "date": "2026-11-07",
+  "slot": "am",
+  "source": "social/calendar.json",
+  "theme": "gift_idea",
+  "handle": "buddy-plush-dog-toy",
+  "images": [
+   "f_2026-11-07_0"
+  ],
+  "story": "st_2026-11-07",
+  "instagram_media_id": "17911587687575943",
+  "instagram_story_id": "18196432504399868",
+  "facebook_post_id": "1411553698703314_122108855961519432",
+  "note": "Instagram needed ?format=jpg"
  }
 ]

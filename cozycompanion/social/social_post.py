@@ -187,11 +187,14 @@ def _titles(handles):
 
 def _pub(u):
     """Media URL for Instagram/Facebook: the store's own domain. Since 2026-11-05 Instagram rejects fetches from
-    cdn.shopify.com ("Only photo or video can be accepted"), while https://cozycompanion.us/cdn/shop/files/... works."""
+    cdn.shopify.com ("Only photo or video can be accepted"); the store domain + ?format=jpg (images) works."""
     if not u: return u
     import re
     m = re.match(r"https://cdn\.shopify\.com/s/files/1/\d+/\d+/\d+/files/([^?]+)", u)
-    return f"https://cozycompanion.us/cdn/shop/files/{m.group(1)}" if m else u
+    if not m: return u
+    out = f"https://cozycompanion.us/cdn/shop/files/{m.group(1)}"
+    # images: force JPEG; the CDN may otherwise negotiate WebP/AVIF, which Instagram rejects ("Only photo or video")
+    return out if out.endswith((".mp4", ".mov")) else out + "?format=jpg"
 
 def _pubify(d):
     for k in ("story", "reel", "facebook_image"):
