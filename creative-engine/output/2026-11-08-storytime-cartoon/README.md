@@ -63,3 +63,19 @@ scriptregels en controles. Eerste keus: eigen pijplijn met Kling std; terugval: 
 - Licentie van ElevenLabs-muziek via Higgsfield voor betaalde advertenties nog zwart-op-wit controleren.
 - De stem van het voorbeeld wordt niet gekloond (iemands stem zonder toestemming); Harrison is de dichtstbijzijnde preset op
   toonhoogte (~167 Hz tegen ~174 Hz) en tempo.
+
+## Kostenraming hele video (180 s, 51 shots), prijzen opgevraagd 8 nov
+
+| Onderdeel | Rekening | Credits |
+|---|---|---|
+| Keyframes: 51 shots + 6 extra karakterbladen, ~50% herkansing, GPT Image 2.6 medium 2k à 1 | ~85 beelden | 85 |
+| Video: 51 clips Kling 3.0 std (1,5 per seconde; 3 s = 4,5; 5 s = 7,5), ~190 s | 285 | |
+| Herkansingen video (~30%) | 85 | 370 |
+| Vertelstem Harrison, ~3.000 tekens in 2–3 delen (10,5 per ~1.550 tekens) | | 21 |
+| Muziek 180 s, ElevenLabs Music v2.5 instrumentaal | | 26 |
+| Ondertitels, montage, mix (eigen script) | | 0 |
+| **Totaal** | | **≈ 500**, met marge **550** |
+
+Goedkoper kan door de keyframes op quality low 1k (0,25) te maken (−60) of minder shots (elke shot ≈ 6 credits all-in).
+Duurder: Seedance 480p i.p.v. Kling verdubbelt de video (≈ 570 i.p.v. 285); 1080p-eindversies zijn voor dit format niet nodig
+(het voorbeeld zelf is 720p). Tot nu toe uitgegeven aan tests: ~16 credits (7 stemmen, 3 beelden, 1 Kling-clip).
