@@ -87,5 +87,78 @@
   "join": "join.py: per deel loudnorm -14 LUFS, crossfade 0,5 s, totaal 162,4 s",
   "zip_media": "9e9faece-701a-48cd-858d-b38ca3eaa872",
   "check": "faster-whisper: A3 178/192 woorden exact, B1 139/151, C2 166/182; merknaam 6x (A3 2x, B1 1x, C2 3x)"
+ },
+ "video_partA_8nov": {
+  "keyframes_gpt_image_2_6": {
+   "K01_thomas_couch": "21ff8c10-ef9f-4885-9369-6b1c90f5c5c7",
+   "K02_bed_photo": "add113c8-1a40-4ce1-95ba-e59e9dfb5e85",
+   "K04_mother_wine": "c1eb3ab6-046c-4236-8238-fb0406b068e2",
+   "K06_knee_hole": "c09345a3-fa79-4d58-8c35-4861ad241599",
+   "K08_she_waiter": "a2e49a0b-4fbd-47f2-89ce-e30c8bb78c6c",
+   "K09_she_leaves": "409134fb-9ca7-464e-bb18-f14119647798",
+   "K10_note": "32d5807e-11ce-48b7-ac31-4934064a0fef",
+   "K12_hero_espresso": "9dd99081-3774-4528-8f9c-62c4ea1aad50",
+   "K13_bed_phone": "9b63a581-7696-4149-8ebf-e5f6b45042e1",
+   "K141_gilet_detail": "12da8697-1270-41c8-a131-4986304c811b",
+   "K142_loafers": "a35c19ec-b1c0-4856-84eb-cb0dc587212c",
+   "K15_hoodie_vs_hero": "2a35efc2-803b-4c34-82df-cc5ff1f9d326",
+   "K16_she_laughs": "46045520-f4c1-4e84-81de-0a1a0d4bec6e"
+  },
+  "clips_kling3_std": {
+   "C01": "e306828e-81e5-4dc7-9b85-953dd2a6d2b5",
+   "C02": "6b976526-58b0-4722-a52b-b028a43b538c",
+   "C04": "aefb9436-f6df-4d1d-8192-b18d43e22d62",
+   "C06": "63c803e1-5b35-47f5-a29d-d78c44711237",
+   "C08": "37c9da25-9bd7-4b50-81f7-9fe43dbd787b",
+   "C09": "f7a88a89-f537-439f-a8c7-a17e8f41e35b",
+   "C10": "9c899687-25b3-47bf-822a-3e31e0cbe6f3",
+   "C12": "232409be-ded1-47a1-a38e-995ce794f51b",
+   "C13": "eb907292-f773-4e63-a9d3-898222e12a90",
+   "C141": "248d37f8-5015-457a-947d-cd5ccacc0017",
+   "C142": "ee9ff9a7-0d62-416c-9732-d97eacc96568",
+   "C15": "96578251-8822-4ea7-8c7d-e82ec14fea28",
+   "C16": "389761fc-fd89-4a77-b94c-a9a538a973db"
+  },
+  "hergebruik": {
+   "S1 restaurant": "2376e3d9-5722-461a-ae83-b971aab82f01",
+   "S2 thomas closeup": "e78de754-4134-41f7-92b8-1f040977b9d1",
+   "S3 tafel wide": "247b26c5-9f32-49f7-9d7b-0ab5368860da",
+   "master cafe": "edcb5977-e587-49ee-bfc6-b45b1def8816"
+  }
+ },
+ "video_partB_8nov": {
+  "keyframes_gpt_image_2_6": {
+   "K17_suit_office": "c7003ae9-e151-4f02-8171-7e71bcd706f0",
+   "K18_boss": "2c75dbfc-e239-4e40-911e-002969f8ad2e",
+   "K19_influencer_mirror": "9251c664-d249-4f63-9064-8595fa03f3ea",
+   "K20_sister": "3216e326-5f6a-404c-a4fe-d682451d6bff",
+   "K21_grey_street": "6c7564c0-e317-45d1-b657-bb142d4eb907",
+   "K22_hero_coffeebar": "a0d6beda-46b6-419a-a882-941964944404",
+   "K23_embarrassed_closeup": "8f218121-97a7-4b59-8be0-91d74897ce7c",
+   "K24_asks_the_man": "36559ff4-6c0e-44f6-ad7e-cc17c6d9451c",
+   "K25_hero_answers": "9a189cc1-e95d-4658-8c6a-66db4e32a4a4",
+   "K26_hero_gestures_outfit": "6e6a51bf-e7dd-4b43-8a2b-0968e638247e",
+   "K27_hero_shows_phone_duomo": "5a2128ec-5f58-437d-a5f6-3de3d701e308",
+   "K28_wardrobe_two_sets": "88b0d3a6-976b-4d20-a3a1-fcf94696dce0",
+   "K29_laptop_order": "cf250e3c-0263-4482-9e68-6fcc080e7eb7",
+   "K30_chains_drawer": "3e113e8a-03c6-4fe7-8b8f-c0058af35b09"
+  },
+  "clips_kling3_std": {
+   "C17": "323354ac-0cd9-4c06-a904-e0803be16d08",
+   "C18": "e4675dfd-230d-4714-b71a-62f75e74de8f",
+   "C19": "316e605e-babe-4a6f-a133-c90dc2b0ff1b",
+   "C20": "a0f9a952-96a1-4323-919c-bd19b24233ae",
+   "C21": "966fbb3c-da46-4b12-b805-cdb52d0bf046",
+   "C22": "3d76493a-c407-4fdb-a805-21e118348b92",
+   "C23": "17e4bac6-8a8e-4efa-a6d8-baa00b5615cf",
+   "C24": "79572f0c-d552-4a12-bb89-339a11de72d4",
+   "C25": "76ceaa04-9ab0-4baf-99a5-ad0c88d62212",
+   "C26": "6fe0bb5f-5300-4ad8-9a18-c1f0fa0057d3",
+   "C27": "7d95407e-2aef-4c4f-8887-ab0edeb7238e",
+   "C28": "3dd97db5-68af-4b04-90b7-c065e91892b4",
+   "C29": "1411a190-fddb-40df-878d-02a8553c8efb",
+   "C30": "137a72ea-9a70-4efc-96b5-a4d5d3d7744a"
+  },
+  "note": "Clips 17-22,24-29 = 4 s, 23 and 30 = 3 s (kling3_0 std, sound off, 1.5 cr/s)."
  }
 }
