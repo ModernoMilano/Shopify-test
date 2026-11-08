@@ -79,3 +79,30 @@ scriptregels en controles. Eerste keus: eigen pijplijn met Kling std; terugval: 
 Goedkoper kan door de keyframes op quality low 1k (0,25) te maken (−60) of minder shots (elke shot ≈ 6 credits all-in).
 Duurder: Seedance 480p i.p.v. Kling verdubbelt de video (≈ 570 i.p.v. 285); 1080p-eindversies zijn voor dit format niet nodig
 (het voorbeeld zelf is 720p). Tot nu toe uitgegeven aan tests: ~16 credits (7 stemmen, 3 beelden, 1 Kling-clip).
+
+## Versie 1 gemaakt (8 nov, avond)
+
+De eigenaar koos voor de rap als kern ("het is de hele ai gemaakte rap die het filmpje zo goed maakt"). Versie 1 is daarom
+gebouwd op song v2 (162,4 s, drie ElevenLabs-delen aan elkaar, zie `rap_v3_lyrics.txt`), met 47 shots cartoon als bijbeeld
+en de songtekst woord voor woord in beeld. Bestanden: `tools/assemble2.py` (montage + ondertitels), `tools/plan_full_v1.json`
+(alle shots op de seconde), job-ids in `jobs.json` (`video_partA_8nov`, `video_partB_8nov`, `video_partC_8nov`).
+
+**Shotlijst** (globale seconden in de song)
+
+| Deel | Shots | Wat |
+|---|---|---|
+| A 0–51 | 1–16 | hoodie op de bank, lijstje, zij "you used to make an effort", verjaardag moeder, pasta, de ander voor het eerst gezien (MODERNO MILANO-kaart), hij kijkt naar zichzelf, zij lacht met de ander |
+| B 51–101 | 17–30 | te groot pak op het werk, de baas, influencer-look met kettingen, de zus, DAY ONE in de regen, de ander weer bij de koffiebar, hij vraagt het hem, de ander legt uit, telefoon met de Duomo, kast met twee sets, bestellen op de laptop, kettingen in de la |
+| C 101–162 | 31–47 | DAY ONE met de vuilniszak en Dave, DAY FOUR barista, DAY NINE collega, DAY TWELVE joggingbroek in de bak, wegwandelen, DAY SIXTEEN het berichtje, telefoon omgekeerd en sleutels, dak met Duomo recht in de camera, rits-close-up zonder logo, gevouwen set, drie dozen navy/grijs/beige met wollen sokken, de zus knikt, close-up, wijst omlaag, beide mannen in de Galleria, eindkaart met woordmerk, MAKE AN EFFORT. en Black Week-aanbieding |
+
+**Werkelijke kosten versie 1** (saldo gemeten): rap ≈ 55 (6 delen van ≈ 60–75 s, waarvan 3 gebruikt), stijltests en preview
+≈ 30, deel A ≈ 75, delen B en C samen 179 (31 keyframes à 1, 30 clips à 4,5–6). Totaal ≈ 340 credits; de raming was 500–550.
+Alle clips Kling 3.0 std zonder geluid, 3 of 4 s; keyframes GPT Image 2.6 medium 2k met de karakterbladen als referentie.
+
+**Bekende punten voor versie 2**
+
+- De rapper struikelt op een paar plekken over de beat (te veel lettergrepen per maat); de eigenaar accepteert dat voor v1.
+  Volgende tekst: hooguit ~10–11 lettergrepen per regel en kortere zinnen bij de dagtellers.
+- Twee lasnaden in de song (~0:51 en ~1:41) waar de stem iets van kleur kan wisselen.
+- Ondertitels breken nu niet meer over een punt of vraagteken heen (aangepast na deel A).
+- De uitspraak "mo-DER-no mi-LA-no" is in deel B het mooist; in deel A klinkt de eerste keer korter.
