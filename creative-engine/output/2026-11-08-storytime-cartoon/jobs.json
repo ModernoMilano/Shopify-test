@@ -1,8 +1,13 @@
 {
  "voice_tests_8nov": {
-  "model": "seed_audio", "text": "hook-regel van script v1 (62 woorden)",
-  "Reid": "2a2f1e76-8678-45af-89b3-b69db36ada7e", "Dylan": "c5f3a423-cd15-4fcc-b538-605fac4887d5", "Kevin": "2bf99e8b-dd95-4005-915b-952bbcd85a4c",
-  "John": "04f73e5c-0fd4-44e4-bfca-0109bcafd931", "Andre": "0ab18458-8718-43a3-9045-51e160a80b00", "Harrison": "953f44af-25c5-4ca2-adec-df3cceb3b22b",
+  "model": "seed_audio",
+  "text": "hook-regel van script v1 (62 woorden)",
+  "Reid": "2a2f1e76-8678-45af-89b3-b69db36ada7e",
+  "Dylan": "c5f3a423-cd15-4fcc-b538-605fac4887d5",
+  "Kevin": "2bf99e8b-dd95-4005-915b-952bbcd85a4c",
+  "John": "04f73e5c-0fd4-44e4-bfca-0109bcafd931",
+  "Andre": "0ab18458-8718-43a3-9045-51e160a80b00",
+  "Harrison": "953f44af-25c5-4ca2-adec-df3cceb3b22b",
   "Barrett": "ff3b87ca-f0ad-47b5-82fb-5b7e184a6ba3",
   "gekozen": "Harrison (eigenaar, 8 nov), preset 573e5163-59b3-4926-aab1-951ef2985f81",
   "meting": "voorbeeldstem f0 ~174 Hz (p25 155, p75 178), ~190-210 wpm; Kevin 170 Hz/205 wpm, Harrison 167 Hz/187 wpm, Dylan 186/207, Andre 193/153, Reid 184/105, John 144/160, Barrett 123/135"
@@ -15,5 +20,41 @@
   "kling_std_test_5s": "edcb5977-e587-49ee-bfc6-b45b1def8816",
   "notities": "stijlmaster: gilet oogt gewatteerd, in productie 'smooth unpadded' afdwingen; karakterbladen goed bruikbaar als referentie"
  },
- "reference_ad": {"advertiser": "Penrose Skin", "ad_archive_id": "1092227623428399", "duration_s": 206.26, "size": "720x1280 24 fps", "cuts": "~99 shots, gemiddeld 2,1 s", "analysis_workflow": "wf_4ca1b84b-4ab"}
+ "reference_ad": {
+  "advertiser": "Penrose Skin",
+  "ad_archive_id": "1092227623428399",
+  "duration_s": 206.26,
+  "size": "720x1280 24 fps",
+  "cuts": "~99 shots, gemiddeld 2,1 s",
+  "analysis_workflow": "wf_4ca1b84b-4ab"
+ },
+ "preview_hook_8nov": {
+  "voice_seed_audio_harrison": {
+   "vo0": "bc913b0f-5cd6-4217-aecf-ae09e14a7a7a",
+   "vo1": "3c4ba741-4cce-4791-afb5-3659baba1d2b",
+   "vo2": "3c8fc323-4392-4e30-b74c-63a89b317ba3",
+   "vo3": "53bdca74-04b4-444c-8a26-21aa4b938b89",
+   "vo4": "3d3d89db-a884-4cda-b22d-6563ba68351d"
+  },
+  "music_elevenlabs_24s": "86fa0b71-c751-4e84-b0c4-bcbddf490aeb",
+  "keyframes_gpt_image_2_6": {
+   "S1_table": "915ac841-6d18-449a-9dd7-fa98badf8ea3",
+   "S2_thomas": "5663d1dd-f81a-4f49-a20e-5dc0ad94d889",
+   "S3_wide": "27ad918a-8088-46f5-9c27-8164247bd32e",
+   "S4_mother": "7ecbf8cd-594c-4488-91fd-520122dd85d9"
+  },
+  "clips_kling3_std": {
+   "S1": "2376e3d9-5722-461a-ae83-b971aab82f01",
+   "S2": "e78de754-4134-41f7-92b8-1f040977b9d1",
+   "S3": "247b26c5-9f32-49f7-9d7b-0ab5368860da",
+   "S4": "01e95043-6f13-44cb-b90d-9a2cb7d1730d"
+  },
+  "montage": "tools/assemble_preview.py + tools/preview_plan.json: 13,05 s, 1080x1920 24 fps, stem met pauzes 0,2-0,35 s, muziek -6 dB met sidechain-ducking, captions Montserrat Black caps wit met outline, caphoogte 3% op 63% van de hoogte, 1-2 woorden per kaart",
+  "lessen": [
+   "labels in ffmpeg-filtergraphs nooit één letter ([v], [a]) en elke label maar één keer gebruiken (asplit)",
+   "gpt_image_2_6 geeft 429 rate_limit bij 4 gelijktijdige verzoeken: in groepjes van 2 indienen",
+   "Seed Audio: max 2048 tekens per verzoek; per zin genereren geeft de timing voor de ondertitels",
+   "Kling 3.0 std levert 720x1276 bij 9:16, 24 fps; opschalen naar 1080x1920 is voor cartoon prima"
+  ]
+ }
 }

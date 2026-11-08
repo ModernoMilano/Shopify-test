@@ -1,0 +1,173 @@
+{
+ "audio": "mix.m4a",
+ "shots": [
+  {
+   "clip": "S1.mp4",
+   "dur": 3.332,
+   "cards": [
+    {
+     "t0": 0.35,
+     "t1": 0.59,
+     "text": "SO MY",
+     "big": false
+    },
+    {
+     "t0": 0.59,
+     "t1": 1.01,
+     "text": "GIRLFRIEND",
+     "big": false
+    },
+    {
+     "t0": 1.01,
+     "t1": 1.37,
+     "text": "OF THREE",
+     "big": false
+    },
+    {
+     "t0": 1.37,
+     "t1": 1.87,
+     "text": "YEARS LOOKED",
+     "big": false
+    },
+    {
+     "t0": 1.87,
+     "t1": 2.11,
+     "text": "AT ME",
+     "big": false
+    },
+    {
+     "t0": 2.11,
+     "t1": 2.54,
+     "text": "ACROSS THE",
+     "big": false
+    },
+    {
+     "t0": 2.54,
+     "t1": 2.94,
+     "text": "TABLE AND",
+     "big": false
+    },
+    {
+     "t0": 2.94,
+     "t1": 3.13,
+     "text": "SAID:",
+     "big": false
+    }
+   ]
+  },
+  {
+   "clip": "S2.mp4",
+   "dur": 2.195,
+   "cards": [
+    {
+     "t0": 0.05,
+     "t1": 0.68,
+     "text": "YOU USED",
+     "big": false
+    },
+    {
+     "t0": 0.68,
+     "t1": 1.25,
+     "text": "TO MAKE",
+     "big": false
+    },
+    {
+     "t0": 1.25,
+     "t1": 1.95,
+     "text": "AN EFFORT.",
+     "big": true
+    }
+   ]
+  },
+  {
+   "clip": "S3.mp4",
+   "dur": 5.067,
+   "cards": [
+    {
+     "t0": 0.1,
+     "t1": 0.49,
+     "text": "I WAS",
+     "big": false
+    },
+    {
+     "t0": 0.49,
+     "t1": 0.99,
+     "text": "WEARING",
+     "big": false
+    },
+    {
+     "t0": 0.99,
+     "t1": 1.57,
+     "text": "THE SAME",
+     "big": false
+    },
+    {
+     "t0": 1.57,
+     "t1": 2.32,
+     "text": "GREY HOODIE",
+     "big": false
+    },
+    {
+     "t0": 2.32,
+     "t1": 2.84,
+     "text": "I'D WORN",
+     "big": false
+    },
+    {
+     "t0": 2.84,
+     "t1": 3.41,
+     "text": "ALL WEEK.",
+     "big": false
+    },
+    {
+     "t0": 3.613,
+     "t1": 4.023,
+     "text": "TO HER",
+     "big": false
+    },
+    {
+     "t0": 4.023,
+     "t1": 4.523,
+     "text": "BIRTHDAY",
+     "big": false
+    },
+    {
+     "t0": 4.523,
+     "t1": 4.913,
+     "text": "DINNER.",
+     "big": false
+    }
+   ]
+  },
+  {
+   "clip": "S4.mp4",
+   "dur": 2.459,
+   "cards": [
+    {
+     "t0": 0.1,
+     "t1": 0.5,
+     "text": "HER FRIENDS",
+     "big": false
+    },
+    {
+     "t0": 0.5,
+     "t1": 0.74,
+     "text": "SAW IT.",
+     "big": false
+    },
+    {
+     "t0": 0.74,
+     "t1": 1.02,
+     "text": "HER MUM",
+     "big": false
+    },
+    {
+     "t0": 1.02,
+     "t1": 1.26,
+     "text": "SAW IT.",
+     "big": false
+    }
+   ]
+  }
+ ]
+}
