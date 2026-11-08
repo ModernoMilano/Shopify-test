@@ -81,5 +81,11 @@
   "eigenaar": "uitspraak in fragment 1 (deel B, couplet 4) is perfect (8 nov 20:36)",
   "A3 (premisse expliciet: 'My girlfriend left me for a guy in Moderno Milano', 62 s)": "850dc3f2-6395-444b-a36f-1499f0972424",
   "eigenaar 20:40": "in B en C los is de rode draad niet te horen; de premisse moet in het eerste couplet letterlijk staan"
+ },
+ "rap_song_v2": {
+  "onderdelen": "A3 (850dc3f2) 6,1-57,9 s + B1 (9fbf05f5) 6,7-57,0 s + C2 (e2407270) 13,2-74,5 s",
+  "join": "join.py: per deel loudnorm -14 LUFS, crossfade 0,5 s, totaal 162,4 s",
+  "zip_media": "9e9faece-701a-48cd-858d-b38ca3eaa872",
+  "check": "faster-whisper: A3 178/192 woorden exact, B1 139/151, C2 166/182; merknaam 6x (A3 2x, B1 1x, C2 3x)"
  }
 }
