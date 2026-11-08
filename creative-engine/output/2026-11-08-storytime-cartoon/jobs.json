@@ -211,5 +211,21 @@
   "credits_total_approx": 450,
   "v1b_zip_media_id": "ac0e5a70-fcf7-430c-9a5c-3788ec6735b7",
   "v1b_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/ac0e5a70-fcf7-430c-9a5c-3788ec6735b7.zip"
+ },
+ "duet_8nov": {
+  "probe_30s": "cd58b4d6-4dfe-47fb-9074-32b484fb3624",
+  "take1_2parts": {
+   "P1_76s": "9158066f-7993-4090-9a96-dca48d653272",
+   "P2_78s": "cbc3d0f7-14d0-451a-bd10-8b4860177672",
+   "note": "intro ~10 s, refreinregels weggelaten, brug deels door hem gezongen -> afgekeurd"
+  },
+  "take2_3parts": {
+   "D1_60s": "19961cbf-5080-4eae-880d-cf68617830fc",
+   "D2_60s": "1115f711-b96c-4138-931b-f949236a3ebc",
+   "D3_62s": "2af15caa-ea1c-4c58-8ec5-2a18d749170a",
+   "D1b_60s_rijmende_opening": "651bafd7-2bb0-4721-a434-93ec17946b87",
+   "note": "D1: intro 10 s, eerste refreinregel door hem; D2: rap te snel (2,9 w/s), regels aan elkaar; D3: haar stukken goed, duetregels rommelig. Eigenaar: opening niet goed, moet rijmen en op de beat; haar stukken wel goed -> tekst herschreven (metrisch, rijmschema-spel)."
+  },
+  "note": "ElevenLabs Music v2.5, batch_size 1, ~0.145 cr/s. Merknaam 5x (3x gezongen) na verzoek eigenaar."
  }
 }
