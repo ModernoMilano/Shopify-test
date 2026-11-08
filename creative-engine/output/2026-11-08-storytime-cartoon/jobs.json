@@ -160,5 +160,44 @@
    "C30": "137a72ea-9a70-4efc-96b5-a4d5d3d7744a"
   },
   "note": "Clips 17-22,24-29 = 4 s, 23 and 30 = 3 s (kling3_0 std, sound off, 1.5 cr/s)."
+ },
+ "video_partC_8nov": {
+  "keyframes_gpt_image_2_6": {
+   "K31_bins_flatmate": "c613f1e6-327b-4d41-a628-ddab724d07c3",
+   "K32_flatmate_closeup": "5d68bf36-81bf-492b-a876-12799897c9c9",
+   "K33_barista": "b0e899d0-11ea-44fd-9448-552de6989ffd",
+   "K34_colleague": "0fb5d805-57c4-44af-b778-7815fff761cf",
+   "K35_joggers_bin": "9ca3bd34-a410-42e2-b192-e99179cfb9a7",
+   "K36_walks_away": "930e7fd9-8523-4d3b-a6d1-85503db1bfe2",
+   "K37_phone_buzz": "9355fe3d-bf0a-480d-a9de-18997dfef1a4",
+   "K38_phone_down_keys": "5d83c96f-0bc8-4d8b-bb58-4b249a38c6c7",
+   "K39_rooftop_to_camera": "2f16ab8a-1d81-47e6-9233-47628bba42a7",
+   "K40_zip_closeup": "d8aedba4-fa5e-4fc4-998e-f621751244d1",
+   "K41_folded_set": "a6c798a6-cffd-40cf-b03a-9b7da563bf3f",
+   "K42_three_boxes_socks": "0cd65fbd-7100-43d1-8110-c6f41f4dcf46",
+   "K43_sister_approves": "2c4cd317-ba25-4c53-8f63-cc14fee3d84f",
+   "K44_sincere_closeup": "c8b1f781-412c-410e-a045-aee2878236ed",
+   "K45_points_down": "3d1d636a-f116-4ff4-960e-e6b418da012b",
+   "K46_both_men_galleria": "009383e8-78d5-4e59-a733-a9f5069cd702",
+   "K47_endcard_still": "7fe8218d-edc3-4ccf-bab9-618d0ccdf1c3"
+  },
+  "clips_kling3_std": {
+   "C31": "a9877f54-b1dd-4979-af7d-15f27601c46f",
+   "C32": "32b21c66-d88e-4870-a47f-59e7dc10f7bc",
+   "C33": "2cc88a92-015d-49e0-8f58-d2e11925a14f",
+   "C34": "1f24e1c4-0a58-4cc3-9e7f-83c7453515af",
+   "C35": "b22392d5-500a-4308-870c-3c32c0e0212d",
+   "C36": "ed6e3bd0-ef79-4be3-b76a-29198e83b661",
+   "C37": "7e406eb9-9f03-4ea7-9ecd-09bad24f2929",
+   "C38": "b61510a1-069b-4ecd-aa8a-69e48e9ea013",
+   "C39": "f534f7bf-84cd-4020-8917-efef0ef15780",
+   "C40": "6d318761-0468-4608-aa31-952a8ff28efa",
+   "C41": "c693527a-a059-489e-9e7c-7798b5c737f1",
+   "C42": "11d23243-c8e5-40c1-981a-c186efcf4454",
+   "C43": "308d5c96-3581-48c0-8120-dc205b183371",
+   "C45": "6b532c7a-4db0-41ea-a64b-f7b1332895ac",
+   "C46": "13215537-e5ea-420f-b54a-d1b922713502"
+  },
+  "note": "K47 is een stilstaand eindbeeld (geen clip). Clips 31,32,34,36,38,39 = 4 s; overige 3 s."
  }
 }
