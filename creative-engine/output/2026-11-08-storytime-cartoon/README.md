@@ -106,3 +106,7 @@ Alle clips Kling 3.0 std zonder geluid, 3 of 4 s; keyframes GPT Image 2.6 medium
 - Twee lasnaden in de song (~0:51 en ~1:41) waar de stem iets van kleur kan wisselen.
 - Ondertitels breken nu niet meer over een punt of vraagteken heen (aangepast na deel A).
 - De uitspraak "mo-DER-no mi-LA-no" is in deel B het mooist; in deel A klinkt de eerste keer korter.
+
+**Download versie 1** (zip: mp4 1080x1920 crf 20, 97 MB; de song als mp3; de tekst per deel; de eindkaart als png):
+https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/94c6f7e7-230f-4e84-a2f7-1271cc329b5d.zip
+(media-id 94c6f7e7-230f-4e84-a2f7-1271cc329b5d; de master op crf 17, 151 MB, staat in de sandbox als ~/tb/rapvid/full.mp4.)

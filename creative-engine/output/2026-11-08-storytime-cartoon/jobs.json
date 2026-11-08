@@ -200,5 +200,12 @@
    "C44": "5f32a96e-3b0e-4e22-bb31-122c9f468333"
   },
   "note": "K47 is een stilstaand eindbeeld (geen clip). Clips 31,32,34,36,38,39 = 4 s; overige 3 s."
+ },
+ "video_v1_delivery": {
+  "zip_media_id": "94c6f7e7-230f-4e84-a2f7-1271cc329b5d",
+  "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/94c6f7e7-230f-4e84-a2f7-1271cc329b5d.zip",
+  "duration_s": 162.46,
+  "shots": 48,
+  "credits_total_approx": 340
  }
 }
