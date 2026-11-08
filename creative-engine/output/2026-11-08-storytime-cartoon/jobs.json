@@ -68,5 +68,14 @@
   },
   "hypothese": "eigen lyrics falen boven ~1.000 tekens of ~2,5 woorden per seconde; delen van 60-75 s met <=170 woorden gebruiken",
   "kosten": "60 s met zang ~8,7 credits; mislukte jobs niet in rekening gebracht (te controleren op saldo)"
+ },
+ "rap_parts_8nov": {
+  "A1 (met intro, 65 s)": "efbc5154-bfae-415a-8baa-23eb265dbaf9  stem begint pas op 13,6 s: afgekeurd door de eigenaar (geen lange intro)",
+  "A2 (zonder intro, 60 s)": "af4ac991-c673-43af-88f4-01f1282afe57",
+  "B1 (couplet 3-4, 60 s)": "9fbf05f5-454c-4204-968f-35ca3dac83b6  stem 7,1-55,7 s; merknaam op 42,7 s",
+  "C1 (couplet 5-6 + outro, 75 s)": "35571a0d-20d4-4aa1-943c-b811c708c4bd  stem 14,5-64,2 s; merknaam op 40,4 en 54,2 s; laatste regel 'Moderno Milano. Timeless. Refined. You.' lijkt zonder merknaam te zijn gezongen",
+  "controle": "faster-whisper small in de sandbox (transcripts.json); merknaam gehoord als 'modern or Milan' / 'modern on Milano'",
+  "kosten": "saldo 352 -> 228 voor deze vier generaties (batch_size 3 wordt in rekening gebracht maar levert via de API maar één bestand): voortaan batch_size 1",
+  "check_zip": "ead2b97b-3574-478b-981a-ae6a5b4c0932 (merknaamfragmenten + delen)"
  }
 }
