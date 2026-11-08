@@ -1,0 +1,19 @@
+{
+ "voice_tests_8nov": {
+  "model": "seed_audio", "text": "hook-regel van script v1 (62 woorden)",
+  "Reid": "2a2f1e76-8678-45af-89b3-b69db36ada7e", "Dylan": "c5f3a423-cd15-4fcc-b538-605fac4887d5", "Kevin": "2bf99e8b-dd95-4005-915b-952bbcd85a4c",
+  "John": "04f73e5c-0fd4-44e4-bfca-0109bcafd931", "Andre": "0ab18458-8718-43a3-9045-51e160a80b00", "Harrison": "953f44af-25c5-4ca2-adec-df3cceb3b22b",
+  "Barrett": "ff3b87ca-f0ad-47b5-82fb-5b7e184a6ba3",
+  "gekozen": "Harrison (eigenaar, 8 nov), preset 573e5163-59b3-4926-aab1-951ef2985f81",
+  "meting": "voorbeeldstem f0 ~174 Hz (p25 155, p75 178), ~190-210 wpm; Kevin 170 Hz/205 wpm, Harrison 167 Hz/187 wpm, Dylan 186/207, Andre 193/153, Reid 184/105, John 144/160, Barrett 123/135"
+ },
+ "style_test_8nov": {
+  "model": "gpt_image_2_6 quality medium 2k (1 credit per beeld)",
+  "master_cafe_duomo": "07361651-c94e-406f-9a2e-4dd368f92108",
+  "hero_sheet_navy_reverso": "cc30e31f-f254-4602-9666-733e01dd5b96",
+  "narrator_sheet_grey_hoodie": "f2d47eb2-2f89-4cdd-8ecf-88d938affb6f",
+  "kling_std_test_5s": "edcb5977-e587-49ee-bfc6-b45b1def8816",
+  "notities": "stijlmaster: gilet oogt gewatteerd, in productie 'smooth unpadded' afdwingen; karakterbladen goed bruikbaar als referentie"
+ },
+ "reference_ad": {"advertiser": "Penrose Skin", "ad_archive_id": "1092227623428399", "duration_s": 206.26, "size": "720x1280 24 fps", "cuts": "~99 shots, gemiddeld 2,1 s", "analysis_workflow": "wf_4ca1b84b-4ab"}
+}
