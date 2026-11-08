@@ -112,5 +112,19 @@
   "instagram_story_id": "18196432504399868",
   "facebook_post_id": "1411553698703314_122108855961519432",
   "note": "Instagram needed ?format=jpg"
+ },
+ {
+  "date": "2026-11-08",
+  "slot": "am",
+  "source": "social/calendar.json",
+  "theme": "brand_story",
+  "handle": "chester-tufted-dog-sofa",
+  "reel": "r_2026-11-08_v1_ig",
+  "story": "st_2026-11-08",
+  "instagram_media_id": "18153732163544869",
+  "instagram_story_id": "17967015492206507",
+  "facebook_post_id": null,
+  "facebook_error": "Confirm your identity before you can publish as this Page (owner action in the Facebook app)",
+  "facebook_pending": true
  }
 ]
