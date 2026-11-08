@@ -6,7 +6,6 @@ HERE = os.path.dirname(os.path.abspath(__file__)); S = os.path.dirname(os.path.d
 from lib import gql, check
 OUT = os.path.join(HERE, "out"); REG = os.path.join(S, "files.json")
 sys.path.insert(0, HERE)
-from build_week import STORIES
 
 def reg(): return json.load(open(REG))
 
@@ -34,20 +33,22 @@ def up_video(path, name, alt):
     r = reg(); r[name] = {"id": fid, "url": n["url"], "alt": alt}; json.dump(r, open(REG, "w"), indent=1)
     print(name, "uploaded"); return n["url"].split("?")[0]
 
-STORY_TYPE = {"q": "question", "rate": "rate", "lr": "this_or_that"}
-caps = json.load(open(os.path.join(OUT, "captions.json")))
-plan = []
-for day in sorted(caps):
-    c = caps[day]
-    v = up_video(os.path.join(OUT, f"org_reel_{day}.mp4"), f"org_reel_{day}", f"CozyCompanion interaction reel {day}: {c['format']}")
-    still = up_image(os.path.join(OUT, f"org_still_{day}.jpg"), f"org_still_{day}", f"CozyCompanion {c['format']} post {day}")
-    plan.append({"date": day, "slot": "int", "type": "reel", "url": v, "instagram_caption": c["ig"], "facebook_caption": c["fb"],
-                 "facebook_image": still, "format": c["format"]})
-    for slot, it in zip(("am", "mid", "pm"), STORIES[day]):
-        name = f"org_st_{day}_{slot}"
-        u = up_image(os.path.join(OUT, name + ".jpg"), name, f"CozyCompanion {STORY_TYPE[it[0]]} story {day}")
-        prompt = it[3] if it[0] == "q" else it[2]
-        plan.append({"date": day, "slot": f"st_{slot}", "type": "story", "url": u, "instagram_caption": "", "facebook_caption": "",
-                     "facebook_image": None, "format": STORY_TYPE[it[0]], "prompt": prompt})
-json.dump(plan, open(os.path.join(S, "social", "organic_plan.json"), "w"), indent=1, ensure_ascii=False)
-print("plan entries:", len(plan))
+if __name__ == "__main__":
+    from build_week import STORIES
+    STORY_TYPE = {"q": "question", "rate": "rate", "lr": "this_or_that"}
+    caps = json.load(open(os.path.join(OUT, "captions.json")))
+    plan = []
+    for day in sorted(caps):
+        c = caps[day]
+        v = up_video(os.path.join(OUT, f"org_reel_{day}.mp4"), f"org_reel_{day}", f"CozyCompanion interaction reel {day}: {c['format']}")
+        still = up_image(os.path.join(OUT, f"org_still_{day}.jpg"), f"org_still_{day}", f"CozyCompanion {c['format']} post {day}")
+        plan.append({"date": day, "slot": "int", "type": "reel", "url": v, "instagram_caption": c["ig"], "facebook_caption": c["fb"],
+                     "facebook_image": still, "format": c["format"]})
+        for slot, it in zip(("am", "mid", "pm"), STORIES[day]):
+            name = f"org_st_{day}_{slot}"
+            u = up_image(os.path.join(OUT, name + ".jpg"), name, f"CozyCompanion {STORY_TYPE[it[0]]} story {day}")
+            prompt = it[3] if it[0] == "q" else it[2]
+            plan.append({"date": day, "slot": f"st_{slot}", "type": "story", "url": u, "instagram_caption": "", "facebook_caption": "",
+                         "facebook_image": None, "format": STORY_TYPE[it[0]], "prompt": prompt})
+    json.dump(plan, open(os.path.join(S, "social", "organic_plan.json"), "w"), indent=1, ensure_ascii=False)
+    print("plan entries:", len(plan))
