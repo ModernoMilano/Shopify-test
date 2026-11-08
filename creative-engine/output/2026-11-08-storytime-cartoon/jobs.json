@@ -56,5 +56,17 @@
    "Seed Audio: max 2048 tekens per verzoek; per zin genereren geeft de timing voor de ondertitels",
    "Kling 3.0 std levert 720x1276 bij 9:16, 24 fps; opschalen naar 1080x1920 is voor cartoon prima"
   ]
+ },
+ "rap_tests_8nov": {
+  "model": "elevenlabs_music_v2_5 met eigen lyrics",
+  "failed": {
+   "e1eef8c3": "deel A (intro+couplet 1-3, ~280 woorden, ~1.560 tekens), 100 s, batch 2: failed zonder reden",
+   "b4ba708f": "zelfde tekst met simpele tags, 100 s, batch 1: failed"
+  },
+  "ok": {
+   "3de9714a-d279-4458-b1ee-ed5fdac23ac9": "couplet 1-2 (~150 woorden, ~900 tekens), 60 s: gelukt; stem aanwezig (spraakmodulatie 0,94), stille intro 0-10 s, beat valt op 10 s, ~136 bpm"
+  },
+  "hypothese": "eigen lyrics falen boven ~1.000 tekens of ~2,5 woorden per seconde; delen van 60-75 s met <=170 woorden gebruiken",
+  "kosten": "60 s met zang ~8,7 credits; mislukte jobs niet in rekening gebracht (te controleren op saldo)"
  }
 }
