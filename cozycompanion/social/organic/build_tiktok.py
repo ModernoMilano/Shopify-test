@@ -66,10 +66,10 @@ def list_video(hk, items, end):
 
 def product(reel, hk, stills, end, name):
     """Approved Seedance reel (6 s) with a hook, then two stills with the product facts, then a comment prompt."""
-    (k1, f1), (k2, f2) = stills
+    (k1, f1, *y1), (k2, f2) = stills                  # optional y for the first label when the product sits low in the photo
     lab_end = label(f"{name} · link in bio")
     return dict(kind="product", reel=os.path.join(REELS, reel + ".mp4"), reel_key=reel, hook=hook(hk, f=HOOK_S), segs=[
-        seg(k1, 3.0, [tx(label(f1), bottom(label(f1)), 0.35)], zoom=(1.0, 1.08)),
+        seg(k1, 3.0, [tx(label(f1), y1[0] if y1 else bottom(label(f1)), 0.35)], zoom=(1.0, 1.08)),
         seg(k2, 4.2, [tx(label(f2), bottom(label(f2)) - 0, 0.35, 1.6), tx(cta(end), bottom(lab_end) - 18 - cta(end).height, 1.6),
                       tx(lab_end, bottom(lab_end), 1.6)], zoom=(1.0, 1.06))])
 
@@ -248,7 +248,7 @@ def week():
         "3 tiny habits your cat will love 🐱",
         f"3 tiny habits your cat will love 🐱 Save this 📌 Which one do you already do? 👇\n\n{CAT} #cattips #catcare")
     add(d, 3, "Product · Brook Pet Fountain", product("r_2026-11-03_v2_ig", "Fresh, flowing water all day 💧",
-        [("st_2026-11-03_raw", "304 stainless steel"), ("bfcm_P5", "Ultra-quiet (under 20 dB)")],
+        [("u_brook", "304 stainless steel", 1000), ("st_2026-11-03_raw", "Ultra-quiet (under 20 dB)")],
         "Does your cat prefer running water? 👇", "Brook Pet Fountain"),
         "Fresh, flowing water all day 💧",
         f"Fresh, flowing water all day 💧 Does your cat prefer running water? 👇 Brook Stainless Pet Fountain, link in bio.\n\n{CAT} #petfountain #catlife")
