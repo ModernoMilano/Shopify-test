@@ -1,6 +1,6 @@
 # Rap-video assembler (draait in de Higgsfield-sandbox, map ~/tb/rapvid).
 # Gebruik: python3 assemble2.py plan.json uit.mp4
-# plan: {"audio","words","end_hold","start_t"?,"end_t"?,"shots":[{"clip"|"still","t0","t1","offset"?}]}
+# plan: {"audio","words","end_hold","start_t"?,"end_t"?,"shots":[{"clip"|"still","t0","t1","offset"?,"overlay"?}]}  (overlay = png over het hele shot, bv. de eindkaarttekst)
 # - words = timeline_words.json [{w,t0,t1}] (ware lyrics, tijden uit faster-whisper via align.py)
 # - kaarten van 1-2 woorden, nooit over een punt/vraagteken heen; MODERNO MILANO en DAY <n> worden grote kaarten
 # - Montserrat Black, wit met donkere rand en zachte schaduw, op 63% hoogte
@@ -29,6 +29,13 @@ while i < len(words):
 for k in range(len(cards) - 1):
     nt0 = cards[k+1][0]; t1 = cards[k][1]
     cards[k][1] = min(nt0, t1 + 0.6) if nt0 - t1 < 1.0 else t1 + 0.25
+# flitskaarten (< 0.2 s in beeld) samenvoegen met de volgende kaart, hooguit 3 woorden, grote kaarten nooit
+k = 0
+while k < len(cards) - 1:
+    cur, nxt = cards[k], cards[k+1]
+    if not cur[3] and not nxt[3] and nxt[0] - cur[0] < 0.2 and len((cur[2] + ' ' + nxt[2]).split()) <= 3:
+        cards[k+1] = [cur[0], nxt[1], cur[2] + ' ' + nxt[2], False]; del cards[k]
+    else: k += 1
 print('cards', len(cards), 'big', sum(1 for c in cards if c[3]))
 def layer(text, isbig):
     ft = big if isbig else font
@@ -68,8 +75,10 @@ for s in shots:
     n = n1 - max(n0, frame_idx)
     if n <= 0: continue
     fr = read_still(s['still'], n) if 'still' in s else read_clip(s['clip'], s.get('offset', 0.0), n)
+    ov = Image.open(s['overlay']).convert('RGBA') if 'overlay' in s else None
     for k in range(n):
         t = (max(n0, frame_idx) + k) / FPS; im = Image.fromarray(fr[k]).convert('RGBA')
+        if ov is not None: im.alpha_composite(ov)
         for (a, b, text, isbig) in cards:
             if a <= t < b:
                 key = (text, isbig)

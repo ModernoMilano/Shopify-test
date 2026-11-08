@@ -95,8 +95,30 @@ en de songtekst woord voor woord in beeld. Bestanden: `tools/assemble2.py` (mont
 | B 51–101 | 17–30 | te groot pak op het werk, de baas, influencer-look met kettingen, de zus, DAY ONE in de regen, de ander weer bij de koffiebar, hij vraagt het hem, de ander legt uit, telefoon met de Duomo, kast met twee sets, bestellen op de laptop, kettingen in de la |
 | C 101–162 | 31–47 | DAY ONE met de vuilniszak en Dave, DAY FOUR barista, DAY NINE collega, DAY TWELVE joggingbroek in de bak, wegwandelen, DAY SIXTEEN het berichtje, telefoon omgekeerd en sleutels, dak met Duomo recht in de camera, rits-close-up zonder logo, gevouwen set, drie dozen navy/grijs/beige met wollen sokken, de zus knikt, close-up, wijst omlaag, beide mannen in de Galleria, eindkaart met woordmerk, MAKE AN EFFORT. en Black Week-aanbieding |
 
-**Werkelijke kosten versie 1** (saldo gemeten): rap ≈ 55 (6 delen van ≈ 60–75 s, waarvan 3 gebruikt), stijltests en preview
-≈ 30, deel A ≈ 75, delen B en C samen 179 (31 keyframes à 1, 30 clips à 4,5–6). Totaal ≈ 340 credits; de raming was 500–550.
+**Werkelijke kosten versie 1** (uit de transactielijst van Higgsfield, 20:08–21:40 op 8 nov)
+
+| Onderdeel | Credits |
+|---|---|
+| Stemtests (Seed Audio) en preview-muziek | 5 |
+| Stijltest en preview: 4 keyframes, 4 Kling-clips | 25 |
+| Rap, ElevenLabs Music v2.5: netto 6 bruikbare delen à 9–11 | ≈ 60 |
+| Rap, dubbel betaald: `batch_size: 3` rekent drie keer af en geeft één bestand (eerste vier rondes) | ≈ 85 |
+| Keyframes GPT Image 2.6 medium 2k, 45 stuks (incl. K48) | 45 |
+| Kling 3.0 std clips, 47 stuks (3 s = 4,5; 4 s = 6; 5 s = 7,5) | ≈ 232 |
+| **Totaal versie 1 + 1b** | **≈ 450** |
+
+De mislukte lange rapdelen (14,54 per stuk) zijn door Higgsfield teruggeboekt. Zonder de dubbele batch-afrekening was het
+≈ 365 geweest. In dezelfde uren liepen er ook spends van Nano Banana 2.1 en Outpaint (≈ 150) die niet bij deze video horen.
+
+**Wat een volgende video kost** (zelfde stijl en karakterbladen, geen nieuwe tests)
+
+| Variant | Credits |
+|---|---|
+| Nieuwe songtekst op dezelfde beelden (3 delen, 1 take per deel; herkansing +10 per deel) | 30–60 |
+| Nieuwe hook (eerste 10 s): 3 keyframes + 3 clips | ≈ 20 |
+| Los shot vervangen (keyframe + clip) | 6–7 |
+| Hele nieuwe video van 160 s: 47 keyframes (+ ~5 herkansing), 46 clips, nieuwe song | ≈ 330–360 |
+
 Alle clips Kling 3.0 std zonder geluid, 3 of 4 s; keyframes GPT Image 2.6 medium 2k met de karakterbladen als referentie.
 
 **Bekende punten voor versie 2**
@@ -106,6 +128,23 @@ Alle clips Kling 3.0 std zonder geluid, 3 of 4 s; keyframes GPT Image 2.6 medium
 - Twee lasnaden in de song (~0:51 en ~1:41) waar de stem iets van kleur kan wisselen.
 - Ondertitels breken nu niet meer over een punt of vraagteken heen (aangepast na deel A).
 - De uitspraak "mo-DER-no mi-LA-no" is in deel B het mooist; in deel A klinkt de eerste keer korter.
+
+**Controle door twee onafhankelijke controleurs (workflow wf_0a39dba0, 157 + 60 frames bekeken)**
+
+- Beeld: geen tekst of logo's in de gegenereerde beelden, geen extra of versmolten vingers, kleding klopt in elk navy-shot.
+  Eén echt punt: in shot 31 (vuilniszak) verandert de navy trui vanaf 103,7 s in een wit overhemd; opgelost door de clip op
+  103,5 s te bevriezen. Kleine punten voor later: de verteller is in shot 24 wat off-model (bredere kop, bruine ogen), de
+  ogen van de vriendin zijn in shot 16 blauw in plaats van bruin, de mist onder de wijzende hand in shot 45 oogt vreemd.
+- Ondertitels: 30 van de 30 gecontroleerde woorden stonden op het juiste moment in beeld; alle zes MODERNO MILANO-momenten en
+  alle DAY-kaarten groot. Eén echt punt: "fifteen off, three sets twenty" flitste in 0,3 s voorbij door samengeperste
+  woordtijden uit de uitlijning; opgelost met `tools/retime_words.py` (korte woorden opnieuw verdeeld) en een samenvoegpas
+  voor kaarten korter dan 0,2 s in `assemble2.py`.
+
+**Versie 1b** (zelfde avond, op verzoek van de eigenaar): de Black Week-aanbieding is van de eindkaart af. Het slot is nu een
+nieuw beeld, de verteller in de navy set op de piazza bij avondlicht (keyframe K48, clip C48, 5 s, laatste beeld vastgehouden
+tot het einde) met alleen het woordmerk en MAKE AN EFFORT. als overlay (`tools/plan_full_v1b.json`). De regel over Black Week
+in de songtekst zelf (136–141 s, "it's Black Week, boys: two sets fifteen off...") staat er nog in; die kan pas in een
+volgende songversie weg.
 
 **Download versie 1** (zip: mp4 1080x1920 crf 20, 97 MB; de song als mp3; de tekst per deel; de eindkaart als png):
 https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/94c6f7e7-230f-4e84-a2f7-1271cc329b5d.zip
