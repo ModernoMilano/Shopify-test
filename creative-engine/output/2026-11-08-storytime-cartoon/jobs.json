@@ -286,7 +286,9 @@
    "N131_she_steps_in": "035d5b8a-40ba-4ef2-bee6-0c81b969530c",
    "N132_together_foreheads": "d43830c6-a53a-47c5-ad6f-2dd8d44bc27a",
    "N133_couple_galleria_cardigan": "66e49374-2735-4a94-a7ff-4577a38cdb8f",
-   "N134_she_steps_in_loafers_retake": "b269fe7e-1d82-44f9-a79b-d663159f1670"
+   "N134_she_steps_in_loafers_retake": "b269fe7e-1d82-44f9-a79b-d663159f1670",
+   "N141_hero_planner": "6459248d-f818-42b4-9d3b-132e64f496e7",
+   "N142_takeaway_binbag": "08f04b97-dc7b-466a-adf0-093a257beb4c"
   },
   "clips_kling3_std": {
    "N101": "f96c8008-4c62-42b4-9918-7cead5424746",
@@ -302,12 +304,21 @@
    "N126": "6db045ec-5318-4d36-b307-f7d076a2b3fe",
    "N132": "fcb9f3a5-220e-4575-8358-fcc823e3f6ff",
    "N133": "13d4f6aa-ec27-4121-bbfa-9fd6abb9af0a",
-   "N131_retake_from_N134": "d19d905f-e495-4ba2-b31a-1c1a25bba599"
+   "N131_retake_from_N134": "d19d905f-e495-4ba2-b31a-1c1a25bba599",
+   "N141": "4ec0ce47-a57f-4b47-9894-d3bcd6f7da32",
+   "N142": "e03ac801-1043-4da4-924f-bbee98c44a7d"
   },
   "note": "N103 (bank) en N104 (hoodie aan haak) als stilstaand beeld; N131 (sneakers) vervangen door N134 met loafers. Plan: tools/plan_duet_v1.json.",
   "delivery": {
    "zip_media_id": "dab21e98-b7c5-4a40-9eb4-e30ef1296831",
    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/dab21e98-b7c5-4a40-9eb4-e30ef1296831.zip"
-  }
+  },
+  "qa_match": "36 sterk / 5 zwak / 0 mis (L2, L14, L17, L18, L25 zwak); L18 en L25 vervangen in v1b; L32 kledingcontinuïteit (blouse tussen jas-shots) opgelost met N122.",
+  "delivery_v1b": {
+   "zip_media_id": "15a7b67a-d8dc-4687-9870-f3310074bd49",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/15a7b67a-d8dc-4687-9870-f3310074bd49.zip",
+   "plan": "tools/plan_duet_v1b.json"
+  },
+  "qa_visual": "60 frames: anatomie ok, geen tekst/logo in beeld, kleding per fase klopt. Eén echt punt: eindtekst viel over de gezichten (slot N133) -> overlay naar onderin met donkere band (v1b). Kleine punten: C15 donkere kringen ogen, C17 bewogen handen, hoodie-verf op de haak wisselt tussen N104 en N131."
  }
 }

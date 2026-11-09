@@ -184,3 +184,9 @@ Kosten: 17 keyframes (17) + 14 clips (≈ 75) ≈ 92 credits. Job-ids in `jobs.j
 
 **Download duet-video v1** (zip: mp4 1080x1920 crf 20, 85 MB; het liedje als mp3; de tekst):
 https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/dab21e98-b7c5-4a40-9eb4-e30ef1296831.zip
+
+**Controle duet-video v1** (twee controleurs, workflow wf_de85ded5): tekst-bij-beeld 36 van 41 regels sterk, 5 zwak, 0 mis;
+beeld: 60 frames, anatomie en kleding per verhaalfase in orde, geen tekst of logo's in de gegenereerde beelden. Eén echt punt:
+de eindtekst viel over de gezichten van het stel. **Versie 1b**: eindtekst onderin met een zachte donkere band, de "man met een
+plan" krijgt een eigen shot (de ander met een planner op het terras, N141), "takeaway binned" toont nu afhaalbakjes in een
+vuilniszak (N142), en haar regel "I hope you did it for you" gebruikt een jas-shot (N122) zodat haar kleding in de brug klopt.
