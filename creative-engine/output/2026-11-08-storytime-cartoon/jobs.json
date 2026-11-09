@@ -420,6 +420,36 @@
    "parts": "X1 5.38-51.38, X2 4.04-54.71, X3 0-22.06, X4 8.71-54.56; join2 + tighten (1 knip)",
    "linecheck": "alle 46 regels aanwezig; \"But a no is a no, and you knew\" 33% (gemompeld), rest 56-100%",
    "onset_fix": "X1 en X2 begin met VAD gecorrigeerd (5.87 / 4.56 s)"
+  },
+  "take2_v2_lyrics": {
+   "lyrics": "story3_v2_lyrics.txt",
+   "Y1": "d722d3ac-c66e-46a5-824a-f27d8ec0c61d (70 s)",
+   "Y2": "48ceb081-cce8-462c-8275-4cb4fb45faa1 (58 s)",
+   "Y3": "328ce972-9532-42af-87dc-27d8f5754c0d (62 s)",
+   "Y4": "a531cff3-dac0-4768-8ccf-880dd9c81b99 (58 s)",
+   "note": "duet-opening (beide stemmen), wisselspel, hook 3x; geschat 36 credits",
+   "song_joined": {
+    "media_id": "bf95551e-8924-4f96-8a98-b5e4c03934e0",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/bf95551e-8924-4f96-8a98-b5e4c03934e0.mp3",
+    "duration_s": 202.95,
+    "parts": "Y1 0-60.12 (herhaald couplet 38.04-43.41 eruit geknipt met cutpart.py), Y2 8.71-52.05, Y3 0-54.72, Y4 10.04-56.56; join2 + tighten (1 knip)",
+    "linecheck": "alle 60 regels aanwezig (44-100% per regel; zwakste: \"A navy knit, a stand collar, trousers that fit\" 44%)",
+    "onset_lesson": "VAD-onsetfix zat bij Y2 fout (13.9 i.p.v. 10.2) en bij Y4 0.8 s te laat: altijd controleren met een whisper-run op een uitgeknipt stuk rond het begin (chain.py --onsetat/--firstfix)"
+   }
+  },
+  "video2_keyframes_gpt_image_2_6": {
+   "W_OTHER": "eb4eafb6-438b-4a7c-aa0b-5319df73c6ed",
+   "K01": "3aff8d25-1bd3-4aae-b0d7-fa7e97cf77ea",
+   "K02": "67431a20-f1b9-4f2a-9deb-cdfd4a28d5d7",
+   "K03": "993a5a84-ec8d-4f18-b64c-91f568ece888",
+   "K04": "d9887848-a0bc-49b1-b2f9-5ea711083487",
+   "K05": "1cdb8aa3-d1ba-426f-8238-186c530fb638",
+   "K06": "f4671efb-3c1a-41c4-a3a3-87f5e87d53a1",
+   "K07": "7dc47d49-dba0-40d7-a7cd-ee3bfbff89f7",
+   "K08": "b8aea305-1657-48a8-b035-691702e1fc77",
+   "K09": "e11ca3ae-a960-42df-81af-a4d73b75c060",
+   "K10": "b9be5c5d-c93f-499c-afac-d67541982552",
+   "K11": "c83850f9-da21-42ef-8f78-00b14ff85277"
   }
  }
 }
