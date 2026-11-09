@@ -190,3 +190,6 @@ beeld: 60 frames, anatomie en kleding per verhaalfase in orde, geen tekst of log
 de eindtekst viel over de gezichten van het stel. **Versie 1b**: eindtekst onderin met een zachte donkere band, de "man met een
 plan" krijgt een eigen shot (de ander met een planner op het terras, N141), "takeaway binned" toont nu afhaalbakjes in een
 vuilniszak (N142), en haar regel "I hope you did it for you" gebruikt een jas-shot (N122) zodat haar kleding in de brug klopt.
+
+**Download duet-video v1b** (de versie om te gebruiken; zip: mp4 1080x1920 crf 20, 86 MB; het liedje als mp3; de tekst):
+https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/15a7b67a-d8dc-4687-9870-f3310074bd49.zip
