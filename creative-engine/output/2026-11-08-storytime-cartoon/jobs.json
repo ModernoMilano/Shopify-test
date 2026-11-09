@@ -331,6 +331,12 @@
    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/15a7b67a-d8dc-4687-9870-f3310074bd49.zip",
    "plan": "tools/plan_duet_v1b.json"
   },
-  "qa_visual": "60 frames: anatomie ok, geen tekst/logo in beeld, kleding per fase klopt. Eén echt punt: eindtekst viel over de gezichten (slot N133) -> overlay naar onderin met donkere band (v1b). Kleine punten: C15 donkere kringen ogen, C17 bewogen handen, hoodie-verf op de haak wisselt tussen N104 en N131."
+  "qa_visual": "60 frames: anatomie ok, geen tekst/logo in beeld, kleding per fase klopt. Eén echt punt: eindtekst viel over de gezichten (slot N133) -> overlay naar onderin met donkere band (v1b). Kleine punten: C15 donkere kringen ogen, C17 bewogen handen, hoodie-verf op de haak wisselt tussen N104 en N131.",
+  "delivery_v2": {
+   "zip_media_id": "3e76cd26-301b-4128-b95d-0208f6a96a3d",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/3e76cd26-301b-4128-b95d-0208f6a96a3d.zip",
+   "plan": "tools/plan_duet_v2.json",
+   "song": "take 6 (media 539a8ab3), 132.4 s"
+  }
  }
 }

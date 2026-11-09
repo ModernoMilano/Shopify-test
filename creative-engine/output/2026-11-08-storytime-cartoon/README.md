@@ -204,3 +204,6 @@ Nieuwe gereedschappen in de sandbox: `linecheck.py` (per regel het aandeel lette
 merknaam wordt door de transcriptie als "Moderna-no Milano" geschreven) en `tighten.py` (knipt instrumentale gaten > 1,6 s op de
 maat weg; hier één gat van 1,4 s na regel 2). Deel 1 begon zonder intro. Duet-video v2 = dezelfde shots opnieuw getimed op de
 nieuwe regels (`tools/plan_duet_v2.json`), 0 extra credits.
+
+**Download duet-video v2** (take 6 van het liedje, 2:12; zip: mp4 1080x1920 crf 20, 84 MB; het liedje als mp3; de tekst):
+https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/3e76cd26-301b-4128-b95d-0208f6a96a3d.zip
