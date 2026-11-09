@@ -243,7 +243,13 @@
    "F1_58s": "d0623fe6-f005-4344-8c54-7c09c912f677",
    "F2_62s": "6fb83e79-790f-47b1-82de-e94797788511",
    "F3_58s": "e359cd2e-2170-4aef-9dca-fd225c04e9b8",
-   "note": "Tekst v4 \"Make an Effort\" (schrijverskamer-workflow wf_ac8bfa93): opening \"I lost my girlfriend to a stand collar.\""
+   "note": "Tekst v4 \"Make an Effort\" (schrijverskamer-workflow wf_ac8bfa93): opening \"I lost my girlfriend to a stand collar.\" F3 (brug+slot) afgekeurd: zangeres sloeg regels over en verhaspelde woorden (42/66 goed); E3 uit take 3 gebruikt (zelfde tekst op zijn ene regel na)."
+  },
+  "take4b_song_joined": {
+   "media_id": "e7d7eee9-85e7-4165-b943-669cb623ebd0",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/e7d7eee9-85e7-4165-b943-669cb623ebd0.mp3",
+   "duration_s": 128.2,
+   "parts": "F1 + F2 + E3"
   }
  }
 }
