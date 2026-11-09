@@ -508,8 +508,32 @@
    "K60": "6c6c7f2c-6f22-450f-9e1b-38316b673e80",
    "K21r": "4ae9ce4f-11dc-453e-b2bc-a1620aef661e",
    "K27r": "fb4a26bb-ec08-4356-8b63-a77090a440c1",
-   "K46r": "36beb4aa-045b-4c01-ad78-7ec731931cfc"
+   "K46r": "36beb4aa-045b-4c01-ad78-7ec731931cfc",
+   "K19_retake": "956f79be-cc61-4594-864c-08e7c20edbe8",
+   "K33_retake": "5e892b7b-1e27-44a1-ace1-63f640ce7c3b",
+   "K49_retake": "176380a0-79d9-48eb-8c1d-71a735624bbf"
   },
-  "video2_keyframes_note": "66 keyframes (1 cr elk) incl. karakterblad W_OTHER (het andere meisje), retakes K21 (mannen verwisseld), K27 (tweeluik), K46 (taart in beeld), extra K34b en K60 zodat geen shot hoeft te bevriezen. Shotlijst en prompts: tools/shots_v2.py."
+  "video2_keyframes_note": "66 keyframes (1 cr elk) incl. karakterblad W_OTHER (het andere meisje), retakes K21 (mannen verwisseld), K27 (tweeluik), K46 (taart in beeld), extra K34b en K60 zodat geen shot hoeft te bevriezen. Shotlijst en prompts: tools/shots_v2.py.",
+  "video2_clips_kling3_std": {
+   "K01": "0e00dce8-3fa3-462e-bf92-cc937d6f2351",
+   "K02": "93b080f2-91d0-45b5-91ca-5cc0f70081ed",
+   "K03": "168854ce-e1e1-4e3e-b62c-431ec7145d98",
+   "K04": "928e0102-e203-4ef9-80a5-163338481176",
+   "K05": "7950958b-d3e5-4461-a4c9-a554be1568f5",
+   "K06": "69c497d0-07bb-4174-99f5-fffce14036c4",
+   "K07": "08296db3-3759-4353-9054-16c4e8a4125b",
+   "K08": "cc43dde5-d39f-4dea-8451-24feafb83ef1",
+   "K09": "b134431f-e7ef-4b11-9f2c-fec6dea9bb15",
+   "K10": "62dc39fa-4fc8-4556-acb5-94d626397e1d",
+   "K11": "27e232ea-d27c-4b43-9323-5b402d886b26",
+   "K12": "c44d65fb-86db-444a-96ee-0f8956db20b1",
+   "K13": "7e475830-440b-4ec9-a84e-206c46e64400",
+   "K14": "c40cac64-c3a3-4b2c-b3ee-22b1347e4c6a",
+   "K15": "42d21bb6-74e7-4745-b1f2-fc3a90039b98",
+   "K16": "3e7f870a-a51d-40df-a146-33dc45ca9bb1",
+   "K17": "0a046c73-9f94-42b6-8c7c-a2e9e7cd9c35"
+  },
+  "video2_qa_keyframes": "Twee onafhankelijke controleurs (workflow): bevestigde grote punten K33 (man op de achtergrond in donker in plaats van oatmeal) en K49 (spiegelbeeld als reuzengezicht) -> beide opnieuw gemaakt (K33_retake, K49_retake); K19 (vlek op de kappersdoek) opnieuw; kleine punten (wazige schouder in navy bij K02/K40, camel-jas-vrouw op de achtergrond bij K34b/K57) geaccepteerd.",
+  "video2_clips_note": "Blok 1 = shots 1-17 (65 clipseconden, 97,5 credits). Cliplengte altijd >= shotlengte (3/4/5 s), geen stilstaande beelden. Plan: tools/shots_v2.py CLIPS."
  }
 }
