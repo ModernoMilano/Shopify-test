@@ -413,6 +413,13 @@
   "song_upload": {
    "media_id": "5b23b659-d1f1-4cf5-8566-ea6fb822b28b",
    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/5b23b659-d1f1-4cf5-8566-ea6fb822b28b.mp3"
+  },
+  "song_joined_take1": {
+   "media_id": "5b23b659-d1f1-4cf5-8566-ea6fb822b28b",
+   "duration_s": 162.2,
+   "parts": "X1 5.38-51.38, X2 4.04-54.71, X3 0-22.06, X4 8.71-54.56; join2 + tighten (1 knip)",
+   "linecheck": "alle 46 regels aanwezig; \"But a no is a no, and you knew\" 33% (gemompeld), rest 56-100%",
+   "onset_fix": "X1 en X2 begin met VAD gecorrigeerd (5.87 / 4.56 s)"
   }
  }
 }
