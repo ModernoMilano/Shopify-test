@@ -207,3 +207,15 @@ nieuwe regels (`tools/plan_duet_v2.json`), 0 extra credits.
 
 **Download duet-video v2** (take 6 van het liedje, 2:12; zip: mp4 1080x1920 crf 20, 84 MB; het liedje als mp3; de tekst):
 https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/3e76cd26-301b-4128-b95d-0208f6a96a3d.zip
+
+## Video 2, verhaal 3: liedje take 1 (9 november)
+
+Nieuw verhaal (door de eigenaar bepaald): hij is verliefd, zij wijst hem af omdat hij onverzorgd is, hij gaat werken aan kleding en verzorging, zij wil hem nu wel, maar alle meisjes lopen achter hem aan en hij kiest een ander. Duet met twee kanten: hij rapt zijn gedachten, zij zingt de hare na elk couplet.
+
+- Tekst: `story3_v1_lyrics.txt` (4 delen, volle zinnen, 9 tot 12 lettergrepen per rapregel, merknaam 2 keer: de onthulling aan de bar en de slotregel).
+- Stem: andere man dan in de duet-video (diepe, schorre bariton), 90 BPM, F mineur, Wurlitzer en gedempte trompet.
+- Delen X1 tot X4 (ElevenLabs, elk met intro die eraf is geknipt), samengevoegd met join2 (beat-uitgelijnde knippen, swell, 0,35 s crossfade) en tighten (1 knip van 1,33 s). Lengte 2:42 (162,2 s).
+- Controle op transcriptie: alle 46 regels aanwezig. Zwakste regel: "But a no is a no, and you knew" (33 procent herkend, waarschijnlijk gemompeld). "Moderno Milano" op het eind werd gehoord als "More than on Milano". Ik kan het geluid niet horen; de oren van de eigenaar beslissen.
+- Bestand: media 5b23b659-d1f1-4cf5-8566-ea6fb822b28b (zie `jobs.json`, `video2_story3_9nov.song_joined_take1`).
+- Kosten take 1: ongeveer 33 credits (4 delen van 50 tot 62 s).
+- Beelden volgen pas na goedkeuring van het liedje, volgens `story3_shotplan.md` (46 shots, alles bewegende clips, geen stilstaande frames, ongeveer 280 credits).
