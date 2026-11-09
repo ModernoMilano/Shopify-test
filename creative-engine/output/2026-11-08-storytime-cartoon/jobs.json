@@ -511,7 +511,9 @@
    "K46r": "36beb4aa-045b-4c01-ad78-7ec731931cfc",
    "K19_retake": "956f79be-cc61-4594-864c-08e7c20edbe8",
    "K33_retake": "5e892b7b-1e27-44a1-ace1-63f640ce7c3b",
-   "K49_retake": "176380a0-79d9-48eb-8c1d-71a735624bbf"
+   "K49_retake": "176380a0-79d9-48eb-8c1d-71a735624bbf",
+   "K25b": "54ebe456-8480-4c5f-b581-a877f0b0825e",
+   "K38b": "9e328db8-ce59-4d0e-95fc-8e9519127510"
   },
   "video2_keyframes_note": "66 keyframes (1 cr elk) incl. karakterblad W_OTHER (het andere meisje), retakes K21 (mannen verwisseld), K27 (tweeluik), K46 (taart in beeld), extra K34b en K60 zodat geen shot hoeft te bevriezen. Shotlijst en prompts: tools/shots_v2.py.",
   "video2_clips_kling3_std": {
@@ -540,6 +542,15 @@
    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/2388af19-b282-46cd-b505-c5a7215ce7f9.mp4",
    "duration_s": 60.59,
    "note": "shots 1-17 met song_Y en ondertitels (assemble2 met line_start-fix), crf 22"
-  }
+  },
+  "take3_v3_lyrics": {
+   "lyrics": "story3_v3_lyrics.txt",
+   "Z1": "6aa67a4a-a61b-4dbf-8678-ccf20508d8e9 (62 s)",
+   "Z2": "a06b4a16-b4cf-42d1-b285-fd0b65ec3f63 (52 s)",
+   "Z3": "NOG NIET: workspace zonder credits bij het starten (64 s nodig)",
+   "Z4": "a6ef3e3a-005e-4f98-a3f7-00de15203f84 (50 s)",
+   "note": "tekst v3 strak langs het verhaal van de eigenaar; twee controleurs (workflow) op verhaal en zingbaarheid, drie restanten van v2 verwijderd"
+  },
+  "video2_v3_map": "tools/shots_v3_map.py (regel -> keyframe; nieuwe keyframes K25b en K38b)"
  }
 }
