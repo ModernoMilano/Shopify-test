@@ -126,5 +126,24 @@
   "facebook_post_id": null,
   "facebook_error": "Confirm your identity before you can publish as this Page (owner action in the Facebook app)",
   "facebook_pending": true
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "am",
+  "source": "social/calendar.json",
+  "theme": "product_spotlight",
+  "handle": "perch-modern-cat-tree",
+  "products": [
+   "perch-modern-cat-tree"
+  ],
+  "images": [
+   "f_2026-11-09_0"
+  ],
+  "story": "st_2026-11-09",
+  "instagram_media_id": "18119532094790808",
+  "instagram_story_id": "18108749024573287",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page"
  }
 ]
