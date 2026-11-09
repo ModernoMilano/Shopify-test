@@ -399,5 +399,20 @@
    "media_id": "bc84dfa4-503e-4861-b288-c1e820709266",
    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/bc84dfa4-503e-4861-b288-c1e820709266.mp3"
   }
+ },
+ "video2_story3_9nov": {
+  "concept": "Definitief verhaal video 2 (eigenaar): hij is smoorverliefd, zij wijst hem af omdat hij onverzorgd is, hij gaat voor zichzelf zorgen, alle meiden lopen achter hem aan, zij wil hem nu wel, hij kiest een ander, zij blijft verdrietig achter. Duet met twee kanten: hij rapt zijn gedachten (lage schorre bariton, 90 BPM), zij zingt de hare (refrein, \"her thoughts\" na couplet 2, brug, slot). Merknaam 2x (bar-onthulling, slotregel). Hook zonder merk: \"The girl I loved said no to me. Twice.\"",
+  "lyrics": "story3_v1_lyrics.txt",
+  "take1_4parts": {
+   "X1_58s": "45fe92a3-e4c7-4123-b798-82f840922cc7",
+   "X2_62s": "33af1190-beef-4689-9fa4-211fb5962385",
+   "X3_50s": "3b0d65e9-1572-4316-95cd-34e2fee1546b",
+   "X4_55s": "9644ba07-f277-4bde-896b-d66a58a0aaf9"
+  },
+  "superseded": "video2_wedding_9nov (bruiloftverhaal, 4 delen gegenereerd maar niet gebruikt, ~31 credits)",
+  "song_upload": {
+   "media_id": "5b23b659-d1f1-4cf5-8566-ea6fb822b28b",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/5b23b659-d1f1-4cf5-8566-ea6fb822b28b.mp3"
+  }
  }
 }
