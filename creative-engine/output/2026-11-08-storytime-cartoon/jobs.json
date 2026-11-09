@@ -549,8 +549,10 @@
    "Z2": "a06b4a16-b4cf-42d1-b285-fd0b65ec3f63 (52 s)",
    "Z3": "NOG NIET: workspace zonder credits bij het starten (64 s nodig)",
    "Z4": "a6ef3e3a-005e-4f98-a3f7-00de15203f84 (50 s)",
-   "note": "tekst v3 strak langs het verhaal van de eigenaar; twee controleurs (workflow) op verhaal en zingbaarheid, drie restanten van v2 verwijderd"
+   "note": "tekst v3 strak langs het verhaal van de eigenaar; twee controleurs (workflow) op verhaal en zingbaarheid, drie restanten van v2 verwijderd",
+   "linecheck_pre": "Z1: tweede hook \"Look at us now\" (regel 6) niet gezongen (overgeslagen), rest 62-100%; Z2: alle regels; Z4: \"You did. And now you're gone\" niet gezongen, \"Moderno Milano\" gehoord als \"modern Milan\" (aanwezig). Plan: Z3 genereren en Z1/Z4 opnieuw proberen zodra er credits zijn, beste take per deel kiezen."
   },
-  "video2_v3_map": "tools/shots_v3_map.py (regel -> keyframe; nieuwe keyframes K25b en K38b)"
+  "video2_v3_map": "tools/shots_v3_map.py (regel -> keyframe; nieuwe keyframes K25b en K38b)",
+  "credits_blocker": "9 nov 21:35 UTC: saldo 0,95; auto-refill state payment_failed (drempel 150, 363 credits per bijvulling). Eigenaar moet bijkopen of betaalmethode herstellen."
  }
 }
