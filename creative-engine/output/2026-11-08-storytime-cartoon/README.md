@@ -170,3 +170,17 @@ later met nieuwe beelden en meerdere outfits. Eerst alleen het liedje. Zie `duet
   transcriptie (faster-whisper) welke regels ontbreken; toonhoogtemeting is onbetrouwbaar door de A-mineur-akkoorden op 110/220 Hz.
 - Kosten: ≈ 8,7 credits per deel van 60 s; een complete song in 3 delen ≈ 26 credits per take. Tot nu toe ≈ 114 credits aan het
   duet (proef, 2 takes van 2 delen, 2 takes van 3 delen, 1 herkansing van deel A).
+
+## Duet-video versie 1 (9 nov, nacht)
+
+Liedje: take 5 ("Make an Effort", tekst v5, twee ElevenLabs-delen met één naad op 1:08, gladgestreken met `join2.py`:
+knippen op de maat, omgekeerde swell van het volgende deel onder het vorige, korte crossfade). 142,5 s.
+Video: 43 shots, elke tekstregel een passend beeld (`tools/plan_duet_v1.json`). 26 shots hergebruikt uit versie 1,
+17 nieuw: zij zingt in close-up, zij eenzaam naast hem op de bank, zij aan haar raam, de volle bank ("lost and found"),
+Thomas in de oatmeal knit bij het winkelraam (twee shots), zij ziet hem door het raam (haar kant, haar close-up, hij loopt door),
+zij fatsoeneert haar jas in de spiegeling, zij aan zijn deur, hij doet open, de hoodie met verf aan de haak, zij stapt binnen,
+samen met de voorhoofden tegen elkaar, het stel in de Galleria (hij in taupe cashmere cardigan) met de eindoverlay.
+Kosten: 17 keyframes (17) + 14 clips (≈ 75) ≈ 92 credits. Job-ids in `jobs.json` onder `video_duet_9nov`.
+
+**Download duet-video v1** (zip: mp4 1080x1920 crf 20, 85 MB; het liedje als mp3; de tekst):
+https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/dab21e98-b7c5-4a40-9eb4-e30ef1296831.zip
