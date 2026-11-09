@@ -219,3 +219,13 @@ Nieuw verhaal (door de eigenaar bepaald): hij is verliefd, zij wijst hem af omda
 - Bestand: media 5b23b659-d1f1-4cf5-8566-ea6fb822b28b (zie `jobs.json`, `video2_story3_9nov.song_joined_take1`).
 - Kosten take 1: ongeveer 33 credits (4 delen van 50 tot 62 s).
 - Beelden volgen pas na goedkeuring van het liedje, volgens `story3_shotplan.md` (46 shots, alles bewegende clips, geen stilstaande frames, ongeveer 280 credits).
+
+## Video 2, verhaal 3: liedje take 2 (duet) en beelden (9 november)
+
+Eigenaar over take 1: opening te zwak, meer duetgevoel, beginnen met beide stemmen. Tekst v2 via een workflow (4 schrijvers, 3 beoordelaars, synthese, 2 controleurs): hook "Careful what you ask a man to be" door beide stemmen, daarna om en om (zij zingt, hij rapt), hook komt terug na couplet 2 en aan het slot; barscène als vraag en antwoord; merknaam 2 keer. Tekst: `story3_v2_lyrics.txt`.
+
+- Liedje take 2: delen Y1 tot Y4 (70/58/62/58 s, ongeveer 36 credits), samengevoegd tot 3:23 (media bf95551e). Alle 60 regels aanwezig op transcriptie.
+- Lessen: (1) de VAD-onsetfix zat bij Y2 fout (13,9 s in plaats van 10,2 s) en bij Y4 0,8 s te laat: nu altijd controleren met whisper op een uitgeknipt stuk rond het begin (`chain.py --onsetat`, `--firstfix`); (2) ElevenLabs herhaalde bij een te lange duur (70 s) het laatste couplet: weggeknipt op de maat met `cutpart.py`; (3) `chain.py` doet nu de hele keten in een keer.
+- Beelden: shotlijst met prompts in `tools/shots_v2.py` (59 shots, een per regel, plus K34b en K60 zodat geen shot hoeft te bevriezen). 66 keyframes (1 cr elk) incl. karakterblad van het andere meisje (W_OTHER). Retakes: K21 (mannen verwisseld), K27 (tweeluik), K46 (taart in beeld), K19 (vlek op de kappersdoek), K33 (achtergrondman in donker), K49 (spiegelbeeld als reuzengezicht). Twee onafhankelijke controleurs (workflow) bevestigden K33 en K49.
+- Clips: Kling 3.0 std, 3/4/5 s, cliplengte altijd >= shotlengte. Blok 1 (shots 1 tot 17, 65 s) = 97,5 credits. Hele video ongeveer 224 clipseconden = 336 credits; met liedje en keyframes ongeveer 440 credits in totaal (de eerdere schatting van 280 was voor 46 shots en een liedje van 2:40).
+- Ondertitels: `assemble2.py` koppelt nu geen woorden meer over een regelgrens (vlag `line_start` in de woordtijdlijn) en maakt alleen een grote DAG-kaart bij het woord DAY zelf (niet bij "days"). Grote kaarten: DAY ONE/TWO/THREE/TEN/FIFTEEN/TWENTY en MODERNO MILANO (2 keer).
