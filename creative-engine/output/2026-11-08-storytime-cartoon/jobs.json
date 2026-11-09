@@ -534,6 +534,12 @@
    "K17": "0a046c73-9f94-42b6-8c7c-a2e9e7cd9c35"
   },
   "video2_qa_keyframes": "Twee onafhankelijke controleurs (workflow): bevestigde grote punten K33 (man op de achtergrond in donker in plaats van oatmeal) en K49 (spiegelbeeld als reuzengezicht) -> beide opnieuw gemaakt (K33_retake, K49_retake); K19 (vlek op de kappersdoek) opnieuw; kleine punten (wazige schouder in navy bij K02/K40, camel-jas-vrouw op de achtergrond bij K34b/K57) geaccepteerd.",
-  "video2_clips_note": "Blok 1 = shots 1-17 (65 clipseconden, 97,5 credits). Cliplengte altijd >= shotlengte (3/4/5 s), geen stilstaande beelden. Plan: tools/shots_v2.py CLIPS."
+  "video2_clips_note": "Blok 1 = shots 1-17 (65 clipseconden, 97,5 credits). Cliplengte altijd >= shotlengte (3/4/5 s), geen stilstaande beelden. Plan: tools/shots_v2.py CLIPS.",
+  "video2_preview_block1": {
+   "media_id": "2388af19-b282-46cd-b505-c5a7215ce7f9",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/2388af19-b282-46cd-b505-c5a7215ce7f9.mp4",
+   "duration_s": 60.59,
+   "note": "shots 1-17 met song_Y en ondertitels (assemble2 met line_start-fix), crf 22"
+  }
  }
 }
