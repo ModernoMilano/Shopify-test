@@ -153,3 +153,20 @@ https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/ac0e5a70-
 **Download versie 1** (eerste versie, met de Black Week-eindkaart; zip: mp4 crf 20, 97 MB; song; tekst; eindkaart als png):
 https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/94c6f7e7-230f-4e84-a2f7-1271cc329b5d.zip
 (media-id 94c6f7e7-230f-4e84-a2f7-1271cc329b5d; de master op crf 17, 151 MB, staat in de sandbox als ~/tb/rapvid/full.mp4.)
+
+## Duet (versie 2 van het liedje): "hij rapt, zij zingt", 8–9 nov
+
+De eigenaar wil een versie met een beter verhaal (zij komt terug), van twee kanten: R&B, hij rapt, zij zingt met een mooie stem,
+later met nieuwe beelden en meerdere outfits. Eerst alleen het liedje. Zie `duet_v1_lyrics.md` (eerste tekst + hook-toernooi),
+`duet_v3_lyrics.txt` (take 3), `duet_v4_lyrics.md` (take 4), `duet_v5_lyrics.md` (gepolijst, nog niet gegenereerd) en `jobs.json`
+(`duet_8nov`). Geleerd over ElevenLabs Music v2.5 voor duetten:
+
+- Delen van ~60 s met ≤ 90 woorden (rap + refrein) of ≤ 125 woorden (alleen rap) blijven compleet; bij 150+ woorden per deel
+  laat de zangeres regels weg en gaat de rapper rennen. De rapper doet één regel per maat (≈ 2,8 s bij 88 BPM): 9–10 lettergrepen
+  per regel klinkt ontspannen, 13+ struikelt.
+- Elk deel krijgt toch een intro van ~10 s; die knippen we weg (join.py snijdt 0,4 s voor het eerste woord).
+- Stemtoewijzing is niet altijd correct: tag elke sectie met de stem ("[Chorus: female vocal]") en zet in de stijlprompt dat de
+  man zwijgt tijdens haar secties; het slot als aparte mini-secties (zijn regel / haar regels / duet). Controleer met de
+  transcriptie (faster-whisper) welke regels ontbreken; toonhoogtemeting is onbetrouwbaar door de A-mineur-akkoorden op 110/220 Hz.
+- Kosten: ≈ 8,7 credits per deel van 60 s; een complete song in 3 delen ≈ 26 credits per take. Tot nu toe ≈ 114 credits aan het
+  duet (proef, 2 takes van 2 delen, 2 takes van 3 delen, 1 herkansing van deel A).
