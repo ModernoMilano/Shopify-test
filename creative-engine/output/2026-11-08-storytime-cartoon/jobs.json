@@ -250,6 +250,21 @@
    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/e7d7eee9-85e7-4165-b943-669cb623ebd0.mp3",
    "duration_s": 128.2,
    "parts": "F1 + F2 + E3"
+  },
+  "take5_single_120s_FAILED": {
+   "job": "afda0ded-5984-49b1-912b-08496d6090a2",
+   "note": "Hele song (272 woorden, ~1.500 tekens) in 1 generatie van 120 s: geweigerd/failed. Tekstlimiet ligt tussen ~850 en ~1.000 tekens."
+  },
+  "take5_2parts_v5text": {
+   "G1_80s": "bd340953-67b1-44d0-bdbd-ee88a21aab02",
+   "G2_75s": "3658309b-5768-457f-8763-b2b345e3886d",
+   "note": "Tekst v5 in 2 delen (V1+refrein+V2 | V3+brug+slot) -> 1 naad, geplakt met join2.py (beat-uitgelijnd, omgekeerde swell, korte crossfade)."
+  },
+  "take5b_song_joined": {
+   "media_id": "7b406474-b0d6-4a5e-9605-899d9382240e",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/7b406474-b0d6-4a5e-9605-899d9382240e.mp3",
+   "duration_s": 142.45,
+   "parts": "G1 (9.08-77.6) + G2 (0-74.28), 1 naad op 68.2 s, join2.py"
   }
  }
 }
