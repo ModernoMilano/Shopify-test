@@ -226,6 +226,12 @@
    "D1b_60s_rijmende_opening": "651bafd7-2bb0-4721-a434-93ec17946b87",
    "note": "D1: intro 10 s, eerste refreinregel door hem; D2: rap te snel (2,9 w/s), regels aan elkaar; D3: haar stukken goed, duetregels rommelig. Eigenaar: opening niet goed, moet rijmen en op de beat; haar stukken wel goed -> tekst herschreven (metrisch, rijmschema-spel)."
   },
-  "note": "ElevenLabs Music v2.5, batch_size 1, ~0.145 cr/s. Merknaam 5x (3x gezongen) na verzoek eigenaar."
+  "note": "ElevenLabs Music v2.5, batch_size 1, ~0.145 cr/s. Merknaam 5x (3x gezongen) na verzoek eigenaar.",
+  "take3_3parts_metered": {
+   "E1_58s": "68ed2524-97c8-492f-9931-0e5028cc4751",
+   "E2_62s": "686c1c9f-9308-458a-a66d-5f4b0f984236",
+   "E3_58s": "36a93e6e-601a-4142-9151-288f64ebb94d",
+   "note": "Tekst v3: nieuwe opening (She said I am leaving / one sec), metrisch (9-11 lettergrepen, gelijk per rijmpaar), haar stukken behouden, merknaam 5x."
+  }
  }
 }
