@@ -265,6 +265,18 @@
    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/7b406474-b0d6-4a5e-9605-899d9382240e.mp3",
    "duration_s": 142.45,
    "parts": "G1 (9.08-77.6) + G2 (0-74.28), 1 naad op 68.2 s, join2.py"
+  },
+  "take6_2parts_v6text": {
+   "H1_80s": "e139c9c2-3bc3-49f2-a97e-1395525fd109",
+   "H2_75s": "207b1cdd-ff75-4f57-8025-e4c373051cd0",
+   "note": "Tekst v6: volledige zinnen, duidelijke verhaallijn, 84 BPM, \"no instrumental breaks\"; eigenaar: take 5 brabbelt, rare pauzes, stukken missen."
+  },
+  "take6_song_joined": {
+   "media_id": "539a8ab3-31ac-413f-8a00-b857feadf590",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/539a8ab3-31ac-413f-8a00-b857feadf590.mp3",
+   "duration_s": 132.4,
+   "join": "H1 0-70.04 + H2 9.9-74.02 (join2), gat 6.24-7.67 weggeknipt op de maat (tighten.py, 84 BPM)",
+   "linecheck": "alle 41 regels aanwezig; 80-100% letterlijk herkend, merknaam gehoord als Moderna-no Milano"
   }
  },
  "video_duet_9nov": {

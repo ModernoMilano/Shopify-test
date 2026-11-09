@@ -193,3 +193,14 @@ vuilniszak (N142), en haar regel "I hope you did it for you" gebruikt een jas-sh
 
 **Download duet-video v1b** (de versie om te gebruiken; zip: mp4 1080x1920 crf 20, 86 MB; het liedje als mp3; de tekst):
 https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/15a7b67a-d8dc-4687-9870-f3310074bd49.zip
+
+## Take 6 en duet-video v2 (9 nov)
+
+De eigenaar over take 5 in de video: "hij brabbelt, rare pauzes, er missen stukken, de teksten kloppen niet echt." Eerlijk:
+mijn controle liep via de transcriptie en die is te mild voor verstaanbaarheid en pauzes; ik kan het geluid zelf niet horen.
+Aanpak take 6: tekst v6 (`duet_v6_lyrics.txt`) in volledige, simpele zinnen met een duidelijke verhaallijn in plaats van
+telegramstijl, 84 BPM met de opdracht "storyteller, every word articulated, no instrumental breaks", twee delen met één naad.
+Nieuwe gereedschappen in de sandbox: `linecheck.py` (per regel het aandeel letterlijk herkende woorden; alles 80–100%, alleen de
+merknaam wordt door de transcriptie als "Moderna-no Milano" geschreven) en `tighten.py` (knipt instrumentale gaten > 1,6 s op de
+maat weg; hier één gat van 1,4 s na regel 2). Deel 1 begon zonder intro. Duet-video v2 = dezelfde shots opnieuw getimed op de
+nieuwe regels (`tools/plan_duet_v2.json`), 0 extra credits.
