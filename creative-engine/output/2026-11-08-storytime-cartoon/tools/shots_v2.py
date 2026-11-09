@@ -211,3 +211,38 @@ if __name__ == '__main__':
         print(json.dumps(reqs, ensure_ascii=False))
     elif mode == 'json':
         json.dump(S, open(sys.argv[2], 'w'), indent=1, ensure_ascii=False)
+
+# ---- clips: shot-tijden uit de tijdlijn (take 2, song_Y) en cliplengtes (3/4/5 s, nooit korter dan het shot) ----
+# Shotgrenzen: shot i loopt van t0_i tot t0_{i+1}; regels langer dan 5 s zijn gesplitst (34 -> K34 + K34b) of verschoven.
+CLIPS = [  # (key, t0, t1, dur)
+ ('K01',0.00,4.82,5),('K02',4.82,8.74,4),('K03',8.74,10.86,3),('K04',10.86,15.56,5),('K05',15.56,19.38,4),('K06',19.38,22.16,3),
+ ('K07',22.16,24.68,3),('K08',24.68,27.40,3),('K09',27.40,29.92,3),('K10',29.92,32.58,3),('K11',32.58,35.26,3),('K12',35.26,38.10,3),
+ ('K13',38.10,42.74,5),('K14',42.74,47.74,5),('K15',47.74,52.74,5),('K16',52.74,55.66,3),('K17',55.66,60.58,5),
+ ('K18',60.58,63.84,4),('K19',63.84,66.70,3),('K20',66.70,69.14,3),('K21r',69.14,71.98,3),('K22',71.98,74.60,3),('K23',74.60,77.28,3),
+ ('K24',77.28,79.92,3),('K25',79.92,82.48,3),('K26',82.48,85.16,3),('K27r',85.16,88.56,4),('K28',88.56,90.82,3),('K29',90.82,93.54,3),
+ ('K30',93.54,97.92,5),('K31',97.92,102.76,5),
+ ('K32',102.76,107.76,5),('K33',107.76,112.76,5),('K34',112.76,115.76,3),('K34b',115.76,118.78,4),('K35',118.78,123.78,5),
+ ('K36',123.78,127.02,4),('K37',127.02,129.70,3),('K38',129.70,132.58,3),('K39',132.58,134.92,3),('K40',134.92,139.92,5),('K41',139.92,144.83,5),
+ ('K42',144.83,147.71,3),('K43',147.71,150.29,3),('K44',150.29,153.19,3),('K45',153.19,156.92,4),
+ ('K46r',156.92,159.18,3),('K47',159.18,161.98,3),('K48',161.98,164.58,3),('K49',164.58,167.58,4),('K50',167.58,170.22,3),('K51',170.22,172.68,3),
+ ('K52',172.68,175.44,3),('K53',175.44,178.00,3),('K54',178.00,183.00,5),('K55',183.00,186.52,4),('K56',186.52,189.32,3),('K57',189.32,191.58,3),
+ ('K58',191.58,194.16,3),('K59',194.16,199.16,5),('K60',199.16,203.00,5),
+]
+EXTRA_MOTION = {
+ 'K34b': "Static camera. He walks on away from camera through the arcade, head high, shoulders back, one hand smoothing the ribbed collar; the crowd blurs ahead of him.",
+ 'K60': "Very slow push-in. Far away the two small figures walk on hand in hand into the glowing arcade and grow smaller; the lights shimmer on the wet mosaic floor; nothing else moves.",
+}
+if __name__ == '__main__' and len(sys.argv) > 1 and sys.argv[1] == 'clips':
+    ids = json.load(open(sys.argv[2])); ks = sys.argv[3].split(',')
+    base = {s['k']: s for s in S}
+    reqs = []
+    for k, t0, t1, dur in CLIPS:
+        if k not in ks: continue
+        src = k.replace('r', '') if k.endswith('r') else k
+        motion = EXTRA_MOTION.get(k) or base[src]['motion']
+        jid = ids.get(k) or ids.get(k.replace('r', '_retake')) or ids.get(k)
+        if not jid: print('MISSING id for', k, file=sys.stderr); continue
+        prompt = "3D animated feature-film look. " + motion + " Subtle natural performance only; everyone keeps exactly their face, hair, clothes and colours from the start frame. No text, no logos. One continuous take."
+        reqs.append({"index": int(''.join(c for c in k if c.isdigit())) + (100 if k.endswith('b') else 0), "params": {"model": "kling3_0", "mode": "std", "sound": "off", "duration": dur, "aspect_ratio": "9:16", "medias": [{"role": "start_image", "value": jid}], "prompt": prompt}})
+    print(json.dumps(reqs, ensure_ascii=False))
+    if len(sys.argv) > 4 and sys.argv[4] == 'cost': print('clip seconds', sum(d for k,_,_,d in CLIPS if k in ks), file=sys.stderr)
