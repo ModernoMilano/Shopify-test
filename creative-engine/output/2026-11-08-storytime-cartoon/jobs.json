@@ -338,5 +338,51 @@
    "plan": "tools/plan_duet_v2.json",
    "song": "take 6 (media 539a8ab3), 132.4 s"
   }
+ },
+ "duet2_9nov": {
+  "concept": "Video 2: zelfde hook, verhaalsmaak A met nieuwe scenes (Navigli, de ander gevraagd, dagteller met Dave, zus, tram), vier outfits; R&B 90 BPM, snellere maar duidelijke rap, zij zingt refrein en brug.",
+  "lyrics": "duet2_v7_lyrics.txt",
+  "take1_3parts": {
+   "J1_58s": "e3ba1ad9-5798-4596-8a21-c5dd5c0d5122",
+   "J2_45s": "ddd69ad2-4957-4d62-b9a2-db045a135045",
+   "J3_72s": "107e3007-fb62-4cd5-81b3-7f9ddbbe788f",
+   "note": "J2 failed (random), J3 liet \"Day two: it came\" en zijn slotregel weg -> opnieuw in 4 delen"
+  },
+  "song_upload": {
+   "media_id": "5d1ca50e-b654-440b-8375-027cd9e7fcbe",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/5d1ca50e-b654-440b-8375-027cd9e7fcbe.mp3"
+  },
+  "take1b_4parts": {
+   "J2_50s": "9abacc01-a481-400f-a3de-efc0e69ed367",
+   "J3_50s": "2fb67cc0-9511-4a95-8632-2efbf9d97d4b",
+   "J4_50s": "c4e9c142-d407-4ded-9e2f-6aa36446b6fc",
+   "J1_58s": "e3ba1ad9-5798-4596-8a21-c5dd5c0d5122",
+   "note": "J4 liet \"Mister Moderno Milano\" weg en verhaspelde het slot -> J4 opnieuw in 2 varianten"
+  },
+  "product_refs_imported": {
+   "torino_blazer_notte_model": "7d9bfc03-087d-446b-8ecd-71020fbf3101",
+   "full_zip_cardigan_taupe": "09dd8c48-6dec-4701-ba1a-1232a9d79335",
+   "lounge_set_beige": "3ec782e5-bf6a-4723-bed5-987854158c86",
+   "reverso_midnight_set": "4700d540-a5a1-4a9a-abfd-b159affae417"
+  },
+  "take1c_J4_variants": {
+   "J4a": "27399850-8dcf-4e19-9c1f-9552f4470d8e",
+   "J4b": "74b1d151-65f6-4543-a92b-e9821aa3083d"
+  },
+  "outfit_sheets_gpt_image_2_6": {
+   "T_blazer_notte": "c20b9e73-74a9-42b6-9983-e6127b59d646",
+   "T_cardigan_taupe": "b7459642-87d6-49b3-bb1a-b7016cef280a",
+   "T_reverso_navy": "4b4f96a5-c8c4-4751-ba47-16f241dc1f70",
+   "T_lounge_beige": "5c3f865a-5960-4dd3-a22c-e98f2e959739",
+   "T_cardigan_taupe_retake_no_hood": "b0747331-a3c4-4f9f-bc58-d82ef671648c"
+  },
+  "note_song": "J2 had een intro van 9,4 s die whisper over de eerste woorden uitsmeerde (eerste woord op 0.0); handmatig gecorrigeerd op 9.40 na VAD-check. J4b gekozen (haar regels consequent vrouwenstem).",
+  "song_joined_v7": {
+   "media_id": "d052741d-648a-4df5-97a7-ecf3c70105ec",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/d052741d-648a-4df5-97a7-ecf3c70105ec.mp3",
+   "duration_s": 130.1,
+   "parts": "J1 9.38-49.37, J2 8.71-33.37, J3 4.04-30.7, J4b 9.37-54.64; join2 + tighten (4 knips)",
+   "linecheck": "alle 39 regels aanwezig, 78-100% per regel"
+  }
  }
 }
