@@ -232,6 +232,18 @@
    "E2_62s": "686c1c9f-9308-458a-a66d-5f4b0f984236",
    "E3_58s": "36a93e6e-601a-4142-9151-288f64ebb94d",
    "note": "Tekst v3: nieuwe opening (She said I am leaving / one sec), metrisch (9-11 lettergrepen, gelijk per rijmpaar), haar stukken behouden, merknaam 5x."
+  },
+  "take3_song_joined": {
+   "media_id": "a34a9291-4a0d-4433-addc-242b37eb5558",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/a34a9291-4a0d-4433-addc-242b37eb5558.mp3",
+   "duration_s": 126.2,
+   "joinplan": "E1 cut 10.7-43.92, E2 9.44-55.5, E3 9.9-58.14, xfade 0.6"
+  },
+  "take4_3parts_alt_lyric": {
+   "F1_58s": "d0623fe6-f005-4344-8c54-7c09c912f677",
+   "F2_62s": "6fb83e79-790f-47b1-82de-e94797788511",
+   "F3_58s": "e359cd2e-2170-4aef-9dca-fd225c04e9b8",
+   "note": "Tekst v4 \"Make an Effort\" (schrijverskamer-workflow wf_ac8bfa93): opening \"I lost my girlfriend to a stand collar.\""
   }
  }
 }
