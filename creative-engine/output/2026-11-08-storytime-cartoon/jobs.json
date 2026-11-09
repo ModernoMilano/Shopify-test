@@ -266,5 +266,48 @@
    "duration_s": 142.45,
    "parts": "G1 (9.08-77.6) + G2 (0-74.28), 1 naad op 68.2 s, join2.py"
   }
+ },
+ "video_duet_9nov": {
+  "song": "take 5b, media 7b406474-b0d6-4a5e-9605-899d9382240e, 142.45 s, tijdlijn timeline_words_v5b.json",
+  "keyframes_gpt_image_2_6": {
+   "N101_window_oatmeal": "25006425-7a95-4a02-ab4a-4eac5927e2c0",
+   "N102_wave_reflection": "5ce49c70-5633-44cb-b88e-d24da1bbfb7f",
+   "N103_couch_lost_found": "9bf3e436-b59e-40d3-ab92-bcfc2436b72e",
+   "N104_hoodie_hook_paint": "924551cb-b715-4e27-9886-49dd1e082cf2",
+   "N111_her_singing_closeup": "3233fa36-79d3-40a2-b721-80e75624a788",
+   "N112_lonely_couch_twoshot": "4e537810-25b3-41c3-9630-9b0aca0c11bf",
+   "N113_her_window_dusk": "53e488c4-08f0-4b78-be48-120ec84e5ad6",
+   "N121_her_pov_him_window": "2edb2fdf-05e6-41ce-a4ff-96b6697df3c7",
+   "N122_her_watching_closeup": "b00e8c16-b54e-480f-862c-06653d5f4be3",
+   "N123_him_walks_oatmeal": "cd7e5c27-e0c7-42a6-9f08-55eb618e767e",
+   "N124_her_fixes_coat_reflection": "018c6ccf-1101-4bb4-8213-3bff5c7ea93e",
+   "N125_her_at_his_door": "41975608-63df-4e3f-86c5-a8974b76bae2",
+   "N126_he_opens_door": "ce8fbc66-7b0f-4e5f-8f5c-a84b3f1358aa",
+   "N131_she_steps_in": "035d5b8a-40ba-4ef2-bee6-0c81b969530c",
+   "N132_together_foreheads": "d43830c6-a53a-47c5-ad6f-2dd8d44bc27a",
+   "N133_couple_galleria_cardigan": "66e49374-2735-4a94-a7ff-4577a38cdb8f",
+   "N134_she_steps_in_loafers_retake": "b269fe7e-1d82-44f9-a79b-d663159f1670"
+  },
+  "clips_kling3_std": {
+   "N101": "f96c8008-4c62-42b4-9918-7cead5424746",
+   "N102": "f68d332e-2a74-443a-ac25-16f3007e0da1",
+   "N111": "f8691fb0-0b1b-4e48-bcfc-aa488b15f6a0",
+   "N112": "fb9220d4-6b4a-4de9-970b-ff6a1651b15c",
+   "N113": "b91def42-6126-42e0-9d42-abd2b9dcbe98",
+   "N121": "3a22d72a-aab5-4023-b4b2-6ac226bee2a6",
+   "N122": "8e67b4bd-465b-440d-b29f-4110a56bd011",
+   "N123": "11870767-8f64-4f98-9558-2e7040e0c726",
+   "N124": "944670f9-2b25-498d-9eb9-13eb895a8529",
+   "N125": "07e4bc69-e11d-4e75-bea7-44e247f62700",
+   "N126": "6db045ec-5318-4d36-b307-f7d076a2b3fe",
+   "N132": "fcb9f3a5-220e-4575-8358-fcc823e3f6ff",
+   "N133": "13d4f6aa-ec27-4121-bbfa-9fd6abb9af0a",
+   "N131_retake_from_N134": "d19d905f-e495-4ba2-b31a-1c1a25bba599"
+  },
+  "note": "N103 (bank) en N104 (hoodie aan haak) als stilstaand beeld; N131 (sneakers) vervangen door N134 met loafers. Plan: tools/plan_duet_v1.json.",
+  "delivery": {
+   "zip_media_id": "dab21e98-b7c5-4a40-9eb4-e30ef1296831",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/dab21e98-b7c5-4a40-9eb4-e30ef1296831.zip"
+  }
  }
 }
