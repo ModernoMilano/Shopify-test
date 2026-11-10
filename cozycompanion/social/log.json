@@ -145,5 +145,25 @@
   "facebook_post_id": null,
   "facebook_pending": true,
   "facebook_error": "Confirm your identity before you can publish as this Page"
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "am",
+  "source": "social/calendar.json",
+  "theme": "care_tip",
+  "handle": "polish-pet-nail-grinder",
+  "products": [
+   "polish-pet-nail-grinder"
+  ],
+  "reel": "r_2026-11-10_v1_ig",
+  "images": [
+   "f_2026-11-10_0"
+  ],
+  "story": "st_2026-11-10",
+  "instagram_media_id": "18110172806106440",
+  "instagram_story_id": "18119184922997983",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page"
  }
 ]
