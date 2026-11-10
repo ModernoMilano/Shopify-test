@@ -32,11 +32,11 @@ for i, e in enumerate(plan, 1):
         src = os.path.join(MEDIA, m["path"][2:]); assert os.path.exists(src), src
         files[m["path"]] = src
         m["size"] = os.path.getsize(src)
-    d0 = dt.date.fromisoformat(e["date"])           # the US day the post belongs to
+    d0 = dt.date.fromisoformat(e.get("us_date", e["date"]))   # the US day the post goes out
     night = t.date() != d0
     posts.append({
         "id": pid, "type": e["type"], "format": e["format"].removeprefix("Carousel · "), "caption": e["description"],
-        "day": e["date"], "dayLabel": f"{DAYS_LONG[d0.weekday()]} {d0.day} {MONTHS[d0.month - 1]}",
+        "day": d0.isoformat(), "dayLabel": f"{DAYS_LONG[d0.weekday()]} {d0.day} {MONTHS[d0.month - 1]}",
         "when": f"{DAYS[t.weekday()]} {t.day} {MONTHS[t.month - 1]} · {t:%H:%M}",
         "date": t.strftime("%d-%m-%Y"), "time": t.strftime("%H:%M"), "et": e["post_at_et"][11:],
         "night": night, "media": media,
@@ -52,7 +52,7 @@ for k, v in files.items():
 if cur: batches.append(cur)
 json.dump(batches, open(os.path.join(S, "social", "organic", "out", "planner_batches.json"), "w"), indent=1)
 
-first, last = plan[0]["date"], plan[-1]["date"]
+first, last = posts[0]["day"], posts[-1]["day"]
 fd, ld = dt.date.fromisoformat(first), dt.date.fromisoformat(last)
 RANGE = f"{fd.day}–{ld.day} {MONTHS[ld.month - 1]}"
 n_photo = sum(p["type"] == "photo" for p in posts); n_video = len(posts) - n_photo
@@ -76,6 +76,8 @@ Doe per post, in volgorde P01 t/m P35:
 
 Regels:
 - Kies nooit Nu posten (Post now). Alleen inplannen.
+- Kijk vóór je begint bij Berichten (Posts) → Gepland (Scheduled) welke posts al ingepland staan, en sla die over, zodat er niets dubbel komt (handig als je eerder bent gestopt).
+- Ligt de tijd van een post minder dan 30 minuten in de toekomst of al in het verleden, sla hem dan over en noteer hem.
 - Wijzig niets aan het profiel, de instellingen of bestaande posts, en start geen betaalde promotie.
 - Krijg je een foutmelding, captcha of verificatie, stop dan en vertel het mij.
 - Kan een foto-carrousel niet via de website worden ingepland, sla die post over en ga door met de volgende.
