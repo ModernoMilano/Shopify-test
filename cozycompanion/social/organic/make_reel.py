@@ -8,6 +8,7 @@ from PIL import Image
 from common import W, H, cover
 
 FPS, XF = 30, 0.4
+STILL = os.environ.get("CC_REEL_STILL") == "1"   # no Ken-Burns motion (owner: "rare inzoom effect ... helemaal eruit")
 
 def _prep(seg):
     base = cover(Image.open(seg["img"]), int(W * 1.22), int(H * 1.22), seg.get("focus", (0.5, 0.5)))
@@ -19,6 +20,8 @@ def _frame(seg, base, t):
     z0, z1 = seg.get("zoom", (1.0, 1.08)); z = z0 + (z1 - z0) * k
     (x0, y0), (x1, y1) = seg.get("pan", ((0.5, 0.5), (0.5, 0.5)))
     cx, cy = x0 + (x1 - x0) * k, y0 + (y1 - y0) * k
+    if STILL:  # owner 2026-11-10: no zoom/pan at all; hold the segment's widest framing
+        z, (cx, cy) = (z1, (x1, y1)) if z1 < z0 else (z0, (x0, y0))
     # the base is 1.22x the frame; at z=1 we show base/1.12 (leaves room to pan), zooming in shrinks the window
     cw, ch = base.width / (z * 1.12), base.height / (z * 1.12)
     left = max(0, min(base.width - cw, cx * base.width - cw / 2))
