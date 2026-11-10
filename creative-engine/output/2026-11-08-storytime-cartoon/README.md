@@ -238,3 +238,15 @@ De eigenaar: "wat is jouw verhaal in dit liedje, niet wat ik vroeg". Analyse: v2
 - Credits: saldo was op (0,95) en de automatische bijvulling stond op "betaling mislukt"; eigenaar kocht 500 credits.
 - Beelden: alle 66 keyframes van v2 hergebruikt plus K25b (hij stapt naar buiten in de navy set) en K38b (twee meisjes op een terras vragen waar hij koopt). Regel-naar-keyframe in `~/tb/rapvid/plan_v3.py` (SEQ); lange gezongen regels gesplitst over twee keyframes (11, 12, 13) of afgekapt op 5 s (15, 32). 14 clips van blok 1 hergebruikt, 51 nieuwe clips (184 s, ongeveer 276 credits), elk gecontroleerd op begin/midden/eindframe.
 - Les: Kling-clips nooit korter dan het shot; shots langer dan 5 s splitsen over twee beelden in plaats van een frame te bevriezen.
+
+## Video 2, verhaal 3: oplevering (10 november)
+
+- **Clipcontrole**: alle 51 nieuwe clips op begin-, midden- en eindframe bekeken (zelf plus twee onafhankelijke controleurs via een workflow). Twee clips afgekeurd en opnieuw gemaakt (12 credits): K06 (op de bank verscheen een los stuk pizza) en K05_2 (zijn gezicht dreef in de spiegel weg). Geaccepteerd met kleine schoonheidsfoutjes: K53 (korte witte veeg boven de kathedraal), K14_2 (wazig stuk pizza op de voorgrond), K47 (een extra man bij het sjouwen), K19r (de handen van de kapper verdwijnen even), K35 en K38b (hij loopt uit beeld).
+- **Ondertitelfout gevonden en hersteld**: `chain.py` zet de vlag `line_start` niet in de woordtijdlijn, waardoor `assemble2.py` in de eerste render 17 woordparen over een regelgrens heen maakte ("GATE OLD", "BEARD SHE", "NOW I" op de wissel van zijn stem naar de hare). De vlaggen zijn achteraf gezet (61 van 61 regels), "three-day" is weer één woord, en de video is opnieuw gerenderd: 249 kaarten, 2 grote (MODERNO MILANO bij 123 s en bij 187 s), 0 paren over een regelgrens. Les: na elke nieuwe tijdlijn eerst `tools/v3/`-controle draaien (aantal gevlagde woorden = aantal regels) voordat de render start.
+- **Eindcontrole op de video**: (controle door twee onafhankelijke controleurs loopt; uitkomst volgt hieronder)
+- **Bestanden**: `tools/plan_v3.py` (regel-naar-keyframe), `tools/assemble2.py` (render met ondertitels), `tools/frames2s.py` (controlestroken om de 2 s), `tools/v3/` (tijdlijnen, montageplan, clipverzoeken, keyframe-ids, eindoverlay, liedje-scripts en de vier gezongen delen).
+- **Kosten v3 in totaal**: liedje take 3 met retakes ≈ 50, keyframes 2, clips 51 × ≈ 5,4 ≈ 276, clip-retakes 12: ≈ 340 credits. Saldo na afloop: 172 credits (Plus-abonnement).
+- **Eerlijk**: ik kan het geluid niet horen; de controle van het liedje (alle 61 regels, aansluiting van de vier delen) liep via transcriptie en de tijdlijn. De tweede hook voor couplet 1 werd door ElevenLabs niet gezongen en is uit de tekst gehaald. De oren van de eigenaar beslissen.
+
+**Download video 2, verhaal 3** (zip: mp4 1080x1920 crf 20; het liedje als mp3; de tekst):
+(volgt na de controle)
