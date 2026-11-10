@@ -1,4 +1,4 @@
-# Verhaal 3, tekst v3: strak langs het verhaal van de eigenaar (zij wijst hem af om zijn verzorging, hij gaat aan kleding en verzorging werken, zij wil hem heel graag, alle meiden willen hem, dus hij kiest een ander, zij is verdrietig). Duet: hij rapt, zij zingt, hook 'Look at us now' door beide stemmen.
+# Verhaal 3, tekst v3: strak langs het verhaal van de eigenaar (zij wijst hem af om zijn verzorging, hij gaat aan kleding en verzorging werken, zij wil hem heel graag, alle meiden willen hem, dus hij kiest een ander, zij is verdrietig). Duet: hij rapt, zij zingt, hook 'Look at us now' door beide stemmen. Take 3 (10 nov): de tweede hook voor couplet 1 werd door ElevenLabs niet gezongen en is uit de tekst gehaald; de gezongen regels met tijden staan in tools/timeline_lines_Z.json.
 
 ## Part 1
 [Intro hook: both voices together, sung]
@@ -15,9 +15,6 @@ Now I can't stop looking
 
 [Him: male rap]
 Now I can't stop them calling
-
-[Both voices together, sung]
-Look at us now
 
 [Verse 1: male rap]
 I was so in love with her, I couldn't think straight

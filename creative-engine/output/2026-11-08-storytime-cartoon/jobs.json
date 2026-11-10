@@ -1,626 +1,631 @@
 {
- "voice_tests_8nov": {
-  "model": "seed_audio",
-  "text": "hook-regel van script v1 (62 woorden)",
-  "Reid": "2a2f1e76-8678-45af-89b3-b69db36ada7e",
-  "Dylan": "c5f3a423-cd15-4fcc-b538-605fac4887d5",
-  "Kevin": "2bf99e8b-dd95-4005-915b-952bbcd85a4c",
-  "John": "04f73e5c-0fd4-44e4-bfca-0109bcafd931",
-  "Andre": "0ab18458-8718-43a3-9045-51e160a80b00",
-  "Harrison": "953f44af-25c5-4ca2-adec-df3cceb3b22b",
-  "Barrett": "ff3b87ca-f0ad-47b5-82fb-5b7e184a6ba3",
-  "gekozen": "Harrison (eigenaar, 8 nov), preset 573e5163-59b3-4926-aab1-951ef2985f81",
-  "meting": "voorbeeldstem f0 ~174 Hz (p25 155, p75 178), ~190-210 wpm; Kevin 170 Hz/205 wpm, Harrison 167 Hz/187 wpm, Dylan 186/207, Andre 193/153, Reid 184/105, John 144/160, Barrett 123/135"
- },
- "style_test_8nov": {
-  "model": "gpt_image_2_6 quality medium 2k (1 credit per beeld)",
-  "master_cafe_duomo": "07361651-c94e-406f-9a2e-4dd368f92108",
-  "hero_sheet_navy_reverso": "cc30e31f-f254-4602-9666-733e01dd5b96",
-  "narrator_sheet_grey_hoodie": "f2d47eb2-2f89-4cdd-8ecf-88d938affb6f",
-  "kling_std_test_5s": "edcb5977-e587-49ee-bfc6-b45b1def8816",
-  "notities": "stijlmaster: gilet oogt gewatteerd, in productie 'smooth unpadded' afdwingen; karakterbladen goed bruikbaar als referentie"
- },
- "reference_ad": {
-  "advertiser": "Penrose Skin",
-  "ad_archive_id": "1092227623428399",
-  "duration_s": 206.26,
-  "size": "720x1280 24 fps",
-  "cuts": "~99 shots, gemiddeld 2,1 s",
-  "analysis_workflow": "wf_4ca1b84b-4ab"
- },
- "preview_hook_8nov": {
-  "voice_seed_audio_harrison": {
-   "vo0": "bc913b0f-5cd6-4217-aecf-ae09e14a7a7a",
-   "vo1": "3c4ba741-4cce-4791-afb5-3659baba1d2b",
-   "vo2": "3c8fc323-4392-4e30-b74c-63a89b317ba3",
-   "vo3": "53bdca74-04b4-444c-8a26-21aa4b938b89",
-   "vo4": "3d3d89db-a884-4cda-b22d-6563ba68351d"
+  "voice_tests_8nov": {
+    "model": "seed_audio",
+    "text": "hook-regel van script v1 (62 woorden)",
+    "Reid": "2a2f1e76-8678-45af-89b3-b69db36ada7e",
+    "Dylan": "c5f3a423-cd15-4fcc-b538-605fac4887d5",
+    "Kevin": "2bf99e8b-dd95-4005-915b-952bbcd85a4c",
+    "John": "04f73e5c-0fd4-44e4-bfca-0109bcafd931",
+    "Andre": "0ab18458-8718-43a3-9045-51e160a80b00",
+    "Harrison": "953f44af-25c5-4ca2-adec-df3cceb3b22b",
+    "Barrett": "ff3b87ca-f0ad-47b5-82fb-5b7e184a6ba3",
+    "gekozen": "Harrison (eigenaar, 8 nov), preset 573e5163-59b3-4926-aab1-951ef2985f81",
+    "meting": "voorbeeldstem f0 ~174 Hz (p25 155, p75 178), ~190-210 wpm; Kevin 170 Hz/205 wpm, Harrison 167 Hz/187 wpm, Dylan 186/207, Andre 193/153, Reid 184/105, John 144/160, Barrett 123/135"
   },
-  "music_elevenlabs_24s": "86fa0b71-c751-4e84-b0c4-bcbddf490aeb",
-  "keyframes_gpt_image_2_6": {
-   "S1_table": "915ac841-6d18-449a-9dd7-fa98badf8ea3",
-   "S2_thomas": "5663d1dd-f81a-4f49-a20e-5dc0ad94d889",
-   "S3_wide": "27ad918a-8088-46f5-9c27-8164247bd32e",
-   "S4_mother": "7ecbf8cd-594c-4488-91fd-520122dd85d9"
+  "style_test_8nov": {
+    "model": "gpt_image_2_6 quality medium 2k (1 credit per beeld)",
+    "master_cafe_duomo": "07361651-c94e-406f-9a2e-4dd368f92108",
+    "hero_sheet_navy_reverso": "cc30e31f-f254-4602-9666-733e01dd5b96",
+    "narrator_sheet_grey_hoodie": "f2d47eb2-2f89-4cdd-8ecf-88d938affb6f",
+    "kling_std_test_5s": "edcb5977-e587-49ee-bfc6-b45b1def8816",
+    "notities": "stijlmaster: gilet oogt gewatteerd, in productie 'smooth unpadded' afdwingen; karakterbladen goed bruikbaar als referentie"
   },
-  "clips_kling3_std": {
-   "S1": "2376e3d9-5722-461a-ae83-b971aab82f01",
-   "S2": "e78de754-4134-41f7-92b8-1f040977b9d1",
-   "S3": "247b26c5-9f32-49f7-9d7b-0ab5368860da",
-   "S4": "01e95043-6f13-44cb-b90d-9a2cb7d1730d"
+  "reference_ad": {
+    "advertiser": "Penrose Skin",
+    "ad_archive_id": "1092227623428399",
+    "duration_s": 206.26,
+    "size": "720x1280 24 fps",
+    "cuts": "~99 shots, gemiddeld 2,1 s",
+    "analysis_workflow": "wf_4ca1b84b-4ab"
   },
-  "montage": "tools/assemble_preview.py + tools/preview_plan.json: 13,05 s, 1080x1920 24 fps, stem met pauzes 0,2-0,35 s, muziek -6 dB met sidechain-ducking, captions Montserrat Black caps wit met outline, caphoogte 3% op 63% van de hoogte, 1-2 woorden per kaart",
-  "lessen": [
-   "labels in ffmpeg-filtergraphs nooit één letter ([v], [a]) en elke label maar één keer gebruiken (asplit)",
-   "gpt_image_2_6 geeft 429 rate_limit bij 4 gelijktijdige verzoeken: in groepjes van 2 indienen",
-   "Seed Audio: max 2048 tekens per verzoek; per zin genereren geeft de timing voor de ondertitels",
-   "Kling 3.0 std levert 720x1276 bij 9:16, 24 fps; opschalen naar 1080x1920 is voor cartoon prima"
-  ]
- },
- "rap_tests_8nov": {
-  "model": "elevenlabs_music_v2_5 met eigen lyrics",
-  "failed": {
-   "e1eef8c3": "deel A (intro+couplet 1-3, ~280 woorden, ~1.560 tekens), 100 s, batch 2: failed zonder reden",
-   "b4ba708f": "zelfde tekst met simpele tags, 100 s, batch 1: failed"
+  "preview_hook_8nov": {
+    "voice_seed_audio_harrison": {
+      "vo0": "bc913b0f-5cd6-4217-aecf-ae09e14a7a7a",
+      "vo1": "3c4ba741-4cce-4791-afb5-3659baba1d2b",
+      "vo2": "3c8fc323-4392-4e30-b74c-63a89b317ba3",
+      "vo3": "53bdca74-04b4-444c-8a26-21aa4b938b89",
+      "vo4": "3d3d89db-a884-4cda-b22d-6563ba68351d"
+    },
+    "music_elevenlabs_24s": "86fa0b71-c751-4e84-b0c4-bcbddf490aeb",
+    "keyframes_gpt_image_2_6": {
+      "S1_table": "915ac841-6d18-449a-9dd7-fa98badf8ea3",
+      "S2_thomas": "5663d1dd-f81a-4f49-a20e-5dc0ad94d889",
+      "S3_wide": "27ad918a-8088-46f5-9c27-8164247bd32e",
+      "S4_mother": "7ecbf8cd-594c-4488-91fd-520122dd85d9"
+    },
+    "clips_kling3_std": {
+      "S1": "2376e3d9-5722-461a-ae83-b971aab82f01",
+      "S2": "e78de754-4134-41f7-92b8-1f040977b9d1",
+      "S3": "247b26c5-9f32-49f7-9d7b-0ab5368860da",
+      "S4": "01e95043-6f13-44cb-b90d-9a2cb7d1730d"
+    },
+    "montage": "tools/assemble_preview.py + tools/preview_plan.json: 13,05 s, 1080x1920 24 fps, stem met pauzes 0,2-0,35 s, muziek -6 dB met sidechain-ducking, captions Montserrat Black caps wit met outline, caphoogte 3% op 63% van de hoogte, 1-2 woorden per kaart",
+    "lessen": [
+      "labels in ffmpeg-filtergraphs nooit één letter ([v], [a]) en elke label maar één keer gebruiken (asplit)",
+      "gpt_image_2_6 geeft 429 rate_limit bij 4 gelijktijdige verzoeken: in groepjes van 2 indienen",
+      "Seed Audio: max 2048 tekens per verzoek; per zin genereren geeft de timing voor de ondertitels",
+      "Kling 3.0 std levert 720x1276 bij 9:16, 24 fps; opschalen naar 1080x1920 is voor cartoon prima"
+    ]
   },
-  "ok": {
-   "3de9714a-d279-4458-b1ee-ed5fdac23ac9": "couplet 1-2 (~150 woorden, ~900 tekens), 60 s: gelukt; stem aanwezig (spraakmodulatie 0,94), stille intro 0-10 s, beat valt op 10 s, ~136 bpm"
+  "rap_tests_8nov": {
+    "model": "elevenlabs_music_v2_5 met eigen lyrics",
+    "failed": {
+      "e1eef8c3": "deel A (intro+couplet 1-3, ~280 woorden, ~1.560 tekens), 100 s, batch 2: failed zonder reden",
+      "b4ba708f": "zelfde tekst met simpele tags, 100 s, batch 1: failed"
+    },
+    "ok": {
+      "3de9714a-d279-4458-b1ee-ed5fdac23ac9": "couplet 1-2 (~150 woorden, ~900 tekens), 60 s: gelukt; stem aanwezig (spraakmodulatie 0,94), stille intro 0-10 s, beat valt op 10 s, ~136 bpm"
+    },
+    "hypothese": "eigen lyrics falen boven ~1.000 tekens of ~2,5 woorden per seconde; delen van 60-75 s met <=170 woorden gebruiken",
+    "kosten": "60 s met zang ~8,7 credits; mislukte jobs niet in rekening gebracht (te controleren op saldo)"
   },
-  "hypothese": "eigen lyrics falen boven ~1.000 tekens of ~2,5 woorden per seconde; delen van 60-75 s met <=170 woorden gebruiken",
-  "kosten": "60 s met zang ~8,7 credits; mislukte jobs niet in rekening gebracht (te controleren op saldo)"
- },
- "rap_parts_8nov": {
-  "A1 (met intro, 65 s)": "efbc5154-bfae-415a-8baa-23eb265dbaf9  stem begint pas op 13,6 s: afgekeurd door de eigenaar (geen lange intro)",
-  "A2 (zonder intro, 60 s)": "af4ac991-c673-43af-88f4-01f1282afe57",
-  "B1 (couplet 3-4, 60 s)": "9fbf05f5-454c-4204-968f-35ca3dac83b6  stem 7,1-55,7 s; merknaam op 42,7 s",
-  "C1 (couplet 5-6 + outro, 75 s)": "35571a0d-20d4-4aa1-943c-b811c708c4bd  stem 14,5-64,2 s; merknaam op 40,4 en 54,2 s; laatste regel 'Moderno Milano. Timeless. Refined. You.' lijkt zonder merknaam te zijn gezongen",
-  "controle": "faster-whisper small in de sandbox (transcripts.json); merknaam gehoord als 'modern or Milan' / 'modern on Milano'",
-  "kosten": "saldo 352 -> 228 voor deze vier generaties (batch_size 3 wordt in rekening gebracht maar levert via de API maar één bestand): voortaan batch_size 1",
-  "check_zip": "ead2b97b-3574-478b-981a-ae6a5b4c0932 (merknaamfragmenten + delen)",
-  "C2 (couplet 5-6 + outro, 75 s, zonder intro, extra merknaamregel)": "e2407270-ca9f-483e-92c0-9724691dcde3",
-  "eigenaar": "uitspraak in fragment 1 (deel B, couplet 4) is perfect (8 nov 20:36)",
-  "A3 (premisse expliciet: 'My girlfriend left me for a guy in Moderno Milano', 62 s)": "850dc3f2-6395-444b-a36f-1499f0972424",
-  "eigenaar 20:40": "in B en C los is de rode draad niet te horen; de premisse moet in het eerste couplet letterlijk staan"
- },
- "rap_song_v2": {
-  "onderdelen": "A3 (850dc3f2) 6,1-57,9 s + B1 (9fbf05f5) 6,7-57,0 s + C2 (e2407270) 13,2-74,5 s",
-  "join": "join.py: per deel loudnorm -14 LUFS, crossfade 0,5 s, totaal 162,4 s",
-  "zip_media": "9e9faece-701a-48cd-858d-b38ca3eaa872",
-  "check": "faster-whisper: A3 178/192 woorden exact, B1 139/151, C2 166/182; merknaam 6x (A3 2x, B1 1x, C2 3x)"
- },
- "video_partA_8nov": {
-  "keyframes_gpt_image_2_6": {
-   "K01_thomas_couch": "21ff8c10-ef9f-4885-9369-6b1c90f5c5c7",
-   "K02_bed_photo": "add113c8-1a40-4ce1-95ba-e59e9dfb5e85",
-   "K04_mother_wine": "c1eb3ab6-046c-4236-8238-fb0406b068e2",
-   "K06_knee_hole": "c09345a3-fa79-4d58-8c35-4861ad241599",
-   "K08_she_waiter": "a2e49a0b-4fbd-47f2-89ce-e30c8bb78c6c",
-   "K09_she_leaves": "409134fb-9ca7-464e-bb18-f14119647798",
-   "K10_note": "32d5807e-11ce-48b7-ac31-4934064a0fef",
-   "K12_hero_espresso": "9dd99081-3774-4528-8f9c-62c4ea1aad50",
-   "K13_bed_phone": "9b63a581-7696-4149-8ebf-e5f6b45042e1",
-   "K141_gilet_detail": "12da8697-1270-41c8-a131-4986304c811b",
-   "K142_loafers": "a35c19ec-b1c0-4856-84eb-cb0dc587212c",
-   "K15_hoodie_vs_hero": "2a35efc2-803b-4c34-82df-cc5ff1f9d326",
-   "K16_she_laughs": "46045520-f4c1-4e84-81de-0a1a0d4bec6e"
+  "rap_parts_8nov": {
+    "A1 (met intro, 65 s)": "efbc5154-bfae-415a-8baa-23eb265dbaf9  stem begint pas op 13,6 s: afgekeurd door de eigenaar (geen lange intro)",
+    "A2 (zonder intro, 60 s)": "af4ac991-c673-43af-88f4-01f1282afe57",
+    "B1 (couplet 3-4, 60 s)": "9fbf05f5-454c-4204-968f-35ca3dac83b6  stem 7,1-55,7 s; merknaam op 42,7 s",
+    "C1 (couplet 5-6 + outro, 75 s)": "35571a0d-20d4-4aa1-943c-b811c708c4bd  stem 14,5-64,2 s; merknaam op 40,4 en 54,2 s; laatste regel 'Moderno Milano. Timeless. Refined. You.' lijkt zonder merknaam te zijn gezongen",
+    "controle": "faster-whisper small in de sandbox (transcripts.json); merknaam gehoord als 'modern or Milan' / 'modern on Milano'",
+    "kosten": "saldo 352 -> 228 voor deze vier generaties (batch_size 3 wordt in rekening gebracht maar levert via de API maar één bestand): voortaan batch_size 1",
+    "check_zip": "ead2b97b-3574-478b-981a-ae6a5b4c0932 (merknaamfragmenten + delen)",
+    "C2 (couplet 5-6 + outro, 75 s, zonder intro, extra merknaamregel)": "e2407270-ca9f-483e-92c0-9724691dcde3",
+    "eigenaar": "uitspraak in fragment 1 (deel B, couplet 4) is perfect (8 nov 20:36)",
+    "A3 (premisse expliciet: 'My girlfriend left me for a guy in Moderno Milano', 62 s)": "850dc3f2-6395-444b-a36f-1499f0972424",
+    "eigenaar 20:40": "in B en C los is de rode draad niet te horen; de premisse moet in het eerste couplet letterlijk staan"
   },
-  "clips_kling3_std": {
-   "C01": "e306828e-81e5-4dc7-9b85-953dd2a6d2b5",
-   "C02": "6b976526-58b0-4722-a52b-b028a43b538c",
-   "C04": "aefb9436-f6df-4d1d-8192-b18d43e22d62",
-   "C06": "63c803e1-5b35-47f5-a29d-d78c44711237",
-   "C08": "37c9da25-9bd7-4b50-81f7-9fe43dbd787b",
-   "C09": "f7a88a89-f537-439f-a8c7-a17e8f41e35b",
-   "C10": "9c899687-25b3-47bf-822a-3e31e0cbe6f3",
-   "C12": "232409be-ded1-47a1-a38e-995ce794f51b",
-   "C13": "eb907292-f773-4e63-a9d3-898222e12a90",
-   "C141": "248d37f8-5015-457a-947d-cd5ccacc0017",
-   "C142": "ee9ff9a7-0d62-416c-9732-d97eacc96568",
-   "C15": "96578251-8822-4ea7-8c7d-e82ec14fea28",
-   "C16": "389761fc-fd89-4a77-b94c-a9a538a973db"
+  "rap_song_v2": {
+    "onderdelen": "A3 (850dc3f2) 6,1-57,9 s + B1 (9fbf05f5) 6,7-57,0 s + C2 (e2407270) 13,2-74,5 s",
+    "join": "join.py: per deel loudnorm -14 LUFS, crossfade 0,5 s, totaal 162,4 s",
+    "zip_media": "9e9faece-701a-48cd-858d-b38ca3eaa872",
+    "check": "faster-whisper: A3 178/192 woorden exact, B1 139/151, C2 166/182; merknaam 6x (A3 2x, B1 1x, C2 3x)"
   },
-  "hergebruik": {
-   "S1 restaurant": "2376e3d9-5722-461a-ae83-b971aab82f01",
-   "S2 thomas closeup": "e78de754-4134-41f7-92b8-1f040977b9d1",
-   "S3 tafel wide": "247b26c5-9f32-49f7-9d7b-0ab5368860da",
-   "master cafe": "edcb5977-e587-49ee-bfc6-b45b1def8816"
+  "video_partA_8nov": {
+    "keyframes_gpt_image_2_6": {
+      "K01_thomas_couch": "21ff8c10-ef9f-4885-9369-6b1c90f5c5c7",
+      "K02_bed_photo": "add113c8-1a40-4ce1-95ba-e59e9dfb5e85",
+      "K04_mother_wine": "c1eb3ab6-046c-4236-8238-fb0406b068e2",
+      "K06_knee_hole": "c09345a3-fa79-4d58-8c35-4861ad241599",
+      "K08_she_waiter": "a2e49a0b-4fbd-47f2-89ce-e30c8bb78c6c",
+      "K09_she_leaves": "409134fb-9ca7-464e-bb18-f14119647798",
+      "K10_note": "32d5807e-11ce-48b7-ac31-4934064a0fef",
+      "K12_hero_espresso": "9dd99081-3774-4528-8f9c-62c4ea1aad50",
+      "K13_bed_phone": "9b63a581-7696-4149-8ebf-e5f6b45042e1",
+      "K141_gilet_detail": "12da8697-1270-41c8-a131-4986304c811b",
+      "K142_loafers": "a35c19ec-b1c0-4856-84eb-cb0dc587212c",
+      "K15_hoodie_vs_hero": "2a35efc2-803b-4c34-82df-cc5ff1f9d326",
+      "K16_she_laughs": "46045520-f4c1-4e84-81de-0a1a0d4bec6e"
+    },
+    "clips_kling3_std": {
+      "C01": "e306828e-81e5-4dc7-9b85-953dd2a6d2b5",
+      "C02": "6b976526-58b0-4722-a52b-b028a43b538c",
+      "C04": "aefb9436-f6df-4d1d-8192-b18d43e22d62",
+      "C06": "63c803e1-5b35-47f5-a29d-d78c44711237",
+      "C08": "37c9da25-9bd7-4b50-81f7-9fe43dbd787b",
+      "C09": "f7a88a89-f537-439f-a8c7-a17e8f41e35b",
+      "C10": "9c899687-25b3-47bf-822a-3e31e0cbe6f3",
+      "C12": "232409be-ded1-47a1-a38e-995ce794f51b",
+      "C13": "eb907292-f773-4e63-a9d3-898222e12a90",
+      "C141": "248d37f8-5015-457a-947d-cd5ccacc0017",
+      "C142": "ee9ff9a7-0d62-416c-9732-d97eacc96568",
+      "C15": "96578251-8822-4ea7-8c7d-e82ec14fea28",
+      "C16": "389761fc-fd89-4a77-b94c-a9a538a973db"
+    },
+    "hergebruik": {
+      "S1 restaurant": "2376e3d9-5722-461a-ae83-b971aab82f01",
+      "S2 thomas closeup": "e78de754-4134-41f7-92b8-1f040977b9d1",
+      "S3 tafel wide": "247b26c5-9f32-49f7-9d7b-0ab5368860da",
+      "master cafe": "edcb5977-e587-49ee-bfc6-b45b1def8816"
+    }
+  },
+  "video_partB_8nov": {
+    "keyframes_gpt_image_2_6": {
+      "K17_suit_office": "c7003ae9-e151-4f02-8171-7e71bcd706f0",
+      "K18_boss": "2c75dbfc-e239-4e40-911e-002969f8ad2e",
+      "K19_influencer_mirror": "9251c664-d249-4f63-9064-8595fa03f3ea",
+      "K20_sister": "3216e326-5f6a-404c-a4fe-d682451d6bff",
+      "K21_grey_street": "6c7564c0-e317-45d1-b657-bb142d4eb907",
+      "K22_hero_coffeebar": "a0d6beda-46b6-419a-a882-941964944404",
+      "K23_embarrassed_closeup": "8f218121-97a7-4b59-8be0-91d74897ce7c",
+      "K24_asks_the_man": "36559ff4-6c0e-44f6-ad7e-cc17c6d9451c",
+      "K25_hero_answers": "9a189cc1-e95d-4658-8c6a-66db4e32a4a4",
+      "K26_hero_gestures_outfit": "6e6a51bf-e7dd-4b43-8a2b-0968e638247e",
+      "K27_hero_shows_phone_duomo": "5a2128ec-5f58-437d-a5f6-3de3d701e308",
+      "K28_wardrobe_two_sets": "88b0d3a6-976b-4d20-a3a1-fcf94696dce0",
+      "K29_laptop_order": "cf250e3c-0263-4482-9e68-6fcc080e7eb7",
+      "K30_chains_drawer": "3e113e8a-03c6-4fe7-8b8f-c0058af35b09"
+    },
+    "clips_kling3_std": {
+      "C17": "323354ac-0cd9-4c06-a904-e0803be16d08",
+      "C18": "e4675dfd-230d-4714-b71a-62f75e74de8f",
+      "C19": "316e605e-babe-4a6f-a133-c90dc2b0ff1b",
+      "C20": "a0f9a952-96a1-4323-919c-bd19b24233ae",
+      "C21": "966fbb3c-da46-4b12-b805-cdb52d0bf046",
+      "C22": "3d76493a-c407-4fdb-a805-21e118348b92",
+      "C23": "17e4bac6-8a8e-4efa-a6d8-baa00b5615cf",
+      "C24": "79572f0c-d552-4a12-bb89-339a11de72d4",
+      "C25": "76ceaa04-9ab0-4baf-99a5-ad0c88d62212",
+      "C26": "6fe0bb5f-5300-4ad8-9a18-c1f0fa0057d3",
+      "C27": "7d95407e-2aef-4c4f-8887-ab0edeb7238e",
+      "C28": "3dd97db5-68af-4b04-90b7-c065e91892b4",
+      "C29": "1411a190-fddb-40df-878d-02a8553c8efb",
+      "C30": "137a72ea-9a70-4efc-96b5-a4d5d3d7744a"
+    },
+    "note": "Clips 17-22,24-29 = 4 s, 23 and 30 = 3 s (kling3_0 std, sound off, 1.5 cr/s)."
+  },
+  "video_partC_8nov": {
+    "keyframes_gpt_image_2_6": {
+      "K31_bins_flatmate": "c613f1e6-327b-4d41-a628-ddab724d07c3",
+      "K32_flatmate_closeup": "5d68bf36-81bf-492b-a876-12799897c9c9",
+      "K33_barista": "b0e899d0-11ea-44fd-9448-552de6989ffd",
+      "K34_colleague": "0fb5d805-57c4-44af-b778-7815fff761cf",
+      "K35_joggers_bin": "9ca3bd34-a410-42e2-b192-e99179cfb9a7",
+      "K36_walks_away": "930e7fd9-8523-4d3b-a6d1-85503db1bfe2",
+      "K37_phone_buzz": "9355fe3d-bf0a-480d-a9de-18997dfef1a4",
+      "K38_phone_down_keys": "5d83c96f-0bc8-4d8b-bb58-4b249a38c6c7",
+      "K39_rooftop_to_camera": "2f16ab8a-1d81-47e6-9233-47628bba42a7",
+      "K40_zip_closeup": "d8aedba4-fa5e-4fc4-998e-f621751244d1",
+      "K41_folded_set": "a6c798a6-cffd-40cf-b03a-9b7da563bf3f",
+      "K42_three_boxes_socks": "0cd65fbd-7100-43d1-8110-c6f41f4dcf46",
+      "K43_sister_approves": "2c4cd317-ba25-4c53-8f63-cc14fee3d84f",
+      "K44_sincere_closeup": "c8b1f781-412c-410e-a045-aee2878236ed",
+      "K45_points_down": "3d1d636a-f116-4ff4-960e-e6b418da012b",
+      "K46_both_men_galleria": "009383e8-78d5-4e59-a733-a9f5069cd702",
+      "K47_endcard_still": "7fe8218d-edc3-4ccf-bab9-618d0ccdf1c3",
+      "K48_closing_piazza": "f9360c10-f0ad-42b3-83e5-1b68ca71399c"
+    },
+    "clips_kling3_std": {
+      "C31": "a9877f54-b1dd-4979-af7d-15f27601c46f",
+      "C32": "32b21c66-d88e-4870-a47f-59e7dc10f7bc",
+      "C33": "2cc88a92-015d-49e0-8f58-d2e11925a14f",
+      "C34": "1f24e1c4-0a58-4cc3-9e7f-83c7453515af",
+      "C35": "b22392d5-500a-4308-870c-3c32c0e0212d",
+      "C36": "ed6e3bd0-ef79-4be3-b76a-29198e83b661",
+      "C37": "7e406eb9-9f03-4ea7-9ecd-09bad24f2929",
+      "C38": "b61510a1-069b-4ecd-aa8a-69e48e9ea013",
+      "C39": "f534f7bf-84cd-4020-8917-efef0ef15780",
+      "C40": "6d318761-0468-4608-aa31-952a8ff28efa",
+      "C41": "c693527a-a059-489e-9e7c-7798b5c737f1",
+      "C42": "11d23243-c8e5-40c1-981a-c186efcf4454",
+      "C43": "308d5c96-3581-48c0-8120-dc205b183371",
+      "C45": "6b532c7a-4db0-41ea-a64b-f7b1332895ac",
+      "C46": "13215537-e5ea-420f-b54a-d1b922713502",
+      "C44": "5f32a96e-3b0e-4e22-bb31-122c9f468333",
+      "C48": "1fb46e5e-3631-4040-8863-ea23902ae271"
+    },
+    "note": "K47 is een stilstaand eindbeeld (geen clip). Clips 31,32,34,36,38,39 = 4 s; overige 3 s."
+  },
+  "video_v1_delivery": {
+    "zip_media_id": "94c6f7e7-230f-4e84-a2f7-1271cc329b5d",
+    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/94c6f7e7-230f-4e84-a2f7-1271cc329b5d.zip",
+    "duration_s": 162.46,
+    "shots": 48,
+    "credits_total_approx": 450,
+    "v1b_zip_media_id": "ac0e5a70-fcf7-430c-9a5c-3788ec6735b7",
+    "v1b_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/ac0e5a70-fcf7-430c-9a5c-3788ec6735b7.zip"
+  },
+  "duet_8nov": {
+    "probe_30s": "cd58b4d6-4dfe-47fb-9074-32b484fb3624",
+    "take1_2parts": {
+      "P1_76s": "9158066f-7993-4090-9a96-dca48d653272",
+      "P2_78s": "cbc3d0f7-14d0-451a-bd10-8b4860177672",
+      "note": "intro ~10 s, refreinregels weggelaten, brug deels door hem gezongen -> afgekeurd"
+    },
+    "take2_3parts": {
+      "D1_60s": "19961cbf-5080-4eae-880d-cf68617830fc",
+      "D2_60s": "1115f711-b96c-4138-931b-f949236a3ebc",
+      "D3_62s": "2af15caa-ea1c-4c58-8ec5-2a18d749170a",
+      "D1b_60s_rijmende_opening": "651bafd7-2bb0-4721-a434-93ec17946b87",
+      "note": "D1: intro 10 s, eerste refreinregel door hem; D2: rap te snel (2,9 w/s), regels aan elkaar; D3: haar stukken goed, duetregels rommelig. Eigenaar: opening niet goed, moet rijmen en op de beat; haar stukken wel goed -> tekst herschreven (metrisch, rijmschema-spel)."
+    },
+    "note": "ElevenLabs Music v2.5, batch_size 1, ~0.145 cr/s. Merknaam 5x (3x gezongen) na verzoek eigenaar.",
+    "take3_3parts_metered": {
+      "E1_58s": "68ed2524-97c8-492f-9931-0e5028cc4751",
+      "E2_62s": "686c1c9f-9308-458a-a66d-5f4b0f984236",
+      "E3_58s": "36a93e6e-601a-4142-9151-288f64ebb94d",
+      "note": "Tekst v3: nieuwe opening (She said I am leaving / one sec), metrisch (9-11 lettergrepen, gelijk per rijmpaar), haar stukken behouden, merknaam 5x."
+    },
+    "take3_song_joined": {
+      "media_id": "a34a9291-4a0d-4433-addc-242b37eb5558",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/a34a9291-4a0d-4433-addc-242b37eb5558.mp3",
+      "duration_s": 126.2,
+      "joinplan": "E1 cut 10.7-43.92, E2 9.44-55.5, E3 9.9-58.14, xfade 0.6"
+    },
+    "take4_3parts_alt_lyric": {
+      "F1_58s": "d0623fe6-f005-4344-8c54-7c09c912f677",
+      "F2_62s": "6fb83e79-790f-47b1-82de-e94797788511",
+      "F3_58s": "e359cd2e-2170-4aef-9dca-fd225c04e9b8",
+      "note": "Tekst v4 \"Make an Effort\" (schrijverskamer-workflow wf_ac8bfa93): opening \"I lost my girlfriend to a stand collar.\" F3 (brug+slot) afgekeurd: zangeres sloeg regels over en verhaspelde woorden (42/66 goed); E3 uit take 3 gebruikt (zelfde tekst op zijn ene regel na)."
+    },
+    "take4b_song_joined": {
+      "media_id": "e7d7eee9-85e7-4165-b943-669cb623ebd0",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/e7d7eee9-85e7-4165-b943-669cb623ebd0.mp3",
+      "duration_s": 128.2,
+      "parts": "F1 + F2 + E3"
+    },
+    "take5_single_120s_FAILED": {
+      "job": "afda0ded-5984-49b1-912b-08496d6090a2",
+      "note": "Hele song (272 woorden, ~1.500 tekens) in 1 generatie van 120 s: geweigerd/failed. Tekstlimiet ligt tussen ~850 en ~1.000 tekens."
+    },
+    "take5_2parts_v5text": {
+      "G1_80s": "bd340953-67b1-44d0-bdbd-ee88a21aab02",
+      "G2_75s": "3658309b-5768-457f-8763-b2b345e3886d",
+      "note": "Tekst v5 in 2 delen (V1+refrein+V2 | V3+brug+slot) -> 1 naad, geplakt met join2.py (beat-uitgelijnd, omgekeerde swell, korte crossfade)."
+    },
+    "take5b_song_joined": {
+      "media_id": "7b406474-b0d6-4a5e-9605-899d9382240e",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/7b406474-b0d6-4a5e-9605-899d9382240e.mp3",
+      "duration_s": 142.45,
+      "parts": "G1 (9.08-77.6) + G2 (0-74.28), 1 naad op 68.2 s, join2.py"
+    },
+    "take6_2parts_v6text": {
+      "H1_80s": "e139c9c2-3bc3-49f2-a97e-1395525fd109",
+      "H2_75s": "207b1cdd-ff75-4f57-8025-e4c373051cd0",
+      "note": "Tekst v6: volledige zinnen, duidelijke verhaallijn, 84 BPM, \"no instrumental breaks\"; eigenaar: take 5 brabbelt, rare pauzes, stukken missen."
+    },
+    "take6_song_joined": {
+      "media_id": "539a8ab3-31ac-413f-8a00-b857feadf590",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/539a8ab3-31ac-413f-8a00-b857feadf590.mp3",
+      "duration_s": 132.4,
+      "join": "H1 0-70.04 + H2 9.9-74.02 (join2), gat 6.24-7.67 weggeknipt op de maat (tighten.py, 84 BPM)",
+      "linecheck": "alle 41 regels aanwezig; 80-100% letterlijk herkend, merknaam gehoord als Moderna-no Milano"
+    }
+  },
+  "video_duet_9nov": {
+    "song": "take 5b, media 7b406474-b0d6-4a5e-9605-899d9382240e, 142.45 s, tijdlijn timeline_words_v5b.json",
+    "keyframes_gpt_image_2_6": {
+      "N101_window_oatmeal": "25006425-7a95-4a02-ab4a-4eac5927e2c0",
+      "N102_wave_reflection": "5ce49c70-5633-44cb-b88e-d24da1bbfb7f",
+      "N103_couch_lost_found": "9bf3e436-b59e-40d3-ab92-bcfc2436b72e",
+      "N104_hoodie_hook_paint": "924551cb-b715-4e27-9886-49dd1e082cf2",
+      "N111_her_singing_closeup": "3233fa36-79d3-40a2-b721-80e75624a788",
+      "N112_lonely_couch_twoshot": "4e537810-25b3-41c3-9630-9b0aca0c11bf",
+      "N113_her_window_dusk": "53e488c4-08f0-4b78-be48-120ec84e5ad6",
+      "N121_her_pov_him_window": "2edb2fdf-05e6-41ce-a4ff-96b6697df3c7",
+      "N122_her_watching_closeup": "b00e8c16-b54e-480f-862c-06653d5f4be3",
+      "N123_him_walks_oatmeal": "cd7e5c27-e0c7-42a6-9f08-55eb618e767e",
+      "N124_her_fixes_coat_reflection": "018c6ccf-1101-4bb4-8213-3bff5c7ea93e",
+      "N125_her_at_his_door": "41975608-63df-4e3f-86c5-a8974b76bae2",
+      "N126_he_opens_door": "ce8fbc66-7b0f-4e5f-8f5c-a84b3f1358aa",
+      "N131_she_steps_in": "035d5b8a-40ba-4ef2-bee6-0c81b969530c",
+      "N132_together_foreheads": "d43830c6-a53a-47c5-ad6f-2dd8d44bc27a",
+      "N133_couple_galleria_cardigan": "66e49374-2735-4a94-a7ff-4577a38cdb8f",
+      "N134_she_steps_in_loafers_retake": "b269fe7e-1d82-44f9-a79b-d663159f1670",
+      "N141_hero_planner": "6459248d-f818-42b4-9d3b-132e64f496e7",
+      "N142_takeaway_binbag": "08f04b97-dc7b-466a-adf0-093a257beb4c"
+    },
+    "clips_kling3_std": {
+      "N101": "f96c8008-4c62-42b4-9918-7cead5424746",
+      "N102": "f68d332e-2a74-443a-ac25-16f3007e0da1",
+      "N111": "f8691fb0-0b1b-4e48-bcfc-aa488b15f6a0",
+      "N112": "fb9220d4-6b4a-4de9-970b-ff6a1651b15c",
+      "N113": "b91def42-6126-42e0-9d42-abd2b9dcbe98",
+      "N121": "3a22d72a-aab5-4023-b4b2-6ac226bee2a6",
+      "N122": "8e67b4bd-465b-440d-b29f-4110a56bd011",
+      "N123": "11870767-8f64-4f98-9558-2e7040e0c726",
+      "N124": "944670f9-2b25-498d-9eb9-13eb895a8529",
+      "N125": "07e4bc69-e11d-4e75-bea7-44e247f62700",
+      "N126": "6db045ec-5318-4d36-b307-f7d076a2b3fe",
+      "N132": "fcb9f3a5-220e-4575-8358-fcc823e3f6ff",
+      "N133": "13d4f6aa-ec27-4121-bbfa-9fd6abb9af0a",
+      "N131_retake_from_N134": "d19d905f-e495-4ba2-b31a-1c1a25bba599",
+      "N141": "4ec0ce47-a57f-4b47-9894-d3bcd6f7da32",
+      "N142": "e03ac801-1043-4da4-924f-bbee98c44a7d"
+    },
+    "note": "N103 (bank) en N104 (hoodie aan haak) als stilstaand beeld; N131 (sneakers) vervangen door N134 met loafers. Plan: tools/plan_duet_v1.json.",
+    "delivery": {
+      "zip_media_id": "dab21e98-b7c5-4a40-9eb4-e30ef1296831",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/dab21e98-b7c5-4a40-9eb4-e30ef1296831.zip"
+    },
+    "qa_match": "36 sterk / 5 zwak / 0 mis (L2, L14, L17, L18, L25 zwak); L18 en L25 vervangen in v1b; L32 kledingcontinuïteit (blouse tussen jas-shots) opgelost met N122.",
+    "delivery_v1b": {
+      "zip_media_id": "15a7b67a-d8dc-4687-9870-f3310074bd49",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/15a7b67a-d8dc-4687-9870-f3310074bd49.zip",
+      "plan": "tools/plan_duet_v1b.json"
+    },
+    "qa_visual": "60 frames: anatomie ok, geen tekst/logo in beeld, kleding per fase klopt. Eén echt punt: eindtekst viel over de gezichten (slot N133) -> overlay naar onderin met donkere band (v1b). Kleine punten: C15 donkere kringen ogen, C17 bewogen handen, hoodie-verf op de haak wisselt tussen N104 en N131.",
+    "delivery_v2": {
+      "zip_media_id": "3e76cd26-301b-4128-b95d-0208f6a96a3d",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/3e76cd26-301b-4128-b95d-0208f6a96a3d.zip",
+      "plan": "tools/plan_duet_v2.json",
+      "song": "take 6 (media 539a8ab3), 132.4 s"
+    }
+  },
+  "duet2_9nov": {
+    "concept": "Video 2: zelfde hook, verhaalsmaak A met nieuwe scenes (Navigli, de ander gevraagd, dagteller met Dave, zus, tram), vier outfits; R&B 90 BPM, snellere maar duidelijke rap, zij zingt refrein en brug.",
+    "lyrics": "duet2_v7_lyrics.txt",
+    "take1_3parts": {
+      "J1_58s": "e3ba1ad9-5798-4596-8a21-c5dd5c0d5122",
+      "J2_45s": "ddd69ad2-4957-4d62-b9a2-db045a135045",
+      "J3_72s": "107e3007-fb62-4cd5-81b3-7f9ddbbe788f",
+      "note": "J2 failed (random), J3 liet \"Day two: it came\" en zijn slotregel weg -> opnieuw in 4 delen"
+    },
+    "song_upload": {
+      "media_id": "5d1ca50e-b654-440b-8375-027cd9e7fcbe",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/5d1ca50e-b654-440b-8375-027cd9e7fcbe.mp3"
+    },
+    "take1b_4parts": {
+      "J2_50s": "9abacc01-a481-400f-a3de-efc0e69ed367",
+      "J3_50s": "2fb67cc0-9511-4a95-8632-2efbf9d97d4b",
+      "J4_50s": "c4e9c142-d407-4ded-9e2f-6aa36446b6fc",
+      "J1_58s": "e3ba1ad9-5798-4596-8a21-c5dd5c0d5122",
+      "note": "J4 liet \"Mister Moderno Milano\" weg en verhaspelde het slot -> J4 opnieuw in 2 varianten"
+    },
+    "product_refs_imported": {
+      "torino_blazer_notte_model": "7d9bfc03-087d-446b-8ecd-71020fbf3101",
+      "full_zip_cardigan_taupe": "09dd8c48-6dec-4701-ba1a-1232a9d79335",
+      "lounge_set_beige": "3ec782e5-bf6a-4723-bed5-987854158c86",
+      "reverso_midnight_set": "4700d540-a5a1-4a9a-abfd-b159affae417"
+    },
+    "take1c_J4_variants": {
+      "J4a": "27399850-8dcf-4e19-9c1f-9552f4470d8e",
+      "J4b": "74b1d151-65f6-4543-a92b-e9821aa3083d"
+    },
+    "outfit_sheets_gpt_image_2_6": {
+      "T_blazer_notte": "c20b9e73-74a9-42b6-9983-e6127b59d646",
+      "T_cardigan_taupe": "b7459642-87d6-49b3-bb1a-b7016cef280a",
+      "T_reverso_navy": "4b4f96a5-c8c4-4751-ba47-16f241dc1f70",
+      "T_lounge_beige": "5c3f865a-5960-4dd3-a22c-e98f2e959739",
+      "T_cardigan_taupe_retake_no_hood": "b0747331-a3c4-4f9f-bc58-d82ef671648c"
+    },
+    "note_song": "J2 had een intro van 9,4 s die whisper over de eerste woorden uitsmeerde (eerste woord op 0.0); handmatig gecorrigeerd op 9.40 na VAD-check. J4b gekozen (haar regels consequent vrouwenstem).",
+    "song_joined_v7": {
+      "media_id": "d052741d-648a-4df5-97a7-ecf3c70105ec",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/d052741d-648a-4df5-97a7-ecf3c70105ec.mp3",
+      "duration_s": 130.1,
+      "parts": "J1 9.38-49.37, J2 8.71-33.37, J3 4.04-30.7, J4b 9.37-54.64; join2 + tighten (4 knips)",
+      "linecheck": "alle 39 regels aanwezig, 78-100% per regel"
+    }
+  },
+  "video2_wedding_9nov": {
+    "concept": "Video 2 definitief concept: \"De bruiloft van mijn zus\". Hook zonder merk (\"Nobody at my sister's wedding knew my face\"), aftelling van tien dagen, de zus zingt, merknaam 2x (onthulling via het servet, slotregel). Andere mannenstem: lage schorre bariton. R&B 90 BPM, F mineur, Wurlitzer en gedempte trompet.",
+    "lyrics": "wedding_v1_lyrics.txt",
+    "superseded": "duet2_9nov (zelfde hook als video 1, afgekeurd door eigenaar)",
+    "take1_4parts": {
+      "W1_58s": "cbcf6350-7ae9-465e-85f3-266dfc471fca",
+      "W2_50s": "4ed8345c-b640-4320-9538-10c835b6b15f",
+      "W3_50s": "a1f4351c-9208-49d1-8341-c53587575314",
+      "W4_55s": "f6b9ec1e-4b6b-4d41-9b9f-12dbeef92c52"
+    },
+    "song_upload": {
+      "media_id": "bc84dfa4-503e-4861-b288-c1e820709266",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/bc84dfa4-503e-4861-b288-c1e820709266.mp3"
+    }
+  },
+  "video2_story3_9nov": {
+    "concept": "Definitief verhaal video 2 (eigenaar): hij is smoorverliefd, zij wijst hem af omdat hij onverzorgd is, hij gaat voor zichzelf zorgen, alle meiden lopen achter hem aan, zij wil hem nu wel, hij kiest een ander, zij blijft verdrietig achter. Duet met twee kanten: hij rapt zijn gedachten (lage schorre bariton, 90 BPM), zij zingt de hare (refrein, \"her thoughts\" na couplet 2, brug, slot). Merknaam 2x (bar-onthulling, slotregel). Hook zonder merk: \"The girl I loved said no to me. Twice.\"",
+    "lyrics": "story3_v1_lyrics.txt",
+    "take1_4parts": {
+      "X1_58s": "45fe92a3-e4c7-4123-b798-82f840922cc7",
+      "X2_62s": "33af1190-beef-4689-9fa4-211fb5962385",
+      "X3_50s": "3b0d65e9-1572-4316-95cd-34e2fee1546b",
+      "X4_55s": "9644ba07-f277-4bde-896b-d66a58a0aaf9"
+    },
+    "superseded": "video2_wedding_9nov (bruiloftverhaal, 4 delen gegenereerd maar niet gebruikt, ~31 credits)",
+    "song_upload": {
+      "media_id": "5b23b659-d1f1-4cf5-8566-ea6fb822b28b",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/5b23b659-d1f1-4cf5-8566-ea6fb822b28b.mp3"
+    },
+    "song_joined_take1": {
+      "media_id": "5b23b659-d1f1-4cf5-8566-ea6fb822b28b",
+      "duration_s": 162.2,
+      "parts": "X1 5.38-51.38, X2 4.04-54.71, X3 0-22.06, X4 8.71-54.56; join2 + tighten (1 knip)",
+      "linecheck": "alle 46 regels aanwezig; \"But a no is a no, and you knew\" 33% (gemompeld), rest 56-100%",
+      "onset_fix": "X1 en X2 begin met VAD gecorrigeerd (5.87 / 4.56 s)"
+    },
+    "take2_v2_lyrics": {
+      "lyrics": "story3_v2_lyrics.txt",
+      "Y1": "d722d3ac-c66e-46a5-824a-f27d8ec0c61d (70 s)",
+      "Y2": "48ceb081-cce8-462c-8275-4cb4fb45faa1 (58 s)",
+      "Y3": "328ce972-9532-42af-87dc-27d8f5754c0d (62 s)",
+      "Y4": "a531cff3-dac0-4768-8ccf-880dd9c81b99 (58 s)",
+      "note": "duet-opening (beide stemmen), wisselspel, hook 3x; geschat 36 credits",
+      "song_joined": {
+        "media_id": "bf95551e-8924-4f96-8a98-b5e4c03934e0",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/bf95551e-8924-4f96-8a98-b5e4c03934e0.mp3",
+        "duration_s": 202.95,
+        "parts": "Y1 0-60.12 (herhaald couplet 38.04-43.41 eruit geknipt met cutpart.py), Y2 8.71-52.05, Y3 0-54.72, Y4 10.04-56.56; join2 + tighten (1 knip)",
+        "linecheck": "alle 60 regels aanwezig (44-100% per regel; zwakste: \"A navy knit, a stand collar, trousers that fit\" 44%)",
+        "onset_lesson": "VAD-onsetfix zat bij Y2 fout (13.9 i.p.v. 10.2) en bij Y4 0.8 s te laat: altijd controleren met een whisper-run op een uitgeknipt stuk rond het begin (chain.py --onsetat/--firstfix)"
+      }
+    },
+    "video2_keyframes_gpt_image_2_6": {
+      "W_OTHER": "eb4eafb6-438b-4a7c-aa0b-5319df73c6ed",
+      "K01": "3aff8d25-1bd3-4aae-b0d7-fa7e97cf77ea",
+      "K02": "67431a20-f1b9-4f2a-9deb-cdfd4a28d5d7",
+      "K03": "993a5a84-ec8d-4f18-b64c-91f568ece888",
+      "K04": "d9887848-a0bc-49b1-b2f9-5ea711083487",
+      "K05": "1cdb8aa3-d1ba-426f-8238-186c530fb638",
+      "K06": "f4671efb-3c1a-41c4-a3a3-87f5e87d53a1",
+      "K07": "7dc47d49-dba0-40d7-a7cd-ee3bfbff89f7",
+      "K08": "b8aea305-1657-48a8-b035-691702e1fc77",
+      "K09": "e11ca3ae-a960-42df-81af-a4d73b75c060",
+      "K10": "b9be5c5d-c93f-499c-afac-d67541982552",
+      "K11": "c83850f9-da21-42ef-8f78-00b14ff85277",
+      "K12": "daf625d9-71cb-4559-9cab-8ca1a00a7149",
+      "K13": "b4083483-463c-4d68-ac2c-ac55434a554a",
+      "K14": "b1430b38-5e35-4756-a5ac-9b4c05d92b06",
+      "K15": "49ecebaf-2507-4f74-aca3-d929d4eae2d5",
+      "K16": "9f60047a-ccea-4338-b319-971aeb0198e5",
+      "K17": "19121b0f-2391-4cc8-8b3e-c355ac183d7c",
+      "K18": "22bb6265-806d-4d26-9563-9b02ee8b29f7",
+      "K19": "0a5b5670-d2eb-492f-96a0-12a8c7d0d78a",
+      "K20": "d5a1c3bf-de94-4051-976c-a07cb0ec6775",
+      "K21": "161b3244-5344-4ef8-85ea-9807a8a36343",
+      "K22": "2fd0c47b-f355-4bdd-a39a-cedff7edff9e",
+      "K23": "597fa529-5a93-437c-8907-9bbe60c30c6a",
+      "K24": "1908a520-770a-4667-865a-afecc6af044a",
+      "K25": "22165027-fe8b-41c1-9ba7-f299c34f8cac",
+      "K26": "eaea69a3-4858-46da-976d-f7883eb04ccf",
+      "K27": "0bd5ab46-80ca-4808-8dd7-231d085bf0a9",
+      "K28": "ab56442e-ee00-4f31-8a0d-873710f945bb",
+      "K29": "c28c98b2-a33f-4892-b227-234a158a6c10",
+      "K30": "05cd9f86-6f3f-47f8-9cae-2af9b3945178",
+      "K31": "7a46b1f8-8917-4112-8948-f5ab29001af8",
+      "K32": "badab9f3-51e1-4428-8a49-f63ac8a14b9b",
+      "K33": "e5a5021d-e526-49ad-ac7f-5a62259d907c",
+      "K34": "89f4b446-5ed1-4385-826d-e03ea2944887",
+      "K35": "23d28174-404d-43db-8aad-39222c01ea59",
+      "K21_retake": "4ae9ce4f-11dc-453e-b2bc-a1620aef661e",
+      "K21_v1_rejected": "161b3244-5344-4ef8-85ea-9807a8a36343",
+      "K27_v1_rejected_split": "0bd5ab46-80ca-4808-8dd7-231d085bf0a9",
+      "K36": "f95409a0-066a-49d8-8f6b-5d05691b768b",
+      "K37": "c53cf647-6486-4b85-9c36-999f73b5bff8",
+      "K38": "c052088d-df36-433c-bcdd-5788ea91425b",
+      "K39": "afafaccc-f021-4d8f-96ea-8b347d2ba192",
+      "K27_retake": "fb4a26bb-ec08-4356-8b63-a77090a440c1",
+      "K40": "a71e7d9f-007a-4e1c-8c96-12901ba382ff",
+      "K41": "f0946a8f-28c6-4c5e-b1f5-2800053ea5f8",
+      "K42": "c7770c17-611e-4d7a-ae73-b7ba5d0623a1",
+      "K43": "932fe26b-9fdc-4460-8328-885ff559006a",
+      "K44": "b906f8b6-f7c7-46db-9f32-08f8d9b51287",
+      "K45": "78bf0063-5112-4c8c-9774-46b3512d8c77",
+      "K46": "c7e4a4b7-49bb-4fd9-9729-c284e2847805",
+      "K47": "75a0f134-27b6-417a-9ab8-0543ce0094a0",
+      "K48": "733483a1-6e8b-44b6-8968-6849919d0b74",
+      "K49": "d00e6b48-8d23-4f58-b6cd-5c2403afd0aa",
+      "K50": "71f863e5-766a-43cf-8668-6b255b7a650e",
+      "K51": "879161c1-2e88-4496-8437-978f6e2a0972",
+      "K52": "e8bff1ca-d27b-4fb9-afc0-2b3c229ba588",
+      "K53": "16622712-6e2f-4945-985b-3557dc5a79cf",
+      "K54": "00b247ca-fb8d-42bb-bfb4-b490eabc07f9",
+      "K55": "a26690ff-582e-48c5-b907-6d41be2fcab5",
+      "K46_v1_rejected_cake": "c7e4a4b7-49bb-4fd9-9729-c284e2847805",
+      "K56": "cfaacbc0-4546-4d75-9802-318b5fa2c32f",
+      "K57": "8cbc8a7a-5387-4df0-9811-9587d8a5d353",
+      "K58": "3e04e6e8-9051-4291-b507-08fe31a9b13e",
+      "K59": "dbc3c7d7-8320-4f64-a2ee-9b2f04fc4276",
+      "K46_retake": "36beb4aa-045b-4c01-ad78-7ec731931cfc",
+      "K34b": "29fff154-ba6a-42f5-a12b-b593892a8856",
+      "K60": "6c6c7f2c-6f22-450f-9e1b-38316b673e80",
+      "K21r": "4ae9ce4f-11dc-453e-b2bc-a1620aef661e",
+      "K27r": "fb4a26bb-ec08-4356-8b63-a77090a440c1",
+      "K46r": "36beb4aa-045b-4c01-ad78-7ec731931cfc",
+      "K19_retake": "956f79be-cc61-4594-864c-08e7c20edbe8",
+      "K33_retake": "5e892b7b-1e27-44a1-ace1-63f640ce7c3b",
+      "K49_retake": "176380a0-79d9-48eb-8c1d-71a735624bbf",
+      "K25b": "54ebe456-8480-4c5f-b581-a877f0b0825e",
+      "K38b": "9e328db8-ce59-4d0e-95fc-8e9519127510"
+    },
+    "video2_keyframes_note": "66 keyframes (1 cr elk) incl. karakterblad W_OTHER (het andere meisje), retakes K21 (mannen verwisseld), K27 (tweeluik), K46 (taart in beeld), extra K34b en K60 zodat geen shot hoeft te bevriezen. Shotlijst en prompts: tools/shots_v2.py.",
+    "video2_clips_kling3_std": {
+      "K01": "0e00dce8-3fa3-462e-bf92-cc937d6f2351",
+      "K02": "93b080f2-91d0-45b5-91ca-5cc0f70081ed",
+      "K03": "168854ce-e1e1-4e3e-b62c-431ec7145d98",
+      "K04": "928e0102-e203-4ef9-80a5-163338481176",
+      "K05": "7950958b-d3e5-4461-a4c9-a554be1568f5",
+      "K06": "69c497d0-07bb-4174-99f5-fffce14036c4",
+      "K07": "08296db3-3759-4353-9054-16c4e8a4125b",
+      "K08": "cc43dde5-d39f-4dea-8451-24feafb83ef1",
+      "K09": "b134431f-e7ef-4b11-9f2c-fec6dea9bb15",
+      "K10": "62dc39fa-4fc8-4556-acb5-94d626397e1d",
+      "K11": "27e232ea-d27c-4b43-9323-5b402d886b26",
+      "K12": "c44d65fb-86db-444a-96ee-0f8956db20b1",
+      "K13": "7e475830-440b-4ec9-a84e-206c46e64400",
+      "K14": "c40cac64-c3a3-4b2c-b3ee-22b1347e4c6a",
+      "K15": "42d21bb6-74e7-4745-b1f2-fc3a90039b98",
+      "K16": "3e7f870a-a51d-40df-a146-33dc45ca9bb1",
+      "K17": "0a046c73-9f94-42b6-8c7c-a2e9e7cd9c35"
+    },
+    "video2_qa_keyframes": "Twee onafhankelijke controleurs (workflow): bevestigde grote punten K33 (man op de achtergrond in donker in plaats van oatmeal) en K49 (spiegelbeeld als reuzengezicht) -> beide opnieuw gemaakt (K33_retake, K49_retake); K19 (vlek op de kappersdoek) opnieuw; kleine punten (wazige schouder in navy bij K02/K40, camel-jas-vrouw op de achtergrond bij K34b/K57) geaccepteerd.",
+    "video2_clips_note": "Blok 1 = shots 1-17 (65 clipseconden, 97,5 credits). Cliplengte altijd >= shotlengte (3/4/5 s), geen stilstaande beelden. Plan: tools/shots_v2.py CLIPS.",
+    "video2_preview_block1": {
+      "media_id": "2388af19-b282-46cd-b505-c5a7215ce7f9",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/2388af19-b282-46cd-b505-c5a7215ce7f9.mp4",
+      "duration_s": 60.59,
+      "note": "shots 1-17 met song_Y en ondertitels (assemble2 met line_start-fix), crf 22"
+    },
+    "take3_v3_lyrics": {
+      "lyrics": "story3_v3_lyrics.txt",
+      "Z1": "6aa67a4a-a61b-4dbf-8678-ccf20508d8e9 (62 s)",
+      "Z2": "a06b4a16-b4cf-42d1-b285-fd0b65ec3f63 (52 s)",
+      "Z3": "c5c82f4c-03c7-4e06-b033-e10fd6ff6602 (64 s)",
+      "Z4": "a6ef3e3a-005e-4f98-a3f7-00de15203f84 (50 s)",
+      "note": "tekst v3 strak langs het verhaal van de eigenaar; twee controleurs (workflow) op verhaal en zingbaarheid, drie restanten van v2 verwijderd",
+      "linecheck_pre": "Z1: tweede hook \"Look at us now\" (regel 6) niet gezongen (overgeslagen), rest 62-100%; Z2: alle regels; Z4: \"You did. And now you're gone\" niet gezongen, \"Moderno Milano\" gehoord als \"modern Milan\" (aanwezig). Plan: Z3 genereren en Z1/Z4 opnieuw proberen zodra er credits zijn, beste take per deel kiezen.",
+      "Z1b_retake": "e4d57b82-550e-40e2-a820-d724f3e025e9 (62 s)",
+      "Z4b_retake": "393575fd-32c6-4512-87b8-71dafea1a488 (52 s)",
+      "Z4c_retake": "420121b8-afe5-4e51-b9d9-46fcc9025728 (50 s, haar antwoordregel weer overgeslagen)",
+      "Z4d_retake_GEKOZEN": "14fbaaa0-4d13-4851-96b9-c71ab5a0c243 (52 s, haar antwoord in 2 regels, alle regels aanwezig)",
+      "keuze": "Z1 (eerste take: opening met beide stemmen aanwezig, tweede hook voor couplet 1 niet gezongen en uit de tekst gehaald), Z2, Z3, Z4d. Haar antwoord uitgebreid tot \"You did. And now you're gone / And I'm the one who held on\"."
+    },
+    "video2_v3_map": "tools/shots_v3_map.py (regel -> keyframe; nieuwe keyframes K25b en K38b)",
+    "credits_blocker": "opgelost 10 nov: 500 credits bijgekocht (saldo 500,95)",
+    "take3_song_joined": {
+      "media_id": "a22b1000-9b16-4bc3-8e3c-4bc838498ff8",
+      "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/a22b1000-9b16-4bc3-8e3c-4bc838498ff8.mp3",
+      "duration_s": 192.36,
+      "parts": "Z1 3.37-60.02, Z2 0-42.7, Z3 0-64.03, Z4d 10.7-49.58; join2 + tighten (6 knips, 8,7 s)",
+      "lines": 61
+    },
+    "video2_v3_clips_kling3_std": {
+      "K44": "2f2994b7-69c7-4bdd-b783-11c284e265e3",
+      "K35": "5de05850-84da-4238-9fc9-2aa080818496",
+      "K25": "0c6e20ce-36c9-4a05-b804-9b3c6fe8c99a",
+      "K08": "36dd9a69-30a4-4615-8de7-9c397013c6fd",
+      "K12": "f552a530-46ad-4d9b-82a6-ebee9306dccc",
+      "K06": "8672a9e7-c6ef-4d83-9853-659692c75a93",
+      "K18": "0cc68a6f-fc4e-4e0f-8c30-1ef9106950d4",
+      "K05_2": "e82bdd46-2ba1-4b83-846b-170f7b72ff07",
+      "K19r": "d7c47f61-d769-4256-85d3-b33b465b0521",
+      "K20": "2cc10c01-59fd-4f83-83c8-2fc556fc2ea8",
+      "K21r": "8589abed-2214-4537-940a-49572cbc459b",
+      "K22": "a89af7d5-6ea3-4a70-a9b3-9ccf3cf8c98f",
+      "K23": "420312bf-ec66-41d1-b6f1-f9e4105f1024",
+      "K25b": "fb4d9d66-588f-46d7-86ff-3412c0b109a1",
+      "K26": "16331169-7daa-4988-b99d-6f378709ec64",
+      "K33r": "e228b0cd-d89b-4249-b766-403054b52f8c",
+      "K27r": "0a4bedf6-7313-43ed-aee3-9bfce134106f",
+      "K32": "8406f235-6b56-4714-9304-d664b0844932",
+      "K28": "74389927-c0ae-460e-adea-002d4a8ab981",
+      "K29": "5dcb11d0-41a4-4177-be2b-a305e718ab8a",
+      "K30": "e1323d27-c97d-4de9-aa6a-706c15e0ca32",
+      "K24": "bb220b7c-bf54-4ce0-9a75-67218b665ab7",
+      "K38": "2281826e-50f4-4081-ab93-508082115e8e",
+      "K25_2": "fa5a4547-e2e3-4721-8b35-87e3f862e20e",
+      "K38b": "56637dd3-31a0-48d7-8fbf-6d0b9b833255",
+      "K42": "afb3303b-38e8-41f0-a634-43ae3765358f",
+      "K43": "533f03c8-4554-42df-bda8-b9bf8072e320",
+      "K41": "f5bd0464-9f15-4cf4-bfd4-f919ec9cc07e",
+      "K14_2": "90d92738-ebca-47a7-968a-8d7aea6c3e96",
+      "K36": "acfb6ea0-0e0b-4efe-9955-be5afbe23c38",
+      "K37": "12dcd0d6-a860-4d10-b14b-132631ee6242",
+      "K17_2": "77d3396d-b84f-4105-878a-912fda8b0a51",
+      "K34": "460d82c2-34f0-4cb9-ba0d-ebae78730dc6",
+      "K40": "8c03b8ac-19ea-496f-a5ed-baaa0fa66118",
+      "K01_2": "e1174bac-3dd6-4526-90c0-6c18b1d2375a",
+      "K39": "ece1f5b6-9b7b-416e-bf27-db30ac800656",
+      "K45": "b470ca05-7520-428d-addd-1264619b321b",
+      "K46r": "6954d03c-eb64-4729-b306-ef9befcdd5d5",
+      "K47": "e3b1d9ec-d46f-47a7-8ae8-356955f6b4fc",
+      "K31": "41d06ce8-3e18-4974-aed5-7e1b6dbb46cd",
+      "K56": "4c440c1d-ee27-4166-a00e-3e10755a6dcb",
+      "K48": "25e2c49b-27d1-4287-982a-320176a31267",
+      "K50": "5c9077fc-bf7b-4e78-a65b-45663e1f156d",
+      "K51": "ef09ce38-f88d-4b6f-93e1-97031df92361",
+      "K53": "80dd985a-37ba-4451-b63f-6d8b74560d08",
+      "K54": "1b3801ff-6aed-439d-8e58-f96fdbdfa2f9",
+      "K55": "6efb50a7-8ec3-4a5d-9b16-af6fed6ebea1",
+      "K52": "17e61104-7a26-444e-b43f-90e3ab85e6bb",
+      "K58": "49a73068-d227-41d1-9543-dfc9131c0127",
+      "K59": "18cf3402-5a85-413b-910b-ce5d9348d775",
+      "K60": "1dcb9bcb-1262-4ed4-8bdf-6431cb141c86"
+    },
+    "video2_v3_clips_note": "51 nieuwe clips (184 s, ~276 credits) + 14 hergebruikte clips uit blok 1 (v2). Plan: ~/tb/rapvid/plan_v3.py (SEQ regel->keyframe, SPLIT voor lange gezongen regels 11/12/13, CAP voor 15 en 32).",
+    "video2_v3_clips_qa": "Alle 51 clips bekeken op begin/midden/eindframe (ikzelf) plus twee onafhankelijke controleurs (workflow). Afgekeurd en opnieuw gemaakt: K06 en K05_2. Geaccepteerd met kleine punten: K53 (lege bank in de regen) kort een witte veeg boven de kathedraal; K14_2 een wazig stuk pizza op de voorgrond; K47 een extra man bij het sjouwen; K19r de handen van de kapper verdwijnen even; K35/K38b hij loopt uit beeld.",
+    "video2_v3_render": "assemble2.py plan_v3_full.json -> video2_v3.mp4 (65 shots, 192,4 s, eindoverlay op K59/K60)",
+    "video2_v3_clips_retakes": {
+      "K06": "8aa23a14-9117-4932-9fbc-1f0842677f52",
+      "K05_2": "6a277133-9771-4acb-a858-e34bbf3b2312",
+      "note": "retakes na de controle: K06 (er verscheen een los stuk pizza) en K05_2 (gezicht dreef weg); 12 credits"
+    }
   }
- },
- "video_partB_8nov": {
-  "keyframes_gpt_image_2_6": {
-   "K17_suit_office": "c7003ae9-e151-4f02-8171-7e71bcd706f0",
-   "K18_boss": "2c75dbfc-e239-4e40-911e-002969f8ad2e",
-   "K19_influencer_mirror": "9251c664-d249-4f63-9064-8595fa03f3ea",
-   "K20_sister": "3216e326-5f6a-404c-a4fe-d682451d6bff",
-   "K21_grey_street": "6c7564c0-e317-45d1-b657-bb142d4eb907",
-   "K22_hero_coffeebar": "a0d6beda-46b6-419a-a882-941964944404",
-   "K23_embarrassed_closeup": "8f218121-97a7-4b59-8be0-91d74897ce7c",
-   "K24_asks_the_man": "36559ff4-6c0e-44f6-ad7e-cc17c6d9451c",
-   "K25_hero_answers": "9a189cc1-e95d-4658-8c6a-66db4e32a4a4",
-   "K26_hero_gestures_outfit": "6e6a51bf-e7dd-4b43-8a2b-0968e638247e",
-   "K27_hero_shows_phone_duomo": "5a2128ec-5f58-437d-a5f6-3de3d701e308",
-   "K28_wardrobe_two_sets": "88b0d3a6-976b-4d20-a3a1-fcf94696dce0",
-   "K29_laptop_order": "cf250e3c-0263-4482-9e68-6fcc080e7eb7",
-   "K30_chains_drawer": "3e113e8a-03c6-4fe7-8b8f-c0058af35b09"
-  },
-  "clips_kling3_std": {
-   "C17": "323354ac-0cd9-4c06-a904-e0803be16d08",
-   "C18": "e4675dfd-230d-4714-b71a-62f75e74de8f",
-   "C19": "316e605e-babe-4a6f-a133-c90dc2b0ff1b",
-   "C20": "a0f9a952-96a1-4323-919c-bd19b24233ae",
-   "C21": "966fbb3c-da46-4b12-b805-cdb52d0bf046",
-   "C22": "3d76493a-c407-4fdb-a805-21e118348b92",
-   "C23": "17e4bac6-8a8e-4efa-a6d8-baa00b5615cf",
-   "C24": "79572f0c-d552-4a12-bb89-339a11de72d4",
-   "C25": "76ceaa04-9ab0-4baf-99a5-ad0c88d62212",
-   "C26": "6fe0bb5f-5300-4ad8-9a18-c1f0fa0057d3",
-   "C27": "7d95407e-2aef-4c4f-8887-ab0edeb7238e",
-   "C28": "3dd97db5-68af-4b04-90b7-c065e91892b4",
-   "C29": "1411a190-fddb-40df-878d-02a8553c8efb",
-   "C30": "137a72ea-9a70-4efc-96b5-a4d5d3d7744a"
-  },
-  "note": "Clips 17-22,24-29 = 4 s, 23 and 30 = 3 s (kling3_0 std, sound off, 1.5 cr/s)."
- },
- "video_partC_8nov": {
-  "keyframes_gpt_image_2_6": {
-   "K31_bins_flatmate": "c613f1e6-327b-4d41-a628-ddab724d07c3",
-   "K32_flatmate_closeup": "5d68bf36-81bf-492b-a876-12799897c9c9",
-   "K33_barista": "b0e899d0-11ea-44fd-9448-552de6989ffd",
-   "K34_colleague": "0fb5d805-57c4-44af-b778-7815fff761cf",
-   "K35_joggers_bin": "9ca3bd34-a410-42e2-b192-e99179cfb9a7",
-   "K36_walks_away": "930e7fd9-8523-4d3b-a6d1-85503db1bfe2",
-   "K37_phone_buzz": "9355fe3d-bf0a-480d-a9de-18997dfef1a4",
-   "K38_phone_down_keys": "5d83c96f-0bc8-4d8b-bb58-4b249a38c6c7",
-   "K39_rooftop_to_camera": "2f16ab8a-1d81-47e6-9233-47628bba42a7",
-   "K40_zip_closeup": "d8aedba4-fa5e-4fc4-998e-f621751244d1",
-   "K41_folded_set": "a6c798a6-cffd-40cf-b03a-9b7da563bf3f",
-   "K42_three_boxes_socks": "0cd65fbd-7100-43d1-8110-c6f41f4dcf46",
-   "K43_sister_approves": "2c4cd317-ba25-4c53-8f63-cc14fee3d84f",
-   "K44_sincere_closeup": "c8b1f781-412c-410e-a045-aee2878236ed",
-   "K45_points_down": "3d1d636a-f116-4ff4-960e-e6b418da012b",
-   "K46_both_men_galleria": "009383e8-78d5-4e59-a733-a9f5069cd702",
-   "K47_endcard_still": "7fe8218d-edc3-4ccf-bab9-618d0ccdf1c3",
-   "K48_closing_piazza": "f9360c10-f0ad-42b3-83e5-1b68ca71399c"
-  },
-  "clips_kling3_std": {
-   "C31": "a9877f54-b1dd-4979-af7d-15f27601c46f",
-   "C32": "32b21c66-d88e-4870-a47f-59e7dc10f7bc",
-   "C33": "2cc88a92-015d-49e0-8f58-d2e11925a14f",
-   "C34": "1f24e1c4-0a58-4cc3-9e7f-83c7453515af",
-   "C35": "b22392d5-500a-4308-870c-3c32c0e0212d",
-   "C36": "ed6e3bd0-ef79-4be3-b76a-29198e83b661",
-   "C37": "7e406eb9-9f03-4ea7-9ecd-09bad24f2929",
-   "C38": "b61510a1-069b-4ecd-aa8a-69e48e9ea013",
-   "C39": "f534f7bf-84cd-4020-8917-efef0ef15780",
-   "C40": "6d318761-0468-4608-aa31-952a8ff28efa",
-   "C41": "c693527a-a059-489e-9e7c-7798b5c737f1",
-   "C42": "11d23243-c8e5-40c1-981a-c186efcf4454",
-   "C43": "308d5c96-3581-48c0-8120-dc205b183371",
-   "C45": "6b532c7a-4db0-41ea-a64b-f7b1332895ac",
-   "C46": "13215537-e5ea-420f-b54a-d1b922713502",
-   "C44": "5f32a96e-3b0e-4e22-bb31-122c9f468333",
-   "C48": "1fb46e5e-3631-4040-8863-ea23902ae271"
-  },
-  "note": "K47 is een stilstaand eindbeeld (geen clip). Clips 31,32,34,36,38,39 = 4 s; overige 3 s."
- },
- "video_v1_delivery": {
-  "zip_media_id": "94c6f7e7-230f-4e84-a2f7-1271cc329b5d",
-  "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/94c6f7e7-230f-4e84-a2f7-1271cc329b5d.zip",
-  "duration_s": 162.46,
-  "shots": 48,
-  "credits_total_approx": 450,
-  "v1b_zip_media_id": "ac0e5a70-fcf7-430c-9a5c-3788ec6735b7",
-  "v1b_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/ac0e5a70-fcf7-430c-9a5c-3788ec6735b7.zip"
- },
- "duet_8nov": {
-  "probe_30s": "cd58b4d6-4dfe-47fb-9074-32b484fb3624",
-  "take1_2parts": {
-   "P1_76s": "9158066f-7993-4090-9a96-dca48d653272",
-   "P2_78s": "cbc3d0f7-14d0-451a-bd10-8b4860177672",
-   "note": "intro ~10 s, refreinregels weggelaten, brug deels door hem gezongen -> afgekeurd"
-  },
-  "take2_3parts": {
-   "D1_60s": "19961cbf-5080-4eae-880d-cf68617830fc",
-   "D2_60s": "1115f711-b96c-4138-931b-f949236a3ebc",
-   "D3_62s": "2af15caa-ea1c-4c58-8ec5-2a18d749170a",
-   "D1b_60s_rijmende_opening": "651bafd7-2bb0-4721-a434-93ec17946b87",
-   "note": "D1: intro 10 s, eerste refreinregel door hem; D2: rap te snel (2,9 w/s), regels aan elkaar; D3: haar stukken goed, duetregels rommelig. Eigenaar: opening niet goed, moet rijmen en op de beat; haar stukken wel goed -> tekst herschreven (metrisch, rijmschema-spel)."
-  },
-  "note": "ElevenLabs Music v2.5, batch_size 1, ~0.145 cr/s. Merknaam 5x (3x gezongen) na verzoek eigenaar.",
-  "take3_3parts_metered": {
-   "E1_58s": "68ed2524-97c8-492f-9931-0e5028cc4751",
-   "E2_62s": "686c1c9f-9308-458a-a66d-5f4b0f984236",
-   "E3_58s": "36a93e6e-601a-4142-9151-288f64ebb94d",
-   "note": "Tekst v3: nieuwe opening (She said I am leaving / one sec), metrisch (9-11 lettergrepen, gelijk per rijmpaar), haar stukken behouden, merknaam 5x."
-  },
-  "take3_song_joined": {
-   "media_id": "a34a9291-4a0d-4433-addc-242b37eb5558",
-   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/a34a9291-4a0d-4433-addc-242b37eb5558.mp3",
-   "duration_s": 126.2,
-   "joinplan": "E1 cut 10.7-43.92, E2 9.44-55.5, E3 9.9-58.14, xfade 0.6"
-  },
-  "take4_3parts_alt_lyric": {
-   "F1_58s": "d0623fe6-f005-4344-8c54-7c09c912f677",
-   "F2_62s": "6fb83e79-790f-47b1-82de-e94797788511",
-   "F3_58s": "e359cd2e-2170-4aef-9dca-fd225c04e9b8",
-   "note": "Tekst v4 \"Make an Effort\" (schrijverskamer-workflow wf_ac8bfa93): opening \"I lost my girlfriend to a stand collar.\" F3 (brug+slot) afgekeurd: zangeres sloeg regels over en verhaspelde woorden (42/66 goed); E3 uit take 3 gebruikt (zelfde tekst op zijn ene regel na)."
-  },
-  "take4b_song_joined": {
-   "media_id": "e7d7eee9-85e7-4165-b943-669cb623ebd0",
-   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/e7d7eee9-85e7-4165-b943-669cb623ebd0.mp3",
-   "duration_s": 128.2,
-   "parts": "F1 + F2 + E3"
-  },
-  "take5_single_120s_FAILED": {
-   "job": "afda0ded-5984-49b1-912b-08496d6090a2",
-   "note": "Hele song (272 woorden, ~1.500 tekens) in 1 generatie van 120 s: geweigerd/failed. Tekstlimiet ligt tussen ~850 en ~1.000 tekens."
-  },
-  "take5_2parts_v5text": {
-   "G1_80s": "bd340953-67b1-44d0-bdbd-ee88a21aab02",
-   "G2_75s": "3658309b-5768-457f-8763-b2b345e3886d",
-   "note": "Tekst v5 in 2 delen (V1+refrein+V2 | V3+brug+slot) -> 1 naad, geplakt met join2.py (beat-uitgelijnd, omgekeerde swell, korte crossfade)."
-  },
-  "take5b_song_joined": {
-   "media_id": "7b406474-b0d6-4a5e-9605-899d9382240e",
-   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/7b406474-b0d6-4a5e-9605-899d9382240e.mp3",
-   "duration_s": 142.45,
-   "parts": "G1 (9.08-77.6) + G2 (0-74.28), 1 naad op 68.2 s, join2.py"
-  },
-  "take6_2parts_v6text": {
-   "H1_80s": "e139c9c2-3bc3-49f2-a97e-1395525fd109",
-   "H2_75s": "207b1cdd-ff75-4f57-8025-e4c373051cd0",
-   "note": "Tekst v6: volledige zinnen, duidelijke verhaallijn, 84 BPM, \"no instrumental breaks\"; eigenaar: take 5 brabbelt, rare pauzes, stukken missen."
-  },
-  "take6_song_joined": {
-   "media_id": "539a8ab3-31ac-413f-8a00-b857feadf590",
-   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/539a8ab3-31ac-413f-8a00-b857feadf590.mp3",
-   "duration_s": 132.4,
-   "join": "H1 0-70.04 + H2 9.9-74.02 (join2), gat 6.24-7.67 weggeknipt op de maat (tighten.py, 84 BPM)",
-   "linecheck": "alle 41 regels aanwezig; 80-100% letterlijk herkend, merknaam gehoord als Moderna-no Milano"
-  }
- },
- "video_duet_9nov": {
-  "song": "take 5b, media 7b406474-b0d6-4a5e-9605-899d9382240e, 142.45 s, tijdlijn timeline_words_v5b.json",
-  "keyframes_gpt_image_2_6": {
-   "N101_window_oatmeal": "25006425-7a95-4a02-ab4a-4eac5927e2c0",
-   "N102_wave_reflection": "5ce49c70-5633-44cb-b88e-d24da1bbfb7f",
-   "N103_couch_lost_found": "9bf3e436-b59e-40d3-ab92-bcfc2436b72e",
-   "N104_hoodie_hook_paint": "924551cb-b715-4e27-9886-49dd1e082cf2",
-   "N111_her_singing_closeup": "3233fa36-79d3-40a2-b721-80e75624a788",
-   "N112_lonely_couch_twoshot": "4e537810-25b3-41c3-9630-9b0aca0c11bf",
-   "N113_her_window_dusk": "53e488c4-08f0-4b78-be48-120ec84e5ad6",
-   "N121_her_pov_him_window": "2edb2fdf-05e6-41ce-a4ff-96b6697df3c7",
-   "N122_her_watching_closeup": "b00e8c16-b54e-480f-862c-06653d5f4be3",
-   "N123_him_walks_oatmeal": "cd7e5c27-e0c7-42a6-9f08-55eb618e767e",
-   "N124_her_fixes_coat_reflection": "018c6ccf-1101-4bb4-8213-3bff5c7ea93e",
-   "N125_her_at_his_door": "41975608-63df-4e3f-86c5-a8974b76bae2",
-   "N126_he_opens_door": "ce8fbc66-7b0f-4e5f-8f5c-a84b3f1358aa",
-   "N131_she_steps_in": "035d5b8a-40ba-4ef2-bee6-0c81b969530c",
-   "N132_together_foreheads": "d43830c6-a53a-47c5-ad6f-2dd8d44bc27a",
-   "N133_couple_galleria_cardigan": "66e49374-2735-4a94-a7ff-4577a38cdb8f",
-   "N134_she_steps_in_loafers_retake": "b269fe7e-1d82-44f9-a79b-d663159f1670",
-   "N141_hero_planner": "6459248d-f818-42b4-9d3b-132e64f496e7",
-   "N142_takeaway_binbag": "08f04b97-dc7b-466a-adf0-093a257beb4c"
-  },
-  "clips_kling3_std": {
-   "N101": "f96c8008-4c62-42b4-9918-7cead5424746",
-   "N102": "f68d332e-2a74-443a-ac25-16f3007e0da1",
-   "N111": "f8691fb0-0b1b-4e48-bcfc-aa488b15f6a0",
-   "N112": "fb9220d4-6b4a-4de9-970b-ff6a1651b15c",
-   "N113": "b91def42-6126-42e0-9d42-abd2b9dcbe98",
-   "N121": "3a22d72a-aab5-4023-b4b2-6ac226bee2a6",
-   "N122": "8e67b4bd-465b-440d-b29f-4110a56bd011",
-   "N123": "11870767-8f64-4f98-9558-2e7040e0c726",
-   "N124": "944670f9-2b25-498d-9eb9-13eb895a8529",
-   "N125": "07e4bc69-e11d-4e75-bea7-44e247f62700",
-   "N126": "6db045ec-5318-4d36-b307-f7d076a2b3fe",
-   "N132": "fcb9f3a5-220e-4575-8358-fcc823e3f6ff",
-   "N133": "13d4f6aa-ec27-4121-bbfa-9fd6abb9af0a",
-   "N131_retake_from_N134": "d19d905f-e495-4ba2-b31a-1c1a25bba599",
-   "N141": "4ec0ce47-a57f-4b47-9894-d3bcd6f7da32",
-   "N142": "e03ac801-1043-4da4-924f-bbee98c44a7d"
-  },
-  "note": "N103 (bank) en N104 (hoodie aan haak) als stilstaand beeld; N131 (sneakers) vervangen door N134 met loafers. Plan: tools/plan_duet_v1.json.",
-  "delivery": {
-   "zip_media_id": "dab21e98-b7c5-4a40-9eb4-e30ef1296831",
-   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/dab21e98-b7c5-4a40-9eb4-e30ef1296831.zip"
-  },
-  "qa_match": "36 sterk / 5 zwak / 0 mis (L2, L14, L17, L18, L25 zwak); L18 en L25 vervangen in v1b; L32 kledingcontinuïteit (blouse tussen jas-shots) opgelost met N122.",
-  "delivery_v1b": {
-   "zip_media_id": "15a7b67a-d8dc-4687-9870-f3310074bd49",
-   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/15a7b67a-d8dc-4687-9870-f3310074bd49.zip",
-   "plan": "tools/plan_duet_v1b.json"
-  },
-  "qa_visual": "60 frames: anatomie ok, geen tekst/logo in beeld, kleding per fase klopt. Eén echt punt: eindtekst viel over de gezichten (slot N133) -> overlay naar onderin met donkere band (v1b). Kleine punten: C15 donkere kringen ogen, C17 bewogen handen, hoodie-verf op de haak wisselt tussen N104 en N131.",
-  "delivery_v2": {
-   "zip_media_id": "3e76cd26-301b-4128-b95d-0208f6a96a3d",
-   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/3e76cd26-301b-4128-b95d-0208f6a96a3d.zip",
-   "plan": "tools/plan_duet_v2.json",
-   "song": "take 6 (media 539a8ab3), 132.4 s"
-  }
- },
- "duet2_9nov": {
-  "concept": "Video 2: zelfde hook, verhaalsmaak A met nieuwe scenes (Navigli, de ander gevraagd, dagteller met Dave, zus, tram), vier outfits; R&B 90 BPM, snellere maar duidelijke rap, zij zingt refrein en brug.",
-  "lyrics": "duet2_v7_lyrics.txt",
-  "take1_3parts": {
-   "J1_58s": "e3ba1ad9-5798-4596-8a21-c5dd5c0d5122",
-   "J2_45s": "ddd69ad2-4957-4d62-b9a2-db045a135045",
-   "J3_72s": "107e3007-fb62-4cd5-81b3-7f9ddbbe788f",
-   "note": "J2 failed (random), J3 liet \"Day two: it came\" en zijn slotregel weg -> opnieuw in 4 delen"
-  },
-  "song_upload": {
-   "media_id": "5d1ca50e-b654-440b-8375-027cd9e7fcbe",
-   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/5d1ca50e-b654-440b-8375-027cd9e7fcbe.mp3"
-  },
-  "take1b_4parts": {
-   "J2_50s": "9abacc01-a481-400f-a3de-efc0e69ed367",
-   "J3_50s": "2fb67cc0-9511-4a95-8632-2efbf9d97d4b",
-   "J4_50s": "c4e9c142-d407-4ded-9e2f-6aa36446b6fc",
-   "J1_58s": "e3ba1ad9-5798-4596-8a21-c5dd5c0d5122",
-   "note": "J4 liet \"Mister Moderno Milano\" weg en verhaspelde het slot -> J4 opnieuw in 2 varianten"
-  },
-  "product_refs_imported": {
-   "torino_blazer_notte_model": "7d9bfc03-087d-446b-8ecd-71020fbf3101",
-   "full_zip_cardigan_taupe": "09dd8c48-6dec-4701-ba1a-1232a9d79335",
-   "lounge_set_beige": "3ec782e5-bf6a-4723-bed5-987854158c86",
-   "reverso_midnight_set": "4700d540-a5a1-4a9a-abfd-b159affae417"
-  },
-  "take1c_J4_variants": {
-   "J4a": "27399850-8dcf-4e19-9c1f-9552f4470d8e",
-   "J4b": "74b1d151-65f6-4543-a92b-e9821aa3083d"
-  },
-  "outfit_sheets_gpt_image_2_6": {
-   "T_blazer_notte": "c20b9e73-74a9-42b6-9983-e6127b59d646",
-   "T_cardigan_taupe": "b7459642-87d6-49b3-bb1a-b7016cef280a",
-   "T_reverso_navy": "4b4f96a5-c8c4-4751-ba47-16f241dc1f70",
-   "T_lounge_beige": "5c3f865a-5960-4dd3-a22c-e98f2e959739",
-   "T_cardigan_taupe_retake_no_hood": "b0747331-a3c4-4f9f-bc58-d82ef671648c"
-  },
-  "note_song": "J2 had een intro van 9,4 s die whisper over de eerste woorden uitsmeerde (eerste woord op 0.0); handmatig gecorrigeerd op 9.40 na VAD-check. J4b gekozen (haar regels consequent vrouwenstem).",
-  "song_joined_v7": {
-   "media_id": "d052741d-648a-4df5-97a7-ecf3c70105ec",
-   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/d052741d-648a-4df5-97a7-ecf3c70105ec.mp3",
-   "duration_s": 130.1,
-   "parts": "J1 9.38-49.37, J2 8.71-33.37, J3 4.04-30.7, J4b 9.37-54.64; join2 + tighten (4 knips)",
-   "linecheck": "alle 39 regels aanwezig, 78-100% per regel"
-  }
- },
- "video2_wedding_9nov": {
-  "concept": "Video 2 definitief concept: \"De bruiloft van mijn zus\". Hook zonder merk (\"Nobody at my sister's wedding knew my face\"), aftelling van tien dagen, de zus zingt, merknaam 2x (onthulling via het servet, slotregel). Andere mannenstem: lage schorre bariton. R&B 90 BPM, F mineur, Wurlitzer en gedempte trompet.",
-  "lyrics": "wedding_v1_lyrics.txt",
-  "superseded": "duet2_9nov (zelfde hook als video 1, afgekeurd door eigenaar)",
-  "take1_4parts": {
-   "W1_58s": "cbcf6350-7ae9-465e-85f3-266dfc471fca",
-   "W2_50s": "4ed8345c-b640-4320-9538-10c835b6b15f",
-   "W3_50s": "a1f4351c-9208-49d1-8341-c53587575314",
-   "W4_55s": "f6b9ec1e-4b6b-4d41-9b9f-12dbeef92c52"
-  },
-  "song_upload": {
-   "media_id": "bc84dfa4-503e-4861-b288-c1e820709266",
-   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/bc84dfa4-503e-4861-b288-c1e820709266.mp3"
-  }
- },
- "video2_story3_9nov": {
-  "concept": "Definitief verhaal video 2 (eigenaar): hij is smoorverliefd, zij wijst hem af omdat hij onverzorgd is, hij gaat voor zichzelf zorgen, alle meiden lopen achter hem aan, zij wil hem nu wel, hij kiest een ander, zij blijft verdrietig achter. Duet met twee kanten: hij rapt zijn gedachten (lage schorre bariton, 90 BPM), zij zingt de hare (refrein, \"her thoughts\" na couplet 2, brug, slot). Merknaam 2x (bar-onthulling, slotregel). Hook zonder merk: \"The girl I loved said no to me. Twice.\"",
-  "lyrics": "story3_v1_lyrics.txt",
-  "take1_4parts": {
-   "X1_58s": "45fe92a3-e4c7-4123-b798-82f840922cc7",
-   "X2_62s": "33af1190-beef-4689-9fa4-211fb5962385",
-   "X3_50s": "3b0d65e9-1572-4316-95cd-34e2fee1546b",
-   "X4_55s": "9644ba07-f277-4bde-896b-d66a58a0aaf9"
-  },
-  "superseded": "video2_wedding_9nov (bruiloftverhaal, 4 delen gegenereerd maar niet gebruikt, ~31 credits)",
-  "song_upload": {
-   "media_id": "5b23b659-d1f1-4cf5-8566-ea6fb822b28b",
-   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/5b23b659-d1f1-4cf5-8566-ea6fb822b28b.mp3"
-  },
-  "song_joined_take1": {
-   "media_id": "5b23b659-d1f1-4cf5-8566-ea6fb822b28b",
-   "duration_s": 162.2,
-   "parts": "X1 5.38-51.38, X2 4.04-54.71, X3 0-22.06, X4 8.71-54.56; join2 + tighten (1 knip)",
-   "linecheck": "alle 46 regels aanwezig; \"But a no is a no, and you knew\" 33% (gemompeld), rest 56-100%",
-   "onset_fix": "X1 en X2 begin met VAD gecorrigeerd (5.87 / 4.56 s)"
-  },
-  "take2_v2_lyrics": {
-   "lyrics": "story3_v2_lyrics.txt",
-   "Y1": "d722d3ac-c66e-46a5-824a-f27d8ec0c61d (70 s)",
-   "Y2": "48ceb081-cce8-462c-8275-4cb4fb45faa1 (58 s)",
-   "Y3": "328ce972-9532-42af-87dc-27d8f5754c0d (62 s)",
-   "Y4": "a531cff3-dac0-4768-8ccf-880dd9c81b99 (58 s)",
-   "note": "duet-opening (beide stemmen), wisselspel, hook 3x; geschat 36 credits",
-   "song_joined": {
-    "media_id": "bf95551e-8924-4f96-8a98-b5e4c03934e0",
-    "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/bf95551e-8924-4f96-8a98-b5e4c03934e0.mp3",
-    "duration_s": 202.95,
-    "parts": "Y1 0-60.12 (herhaald couplet 38.04-43.41 eruit geknipt met cutpart.py), Y2 8.71-52.05, Y3 0-54.72, Y4 10.04-56.56; join2 + tighten (1 knip)",
-    "linecheck": "alle 60 regels aanwezig (44-100% per regel; zwakste: \"A navy knit, a stand collar, trousers that fit\" 44%)",
-    "onset_lesson": "VAD-onsetfix zat bij Y2 fout (13.9 i.p.v. 10.2) en bij Y4 0.8 s te laat: altijd controleren met een whisper-run op een uitgeknipt stuk rond het begin (chain.py --onsetat/--firstfix)"
-   }
-  },
-  "video2_keyframes_gpt_image_2_6": {
-   "W_OTHER": "eb4eafb6-438b-4a7c-aa0b-5319df73c6ed",
-   "K01": "3aff8d25-1bd3-4aae-b0d7-fa7e97cf77ea",
-   "K02": "67431a20-f1b9-4f2a-9deb-cdfd4a28d5d7",
-   "K03": "993a5a84-ec8d-4f18-b64c-91f568ece888",
-   "K04": "d9887848-a0bc-49b1-b2f9-5ea711083487",
-   "K05": "1cdb8aa3-d1ba-426f-8238-186c530fb638",
-   "K06": "f4671efb-3c1a-41c4-a3a3-87f5e87d53a1",
-   "K07": "7dc47d49-dba0-40d7-a7cd-ee3bfbff89f7",
-   "K08": "b8aea305-1657-48a8-b035-691702e1fc77",
-   "K09": "e11ca3ae-a960-42df-81af-a4d73b75c060",
-   "K10": "b9be5c5d-c93f-499c-afac-d67541982552",
-   "K11": "c83850f9-da21-42ef-8f78-00b14ff85277",
-   "K12": "daf625d9-71cb-4559-9cab-8ca1a00a7149",
-   "K13": "b4083483-463c-4d68-ac2c-ac55434a554a",
-   "K14": "b1430b38-5e35-4756-a5ac-9b4c05d92b06",
-   "K15": "49ecebaf-2507-4f74-aca3-d929d4eae2d5",
-   "K16": "9f60047a-ccea-4338-b319-971aeb0198e5",
-   "K17": "19121b0f-2391-4cc8-8b3e-c355ac183d7c",
-   "K18": "22bb6265-806d-4d26-9563-9b02ee8b29f7",
-   "K19": "0a5b5670-d2eb-492f-96a0-12a8c7d0d78a",
-   "K20": "d5a1c3bf-de94-4051-976c-a07cb0ec6775",
-   "K21": "161b3244-5344-4ef8-85ea-9807a8a36343",
-   "K22": "2fd0c47b-f355-4bdd-a39a-cedff7edff9e",
-   "K23": "597fa529-5a93-437c-8907-9bbe60c30c6a",
-   "K24": "1908a520-770a-4667-865a-afecc6af044a",
-   "K25": "22165027-fe8b-41c1-9ba7-f299c34f8cac",
-   "K26": "eaea69a3-4858-46da-976d-f7883eb04ccf",
-   "K27": "0bd5ab46-80ca-4808-8dd7-231d085bf0a9",
-   "K28": "ab56442e-ee00-4f31-8a0d-873710f945bb",
-   "K29": "c28c98b2-a33f-4892-b227-234a158a6c10",
-   "K30": "05cd9f86-6f3f-47f8-9cae-2af9b3945178",
-   "K31": "7a46b1f8-8917-4112-8948-f5ab29001af8",
-   "K32": "badab9f3-51e1-4428-8a49-f63ac8a14b9b",
-   "K33": "e5a5021d-e526-49ad-ac7f-5a62259d907c",
-   "K34": "89f4b446-5ed1-4385-826d-e03ea2944887",
-   "K35": "23d28174-404d-43db-8aad-39222c01ea59",
-   "K21_retake": "4ae9ce4f-11dc-453e-b2bc-a1620aef661e",
-   "K21_v1_rejected": "161b3244-5344-4ef8-85ea-9807a8a36343",
-   "K27_v1_rejected_split": "0bd5ab46-80ca-4808-8dd7-231d085bf0a9",
-   "K36": "f95409a0-066a-49d8-8f6b-5d05691b768b",
-   "K37": "c53cf647-6486-4b85-9c36-999f73b5bff8",
-   "K38": "c052088d-df36-433c-bcdd-5788ea91425b",
-   "K39": "afafaccc-f021-4d8f-96ea-8b347d2ba192",
-   "K27_retake": "fb4a26bb-ec08-4356-8b63-a77090a440c1",
-   "K40": "a71e7d9f-007a-4e1c-8c96-12901ba382ff",
-   "K41": "f0946a8f-28c6-4c5e-b1f5-2800053ea5f8",
-   "K42": "c7770c17-611e-4d7a-ae73-b7ba5d0623a1",
-   "K43": "932fe26b-9fdc-4460-8328-885ff559006a",
-   "K44": "b906f8b6-f7c7-46db-9f32-08f8d9b51287",
-   "K45": "78bf0063-5112-4c8c-9774-46b3512d8c77",
-   "K46": "c7e4a4b7-49bb-4fd9-9729-c284e2847805",
-   "K47": "75a0f134-27b6-417a-9ab8-0543ce0094a0",
-   "K48": "733483a1-6e8b-44b6-8968-6849919d0b74",
-   "K49": "d00e6b48-8d23-4f58-b6cd-5c2403afd0aa",
-   "K50": "71f863e5-766a-43cf-8668-6b255b7a650e",
-   "K51": "879161c1-2e88-4496-8437-978f6e2a0972",
-   "K52": "e8bff1ca-d27b-4fb9-afc0-2b3c229ba588",
-   "K53": "16622712-6e2f-4945-985b-3557dc5a79cf",
-   "K54": "00b247ca-fb8d-42bb-bfb4-b490eabc07f9",
-   "K55": "a26690ff-582e-48c5-b907-6d41be2fcab5",
-   "K46_v1_rejected_cake": "c7e4a4b7-49bb-4fd9-9729-c284e2847805",
-   "K56": "cfaacbc0-4546-4d75-9802-318b5fa2c32f",
-   "K57": "8cbc8a7a-5387-4df0-9811-9587d8a5d353",
-   "K58": "3e04e6e8-9051-4291-b507-08fe31a9b13e",
-   "K59": "dbc3c7d7-8320-4f64-a2ee-9b2f04fc4276",
-   "K46_retake": "36beb4aa-045b-4c01-ad78-7ec731931cfc",
-   "K34b": "29fff154-ba6a-42f5-a12b-b593892a8856",
-   "K60": "6c6c7f2c-6f22-450f-9e1b-38316b673e80",
-   "K21r": "4ae9ce4f-11dc-453e-b2bc-a1620aef661e",
-   "K27r": "fb4a26bb-ec08-4356-8b63-a77090a440c1",
-   "K46r": "36beb4aa-045b-4c01-ad78-7ec731931cfc",
-   "K19_retake": "956f79be-cc61-4594-864c-08e7c20edbe8",
-   "K33_retake": "5e892b7b-1e27-44a1-ace1-63f640ce7c3b",
-   "K49_retake": "176380a0-79d9-48eb-8c1d-71a735624bbf",
-   "K25b": "54ebe456-8480-4c5f-b581-a877f0b0825e",
-   "K38b": "9e328db8-ce59-4d0e-95fc-8e9519127510"
-  },
-  "video2_keyframes_note": "66 keyframes (1 cr elk) incl. karakterblad W_OTHER (het andere meisje), retakes K21 (mannen verwisseld), K27 (tweeluik), K46 (taart in beeld), extra K34b en K60 zodat geen shot hoeft te bevriezen. Shotlijst en prompts: tools/shots_v2.py.",
-  "video2_clips_kling3_std": {
-   "K01": "0e00dce8-3fa3-462e-bf92-cc937d6f2351",
-   "K02": "93b080f2-91d0-45b5-91ca-5cc0f70081ed",
-   "K03": "168854ce-e1e1-4e3e-b62c-431ec7145d98",
-   "K04": "928e0102-e203-4ef9-80a5-163338481176",
-   "K05": "7950958b-d3e5-4461-a4c9-a554be1568f5",
-   "K06": "69c497d0-07bb-4174-99f5-fffce14036c4",
-   "K07": "08296db3-3759-4353-9054-16c4e8a4125b",
-   "K08": "cc43dde5-d39f-4dea-8451-24feafb83ef1",
-   "K09": "b134431f-e7ef-4b11-9f2c-fec6dea9bb15",
-   "K10": "62dc39fa-4fc8-4556-acb5-94d626397e1d",
-   "K11": "27e232ea-d27c-4b43-9323-5b402d886b26",
-   "K12": "c44d65fb-86db-444a-96ee-0f8956db20b1",
-   "K13": "7e475830-440b-4ec9-a84e-206c46e64400",
-   "K14": "c40cac64-c3a3-4b2c-b3ee-22b1347e4c6a",
-   "K15": "42d21bb6-74e7-4745-b1f2-fc3a90039b98",
-   "K16": "3e7f870a-a51d-40df-a146-33dc45ca9bb1",
-   "K17": "0a046c73-9f94-42b6-8c7c-a2e9e7cd9c35"
-  },
-  "video2_qa_keyframes": "Twee onafhankelijke controleurs (workflow): bevestigde grote punten K33 (man op de achtergrond in donker in plaats van oatmeal) en K49 (spiegelbeeld als reuzengezicht) -> beide opnieuw gemaakt (K33_retake, K49_retake); K19 (vlek op de kappersdoek) opnieuw; kleine punten (wazige schouder in navy bij K02/K40, camel-jas-vrouw op de achtergrond bij K34b/K57) geaccepteerd.",
-  "video2_clips_note": "Blok 1 = shots 1-17 (65 clipseconden, 97,5 credits). Cliplengte altijd >= shotlengte (3/4/5 s), geen stilstaande beelden. Plan: tools/shots_v2.py CLIPS.",
-  "video2_preview_block1": {
-   "media_id": "2388af19-b282-46cd-b505-c5a7215ce7f9",
-   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/2388af19-b282-46cd-b505-c5a7215ce7f9.mp4",
-   "duration_s": 60.59,
-   "note": "shots 1-17 met song_Y en ondertitels (assemble2 met line_start-fix), crf 22"
-  },
-  "take3_v3_lyrics": {
-   "lyrics": "story3_v3_lyrics.txt",
-   "Z1": "6aa67a4a-a61b-4dbf-8678-ccf20508d8e9 (62 s)",
-   "Z2": "a06b4a16-b4cf-42d1-b285-fd0b65ec3f63 (52 s)",
-   "Z3": "c5c82f4c-03c7-4e06-b033-e10fd6ff6602 (64 s)",
-   "Z4": "a6ef3e3a-005e-4f98-a3f7-00de15203f84 (50 s)",
-   "note": "tekst v3 strak langs het verhaal van de eigenaar; twee controleurs (workflow) op verhaal en zingbaarheid, drie restanten van v2 verwijderd",
-   "linecheck_pre": "Z1: tweede hook \"Look at us now\" (regel 6) niet gezongen (overgeslagen), rest 62-100%; Z2: alle regels; Z4: \"You did. And now you're gone\" niet gezongen, \"Moderno Milano\" gehoord als \"modern Milan\" (aanwezig). Plan: Z3 genereren en Z1/Z4 opnieuw proberen zodra er credits zijn, beste take per deel kiezen.",
-   "Z1b_retake": "e4d57b82-550e-40e2-a820-d724f3e025e9 (62 s)",
-   "Z4b_retake": "393575fd-32c6-4512-87b8-71dafea1a488 (52 s)",
-   "Z4c_retake": "420121b8-afe5-4e51-b9d9-46fcc9025728 (50 s, haar antwoordregel weer overgeslagen)",
-   "Z4d_retake_GEKOZEN": "14fbaaa0-4d13-4851-96b9-c71ab5a0c243 (52 s, haar antwoord in 2 regels, alle regels aanwezig)",
-   "keuze": "Z1 (eerste take: opening met beide stemmen aanwezig, tweede hook voor couplet 1 niet gezongen en uit de tekst gehaald), Z2, Z3, Z4d. Haar antwoord uitgebreid tot \"You did. And now you're gone / And I'm the one who held on\"."
-  },
-  "video2_v3_map": "tools/shots_v3_map.py (regel -> keyframe; nieuwe keyframes K25b en K38b)",
-  "credits_blocker": "opgelost 10 nov: 500 credits bijgekocht (saldo 500,95)",
-  "take3_song_joined": {
-   "media_id": "a22b1000-9b16-4bc3-8e3c-4bc838498ff8",
-   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/a22b1000-9b16-4bc3-8e3c-4bc838498ff8.mp3",
-   "duration_s": 192.36,
-   "parts": "Z1 3.37-60.02, Z2 0-42.7, Z3 0-64.03, Z4d 10.7-49.58; join2 + tighten (6 knips, 8,7 s)",
-   "lines": 61
-  },
-  "video2_v3_clips_kling3_std": {
-   "K44": "2f2994b7-69c7-4bdd-b783-11c284e265e3",
-   "K35": "5de05850-84da-4238-9fc9-2aa080818496",
-   "K25": "0c6e20ce-36c9-4a05-b804-9b3c6fe8c99a",
-   "K08": "36dd9a69-30a4-4615-8de7-9c397013c6fd",
-   "K12": "f552a530-46ad-4d9b-82a6-ebee9306dccc",
-   "K06": "8672a9e7-c6ef-4d83-9853-659692c75a93",
-   "K18": "0cc68a6f-fc4e-4e0f-8c30-1ef9106950d4",
-   "K05_2": "e82bdd46-2ba1-4b83-846b-170f7b72ff07",
-   "K19r": "d7c47f61-d769-4256-85d3-b33b465b0521",
-   "K20": "2cc10c01-59fd-4f83-83c8-2fc556fc2ea8",
-   "K21r": "8589abed-2214-4537-940a-49572cbc459b",
-   "K22": "a89af7d5-6ea3-4a70-a9b3-9ccf3cf8c98f",
-   "K23": "420312bf-ec66-41d1-b6f1-f9e4105f1024",
-   "K25b": "fb4d9d66-588f-46d7-86ff-3412c0b109a1",
-   "K26": "16331169-7daa-4988-b99d-6f378709ec64",
-   "K33r": "e228b0cd-d89b-4249-b766-403054b52f8c",
-   "K27r": "0a4bedf6-7313-43ed-aee3-9bfce134106f",
-   "K32": "8406f235-6b56-4714-9304-d664b0844932",
-   "K28": "74389927-c0ae-460e-adea-002d4a8ab981",
-   "K29": "5dcb11d0-41a4-4177-be2b-a305e718ab8a",
-   "K30": "e1323d27-c97d-4de9-aa6a-706c15e0ca32",
-   "K24": "bb220b7c-bf54-4ce0-9a75-67218b665ab7",
-   "K38": "2281826e-50f4-4081-ab93-508082115e8e",
-   "K25_2": "fa5a4547-e2e3-4721-8b35-87e3f862e20e",
-   "K38b": "56637dd3-31a0-48d7-8fbf-6d0b9b833255",
-   "K42": "afb3303b-38e8-41f0-a634-43ae3765358f",
-   "K43": "533f03c8-4554-42df-bda8-b9bf8072e320",
-   "K41": "f5bd0464-9f15-4cf4-bfd4-f919ec9cc07e",
-   "K14_2": "90d92738-ebca-47a7-968a-8d7aea6c3e96",
-   "K36": "acfb6ea0-0e0b-4efe-9955-be5afbe23c38",
-   "K37": "12dcd0d6-a860-4d10-b14b-132631ee6242",
-   "K17_2": "77d3396d-b84f-4105-878a-912fda8b0a51",
-   "K34": "460d82c2-34f0-4cb9-ba0d-ebae78730dc6",
-   "K40": "8c03b8ac-19ea-496f-a5ed-baaa0fa66118",
-   "K01_2": "e1174bac-3dd6-4526-90c0-6c18b1d2375a",
-   "K39": "ece1f5b6-9b7b-416e-bf27-db30ac800656",
-   "K45": "b470ca05-7520-428d-addd-1264619b321b",
-   "K46r": "6954d03c-eb64-4729-b306-ef9befcdd5d5",
-   "K47": "e3b1d9ec-d46f-47a7-8ae8-356955f6b4fc",
-   "K31": "41d06ce8-3e18-4974-aed5-7e1b6dbb46cd",
-   "K56": "4c440c1d-ee27-4166-a00e-3e10755a6dcb",
-   "K48": "25e2c49b-27d1-4287-982a-320176a31267",
-   "K50": "5c9077fc-bf7b-4e78-a65b-45663e1f156d",
-   "K51": "ef09ce38-f88d-4b6f-93e1-97031df92361",
-   "K53": "80dd985a-37ba-4451-b63f-6d8b74560d08",
-   "K54": "1b3801ff-6aed-439d-8e58-f96fdbdfa2f9",
-   "K55": "6efb50a7-8ec3-4a5d-9b16-af6fed6ebea1",
-   "K52": "17e61104-7a26-444e-b43f-90e3ab85e6bb",
-   "K58": "49a73068-d227-41d1-9543-dfc9131c0127",
-   "K59": "18cf3402-5a85-413b-910b-ce5d9348d775",
-   "K60": "1dcb9bcb-1262-4ed4-8bdf-6431cb141c86"
-  },
-  "video2_v3_clips_note": "51 nieuwe clips (184 s, ~276 credits) + 14 hergebruikte clips uit blok 1 (v2). Plan: ~/tb/rapvid/plan_v3.py (SEQ regel->keyframe, SPLIT voor lange gezongen regels 11/12/13, CAP voor 15 en 32).",
-  "video2_v3_clips_qa": "Alle 51 clips bekeken op begin/midden/eindframe: beweging klopt, gezichten en kleding blijven gelijk, geen tekst. Kleine punten: K53 (lege bank in de regen) heeft kort een witte veeg (vogel/blad) boven de kathedraal; K14_2 een wazig stuk pizza op de voorgrond. Geaccepteerd.",
-  "video2_v3_render": "assemble2.py plan_v3_full.json -> video2_v3.mp4 (65 shots, 192,4 s, eindoverlay op K59/K60)"
- }
 }

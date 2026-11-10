@@ -1,10 +1,3 @@
-# Rap-video assembler (draait in de Higgsfield-sandbox, map ~/tb/rapvid).
-# Gebruik: python3 assemble2.py plan.json uit.mp4
-# plan: {"audio","words","end_hold","start_t"?,"end_t"?,"shots":[{"clip"|"still","t0","t1","offset"?,"overlay"?}]}  (overlay = png over het hele shot, bv. de eindkaarttekst)
-# - words = timeline_words.json [{w,t0,t1}] (ware lyrics, tijden uit faster-whisper via align.py)
-# - kaarten van 1-2 woorden, nooit over een punt/vraagteken heen; MODERNO MILANO en DAY <n> worden grote kaarten
-# - Montserrat Black, wit met donkere rand en zachte schaduw, op 63% hoogte
-# - clips worden geschaald naar 1080x1920/24 fps; te korte clips houden het laatste beeld vast
 import json, re, subprocess, sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -13,17 +6,17 @@ plan = json.load(open(sys.argv[1])); out = sys.argv[2]
 words = json.load(open(plan['words']))
 font = ImageFont.truetype('fonts/Montserrat-VF.ttf', int(0.03 * H / 0.72)); font.set_variation_by_name('Black')
 big = ImageFont.truetype('fonts/Montserrat-VF.ttf', int(0.052 * H / 0.72)); big.set_variation_by_name('Black')
-BIG = re.compile(r'^(DAY (ONE|FOUR|NINE|TWELVE|SIXTEEN|TWENTY-THREE)|MODERNO MILANO)$')
+BIG = re.compile(r'^(DAY (ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|EIGHT|NINE|TEN|TWELVE|FIFTEEN|SIXTEEN|TWENTY|TWENTY-THREE)|MODERNO MILANO)$')
 def clean(w): return re.sub(r'[“”"]', '', w).upper()
 cards = []; i = 0
 while i < len(words):
     w = words[i]; grp = [w]
-    if len(clean(w['w']).strip('.,:!?')) < 7 and i + 1 < len(words) and words[i+1]['t0'] - w['t1'] < 0.6 and len(clean(words[i+1]['w']).strip('.,:!?')) < 9 and not clean(words[i+1]['w']).startswith('MODERNO') and not clean(w['w']).startswith('DAY') and clean(w['w'])[-1:] not in '.!?:;':
+    if len(clean(w['w']).strip('.,:!?')) < 7 and i + 1 < len(words) and words[i+1]['t0'] - w['t1'] < 0.6 and len(clean(words[i+1]['w']).strip('.,:!?')) < 9 and not clean(words[i+1]['w']).startswith('MODERNO') and clean(w['w']).strip('.,:!?') != 'DAY' and clean(w['w'])[-1:] not in '.!?:;' and not words[i+1].get('line_start'):
         grp.append(words[i+1])
     text = ' '.join(clean(x['w']) for x in grp); t0 = grp[0]['t0']; t1 = grp[-1]['t1']; i += len(grp)
     if text.startswith('MODERNO') and i < len(words) and clean(words[i]['w']).startswith('MILANO'):
         text = 'MODERNO MILANO'; t1 = words[i]['t1']; i += 1
-    if text.startswith('DAY') and len(grp) == 1 and i < len(words):
+    if text.strip('.,:!?') == 'DAY' and len(grp) == 1 and i < len(words):
         text = 'DAY ' + clean(words[i]['w']).strip('.,:!?'); t1 = words[i]['t1']; i += 1
     cards.append([t0, t1, text.strip(), bool(BIG.match(text.strip().strip('.,:!?')))])
 for k in range(len(cards) - 1):
