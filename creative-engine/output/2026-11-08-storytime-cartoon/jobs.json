@@ -649,5 +649,23 @@
       "K21r": "dc189ac8-3a77-40d2-88ca-7cc342442062",
       "K45": "19a1b5c9-2c9d-4dc7-bbde-4bdb127b8169"
     }
+  },
+  "haar_versie_10nov": {
+    "concept": "Versie met alle bestaande beelden van video 2 en een nieuw liedje vanuit haar oog: vooral zij zingt, een kort rapstuk van hem. Eis van de eigenaar: niets afgekapt, geen hoorbare overgang, verhaal past op de beelden. Daarom in een keer gegenereerd (max 120 s eigen tekst) en niet geknipt of geplakt.",
+    "lyrics": "haar_versie_v1_lyrics.txt (workflow wf_4de44a7a: 3 schrijvers, 2 beoordelaars, synthese, 2 controleurs; 22 regels, 149 woorden, 841 tekens, merknaam 2x)",
+    "mapping": "tools/v3/haar_versie_v1_mapping.json (regel -> bestaande clips, 34 shots)",
+    "kandidaten": {
+      "A_ballad_100s": "a2998134-f7cd-4d56-8c0b-c84a5dc2c4e4",
+      "B_rnb_100s": "f3908ebe-d7c8-47c2-a0fb-f89443788b8f",
+      "C_ballad_90s_geen_intro": "submission_failed: Out of credits on plus (monthly) plan",
+      "D_rnb_90s_geen_intro": "c95c9762-e5a0-4ce3-8f27-8d0e5468b9d2",
+      "kosten": "14,54 + 14,54 + 13,08 = 42,16 credits",
+      "meting_transcriptie": {
+        "A": "eerste woord 9,1 s; regels 19-20 (I pull my coat on / I had him first) niet herkend, instrumentaal gat 66-76 s; merknaam aan het eind aanwezig",
+        "B": "eerste woord 8,3 s; regel 20 (I had him first, I let him go) overgeslagen; merknaam in de rap gehoord als My dad no Milano, aan het eind als modern Milano",
+        "D": "zang vanaf 0,0 s maar het begin is geïmproviseerd (No, no, modern Milano, dude), refreinregel 2 en de regels walked out tall / saw him from the tram ontbreken, merknaam 5 keer herhaald aan het eind: onbruikbaar"
+      },
+      "note": "de eigenaar kiest op gehoor; ik kan niet horen welke stem welke regel zingt. Saldo na D: 12,57 credits (tussen 15:50 en 16:05 UTC ook 52 Nano Banana Pro-beelden van 2 credits in het account die niet uit deze sessie komen)."
+    }
   }
 }
