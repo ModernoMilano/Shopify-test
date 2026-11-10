@@ -248,5 +248,5 @@ De eigenaar: "wat is jouw verhaal in dit liedje, niet wat ik vroeg". Analyse: v2
 - **Kosten v3 in totaal**: liedje take 3 met retakes ≈ 50, keyframes 2, clips 51 × ≈ 5,4 ≈ 276, clip-retakes 12: ≈ 340 credits. Saldo na afloop: 172 credits (Plus-abonnement).
 - **Eerlijk**: ik kan het geluid niet horen; de controle van het liedje (alle 61 regels, aansluiting van de vier delen) liep via transcriptie en de tijdlijn. De tweede hook voor couplet 1 werd door ElevenLabs niet gezongen en is uit de tekst gehaald. De oren van de eigenaar beslissen.
 
-**Download video 2, verhaal 3** (zip: mp4 1080x1920 crf 20; het liedje als mp3; de tekst):
-(volgt na de controle)
+**Download video 2, verhaal 3** (zip 139 MB: mp4 1080x1920 crf 20, 3:12, 133 MB; het liedje als mp3; de tekst; media ada3fe81):
+https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/ada3fe81-379c-4710-b895-3db88519b380.zip

@@ -621,7 +621,27 @@
     },
     "video2_v3_clips_note": "51 nieuwe clips (184 s, ~276 credits) + 14 hergebruikte clips uit blok 1 (v2). Plan: ~/tb/rapvid/plan_v3.py (SEQ regel->keyframe, SPLIT voor lange gezongen regels 11/12/13, CAP voor 15 en 32).",
     "video2_v3_clips_qa": "Alle 51 clips bekeken op begin/midden/eindframe (ikzelf) plus twee onafhankelijke controleurs (workflow). Afgekeurd en opnieuw gemaakt: K06 en K05_2. Geaccepteerd met kleine punten: K53 (lege bank in de regen) kort een witte veeg boven de kathedraal; K14_2 een wazig stuk pizza op de voorgrond; K47 een extra man bij het sjouwen; K19r de handen van de kapper verdwijnen even; K35/K38b hij loopt uit beeld.",
-    "video2_v3_render": "assemble2.py plan_v3_full.json -> video2_v3.mp4 (65 shots, 192,4 s, eindoverlay op K59/K60)",
+    "video2_v3_render": {
+      "command": "assemble2.py plan_v3_full.json -> video2_v3.mp4 (65 shots, 192,4 s, 249 ondertitelkaarten, 2 grote kaarten, eindoverlay op K59/K60)",
+      "renders": "1: met oude K06/K05_2; 2: met retakes K06/K05_2 en line_start-vlaggen in de woordtijdlijn; 3 (definitief): met retakes K21r/K45 en best-looking als een woord",
+      "qa_workflow": "wf_6a0d8639: 2 controleurs x 24 stroken (96 frames om de 2 s) + verificatie per grote bevinding; 2 grote bevindingen bevestigd en met retakes opgelost",
+      "deliverable": {
+        "media_id": "ada3fe81-379c-4710-b895-3db88519b380",
+        "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/ada3fe81-379c-4710-b895-3db88519b380.zip",
+        "zip_bytes": 138926058,
+        "mp4": "1080x1920, 24 fps, crf 20, 192,375 s, 132841730 bytes",
+        "inhoud": [
+          "Moderno Milano - Look at us now (video 2, 9x16).mp4",
+          "Moderno Milano - Look at us now (liedje).mp3",
+          "tekst.txt"
+        ]
+      },
+      "project_files_zip": {
+        "media_id": "2f08c106-f759-4b39-85ef-5b145e149a94",
+        "inhoud": "tijdlijnen, montageplan, clipverzoeken, keyframe-ids, eindoverlay, liedje-scripts (ook in tools/v3/)"
+      },
+      "saldo_na_afloop": 172.23
+    },
     "video2_v3_clips_retakes": {
       "K06": "8aa23a14-9117-4932-9fbc-1f0842677f52",
       "K05_2": "6a277133-9771-4acb-a858-e34bbf3b2312",
