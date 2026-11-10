@@ -625,7 +625,9 @@
     "video2_v3_clips_retakes": {
       "K06": "8aa23a14-9117-4932-9fbc-1f0842677f52",
       "K05_2": "6a277133-9771-4acb-a858-e34bbf3b2312",
-      "note": "retakes na de controle: K06 (er verscheen een los stuk pizza) en K05_2 (gezicht dreef weg); 12 credits"
+      "note": "retakes na de clipcontrole: K06 (los stuk pizza) en K05_2 (gezicht dreef weg), 12 credits; na de eindcontrole van de video: K21r (gezicht smolt in de doos bij 69 s) en K45 (hoofd een bewegingsveeg bij 151 s), 13,5 credits",
+      "K21r": "dc189ac8-3a77-40d2-88ca-7cc342442062",
+      "K45": "19a1b5c9-2c9d-4dc7-bbde-4bdb127b8169"
     }
   }
 }
