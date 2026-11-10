@@ -619,6 +619,8 @@
    "K59": "18cf3402-5a85-413b-910b-ce5d9348d775",
    "K60": "1dcb9bcb-1262-4ed4-8bdf-6431cb141c86"
   },
-  "video2_v3_clips_note": "51 nieuwe clips (184 s, ~276 credits) + 14 hergebruikte clips uit blok 1 (v2). Plan: ~/tb/rapvid/plan_v3.py (SEQ regel->keyframe, SPLIT voor lange gezongen regels 11/12/13, CAP voor 15 en 32)."
+  "video2_v3_clips_note": "51 nieuwe clips (184 s, ~276 credits) + 14 hergebruikte clips uit blok 1 (v2). Plan: ~/tb/rapvid/plan_v3.py (SEQ regel->keyframe, SPLIT voor lange gezongen regels 11/12/13, CAP voor 15 en 32).",
+  "video2_v3_clips_qa": "Alle 51 clips bekeken op begin/midden/eindframe: beweging klopt, gezichten en kleding blijven gelijk, geen tekst. Kleine punten: K53 (lege bank in de regen) heeft kort een witte veeg (vogel/blad) boven de kathedraal; K14_2 een wazig stuk pizza op de voorgrond. Geaccepteerd.",
+  "video2_v3_render": "assemble2.py plan_v3_full.json -> video2_v3.mp4 (65 shots, 192,4 s, eindoverlay op K59/K60)"
  }
 }
