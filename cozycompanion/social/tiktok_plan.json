@@ -20,7 +20,8 @@
   "post_at_nl": "2026-11-11 15:00",
   "post_at_et": "2026-11-11 09:00",
   "orig_post_at_et": "2026-11-09 09:00",
-  "us_date": "2026-11-11"
+  "us_date": "2026-11-11",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-09",
@@ -35,7 +36,8 @@
   "post_at_et": "2026-11-11 12:00",
   "orig_post_at_et": "2026-11-09 12:00",
   "us_date": "2026-11-11",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-09_2.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-09_2.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-09",
@@ -50,7 +52,8 @@
   "post_at_et": "2026-11-11 15:00",
   "orig_post_at_et": "2026-11-09 15:00",
   "us_date": "2026-11-11",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-09_3.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-09_3.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-09",
@@ -65,7 +68,8 @@
   "post_at_et": "2026-11-11 18:00",
   "orig_post_at_et": "2026-11-09 18:00",
   "us_date": "2026-11-11",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-09_4.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-09_4.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-09",
@@ -80,7 +84,8 @@
   "post_at_et": "2026-11-11 20:00",
   "orig_post_at_et": "2026-11-09 20:00",
   "us_date": "2026-11-11",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-09_5.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-09_5.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-10",
@@ -103,7 +108,8 @@
   "post_at_nl": "2026-11-12 15:00",
   "post_at_et": "2026-11-12 09:00",
   "orig_post_at_et": "2026-11-10 09:00",
-  "us_date": "2026-11-12"
+  "us_date": "2026-11-12",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-10",
@@ -118,7 +124,8 @@
   "post_at_et": "2026-11-12 12:00",
   "orig_post_at_et": "2026-11-10 12:00",
   "us_date": "2026-11-12",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-10_2.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-10_2.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-10",
@@ -133,7 +140,8 @@
   "post_at_et": "2026-11-12 15:00",
   "orig_post_at_et": "2026-11-10 15:00",
   "us_date": "2026-11-12",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-10_3.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-10_3.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-10",
@@ -148,7 +156,8 @@
   "post_at_et": "2026-11-12 18:00",
   "orig_post_at_et": "2026-11-10 18:00",
   "us_date": "2026-11-12",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-10_4.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-10_4.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-10",
@@ -171,7 +180,8 @@
   "post_at_nl": "2026-11-13 02:00",
   "post_at_et": "2026-11-12 20:00",
   "orig_post_at_et": "2026-11-10 20:00",
-  "us_date": "2026-11-12"
+  "us_date": "2026-11-12",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-11",
@@ -197,7 +207,8 @@
   "us_date": "2026-11-10",
   "planned_post_at_nl": "2026-11-16 15:00",
   "metricool_id": "423544524",
-  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)"
+  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-11",
@@ -215,7 +226,8 @@
   "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-11_2.mp4",
   "planned_post_at_nl": "2026-11-16 18:00",
   "metricool_id": "423544774",
-  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)"
+  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-11",
@@ -233,7 +245,8 @@
   "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-11_3.mp4",
   "planned_post_at_nl": "2026-11-16 21:00",
   "metricool_id": "423544934",
-  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)"
+  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-11",
@@ -251,7 +264,8 @@
   "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-11_4.mp4",
   "planned_post_at_nl": "2026-11-17 00:00",
   "metricool_id": "423544988",
-  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)"
+  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-11",
@@ -269,7 +283,8 @@
   "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-11_5.mp4",
   "planned_post_at_nl": "2026-11-17 02:00",
   "metricool_id": "423545138",
-  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)"
+  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-12",
@@ -294,7 +309,8 @@
   "us_date": "2026-11-10",
   "planned_post_at_nl": "2026-11-17 15:00",
   "metricool_id": "423544864",
-  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)"
+  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-12",
@@ -312,7 +328,8 @@
   "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-12_2.mp4",
   "planned_post_at_nl": "2026-11-17 18:00",
   "metricool_id": "423545189",
-  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)"
+  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-12",
@@ -330,7 +347,8 @@
   "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-12_3.mp4",
   "planned_post_at_nl": "2026-11-17 21:00",
   "metricool_id": "423545257",
-  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)"
+  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-12",
@@ -348,7 +366,8 @@
   "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-12_4.mp4",
   "planned_post_at_nl": "2026-11-18 00:00",
   "metricool_id": "423545299",
-  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)"
+  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-12",
@@ -373,7 +392,8 @@
   "us_date": "2026-11-10",
   "planned_post_at_nl": "2026-11-18 02:00",
   "metricool_id": "423545072",
-  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)"
+  "note": "moved to Nov 10 evening on owner request (10 TikToks tonight)",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-13",
@@ -395,7 +415,8 @@
   "post_at_nl": "2026-11-13 15:00",
   "post_at_et": "2026-11-13 09:00",
   "orig_post_at_et": "2026-11-13 09:00",
-  "us_date": "2026-11-13"
+  "us_date": "2026-11-13",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-13",
@@ -410,7 +431,8 @@
   "post_at_et": "2026-11-13 12:00",
   "orig_post_at_et": "2026-11-13 12:00",
   "us_date": "2026-11-13",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-13_2.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-13_2.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-13",
@@ -425,7 +447,8 @@
   "post_at_et": "2026-11-13 15:00",
   "orig_post_at_et": "2026-11-13 15:00",
   "us_date": "2026-11-13",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-13_3.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-13_3.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-13",
@@ -440,7 +463,8 @@
   "post_at_et": "2026-11-13 18:00",
   "orig_post_at_et": "2026-11-13 18:00",
   "us_date": "2026-11-13",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-13_4.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-13_4.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-13",
@@ -455,7 +479,8 @@
   "post_at_et": "2026-11-13 20:00",
   "orig_post_at_et": "2026-11-13 20:00",
   "us_date": "2026-11-13",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-13_5.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-13_5.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-14",
@@ -478,7 +503,8 @@
   "post_at_nl": "2026-11-14 15:00",
   "post_at_et": "2026-11-14 09:00",
   "orig_post_at_et": "2026-11-14 09:00",
-  "us_date": "2026-11-14"
+  "us_date": "2026-11-14",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-14",
@@ -493,7 +519,8 @@
   "post_at_et": "2026-11-14 12:00",
   "orig_post_at_et": "2026-11-14 12:00",
   "us_date": "2026-11-14",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-14_2.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-14_2.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-14",
@@ -508,7 +535,8 @@
   "post_at_et": "2026-11-14 15:00",
   "orig_post_at_et": "2026-11-14 15:00",
   "us_date": "2026-11-14",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-14_3.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-14_3.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-14",
@@ -523,7 +551,8 @@
   "post_at_et": "2026-11-14 18:00",
   "orig_post_at_et": "2026-11-14 18:00",
   "us_date": "2026-11-14",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-14_4.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-14_4.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-14",
@@ -545,7 +574,8 @@
   "post_at_nl": "2026-11-15 02:00",
   "post_at_et": "2026-11-14 20:00",
   "orig_post_at_et": "2026-11-14 20:00",
-  "us_date": "2026-11-14"
+  "us_date": "2026-11-14",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-15",
@@ -568,7 +598,8 @@
   "post_at_nl": "2026-11-15 15:00",
   "post_at_et": "2026-11-15 09:00",
   "orig_post_at_et": "2026-11-15 09:00",
-  "us_date": "2026-11-15"
+  "us_date": "2026-11-15",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-15",
@@ -583,7 +614,8 @@
   "post_at_et": "2026-11-15 12:00",
   "orig_post_at_et": "2026-11-15 12:00",
   "us_date": "2026-11-15",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-15_2.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-15_2.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-15",
@@ -598,7 +630,8 @@
   "post_at_et": "2026-11-15 15:00",
   "orig_post_at_et": "2026-11-15 15:00",
   "us_date": "2026-11-15",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-15_3.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-15_3.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-15",
@@ -613,7 +646,8 @@
   "post_at_et": "2026-11-15 18:00",
   "orig_post_at_et": "2026-11-15 18:00",
   "us_date": "2026-11-15",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-15_4.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-15_4.mp4",
+  "metricool_scheduled": true
  },
  {
   "date": "2026-11-15",
@@ -628,6 +662,7 @@
   "post_at_et": "2026-11-15 20:00",
   "orig_post_at_et": "2026-11-15 20:00",
   "us_date": "2026-11-15",
-  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-15_5.mp4"
+  "url_with_audio": "https://cozycompanion.us/cdn/shop/files/cozycompanion-tt_2026-11-15_5.mp4",
+  "metricool_scheduled": true
  }
 ]
