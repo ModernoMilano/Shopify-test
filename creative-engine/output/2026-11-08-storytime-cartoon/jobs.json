@@ -695,6 +695,27 @@
       "take8": "start op 0 s, merknaam beide keren onverstaanbaar: afgevallen"
     },
     "kosten": "8 takes = 81,44 credits (4 x 10,76 + 4 x 9,60); saldo erna 421,13",
-    "les": "De opening positief beschrijven (the very first sound is the woman singing the hook) in plaats van no intro, en de duur krap kiezen (66 s voor 18 regels): alle vier de takes van 66 s begonnen op seconde 0, tegen 5 tot 15 s intro bij 74 s. De merknaam is de zwakste plek: 1 van de 8 takes had hem twee keer herkenbaar."
+    "les": "De opening positief beschrijven (the very first sound is the woman singing the hook) in plaats van no intro, en de duur krap kiezen (66 s voor 18 regels): alle vier de takes van 66 s begonnen op seconde 0, tegen 5 tot 15 s intro bij 74 s. De merknaam is de zwakste plek: 1 van de 8 takes had hem twee keer herkenbaar.",
+    "gekozen_korte_versie": "eigenaar koos kandidaat 2 = take 5 (1:06); daarna: het liedje is iets te kort, zullen we hem 2 minuten proberen te maken",
+    "lange_versie": {
+      "lyrics": "giving_it_back_v2_lang_lyrics.txt (30 regels, alle 18 regels van v1 woordelijk behouden, workflow wf_177a0f8b: 2 schrijvers, 1 beoordelaar-samensteller, 2 controleurs); giving_it_back_v2_kort_lyrics.txt (26 regels, reserve)",
+      "grens_van_het_model": "ElevenLabs Music v2.5 via Higgsfield weigert een tekst met te veel RIJEN, niet met te veel tekens: 32 rijen incl. tags mislukt (ook bij 874 tekens en met een korte stijlprompt), 25 rijen incl. tags lukt bij 1109 tekens. Oplossing: twee tekstregels per rij, gescheiden door een komma. Geweigerde jobs kosten geen credits (13 geweigerd).",
+      "duur": "30 regels vullen bij dit model ongeveer 1:23 tot 1:26. Bij een aanvraag van 120 s vult het model de rest met een intro van 10 tot 20 s, een herhaalde hook of 26 s muziek na het laatste woord. Voor echt 2:00 zijn ongeveer 42 tot 44 regels nodig.",
+      "takes_120s": {
+        "L1_korte_prompt": "4aefc9e2-b049-4490-a652-58f5a626de24 (intro 10 s, gat van 11 s)",
+        "L2": "0df37979-3f90-428a-9f01-ff94fd46a49d (openingshook ontbreekt, 20 s intro)",
+        "L3": "c291c098-e57d-4e09-994d-0a8be6676733 (start 0 s, hook dubbel, alle regels, merknaam 2x duidelijk, zang klaar op 93,6 s, daarna 26 s muziek)",
+        "L4": "5b9aaa4d-5798-4a99-b2c8-9b218b0cb6b8 (eerste rapcouplet ontbreekt)"
+      },
+      "take_90s_24_regels": "0d1d1ecc-ab1f-44c0-8519-b63db6ceceb5 (M1, niet verder gemeten)",
+      "takes_90s_30_regels": {
+        "N1": "ce4fb7a4-97f3-4cea-b546-710276e8a7cf (regel ontbreekt, gat van 7 s)",
+        "N2": "8ac31499-1d1c-4797-87a1-cadf1f5405e2 (openingshook ontbreekt)",
+        "N3_kandidaat_B": "dfdf934f-2667-4508-8986-f3db8ed476c3 (start 0 s, alle 30 regels, merknaam 2x duidelijk, maar haar couplet 0:15-0:21 wordt door de mannenstem gedaan en er zit een gat van 5 s op 0:37)",
+        "N4_kandidaat_A": "79a3c40b-9c0c-4f78-8a96-a139bcbe145b (start 0 s, alle 30 regels, 29 van 30 in de verwachte stem, geen pauze boven 2 s, zang tot 85,5 s; zij rekt of herhaalt I zipped it up to my chin)"
+      },
+      "meetmethode": "zang isoleren met demucs (htdemucs), spraakherkenning medium met woordtijden op de zang, toonhoogte per tekstregel (pyin) -> wie zingt welke regel; scripts sep_vocals.py, asr_vocals.py, voicecheck.py in de sandbox ~/tb/rnb",
+      "kosten": "L1-L4 69,80 + M1 13,08 + N1-N4 52,32 = 135,20 credits"
+    }
   }
 }

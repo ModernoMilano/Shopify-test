@@ -272,3 +272,13 @@ De eigenaar vroeg om een nieuwe rapsong als duet (zij zingt mooi, hij rapt) en k
 - **Les**: beschrijf de opening positief ("the very first sound is the woman singing the hook") in plaats van "no intro", en kies de duur krap (66 s voor 18 regels). Bij 74 s kwamen er intro's van 5 tot 15 s en pauzes; bij 66 s begonnen alle vier de takes op seconde 0.
 - **Niet gecontroleerd**: ik kan het geluid niet horen. De metingen komen uit twee spraakmodellen; wie welke regel zingt, de klank en de uitspraak van de merknaam beoordeelt de eigenaar.
 - **Beelden** volgen pas na zijn keuze: `tools/v3/giving_it_back_v1_linemap.json` koppelt elke regel aan een bestaand shot of een nieuw shot (ongeveer 9 nieuwe).
+
+## I'm Not Giving It Back: lange versie (11 november, avond)
+
+De eigenaar koos kandidaat 2 (take 5, 1:06) en vond het liedje daarna "iets te kort, zullen we hem 2 minuten proberen te maken".
+
+- **Tekst v2** (`giving_it_back_v2_lang_lyrics.txt`, 30 regels): alle 18 regels van v1 woordelijk behouden, plus een refrein dat drie keer terugkomt ("Sleeves too long, collar high / Hold out your hand, nice try"), haar thuis in de knit, de lege hanger met de huisgenoot, en de tram met het perron. Geen nieuw plot.
+- **De echte grens van het model**: niet het aantal tekens maar het aantal RIJEN. Dertien jobs werden geweigerd (gratis) tot dat duidelijk was: 32 rijen inclusief tags mislukt altijd, ook met weinig tekens en een korte stijlprompt; 25 rijen lukt bij 1.109 tekens. Oplossing: twee tekstregels per rij met een komma ertussen.
+- **Duur**: 30 regels vullen ongeveer 1:25. Vraag je 2:00 aan, dan vult het model de rest op met een intro, een dubbele hook of een halve minuut muziek na het laatste woord. Voor echt 2:00 zijn ongeveer 42 tot 44 regels nodig.
+- **Nieuwe meetmethode**: zang isoleren (demucs), dan per tekstregel de toonhoogte meten. Daarmee is voor het eerst te zien wie welke regel zingt. Bij take 5 en take N3 blijkt haar tweede couplet door de mannenstem gedaan.
+- **Kandidaten** (elk in één keer gegenereerd, niets geknipt): A = N4 (1:30, alle 30 regels, 29 van 30 in de juiste stem, geen pauzes), B = N3 (alle regels en de merknaam het duidelijkst, maar haar couplet door de man en een gat van 5 s). Job-ids en metingen in `jobs.json` onder `giving_it_back_11nov.lange_versie`.
