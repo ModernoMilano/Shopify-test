@@ -22,7 +22,8 @@ R = dict(HER='915ac841-6d18-449a-9dd7-fa98badf8ea3', HIMN='cc30e31f-f254-4602-96
          KF25='c5d7ee59-1e01-4b4d-a758-d709c21a50d5',   # KF25 = het eerste keyframe van N25, als voorbeeld voor het verre stel in N26
          TAUPE='79d9f2ac-4e24-4cf9-ba98-59cb79d795c4',  # productfoto Bellagio Taupe (modernomilano.com); vervangt het getekende blad TCAR, dat zakken had
          KF22='fab5a6ce-ae49-40db-80ea-65ab38832a41', KF30='b5ef1305-a969-403c-8244-54bbcb134d1e',
-         KF27='5b406bdd-0139-4724-b952-3695c51e7a94')                                       # keyframe van N27 (zijn slaapkamer) als voorbeeld voor N09 en N10; invullen na het opnieuw maken van N27                              # keyframes van N22 (de voordeur) en N30 (de wijnbar) als voorbeeld voor de shots in dezelfde scene
+         KF27='5b406bdd-0139-4724-b952-3695c51e7a94',
+         KF07='a96d25f0-2e4f-4412-8e53-af942d5c8b9c', KF18='d19924c8-3d0a-435a-ad6e-6bcb71c7fc5d')   # eerdere startbeelden van N07 en N18 (met een ademsliert), als voorbeeld voor de versie zonder adem                                       # keyframe van N27 (zijn slaapkamer) als voorbeeld voor N09 en N10; invullen na het opnieuw maken van N27                              # keyframes van N22 (de voordeur) en N30 (de wijnbar) als voorbeeld voor de shots in dezelfde scene
 STYLE = "3D animated feature-film still in the style of a modern Pixar movie: stylized characters with slightly oversized heads, large expressive glossy eyes, sculpted hair, smooth subsurface skin, cinematic shallow depth of field. "
 END = " Everything is in sharp focus where it matters: no motion blur, no motion lines, no speed lines. Vertical 9:16. No text, no logos, no signs, no readable writing anywhere."
 MPRE = "3D animated feature-film look. "
@@ -63,8 +64,10 @@ add('N06', ['HIMN','HER','NAVY'], 3, f"A cold clear night at the Navigli canal i
     "Slow tracking shot backwards. They walk slowly toward the camera along the canal; he rubs his arms once and shivers with a grin; she smiles to herself, her hands hidden in the sleeves.")
 # N06: de clip van deze prompt (4e2afbf3) wordt gebruikt tot 1,83 s, vertraagd (N06s): daarna breekt zijn gezicht bij het rillen.
 # Twee rustiger pogingen vielen af: in 2baca241 steekt zij haar handen in zakken die de knit niet heeft, in 946f8220 wordt zijn gezicht smaller zodra hij opzij kijkt.
-add('N07', ['HER','NAVY'], 3, CANAL + f"Close-up of {her(1)} pulling the zip of {navy(2)} all the way up to the top of the ribbed stand-up collar under her chin, the sleeves over her hands, warm lamp light on her face, a big grin.",
-    "Static camera. She gives the zip pull one last little tug up under her chin, tucks her chin into the collar and grins, her shoulders wiggling with delight; her breath shows in the cold air.")
+# N07 en N18: het startbeeld bevatte een ademsliert ("breath visible in the cold") en Kling maakte daar een wolk zo groot als een hoofd van,
+# ook als de bewegingsprompt "no breath cloud" zei. Daarom is het startbeeld zelf opnieuw gemaakt met het oude beeld als voorbeeld en alleen de lucht schoon.
+add('N07', ['HER','NAVY','KF07'], 3, f"Exactly the same scene, framing, pose, face and light as reference image 3: a cold clear night at the Navigli canal in Milan, street lamps reflected in the dark water. Close-up of the young woman from reference image 1 (long wavy brown hair, brown eyes) pulling the zip of {navy(2)}, all the way up to the top of the ribbed stand-up collar under her chin, the sleeves over her hands, warm lamp light on her face, a big grin. The only change from reference image 3: the night air is completely clear, with a clean dark starry sky and no breath cloud, no steam, no smoke and no mist anywhere. If any trousers show at the bottom edge they are dark brown.",
+    "Static camera. She gives the zip pull one last little tug up under her chin, then slowly closes her eyes and tucks her chin into the collar with a cosy, contented grin, her sleeve-covered hands resting at the collar. Her eyes stay closed until the end. The zip stays fully closed the whole time. Nothing moves fast.")
 add('N08', ['HER','NAVY'], 3, f"Her cosy living room at night, lit by a warm lamp and the bluish glow of a television off-frame. {cap(her(1))} sits curled up on the sofa in {navy(2)}, zipped up, with dark brown trousers and thick wool socks, knees pulled up, holding a steaming mug of tea in both sleeve-covered hands, watching the screen with a cosy smile.",
     "Static camera. She keeps the mug exactly where it is and blows gently across the top of the tea; the steam drifts; then she looks back at the screen with a cosy smile. Her arms, the mug and her body stay still the whole time; the light does not change and the knit keeps its dark navy colour.")
 # --- 0:20 zijn rap: hoodies, compliment, lege hanger, huisgenoot, nieuwe knit, wijnbar
@@ -98,8 +101,8 @@ add('N16', ['HER','TAUPE'], 3, f"Night in Milan, an orange tram pulling away fro
     "Static camera. She waves her sleeve-covered hand from side to side, clearly waving goodbye, and grins; the tram rolls slowly forward.")
 add('N17', ['HIMN'], 3, f"A tram stop in Milan at night, wet cobblestones, street lamps, an orange tram gliding away in the background. {cap(him(1, CREAM))}, stands alone on the platform, arms hugged against the cold, laughing at himself, his head still. Medium shot.",
     "Static camera. He watches the tram leave, hugs his arms, laughs and shakes his head; the tram glides away.")
-add('N18', ['HIMN'], 3, f"Night on a quiet Milan street with warm shop windows and street lamps, breath visible in the cold. {cap(him(1, CREAM))}, walks toward the camera with both hands raised at shoulder height in a relaxed 'you win' shrug, a wide easy grin. Medium shot.",
-    "Slow tracking shot backwards. He walks toward the camera, shrugs with both hands up, laughs and shakes his head.")
+add('N18', ['HIMN','KF18'], 3, "Exactly the same scene, framing, pose, face and light as reference image 2: night on a quiet Milan street with warm shop windows and street lamps, wet paving. The young man from reference image 1 (exactly the same face, brown hair neatly combed, clean-shaven), in only a plain cream T-shirt, navy trousers and navy loafers, walks toward the camera with both hands raised at shoulder height in a relaxed 'you win' shrug, a wide easy grin. Medium shot. The only change from reference image 2: the night air is completely clear, with no breath cloud, no steam, no smoke and no mist anywhere.",
+    "Slow tracking shot backwards. He walks slowly toward the camera with both hands raised in a relaxed 'you win' shrug and laughs warmly, his eyes closing as he laughs. His head keeps facing the camera and keeps its shape: no head shake, no head turn, he does not look up. Nothing moves fast.")
 add('N19', ['HER','TAUPE','KF22'], 3, SAMEDOOR % 3 + f"{cap(herL(1))} stands alone in the open doorway wearing {taupe(2)} over her cream blouse, with dark brown trousers; with one hand she folds the front flap of the ribbed stand-up collar outward and looks down at the small label sewn inside it (a plain blank fabric label without any letters), her head tilted, curious. Medium shot.",
     "Static camera. She holds the collar flap out, taps the small label with her fingertip and tilts her head to read it, her eyebrows rising. The label stays completely blank.")
 # --- 1:03 het label, slotrefrein
@@ -131,7 +134,7 @@ CUTS = [('N01',0.00,3.00),('N02',3.00,5.52),('N03',5.52,8.18),('N04',8.18,10.60)
 OLD = {}
 HOLD = {'N26'}       # slotbeeld: de clip van 5 s loopt uit en het laatste beeld blijft staan onder de eindkaart (de laatste 3,5 s van het liedje zijn stilte)
 CAP_Y = {'N30': 0.75}   # ondertitels lager waar ze anders over het belangrijkste van het shot vallen (haar hand op zijn mouw)
-CROP = {'N07': 0.04}    # onderste 4% wegsnijden (strookje broek in de verkeerde kleur)
+CROP = {}              # N07 had hier 0.04 (strookje broek in de verkeerde kleur); het nieuwe startbeeld van N07 heeft een donkerbruine broek, dus geen uitsnede meer
 ALT = {'N02': 'clipsG/N02s.mp4', 'N06': 'clipsG/N06s.mp4', 'N13': 'clipsG/N13p.mp4', 'N20': 'clipsG/N20s.mp4', 'N22': 'clipsG/N22s.mp4'}
 # bewerkte clips (derive_clips.sh): N02 vertraagd (ogen dicht), N06, N20 en N22 het schone deel vertraagd, N13 vooruit en achteruit (twee vingers blijven omhoog)
 if __name__ == '__main__':
