@@ -21,7 +21,8 @@ R = dict(HER='915ac841-6d18-449a-9dd7-fa98badf8ea3', HIMN='cc30e31f-f254-4602-96
          DAVE='c613f1e6-327b-4d41-a628-ddab724d07c3', BAR='afafaccc-f021-4d8f-96ea-8b347d2ba192',
          KF25='c5d7ee59-1e01-4b4d-a758-d709c21a50d5',   # KF25 = het eerste keyframe van N25, als voorbeeld voor het verre stel in N26
          TAUPE='79d9f2ac-4e24-4cf9-ba98-59cb79d795c4',  # productfoto Bellagio Taupe (modernomilano.com); vervangt het getekende blad TCAR, dat zakken had
-         KF22='fab5a6ce-ae49-40db-80ea-65ab38832a41', KF30='b5ef1305-a969-403c-8244-54bbcb134d1e')                              # keyframes van N22 (de voordeur) en N30 (de wijnbar) als voorbeeld voor de shots in dezelfde scene
+         KF22='fab5a6ce-ae49-40db-80ea-65ab38832a41', KF30='b5ef1305-a969-403c-8244-54bbcb134d1e',
+         KF27='')                                       # keyframe van N27 (zijn slaapkamer) als voorbeeld voor N09 en N10; invullen na het opnieuw maken van N27                              # keyframes van N22 (de voordeur) en N30 (de wijnbar) als voorbeeld voor de shots in dezelfde scene
 STYLE = "3D animated feature-film still in the style of a modern Pixar movie: stylized characters with slightly oversized heads, large expressive glossy eyes, sculpted hair, smooth subsurface skin, cinematic shallow depth of field. "
 END = " Everything is in sharp focus where it matters: no motion blur, no motion lines, no speed lines. Vertical 9:16. No text, no logos, no signs, no readable writing anywhere."
 MPRE = "3D animated feature-film look. "
@@ -52,7 +53,7 @@ add('N01', ['HER','NAVY'], 3, LIVING + f"Medium close-up of {her(1)}, wearing {n
 add('N02', ['HER','NAVY'], 3, LIVING + f"Close-up of {her(1)} in {navy(2)}, zipped up, with dark brown trousers: with one sleeve-covered hand she presses the soft ribbed collar against her cheek, eyes closed, a blissful little smile.",
     "Static camera. She slowly rubs her cheek against the soft collar with a blissful smile and gives one small contented nod. Her eyes stay closed the whole time.")
 add('N03', ['HER','NAVY'], 3, LIVING + f"Three-quarter shot of {her(1)} standing fully dressed in {navy(2)}, zipped up, with dark brown trousers: she lifts both forearms so the far-too-long sleeves flop over her hands, the ribbed stand-up collar high under her chin, a delighted grin. Family-friendly.",
-    "Static camera. She flaps the too-long sleeves once and tucks her chin into the high collar, grinning.")
+    "Static camera. She lifts her forearms a little so the too-long sleeves flop gently, then tucks her chin into the high collar, grinning. Her hands stay hidden inside the sleeves the whole time; the sleeves stay whole.")
 add('N04', ['HIMN','HER','NAVY'], 3, LIVING + f"Two-shot: {him(1)} holds out one open hand, palm up, asking for his knit back with a hopeful grin; facing him {her(2)} wears {navy(3)}, zipped up, with dark brown trousers, her arms wrapped tight around herself, leaning away from his hand with a cheeky grin.",
     "Static camera. He wiggles the fingers of his open hand, asking; she shakes her head, grins and hugs the knit tighter.")
 # --- 0:10 de gracht: hij geeft zijn knit
@@ -63,13 +64,13 @@ add('N06', ['HIMN','HER','NAVY'], 3, f"A cold clear night at the Navigli canal i
 add('N07', ['HER','NAVY'], 3, CANAL + f"Close-up of {her(1)} pulling the zip of {navy(2)} all the way up to the top of the ribbed stand-up collar under her chin, the sleeves over her hands, warm lamp light on her face, a big grin.",
     "Static camera. She gives the zip pull one last little tug up under her chin, tucks her chin into the collar and grins, her shoulders wiggling with delight; her breath shows in the cold air.")
 add('N08', ['HER','NAVY'], 3, f"Her cosy living room at night, lit by a warm lamp and the bluish glow of a television off-frame. {cap(her(1))} sits curled up on the sofa in {navy(2)}, zipped up, with dark brown trousers and thick wool socks, knees pulled up, holding a steaming mug of tea in both sleeve-covered hands, watching the screen with a cosy smile.",
-    "Static camera. She blows on the tea, takes a small sip and snuggles deeper into the knit; the television light flickers on her face.")
+    "Static camera. She blows on the tea and takes one small sip, sitting upright and still the whole time. The light stays steady and the knit stays dark navy.")
 # --- 0:20 zijn rap: hoodies, compliment, lege hanger, huisgenoot, nieuwe knit, wijnbar
-add('N27', ['HIMN'], 3, f"His bedroom in daylight: an open wardrobe with a shelf holding a tall neat stack of identical plain grey hoodies. {cap(him(1))}, stands beside it and points at the stack with one thumb, eyebrows raised, a dry amused look at the camera. Medium shot.",
+add('N27', ['HIMN'], 3, f"His bedroom in daylight, grey curtains: an open walnut wardrobe with a top shelf holding a tall neat stack of identical plain grey hoodies, a rail with white and light-blue shirts on wooden hangers (no navy garments), and drawers with metal bar handles. {cap(him(1))}, stands beside it and points at the stack of hoodies with one thumb, eyebrows raised, a dry amused look at the camera. Medium shot.",
     "Static camera. He jerks his thumb at the untouched stack of grey hoodies, shrugs and shakes his head with a dry grin.")
-add('N09', ['HIMN'], 3, f"His bedroom in daylight, an open wardrobe behind him. Medium close-up of the young man from reference image 1 (exactly the same face, brown hair neatly combed, clean-shaven) in a plain white T-shirt, one hand on his chest, eyebrows raised, a surprised, flattered grin, as if he has just been paid a compliment.",
-    "Static camera. He points at himself with a 'who, me?' look, then breaks into a flattered grin and shrugs.")
-add('N10', ['HIMN'], 3, f"His bedroom in daylight: an open wardrobe with a clothes rail holding a few shirts and, in the middle, one empty wooden hanger. {cap(him(1))}, stands beside it looking at the empty hanger, one hand scratching the back of his head, an amused half-smile. Medium shot from the side.",
+add('N09', ['HIMN','KF27'], 3, f"The same bedroom in daylight and the same open walnut wardrobe as in reference image 2 (the tall stack of grey hoodies on the top shelf, white and light-blue shirts on the rail, grey curtains). Medium close-up of the young man from reference image 1 (exactly the same face, brown hair neatly combed, clean-shaven) in a plain white T-shirt, one hand on his chest, eyebrows raised, a surprised, flattered grin, as if he has just been paid a compliment.",
+    "Static camera. He taps his chest with a 'who, me?' look and keeps a flattered grin, with a small shrug. He stays where he is; his head keeps its shape.")
+add('N10', ['HIMN','KF27'], 3, f"The same bedroom in daylight and the same open walnut wardrobe as in reference image 2 (the tall stack of grey hoodies on the top shelf, white and light-blue shirts on the rail, drawers with metal bar handles, grey curtains). In the middle of the rail hangs one empty wooden hanger; there is no navy garment anywhere. {cap(him(1))}, stands beside the wardrobe looking at the empty hanger, one hand scratching the back of his head, an amused half-smile. Medium shot from the side.",
     "Static camera. The empty hanger swings gently on the rail; he scratches the back of his head, shrugs and smiles to himself.")
 add('N28', ['HIMN','DAVE'], 3, f"Daylight inside the hallway of a shared Milan apartment, the front door closed in the background, a coat rack with a grey jacket. The flatmate from reference image 2 (stocky, curly dark hair, short beard, green T-shirt, grey sweatpants, socks) stands inside the hallway holding a plain brown cardboard parcel with no print in both hands, one eyebrow raised high, a knowing smirk; {him(1)} reaches for the parcel with both hands and a sheepish grin. Medium two-shot.",
     "Static camera. The flatmate raises one eyebrow higher and smirks; he gently takes the parcel from him with a sheepish grin and a small nod.")
@@ -79,8 +80,8 @@ add('N30', ['HER','HIMN','TAUPE','BAR'], 3, f"The same candlelit Milan wine bar 
     "Static camera. She strokes the ribbed sleeve with her fingertips, delighted; he looks from her hand to her face and smiles, already knowing what comes next.")
 add('N31', ['HER','TAUPE','KF30'], 3, f"The same candlelit Milan wine bar, the same table and the same two people as in reference image 3. Close-up of {her(1)}, in the same cream trench coat and cream blouse, leaning over the small marble table: with her fingertips she strokes the forearm of the man beside her, of whom only the forearm is visible in the foreground, in the sleeve of exactly the taupe full-zip ribbed cashmere knit from reference image 2; her eyes are wide and her mouth is open in delight.",
     "Static camera. She strokes the ribbed sleeve with her fingertips and looks up with wide, delighted eyes; the candle flickers.")
-add('N11', ['HER','HIMN','TAUPE'], 3, f"Night on a Milan street outside a warm little wine bar, candlelit windows behind, wet cobblestones, breath visible in the cold. Two-shot: {her(1)}, in a cream blouse and dark brown trousers, her cream trench coat folded over one arm, is slipping her arms into {taupe(3)}, with a delighted grin; beside her {him2(2)} watches with a resigned, amused smile.",
-    "Static camera. She pulls the big knit on and does a little happy shimmy; he shakes his head, smiling, and rubs his arms.")
+add('N11', ['HER','HIMN','TAUPE'], 3, f"Night on a Milan street outside a warm little wine bar, candlelit windows behind, wet cobblestones, breath visible in the cold. Two-shot: {her(1)}, in a cream blouse and dark brown trousers, has just put on {taupe(3)}, both arms in the sleeves; with one hand she holds the open front of the knit together at her chest, her other arm hangs at her side with her folded cream trench coat draped over the forearm; she has exactly two arms and two hands; a delighted grin. Beside her {him2(2)} watches with a resigned, amused smile.",
+    "Static camera. She pulls the big knit closed around herself and does a little happy shimmy; he shakes his head, smiling, and rubs his arms.")
 # --- 0:42 haar refrein, knit nummer twee
 add('N12', ['HER','TAUPE'], 3, f"Night on a Milan street with tram tracks and warm street lamps. Medium close-up of {her(1)} wearing {taupe(2)} over her cream blouse, zipped up, hugging it tight around herself with both arms, chin tucked into the collar, a teasing stubborn smile, looking at the camera.",
     "Static camera. She hugs the knit tighter and shakes her head no with a teasing smile.")
@@ -106,28 +107,34 @@ add('N21', ['HER','TAUPE','KF22'], 4, f"Close-up in the open doorway of the same
     "Static camera. She hugs the knit tighter, lifts her chin and slowly shakes her head no with a triumphant grin. Her eyes stay closed the whole time.")
 add('N22', ['HIMN','HER','TAUPE'], 4, DOOR + f"Two-shot: {herL(2)} stands in the open doorway on the left of the frame in {taupe(3)} and dark brown trousers, holding up both arms so the too-long sleeves flop over her hands; {him2(1)} stands on the step on the right of the frame, laughing.",
     "Static camera. She flaps the too-long sleeves at him like little wings; he laughs and shakes his head.")
-add('N23', ['HIMN'], 3, f"Night at the doorstep of a tall dark-green front door lit by one warm wall lamp, a quiet dry Milan street behind him, no snow, breath visible in the cold. Seen from inside the doorway: {him(1, CREAM)} stands on the step holding out one open hand, palm up, eyebrows raised, a hopeful grin.",
-    "Static camera. He holds out his open hand and wiggles his fingers, hopeful; his breath shows in the cold.")
-add('N24', ['HIMN','HER','TAUPE','KF22'], 5, SAMEDOOR % 4 + f"Seen from the same side. Two-shot: {herL(2)} stands in the open doorway on the left of the frame, wearing and hugging {taupe(3)}, with dark brown trousers, grinning; behind her in the warm hallway a deep navy blue ribbed zip knit hangs on a coat hook; on the step on the right of the frame {him2(1)} laughs with both hands raised in surrender.",
+add('N23', ['HIMN','KF22'], 3, f"The same dark-green front door with its brass lever handle and the same wet, reflective street at night as in reference image 2, now seen from inside the hallway looking out through the open door: {him2(1)} stands on the wet doorstep holding out one open hand, palm up, eyebrows raised, a hopeful grin. No snow, no smoke or breath cloud.",
+    "Static camera. He holds out his open hand and wiggles his fingers, hopeful, eyebrows going up.")
+add('N24', ['HIMN','HER','TAUPE','KF22'], 4, SAMEDOOR % 4 + f"Seen from the same side. Two-shot: {herL(2)} stands in the open doorway on the left of the frame, wearing and hugging {taupe(3)}, with dark brown trousers, grinning; behind her in the warm hallway a second knit of the same model hangs on a coat hook, in deep navy blue, hanging open so that its two front halves and the zip running from the collar all the way down to the hem are visible; on the step on the right of the frame {him2(1)} laughs with both hands raised in surrender.",
     "Static camera. He laughs and raises both hands in surrender, shaking his head; she hugs the knit and shakes her head no, grinning.")
 # --- 1:21 slot
-add('N25', ['HIMN','HER','TAUPE'], 5, f"Night on a quiet Milan street with tram tracks and warm street lamps, wet cobblestones. Seen from behind at a little distance: {her(2)}, her long wavy hair hanging loose down her back with no braid and no twist, in {taupe(3)} and dark brown trousers, and the young man from reference image 1 (dark brown hair, short at the nape) in a plain cream T-shirt, navy trousers and navy loafers, walk away from the camera side by side, her arm hooked through his, their heads turned toward each other, laughing. The back of her knit is plain ribbed knit without any zip or seam; the zip is on the front and cannot be seen. The two figures are in the upper half of the frame; the lower third of the frame is empty wet cobblestones.",
+add('N25', ['HIMN','HER','TAUPE'], 3, f"Night on a quiet Milan street with tram tracks and warm street lamps, wet cobblestones. Seen from behind at a little distance: {her(2)}, her long wavy hair hanging loose down her back with no braid and no twist, in {taupe(3)} and dark brown trousers, and the young man from reference image 1 (dark brown hair, short at the nape) in a plain cream T-shirt, navy trousers and navy loafers, walk away from the camera side by side, her arm hooked through his, their heads turned toward each other, laughing. The back of her knit is plain ribbed knit without any zip or seam; the zip is on the front and cannot be seen. The two figures are in the upper half of the frame; the lower third of the frame is empty wet cobblestones.",
     "Slow push-in. They walk on away from the camera, arm in arm; she bumps her shoulder against his and he laughs; the street lamps glow on the wet cobblestones.")
-add('N26', ['KF25'], 4, "Very wide night shot of the Navigli canal in Milan: lamps and warm windows reflected in the dark water, a small iron footbridge. Far away on the towpath, small in the frame, the same couple as in reference image 1 walk close together away from the camera, seen from behind, arm in arm: she has long loose wavy brown hair and wears the taupe ribbed knit and dark brown trousers; he has short dark brown hair and wears a cream T-shirt, navy trousers and navy loafers; neither carries a bag. The lower third of the frame is dark calm water.",
+add('N26', ['KF25'], 5, "Very wide night shot of the Navigli canal in Milan: lamps and warm windows reflected in the dark water, a small iron footbridge. Far away on the towpath, small in the frame, the same couple as in reference image 1 walk close together away from the camera, seen from behind, arm in arm: she has long loose wavy brown hair and wears the taupe ribbed knit and dark brown trousers; he has short dark brown hair and wears a cream T-shirt, navy trousers and navy loafers; neither carries a bag. The lower third of the frame is dark calm water.",
     "Very slow push-in. The two small figures walk on along the canal and grow smaller; the water ripples and the lamp reflections shimmer.")
 
-# montage: (sleutel, t0, t1) op de regels van take N3; alle 31 shots zijn nieuw (K39 uit video 2 is vervangen door N31)
-CUTS = [('N01',0.00,3.00),('N02',3.00,5.60),('N03',5.60,8.30),('N04',8.30,10.50),('N05',10.50,12.90),('N06',12.90,15.40),('N07',15.40,18.20),('N08',18.20,20.60),
-        ('N27',20.60,23.30),('N09',23.30,26.10),('N10',26.10,28.50),('N28',28.50,31.50),('N29',31.50,34.20),('N30',34.20,36.60),('N31',36.60,39.20),('N11',39.20,41.80),
-        ('N12',41.80,44.70),('N13',44.70,47.20),('N14',47.20,49.90),('N15',49.90,52.10),('N16',52.10,54.50),('N17',54.50,57.40),('N18',57.40,60.40),('N19',60.40,63.20),
-        ('N20',63.20,66.90),('N21',66.90,70.50),('N22',70.50,73.80),('N23',73.80,76.40),('N24',76.40,81.40),('N25',81.40,86.40),('N26',86.40,90.04)]
+# montage: (sleutel, t0, t1); elke wissel valt precies op het begin van de gezongen regel volgens tijdlijn v2 (tl2_N3.py),
+# of in de stilte ervoor als de vorige regel al uit is;
+# alle 31 shots zijn nieuw (K39 uit video 2 is vervangen door N31)
+CUTS = [('N01',0.00,3.00),('N02',3.00,5.52),('N03',5.52,8.18),('N04',8.18,10.60),('N05',10.60,13.10),('N06',13.10,15.34),('N07',15.34,18.26),('N08',18.26,21.00),
+        ('N27',21.00,23.53),('N09',23.53,26.27),('N10',26.27,28.55),('N28',28.55,31.55),('N29',31.55,34.29),('N30',34.29,36.90),('N31',36.90,39.50),('N11',39.50,42.05),
+        ('N12',42.05,44.72),('N13',44.72,47.27),('N14',47.27,49.93),('N15',49.93,51.97),('N16',51.97,54.75),('N17',54.75,57.44),('N18',57.44,60.44),('N19',60.44,63.42),
+        ('N20',63.42,67.00),('N21',67.00,70.42),('N22',70.42,74.00),('N23',74.00,77.00),('N24',77.00,80.70),('N25',80.70,83.50),('N26',83.50,90.04)]
 OLD = {}
+HOLD = {'N26'}       # slotbeeld: de clip van 5 s loopt uit en het laatste beeld blijft staan onder de eindkaart (de laatste 3,5 s van het liedje zijn stilte)
+CAP_Y = {'N30': 0.75}   # ondertitels lager waar ze anders over het belangrijkste van het shot vallen (haar hand op zijn mouw)
+CROP = {'N07': 0.04}    # onderste 4% wegsnijden (strookje broek in de verkeerde kleur)
+ALT = {'N02': 'clipsG/N02s.mp4', 'N13': 'clipsG/N13p.mp4'}   # bewerkte clips: N02 vertraagd (ogen dicht), N13 vooruit en achteruit (twee vingers blijven omhoog)
 if __name__ == '__main__':
     mode = sys.argv[1] if len(sys.argv) > 1 else 'list'
     if mode == 'list':
         for s in S: print(s['k'], s['dur'], ','.join(s['refs']), len(s['prompt']))
         d = {k: t1 - t0 for k, t0, t1 in CUTS}
-        for s in S: assert d[s['k']] <= s['dur'] + 0.045, (s['k'], d[s['k']], s['dur'])
+        for s in S: assert d[s['k']] <= s['dur'] + 0.045 or s['k'] in HOLD, (s['k'], d[s['k']], s['dur'])
         assert all(abs(CUTS[i][2] - CUTS[i + 1][1]) < 1e-9 for i in range(len(CUTS) - 1))
         print('shots', len(CUTS), 'nieuw', len(S), 'clipseconden', sum(s['dur'] for s in S), 'credits clips', sum(s['dur'] for s in S) * 1.5)
     elif mode == 'keyframes':
@@ -141,12 +148,12 @@ if __name__ == '__main__':
                  "medias": [{"role": "start_image", "value": ids[s['k']]}], "prompt": s['motion']}} for s in S if s['k'] in ids and (not want or s['k'] in want)]
         for i in range(0, len(reqs), 12): print(json.dumps(reqs[i:i+12]))
     elif mode == 'plan':
-        shots = []; CARD = 82.9   # tot hier staat de gezongen merknaam als ondertitel in beeld; daarna faadt de eindkaart in
+        # eindkaart: midden in beeld (end_card_mid.png uit make_end_card.py), faadt in op het slotbeeld bij de laatste klap van de muziek
+        shots = []
         for k, t0, t1 in CUTS:
-            clip = f"clipsG/{k}.mp4" if k.startswith('N') else OLD[k]
-            if k == 'N25':
-                shots.append({"clip": clip, "t0": t0, "t1": CARD})
-                shots.append({"clip": clip, "t0": CARD, "t1": t1, "offset": round(CARD - t0, 3), "overlay": "end_overlay.png", "overlay_fade": 0.5})
-            elif k == 'N26': shots.append({"clip": clip, "t0": t0, "t1": t1, "overlay": "end_overlay.png"})
-            else: shots.append({"clip": clip, "t0": t0, "t1": t1})
-        print(json.dumps({"audio": "song_N3.mp3", "words": "timeline_words_N3.json", "end_hold": True, "end_t": 90.04, "shots": shots}, indent=1))
+            sh = {"clip": ALT.get(k, f"clipsG/{k}.mp4"), "t0": t0, "t1": t1}
+            if k in CAP_Y: sh["cap_y"] = CAP_Y[k]
+            if k in CROP: sh["crop_bottom"] = CROP[k]
+            if k == 'N26': sh.update(overlay="end_card_mid.png", overlay_fade=0.6)
+            shots.append(sh)
+        print(json.dumps({"audio": "song_N3.mp3", "words": "timeline_words_N3.json", "cards": "cards_N3.json", "end_hold": True, "end_t": 90.04, "shots": shots}, indent=1))

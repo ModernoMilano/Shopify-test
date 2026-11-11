@@ -1,6 +1,7 @@
 """Montage: python3 assemble3.py plan.json uit.mp4   (of: ... plan.json - cards  -> alleen de ondertitelkaarten tonen)
-Verschil met assemble2: flitskaarten worden nooit over een regelgrens samengevoegd, een overlay kan infaden (overlay_fade)
-en een stilstaand beeld kan langzaam inzoomen (zoom), voor een proefversie waarin een clip nog ontbreekt."""
+Verschil met assemble2: flitskaarten worden nooit over een regelgrens samengevoegd, een overlay kan infaden (overlay_fade),
+een stilstaand beeld kan langzaam inzoomen (zoom), het plan kan kant-en-klare kaarten meegeven (cards) en per shot een
+ondertitelhoogte (cap_y)."""
 import json, re, subprocess, sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -12,7 +13,9 @@ big = ImageFont.truetype('fonts/Montserrat-VF.ttf', int(0.052 * H / 0.72)); big.
 BIG = re.compile(r'^(DAY (ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|EIGHT|NINE|TEN|TWELVE|FIFTEEN|SIXTEEN|TWENTY|TWENTY-THREE)|MODERNO MILANO)$')
 def clean(w): return re.sub(r'[“”"]', '', w).upper()
 cards = []; i = 0
-while i < len(words):
+PRE = plan.get('cards')   # kant-en-klare kaarten [t0, einde, tekst, groot] (cards_N3.py); dan vervalt het automatisch indelen hieronder
+if PRE: cards = [list(c) for c in json.load(open(PRE))]
+while not PRE and i < len(words):
     w = words[i]; grp = [w]
     if len(clean(w['w']).strip('.,:!?')) < 7 and i + 1 < len(words) and words[i+1]['t0'] - w['t1'] < 0.6 and len(clean(words[i+1]['w']).strip('.,:!?')) < 9 and not clean(words[i+1]['w']).startswith('MODERNO') and clean(w['w']).strip('.,:!?') != 'DAY' and clean(w['w'])[-1:] not in '.!?:;' and not words[i+1].get('line_start'):
         grp.append(words[i+1])
@@ -22,14 +25,16 @@ while i < len(words):
     if text.strip('.,:!?') == 'DAY' and len(grp) == 1 and i < len(words):
         text = 'DAY ' + clean(words[i]['w']).strip('.,:!?'); t1 = words[i]['t1']; i += 1
     cards.append([t0, t1, text.strip(), bool(BIG.match(text.strip().strip('.,:!?')))])
-for k in range(len(cards) - 1):
+LS0 = {round(w['t0'], 3) for w in words if w.get('line_start')}
+for k in range(0 if PRE else len(cards) - 1):
     nt0 = cards[k+1][0]; t1 = cards[k][1]
-    cards[k][1] = min(nt0, t1 + 0.6) if nt0 - t1 < 1.0 else t1 + 0.25
+    tail = 0.3 if round(nt0, 3) in LS0 else 0.6   # het laatste woord van een regel blijft hooguit 0,3 s na de zang staan
+    cards[k][1] = min(nt0, t1 + tail) if nt0 - t1 < 1.0 else t1 + 0.25
 # flitskaarten (< 0.2 s in beeld) samenvoegen, hooguit 3 woorden, grote kaarten nooit, en nooit over een regelgrens:
 # is de volgende kaart het begin van een nieuwe regel, dan gaat de flitskaart bij de vorige kaart van dezelfde regel
 LS = {round(w['t0'], 3) for w in words if w.get('line_start')}
 def starts_line(c): return round(c[0], 3) in LS
-k = 0
+k = len(cards) if PRE else 0
 while k < len(cards) - 1:
     cur, nxt = cards[k], cards[k+1]
     if cur[3] or nxt[0] - cur[0] >= 0.2: k += 1; continue
@@ -45,12 +50,12 @@ if len(sys.argv) > 3 and sys.argv[3] == 'cards':
     for c in cards: print('%6.2f-%6.2f %s%s' % (c[0], c[1], 'BIG ' if c[3] else '    ', c[2]))
     raise SystemExit
 print('cards', len(cards), 'big', sum(1 for c in cards if c[3]))
-def layer(text, isbig):
+def layer(text, isbig, cy=0.63):
     ft = big if isbig else font
     im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im); lines = [text]
     if d.textlength(text, font=ft) > 0.9 * W and ' ' in text:
         cut = text.rfind(' ', 0, len(text) // 2 + 3); lines = [text[:cut], text[cut+1:]]
-    lh = ft.size * 1.15; total = lh * len(lines); y = 0.63 * H - total / 2
+    lh = ft.size * 1.15; total = lh * len(lines); y = cy * H - total / 2
     sh = Image.new('RGBA', (W, H), (0, 0, 0, 0)); ds = ImageDraw.Draw(sh)
     for n, ln in enumerate(lines):
         x = (W - d.textlength(ln, font=ft)) / 2
@@ -58,8 +63,12 @@ def layer(text, isbig):
         d.text((x, y + n * lh), ln, font=ft, fill=(255, 255, 255, 255), stroke_width=6, stroke_fill=(20, 20, 20, 255))
     sh = sh.filter(ImageFilter.GaussianBlur(8)); sh.alpha_composite(im); return sh
 layers = {}
-def read_clip(path, offset, n):
-    cmd = ['ffmpeg', '-loglevel', 'error', '-ss', f'{offset:.3f}', '-i', path, '-vf', f'scale={W}:{H}:flags=lanczos,fps={FPS}', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-']
+def read_clip(path, offset, n, crop_bottom=0.0):
+    vf = f'scale={W}:{H}:flags=lanczos,fps={FPS}'
+    if crop_bottom:   # onderste strook wegsnijden (deel van de hoogte) door iets in te zoomen; de bovenrand blijft staan
+        z = 1.0 / (1.0 - crop_bottom); w2 = int(round(W * z / 2) * 2); h2 = int(round(H * z / 2) * 2)
+        vf = f'scale={w2}:{h2}:flags=lanczos,crop={W}:{H}:{(w2 - W) // 2}:0,fps={FPS}'
+    cmd = ['ffmpeg', '-loglevel', 'error', '-ss', f'{offset:.3f}', '-i', path, '-vf', vf, '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-']
     raw = subprocess.run(cmd, check=True, capture_output=True).stdout
     fr = np.frombuffer(raw, np.uint8).reshape(-1, H, W, 3)
     if len(fr) == 0: raise SystemExit('leeg: ' + path)
@@ -88,7 +97,7 @@ for s in shots:
     for _ in range(max(0, n0 - frame_idx)): proc.stdin.write(np.zeros((H, W, 3), np.uint8).tobytes())
     n = n1 - max(n0, frame_idx)
     if n <= 0: continue
-    fr = read_still(s['still'], n, s.get('zoom')) if 'still' in s else read_clip(s['clip'], s.get('offset', 0.0), n)
+    fr = read_still(s['still'], n, s.get('zoom')) if 'still' in s else read_clip(s['clip'], s.get('offset', 0.0), n, s.get('crop_bottom', 0.0))
     ov = Image.open(s['overlay']).convert('RGBA') if 'overlay' in s else None
     for k in range(n):
         t = (max(n0, frame_idx) + k) / FPS; im = Image.fromarray(fr[k]).convert('RGBA')
@@ -98,10 +107,12 @@ for s in shots:
             if a < 1.0:
                 o2 = ov.copy(); o2.putalpha(ov.getchannel('A').point(lambda v, a=a: int(v * a))); im.alpha_composite(o2)
             else: im.alpha_composite(ov)
+        fi = max(n0, frame_idx) + k
         for (a, b, text, isbig) in cards:
-            if a <= t < b:
-                key = (text, isbig)
-                if key not in layers: layers[key] = layer(text, isbig)
+            if round(a * FPS) <= fi < round(b * FPS):   # op hele beelden, net als de shotwissels: een kaart en een wissel op dezelfde tijd vallen op hetzelfde beeld
+                cy = s.get('cap_y', 0.63)   # ondertitelhoogte per shot (deel van de beeldhoogte), als de standaardplek iets belangrijks afdekt
+                key = (text, isbig, cy)
+                if key not in layers: layers[key] = layer(text, isbig, cy)
                 im.alpha_composite(layers[key]); break
         proc.stdin.write(im.convert('RGB').tobytes())
     frame_idx = n1

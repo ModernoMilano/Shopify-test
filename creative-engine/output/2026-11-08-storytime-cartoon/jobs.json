@@ -719,7 +719,7 @@
     },
     "gekozen_lange_versie": "Lange kandidaat B (1:30) = take N3, job dfdf934f-2667-4508-8986-f3db8ed476c3; keuze van de eigenaar via de keuzevraag op 11 nov",
     "video_n3": {
-      "status": "niet af: 12 van de 31 clips goed, 19 nog te maken; credits op (saldo 2,72 op 11 nov 17:38)",
+      "status": "niet af: 7 van de 31 clips bruikbaar, 24 nog te maken of opnieuw; credits op (saldo 0,72 op 11 nov 18:10)",
       "liedje": "take N3 ongeknipt, 90,04 s",
       "metingen_n3": {
         "regels_door_mannenstem": "7 t/m 10 (in het tekstblad voor haar)",
@@ -749,7 +749,7 @@
         "N08": "9ec14569-b9e0-4840-bf9e-699a39f18e18",
         "N09": "a53f5c4d-5a84-4ddf-b858-93a98396877f",
         "N10": "e53b839e-f39a-47f1-8ac4-8058706b1ac1",
-        "N11": "d06d60d1-459e-47b7-aaae-e0dab03b2733",
+        "N11": "17f9a0cb-24eb-4713-a53e-49e5af6a6a46",
         "N12": "56fed42a-2f8b-48cd-923b-4b538cf39e8f",
         "N13": "a6640d2e-b55d-41a3-a1eb-d3865778d03f",
         "N14": "f308b88a-ec9f-45f0-893b-94808e9e185c",
@@ -762,7 +762,7 @@
         "N21": "2cccaef4-ccaa-4f6b-948e-9406f9f3f697",
         "N22": "fab5a6ce-ae49-40db-80ea-65ab38832a41",
         "N23": "2d14c062-04ed-4433-9758-865c689abb64",
-        "N24": "fdb34c47-863c-433f-8113-4717af4d4794",
+        "N24": "f84619e4-65ec-4944-90d5-ee032c05c50d",
         "N25": "cf7676d9-54b8-4cc0-8ee8-29bd04c20e8a",
         "N26": "dad8609d-fd69-4166-aace-88285067b507",
         "N27": "a2f246fc-3125-4801-a41b-adb207a28af5",
@@ -789,27 +789,30 @@
       },
       "clips_goed": [
         "N01",
-        "N03",
-        "N07",
-        "N08",
-        "N09",
-        "N10",
-        "N13",
+        "N02 (eerste 2 s vertraagd, ogen dicht)",
+        "N07 (onderste 4% weggesneden)",
+        "N13 (vooruit en achteruit)",
         "N17",
         "N18",
-        "N19",
-        "N23",
-        "N27"
+        "N19"
       ],
       "clips_opnieuw": {
-        "N02": "ogen gaan aan het eind blauw open; prompt houdt de ogen nu dicht",
-        "N26": "gemaakt op het afgekeurde startbeeld (ander stelletje)"
+        "N03": "mouwuiteinden scheuren los en zweven weg (1,3-1,75 s), houdingssprong op 1,9 s",
+        "N08": "lichtsprong op 1,63 s waardoor de knit kobaltblauw wordt, mok half doorzichtig op 2,2-2,4 s",
+        "N09": "gezicht rekt uit op 1,9-2,1 s; krijgt ook een nieuw startbeeld",
+        "N10": "nieuw startbeeld (zelfde kast als N27)",
+        "N23": "droge straat tussen de natte N22 en N24; nieuw startbeeld",
+        "N27": "nieuw startbeeld (geen navy kledingstuk in de kast)",
+        "N26": "gemaakt op het afgekeurde startbeeld"
       },
       "clips_nog_te_maken": [
-        "N02",
+        "N03",
         "N04",
         "N05",
         "N06",
+        "N08",
+        "N09",
+        "N10",
         "N11",
         "N12",
         "N14",
@@ -818,9 +821,11 @@
         "N20",
         "N21",
         "N22",
+        "N23",
         "N24",
         "N25",
         "N26",
+        "N27",
         "N28",
         "N29",
         "N30",
@@ -835,9 +840,26 @@
       "kosten": {
         "saldo_16_50": 277.72,
         "saldo_17_38": 2.72,
-        "deze_sessie": "73 startbeelden x 1 = 73; 14 clips = 64,5 (12 x 4,5 + 6 + 2 x 4,5); samen 137,5",
+        "deze_sessie": "75 startbeelden x 1 = 75; 14 clips = 64,5; samen 139,5",
         "niet_uit_deze_sessie": "50 x GPT Image 2.6 a 2,75 credits tussen 17:12 en 17:27 (steeds 8 tegelijk) = 137,5",
-        "nog_nodig": "19 clips, 65 s = 97,5 credits, plus reserve voor herkansingen"
+        "nog_nodig": "24 clips (78 s) = 117 credits, 4 startbeelden = 4, plus reserve voor herkansingen: reken op 150",
+        "saldo_18_10": 0.72
+      },
+      "keyframes_nog_opnieuw": {
+        "N27": "zelfde kast voor de drie slaapkamershots, geen navy kledingstuk aan de stang",
+        "N09": "met N27 als voorbeeld",
+        "N10": "met N27 als voorbeeld",
+        "N23": "natte straat en deurklink zoals N22"
+      },
+      "controle_proefversie": "workflow wf_5edef9d6-b09: drie controleurs (ondertitels en verhaal op alle 2161 beelden, de 31 startbeelden, de 13 clips met minstens 8 beelden per clip)",
+      "ondertitels": {
+        "tijdlijn": "tools/gib/timeline_words_N3.json (v2): start per woord uit de akoestische uitlijning (fa_N3.py, wav2vec2 CTC op het zangspoor) min 0,04 s; eerste woord na een stilte op het begin van de stem (luidheid van het zangspoor); woorden uit tl_N3.py",
+        "verschil_met_spraakherkenning": "44 van 182 woorden meer dan 0,15 s; regel 30 (Moderno Milano) 0,64 s eerder, regel 29 0,60 s later, regel 11 0,45 s later, regel 1 0,38 s later",
+        "kaarten": "tools/gib/captions_N3.txt (met de hand ingedeeld, 81 kaarten) + cards_N3.py -> cards_N3.json; geen kaart over een regelgrens of een shotwissel, kortste kaart 0,34 s",
+        "eindkaart": "tools/gib/make_end_card.py -> end_card_mid.png, merknaam op 58-62% van de hoogte, faadt in op het slotbeeld (83,5 s)"
+      },
+      "proefversie_2": {
+        "inhoud": "mp4 1080x1920 crf 21, 90,04 s: 10 bewegende shots, 21 stilstaande startbeelden met inzoom; ondertitels v2, eindkaart midden in beeld"
       }
     }
   }

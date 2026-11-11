@@ -2,7 +2,8 @@
 Afwijkingen van het tekstblad die in de take zelf zitten:
 - regel 7 ("I zipped it up to my chin"): in de take klinkt alleen "(to) my chin" (15,4-16,0 s); de ondertitel volgt wat er klinkt.
 - de ASR hoort na het slot "Thank you very much" in stilte (zangspoor is daar -55 dB): weggelaten.
-Schrijft timeline_words_N3.json (w, t0, t1, line_start) en timeline_lines_N3.json."""
+Schrijft timeline_words_N3_asr.json (w, t0, t1, line_start) en timeline_lines_N3_asr.json: de eerste meting.
+De tijdlijn die de video gebruikt komt uit tl2_N3.py (na fa_N3.py), die de starttijden bijstelt met een tweede en derde meting."""
 import json, re, os, difflib
 R = os.path.expanduser('~/tb/rnb')
 A = json.load(open(f'{R}/words_voc_N3.json'))
@@ -75,7 +76,7 @@ for a, b in zip(W, W[1:]):
     if b['t1'] < b['t0'] + 0.12: b['t1'] = round(b['t0'] + 0.12, 2)
 assert all(b['t0'] >= a['t0'] for a, b in zip(W, W[1:])), 'niet oplopend'
 assert sum(1 for w in W if w.get('line_start')) == len(LINES) == 30
-json.dump(W, open('timeline_words_N3.json', 'w'), indent=0); json.dump(L, open('timeline_lines_N3.json', 'w'), indent=1)
+json.dump(W, open('timeline_words_N3_asr.json', 'w'), indent=0); json.dump(L, open('timeline_lines_N3_asr.json', 'w'), indent=1)
 print('woorden', len(W), 'regels', len(L), 'regelstarts', sum(1 for w in W if w.get('line_start')))
 for l in L: print(f"{l['t0']:6.2f}-{l['t1']:6.2f}  {l['text']}")
 print('tekstwoord wijkt af van wat de ASR hoorde (alleen ter controle):')
