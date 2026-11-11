@@ -66,3 +66,4 @@ Claude beheert deze campagne. Dit bestand is de bron van waarheid voor de regels
 | 2026-11-08 03:54 | Observatie, geen actie: campagne staat nog op PAUSED, 7 nov geen spend. Geen ads afgekeurd | EUR 100 | EUR 100 | Totaal sinds lancering ongewijzigd: EUR 350,55 spend, 0 aankopen |
 | 2026-11-09 03:54 | Observatie, geen actie: campagne staat nog op PAUSED, 8 nov geen spend. Geen ads afgekeurd | EUR 100 | EUR 100 | Totaal sinds lancering ongewijzigd: EUR 350,55 spend, 0 aankopen |
 | 2026-11-10 03:54 | Observatie, geen actie: campagne staat nog op PAUSED, 9 nov geen spend. Geen ads afgekeurd | EUR 100 | EUR 100 | Totaal sinds lancering ongewijzigd: EUR 350,55 spend, 0 aankopen |
+| 2026-11-11 03:54 | Observatie, geen actie: campagne staat nog op PAUSED, 10 nov geen spend. Geen ads afgekeurd | EUR 100 | EUR 100 | Totaal sinds lancering ongewijzigd: EUR 350,55 spend, 0 aankopen |
