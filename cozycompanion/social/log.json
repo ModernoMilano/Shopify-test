@@ -165,5 +165,24 @@
   "facebook_post_id": null,
   "facebook_pending": true,
   "facebook_error": "Confirm your identity before you can publish as this Page"
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "am",
+  "source": "social/calendar.json",
+  "theme": "life_with",
+  "handle": "trail-hands-free-dog-leash",
+  "products": [
+   "trail-hands-free-dog-leash"
+  ],
+  "images": [
+   "f_2026-11-11_0"
+  ],
+  "story": "st_2026-11-11",
+  "instagram_media_id": "18575093473079896",
+  "instagram_story_id": "18005309003808740",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page"
  }
 ]
