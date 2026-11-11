@@ -60,7 +60,9 @@ add('N04', ['HIMN','HER','NAVY'], 3, LIVING + f"Two-shot: {him(1)} holds out one
 add('N05', ['HIMN','HER','NAVY'], 3, CANAL + f"Two-shot on the towpath: {him(1)} is draping {knit1(3)} around the shoulders of {her(2)}, who wears a thin cream blouse and dark brown trousers, hugs herself against the cold and looks up at him, surprised and touched.",
     "Static camera. He settles the knit on her shoulders and gently tugs it closed at the front; she looks up at him and her surprise turns into a smile. The front panels of the knit stay plain and smooth, exactly as in the start frame; nothing moves fast.")
 add('N06', ['HIMN','HER','NAVY'], 3, f"A cold clear night at the Navigli canal in Milan, dry cobblestones, no snow, street lamps reflected in the dark water, a clean dark sky with no smoke, steam or breath clouds. Medium two-shot walking along the towpath toward the camera: {her(2)} is snug in {navy(3)}, zipped up, with dark brown trousers, her hands hidden in the sleeves, smiling to herself; beside her {him(1)} (slim) walks with his arms wrapped around himself, shoulders hunched, shivering with a brave grin.",
-    "Slow tracking shot backwards. They walk slowly toward the camera along the canal at a steady pace; he keeps his arms crossed against the cold and gives one small, slow shrug of his shoulders, smiling at her; she smiles to herself, her hands hidden in the sleeves. His head stays up and keeps its shape; nothing moves fast.")
+    "Slow tracking shot backwards. They walk slowly toward the camera along the canal; he rubs his arms once and shivers with a grin; she smiles to herself, her hands hidden in the sleeves.")
+# N06: de clip van deze prompt (4e2afbf3) wordt gebruikt tot 1,83 s, vertraagd (N06s): daarna breekt zijn gezicht bij het rillen.
+# Twee rustiger pogingen vielen af: in 2baca241 steekt zij haar handen in zakken die de knit niet heeft, in 946f8220 wordt zijn gezicht smaller zodra hij opzij kijkt.
 add('N07', ['HER','NAVY'], 3, CANAL + f"Close-up of {her(1)} pulling the zip of {navy(2)} all the way up to the top of the ribbed stand-up collar under her chin, the sleeves over her hands, warm lamp light on her face, a big grin.",
     "Static camera. She gives the zip pull one last little tug up under her chin, tucks her chin into the collar and grins, her shoulders wiggling with delight; her breath shows in the cold air.")
 add('N08', ['HER','NAVY'], 3, f"Her cosy living room at night, lit by a warm lamp and the bluish glow of a television off-frame. {cap(her(1))} sits curled up on the sofa in {navy(2)}, zipped up, with dark brown trousers and thick wool socks, knees pulled up, holding a steaming mug of tea in both sleeve-covered hands, watching the screen with a cosy smile.",
@@ -88,7 +90,7 @@ add('N12', ['HER','TAUPE'], 3, f"Night on a Milan street with tram tracks and wa
 add('N13', ['HER','TAUPE'], 3, f"Night on a Milan street with warm street lamps. Close-up of {her(1)} in {taupe(2)} over her cream blouse, with dark brown trousers: she holds up two fingers in a V right next to her cheeky grin, one eyebrow raised.",
     "Static camera. She raises two fingers, wiggles them and raises one eyebrow with a cheeky grin.")
 add('N14', ['HER','TAUPE'], 3, f"Night on a quiet Milan street with warm street lamps and plain stone house fronts with closed wooden shutters, no shops. Three-quarter shot of {her(1)} in {taupe(2)}, zipped up, with dark brown trousers: she holds both arms out so the cuffs hang far past her fingertips, the ribbed stand-up collar high under her chin, laughing.",
-    "Static camera. She sways gently from side to side so the too-long sleeves swing a little, laughing. She keeps facing the camera; her hands stay hidden inside the sleeves and the sleeves stay whole.")
+    "Static camera. She holds the too-long sleeves out and gives the empty cuffs one small shake, laughing gently. Her head stays almost still and she stays in place, facing the camera: no spinning, no bending forward, no head toss, nothing moves fast. Her hands stay hidden inside the sleeves and the sleeves stay whole.")
 add('N15', ['HIMN','HER','TAUPE'], 3, f"Night at a Milan tram stop, an orange tram waiting with its doors open, wet cobblestones, warm street lamps, breath visible. Two-shot: {him2(1)} holds out one open hand, palm up, with a hopeful grin; {her(2)}, wearing {taupe(3)} with dark chocolate-brown trousers (not navy, not black) and brown loafers, steps backward onto the tram step, laughing and shaking her head.",
     "Static camera. She shakes her head, laughing, and wiggles her raised fingers in a little goodbye; he keeps his open hand out and grins. The tram stands still.")
 # --- 0:52 zijn rap: tram, perron, T-shirt, haar deur
@@ -107,8 +109,10 @@ add('N21', ['HER','TAUPE','KF22'], 4, f"Close-up in the open doorway of the same
     "Static camera. She hugs the knit tighter, lifts her chin and slowly shakes her head no with a triumphant grin. Her eyes stay closed the whole time.")
 add('N22', ['HIMN','HER','TAUPE'], 4, DOOR + f"Two-shot: {herL(2)} stands in the open doorway on the left of the frame in {taupe(3)} and dark brown trousers, holding up both arms so the too-long sleeves flop over her hands; {him2(1)} stands on the step on the right of the frame, laughing.",
     "Static camera. She wiggles her raised arms a little so the too-long sleeves flop gently; her hands stay hidden inside the sleeves and the sleeves stay whole. He laughs and shakes his head.")
+# N22: de clip van deze prompt (c8eac8e4) wordt gebruikt tot 2,8 s, vertraagd (N22s): daarna laat hij zijn hoofd zakken en wordt hij een andere man.
+# Twee rustiger pogingen vielen af: in a7609e15 vegen haar mouwuiteinden twee seconden lang uit, in e230d1b4 verandert haar gezicht vanaf 2,3 s.
 add('N23', ['HIMN','KF22'], 3, f"The same dark-green front door with its brass lever handle and the same wet, reflective street at night as in reference image 2, now seen from inside the hallway looking out through the open door: {him2(1)} stands on the wet doorstep holding out one open hand, palm up, eyebrows raised, a hopeful grin. No snow, no smoke or breath cloud.",
-    "Static camera. He holds out his open hand and wiggles his fingers, hopeful, eyebrows going up.")
+    "Static camera. He keeps his arm extended with the palm open and facing up for the whole clip and wiggles his fingers once, hopeful, eyebrows going up. His hand never goes back to his chest and he keeps looking straight ahead. Nothing moves fast.")
 add('N24', ['HIMN','HER','TAUPE','KF22'], 4, SAMEDOOR % 4 + f"Seen from the same side. Two-shot: {herL(2)} stands in the open doorway on the left of the frame, wearing and hugging {taupe(3)}, with dark brown trousers, grinning; behind her in the warm hallway a second knit of the same model hangs on a coat hook, in deep navy blue, hanging open so that its two front halves and the zip running from the collar all the way down to the hem are visible; on the step on the right of the frame {him2(1)} laughs with both hands raised in surrender.",
     "Static camera. He keeps both hands raised in surrender, laughing and shaking his head; she hugs the knit and shakes her head no, grinning. The knit on the hook behind her hangs still.")
 # --- 1:21 slot
@@ -128,7 +132,8 @@ OLD = {}
 HOLD = {'N26'}       # slotbeeld: de clip van 5 s loopt uit en het laatste beeld blijft staan onder de eindkaart (de laatste 3,5 s van het liedje zijn stilte)
 CAP_Y = {'N30': 0.75}   # ondertitels lager waar ze anders over het belangrijkste van het shot vallen (haar hand op zijn mouw)
 CROP = {'N07': 0.04}    # onderste 4% wegsnijden (strookje broek in de verkeerde kleur)
-ALT = {'N02': 'clipsG/N02s.mp4', 'N13': 'clipsG/N13p.mp4'}   # bewerkte clips: N02 vertraagd (ogen dicht), N13 vooruit en achteruit (twee vingers blijven omhoog)
+ALT = {'N02': 'clipsG/N02s.mp4', 'N06': 'clipsG/N06s.mp4', 'N13': 'clipsG/N13p.mp4', 'N20': 'clipsG/N20s.mp4', 'N22': 'clipsG/N22s.mp4'}
+# bewerkte clips (derive_clips.sh): N02 vertraagd (ogen dicht), N06, N20 en N22 het schone deel vertraagd, N13 vooruit en achteruit (twee vingers blijven omhoog)
 if __name__ == '__main__':
     mode = sys.argv[1] if len(sys.argv) > 1 else 'list'
     if mode == 'list':
