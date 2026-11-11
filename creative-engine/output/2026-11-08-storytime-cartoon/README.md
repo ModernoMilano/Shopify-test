@@ -262,3 +262,13 @@ De eigenaar over de opgeleverde video's: "Je gebruikt andere liedjes dan dat ik 
 5. **Rapportage als succesverhaal en verspilling.** Lange opleverberichten met de echte voorbehouden onderaan; 85 credits dubbel afgerekend (batch van 3), 31 voor het bruiloftsliedje, 60 voor een liedje dat binnen een minuut sneuvelde, 164 aan beeld op een later vervangen tekst.
 
 **Regels vanaf nu.** Een liedje wordt in één generatie gemaakt (hooguit 120 s met eigen tekst, dus hooguit ongeveer 150 woorden): niets knippen, niets plakken, één stem per rol. De eigenaar kiest het liedje op gehoor uit twee kandidaten voordat er één beeld wordt gemonteerd of gegenereerd. Een goedgekeurd liedje wordt nooit vervangen zonder een letterlijke vraag en een letterlijk ja. Elk opleverbericht begint met wat niet gecontroleerd kon worden.
+
+## Nieuwe rapsong: I'm Not Giving It Back (11 november)
+
+De eigenaar vroeg om een nieuwe rapsong als duet (zij zingt mooi, hij rapt) en koos uit twaalf verhaallijnen (`rapsong_verhaallijnen_11nov.md`, workflow wf_22fd0e73) nummer 1: hij leent haar op een koude avond zijn knit en krijgt hem nooit terug; hij koopt een tweede, die pakt ze ook; aan haar deur leest ze het label: "It says Moderno Milano. But I say mine."
+
+- **Tekst** (`giving_it_back_v1_lyrics.txt`, workflow wf_da6b24a8: vier schrijvers, twee beoordelaar-samenstellers, twee controleurs): 18 regels, 116 woorden, 790 tekens met tags, acht secties van minstens twee regels, zij 8 regels, hij 8, samen 2, merknaam twee keer. De controleurs waren verdeeld over de twee finales; de eindversie neemt van beide het sterkste.
+- **Liedje**: acht takes van ElevenLabs Music v2.5, elk in één keer gegenereerd, niets geknipt of geplakt (81 credits). Take 7 is kandidaat 1: start op seconde 0, alle 18 regels één keer en in volgorde, 1:06. Take 5 is kandidaat 2 in de andere stijl, met een rommelig slot. De andere zes vielen af op meetbare fouten. Job-ids en metingen in `jobs.json` onder `giving_it_back_11nov`.
+- **Les**: beschrijf de opening positief ("the very first sound is the woman singing the hook") in plaats van "no intro", en kies de duur krap (66 s voor 18 regels). Bij 74 s kwamen er intro's van 5 tot 15 s en pauzes; bij 66 s begonnen alle vier de takes op seconde 0.
+- **Niet gecontroleerd**: ik kan het geluid niet horen. De metingen komen uit twee spraakmodellen; wie welke regel zingt, de klank en de uitspraak van de merknaam beoordeelt de eigenaar.
+- **Beelden** volgen pas na zijn keuze: `tools/v3/giving_it_back_v1_linemap.json` koppelt elke regel aan een bestaand shot of een nieuw shot (ongeveer 9 nieuwe).

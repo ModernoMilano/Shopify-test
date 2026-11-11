@@ -667,5 +667,34 @@
       },
       "note": "de eigenaar kiest op gehoor; ik kan niet horen welke stem welke regel zingt. Saldo na D: 12,57 credits (tussen 15:50 en 16:05 UTC ook 52 Nano Banana Pro-beelden van 2 credits in het account die niet uit deze sessie komen)."
     }
+  },
+  "giving_it_back_11nov": {
+    "concept": "Nieuwe rapsong, gekozen door de eigenaar uit twaalf verhaallijnen (rapsong_verhaallijnen_11nov.md, nummer 1): op een koude avond leent hij haar zijn knit, zij geeft hem nooit terug, hij koopt een tweede en die pakt ze ook; aan haar deur leest ze het label: It says Moderno Milano. But I say mine. Duet: zij zingt, hij rapt.",
+    "lyrics": "giving_it_back_v1_lyrics.txt (workflow wf_da6b24a8: 4 schrijvers, 2 beoordelaar-samenstellers, 2 controleurs; de controleurs waren verdeeld, eindversie samengesteld uit beide finales; 18 regels, 116 woorden, 790 tekens, 8 secties, zij 8 / hij 8 / samen 2, merknaam 2x)",
+    "linemap": "tools/v3/giving_it_back_v1_linemap.json (regel -> bestaand shot of NIEUW shot; ongeveer 9 nieuwe shots)",
+    "takes": {
+      "1_stijlA_74s": "08278d2f-5e5a-4edb-8820-01e1ebe41e17",
+      "2_stijlA_74s": "00c978ea-de83-4d29-b19b-0d5b39d77807",
+      "3_stijlB_74s": "f4a9b5b1-1071-4fc5-a78e-5128819e26a8",
+      "4_stijlB_74s": "8466245b-a8f2-427a-aa43-80a9f77199f6",
+      "5_stijlA_66s": "827c71ae-2ceb-4b40-95a7-3f4297446b4d",
+      "6_stijlA_66s": "66d57c3e-a171-448e-a67f-e0bef1426d4c",
+      "7_stijlB_66s": "7c01bcc0-a8ec-409a-ad93-278951547f50",
+      "8_stijlB_66s": "4aa364c2-7b5e-4d9e-89a3-cf74ecf9a856"
+    },
+    "stijlen": "A = speelse R&B/hiphop, 92 BPM, Wurlitzer, 808, vingerknips, gedempte trompet; B = neo-soul/hiphop, 88-90 BPM, Rhodes, basgitaar, boom-bap, strijkers aan het eind",
+    "meting": {
+      "methode": "twee spraakmodellen (faster-whisper small met woordtijden, medium als tweede mening); ik kan het geluid niet horen",
+      "take1": "intro 5,3 s, alle regels in volgorde, pauze van 5,2 s na de tweede hook, merknaam en mine onduidelijk (Northern on Milano / my Lord)",
+      "take2": "intro 15 s, openingshook ontbreekt, merknaam herhaald: afgevallen",
+      "take3": "intro 5,4 s, een regel dubbel gezongen, merknaam 4 keer: afgevallen",
+      "take4": "regel That is two ontbreekt, onthulling ontbreekt: afgevallen",
+      "take5": "start op 0 s, alle regels aanwezig, slot rommelig (But I say mine twee keer, slotmerknaam onduidelijk): kandidaat 2 ter vergelijking van stijl",
+      "take6": "start op 0 s, onthulling verhaspeld en herhaald: afgevallen",
+      "take7": "start op 0 s, alle 18 regels precies een keer en in volgorde, einde 61,5 s, grootste pauze 2,7 s, merknaam 2 keer (eerste keer gehoord als Modelo Milano, tweede keer Moderno Melano): kandidaat 1",
+      "take8": "start op 0 s, merknaam beide keren onverstaanbaar: afgevallen"
+    },
+    "kosten": "8 takes = 81,44 credits (4 x 10,76 + 4 x 9,60); saldo erna 421,13",
+    "les": "De opening positief beschrijven (the very first sound is the woman singing the hook) in plaats van no intro, en de duur krap kiezen (66 s voor 18 regels): alle vier de takes van 66 s begonnen op seconde 0, tegen 5 tot 15 s intro bij 74 s. De merknaam is de zwakste plek: 1 van de 8 takes had hem twee keer herkenbaar."
   }
 }
