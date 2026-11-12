@@ -318,3 +318,73 @@ De proefversie is door drie onafhankelijke controleurs nagelopen (workflow wf_5e
 2. Clips: `python3 gib_shots.py clips kf_ids.json N03 N04 N05 N06 N08 N09 N10 N11 N12 N14 N15 N16 N20 N21 N22 N23 N24 N25 N26 N27 N28 N29 N30 N31` (Kling 3.0 std, geluid uit).
 3. Elke clip nakijken met `strips.py` (minstens 8 beelden over het gebruikte deel), herkansen waar nodig.
 4. `python3 gib_shots.py plan > plan.json`, `cards_N3.py`, `make_end_card.py`, monteren met `assemble3.py`, de eindversie laten nalopen door onafhankelijke controleurs, opleveren.
+
+### Afgemaakt (11 november 22:25 tot 12 november 01:05): de definitieve versie
+
+De eigenaar vulde om 22:25 500 credits bij (saldo 500,72). De video gebruikt take N3 ongeknipt (90,04 s), en alle 31 shots bewegen. De definitieve versie (versie 6) is via de app opgeleverd als `Im Not Giving It Back - definitief.mp4`, samen met de tekst zoals gezongen. Een downloadlink via Higgsfield was niet mogelijk, omdat upload.higgsfield.ai vanuit deze omgeving geblokkeerd is.
+
+- **Startbeelden** (8, 8 credits):
+  - N27 is opnieuw gemaakt: de kast met de stapel grijze hoodies, zonder navy kledingstuk. Dat beeld diende als voorbeeld (KF27) voor N09 en N10, zodat de drie slaapkamershots dezelfde kast tonen.
+  - N23 is opnieuw gemaakt, met de natte straat en de deur van N22.
+  - N07, N18, N05 en N11 zijn opnieuw gemaakt zonder ademsliert (zie "Ademwolken").
+- **Clips**: de 24 ontbrekende clips in één ronde (Kling 3.0 std, 78 s, 117 credits). `getclips.py` haalt een clip op en bewaart de vorige versie. `dense.py` maakt stroken van het gebruikte deel, met een uitsnede.
+- **Clipcontrole** (workflow wf_44aae03d): vier controleurs bekeken elk zes clips, beeld voor beeld. Uitslag: 14 goed, 7 goed tot een bepaald punt, 3 opnieuw.
+  - Opnieuw gemaakt met een rustiger bewegingsprompt:
+    - N03: de mouwuiteinden vervaagden en het gezicht smolt.
+    - N04: zijn gezicht vervormde.
+    - N08: de knit verschoot naar felblauw.
+    - N09, N29 en N31: aan het eind een ander gezicht dat in de camera kijkt.
+    - N14: het gezicht veegde uit.
+    - N23: de open hand was te kort in beeld.
+  - Het schone deel van de eerste clip, licht vertraagd (`derive_clips.sh`): N06 tot 1,83 s, N20 tot 3,0 s en N22 tot 2,8 s. Bij N06 en N22 waren de rustiger herkansingen slechter dan het origineel.
+- **Ademwolken** (eigen vondst): N07 en N18 lieten een ademwolk zien zo groot als een hoofd.
+  - Een verbod in de bewegingsprompt hielp niet, want de sliert zat al in het startbeeld.
+  - Opgelost door het startbeeld opnieuw te maken, met het oude beeld als voorbeeld en als enige wijziging een schone lucht ("the only change from reference image n: ...").
+- **Eindcontrole** (workflows wf_52434594 en wf_6fe02803, op de volledige video):
+  - *Ondertitels en eindkaart*, alle 2161 beelden: klaar, met kleine punten.
+    - Alle 81 kaarten kloppen in tekst en tijd, en geen kaart loopt over een beeldwissel.
+    - In geen enkel shot staat tekst of een logo in het beeld zelf.
+    - De eindkaart klopt en valt buiten de knoppen van Reels.
+    - Hersteld: "SLEEVES TOO LONG," dekte in N14 de mouwuiteinden af. De ondertitels van N14 staan nu op 75% van de hoogte, net als in N30.
+    - Geaccepteerd: negen kaarten staan korter dan een halve seconde in beeld (het tempo van het liedje), en witte letters op de witte overhemden in de slaapkamer zijn op telefoonformaat leesbaar.
+  - *Beeld 0 tot 42 s*: niet klaar, met drie zware punten:
+    - de ademwolk in N07;
+    - in N11 een ademwolk zo groot als haar gezicht, en vanaf 40,4 s een ander, poppig gezicht;
+    - in N28 krijgt hij aan het eind een bredere borst en een langer gezicht.
+    - Daarnaast kleine punten: in N05 drijven haar ogen en haar af, in N10 draait de lege hanger vanzelf, en in N07 zakt de rits terwijl "TO MY CHIN" in beeld staat.
+
+    Alle vijf shots zijn vervangen:
+    - N05 en N11: nieuwe startbeelden zonder adem.
+    - N10: de hanger hangt stil.
+    - N28 en N07: het startbeeld gaat ook als eindbeeld mee (rol `end_image`, `ENDSAME` in `gib_shots.py`). De clip keert dan terug naar het goedgekeurde beeld: de huisgenoot en hij blijven gelijk, en in N07 blijft de rits bij haar kin.
+
+    Geaccepteerd: N04 eindigt midden in een knipoog, in N09 kijkt hij een halve seconde bezorgd, N27 en N31 eindigen met de ogen dicht, in N30 zijn haar ogen in de laatste 0,3 s groter, en in N03 zijn drie beelden uitgeveegd.
+  - *Beeld 42 tot 90 s en de continuïteit*: beide controleurs stopten halverwege, omdat het Fable-tegoed van de eigenaar op was.
+    - Hun notities tot dan: N16 tot en met N22 schoon, of met alleen punten die je ziet als je het beeld stilzet. In N17 is één beeld uitgeveegd (55,17 s), in N19 staat een vage lijn boven de boord, en in N22 geeft het vertragen lichte dubbelranden.
+    - Zelf nagekeken: N23 bevriest niet (gemeten: in de laatste 0,8 s weinig beweging, maar geen herhaalde beelden). De taupe knit in N15 krijgt in de laatste seconde een vage naadlijn en een gladdere rib. Dat zie je alleen bij een stilgezet beeld, en de knit krijgt er geen zak door: geaccepteerd.
+    - De tweede helft was eerder al per clip beeld voor beeld gecontroleerd (wf_44aae03d). De later vervangen clips heb ik zelf bekeken.
+- **Metingen op versie 6**:
+  - *Techniek* (`check_final.py`): 1080x1920, 24 beelden per seconde, 2161 beelden, 90,04 s, 56,7 MB (crf 20), geen zwarte beelden.
+  - *Geluid*: ligt 0,0 ms verschoven ten opzichte van take N3, met een correlatie van 0,9997 over de hele lengte. Het liedje is dus ongeknipt.
+  - *Ondertitels* (`verify_captions.py`): voor elk beeld is de verwachte kaart opnieuw getekend en met de video vergeleken. Alle 81 kaarten staan op precies de geplande beelden, met 0 fouten, en nergens staat een kaart waar er geen hoort. Twee proeven met opzettelijk verkeerde invoer gaven wel alarm (489 en 25 fouten).
+  - *Eindkaart*: letters op 58,5 tot 61,5% van de hoogte, volledig zichtbaar vanaf 84,2 s.
+  - *Herkomst*: alle 31 clips zijn opnieuw opgehaald bij hun job-id en zijn byte voor byte gelijk aan de clips in de montage. Van de vijf bewerkte clips, opnieuw afgeleid met `derive_clips.sh`, zijn er vier identiek; N02s is gelijk op afrondingsverschillen na.
+- **Lessen**:
+  1. Kling veegt een gezicht uit bij elke snelle hoofd- of handbeweging en bouwt het daarna anders op. Vraag om één kleine, langzame beweging ("nothing moves fast", "his head keeps its shape").
+  2. Wat in het startbeeld zit (een ademsliert), haal je met een verbod in de bewegingsprompt niet weg. Maak dan het startbeeld opnieuw.
+  3. Moet een personage of voorwerp precies gelijk blijven, geef het startbeeld dan ook als eindbeeld mee (`end_image`).
+  4. Een rustiger herkansing is niet altijd beter. Bewaar elke versie, en gebruik desnoods het schone deel van de eerste clip, hooguit 1,3 keer vertraagd.
+  5. **Kosten van de controle.** De eigenaar: "je hebt alle fable punten voor 1 video gebruikt".
+     - Vier controleurs per ronde, die elk 100 tot 240 beelden bekeken, kostten per ronde 0,5 tot 1 miljoen tokens. Daarmee was het hele Fable-tegoed op.
+     - Voortaan hooguit één of twee controleurs, met een vaste grens van ongeveer 40 beelden per controleur.
+     - Alles wat met een script te meten is (ondertitels, geluid, herkomst, stilstand), meet ik zelf.
+- **Kosten Higgsfield na de bijvulling**: 254 credits.
+  - 8 startbeelden: 8 credits.
+  - 24 clips in de eerste ronde: 117 credits.
+  - 28 herkansingen: 129 credits. Daarvan zitten er 14 in de video; 14 vielen af (66 credits).
+  - Saldo na afloop: 246,72 credits.
+  - De hele video op take N3 kostte in deze sessie 393,5 credits: 139,5 voor de bijvulling en 254 erna.
+- **Niet gecontroleerd**:
+  - Het geluid: ik hoor niets. Dat het liedje ongeknipt is en gelijk loopt met het beeld, is gemeten. Hoe het klinkt, beoordeelt de eigenaar.
+  - Beeld 42 tot 90 s en de continuïteit zijn in de eindversie niet volledig door een onafhankelijke controleur nagelopen (zie hierboven).
+- **Open vraag aan de eigenaar**: knit 1 is getekend als de Bellagio in donkerblauw. In de shop bestaat de Bellagio in Blue, niet in navy. De echte navy knit is de Verona Cardigan, maar die heeft een liggende kraag, wat niet past bij "collar high". Op die vraag kwam geen antwoord, dus de Bellagio is gebleven.

@@ -135,7 +135,7 @@ CUTS = [('N01',0.00,3.00),('N02',3.00,5.52),('N03',5.52,8.18),('N04',8.18,10.60)
         ('N20',63.42,67.00),('N21',67.00,70.42),('N22',70.42,74.00),('N23',74.00,77.00),('N24',77.00,80.70),('N25',80.70,83.50),('N26',83.50,90.04)]
 OLD = {}
 HOLD = {'N26'}       # slotbeeld: de clip van 5 s loopt uit en het laatste beeld blijft staan onder de eindkaart (de laatste 3,5 s van het liedje zijn stilte)
-CAP_Y = {'N30': 0.75}   # ondertitels lager waar ze anders over het belangrijkste van het shot vallen (haar hand op zijn mouw)
+CAP_Y = {'N30': 0.75, 'N14': 0.75}   # ondertitels lager waar ze anders over het belangrijkste van het shot vallen (N30: haar hand op zijn mouw; N14: de mouwuiteinden)
 CROP = {}              # N07 had hier 0.04 (strookje broek in de verkeerde kleur); het nieuwe startbeeld van N07 heeft een donkerbruine broek, dus geen uitsnede meer
 ENDSAME = {'N07', 'N28'}   # het startbeeld gaat ook als eindbeeld mee (rol end_image): de clip keert terug naar het goedgekeurde beeld, zodat niemand aan het eind verandert
 ALT = {'N02': 'clipsG/N02s.mp4', 'N06': 'clipsG/N06s.mp4', 'N13': 'clipsG/N13p.mp4', 'N20': 'clipsG/N20s.mp4', 'N22': 'clipsG/N22s.mp4'}
