@@ -1,104 +1,82 @@
-cards
-  0.38-  1.32     I'M NOT
-  1.32-  2.35     GIVING IT
-  2.35-  3.00     BACK
-  3.00-  3.70     IT'S SOFT,
-  3.70-  4.26     IT'S YOU,
-  4.26-  5.52     THAT'S THAT
-  5.52-  5.94     SLEEVES
-  5.94-  6.88     TOO LONG,
-  6.88-  8.18     COLLAR HIGH
-  8.18-  8.66     HOLD OUT
-  8.66-  9.54     YOUR HAND,
-  9.54- 10.60     NICE TRY
- 10.60- 11.16     ONE COLD
- 11.16- 11.78     NIGHT, MY
- 11.78- 12.28     NAVY KNIT
- 12.28- 13.10     WAS GONE
- 13.10- 13.70     ROUND YOUR
- 13.70- 14.30     SHOULDERS
- 14.30- 14.72     ONCE, YOU
- 14.72- 15.34     KEPT IT ON
- 15.34- 15.62     TO MY
- 15.62- 16.00     CHIN
- 16.00- 16.78     SO WARM,
- 16.78- 17.40     ALL SLEEVES
- 17.40- 17.64     AND A
- 17.64- 18.26     GRIN
- 18.26- 18.62     WORE IT
- 18.62- 19.25     MAKING TEA
- 19.25- 19.59     WORE IT
- 19.59- 19.97     WATCHING
- 19.97- 21.07     TV
- 21.07- 21.55     MY GREY
- 21.55- 22.07     HOODIES?
- 22.07- 22.87     NOBODY STOLE
- 22.87- 23.53     THOSE
- 23.53- 24.03     YOU STOLE
- 24.03- 24.49     MY KNIT:
- 24.49- 25.13     FIRST PRAISE
- 25.13- 25.45     FOR MY
- 25.45- 26.27     CLOTHES
- 26.27- 26.79     ONE EMPTY
- 26.79- 27.81     HANGER, BOX
- 27.81- 28.05     AT THE
- 28.05- 28.55     DOOR
- 28.55- 29.51     MY FLATMATE'S
- 29.51- 30.07     EYEBROW
- 30.07- 30.83     RISES:
- 30.83- 31.55     ONE MORE?
- 31.55- 31.91     I BOUGHT
- 31.91- 32.61     ANOTHER,
- 32.61- 33.27     DATE TWO,
- 33.27- 34.29     CANDLELIGHT
- 34.29- 34.95     YOUR HAND
- 34.95- 35.23     ON MY
- 35.23- 35.77     SLEEVE, IT'S
- 35.77- 36.82     GONE TONIGHT
- 42.12- 43.07     I'M NOT
- 43.07- 44.05     GIVING IT
- 44.05- 44.72     BACK
- 44.72- 45.41     THAT'S TWO,
- 45.41- 45.71     ARE YOU
- 45.71- 46.61     KEEPING
- 46.61- 47.27     TRACK?
- 47.27- 47.67     SLEEVES
- 47.67- 48.63     TOO LONG,
- 48.63- 49.93     COLLAR HIGH
- 49.93- 50.41     HOLD OUT
- 50.41- 51.27     YOUR HAND,
- 51.27- 51.97     NICE TRY
- 51.97- 52.51     YOU WAVE
- 52.51- 52.87     FROM THE
- 52.87- 53.55     TRAM IN
- 53.55- 54.15     KNIT NUMBER
- 54.15- 54.75     TWO
- 54.75- 55.23     I LAUGH
- 55.23- 55.49     ON THE
- 55.49- 56.46     PLATFORM,
- 56.46- 56.82     TURNING
- 56.82- 57.44     BLUE
- 57.44- 58.08     TWO KNITS
- 58.08- 58.60     DOWN, IN
- 58.60- 59.24     A T-SHIRT,
- 59.24- 59.86     YOU WIN,
- 59.86- 60.44     I'M FINE
- 60.44- 60.68     AT YOUR
- 60.68- 61.02     DOOR YOU
- 61.02- 61.36     TURN THE
- 61.36- 62.46     COLLAR, READ
- 62.46- 63.45     THE LINE
- 63.45- 63.82     IT SAYS
- 63.82- 67.05 BIG MODERNO MILANO
- 67.05- 67.48     BUT I
- 67.48- 68.82     SAY MINE
- 68.82- 69.16     I'M NOT
- 69.16- 70.16     GIVING IT
- 70.16- 70.42     BACK
- 70.42- 71.10     SLEEVES
- 71.10- 72.10     TOO LONG,
- 72.10- 74.16     COLLAR HIGH
- 74.40- 75.04     HOLD OUT
- 75.04- 77.00     YOUR HAND,
- 77.00- 79.01     NICE TRY
- 80.76- 82.74 BIG MODERNO MILANO
+  0.38-  1.32     I'M NOT              0.94 s  332 px
+  1.32-  2.99     GIVING IT BACK       1.67 s  678 px
+  3.00-  3.70     IT'S SOFT,           0.70 s  425 px
+  3.70-  4.26     IT'S YOU,            0.56 s  388 px
+  4.26-  5.52     THAT'S THAT          1.26 s  560 px
+  5.52-  6.88     SLEEVES TOO LONG,    1.36 s  879 px
+  6.88-  8.18     COLLAR HIGH          1.30 s  591 px
+  8.18-  8.66     HOLD OUT             0.48 s  453 px
+  8.66-  9.54     YOUR HAND,           0.88 s  550 px
+  9.54- 10.60     NICE TRY             1.06 s  397 px
+ 10.60- 11.63     ONE COLD NIGHT,      1.03 s  766 px
+ 11.63- 12.28     MY NAVY KNIT         0.65 s  631 px
+ 12.28- 13.10     WAS GONE             0.82 s  482 px
+ 13.10- 13.70     ROUND YOUR           0.60 s  589 px
+ 13.70- 14.52     SHOULDERS ONCE,      0.82 s  823 px
+ 14.52- 15.34     YOU KEPT IT ON       0.82 s  693 px
+ 15.34- 16.00     TO MY CHIN           0.66 s  516 px
+ 16.00- 16.78     SO WARM,             0.78 s  462 px
+ 16.78- 17.40     ALL SLEEVES          0.62 s  564 px
+ 17.40- 18.26     AND A GRIN           0.86 s  521 px
+ 18.26- 18.62     WORE IT              0.36 s  380 px
+ 18.62- 19.25     MAKING TEA           0.63 s  550 px
+ 19.25- 19.59     WORE IT              0.34 s  380 px
+ 19.59- 20.93     WATCHING TV          1.34 s  621 px
+ 21.07- 22.07     MY GREY HOODIES?     1.00 s  859 px
+ 22.07- 22.51     NOBODY               0.44 s  382 px
+ 22.51- 23.53     STOLE THOSE          1.02 s  589 px
+ 23.53- 24.03     YOU STOLE            0.50 s  483 px
+ 24.03- 24.49     MY KNIT:             0.46 s  386 px
+ 24.49- 25.13     FIRST PRAISE         0.64 s  584 px
+ 25.13- 26.27     FOR MY CLOTHES       1.14 s  757 px
+ 26.27- 26.79     ONE EMPTY            0.52 s  504 px
+ 26.79- 27.45     HANGER,              0.66 s  392 px
+ 27.45- 28.55     BOX AT THE DOOR      1.10 s  806 px
+ 28.55- 29.51     MY FLATMATE'S        0.96 s  689 px
+ 29.51- 30.83     EYEBROW RISES:       1.32 s  742 px
+ 30.83- 31.55     ONE MORE?            0.72 s  516 px
+ 31.55- 32.61     I BOUGHT ANOTHER,    1.06 s  897 px
+ 32.61- 33.27     DATE TWO,            0.66 s  493 px
+ 33.27- 34.29     CANDLELIGHT          1.02 s  612 px
+ 34.29- 34.95     YOUR HAND            0.66 s  528 px
+ 34.95- 35.61     ON MY SLEEVE,        0.66 s  662 px
+ 35.61- 36.11     IT'S GONE            0.50 s  426 px
+ 36.11- 36.87     TONIGHT              0.76 s  390 px
+ 42.12- 43.07     I'M NOT              0.95 s  332 px
+ 43.07- 44.72     GIVING IT BACK       1.65 s  678 px
+ 44.72- 45.41     THAT'S TWO,          0.69 s  565 px
+ 45.41- 46.61     ARE YOU KEEPING      1.20 s  792 px
+ 46.61- 47.27     TRACK?               0.66 s  341 px
+ 47.27- 48.63     SLEEVES TOO LONG,    1.36 s  879 px
+ 48.63- 49.93     COLLAR HIGH          1.30 s  591 px
+ 49.93- 50.41     HOLD OUT             0.48 s  453 px
+ 50.41- 51.27     YOUR HAND,           0.86 s  550 px
+ 51.27- 51.97     NICE TRY             0.70 s  397 px
+ 51.97- 52.51     YOU WAVE             0.54 s  479 px
+ 52.51- 53.41     FROM THE TRAM        0.90 s  726 px
+ 53.41- 53.83     IN KNIT              0.42 s  322 px
+ 53.83- 54.75     NUMBER TWO           0.92 s  616 px
+ 54.75- 55.23     I LAUGH              0.48 s  354 px
+ 55.23- 56.46     ON THE PLATFORM,     1.23 s  853 px
+ 56.46- 57.44     TURNING BLUE         0.98 s  643 px
+ 57.44- 58.48     TWO KNITS DOWN,      1.04 s  835 px
+ 58.48- 59.24     IN A T-SHIRT,        0.76 s  562 px
+ 59.24- 59.86     YOU WIN,             0.62 s  421 px
+ 59.86- 60.44     I'M FINE             0.58 s  346 px
+ 60.44- 60.88     AT YOUR DOOR         0.44 s  668 px
+ 60.88- 61.24     YOU TURN             0.36 s  447 px
+ 61.24- 62.04     THE COLLAR,          0.80 s  567 px
+ 62.04- 63.42     READ THE LINE        1.38 s  658 px
+ 63.45- 63.82     IT SAYS              0.37 s  325 px
+ 63.82- 66.84 BIG MODERNO MILANO       3.02 s  1433 px
+ 67.05- 67.86     BUT I SAY            0.81 s  421 px
+ 67.86- 68.82     MINE                 0.96 s  222 px
+ 68.82- 69.16     I'M NOT              0.34 s  332 px
+ 69.16- 70.42     GIVING IT BACK       1.26 s  678 px
+ 70.42- 72.10     SLEEVES TOO LONG,    1.68 s  879 px
+ 72.10- 73.86     COLLAR HIGH          1.76 s  591 px
+ 74.40- 75.04     HOLD OUT             0.64 s  453 px
+ 75.04- 77.00     YOUR HAND,           1.96 s  550 px
+ 77.00- 79.06     NICE TRY             2.06 s  397 px
+ 80.76- 82.74 BIG MODERNO MILANO       1.98 s  1433 px
+kaarten 81 regels 30 fouten 0
