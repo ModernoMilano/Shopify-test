@@ -184,5 +184,29 @@
   "facebook_post_id": null,
   "facebook_pending": true,
   "facebook_error": "Confirm your identity before you can publish as this Page"
+ },
+ {
+  "date": "2026-11-12",
+  "slot": "am",
+  "source": "social/calendar.json",
+  "theme": "collection_carousel",
+  "handle": [
+   "pantry-pet-feeding-station",
+   "purr-tilted-ceramic-cat-bowl",
+   "maze-puzzle-feeder-bowl"
+  ],
+  "images": [
+   "f_2026-11-12_0",
+   "f_2026-11-12_1",
+   "f_2026-11-12_2"
+  ],
+  "story": "st_2026-11-12",
+  "instagram_media_id": null,
+  "instagram_pending": true,
+  "instagram_error": "Only photo or video can be accepted as media type (3 tries)",
+  "instagram_story_id": "18133932997774734",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page"
  }
 ]
