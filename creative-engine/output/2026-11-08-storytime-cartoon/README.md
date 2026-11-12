@@ -321,7 +321,7 @@ De proefversie is door drie onafhankelijke controleurs nagelopen (workflow wf_5e
 
 ### Afgemaakt (11 november 22:25 tot 12 november 01:05): de definitieve versie
 
-De eigenaar vulde om 22:25 500 credits bij (saldo 500,72). De video gebruikt take N3 ongeknipt (90,04 s), en alle 31 shots bewegen. De definitieve versie (versie 6) is via de app opgeleverd als `Im Not Giving It Back - definitief.mp4`, samen met de tekst zoals gezongen. Een downloadlink via Higgsfield was niet mogelijk, omdat upload.higgsfield.ai vanuit deze omgeving geblokkeerd is.
+De eigenaar vulde om 22:25 500 credits bij (saldo 500,72). De video gebruikt take N3 ongeknipt (90,04 s), en alle 31 shots bewegen. De definitieve versie (versie 6) is via de app opgeleverd als `Im Not Giving It Back - definitief.mp4`, samen met de tekst zoals gezongen. Daarna is upload.higgsfield.ai aan de omgeving toegevoegd en is de zip ook als download geplaatst (media 8a3b594d).
 
 - **Startbeelden** (8, 8 credits):
   - N27 is opnieuw gemaakt: de kast met de stapel grijze hoodies, zonder navy kledingstuk. Dat beeld diende als voorbeeld (KF27) voor N09 en N10, zodat de drie slaapkamershots dezelfde kast tonen.
@@ -388,3 +388,6 @@ De eigenaar vulde om 22:25 500 credits bij (saldo 500,72). De video gebruikt tak
   - Het geluid: ik hoor niets. Dat het liedje ongeknipt is en gelijk loopt met het beeld, is gemeten. Hoe het klinkt, beoordeelt de eigenaar.
   - Beeld 42 tot 90 s en de continuïteit zijn in de eindversie niet volledig door een onafhankelijke controleur nagelopen (zie hierboven).
 - **Open vraag aan de eigenaar**: knit 1 is getekend als de Bellagio in donkerblauw. In de shop bestaat de Bellagio in Blue, niet in navy. De echte navy knit is de Verona Cardigan, maar die heeft een liggende kraag, wat niet past bij "collar high". Op die vraag kwam geen antwoord, dus de Bellagio is gebleven.
+
+**Download definitieve versie** (zip 57 MB: mp4 1080x1920, 1:30; de tekst zoals gezongen; media 8a3b594d):
+https://d2ol7oe51mr4n9.cloudfront.net/user_3EYCP9eOPYPhvDZtzEySAqbjgsC/8a3b594d-f492-4e3e-8962-a4cb225b82f7.zip
