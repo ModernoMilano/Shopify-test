@@ -201,10 +201,30 @@
    "f_2026-11-12_2"
   ],
   "story": "st_2026-11-12",
-  "instagram_media_id": null,
-  "instagram_pending": true,
+  "instagram_media_id": "18089302094323846",
   "instagram_error": "Only photo or video can be accepted as media type (3 tries)",
   "instagram_story_id": "18133932997774734",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page",
+  "instagram_note": "carousel published 2026-11-13 after media-type errors on 11-12"
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "am",
+  "source": "social/calendar.json",
+  "theme": "playful",
+  "handle": "wiggle-window-cat-teaser",
+  "products": [
+   "wiggle-window-cat-teaser"
+  ],
+  "reel": "r_2026-11-13_v1_ig",
+  "images": [
+   "f_2026-11-13_0"
+  ],
+  "story": "st_2026-11-13",
+  "instagram_media_id": "18079324955439251",
+  "instagram_story_id": "18093450326240836",
   "facebook_post_id": null,
   "facebook_pending": true,
   "facebook_error": "Confirm your identity before you can publish as this Page"
