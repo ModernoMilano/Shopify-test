@@ -228,5 +228,24 @@
   "facebook_post_id": null,
   "facebook_pending": true,
   "facebook_error": "Confirm your identity before you can publish as this Page"
+ },
+ {
+  "date": "2026-11-14",
+  "slot": "am",
+  "source": "social/calendar.json",
+  "theme": "gift_idea",
+  "handle": "cloud-plush-pet-blanket",
+  "products": [
+   "cloud-plush-pet-blanket"
+  ],
+  "images": [
+   "f_2026-11-14_0"
+  ],
+  "story": "st_2026-11-14",
+  "instagram_media_id": "18086488754373239",
+  "instagram_story_id": "18658478338024086",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page"
  }
 ]
