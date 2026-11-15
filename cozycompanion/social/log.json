@@ -247,5 +247,25 @@
   "facebook_post_id": null,
   "facebook_pending": true,
   "facebook_error": "Confirm your identity before you can publish as this Page"
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "am",
+  "source": "social/calendar.json",
+  "theme": "brand_story",
+  "handle": "cocoon-deep-sleep-bed",
+  "products": [
+   "cocoon-deep-sleep-bed"
+  ],
+  "reel": "r_2026-11-15_v1_ig",
+  "images": [
+   "f_2026-11-15_0"
+  ],
+  "story": "st_2026-11-15",
+  "instagram_media_id": "18180333538453477",
+  "instagram_story_id": "18113467706358672",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page"
  }
 ]
