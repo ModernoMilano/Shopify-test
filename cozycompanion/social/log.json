@@ -267,5 +267,24 @@
   "facebook_post_id": null,
   "facebook_pending": true,
   "facebook_error": "Confirm your identity before you can publish as this Page"
+ },
+ {
+  "date": "2026-11-16",
+  "slot": "am",
+  "source": "social/calendar.json",
+  "theme": "product_spotlight",
+  "handle": "voyage-rolling-pet-carrier",
+  "products": [
+   "voyage-rolling-pet-carrier"
+  ],
+  "images": [
+   "f_2026-11-16_0"
+  ],
+  "story": "st_2026-11-16",
+  "instagram_media_id": "18117387947167719",
+  "instagram_story_id": "17928487524205420",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page"
  }
 ]
