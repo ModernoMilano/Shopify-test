@@ -286,5 +286,25 @@
   "facebook_post_id": null,
   "facebook_pending": true,
   "facebook_error": "Confirm your identity before you can publish as this Page"
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "am",
+  "source": "social/calendar.json",
+  "theme": "care_tip",
+  "handle": "forage-snuffle-mat",
+  "products": [
+   "forage-snuffle-mat"
+  ],
+  "reel": "r_2026-11-17_v1_ig",
+  "images": [
+   "f_2026-11-17_0"
+  ],
+  "story": "st_2026-11-17",
+  "instagram_media_id": "18140376541741305",
+  "instagram_story_id": "18139271509735207",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page"
  }
 ]
