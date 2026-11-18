@@ -306,5 +306,24 @@
   "facebook_post_id": null,
   "facebook_pending": true,
   "facebook_error": "Confirm your identity before you can publish as this Page"
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "am",
+  "source": "social/calendar.json",
+  "theme": "life_with",
+  "handle": "ride-sherpa-car-booster-seat",
+  "products": [
+   "ride-sherpa-car-booster-seat"
+  ],
+  "images": [
+   "f_2026-11-18_0"
+  ],
+  "story": "st_2026-11-18_v2",
+  "instagram_media_id": "18483883930114210",
+  "instagram_story_id": "18078279686778600",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page"
  }
 ]
