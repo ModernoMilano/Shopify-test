@@ -325,5 +325,27 @@
   "facebook_post_id": null,
   "facebook_pending": true,
   "facebook_error": "Confirm your identity before you can publish as this Page"
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "am",
+  "source": "social/calendar.json",
+  "theme": "collection_carousel",
+  "handle": [
+   "billow-memory-foam-bolster-bed",
+   "chaise-velvet-storage-pet-sofa",
+   "snug-sherpa-pet-blanket"
+  ],
+  "images": [
+   "f_2026-11-19_0",
+   "f_2026-11-19_1",
+   "f_2026-11-19_2"
+  ],
+  "story": "st_2026-11-19",
+  "instagram_media_id": "18127469560937473",
+  "instagram_story_id": "17994375291116265",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page"
  }
 ]
