@@ -347,5 +347,19 @@
   "facebook_post_id": null,
   "facebook_pending": true,
   "facebook_error": "Confirm your identity before you can publish as this Page"
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "am",
+  "source": "bfcm",
+  "handle": "splash-quick-dry-dog-bathrobe",
+  "reel": "r_2026-11-20_v1_ig",
+  "story": "bfcm_out_story_11-20_am",
+  "facebook_image": "f_2026-11-20_0_v2",
+  "instagram_media_id": "17923372926244155",
+  "instagram_story_id": "18576708103073587",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page"
  }
 ]
