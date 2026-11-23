@@ -390,5 +390,69 @@
     "headline": "This year, skip the socks",
     "description": "Free shipping · 30-day returns",
     "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-gray"
+  },
+  {
+    "id": "TEST01_G1",
+    "angle": "G - Holiday season",
+    "hook": "Christmas morning. Already dressed.",
+    "hypothesis": "A calm Christmas-morning scene by the tree and the fire puts the bestseller in the moment people are already picturing.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)"
+    ],
+    "file_916": "TEST01_G1_ChristmasMorning_916.jpg",
+    "file_45": "TEST01_G1_ChristmasMorning_45.jpg",
+    "primary_text": "The tree, the fire, the coffee.\nAnd one set that takes you through the whole day.\nThe Milano Cashmere Lounge Set · €150.\nFree shipping. 30-day returns.",
+    "headline": "Christmas morning, already dressed",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-beige"
+  },
+  {
+    "id": "TEST01_G2",
+    "angle": "G - Holiday season",
+    "hook": "Dressed for dinner. Comfortable enough for seconds.",
+    "hypothesis": "A candlelit toast with a light joke shows the set is sharp enough for the family table.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Navy)"
+    ],
+    "file_916": "TEST01_G2_ChristmasDinner_916.jpg",
+    "file_45": "TEST01_G2_ChristmasDinner_45.jpg",
+    "primary_text": "Sharp enough for the family table.\nComfortable enough to stay for dessert.\nThe Milano Cashmere Lounge Set in Navy · €150.\nFree shipping. 30-day returns.",
+    "headline": "Dressed for Christmas dinner",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-navy"
+  },
+  {
+    "id": "TEST01_G3",
+    "angle": "G - Holiday season",
+    "hook": "none",
+    "hypothesis": "A text-free Christmas-market street at night looks like a seasonal photo, not an ad, and shows the full set from behind.",
+    "based_on": "new",
+    "products": [
+      "Milano Knitted Two-Tone Cashmere Set (Black)"
+    ],
+    "file_916": "TEST01_G3_WinterNights_Clean_916.jpg",
+    "file_45": "TEST01_G3_WinterNights_Clean_45.jpg",
+    "primary_text": "Winter nights, sorted.\nCashmere blend knit with a contrast side stripe.\nThe Two-Tone Cashmere Set · €250.\nFree shipping. 30-day returns.",
+    "headline": "Winter nights, sorted",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-knitted-two-tone-cashmere-set-black"
+  },
+  {
+    "id": "TEST01_G4",
+    "angle": "G - Holiday season",
+    "hook": "Start the year dressed right.",
+    "hypothesis": "A New Year's Eve skyline with fireworks ties the purchase to a fresh start instead of to a discount.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Black)"
+    ],
+    "file_916": "TEST01_G4_StartTheYear_916.jpg",
+    "file_45": "TEST01_G4_StartTheYear_45.jpg",
+    "primary_text": "New year. Same calm.\nThe Milano Cashmere Lounge Set in Black · €150.\nTop and bottom sized separately, S to 2XL.\nFree shipping. 30-day returns.",
+    "headline": "Start the year dressed right",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-black"
   }
 ]
