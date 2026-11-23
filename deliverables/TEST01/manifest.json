@@ -1,0 +1,394 @@
+[
+  {
+    "id": "TEST01_A1",
+    "angle": "A - We did the matching for you",
+    "hook": "Stop guessing what goes with what.",
+    "hypothesis": "A native-looking outfit-on-the-door photo with a caption bubble makes decision fatigue feel personal and stops the scroll.",
+    "based_on": "new",
+    "products": [
+      "Milano Notte Set"
+    ],
+    "file_916": "TEST01_A1_StopGuessing_916.jpg",
+    "file_45": "TEST01_A1_StopGuessing_45.jpg",
+    "primary_text": "Jacket, long sleeve, trousers.\nAlready matched, so you do not have to.\nThe Notte Set · €150.\nFree shipping. 30-day returns.",
+    "headline": "One set. The outfit is done.",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-notte-set"
+  },
+  {
+    "id": "TEST01_A2",
+    "angle": "A - We did the matching for you",
+    "hook": "One decision. Every outfit sorted.",
+    "hypothesis": "Showing four complete sets with prices lets the full-look buyer choose a whole outfit in one glance.",
+    "based_on": "new",
+    "products": [
+      "Milano Notte Set",
+      "Milano Oliva Set",
+      "Milano Reverso Nero Set",
+      "Milano Tortora Set"
+    ],
+    "file_916": "TEST01_A2_OneDecision_916.jpg",
+    "file_45": "TEST01_A2_OneDecision_45.jpg",
+    "primary_text": "Four complete looks. Every piece already matched.\nPick one and you are dressed.\nFrom €150. Free shipping. 30-day returns.",
+    "headline": "Complete looks, already matched",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/the-bestsellers"
+  },
+  {
+    "id": "TEST01_A3",
+    "angle": "A - We did the matching for you",
+    "hook": "Men don't need more clothes. They need fewer decisions.",
+    "hypothesis": "A contrarian statement about decisions, not clothes, speaks to the man who wants to stop thinking about outfits.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)",
+      "Milano Cashmere Lounge Set (Black)",
+      "Milano Knitted Two-Tone Cashmere Set (Dark Mocha)"
+    ],
+    "file_916": "TEST01_A3_FewerDecisions_916.jpg",
+    "file_45": "TEST01_A3_FewerDecisions_45.jpg",
+    "primary_text": "Three sets. Top and bottom made to go together.\nPut one on and you are done.\nFree shipping. 30-day returns.",
+    "headline": "Fewer decisions. Better dressed.",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/the-bestsellers"
+  },
+  {
+    "id": "TEST01_A4",
+    "angle": "A - We did the matching for you",
+    "hook": "Looks like you tried. You didn't.",
+    "hypothesis": "A mirror selfie with a self-aware caption reads as organic content and sells effortlessness.",
+    "based_on": "new",
+    "products": [
+      "Milano Knitted Two-Tone Cashmere Set (Dark Mocha)"
+    ],
+    "file_916": "TEST01_A4_LooksLikeYouTried_916.jpg",
+    "file_45": "TEST01_A4_LooksLikeYouTried_45.jpg",
+    "primary_text": "One set. Zero thinking.\nCashmere blend knit with a contrast side stripe.\nThe Two-Tone Cashmere Set · €250.\nFree shipping. 30-day returns.",
+    "headline": "The effortless set",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-knitted-two-tone-cashmere-set-dark-mocha"
+  },
+  {
+    "id": "TEST01_B1",
+    "angle": "B - Quiet luxury / premium lifestyle",
+    "hook": "Quiet luxury doesn't shout. Neither do you.",
+    "hypothesis": "An Italian lake view from behind sells the status of calm without showing a face or a logo.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)"
+    ],
+    "file_916": "TEST01_B1_QuietLuxury_916.jpg",
+    "file_45": "TEST01_B1_QuietLuxury_45.jpg",
+    "primary_text": "No logos. No noise.\nThe Milano Cashmere Lounge Set in Beige · €150.\nFree shipping. 30-day returns.",
+    "headline": "Quiet luxury, made simple",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-beige"
+  },
+  {
+    "id": "TEST01_B2",
+    "angle": "B - Quiet luxury / premium lifestyle",
+    "hook": "No logos. Just presence.",
+    "hypothesis": "A dark, moody hotel-lobby scene makes the black set feel expensive and speaks to the no-logo buyer.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Black)"
+    ],
+    "file_916": "TEST01_B2_NoLogos_916.jpg",
+    "file_45": "TEST01_B2_NoLogos_45.jpg",
+    "primary_text": "Understated on purpose.\nThe Milano Cashmere Lounge Set in Black · €150.\nTop and bottom sized separately, S to 2XL.\nFree shipping. 30-day returns.",
+    "headline": "No logos. Just presence.",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-black"
+  },
+  {
+    "id": "TEST01_B3",
+    "angle": "B - Quiet luxury / premium lifestyle",
+    "hook": "Dress like the man who doesn't need to explain himself.",
+    "hypothesis": "An identity statement over a product-only boat scene lets him project himself into the lifestyle.",
+    "based_on": "new",
+    "products": [
+      "Milano Knitted Two-Tone Cashmere Set (Dark Mocha)"
+    ],
+    "file_916": "TEST01_B3_NoExplaining_916.jpg",
+    "file_45": "TEST01_B3_NoExplaining_45.jpg",
+    "primary_text": "Cashmere blend knit. Contrast side stripe. Nothing to prove.\nThe Two-Tone Cashmere Set · €250.\nFree shipping. 30-day returns.",
+    "headline": "Nothing to explain",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-knitted-two-tone-cashmere-set-dark-mocha"
+  },
+  {
+    "id": "TEST01_B4",
+    "angle": "B - Quiet luxury / premium lifestyle",
+    "hook": "none",
+    "hypothesis": "A text-free espresso-bar moment looks like editorial content, so it earns attention before it reads as an ad.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)"
+    ],
+    "file_916": "TEST01_B4_EspressoBar_Clean_916.jpg",
+    "file_45": "TEST01_B4_EspressoBar_Clean_45.jpg",
+    "primary_text": "Morning espresso. Nothing to prove.\nThe Milano Cashmere Lounge Set in Beige · €150.\nFree shipping. 30-day returns.",
+    "headline": "The Milano Cashmere Lounge Set",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-beige"
+  },
+  {
+    "id": "TEST01_C1",
+    "angle": "C - Comfortable but sharp",
+    "hook": "Comfortable enough for the sofa. Sharp enough for dinner.",
+    "hypothesis": "Showing the same set in two settings proves the versatility claim instead of only stating it.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Gray)"
+    ],
+    "file_916": "TEST01_C1_SofaToDinner_916.jpg",
+    "file_45": "TEST01_C1_SofaToDinner_45.jpg",
+    "primary_text": "One set, two evenings.\nThe Milano Cashmere Lounge Set in Gray · €150.\nTop and bottom sized separately.\nFree shipping. 30-day returns.",
+    "headline": "From the sofa to dinner",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-gray"
+  },
+  {
+    "id": "TEST01_C2",
+    "angle": "C - Comfortable but sharp",
+    "hook": "SWEATPANTS, BUT MAKE IT MILAN.",
+    "hypothesis": "A bold, playful line over a street shot reframes loungewear as something you wear outside.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)"
+    ],
+    "file_916": "TEST01_C2_MakeItMilan_916.jpg",
+    "file_45": "TEST01_C2_MakeItMilan_45.jpg",
+    "primary_text": "The comfort of sweatpants. The look of a full outfit.\nThe Milano Cashmere Lounge Set · €150.\nFree shipping. 30-day returns.",
+    "headline": "Sweatpants, but make it Milan",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-beige"
+  },
+  {
+    "id": "TEST01_C3",
+    "angle": "C - Comfortable but sharp",
+    "hook": "Your weekend uniform, upgraded.",
+    "hypothesis": "A calm rainy-window scene matches the evening-on-the-sofa mindset of the avatar while he scrolls.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Navy)"
+    ],
+    "file_916": "TEST01_C3_WeekendUniform_916.jpg",
+    "file_45": "TEST01_C3_WeekendUniform_45.jpg",
+    "primary_text": "Saturday sorted.\nThe Milano Cashmere Lounge Set in Navy · €150.\nTop and bottom sized separately, S to 2XL.\nFree shipping. 30-day returns.",
+    "headline": "Your weekend uniform, upgraded",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-navy"
+  },
+  {
+    "id": "TEST01_C4",
+    "angle": "C - Comfortable but sharp",
+    "hook": "Dressed, without getting dressed up.",
+    "hypothesis": "The moment of leaving the house shows the set as a real outfit for going out, not only for lounging.",
+    "based_on": "new",
+    "products": [
+      "Milano Knitted Two-Tone Cashmere Set (Grey)"
+    ],
+    "file_916": "TEST01_C4_DressedNotDressedUp_916.jpg",
+    "file_45": "TEST01_C4_DressedNotDressedUp_45.jpg",
+    "primary_text": "Out the door in one move.\nCashmere blend knit, contrast side stripe, relaxed tapered fit.\nThe Two-Tone Cashmere Set · €250.\nFree shipping. 30-day returns.",
+    "headline": "Dressed, not dressed up",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-knitted-two-tone-cashmere-set-grey"
+  },
+  {
+    "id": "TEST01_D1",
+    "angle": "D - Travel",
+    "hook": "Check in, dressed.",
+    "hypothesis": "Iterates the travel winner by moving from the journey to the arrival, with the product name and price on the image.",
+    "based_on": "Tracksuit Travel 01",
+    "products": [
+      "Milano Knitted Two-Tone Cashmere Set (Grey)"
+    ],
+    "file_916": "TEST01_D1_CheckInDressed_916.jpg",
+    "file_45": "TEST01_D1_CheckInDressed_45.jpg",
+    "primary_text": "Arrive looking like you planned it.\nCashmere blend knit with a contrast side stripe.\nThe Two-Tone Cashmere Set · €250.\nFree shipping. 30-day returns.",
+    "headline": "Check in, dressed",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-knitted-two-tone-cashmere-set-grey"
+  },
+  {
+    "id": "TEST01_D2",
+    "angle": "D - Travel",
+    "hook": "Fly comfortable. Land sharp.",
+    "hypothesis": "A first-person airport-lounge shot with a caption bubble makes the travel winner feel like a native story post.",
+    "based_on": "Tracksuit Travel 01",
+    "products": [
+      "Milano Cashmere Lounge Set (Black)"
+    ],
+    "file_916": "TEST01_D2_FlyComfortable_916.jpg",
+    "file_45": "TEST01_D2_FlyComfortable_45.jpg",
+    "primary_text": "The travel set.\nThe Milano Cashmere Lounge Set in Black · €150.\nFree shipping. 30-day returns.",
+    "headline": "Fly comfortable. Land sharp.",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-black"
+  },
+  {
+    "id": "TEST01_D3",
+    "angle": "D - Travel",
+    "hook": "The only outfit you need to pack.",
+    "hypothesis": "A packed-suitcase flat lay turns the travel angle into a practical benefit: pack less.",
+    "based_on": "Tracksuit Travel 01",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)"
+    ],
+    "file_916": "TEST01_D3_OnlyOutfitToPack_916.jpg",
+    "file_45": "TEST01_D3_OnlyOutfitToPack_45.jpg",
+    "primary_text": "Pack one set. Wear it everywhere.\nThe Milano Cashmere Lounge Set in Beige · €150.\nFree shipping. 30-day returns.",
+    "headline": "Pack one set",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-beige"
+  },
+  {
+    "id": "TEST01_D4",
+    "angle": "D - Travel",
+    "hook": "none",
+    "hypothesis": "A text-free window-seat photo tests whether the travel winner works on the image alone.",
+    "based_on": "Tracksuit Travel 01",
+    "products": [
+      "Milano Cashmere Lounge Set (Navy)"
+    ],
+    "file_916": "TEST01_D4_WindowSeat_Clean_916.jpg",
+    "file_45": "TEST01_D4_WindowSeat_Clean_45.jpg",
+    "primary_text": "Window seat, sorted.\nThe Milano Cashmere Lounge Set in Navy · €150.\nFree shipping. 30-day returns.",
+    "headline": "The travel set",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-navy"
+  },
+  {
+    "id": "TEST01_E1",
+    "angle": "E - Studio, timeless",
+    "hook": "none",
+    "hypothesis": "Iterates the studio winner with the jacket worn, to test on-body against product-only.",
+    "based_on": "Jacket Studio 01",
+    "products": [
+      "Milano Hooded Jacket (Champagne)"
+    ],
+    "file_916": "TEST01_E1_HoodedChampagne_Model_Clean_916.jpg",
+    "file_45": "TEST01_E1_HoodedChampagne_Model_Clean_45.jpg",
+    "primary_text": "The Milano Hooded Jacket in Champagne · €80.\nAlso in Black and Brown.\nFree shipping. 30-day returns.",
+    "headline": "The Milano Hooded Jacket · €80",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-hooded-jacket-champagne"
+  },
+  {
+    "id": "TEST01_E2",
+    "angle": "E - Studio, timeless",
+    "hook": "none",
+    "hypothesis": "Applies the winning clean-studio treatment to the number one bestseller.",
+    "based_on": "Jacket Studio 01",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)"
+    ],
+    "file_916": "TEST01_E2_LoungeBeige_Back_Clean_916.jpg",
+    "file_45": "TEST01_E2_LoungeBeige_Back_Clean_45.jpg",
+    "primary_text": "The Milano Cashmere Lounge Set in Beige · €150.\nAlso in Gray, Navy and Black.\nFree shipping. 30-day returns.",
+    "headline": "The Milano Cashmere Lounge Set",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-beige"
+  },
+  {
+    "id": "TEST01_E3",
+    "angle": "E - Studio, timeless",
+    "hook": "none",
+    "hypothesis": "An extreme close-up of the hood and zip lets the detail do the selling, with no text at all.",
+    "based_on": "Jacket Studio 01",
+    "products": [
+      "Milano Hooded Jacket (Black)"
+    ],
+    "file_916": "TEST01_E3_HoodedBlack_Detail_Clean_916.jpg",
+    "file_45": "TEST01_E3_HoodedBlack_Detail_Clean_45.jpg",
+    "primary_text": "The details do the talking.\nThe Milano Hooded Jacket in Black · €80.\nFree shipping. 30-day returns.",
+    "headline": "The Milano Hooded Jacket · €80",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-hooded-jacket-black"
+  },
+  {
+    "id": "TEST01_E4",
+    "angle": "E - Studio, timeless",
+    "hook": "none (logo only)",
+    "hypothesis": "Two colours side by side, using the real product photos, add a choice to the studio winner.",
+    "based_on": "Jacket Studio 01",
+    "products": [
+      "Milano Hooded Jacket (Black)",
+      "Milano Hooded Jacket (Brown)"
+    ],
+    "file_916": "TEST01_E4_JacketDuo_Logo_916.jpg",
+    "file_45": "TEST01_E4_JacketDuo_Logo_45.jpg",
+    "primary_text": "Black or Brown?\nThe Milano Hooded Jacket · €80.\nAlso in Champagne.\nFree shipping. 30-day returns.",
+    "headline": "Black or Brown?",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-hooded-jacket-brown"
+  },
+  {
+    "id": "TEST01_F1",
+    "angle": "F - The gift he'd pick himself",
+    "hook": "The gift he'd pick himself.",
+    "hypothesis": "A woman's hands tying the ribbon speak directly to the gift buyer and promise a safe choice.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)"
+    ],
+    "file_916": "TEST01_F1_GiftHedPick_916.jpg",
+    "file_45": "TEST01_F1_GiftHedPick_45.jpg",
+    "primary_text": "Not sure what to get him? This is the one he would choose.\nThe Milano Cashmere Lounge Set · €150.\nFree shipping. 30-day returns.",
+    "headline": "The gift he'd pick himself",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-beige"
+  },
+  {
+    "id": "TEST01_F2",
+    "angle": "F - The gift he'd pick himself",
+    "hook": "He won't ask for it. He'll live in it.",
+    "hypothesis": "A boxed set under the tree with an emotional line sells how much he will use the gift.",
+    "based_on": "new",
+    "products": [
+      "Milano Knitted Two-Tone Cashmere Set (Dark Mocha)"
+    ],
+    "file_916": "TEST01_F2_HellLiveInIt_916.jpg",
+    "file_45": "TEST01_F2_HellLiveInIt_45.jpg",
+    "primary_text": "The gift that actually gets worn.\nCashmere blend knit with a contrast side stripe.\nThe Two-Tone Cashmere Set · €250.\nFree shipping. 30-day returns.",
+    "headline": "He'll live in it",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-knitted-two-tone-cashmere-set-dark-mocha"
+  },
+  {
+    "id": "TEST01_F3",
+    "angle": "F - The gift he'd pick himself",
+    "hook": "Stuck on what to get him? Start here.",
+    "hypothesis": "A small gift guide at three price points makes the choice easy for a buyer who does not know the brand yet.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)",
+      "Milano Hooded Jacket (Brown)",
+      "Milano Knitted Vest (Black)"
+    ],
+    "file_916": "TEST01_F3_GiftGuide_StartHere_916.jpg",
+    "file_45": "TEST01_F3_GiftGuide_StartHere_45.jpg",
+    "primary_text": "Three gifts he will actually wear.\nKnitted Vest €60 · Hooded Jacket €80 · Cashmere Lounge Set €150.\nFree shipping. 30-day returns.",
+    "headline": "The gift edit for him",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/the-bestsellers"
+  },
+  {
+    "id": "TEST01_F4",
+    "angle": "F - The gift he'd pick himself",
+    "hook": "This year, skip the socks.",
+    "hypothesis": "A light joke about the default gift makes the set the obvious upgrade.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Gray)"
+    ],
+    "file_916": "TEST01_F4_SkipTheSocks_916.jpg",
+    "file_45": "TEST01_F4_SkipTheSocks_45.jpg",
+    "primary_text": "He has enough socks.\nThe Milano Cashmere Lounge Set · €150.\nTop and bottom sized separately.\nFree shipping. 30-day returns.",
+    "headline": "This year, skip the socks",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-gray"
+  }
+]
