@@ -470,5 +470,19 @@
   "facebook_post_id": null,
   "facebook_pending": true,
   "facebook_error": "Confirm your identity before you can publish as this Page"
+ },
+ {
+  "date": "2026-11-24",
+  "slot": "am",
+  "source": "bfcm",
+  "handle": "savor-bone-lick-mat",
+  "reel": "r_2026-11-24_v1_ig",
+  "story": "bfcm_out_story_11-24_am",
+  "facebook_image": "f_2026-11-24_0",
+  "instagram_media_id": "18126466315905066",
+  "instagram_story_id": "18118630909843971",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page"
  }
 ]
