@@ -1,0 +1,174 @@
+[
+  {
+    "id": "BF30_T1",
+    "set": "teaser",
+    "run_dates": "25-26 November",
+    "angle": "Black Friday teaser",
+    "hook": "Black Friday starts Friday. Save up to €200 with The Milano Stack. 27–30 November",
+    "hypothesis": "Announcing the offer and its size two days early lets people pick their pieces before the rush.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)",
+      "Milano Cashmere Lounge Set (Black)",
+      "Milano Knitted Two-Tone Cashmere Set (Dark Mocha)"
+    ],
+    "file_916": "BF30_T1_StartsFriday_916.jpg",
+    "file_45": "BF30_T1_StartsFriday_45.jpg",
+    "primary_text": "Black Friday starts Friday.\nThe Milano Stack: the more you add, the more you save, up to €200 off your order.\n27–30 November. Discount applied at checkout.\nPick your pieces now.",
+    "headline": "Save up to €200 from Friday",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/the-bestsellers"
+  },
+  {
+    "id": "BF30_T2",
+    "set": "teaser",
+    "run_dates": "25-26 November",
+    "angle": "Black Friday teaser",
+    "hook": "Start your list. The Stack opens Friday. Save up to €200 with The Milano Stack. 27–30 November",
+    "hypothesis": "A gift scene gives December gift buyers a reason to plan their order before Friday.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Navy)"
+    ],
+    "file_916": "BF30_T2_StartYourList_916.jpg",
+    "file_45": "BF30_T2_StartYourList_45.jpg",
+    "primary_text": "Start your list now. The Milano Stack opens Friday.\nSave up to €200 on your order: the more you add, the more you save.\n27–30 November. Discount applied at checkout.",
+    "headline": "The Stack opens Friday",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/the-bestsellers"
+  },
+  {
+    "id": "BF30_T3",
+    "set": "teaser",
+    "run_dates": "25-26 November",
+    "angle": "Black Friday teaser",
+    "hook": "Pick your pieces now. Save up to €200 with The Milano Stack. 27–30 November",
+    "hypothesis": "Showing four bestsellers with their prices lets people build a basket now and understand what the Stack will save.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)",
+      "Milano Knitted Two-Tone Cashmere Set (Dark Mocha)",
+      "Milano Hooded Jacket (Brown)",
+      "Milano Knitted Vest (Black)"
+    ],
+    "file_916": "BF30_T3_PickYourPieces_916.jpg",
+    "file_45": "BF30_T3_PickYourPieces_45.jpg",
+    "primary_text": "Pick your pieces now, save from Friday.\nSpend €100, save €25. Spend €650, save €200.\nThe Milano Stack runs 27–30 November. Discount applied at checkout.",
+    "headline": "Pick your pieces now",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/the-bestsellers"
+  },
+  {
+    "id": "BF30_S1",
+    "set": "stack",
+    "run_dates": "27-30 November",
+    "angle": "The Milano Stack offer",
+    "hook": "UP TO 30% OFF. The Milano Stack. Black Friday · 27–30 November",
+    "hypothesis": "A big, simple discount line over a calm city scene keeps the offer loud and the brand premium.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Gray)"
+    ],
+    "file_916": "BF30_S1_UpTo30_City_916.jpg",
+    "file_45": "BF30_S1_UpTo30_City_45.jpg",
+    "primary_text": "Up to 30% off with The Milano Stack.\nSpend €100, save €25. Spend €650, save €200. Mix any pieces and colours.\nDiscount applied at checkout. Ends Monday 30 November.",
+    "headline": "Up to 30% off · The Milano Stack",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/black-friday"
+  },
+  {
+    "id": "BF30_S2",
+    "set": "stack",
+    "run_dates": "27-30 November",
+    "angle": "The Milano Stack offer",
+    "hook": "UP TO 30% OFF. The more you stack, the more you save. The Milano Stack · 27–30 November",
+    "hypothesis": "The same offer in a poster-style layout at home tests typography-first against scene-first.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Navy)"
+    ],
+    "file_916": "BF30_S2_UpTo30_Home_916.jpg",
+    "file_45": "BF30_S2_UpTo30_Home_45.jpg",
+    "primary_text": "The more you stack, the more you save: up to 30% off.\n€100 → −€25 · €200 → −€50 · €350 → −€100 · €500 → −€150 · €650 → −€200.\nDiscount applied at checkout. Ends Monday 30 November.",
+    "headline": "The more you stack, the more you save",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/black-friday"
+  },
+  {
+    "id": "BF30_S3",
+    "set": "stack",
+    "run_dates": "27-30 November",
+    "angle": "The Milano Stack offer",
+    "hook": "The Milano Stack. The more you stack, the more you save. Spend €100 save €25 · €200 save €50 · €350 save €100 · €500 save €150 · €650 save €200",
+    "hypothesis": "Showing all five tiers at once makes the offer easy to understand and nudges people to the next tier.",
+    "based_on": "new",
+    "products": [],
+    "file_916": "BF30_S3_TheLadder_916.jpg",
+    "file_45": "BF30_S3_TheLadder_45.jpg",
+    "primary_text": "The Milano Stack, explained.\nSpend €100, save €25 · €200, save €50 · €350, save €100 · €500, save €150 · €650, save €200.\nMix and match any piece and colour. Discount applied at checkout.\nEnds Monday 30 November.",
+    "headline": "Spend more, save more",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/black-friday"
+  },
+  {
+    "id": "BF30_S4",
+    "set": "stack",
+    "run_dates": "27-30 November",
+    "angle": "The Milano Stack offer",
+    "hook": "5 LOUNGE SETS. €160 EACH. Any five. Four colours. Mix them your way. 5 × €200 = €1,000. Save €200 at checkout.",
+    "hypothesis": "A concrete per-set price makes the top tier tangible for people who buy for the whole season or for gifts.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)",
+      "Milano Cashmere Lounge Set (Gray)",
+      "Milano Cashmere Lounge Set (Navy)",
+      "Milano Cashmere Lounge Set (Black)"
+    ],
+    "file_916": "BF30_S4_FiveLoungeSets_916.jpg",
+    "file_45": "BF30_S4_FiveLoungeSets_45.jpg",
+    "primary_text": "Any 5 Milano Cashmere Lounge Sets: €160 each in The Milano Stack.\n5 × €200 = €1,000, minus €200 at checkout.\nBeige, Gray, Navy, Black. Mix them your way.\nEnds Monday 30 November.",
+    "headline": "5 Lounge Sets. €160 each.",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/black-friday"
+  },
+  {
+    "id": "BF30_S5",
+    "set": "stack",
+    "run_dates": "27-30 November",
+    "angle": "The Milano Stack offer",
+    "hook": "One for him. One for you. Save up to €200 with The Milano Stack. 27–30 November · applied at checkout",
+    "hypothesis": "Two boxed sets turn the tiered offer into a reason to buy a gift and something for yourself in one order.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)",
+      "Milano Cashmere Lounge Set (Gray)"
+    ],
+    "file_916": "BF30_S5_OneForHimOneForYou_916.jpg",
+    "file_45": "BF30_S5_OneForHimOneForYou_45.jpg",
+    "primary_text": "One for him. One for you.\nSave up to €200 with The Milano Stack: the more you add, the more you save.\nDiscount applied at checkout. Ends Monday 30 November.",
+    "headline": "One for him. One for you.",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/black-friday"
+  },
+  {
+    "id": "BF30_S6",
+    "set": "stack",
+    "run_dates": "29-30 November",
+    "angle": "The Milano Stack offer",
+    "hook": "Last days · The Milano Stack. Ends Monday 30 November. Save up to €200 at checkout.",
+    "hypothesis": "A clear end date for the final two days gives undecided visitors a reason to order now. Run on 29 and 30 November only.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)",
+      "Milano Cashmere Lounge Set (Gray)",
+      "Milano Cashmere Lounge Set (Navy)",
+      "Milano Cashmere Lounge Set (Black)"
+    ],
+    "file_916": "BF30_S6_EndsMonday_916.jpg",
+    "file_45": "BF30_S6_EndsMonday_45.jpg",
+    "primary_text": "Last days of The Milano Stack.\nSave up to €200 on your order: spend €650, save €200.\nDiscount applied at checkout. Ends Monday 30 November, 23:59 CET.",
+    "headline": "Ends Monday 30 November",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/black-friday"
+  }
+]
