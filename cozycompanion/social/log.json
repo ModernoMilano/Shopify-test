@@ -537,5 +537,19 @@
   "facebook_post_id": null,
   "facebook_pending": true,
   "facebook_error": "Confirm your identity before you can publish as this Page"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "am",
+  "source": "bfcm",
+  "handle": "burrow-plush-pet-bed",
+  "reel": "r_2026-11-26_v1_ig",
+  "story": "bfcm_out_story_11-26_am",
+  "facebook_image": "f_2026-11-26_0",
+  "instagram_media_id": "18212818015372034",
+  "instagram_story_id": "18112907908912592",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page"
  }
 ]
