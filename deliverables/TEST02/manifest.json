@@ -1,0 +1,249 @@
+[
+  {
+    "id": "TEST02_A1",
+    "angle": "A - Travel",
+    "hook": "Airport outfit, sorted. Two-Tone Cashmere Set · €280",
+    "hypothesis": "The travel winner moved to the airport lounge, with the product name and price on the image like the original.",
+    "based_on": "Tracksuit Travel 01",
+    "products": [
+      "Milano Knitted Two-Tone Cashmere Set (Navy)"
+    ],
+    "file_916": "TEST02_A1_AirportOutfit_916.jpg",
+    "file_45": "TEST02_A1_AirportOutfit_45.jpg",
+    "primary_text": "The travel set.\nCashmere blend knit with a contrast side stripe.\nThe Two-Tone Cashmere Set · €280.\nFree shipping. 30-day returns.",
+    "headline": "Airport outfit, sorted",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/two-tone-cashmere-set"
+  },
+  {
+    "id": "TEST02_A2",
+    "angle": "A - Travel",
+    "hook": "First class, whatever the ticket.",
+    "hypothesis": "A train journey with a status line tests whether the travel angle works without an airport.",
+    "based_on": "Tracksuit Travel 01",
+    "products": [
+      "Milano Cashmere Lounge Set (Gray)"
+    ],
+    "file_916": "TEST02_A2_FirstClass_Train_916.jpg",
+    "file_45": "TEST02_A2_FirstClass_Train_45.jpg",
+    "primary_text": "Look first class in any seat.\nThe Milano Cashmere Lounge Set in Gray · €200.\nTop and bottom sized separately.\nFree shipping. 30-day returns.",
+    "headline": "First class, whatever the ticket",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/cashmere-lounge-sets"
+  },
+  {
+    "id": "TEST02_A3",
+    "angle": "A - Travel",
+    "hook": "Arrive like you never travelled. Cashmere Lounge Set · €200",
+    "hypothesis": "The moment of arrival in the hotel room sells the result of travelling in the set, with name and price on the image.",
+    "based_on": "Tracksuit Travel 01",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)"
+    ],
+    "file_916": "TEST02_A3_ArriveHotel_916.jpg",
+    "file_45": "TEST02_A3_ArriveHotel_45.jpg",
+    "primary_text": "Step off the plane, straight into the evening.\nThe Milano Cashmere Lounge Set in Beige · €200.\nFree shipping. 30-day returns.",
+    "headline": "Arrive like you never travelled",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/cashmere-lounge-sets"
+  },
+  {
+    "id": "TEST02_A4",
+    "angle": "A - Travel",
+    "hook": "Winter getaway. Outfit: handled.",
+    "hypothesis": "A winter road trip in a native caption style brings the travel winner into the December season.",
+    "based_on": "Tracksuit Travel 01",
+    "products": [
+      "Milano Knitted Two-Tone Cashmere Set (Dark Mocha)"
+    ],
+    "file_916": "TEST02_A4_WinterDrive_916.jpg",
+    "file_45": "TEST02_A4_WinterDrive_45.jpg",
+    "primary_text": "Packed for the mountains: one set.\nCashmere blend knit with a contrast side stripe.\nThe Two-Tone Cashmere Set · €280.\nFree shipping. 30-day returns.",
+    "headline": "Winter getaway, handled",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/two-tone-cashmere-set"
+  },
+  {
+    "id": "TEST02_B1",
+    "angle": "B - Choice hook, studio",
+    "hook": "none (logo only)",
+    "hypothesis": "The exact E4 format (two real product photos, logo only, question in the headline) on the bestselling set.",
+    "based_on": "TEST01_E4 \"Black or Brown?\" (Jacket Studio 01)",
+    "products": [
+      "Milano Cashmere Lounge Set (Navy)",
+      "Milano Cashmere Lounge Set (Gray)"
+    ],
+    "file_916": "TEST02_B1_NavyOrGray_Logo_916.jpg",
+    "file_45": "TEST02_B1_NavyOrGray_Logo_45.jpg",
+    "primary_text": "Navy or Gray?\nThe Milano Cashmere Lounge Set · €200.\nAlso in Beige and Black.\nFree shipping. 30-day returns.",
+    "headline": "Navy or Gray?",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/cashmere-lounge-sets"
+  },
+  {
+    "id": "TEST02_B2",
+    "angle": "B - Choice hook, studio",
+    "hook": "One or both?",
+    "hypothesis": "The same jackets as E4 with the question in the image, to test text in the image against logo only.",
+    "based_on": "TEST01_E4 \"Black or Brown?\" (Jacket Studio 01)",
+    "products": [
+      "Milano Hooded Jacket (Black)",
+      "Milano Hooded Jacket (Brown)"
+    ],
+    "file_916": "TEST02_B2_OneOrBoth_916.jpg",
+    "file_45": "TEST02_B2_OneOrBoth_45.jpg",
+    "primary_text": "Black or Brown? Or both?\nThe Milano Hooded Jacket · €90.\nAlso in Champagne.\nFree shipping. 30-day returns.",
+    "headline": "One or both?",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/jackets"
+  },
+  {
+    "id": "TEST02_B3",
+    "angle": "B - Choice hook, studio",
+    "hook": "Mocha or Navy? The Two-Tone Cashmere Set · €280",
+    "hypothesis": "The choice hook on the higher-priced set, with name and price in the image.",
+    "based_on": "TEST01_E4 \"Black or Brown?\" (Jacket Studio 01)",
+    "products": [
+      "Milano Knitted Two-Tone Cashmere Set (Dark Mocha)",
+      "Milano Knitted Two-Tone Cashmere Set (Navy)"
+    ],
+    "file_916": "TEST02_B3_MochaOrNavy_916.jpg",
+    "file_45": "TEST02_B3_MochaOrNavy_45.jpg",
+    "primary_text": "Mocha or Navy?\nCashmere blend knit with a contrast side stripe.\nThe Two-Tone Cashmere Set · €280. Also in Grey and Black.\nFree shipping. 30-day returns.",
+    "headline": "Mocha or Navy?",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/two-tone-cashmere-set"
+  },
+  {
+    "id": "TEST02_B4",
+    "angle": "B - Choice hook, studio",
+    "hook": "Which one is yours? The Milano Cashmere Lounge Set · €200",
+    "hypothesis": "Four colours instead of two tests whether a wider choice lifts clicks or dilutes them.",
+    "based_on": "TEST01_E4 \"Black or Brown?\" (Jacket Studio 01)",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)",
+      "Milano Cashmere Lounge Set (Gray)",
+      "Milano Cashmere Lounge Set (Navy)",
+      "Milano Cashmere Lounge Set (Black)"
+    ],
+    "file_916": "TEST02_B4_WhichOneIsYours_916.jpg",
+    "file_45": "TEST02_B4_WhichOneIsYours_45.jpg",
+    "primary_text": "Beige, Gray, Navy or Black.\nThe Milano Cashmere Lounge Set · €200.\nTop and bottom sized separately, S to 2XL.\nFree shipping. 30-day returns.",
+    "headline": "Which one is yours?",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/cashmere-lounge-sets"
+  },
+  {
+    "id": "TEST02_C1",
+    "angle": "C - Gift for him, December",
+    "hook": "The gift he'll actually wear.",
+    "hypothesis": "A direct promise to the gift buyer: this present gets used.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Navy)"
+    ],
+    "file_916": "TEST02_C1_ActuallyWear_916.jpg",
+    "file_45": "TEST02_C1_ActuallyWear_45.jpg",
+    "primary_text": "The gift he'll actually wear.\nThe Milano Cashmere Lounge Set · €200.\nFour colours. Top and bottom sized separately.\nFree shipping. 30-day returns.",
+    "headline": "The gift he'll actually wear",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/cashmere-lounge-sets"
+  },
+  {
+    "id": "TEST02_C2",
+    "angle": "C - Gift for him, December",
+    "hook": "Under the tree. On him all winter.",
+    "hypothesis": "The boxed set under the tree links the gift moment to months of wear.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)"
+    ],
+    "file_916": "TEST02_C2_UnderTheTree_916.jpg",
+    "file_45": "TEST02_C2_UnderTheTree_45.jpg",
+    "primary_text": "Under the tree in December. On him until spring.\nThe Milano Cashmere Lounge Set in Beige · €200.\nFree shipping. 30-day returns.",
+    "headline": "Under the tree. On him all winter.",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/cashmere-lounge-sets"
+  },
+  {
+    "id": "TEST02_C3",
+    "angle": "C - Gift for him, December",
+    "hook": "Can't choose a colour? Give him both.",
+    "hypothesis": "A gift duo in two colours turns the colour doubt into a bigger basket.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)",
+      "Milano Cashmere Lounge Set (Gray)"
+    ],
+    "file_916": "TEST02_C3_GiveHimBoth_916.jpg",
+    "file_45": "TEST02_C3_GiveHimBoth_45.jpg",
+    "primary_text": "Beige or Gray? You don't have to choose.\nThe Milano Cashmere Lounge Set · €200 each.\nFree shipping. 30-day returns.",
+    "headline": "Can't choose? Give him both.",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/cashmere-lounge-sets"
+  },
+  {
+    "id": "TEST02_C4",
+    "angle": "C - Gift for him, December",
+    "hook": "He's hard to shop for. This isn't.",
+    "hypothesis": "Naming the gift buyer's real problem (he is hard to buy for) makes the set the easy answer.",
+    "based_on": "new",
+    "products": [
+      "Milano Knitted Two-Tone Cashmere Set (Dark Mocha)"
+    ],
+    "file_916": "TEST02_C4_HardToShopFor_916.jpg",
+    "file_45": "TEST02_C4_HardToShopFor_45.jpg",
+    "primary_text": "He's hard to shop for. This one is easy.\nCashmere blend knit with a contrast side stripe.\nThe Two-Tone Cashmere Set · €280.\nFree shipping. 30-day returns.",
+    "headline": "The easy gift for him",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/two-tone-cashmere-set"
+  },
+  {
+    "id": "TEST02_D1",
+    "angle": "D - Winter and holiday lifestyle",
+    "hook": "Winter in the city, done quietly.",
+    "hypothesis": "A calm evening street in the set ties the quiet-luxury signal (B2) to the winter season.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Gray)"
+    ],
+    "file_916": "TEST02_D1_WinterCity_916.jpg",
+    "file_45": "TEST02_D1_WinterCity_45.jpg",
+    "primary_text": "No logos. No noise. Just a good winter evening.\nThe Milano Cashmere Lounge Set in Gray · €200.\nFree shipping. 30-day returns.",
+    "headline": "Winter in the city, done quietly",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/cashmere-lounge-sets"
+  },
+  {
+    "id": "TEST02_D2",
+    "angle": "D - Winter and holiday lifestyle",
+    "hook": "Sunday, 5 pm. Nowhere to be.",
+    "hypothesis": "A first-person fireside moment matches the proven lounge-at-home comfort angle from retargeting.",
+    "based_on": "new",
+    "products": [
+      "Milano Cashmere Lounge Set (Gray)"
+    ],
+    "file_916": "TEST02_D2_Fireside_916.jpg",
+    "file_45": "TEST02_D2_Fireside_45.jpg",
+    "primary_text": "Fire on. Phone down.\nThe Milano Cashmere Lounge Set in Gray · €200.\nTop and bottom sized separately.\nFree shipping. 30-day returns.",
+    "headline": "Sunday, 5 pm. Nowhere to be.",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/cashmere-lounge-sets"
+  },
+  {
+    "id": "TEST02_D3",
+    "angle": "D - Winter and holiday lifestyle",
+    "hook": "Start the year exactly like this.",
+    "hypothesis": "New Year's Eve at home, without drinks in frame, gives a holiday scene that can run in every country.",
+    "based_on": "new",
+    "products": [
+      "Milano Knitted Two-Tone Cashmere Set (Black)"
+    ],
+    "file_916": "TEST02_D3_NewYearSofa_916.jpg",
+    "file_45": "TEST02_D3_NewYearSofa_45.jpg",
+    "primary_text": "Fireworks outside. Comfort inside.\nCashmere blend knit with a contrast side stripe.\nThe Two-Tone Cashmere Set · €280.\nFree shipping. 30-day returns.",
+    "headline": "Start the year exactly like this",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/collections/two-tone-cashmere-set"
+  }
+]
