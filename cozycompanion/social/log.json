@@ -521,5 +521,21 @@
   "source": "bfcm",
   "story": "bfcm_out_story_11-25_mid",
   "instagram_story_id": "18172015528487081"
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "pm",
+  "source": "bfcm",
+  "images": [
+   "bfcm_P4a_v2",
+   "bfcm_P4b",
+   "bfcm_P4c"
+  ],
+  "story": "bfcm_out_story_11-25_pm",
+  "instagram_media_id": "18021059690959441",
+  "instagram_story_id": "18375941125244698",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page"
  }
 ]
