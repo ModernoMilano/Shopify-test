@@ -581,5 +581,13 @@
   "facebook_post_id": null,
   "facebook_pending": true,
   "facebook_error": "Confirm your identity before you can publish as this Page"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "mid",
+  "source": "bfcm",
+  "story": "bfcm_out_story_11-27_mid",
+  "instagram_story_id": "18241507846317009",
+  "note": "retry of am feed post P5 failed again: Instagram application request limit"
  }
 ]
