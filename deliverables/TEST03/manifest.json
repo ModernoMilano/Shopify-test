@@ -1,0 +1,82 @@
+[
+  {
+    "id": "TEST03_V1",
+    "angle": "G - Holiday season (iteration on G1)",
+    "hook": "Christmas Eve. Already dressed.",
+    "hypothesis": "Same hook formula one evening earlier: tests whether the \"already dressed\" line works beyond the morning.",
+    "based_on": "TEST01_G1 \"Christmas morning. Already dressed.\"",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)"
+    ],
+    "file_916": "TEST03_V1_ChristmasEve_916.jpg",
+    "file_45": "TEST03_V1_ChristmasEve_45.jpg",
+    "primary_text": "The tree, the fire, the last gift under it.\nAnd one set that takes you through the whole evening.\nThe Milano Cashmere Lounge Set · €200.\nFree shipping. 30-day returns.",
+    "headline": "Christmas Eve, already dressed",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-beige"
+  },
+  {
+    "id": "TEST03_V2",
+    "angle": "G - Holiday season (iteration on G1)",
+    "hook": "Snowed in. Already dressed.",
+    "hypothesis": "Same hook and product in a brighter, snowy morning scene: tests the setting (window and snow instead of tree and fire).",
+    "based_on": "TEST01_G1 \"Christmas morning. Already dressed.\"",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)"
+    ],
+    "file_916": "TEST03_V2_SnowedIn_916.jpg",
+    "file_45": "TEST03_V2_SnowedIn_45.jpg",
+    "primary_text": "Snow outside. Coffee inside.\nAnd one set that takes you through the whole day.\nThe Milano Cashmere Lounge Set · €200.\nFree shipping. 30-day returns.",
+    "headline": "Snowed in, already dressed",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-beige"
+  },
+  {
+    "id": "TEST03_V3",
+    "angle": "G - Holiday season (iteration on G1)",
+    "hook": "Christmas morning. Already dressed.",
+    "hypothesis": "The winning scene and hook with only the colour changed, to see whether Beige or Gray sells better.",
+    "based_on": "TEST01_G1 \"Christmas morning. Already dressed.\"",
+    "products": [
+      "Milano Cashmere Lounge Set (Gray)"
+    ],
+    "file_916": "TEST03_V3_ChristmasMorning_Gray_916.jpg",
+    "file_45": "TEST03_V3_ChristmasMorning_Gray_45.jpg",
+    "primary_text": "The tree, the fire, the coffee.\nAnd one set that takes you through the whole day.\nThe Milano Cashmere Lounge Set in Gray · €200.\nFree shipping. 30-day returns.",
+    "headline": "Christmas morning, already dressed",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-gray"
+  },
+  {
+    "id": "TEST03_V4",
+    "angle": "G - Holiday season (iteration on G1)",
+    "hook": "The one he'll wear all day.",
+    "hypothesis": "The gift moment itself, seen through his eyes: tests the same Christmas-morning setting from the gift angle.",
+    "based_on": "TEST01_G1 \"Christmas morning. Already dressed.\"",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)"
+    ],
+    "file_916": "TEST03_V4_WearAllDay_916.jpg",
+    "file_45": "TEST03_V4_WearAllDay_45.jpg",
+    "primary_text": "The gift he opens first and wears all day.\nThe Milano Cashmere Lounge Set · €200.\nTop and bottom sized separately, S to 2XL.\nFree shipping. 30-day returns.",
+    "headline": "The one he'll wear all day",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-beige"
+  },
+  {
+    "id": "TEST03_V5",
+    "angle": "G - Holiday season (iteration on G1)",
+    "hook": "The day after. Still dressed.",
+    "hypothesis": "Extends the hook to the days after Christmas, so the winner can keep running after 25 December.",
+    "based_on": "TEST01_G1 \"Christmas morning. Already dressed.\"",
+    "products": [
+      "Milano Cashmere Lounge Set (Beige)"
+    ],
+    "file_916": "TEST03_V5_TheDayAfter_916.jpg",
+    "file_45": "TEST03_V5_TheDayAfter_45.jpg",
+    "primary_text": "A quiet walk, the day after.\nSame set. Still the right call.\nThe Milano Cashmere Lounge Set · €200.\nFree shipping. 30-day returns.",
+    "headline": "The day after. Still dressed.",
+    "description": "Free shipping · 30-day returns",
+    "link": "https://modernomilano.com/products/milano-cashmere-lounge-set-beige"
+  }
+]
