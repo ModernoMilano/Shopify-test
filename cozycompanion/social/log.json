@@ -565,5 +565,21 @@
   "source": "bfcm",
   "story": "bfcm_out_story_11-26_pm",
   "instagram_story_id": "17993952531106635"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "am",
+  "source": "bfcm",
+  "images": [
+   "bfcm_out_feed_P5"
+  ],
+  "story": "bfcm_out_story_11-27_am",
+  "instagram_media_id": null,
+  "instagram_pending": true,
+  "instagram_error": "Application request limit reached (Instagram rate limit, 2 tries)",
+  "instagram_story_id": "18085528301710582",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page"
  }
 ]
