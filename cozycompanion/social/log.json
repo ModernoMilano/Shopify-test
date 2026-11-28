@@ -604,5 +604,23 @@
   "facebook_pending": true,
   "facebook_error": "Confirm your identity before you can publish as this Page",
   "note": "am image post P5 retried a 4th time: still Instagram application request limit (reels and stories go through, image posts do not)"
+ },
+ {
+  "date": "2026-11-28",
+  "slot": "am",
+  "source": "bfcm",
+  "images": [
+   "bfcm_P6a",
+   "bfcm_P6b",
+   "bfcm_P6c"
+  ],
+  "story": "bfcm_out_story_11-28_am_v2",
+  "instagram_media_id": null,
+  "instagram_pending": true,
+  "instagram_error": "Application request limit reached: We restrict certain activity to protect our community (photo/carousel posts blocked since Nov 27; reels and stories still work)",
+  "instagram_story_id": "18503976592105963",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page"
  }
 ]
