@@ -589,5 +589,20 @@
   "story": "bfcm_out_story_11-27_mid",
   "instagram_story_id": "18241507846317009",
   "note": "retry of am feed post P5 failed again: Instagram application request limit"
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "pm",
+  "source": "bfcm",
+  "handle": "chester-tufted-dog-sofa",
+  "reel": "bfcm_R2_ig",
+  "story": "bfcm_out_story_11-27_pm",
+  "facebook_image": "f_2026-11-27_0",
+  "instagram_media_id": "18125369882062711",
+  "instagram_story_id": "18108238445355907",
+  "facebook_post_id": null,
+  "facebook_pending": true,
+  "facebook_error": "Confirm your identity before you can publish as this Page",
+  "note": "am image post P5 retried a 4th time: still Instagram application request limit (reels and stories go through, image posts do not)"
  }
 ]
